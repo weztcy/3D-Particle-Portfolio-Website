@@ -3,6 +3,10 @@
 import React, { useState, useMemo, useEffect } from "react";
 import {
   BrainCircuit,
+  Zap,
+  Search,
+  GitBranch,
+  Rocket,
   Code2,
   Database,
   Layers,
@@ -21,15 +25,38 @@ import {
   SiHtml5,
   SiCss,
   SiJavascript,
+  SiTypescript,
   SiReact,
   SiNextdotjs,
   SiNodedotjs,
+  SiExpress,
+  SiPostgresql,
+  SiMysql,
+  SiMongodb,
   SiBootstrap,
   SiTailwindcss,
-  SiLaravel,
-  SiPostman,
-  SiStreamlit,
+  SiPrisma,
   SiDocker,
+  SiPhp,
+  SiNestjs,
+  SiLaravel,
+  SiDjango,
+  SiSpringboot,
+  SiDrizzle,
+  SiTypeorm,
+  SiSequelize,
+  SiSqlite,
+  SiPostman,
+  SiSwagger,
+  SiVuedotjs,
+  SiNuxt,
+  SiAngular,
+  SiShadcnui,
+  SiMui,
+  SiVercel,
+  SiKubernetes,
+  SiGooglecloud,
+  SiStreamlit,
   SiPython,
   SiGooglesheets,
   SiOllama,
@@ -44,6 +71,7 @@ import {
   SiGmail,
   SiFigma,
 } from "react-icons/si";
+import { FaAws, FaJava } from "react-icons/fa6";
 import {
   PiMicrosoftExcelLogoFill,
   PiMicrosoftWordLogoFill,
@@ -372,37 +400,105 @@ function DomainsSection({
     name: string
   ): React.ComponentType<{ className?: string }> => {
     switch (name) {
+      case "Performance Optimization":
+        return Zap;
+      case "SEO Optimization":
+        return Search;
+      case "DevOps":
+        return GitBranch;
+      case "Deployment":
+        return Rocket;
       case "HTML":
+      case "HTML5":
         return SiHtml5;
       case "CSS":
+      case "CSS3":
         return SiCss;
       case "JavaScript":
         return SiJavascript;
-      case "OpenAI Codex":
-      case "Codex":
-        return RiOpenaiFill;
+      case "TypeScript":
+        return SiTypescript;
       case "React":
+      case "React.js":
         return SiReact;
       case "Next.js":
         return SiNextdotjs;
       case "Node.js":
         return SiNodedotjs;
-      case "SQL":
-        return TbSql;
+      case "Express.js":
+      case "Express":
+        return SiExpress;
+      case "PostgreSQL":
+        return SiPostgresql;
+      case "MySQL":
+        return SiMysql;
+      case "MongoDB":
+        return SiMongodb;
+      case "Prisma":
+        return SiPrisma;
+      case "Docker":
+        return SiDocker;
+      case "AWS":
+        return FaAws;
+      case "Python":
+        return SiPython;
+      case "PHP":
+        return SiPhp;
+      case "Java":
+        return FaJava;
+      case "NestJS":
+        return SiNestjs;
+      case "Laravel":
+      case "Eloquent ORM":
+        return SiLaravel;
+      case "Django":
+        return SiDjango;
+      case "Spring Boot":
+        return SiSpringboot;
+      case "Drizzle ORM":
+      case "Drizzle":
+        return SiDrizzle;
+      case "TypeORM":
+        return SiTypeorm;
+      case "Sequelize":
+        return SiSequelize;
+      case "SQLite":
+        return SiSqlite;
+      case "Postman":
+        return SiPostman;
+      case "Swagger":
+        return SiSwagger;
+      case "Vue.js":
+      case "Vue":
+        return SiVuedotjs;
+      case "Nuxt.js":
+      case "Nuxt":
+        return SiNuxt;
+      case "Angular":
+        return SiAngular;
+      case "Shadcn/UI":
+      case "Shadcn UI":
+        return SiShadcnui;
+      case "Material UI":
+      case "MUI":
+        return SiMui;
       case "Bootstrap":
         return SiBootstrap;
       case "Tailwind CSS":
         return SiTailwindcss;
-      case "Laravel":
-        return SiLaravel;
-      case "Postman":
-        return SiPostman;
+      case "Vercel":
+        return SiVercel;
+      case "Kubernetes":
+        return SiKubernetes;
+      case "GCP":
+        return SiGooglecloud;
+      case "OpenAI Codex":
+      case "Codex":
+        return RiOpenaiFill;
+      case "SQL":
+        return TbSql;
       case "Streamlit":
         return SiStreamlit;
-      case "Docker":
-        return SiDocker;
-      case "Python":
-        return SiPython;
       case "Microsoft Excel":
         return PiMicrosoftExcelLogoFill;
       case "Google Sheets":
@@ -433,6 +529,14 @@ function DomainsSection({
         return SiGoogleforms;
       case "Gmail":
         return SiGmail;
+      case "Performance Optimization":
+        return Zap;
+      case "SEO Optimization":
+        return Search;
+      case "Deployment":
+        return Rocket;
+      case "CI/CD":
+        return GitBranch;
       case "Figma":
         return SiFigma;
       case "Canva":
