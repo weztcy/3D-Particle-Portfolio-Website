@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import {
   BrainCircuit,
+  Cpu,
   Check,
   Code2,
   Copy,
@@ -36,7 +37,7 @@ const getPillarIcon = (id: string) => {
     case "ai-engineering":
       return BrainCircuit;
     case "machine-learning":
-      return Network;
+      return Cpu;
     default:
       return Code2;
   }

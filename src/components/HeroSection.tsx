@@ -55,7 +55,7 @@ const ROLE_BADGES = [
   },
   {
     label: "ML Engineer",
-    icon: Network,
+    icon: Cpu,
     color: "text-amber-400 border-amber-400/30 bg-amber-400/10",
     formation: "clusters" as ParticleFormation,
   },

@@ -296,7 +296,7 @@ function DomainsSection({
       case "ai-engineering":
         return BrainCircuit;
       case "machine-learning":
-        return Network;
+        return Cpu;
       default:
         return Code2;
     }
