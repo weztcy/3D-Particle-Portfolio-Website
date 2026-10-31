@@ -476,7 +476,7 @@ export default function DomainsSection({
         </div>
 
         {/* Mobile Quick Pillar Switcher (<md) for rapid navigation & progressive disclosure */}
-        <div className="grid grid-cols-2 gap-2 mb-4 md:hidden">
+        <div className="grid grid-cols-2 gap-2 mb-4 lg:hidden">
           {DOMAIN_PILLARS.map((pillar) => {
             const Icon = getPillarIcon(pillar.id);
             const pillarStyle = getPillarStyles(pillar.id);
@@ -511,7 +511,7 @@ export default function DomainsSection({
         </div>
 
         {/* 4 Core Engineering Domain Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 mb-16 sm:mb-20">
           {DOMAIN_PILLARS.map((pillar) => {
             const Icon = getPillarIcon(pillar.id);
             const pillarStyle = getPillarStyles(pillar.id);
@@ -626,7 +626,7 @@ export default function DomainsSection({
                   {/* Core Capabilities Matrix Nodes: Always visible on md+, progressive disclosure on <md (expanded when active) */}
                   <div
                     className={`space-y-2 mb-4 sm:mb-5 ${
-                      isSelected ? "block" : "hidden md:block"
+                      isSelected ? "block" : "hidden lg:block"
                     }`}
                   >
                     {pillar.capabilities.map((cap, i) => (
@@ -646,7 +646,7 @@ export default function DomainsSection({
 
                   {/* Mobile Progressive Disclosure Prompt when collapsed (<md & !isSelected) */}
                   {!isSelected && (
-                    <div className="md:hidden mb-4 flex items-center justify-between rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-[10px] text-slate-300">
+                    <div className="lg:hidden mb-4 flex items-center justify-between rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-[10px] text-slate-300">
                       <span>+ {pillar.capabilities.length} Core Capabilities</span>
                       <span className={pillarStyle.badgeText}>TAP TO EXPAND →</span>
                     </div>
