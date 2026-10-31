@@ -2,6 +2,11 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import {
+  BarChart3,
+  LineChart,
+  PieChart,
+  FileSpreadsheet,
+  TrendingUp,
   BrainCircuit,
   Zap,
   Search,
@@ -72,6 +77,19 @@ import {
   SiFigma,
 } from "react-icons/si";
 import { FaAws, FaJava } from "react-icons/fa6";
+import {
+  SiPandas,
+  SiNumpy,
+  SiScipy,
+  SiScikitlearn,
+  SiJupyter,
+  SiGooglecolab,
+  SiGooglebigquery,
+  SiLooker,
+  SiPlotly,
+  SiPolars,
+  SiDash,
+} from "react-icons/si";
 import {
   PiMicrosoftExcelLogoFill,
   PiMicrosoftWordLogoFill,
@@ -543,6 +561,58 @@ function DomainsSection({
         return RiPaletteLine;
       case "Microsoft PowerPoint":
         return PiMicrosoftPowerpointLogoFill;
+            case "Pandas":
+        return SiPandas;
+      case "NumPy":
+        return SiNumpy;
+      case "SciPy":
+        return SiScipy;
+      case "Scikit-learn":
+        return SiScikitlearn;
+      case "Jupyter Notebook":
+      case "JupyterLab":
+        return SiJupyter;
+      case "Google Colab":
+        return SiGooglecolab;
+      case "Google BigQuery":
+        return SiGooglebigquery;
+      case "Google Looker Studio":
+        return SiLooker;
+      case "Plotly":
+        return SiPlotly;
+      case "Polars":
+        return SiPolars;
+      case "Dash":
+        return SiDash;
+      case "Power BI":
+        return BarChart3;
+      case "Tableau":
+        return LineChart;
+      case "Business Intelligence (BI)":
+        return PieChart;
+      case "Dashboard Development":
+      case "KPI Analysis":
+        return BarChart3;
+      case "Data Visualization":
+        return LineChart;
+      case "Database Querying":
+      case "Data Modeling":
+        return Database;
+      case "Data Preparation":
+      case "Data Integration & ETL":
+        return Layers;
+      case "Data Quality Assurance":
+        return ShieldCheck;
+      case "Statistical Analysis":
+        return Activity;
+      case "Predictive Analytics":
+        return TrendingUp;
+      case "VBA":
+        return FileSpreadsheet;
+      case "ggplot2":
+        return RiPaletteLine;
+      case "Exploratory Data Analysis (EDA)":
+        return Search;
       default:
         return Code2;
     }
