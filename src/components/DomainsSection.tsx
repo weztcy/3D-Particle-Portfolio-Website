@@ -171,7 +171,7 @@ function DomainsSection({
   ) => {
     if (e) e.stopPropagation();
     setExpandedCapabilities((prev) => ({
-      ...prev,
+      // Accordion mode: collapse any other card, toggle current card
       [pillarId]: !prev[pillarId],
     }));
     setActivePillarId(pillarId);
@@ -1141,9 +1141,7 @@ function DomainsSection({
                 key={`mob-tab-${pillar.id}`}
                 type="button"
                 onClick={() => {
-                  setActivePillarId(pillar.id);
-                  onSelectFormation(pillar.formationTrigger);
-                  onTriggerPulse();
+                  toggleExpandCapabilities(pillar.id, pillar.formationTrigger);
                 }}
                 className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 text-left transition-all active:scale-95 ${
                   isSelected
@@ -1177,9 +1175,7 @@ function DomainsSection({
               <div
                 key={pillar.id}
                 onClick={() => {
-                  setActivePillarId(pillar.id);
-                  onSelectFormation(pillar.formationTrigger);
-                  onTriggerPulse();
+                  toggleExpandCapabilities(pillar.id, pillar.formationTrigger);
                 }}
                 className={`group relative cursor-pointer overflow-hidden rounded-3xl border p-4 sm:p-8 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-between ${
                   isSelected
@@ -1296,10 +1292,10 @@ function DomainsSection({
                     ))}
                   </div>
 
-                  {/* Progressive Disclosure (Tap to Expand / Collapse remaining capabilities) */}
+                  {/* Progressive Disclosure (Tap to Expand remaining capabilities) */}
                   {pillar.capabilities.length > 3 && (
                     <div className="mb-4 sm:mb-5 space-y-2">
-                      {isExpanded && (
+                      {isExpanded ? (
                         <div className="space-y-2">
                           {pillar.capabilities.slice(3).map((cap, i) => (
                             <div
@@ -1315,31 +1311,21 @@ function DomainsSection({
                             </div>
                           ))}
                         </div>
-                      )}
-
-                      <button
-                        type="button"
-                        onClick={(e) =>
-                          toggleExpandCapabilities(
-                            pillar.id,
-                            pillar.formationTrigger,
-                            e
-                          )
-                        }
-                        className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-black/40 hover:bg-white/[0.06] hover:border-white/20 px-3 py-2 font-mono text-[10px] text-slate-300 transition-all cursor-pointer group/toggle active:scale-[0.99]"
-                      >
-                        <span className="text-slate-300 font-medium">
-                          {isExpanded
-                            ? `Showing all ${pillar.capabilities.length} capabilities`
-                            : `+ ${pillar.capabilities.length - 3} Core Capabilities`}
-                        </span>
-                        <span
-                          className={`${pillarStyle.badgeText} font-bold group-hover/toggle:translate-x-0.5 transition-transform flex items-center gap-1`}
+                      ) : (
+                        <div
+                          className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-black/40 hover:bg-white/[0.06] hover:border-white/20 px-3 py-2 font-mono text-[10px] text-slate-300 transition-all cursor-pointer group/toggle active:scale-[0.99]"
                         >
-                          <span>{isExpanded ? "TAP TO COLLAPSE" : "TAP TO EXPAND"}</span>
-                          <span>{isExpanded ? "↑" : "→"}</span>
-                        </span>
-                      </button>
+                          <span className="text-slate-300 font-medium">
+                            + {pillar.capabilities.length - 3} Core Capabilities
+                          </span>
+                          <span
+                            className={`${pillarStyle.badgeText} font-bold group-hover/toggle:translate-x-0.5 transition-transform flex items-center gap-1`}
+                          >
+                            <span>TAP TO EXPAND</span>
+                            <span>→</span>
+                          </span>
+                        </div>
+                      )}
                     </div>
                   )}
 </div>
