@@ -579,7 +579,7 @@ export default function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps
                         <span
                           key={tech}
                           className={`${
-                            tIdx >= 4 ? "hidden sm:inline-flex" : "inline-flex"
+                            tIdx >= 6 ? "hidden sm:inline-flex" : "inline-flex"
                           } items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[11px] text-slate-200 hover:border-white/20 transition-colors`}
                         >
                           <span
@@ -588,9 +588,9 @@ export default function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps
                           <span>{tech}</span>
                         </span>
                       ))}
-                      {project.techStack.length > 4 && (
+                      {project.techStack.length > 6 && (
                         <span className="sm:hidden inline-flex items-center rounded-lg border border-white/10 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-slate-300">
-                          +{project.techStack.length - 4} more
+                          +{project.techStack.length - 6} more
                         </span>
                       )}
                     </div>
