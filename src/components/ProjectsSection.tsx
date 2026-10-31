@@ -81,11 +81,21 @@ const getProjectFilterActiveStyles = (id: string) => {
   }
 };
 
+const getProjectNumber = (p: ProjectCaseStudy): number => {
+  const match = p.code.match(/PRO-(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
+// All projects pre-sorted chronologically from newest down to oldest once at module scope
+const CHRONOLOGICAL_PROJECTS: ProjectCaseStudy[] = [...PROJECT_CASE_STUDIES].sort(
+  (a, b) => getProjectNumber(b) - getProjectNumber(a)
+);
+
 interface ProjectsSectionProps {
   onTriggerPulse?: () => void;
 }
 
-export default function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
+function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -110,17 +120,13 @@ export default function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps
     return () => window.removeEventListener("resize", updateItemsPerPage);
   }, []);
 
-  // Display projects from newest to oldest
-  const filteredProjects =
-    activeFilter === "all"
-      ? [...PROJECT_CASE_STUDIES].sort((a, b) => {
-          const numA = parseInt(a.code.match(/PRO-(\d+)/)?.[1] || "0", 10);
-          const numB = parseInt(b.code.match(/PRO-(\d+)/)?.[1] || "0", 10);
-          return numB - numA;
-        })
-      : [...PROJECT_CASE_STUDIES]
-          .filter((p) => p.category === activeFilter)
-          .reverse();
+  // Display projects from newest to oldest with memoized filter
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "all") {
+      return CHRONOLOGICAL_PROJECTS;
+    }
+    return CHRONOLOGICAL_PROJECTS.filter((p) => p.category === activeFilter);
+  }, [activeFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredProjects.length / itemsPerPage));
   const safePage = Math.min(currentPage, totalPages);
@@ -519,6 +525,8 @@ export default function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps
 
                     {project.imageUrl && !hasImgError ? (
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src={project.imageUrl}
                         alt={project.title}
                         onError={() =>
@@ -707,3 +715,4 @@ export default function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps
   );
 }
 
+export default React.memo(ProjectsSection);

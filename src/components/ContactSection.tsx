@@ -77,7 +77,7 @@ const getPillarActiveStyles = (id: string) => {
   }
 };
 
-export default function ContactSection({
+function ContactSection({
   onTriggerPulse,
   onOpenResume,
 }: ContactSectionProps) {
@@ -918,3 +918,4 @@ export default function ContactSection({
   );
 }
 
+export default React.memo(ContactSection);

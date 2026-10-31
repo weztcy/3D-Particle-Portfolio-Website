@@ -90,7 +90,7 @@ const ALL_CATEGORY_FILTERS = [
   ...FILTER_ROW_3,
 ] as const;
 
-export default function DomainsSection({
+function DomainsSection({
   onSelectFormation,
   onTriggerPulse,
 }: DomainsSectionProps) {
@@ -1230,3 +1230,4 @@ export default function DomainsSection({
   );
 }
 
+export default React.memo(DomainsSection);

@@ -293,6 +293,10 @@ export default function HeroSection({
 
                     {/* Layer 3: Transparent Profile Photo */}
                     <img
+                      fetchPriority="high"
+                      decoding="async"
+                      width={256}
+                      height={256}
                       src={PROFILE_DATA.photoUrl || "/images/profile/profile-photo.png"}
                       alt={PROFILE_DATA.name}
                       className="relative z-10 h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_8px_24px_rgba(0,0,0,0.85)]"

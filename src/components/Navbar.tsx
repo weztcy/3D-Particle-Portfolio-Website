@@ -27,7 +27,7 @@ const NAV_LINKS = [
   { id: "contact", label: "Contact", index: "05" },
 ];
 
-export default function Navbar({
+function Navbar({
   activeSection,
   onOpenCommandPalette,
   onOpenResume,
@@ -230,3 +230,4 @@ export default function Navbar({
   );
 }
 
+export default React.memo(Navbar);

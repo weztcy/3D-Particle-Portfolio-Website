@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import SynapticParticleCanvas, {
   TelemetryData,
@@ -13,8 +14,13 @@ import CertificationsSection from "@/components/CertificationsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import ParticleControllerHUD from "@/components/ParticleControllerHUD";
-import CommandPaletteModal from "@/components/CommandPaletteModal";
 import { ParticleFormation } from "@/data";
+
+// Lazily load offscreen Command Palette to reduce initial critical JavaScript chunk
+const CommandPaletteModal = dynamic(
+  () => import("@/components/CommandPaletteModal"),
+  { ssr: false }
+);
 
 const SECTION_FORMATION_MAP: Record<
   string,
@@ -46,6 +52,14 @@ export default function PortfolioPage() {
   const handleOpenResume = useCallback(() => {
     router.push("/cv");
   }, [router]);
+
+  const handleOpenCommandPalette = useCallback(() => {
+    setCommandPaletteOpen(true);
+  }, []);
+
+  const handleCloseCommandPalette = useCallback(() => {
+    setCommandPaletteOpen(false);
+  }, []);
 
   const [telemetry, setTelemetry] = useState<TelemetryData>({
     fps: 60,
@@ -90,6 +104,14 @@ export default function PortfolioPage() {
       return next;
     });
   }, [activeSection]);
+
+  const handleHudSelectFormation = useCallback(
+    (mode: ParticleFormation) => {
+      handleSelectFormation(mode);
+      handleTriggerPulse();
+    },
+    [handleSelectFormation, handleTriggerPulse]
+  );
 
   // Global keyboard shortcut for Command Palette (Ctrl+K / Cmd+K)
   useEffect(() => {
@@ -162,7 +184,7 @@ export default function PortfolioPage() {
       {/* Floating Glassmorphic Navigation Bar */}
       <Navbar
         activeSection={activeSection}
-        onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+        onOpenCommandPalette={handleOpenCommandPalette}
         onOpenResume={handleOpenResume}
       />
 
@@ -200,10 +222,7 @@ export default function PortfolioPage() {
         formationMode={isScrollSync ? "auto" : activeFormation}
         isScrollSync={isScrollSync}
         onToggleScrollSync={handleToggleScrollSync}
-        onSelectFormation={(mode) => {
-          handleSelectFormation(mode);
-          handleTriggerPulse();
-        }}
+        onSelectFormation={handleHudSelectFormation}
         turbulence={turbulence}
         onChangeTurbulence={setTurbulence}
         onTriggerPulse={handleTriggerPulse}
@@ -213,7 +232,7 @@ export default function PortfolioPage() {
       {/* Interactive Command Palette Modal (Ctrl+K / Cmd+K) */}
       <CommandPaletteModal
         isOpen={commandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
+        onClose={handleCloseCommandPalette}
         isScrollSync={isScrollSync}
         onToggleScrollSync={handleToggleScrollSync}
         onSelectFormation={handleSelectFormation}

@@ -33,7 +33,7 @@ interface CertificationsSectionProps {
   onTriggerPulse?: () => void;
 }
 
-export default function CertificationsSection({
+function CertificationsSection({
   onTriggerPulse,
 }: CertificationsSectionProps = {}) {
   const router = useRouter();
@@ -295,6 +295,8 @@ export default function CertificationsSection({
 
                     {cert.imageUrl && !hasImgError ? (
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src={cert.imageUrl}
                         alt={cert.title}
                         onError={() =>
@@ -448,3 +450,5 @@ export default function CertificationsSection({
     </section>
   );
 }
+
+export default React.memo(CertificationsSection);

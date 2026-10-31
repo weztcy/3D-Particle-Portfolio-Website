@@ -440,13 +440,15 @@ export default function SynapticParticleCanvas({
       }
     };
 
+    // Cache maxScroll to prevent forced layout reflow during scroll events
+    let cachedMaxScroll = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1
+    );
+
     const handleScroll = () => {
-      const maxScroll = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        1
-      );
       stateRef.current.scrollProgress = Math.min(
-        Math.max(window.scrollY / maxScroll, 0),
+        Math.max(window.scrollY / cachedMaxScroll, 0),
         1
       );
     };
@@ -458,6 +460,10 @@ export default function SynapticParticleCanvas({
       const pr = Math.min(window.devicePixelRatio, 2);
       renderer.setPixelRatio(pr);
       uniforms.uPixelRatio.value = pr;
+      cachedMaxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        1
+      );
     };
 
     window.addEventListener("mousemove", handlePointerMove, { passive: true });
@@ -497,15 +503,27 @@ export default function SynapticParticleCanvas({
     let currentFps = 60;
     let lastPulseSeen = stateRef.current.pulseTrigger;
 
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+
+      // Battery & CPU optimization: pause heavy rendering when tab is hidden in background
+      if (typeof document !== "undefined" && document.hidden) {
+        return;
+      }
 
       const delta = Math.min(clock.getDelta(), 0.05);
       const elapsed = clock.getElapsedTime();
       uniforms.uTime.value = elapsed;
+      const targetTurbulence = prefersReducedMotion
+        ? stateRef.current.turbulence * 0.35
+        : stateRef.current.turbulence;
       uniforms.uTurbulence.value = THREE.MathUtils.lerp(
         uniforms.uTurbulence.value,
-        stateRef.current.turbulence,
+        targetTurbulence,
         0.08
       );
 

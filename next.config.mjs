@@ -54,6 +54,9 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "react-icons"],
+  },
   async headers() {
     return [
       {

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -24,9 +25,12 @@ import {
   PublicationItem,
   ParticleFormation,
 } from "@/data";
-import PaperFlipbookModal from "@/components/publications/PaperFlipbookModal";
+const PaperFlipbookModal = dynamic(
+  () => import("@/components/publications/PaperFlipbookModal"),
+  { ssr: false }
+);
 
-export default function ExperienceSection() {
+function ExperienceSection() {
   const router = useRouter();
   const [imageError, setImageError] = useState(false);
   const [logoError, setLogoError] = useState(false);
@@ -205,6 +209,8 @@ export default function ExperienceSection() {
 
                   {!imageError ? (
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={EDUCATION_DATA.photoUrl}
                       alt={EDUCATION_DATA.photoAlt}
                       onError={() => setImageError(true)}
@@ -227,6 +233,8 @@ export default function ExperienceSection() {
                     <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full border border-white/20 bg-transparent flex items-center justify-center overflow-hidden group-hover:border-purple-400 transition-all duration-300 shrink-0">
                       {EDUCATION_DATA.logoUrl && !logoError ? (
                         <img
+                          loading="lazy"
+                          decoding="async"
                           src={EDUCATION_DATA.logoUrl}
                           alt={`Logo ${EDUCATION_DATA.universityName}`}
                           onError={() => setLogoError(true)}
@@ -417,3 +425,5 @@ export default function ExperienceSection() {
     </section>
   );
 }
+
+export default React.memo(ExperienceSection);
