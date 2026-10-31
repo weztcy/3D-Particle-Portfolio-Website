@@ -9,10 +9,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "UI/UX Design",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "foodrecipe1.webp",
+    "imageUrl": "/images/projects/foodrecipe1.webp",
     "images": [
-      "foodrecipe1.webp",
-      "foodrecipe2.webp"
+      "/images/projects/foodrecipe1.webp",
+      "/images/projects/foodrecipe2.webp"
     ],
     "summary": "Mobile culinary discovery and cooking assistant interface engineered with high-contrast food photography hierarchy, thumb-zone navigation ergonomics, and streamlined step-by-step preparation cards to minimize cognitive load during active kitchen meal preparation.",
     "overview": "Food Recipe App is a human-centered mobile interface designed for home cooks navigating multi-tasking and divided attention in active kitchen environments. Built around an appetite-stimulating visual hierarchy, the system structures culinary exploration into three streamlined viewports: high-level regional cuisine categorization, two-column visual recipe grids with high-legibility scrim overlays, and a focused cooking preparation modal. The interface architecture deploys a warm apricot accent palette paired with deep slate typography to establish optimal contrast against culinary photography. By organizing instructions into concise, sequential directives and anchoring navigation to an ergonomic bottom bar within the primary thumb zone, the design eliminates narrative clutter, reduces kitchen distractions, and ensures effortless one-handed readability while cooking.",
@@ -114,10 +114,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "UI/UX Design",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "eparking1.webp",
+    "imageUrl": "/images/projects/eparking1.webp",
     "images": [
-      "eparking1.webp",
-      "eparking2.webp"
+      "/images/projects/eparking1.webp",
+      "/images/projects/eparking2.webp",
+      "/images/projects/eparking3.webp"
     ],
     "summary": "Dark-mode mobile parking reservation interface engineered for urban drivers, pairing high-contrast glanceable typography, real-time garage occupancy telemetry, and architectural multi-deck bay selection to eliminate parking search friction, prevent overstay penalties, and minimize driver cognitive distraction.",
     "overview": "E-Parking is a specialized mobile user experience engineered for urban motorists navigating dense metropolitan traffic and low-light parking structures. Built to replace stressful, blind parking searches and opaque paper ticketing, the system unifies discovery, spatial wayfinding, and live session management into an intuitive edge-to-edge dark interface. The architecture employs a deep midnight navy background paired with high-contrast emerald green, alert crimson, and electric cyan accents to ensure instant readability without blinding drivers at night. Drivers inspect real-time venue vacancies, configure booking durations through segmented pricing chips, and reserve specific parking bays on a 2D multi-level architectural floor schematic. Once parked, an active ticket telemetry dashboard provides a live countdown timer and officer assistance triggers, ensuring complete session certainty while maintaining strict WCAG AA contrast standards and ergonomic touch-target compliance across mobile devices.",
@@ -231,10 +232,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "UI/UX Design",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "aorus1.webp",
+    "imageUrl": "/images/projects/aorus1.webp",
     "images": [
-      "aorus1.webp",
-      "aorus2.webp"
+      "/images/projects/aorus1.webp",
+      "/images/projects/aorus2.webp",
+      "/images/projects/aorus3.webp"
     ],
     "summary": "Cyberpunk-themed mobile e-commerce interface engineered for PC hardware enthusiasts, combining high-contrast OLED dark telemetry, structured generational chipset matrices, and curated hardware staging wishlists to accelerate technical compatibility verification, eliminate high-ticket purchase anxiety, and streamline tactile checkout ergonomics.",
     "overview": "Aorus Gaming Shop is a specialized mobile e-commerce user experience engineered for PC gamers, overclockers, and hardware enthusiasts sourcing flagship components on mobile devices. Built to replace cluttered consumer marketplaces that obscure crucial engineering data, the system structures exploration into six high-impact touchpoints: hardware category navigation, generational chipset matrix browsing, deep technical specification inspection, dual-view wishlist staging, itemized transparent checkout, and multi-filter transaction lifecycle tracking. The interface architecture deploys a deep midnight background accented with radiant electric cyan and vivid neon violet glow frames, optimizing visual depth on OLED screens while eliminating night glare. Standardized tabular specification matrices provide sub-second glanceability for CPU socket compatibility, DDR5 frequencies, and display refresh rates. Anchoring transactional actions to an ergonomic bottom navigation dock guarantees effortless one-handed thumb reach and eliminates buyer friction during high-value component purchases.",
@@ -348,15 +350,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2021",
     "status": "Completed",
-    "imageUrl": "aorusshowcase1.webp",
+    "imageUrl": "/images/projects/aorusshowcase1.webp",
     "images": [
-      "aorusshowcase1.webp",
-      "aorusshowcase2.webp",
-      "aorusshowcase3.webp",
-      "aorusshowcase4.webp",
-      "aorusshowcase5.webp",
-      "aorusshowcase6.webp",
-      "aorusshowcase7.webp"
+      "/images/projects/aorusshowcase1.webp"
     ],
     "summary": "Interactive gaming hardware catalog and multimedia showcase engineered with semantic HTML5, custom dark-aesthetic CSS3, and vanilla JavaScript, featuring dynamic ambient video backgrounds, multi-angle hardware carousel controls, real-time digital clock synchronization, and a server-side PHP product registration portal.",
     "overview": "Aorus Gaming Showcase is an interactive, multimedia-rich hardware catalog designed to showcase high-performance gaming gear and technical benchmark telemetry within an immersive web environment. Built with pure HTML5, modern CSS3 layout paradigms, and vanilla JavaScript, the application completely bypasses heavy client-side framework overhead to achieve instantaneous page loads and locked 60 FPS UI transitions. The architecture organizes enthusiast hardware across motherboards, graphics cards, PC components, and gaming laptops, integrating multi-angle image carousels, responsive video backgrounds, and collapsible specification accordions. Real-time client-side scripting powers dynamic clock updates and scroll-position-triggered navigation, while a lightweight PHP backend processes hardware serial registrations via POST requests with dynamic receipt rendering. The resulting platform delivers an engaging, responsive showcase tailored for PC enthusiasts and hardware builders without external dependencies or build pipeline latency.",
@@ -464,9 +460,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Mobile App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "rasanusantara1.webp",
+    "imageUrl": "/images/projects/rasanusantara1.webp",
     "images": [
-      "rasanusantara1.webp"
+      "/images/projects/rasanusantara1.webp",
+      "/images/projects/rasanusantara2.webp",
+      "/images/projects/rasanusantara3.webp",
+      "/images/projects/rasanusantara4.webp",
+      "/images/projects/rasanusantara5.webp"
     ],
     "summary": "Offline-first native Android culinary catalog engineered in Java 11 and Material Design 3, presenting 20 authentic Indonesian recipes through a dual-column RecyclerView grid, Bumptech Glide memory-safe bitmap downsampling, detailed cooking instructions, and an uncompromising zero-permission privacy model.",
     "overview": "Rasa Nusantara is a high-performance, offline-first mobile culinary cookbook engineered to preserve and celebrate Indonesian traditional gastronomy without reliance on remote web servers or intrusive ad networks. Developed in native Java 11 using Android Studio and Google's Material Design 3 framework, the client delivers an intuitive catalog of 20 iconic Indonesian dishes. The presentation layer features an optimized two-column RecyclerView driven by GridLayoutManager, paired with Bumptech Glide v4.16.0 for asynchronous 800x800 bitmap downsampling and memory caching to eliminate heap thrashing across high-resolution food photography. From rapid 15-minute street staples to complex 120-minute heritage simmer recipes, each entry provides curated background overviews, categorized difficulty badges, standardized bulleted ingredients, and chronologically numbered cooking steps. Operating under an absolute zero-permission sandbox without internet or storage declarations, the compiled package launches in under 190 milliseconds, ensuring instantaneous navigation, battery efficiency, and complete user privacy.",
@@ -598,11 +598,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Mobile App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "biocard1.webp",
+    "imageUrl": "/images/projects/biocard1.webp",
     "images": [
-      "biocard1.webp",
-      "biocard2.webp",
-      "biocard3.webp"
+      "/images/projects/biocard1.webp",
+      "/images/projects/biocard2.webp",
+      "/images/projects/biocard3.webp",
+      "/images/projects/biocard4.webp"
     ],
     "summary": "Offline-first native Android profile management client engineered in Java 17 and Android Jetpack, delivering zero-permission photo importing via PhotoPicker contracts, Room SQLite single-record upsert persistence, dynamic Material 3 profile generation, and instantaneous native sharesheet dispatch.",
     "overview": "BioCard is an offline-first mobile identity client built to replace fragile paper biodata sheets and unstructured profile exchanges with a standardized, interactive digital card. Engineered with native Java 17, Android Jetpack, and the Model-View-ViewModel (MVVM) architecture, the client isolates business state within a reactive LiveData pipeline while binding UI layers via type-safe ViewBinding. Personal identity records, contact details, emergency medical indicators, academic history, and career credentials persist locally within an embedded SQLite database managed by AndroidX Room, anchored to a deterministic single-row schema with conflict-free upserts. To guarantee user privacy, BioCard implements a zero-permission model utilizing Android's modern system Photo Picker, downsampling and caching profile images exclusively within sandboxed internal application storage. With zero network daemons, telemetry, or third-party trackers, compiled R8 release binaries launch in under 200 milliseconds while maintaining an idle resident memory footprint below 28 megabytes.",
@@ -737,10 +738,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Mobile App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "calgeo1.webp",
+    "imageUrl": "/images/projects/calgeo1.webp",
     "images": [
-      "calgeo1.webp",
-      "calgeo2.webp"
+      "/images/projects/calgeo1.webp",
+      "/images/projects/calgeo2.webp"
     ],
     "summary": "Offline-first native Android planar geometry engine built with Java 17 and Jetpack Navigation, delivering dynamic runtime form generation, Triangle Inequality validation, sub-millisecond calculation latency, and a zero-permission stateless memory footprint across eight 2D geometric shapes.",
     "overview": "Calgeo is an offline-first native Android utility engineered to provide instantaneous, mathematically rigorous calculations for two-dimensional planar figures. Designed to eliminate manual formula lookups and computational errors, the application dynamically resolves the area, perimeter, and circumference of eight fundamental geometric shapes: Square, Rectangle, Triangle, Circle, Parallelogram, Trapezoid, Rhombus, and Kite. Architected around a Single-Activity pattern utilizing Android Jetpack Navigation Component and type-safe ViewBinding, Calgeo dynamically inflates shape-specific Material 3 input layouts at runtime while managing soft keyboard actions through custom IME action flows. Governed by a stateless in-memory processing model, the client avoids SQLite and file persistence overhead entirely, calculating values in sub-millisecond cycles with zero memory leaks. Full Edge-to-Edge window insets support ensures visual fidelity across status bars and display cutouts, while an uncompromising zero-permission architecture guarantees complete privacy without network access.",
@@ -877,10 +878,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Mobile App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "privena1.webp",
+    "imageUrl": "/images/projects/privena1.webp",
     "images": [
-      "privena1.webp",
-      "privena2.webp"
+      "/images/projects/privena1.webp",
+      "/images/projects/privena2.webp",
+      "/images/projects/privena3.webp"
     ],
     "summary": "Offline-first native Android personal data vault engineered in Java and Realm 10.8.0, delivering zero-permission encrypted note management, Firebase Authentication and Realtime Database user profiling, reactive live query streams, and an edge-to-edge dark luxury cybersecurity interface.",
     "overview": "Privena is a native Android personal data vault and confidential records management application engineered to safeguard sensitive identity information, account credentials, recovery phrases, and private notes away from insecure clipboards and cloud-monitored notepads. Built with native Java on Android SDK 32, the architecture decouples local note persistence from remote cloud identity: user registration, session tokens, and account profile mappings are managed via Firebase Authentication and Firebase Realtime Database, while all confidential vault records are stored exclusively on-device within an embedded Realm Database 10.8.0 instance. The presentation layer employs Android Jetpack ViewBinding for type-safe view lookups and leverages reactive RealmChangeListener subscriptions to synchronize chronological note collections with the RecyclerView without manual re-querying. With a zero-runtime-permission model and an edge-to-edge dark luxury design system, Privena delivers sub-200ms cold boot times, instant contextual note manipulation, and total data isolation.",
@@ -1009,9 +1011,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Mobile App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "numora1.webp",
+    "imageUrl": "/images/projects/numora1.webp",
     "images": [
-      "numora1.webp"
+      "/images/projects/numora1.webp",
+      "/images/projects/numora2.webp"
     ],
     "summary": "Offline-first native Android scientific calculator engineered in Kotlin 2.2 and Jetpack Compose, featuring a hand-crafted lexical analyzer, deterministic recursive descent parser, right-associative power evaluation, trigonometric angle switching, tactile haptic feedback, and an AMOLED black interface operating with zero device permissions.",
     "overview": "Numora is a high-precision, offline-first mobile calculation client developed to deliver uncompromising mathematical accuracy and zero-latency user interaction on Android devices. Built using Kotlin 2.2, Android Jetpack, and the Model-View-ViewModel (MVVM) architectural pattern, the client decouples expression parsing from the declarative UI layer through a unidirectional reactive StateFlow pipeline. Mathematical evaluation is powered by a proprietary two-stage compiler architecture comprising an in-memory lexical scanner and a recursive descent expression parser, enforcing mathematical operator precedence, right-associative exponentiation, implicit multiplication, and degree-to-radian trigonometric transformations without external scripting runtimes. Designed for modern OLED screens, the interface renders a high-contrast AMOLED black aesthetic using Material Design 3 and hardware haptic impulses. Operating under a strict zero-permission philosophy without internet or filesystem access, the compiled release binary launches in under 180 milliseconds, preserves complete calculation privacy, and executes all operations within volatile memory.",
@@ -1144,10 +1147,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Desktop App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "carworkshop1.webp",
+    "imageUrl": "/images/projects/carworkshop1.webp",
     "images": [
-      "carworkshop1.webp",
-      "carworkshop2.webp"
+      "/images/projects/carworkshop1.webp"
     ],
     "summary": "Cross-platform Java Swing desktop management client engineered with MySQL JDBC connectivity and JasperReports 5.6.0, delivering atomic multi-item inventory transactions, physical warehouse rack tracking, BCrypt-secured staff authentication, and automated audit document generation with an idle memory footprint under 45MB.",
     "overview": "Car Workshop Inventory is a native Java Swing desktop client engineered to streamline warehouse logistics, spare parts tracking, and sales distribution for automotive service centers and parts distributors. Built on Java SE 8 and the Swing framework with Nimbus styling, the application connects to a centralized or local MySQL database via Connector/J 8.0, managing relational records across five master entities: catalog items, warehouse rack categories, suppliers, customers, and staff operators. Inbound supplier restocks and outbound client disbursements are processed through transactional staging tables that dynamically recalculate physical stock balances and prevent overselling. High-throughput data binding is handled by rs2xml, converting SQL ResultSets directly into immutable Swing TableModels, while the integrated JasperReports engine compiles parameterized XML templates into printable PDF invoices, delivery notes, and periodic inventory ledgers in sub-second execution cycles.",
@@ -1281,13 +1283,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Desktop App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "grosirsembako1.webp",
+    "imageUrl": "/images/projects/grosirsembako1.webp",
     "images": [
-      "grosirsembako1.webp",
-      "grosirsembako2.webp",
-      "grosirsembako3.webp",
-      "grosirsembako4.webp",
-      "grosirsembako5.webp"
+      "/images/projects/grosirsembako1.webp",
+      "/images/projects/grosirsembako2.webp",
+      "/images/projects/grosirsembako3.webp",
+      "/images/projects/grosirsembako4.webp",
+      "/images/projects/grosirsembako5.webp",
+      "/images/projects/grosirsembako6.webp"
     ],
     "summary": "High-velocity Java Swing desktop POS client engineered with FlatLaf Light and Google Gson, delivering multi-tier wholesale margin calculation, automated PPN 11% taxation, extended credit term interest penalties, offline JSON persistence, and 58mm/80mm thermal receipt printing.",
     "overview": "Grosir Sembako Jaya Makmur POS is an offline-first enterprise desktop Point of Sale (POS) and inventory management client engineered for high-volume wholesale grocery depots, staples distributors, and warung supplier networks. Built on Java SE 17 and Java Swing styled with the modern FormDev FlatLaf Light Look & Feel, the application streamlines rapid checkout operations, warehouse master inventory tracking, and sales audit reporting without external database dependencies. Business logic is governed by an automated cost-plus pricing calculator that dynamically computes wholesale profit margins across five supplier cost brackets, applies mandatory 11% Value-Added Tax (PPN), and enforces a 50% interest surcharge on credit terms exceeding two weeks. Using thread-safe Google Gson persistence, inventory states and transaction ledgers synchronize locally to formatted JSON stores with atomic stock decrementing, zero race conditions, and integrated 58mm/80mm thermal receipt printing.",
@@ -1420,13 +1423,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "silelo1.webp",
+    "imageUrl": "/images/projects/silelo1.webp",
     "images": [
-      "silelo1.webp",
-      "silelo2.webp",
-      "silelo3.webp",
-      "silelo4.webp",
-      "silelo5.webp"
+      "/images/projects/silelo1.webp",
+      "/images/projects/silelo2.webp",
+      "/images/projects/silelo3.webp",
+      "/images/projects/silelo4.webp",
+      "/images/projects/silelo5.webp",
+      "/images/projects/silelo6.webp"
     ],
     "summary": "Full-stack online auction and curated marketplace platform built with PHP and CodeIgniter 3, featuring a multi-role RBAC architecture, security deposit escrow validation, dynamic real-time bidding, automated winner adjudication, deposit-deducted invoice settlement, and behavioral category recommendation telemetry.",
     "overview": "SiLelo is an enterprise-grade online auction and curated marketplace platform engineered to eradicate fraudulent phantom bids, seller default risks, and fragmented post-auction settlements typical of informal bidding forums. Built upon PHP 7.4+/8.x and CodeIgniter 3's lightweight MVC framework with MySQL relational storage, the architecture orchestrates a strictly segregated three-tier RBAC ecosystem serving Public Bidders, Verified Sellers (*Mitra Pelelang*), and Super Administrators. The presentation layer marries responsive Bootstrap layouts and interactive Owl Carousel media galleries with an AdminLTE administrative command suite, ensuring sub-40ms server execution across catalog queries and high-concurrency bid operations. System integrity is enforced through a mandatory financial escrow gate requiring verified bank deposit collateral before bid submission. Post-auction workflows automate winning hammer price adjudication, outbid notifications, unique verification code invoice generation, and deposit-deducted payment reconciliations, establishing a transparent, audit-ready auction lifecycle.",
@@ -1552,10 +1556,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "pustakanesia1.webp",
+    "imageUrl": "/images/projects/pustakanesia1.webp",
     "images": [
-      "pustakanesia1.webp",
-      "pustakanesia2.webp"
+      "/images/projects/pustakanesia1.webp",
+      "/images/projects/pustakanesia2.webp",
+      "/images/projects/pustakanesia3.webp"
     ],
     "summary": "Full-stack digital library management and book circulation platform built with Laravel 8, Tailwind CSS, and MySQL, featuring multi-role RBAC, dynamic catalog search, many-to-many category indexing, atomic loan transaction engines with quota enforcement, and automated DomPDF report generation.",
     "overview": "Pustakanesia is an enterprise-grade digital library management and circulation platform engineered to eliminate paper-based record-keeping, unstructured book tracking, and reconciliation delays in academic environments. Architected on the Laravel 8 MVC framework and MySQL, the application establishes strict role-based access control separating administrative governance from member self-service. The user interface leverages Tailwind CSS with the Plus Jakarta Sans typography and Select2 multi-tagging, delivering responsive catalog discovery and seamless administrative curation. At its core, the platform orchestrates automated borrowing workflows: validating member loan quotas (capped at three active books), executing atomic database transactions that synchronize loan logs with real-time stock availability, and calculating strict seven-day return deadlines. An automated book return engine reconciles inventory statuses instantly, while an integrated DomPDF compilation pipeline aggregates historical circulation logs into verifiable, audit-ready PDF documentation.",
@@ -1685,10 +1690,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI & Machine Learning",
     "year": "2024",
     "status": "Completed",
-    "imageUrl": "centerofmass1.webp",
+    "imageUrl": "/images/projects/centerofmass1.webp",
     "images": [
-      "centerofmass1.webp",
-      "centerofmass2.webp"
+      "/images/projects/centerofmass1.webp",
+      "/images/projects/centerofmass2.webp",
+      "/images/projects/centerofmass3.webp"
     ],
     "summary": "Vectorized scientific computing engine implemented in Python and NumPy to simulate discrete N-body mechanical systems, calculating spatial center-of-mass coordinates and aggregate kinematic velocity vectors with instant 2D/3D scatter and quiver vector field projections in sub-millisecond execution times.",
     "overview": "Center of Mass and Velocity Calculator is a scientific computing and computational physics engine engineered to model multi-particle Newtonian mechanical systems. Designed to eliminate manual calculation bottlenecks and rounding inaccuracies in academic physics research, the system resolves spatial center-of-mass coordinates and kinematic velocity vectors for arbitrary N-body configurations. Rather than relying on slow iterative loops, the core computation leverages vectorized NumPy array broadcasting and matrix transpositions, executing weighted coordinate summations across three spatial dimensions simultaneously. The simulation engine couples analytical reduction with dual-mode visualization toolkits, generating synchronized 2D planar scatter plots, 3D isometric spatial projections, and directional quiver vector fields to render particle velocity trajectories. Deployed as an interactive terminal application and cloud-executable Google Colab notebook, the system guarantees 64-bit floating-point accuracy with zero truncation drift, validating multi-body mechanics against analytical proofs in sub-millisecond runtimes.",
@@ -1788,10 +1794,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI & Machine Learning",
     "year": "2024",
     "status": "Completed",
-    "imageUrl": "jakartahotel1.webp",
+    "imageUrl": "/images/projects/jakartahotel1.webp",
     "images": [
-      "jakartahotel1.webp",
-      "jakartahotel2.webp"
+      "/images/projects/jakartahotel1.webp",
+      "/images/projects/jakartahotel2.webp"
     ],
     "summary": "End-to-end natural language processing pipeline mining Google Maps reviews via SerpAPI, normalizing text with negation-preserving NLTK lemmatization, and deploying a maximum-margin Linear Support Vector Classifier through an interactive Streamlit web dashboard for real-time guest sentiment inference.",
     "overview": "Jakarta Hotel Review Sentiment Analysis is an applied natural language processing system engineered to automatically aggregate, process, and evaluate guest feedback across the hospitality sector in Jakarta, Indonesia. Analyzing unstructured customer reviews at scale poses distinct operational challenges, particularly when subtle negation cues inverted by naive stopword removal distort underlying sentiment. The architecture addresses this through an integrated pipeline combining automated geospatial data extraction via SerpAPI with a customized NLTK preprocessing engine that preserves critical negation tokens during WordNet lemmatization. Feature extraction is governed by a bounded TF-IDF vectorizer feeding into a maximum-margin Linear Support Vector Classifier (SVC), strategically chosen for its mathematical robustness in sparse, high-dimensional textual feature spaces. Serialized into a unified artifact and served via an interactive Streamlit web application, the system delivers instantaneous CPU-efficient sentiment predictions, enabling hotel operators to detect service bottlenecks and prospective guests to rapidly assess hospitality quality.",
@@ -1899,10 +1905,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI & Machine Learning",
     "year": "2024",
     "status": "Completed",
-    "imageUrl": "kip1.webp",
+    "imageUrl": "/images/projects/kip1.webp",
     "images": [
-      "kip1.webp",
-      "kip2.webp"
+      "/images/projects/kip1.webp"
     ],
     "summary": "Supervised machine learning decision-support platform leveraging Gaussian Naive Bayes and one-hot categorical encoding to classify student scholarship eligibility for Indonesia's PIP/KIP program from demographic and socioeconomic features, deployed via an interactive real-time Streamlit web dashboard.",
     "overview": "KIP Student Eligibility Prediction is an applied machine learning decision-support system engineered to automate the evaluation of candidate eligibility for the Program Indonesia Pintar (PIP) scholarship program across junior high schools. Manually evaluating hundreds of student administrative records from national Dapodik registries is labor-intensive and prone to administrative inconsistency. This system resolves the bottleneck by implementing an end-to-end classification pipeline trained on historical student records from SMP Sepuluh Nopember 02 Semarang. Continuous indicators (parental income, sibling count, commute distance) and categorical indicators (KPS card enrollment, transportation mode, BSM aid recommendation) are transformed into a 10-dimensional feature space and modeled using a Gaussian Naive Bayes (GaussianNB) classifier. Serialized into a compact binary artifact and served through an interactive Streamlit web dashboard, the architecture supports both real-time manual parameter tweaking and batch CSV ingestion, providing transparent posterior class probabilities to aid institutional committees in allocating educational assistance fairly.",
@@ -2009,10 +2014,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2024",
     "status": "Completed",
-    "imageUrl": "bpbdkebumen1.webp",
+    "imageUrl": "/images/projects/bpbdkebumen1.webp",
     "images": [
-      "bpbdkebumen1.webp",
-      "bpbdkebumen2.webp"
+      "/images/projects/bpbdkebumen1.webp"
     ],
     "summary": "Responsive government web portal replication built with React 18, React-Bootstrap, and Bootstrap 5, featuring modular news feeds, interactive operational carousels, responsive municipal telemetry tables, dynamic search widgets, and structured emergency dispatch channels for regional disaster mitigation transparency.",
     "overview": "BPBD Kebumen Website Replication is a modern frontend disaster management and civic information platform designed to solve information fragmentation and layout fragility common in legacy municipal portals. Built with React 18, React-Bootstrap 2, and Bootstrap 5, the architecture decomposes complex governmental workflows into decoupled, declarative UI modules spanning real-time headline disaster feeds, multi-card incident grids, and emergency telemetry tables. The interface implements unidirectional React data flow with structured component encapsulation, ensuring predictable rendering cascades across complex nested grid rows without layout shifts. Interactive hero carousels and tabbed sidebar feeds deliver critical updates—such as joint landslide mitigation reports and drought assessments—while maintaining smooth 60 FPS viewport transitions and zero-CLS visual stability. Encapsulated asset pathways and responsive flexbox layouts ensure seamless accessibility across desktop monitors and mobile field devices, providing citizens and emergency response teams with uninterrupted access to regional safety communications.",
@@ -2124,13 +2128,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "siben1.webp",
+    "imageUrl": "/images/projects/siben1.webp",
     "images": [
-      "siben1.webp",
-      "siben2.webp",
-      "siben3.webp",
-      "siben4.webp",
-      "siben5.webp"
+      "/images/projects/siben1.webp",
+      "/images/projects/siben2.webp",
+      "/images/projects/siben3.webp",
+      "/images/projects/siben4.webp",
+      "/images/projects/siben5.webp",
+      "/images/projects/siben6.webp"
     ],
     "summary": "Full-stack disaster preparedness and emergency response web platform built with React 18, Redux Toolkit, Express, and Sequelize on MySQL, delivering three-phase multi-hazard mitigation guides, real-time BMKG meteorological telemetry proxying, curated emergency news, and full-lifecycle CRUD incident tracking.",
     "overview": "SIBEN is a specialized full-stack disaster preparedness and emergency crisis management web application engineered to address fragmented civil safety information across Indonesia. Powered by an Express.js REST microservice and Sequelize ORM backed by MySQL, the system orchestrates a synchronized incident registry alongside real-time hourly meteorological telemetry proxied from the BMKG Open API for Semarang Tengah. The client architecture leverages React 18 with Bootstrap 5 and React-Bootstrap, driving an immersive dark-mode UI with hardware-accelerated video backgrounds and offcanvas drawers. Global application state is managed predictably via Redux Toolkit and Redux Thunk, isolating network I/O, error handling, and tabular pagination for 50 historical incident records across 38 provinces. By decoupling asynchronous external meteorological ingestion from relational incident mutations and enforcing strict database constraints, SIBEN guarantees deterministic state synchronization, zero UI thread blocking, and rapid crisis response data access.",
@@ -2257,11 +2262,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "UI/UX Design",
     "year": "2024",
     "status": "Completed",
-    "imageUrl": "prajagamer1.webp",
+    "imageUrl": "/images/projects/prajagamer1.webp",
     "images": [
-      "prajagamer1.webp",
-      "prajagamer2.webp",
-      "prajagamer3.webp"
+      "/images/projects/prajagamer1.webp",
+      "/images/projects/prajagamer2.webp",
+      "/images/projects/prajagamer3.webp",
+      "/images/projects/prajagamer4.webp"
     ],
     "summary": "Civil service internship web platform designed for Disdukcapil Kota Semarang, combining a structured six-stage candidate onboarding guide, multi-step verified document submission wizard, and a real-time administrative KPI telemetry dashboard with Excel exports to eliminate bureaucratic friction and streamline public sector recruitment.",
     "overview": "Prajagamer is a civic-grade web platform engineered for Dinas Kependudukan dan Pencatatan Sipil (Disdukcapil) Kota Semarang to modernize the Program Kerja Magang Merdeka internship lifecycle across municipal divisions and regional branch offices (TPDK). Built to replace unstandardized offline paperwork, the architecture provides university candidates with transparent department directories, 6-step chronological onboarding roadmaps, and a 2-stage application wizard enforcing PDF file constraints and branch relocation consent. For civil service coordinators, the administrative dashboard delivers real-time KPI telemetry (Total Applicants, In Process, Accepted, Rejected), one-click Excel roster exports, and secure staff account governance with Employee Identification Numbers (NIP). The design deploys a civic crimson and clean slate token architecture optimized for desktop workstation ergonomics, utilizing high-contrast tabular matrices and dual-channel status badges that guarantee WCAG AA accessibility, eliminate administrative submission errors, and accelerate candidate decision cycles.",
@@ -2385,10 +2391,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "prajagamer1.webp",
+    "imageUrl": "/images/projects/prajagamer1.webp",
     "images": [
-      "prajagamer1.webp",
-      "prajagamer2.webp"
+      "/images/projects/prajagamer1.webp",
+      "/images/projects/prajagamer2.webp",
+      "/images/projects/prajagamer3.webp",
+      "/images/projects/prajagamer4.webp"
     ],
     "summary": "Full-stack public sector internship admissions and candidate management platform built with React 18, Vite, Express 5, and Prisma SQLite, featuring dual-portal RBAC, multipart document verification, candidate status triaging, real-time telemetry, and client-side SheetJS Excel reporting.",
     "overview": "Prajagamer is a dedicated internship recruitment and applicant dossier management platform engineered for the Department of Population and Civil Registration of Semarang City (Disdukcapil Kota Semarang) to digitize university student work placement programs (Praktik Kerja dan Magang Merdeka). Built on a decoupled full-stack architecture combining a React 18 single-page application and a lightweight Express.js 5 REST API, the platform eliminates physical paperwork and unstructured communication bottlenecks. The system enforces strict role-based access control, authenticating students via 16-digit NIK credentials and administrators via official civil servant NIP numbers. Applicants navigate a guided two-stage registration pipeline uploading identity photographs, PDF resumes, and transcripts managed via Multer disk storage. Concurrently, recruitment administrators utilize real-time telemetry dashboards, one-click applicant triaging engines (Verifying, Accepted, Rejected), instant multi-criteria filtering, and client-side SheetJS spreadsheet generation to streamline civic internship onboarding.",
@@ -2532,12 +2540,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "poliklinik1.webp",
+    "imageUrl": "/images/projects/poliklinik1.webp",
     "images": [
-      "poliklinik1.webp",
-      "poliklinik2.webp",
-      "poliklinik3.webp",
-      "poliklinik4.webp"
+      "/images/projects/poliklinik1.webp",
+      "/images/projects/poliklinik2.webp",
+      "/images/projects/poliklinik3.webp",
+      "/images/projects/poliklinik4.webp",
+      "/images/projects/poliklinik5.webp"
     ],
     "summary": "Full-stack campus healthcare management and outpatient booking platform built with native PHP 8.2, MySQL, and Bootstrap 5, featuring multi-role RBAC, dynamic AJAX doctor schedule resolution, automated Medical Record Number generation, shift collision prevention, and prescription billing computation.",
     "overview": "Poliklinik Udinus is a dedicated campus clinical management and outpatient appointment system engineered to eliminate manual paper-based logs, appointment bottlenecks, and prescription calculation discrepancies across the healthcare facilities of Universitas Dian Nuswantoro. Built with native PHP 8.2 and MySQL via the mysqli extension, the platform enforces strict role-based access control across patients, practicing physicians, and hospital administrators. The presentation layer utilizes modular PHP templating paired with Bootstrap 5.3.3 and asynchronous JavaScript (Fetch API/AJAX), enabling seamless client interactions without full page reloads during polyclinic schedule lookups. Core architectural flows automate the patient journey—from standardized Medical Record Number (No. RM) formatting (YYYYMM-XXX) and collision-free physician shift scheduling to per-shift queue allocation. Attending doctors record clinical diagnoses and prescribe multiple medications via multi-select dialogs, where an automated billing engine computes itemized consultation invoices in real time, delivering a unified, reliable healthcare workflow.",
@@ -2662,12 +2671,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI & Machine Learning",
     "year": "2024",
     "status": "Completed",
-    "imageUrl": "diabetes1.webp",
+    "imageUrl": "/images/projects/diabetes1.webp",
     "images": [
-      "diabetes1.webp",
-      "diabetes2.webp",
-      "diabetes3.webp",
-      "diabetes4.webp"
+      "/images/projects/diabetes1.webp",
+      "/images/projects/diabetes2.webp",
+      "/images/projects/diabetes3.webp",
+      "/images/projects/diabetes4.webp",
+      "/images/projects/diabetes5.webp"
     ],
     "summary": "Supervised medical machine learning benchmark evaluating distance metric sensitivity in K-Nearest Neighbors for diabetes diagnosis across 768 patient records, leveraging Random Forest feature selection and comparative normalization to achieve 81.17% accuracy and statistically significant AUC gains.",
     "overview": "Diabetes Classification Using KNN with Data Normalization is an empirical machine learning research project engineered to resolve distance metric sensitivity and magnitude distortions in non-parametric clinical diagnostic systems. In instance-based algorithms such as K-Nearest Neighbors (K-NN), high-magnitude physiological attributes like glucose and insulin overpower smaller continuous markers in Euclidean distance calculations, biasing nearest-neighbor queries. To solve this, the pipeline combines tree-based Gini feature importance pruning via a 100-estimator Random Forest—isolating the four primary diagnostic predictors: Glucose, BMI, Age, and DiabetesPedigreeFunction—with four data transformation paradigms: Min-Max Scaling, Z-Score Standardization, Decimal Scaling, and raw feature baselines. Evaluated across neighborhood parameters k from 1 to 11 on the Pima Indians Diabetes Database, the architecture undergoes two-tailed paired Student's t-tests, proving that Min-Max Scaling delivers statistically significant diagnostic improvements (81.17% accuracy, 84.85% specificity, and p = 0.00003 for ROC AUC) while decimal scaling severely degrades classification stability.",
@@ -2778,16 +2788,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "cpplearning1.webp",
+    "imageUrl": "/images/projects/cpplearning1.webp",
     "images": [
-      "cpplearning1.webp",
-      "cpplearning2.webp",
-      "cpplearning3.webp",
-      "cpplearning4.webp",
-      "cpplearning5.webp",
-      "cpplearning6.webp",
-      "cpplearning7.webp",
-      "cpplearning8.webp"
+      "/images/projects/cpplearning1.webp"
     ],
     "summary": "Comprehensive C++20 educational curriculum comprising 17 modular pedagogical stages and 250 standalone compilable programs, delivering hands-on mastery of systems programming, memory architecture, RAII smart pointers, OOP design patterns, STL algorithms, and real-world terminal capstones.",
     "overview": "CPP Learning Modules is an exhaustive systems programming curriculum engineered to bridge the divide between theoretical computer science concepts and practical software development in Modern C++20. Organized across 17 structured pedagogical tiers, the platform guides engineers through fundamental syntax, pointer arithmetic, manual heap allocation, and modern RAII smart pointers before advancing into object-oriented polymorphism, generic templates, and C++20 concepts. Every module operates completely standalone without external dependencies, allowing learners to compile and link source files directly through native toolchains including MSVC, GCC, and Clang. Paired with 250 verified terminal execution output captures rendered directly from executed processes, the curriculum demystifies runtime compiler behaviors and link-time symbol resolution while reinforcing learning through 10 production-grade terminal capstone projects.",
@@ -2922,16 +2925,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "pythonlearning1.webp",
+    "imageUrl": "/images/projects/pythonlearning1.webp",
     "images": [
-      "pythonlearning1.webp",
-      "pythonlearning2.webp",
-      "pythonlearning3.webp",
-      "pythonlearning4.webp",
-      "pythonlearning5.webp",
-      "pythonlearning6.webp",
-      "pythonlearning7.webp",
-      "pythonlearning8.webp"
+      "/images/projects/pythonlearning1.webp"
     ],
     "summary": "Comprehensive Python 3.10+ educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of core syntax, functional programming, OOP design patterns, classical data structures and algorithms, modern typing, ecosystem data libraries, and terminal capstones.",
     "overview": "Python Learning Modules is an exhaustive software engineering curriculum engineered to bridge the divide between theoretical computer science concepts and production-grade software development in modern Python 3.10+. Structured across 18 progressive pedagogical tiers containing 300 standalone executable programs, the platform guides developers from foundational syntax, dynamic typing, and control flow through modular functional programming, decorators, and object-oriented architectures before mastering classical algorithms, Python standard library internals, and modern typing paradigms including PEP 604 union types and structural pattern matching. Every lesson functions completely standalone, allowing learners to execute code directly through native Python runtimes while verifying behaviors against 300 pre-computed terminal execution output captures. The curriculum culminates in ecosystem integrations covering numerical computing with NumPy, data analysis with Pandas, RESTful microservices with FastAPI and Flask, and 20 production-grade terminal capstone projects simulating real-world commercial software.",
@@ -3112,16 +3108,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "htmllearning1.webp",
+    "imageUrl": "/images/projects/htmllearning1.webp",
     "images": [
-      "htmllearning1.webp",
-      "htmllearning2.webp",
-      "htmllearning3.webp",
-      "htmllearning4.webp",
-      "htmllearning5.webp",
-      "htmllearning6.webp",
-      "htmllearning7.webp",
-      "htmllearning8.webp"
+      "/images/projects/htmllearning1.webp"
     ],
     "summary": "Comprehensive HTML5 educational curriculum comprising 18 modular pedagogical stages and 300 standalone interactive documents, delivering hands-on mastery of semantic markup, accessibility (WCAG/WAI-ARIA), form validation, multimedia, SVG/Canvas graphics, and complete multi-page web applications.",
     "overview": "HTML Learning Modules is an exhaustive web architecture curriculum engineered to bridge the divide between basic syntax and production-grade semantic web engineering in HTML5 and the WHATWG Living Standard. Structured across 18 progressive pedagogical modules containing 300 standalone interactive documents, the curriculum guides developers from document anatomy, headings, and typography through form controls, native validation constraints, and responsive media before mastering WAI-ARIA accessibility landmarks, inline SVG, Canvas 2D contexts, and modern Popover APIs. Every document functions completely standalone with zero third-party dependencies, featuring clean component styling and verified execution captures rendered directly from modern browser layout engines. The curriculum culminates in 10 production-grade capstone web applications including responsive portfolios, resumes, and multi-page corporate sites.",
@@ -3290,16 +3279,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "csslearning1.webp",
+    "imageUrl": "/images/projects/csslearning1.webp",
     "images": [
-      "csslearning1.webp",
-      "csslearning2.webp",
-      "csslearning3.webp",
-      "csslearning4.webp",
-      "csslearning5.webp",
-      "csslearning6.webp",
-      "csslearning7.webp",
-      "csslearning8.webp"
+      "/images/projects/csslearning1.webp"
     ],
     "summary": "Comprehensive CSS3 and Living Standard educational curriculum comprising 18 modular pedagogical tiers and 300 standalone stylesheets and HTML previews, delivering hands-on mastery of layout engines, CSS Grid, Flexbox, responsive design, cascade specificity, animations, modern at-rules, and production capstone projects.",
     "overview": "CSS Learning Modules is an exhaustive frontend engineering curriculum engineered to bridge the divide between basic visual styling and enterprise layout architecture in modern CSS3 and the W3C Living Standard. Structured across 18 progressive pedagogical modules containing 300 standalone stylesheets paired with interactive HTML documents, the curriculum guides developers from syntax anatomy, selectors, and cascade algorithms through the box model, responsive design, Flexbox, and 2D CSS Grid before mastering hardware-accelerated animations, custom properties, and modern at-rules including @container, @scope, @layer, and @property. Every lesson operates completely standalone with zero third-party dependencies, featuring clean component styling and verified execution captures rendered directly from modern browser layout engines. The curriculum culminates in 5 production-grade capstone web projects including responsive developer portfolios, interactive analytics dashboards, e-commerce storefronts, and full landing pages.",
@@ -3474,16 +3456,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "javalearning1.webp",
+    "imageUrl": "/images/projects/javalearning1.webp",
     "images": [
-      "javalearning1.webp",
-      "javalearning2.webp",
-      "javalearning3.webp",
-      "javalearning4.webp",
-      "javalearning5.webp",
-      "javalearning6.webp",
-      "javalearning7.webp",
-      "javalearning8.webp"
+      "/images/projects/javalearning1.webp"
     ],
     "summary": "Comprehensive Java SE 21 LTS educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of core syntax, OOP architecture, collections, functional Streams, concurrency with Virtual Threads, JDBC persistence, and Spring Boot enterprise capstones.",
     "overview": "Java Learning Modules is an exhaustive software engineering curriculum engineered to bridge the divide between theoretical computer science concepts and enterprise-grade software development in modern Java SE 21 LTS. Structured across 18 progressive pedagogical tiers containing 300 standalone executable programs, the platform guides developers from fundamental class anatomy, dynamic typing rules, and control flow through modular methods, object-oriented design patterns, and robust exception hierarchies. Learners advance into modern functional programming with Lambda expressions and the Streams API, high-throughput asynchronous concurrency using Virtual Threads (Project Loom), transactional database persistence with JDBC, and software testing using JUnit 5 and Mockito. Every single lesson functions completely standalone, allowing execution directly through Java 11+ single-file source launchers while verifying behaviors against 300 pre-computed terminal execution output captures. The curriculum culminates in enterprise microservice architectures built on Spring Boot, delivering five complete commercial-grade capstone projects.",
@@ -3661,16 +3636,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "javascriptlearning1.webp",
+    "imageUrl": "/images/projects/javascriptlearning1.webp",
     "images": [
-      "javascriptlearning1.webp",
-      "javascriptlearning2.webp",
-      "javascriptlearning3.webp",
-      "javascriptlearning4.webp",
-      "javascriptlearning5.webp",
-      "javascriptlearning6.webp",
-      "javascriptlearning7.webp",
-      "javascriptlearning8.webp"
+      "/images/projects/javascriptlearning1.webp"
     ],
     "summary": "Comprehensive ECMAScript (ES2023+) and Node.js curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of core syntax, closures, OOP prototypes, DOM and Web APIs, asynchronous Event Loop pipelines, Express 5 backend services, and full-stack capstones.",
     "overview": "JavaScript Learning Modules is an exhaustive software engineering curriculum engineered to bridge the divide between foundational computer science concepts and modern full-stack web application development in ECMAScript (ES2023+) and Node.js. Structured across 18 progressive pedagogical tiers containing 300 standalone executable programs, the platform guides developers from core syntax primitives, temporal dead zones, and imperative control flow through first-class functions, lexical closures, prototypal inheritance, and modern ES6 class hierarchies. Learners advance into standard library built-ins, defensive exception handling, and modular packaging (ESM and CommonJS) before mastering client-side Document Object Model (DOM) interactions with headless runtime shims. The curriculum demystifies asynchronous concurrency mechanics through the JavaScript Event Loop, Promise pipelines, and async/await syntax, progressing into backend HTTP web engineering with Express 5, classical data structures and algorithms, application security safeguards, and 12 complete full-stack capstone applications.",
@@ -3855,16 +3823,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "sqllearning1.webp",
+    "imageUrl": "/images/projects/sqllearning1.webp",
     "images": [
-      "sqllearning1.webp",
-      "sqllearning2.webp",
-      "sqllearning3.webp",
-      "sqllearning4.webp",
-      "sqllearning5.webp",
-      "sqllearning6.webp",
-      "sqllearning7.webp",
-      "sqllearning8.webp"
+      "/images/projects/sqllearning1.webp"
     ],
     "summary": "Comprehensive relational database educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable SQL programs, delivering hands-on mastery of relational query syntax, advanced multi-table joins, transactional concurrency, analytical window functions, query plan optimization, and enterprise capstone database systems.",
     "overview": "SQL Learning Modules is an exhaustive database engineering curriculum engineered to bridge the divide between declarative relational theory and production-grade database systems development. Structured across 18 progressive pedagogical tiers containing 300 standalone executable SQL programs, the platform guides engineers from core query anatomy, filtering predicates, and scalar functions through complex multi-table joins, subqueries, and Common Table Expressions before mastering transactional concurrency control, analytical window functions, and cost-based query optimization. Every lesson is executed and verified directly against the normalized 11-table Chinook digital music store database, allowing learners to run queries through native Python runners, SQLite CLI, or graphical database clients while validating behaviors against 300 pre-computed execution output captures. The curriculum culminates in 20 enterprise capstone projects simulating real-world commercial point-of-sale registers, customer segmentation pipelines, and star-schema dimensional data warehouses.",
@@ -4050,16 +4011,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "phplearning1.webp",
+    "imageUrl": "/images/projects/phplearning1.webp",
     "images": [
-      "phplearning1.webp",
-      "phplearning2.webp",
-      "phplearning3.webp",
-      "phplearning4.webp",
-      "phplearning5.webp",
-      "phplearning6.webp",
-      "phplearning7.webp",
-      "phplearning8.webp"
+      "/images/projects/phplearning1.webp"
     ],
     "summary": "Comprehensive PHP 8.2+ educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of language syntax, strict typing, advanced OOP design patterns, PDO database integration, backend security, automated testing, and production-grade terminal capstones.",
     "overview": "PHP Learning Modules is an exhaustive software engineering curriculum engineered to bridge the divide between theoretical computer science concepts and production-grade backend development in modern PHP 8.2+. Structured across 18 progressive pedagogical tiers containing 300 standalone executable programs, the platform guides developers from foundational syntax, dynamic typing, and control flow through modular functional programming, closures, and advanced object-oriented architectures before mastering database persistence with PDO, filesystem streams, and web security engineering. Every lesson operates completely standalone without external dependencies, allowing learners to execute code directly through native PHP CLI engines while verifying runtime behaviors against 300 pre-computed terminal execution output captures. The curriculum demystifies enterprise architecture through hands-on implementations of PSR standards, MVC separation, the Repository Pattern, and RESTful API microservices, culminating in 6 production-grade capstone applications simulating commercial software.",
@@ -4239,16 +4193,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Code Learning",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "typescriptlearning1.webp",
+    "imageUrl": "/images/projects/typescriptlearning1.webp",
     "images": [
-      "typescriptlearning1.webp",
-      "typescriptlearning2.webp",
-      "typescriptlearning3.webp",
-      "typescriptlearning4.webp",
-      "typescriptlearning5.webp",
-      "typescriptlearning6.webp",
-      "typescriptlearning7.webp",
-      "typescriptlearning8.webp"
+      "/images/projects/typescriptlearning1.webp"
     ],
     "summary": "Comprehensive TypeScript curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of static typing, discriminated unions, generic abstractions, mapped and conditional types, OOP architecture, asynchronous error pipelines, Express 5 backend services, and enterprise full-stack capstones.",
     "overview": "TypeScript Learning Modules is an exhaustive software engineering curriculum engineered to bridge the divide between fundamental type annotations and production-grade full-stack software architecture in modern TypeScript (ES2022 / ESNext) and Node.js. Structured across 18 progressive pedagogical tiers containing 300 standalone executable programs, the platform guides developers from foundational syntax primitives, lexical scoping, and basic type annotations through composite collections, tuples, type aliases, and interfaces before mastering advanced type narrowing, discriminated unions, and nominal branded types. Learners advance into generic programming, conditional type inference with infer, mapped type modifiers, and object-oriented class hierarchies. The curriculum demystifies asynchronous concurrency pipelines, Promise combinators, and functional Result patterns, progressing into browser DOM manipulations, backend RESTful web services with Express 5, schema validation with Zod, database repositories, automated testing harnesses, and two enterprise full-stack capstone applications.",
@@ -4433,10 +4380,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "aksaraya1.webp",
+    "imageUrl": "/images/projects/aksaraya1.webp",
     "images": [
-      "aksaraya1.webp",
-      "aksaraya2.webp"
+      "/images/projects/aksaraya1.webp",
+      "/images/projects/aksaraya2.webp",
+      "/images/projects/aksaraya3.webp"
     ],
     "summary": "Full-stack digital library management and e-reading platform built with Laravel 13, Tailwind CSS v4, and Alpine.js, combining multi-faceted catalog search, in-browser PDF e-reader progress synchronization, automated circulation lifecycle tracking, barcode scanning, and multi-channel notification alerts.",
     "overview": "Aksaraya is a modern web-based digital library management platform engineered to resolve the administrative bottlenecks and fragmented user experiences of conventional lending facilities. Powered by Laravel 13 with Eloquent ORM and an SQLite relational backend, the system orchestrates complete multi-role circulation workflows across readers, front-desk librarians, and system administrators. The presentation tier leverages Laravel Blade integrated with Tailwind CSS v4 design tokens and reactive Alpine.js components, delivering sub-50ms page renders and instant DOM reactivity without heavy client framework overhead. Critical features include an embedded distraction-free PDF e-book reader with real-time reading progress telemetry, real-time AJAX barcode scanner lookup for front-desk circulation, automated overdue fine calculation, and simulated multi-channel WhatsApp and email reminders. By decoupling circulation state transitions through dedicated service layers and enforcing strict database transactions, Aksaraya ensures zero inventory discrepancy and seamless physical-to-digital reading transitions.",
@@ -4559,12 +4507,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "brainsync1.webp",
+    "imageUrl": "/images/projects/brainsync1.webp",
     "images": [
-      "brainsync1.webp",
-      "brainsync2.webp",
-      "brainsync3.webp",
-      "brainsync4.webp"
+      "/images/projects/brainsync1.webp",
+      "/images/projects/brainsync2.webp",
+      "/images/projects/brainsync3.webp",
+      "/images/projects/brainsync4.webp",
+      "/images/projects/brainsync5.webp"
     ],
     "summary": "Open-source personal knowledge management platform built with Next.js 16, React 19, Fastify, and Three.js, featuring bi-directional wiki-linking, 3D celestial knowledge graph visualization, PostgreSQL trigram fuzzy search, split-pane Markdown editing, and centralized GTD task management.",
     "overview": "BrainSync is a high-performance personal knowledge management web application engineered to overcome cognitive fragmentation and rigid folder hierarchies through associative thought networking. Grounded in Clean Architecture and Domain-Driven Design, the platform cleanly decouples core domain parsers and business use cases from infrastructure and presentation concerns. The backend is built with Fastify and Prisma ORM atop PostgreSQL 16, utilizing native GIN trigram indexes (pg_trgm) to achieve sub-millisecond full-text and fuzzy search across extensive note vaults. The frontend utilizes Next.js 16 (App Router) and React 19 as a secure Backend-for-Frontend, where Server Components and Server Actions orchestrate data retrieval without exposing database internals to client browsers. Real-time bi-directional linking ([[Title]]), debounced auto-saving (1500ms), and an interactive Three.js 3D galaxy graph engine provide a seamless, locked 60 FPS knowledge exploration experience.",
@@ -4688,17 +4637,18 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "nabungin1.webp",
+    "imageUrl": "/images/projects/nabungin1.webp",
     "images": [
-      "nabungin1.webp",
-      "nabungin2.webp",
-      "nabungin3.webp",
-      "nabungin4.webp",
-      "nabungin5.webp",
-      "nabungin6.webp",
-      "nabungin7.webp",
-      "nabungin8.webp",
-      "nabungin9.webp"
+      "/images/projects/nabungin1.webp",
+      "/images/projects/nabungin2.webp",
+      "/images/projects/nabungin3.webp",
+      "/images/projects/nabungin4.webp",
+      "/images/projects/nabungin5.webp",
+      "/images/projects/nabungin6.webp",
+      "/images/projects/nabungin7.webp",
+      "/images/projects/nabungin8.webp",
+      "/images/projects/nabungin9.webp",
+      "/images/projects/nabungin10.webp"
     ],
     "summary": "Full-stack personal finance platform engineered with Next.js 16, React 19, Express 5, and Prisma 7 on PostgreSQL 16, featuring a BigInt minor-unit ledger, multi-account portfolio reconciliation, period-based budget enforcement, automated recurring transaction scheduling, and interactive Recharts cashflow analytics.",
     "overview": "Nabungin is a full-stack personal finance and wealth management platform engineered to resolve data fragmentation across banking accounts, digital e-wallets, credit cards, and investments while eliminating floating-point rounding drift. Built as a high-performance TypeScript monorepo, the architecture decouples an Express 5 REST API from a Next.js 16 and React 19 frontend operating as a Backend-for-Frontend. Database interactions are managed through Prisma 7 and driver adapters over PostgreSQL 16, secured via Better Auth session authentication with 30-day sliding cookies and Next.js 16 routing proxy validation. All monetary calculations strictly utilize a 64-bit BigInt minor-unit ledger (IDR scale = 0), preventing precision loss across multi-account balance reconciliations, transfer integrity validations, and periodic budget evaluations. Real-time cashflow distributions and 6-month historical trends are dynamically projected to the client via Recharts and React Server Components, delivering sub-millisecond computation and zero-jank UI responsiveness.",
@@ -4835,10 +4785,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "rasanusantara1.webp",
+    "imageUrl": "/images/projects/rasanusantara1.webp",
     "images": [
-      "rasanusantara1.webp",
-      "rasanusantara2.webp"
+      "/images/projects/rasanusantara1.webp",
+      "/images/projects/rasanusantara2.webp",
+      "/images/projects/rasanusantara3.webp",
+      "/images/projects/rasanusantara4.webp",
+      "/images/projects/rasanusantara5.webp"
     ],
     "summary": "Full-stack culinary MSME showcase and operational management platform engineered with Next.js 16 App Router, Express.js, TypeScript, and Prisma ORM on MySQL, delivering automated WhatsApp multi-item cart dispatching, dynamic regional filtering, and role-based vendor inventory governance.",
     "overview": "Rasa Nusantara is a full-stack digital commerce and vendor operations management ecosystem engineered to modernize distribution for authentic Indonesian culinary MSMEs across 16 regional epicenters. Operating on a decomposed architecture with Next.js 16 (App Router) on the frontend and an Express.js TypeScript microservice backend backed by Prisma ORM and MySQL 8.0, the platform eliminates client-side mockups through 100% real-time database queries. The presentation layer implements Tailwind CSS v4 with Lucide React, featuring dynamic multi-faceted catalog filtering, interactive pagination, and persistent client-side cart drawers that automatically calculate cumulative parcel weights for courier logistics. Customer checkout seamlessly serializes orders into atomic MySQL database records while generating pre-formatted WhatsApp transaction threads. On the backend, a role-based access control engine enforces strict data isolation between Super Administrators and individual food artisans, orchestrating end-to-end order status transitions, shipping airway bill updates, and prospective partner onboarding verification.",
@@ -4965,14 +4918,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "smartinventory1.webp",
+    "imageUrl": "/images/projects/smartinventory1.webp",
     "images": [
-      "smartinventory1.webp",
-      "smartinventory2.webp",
-      "smartinventory3.webp",
-      "smartinventory4.webp",
-      "smartinventory5.webp",
-      "smartinventory6.webp"
+      "/images/projects/smartinventory1.webp",
+      "/images/projects/smartinventory2.webp",
+      "/images/projects/smartinventory3.webp",
+      "/images/projects/smartinventory4.webp",
+      "/images/projects/smartinventory5.webp",
+      "/images/projects/smartinventory6.webp",
+      "/images/projects/smartinventory7.webp"
     ],
     "summary": "Industrial multi-tenant manufacturing SaaS ERP built with Next.js 16, Prisma ORM, and Tailwind CSS v4, featuring a serialized ACID inventory engine, 34-digit moving average cost valuation, multi-level BOM work orders, closed-loop scrap tracking, and automated stock opname reconciliation.",
     "overview": "Smart Inventory & Operations System is an enterprise-grade multi-tenant ERP platform engineered to eradicate negative stock drift, untracked workshop material scrap, and distorted inventory valuations in manufacturing operations. Built on Next.js 16 App Router, React 19, TypeScript, and Prisma ORM with SQLite and PostgreSQL compatibility, the architecture handles high-concurrency inventory mutations through a dedicated ACID Inventory Engine. The engine serializes execution via process-level mutex locks and atomic database transactions, enforcing zero negative stock tolerance and preventing double-booking against active production reservations. Inventory valuation is recalculated in real time using moving weighted average cost accounting with 34-digit arbitrary decimal precision. The platform orchestrates an end-to-end operational pipeline encompassing multi-warehouse storage bin mapping, purchase order procurement, multi-level Bill of Materials (BOM), production work order execution with material variance tracking, closed-loop scrap recovery, physical stock opname reconciliation, and an immutable double-entry movement ledger.",
@@ -5089,11 +5043,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Desktop App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "webpconverter1.webp",
+    "imageUrl": "/images/projects/webpconverter1.webp",
     "images": [
-      "webpconverter1.webp",
-      "webpconverter2.webp",
-      "webpconverter3.webp"
+      "/images/projects/webpconverter1.webp",
+      "/images/projects/webpconverter2.webp",
+      "/images/projects/webpconverter3.webp",
+      "/images/projects/webpconverter4.webp"
     ],
     "summary": "Native Windows desktop conversion studio built with PySide6 and Pillow, leveraging an adaptive multi-core process pool executor, asynchronous directory scanning, and dual-tier thumbnail caching to deliver high-throughput batch WebP transcoding with real-time hardware telemetry.",
     "overview": "WEBP Converter Pro is a native Windows desktop productivity utility engineered to eliminate the latency, privacy risks, and file-size constraints of web-based conversion services through high-throughput, offline-first image transcoding. Built with Python 3 and PySide6 (Qt 6), the application pairs an obsidian dark workspace with an adaptive multiprocessing engine that automatically evaluates host CPU topology and RAM capacity via psutil to saturate logical processors without starving system threads. The architecture decouples GUI responsiveness from intensive LibWebP encoding via asynchronous QThread workers and isolated ProcessPoolExecutor instances. Incoming assets (JPG, JPEG, PNG) are parsed through recursive disk scanners, hashed with MD5 for dual-tier memory/disk caching, and converted under fine-tuned Lossy or Lossless profiles. Integrated pyqtgraph monitors plot real-time CPU and memory curves, providing transparent telemetry during multi-gigabyte conversion batches.",
@@ -5215,21 +5170,22 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Desktop App",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "pixvault1.webp",
+    "imageUrl": "/images/projects/pixvault1.webp",
     "images": [
-      "pixvault1.webp",
-      "pixvault2.webp",
-      "pixvault3.webp",
-      "pixvault4.webp",
-      "pixvault5.webp",
-      "pixvault6.webp",
-      "pixvault7.webp",
-      "pixvault8.webp",
-      "pixvault9.webp",
-      "pixvault10.webp",
-      "pixvault11.webp",
-      "pixvault12.webp",
-      "pixvault13.webp"
+      "/images/projects/pixvault1.webp",
+      "/images/projects/pixvault2.webp",
+      "/images/projects/pixvault3.webp",
+      "/images/projects/pixvault4.webp",
+      "/images/projects/pixvault5.webp",
+      "/images/projects/pixvault6.webp",
+      "/images/projects/pixvault7.webp",
+      "/images/projects/pixvault8.webp",
+      "/images/projects/pixvault9.webp",
+      "/images/projects/pixvault10.webp",
+      "/images/projects/pixvault11.webp",
+      "/images/projects/pixvault12.webp",
+      "/images/projects/pixvault13.webp",
+      "/images/projects/pixvault14.webp"
     ],
     "summary": "Air-gapped Windows desktop image optimization studio engineered with PySide6 and Pillow, leveraging an adaptive multi-core ProcessPoolExecutor, collision-free path allocation, LittleCMS color management, and multi-format codec bridges to deliver zero-telemetry batch processing with persistent local JSON audit logging.",
     "overview": "PixVault is a high-performance, local-first Windows desktop application engineered for photographers, web engineers, and prepress technicians who require strict privacy during high-throughput image manipulation. Built with Python 3 and PySide6 (Qt 6), the architecture enforces an air-gapped operational model where source files are processed entirely in-memory and on local storage, eliminating external cloud dependency and telemetry leakage. The processing engine decouples UI event handling from compute-intensive operations via an asynchronous QThread WorkerThread and an adaptive ProcessPoolExecutor that bypasses Python's Global Interpreter Lock across all logical CPU cores. Supporting 10 output formats including HEIC, AVIF, TIFF, WebP, and camera RAW ingestion, PixVault executes sequential pipeline stages—resizing, cropping, affine transforms, DPI density calibration, Exif/GPS metadata stripping, and ICC color profile transformations via LittleCMS—while maintaining an immutable local JSON execution audit log.",
