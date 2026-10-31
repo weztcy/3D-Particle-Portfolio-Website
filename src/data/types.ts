@@ -22,14 +22,17 @@ export interface DomainPillar {
 export type SkillCategory =
   | "web-development"
   | "data-analysis"
-  | "ai-ml"
-  | "ui-ux-design"
+  | "artificial-intelligence"
+  | "machine-learning"
   | "project-management"
-  | "office-productivity";
+  | "office";
+
+export type SkillType = "core-skills" | "tech-stack";
 
 export interface SkillItem {
   name: string;
   category: SkillCategory;
+  skillType: SkillType;
   level: number;
   experience: string;
   roleContext: string;

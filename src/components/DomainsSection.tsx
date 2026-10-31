@@ -6,7 +6,6 @@ import {
   LineChart,
   PieChart,
   FileSpreadsheet,
-  TrendingUp,
   BrainCircuit,
   Zap,
   Search,
@@ -23,8 +22,10 @@ import {
   ShieldCheck,
   ChevronLeft,
   ChevronRight,
-  SlidersHorizontal,
   Terminal,
+  Cpu,
+  Wrench,
+  SlidersHorizontal,
 } from "lucide-react";
 import {
   SiHtml5,
@@ -89,6 +90,21 @@ import {
   SiPlotly,
   SiPolars,
   SiDash,
+  SiPytorch,
+  SiHuggingface,
+  SiLangchain,
+  SiFastapi,
+  SiTensorflow,
+  SiGradio,
+  SiSpacy,
+  SiQdrant,
+  SiMilvus,
+  SiRedis,
+  SiElasticsearch,
+  SiFlask,
+  SiN8N,
+  SiDask,
+  SiGooglecloudstorage,
 } from "react-icons/si";
 import {
   PiMicrosoftExcelLogoFill,
@@ -107,6 +123,7 @@ import {
   SKILL_MATRIX,
   SOFT_SKILLS_MATRIX,
   ParticleFormation,
+  SkillItem,
 } from "@/data";
 
 interface DomainsSectionProps {
@@ -121,13 +138,13 @@ const FILTER_ROW_1 = [
 ] as const;
 
 const FILTER_ROW_2 = [
-  { id: "ai-ml", label: "AI & Machine Learning", shortLabel: "AI & ML", prefix: "03" },
-  { id: "ui-ux-design", label: "UI/UX & Design", shortLabel: "UI/UX", prefix: "04" },
+  { id: "artificial-intelligence", label: "Artificial Intelligence", shortLabel: "Artificial Intelligence", prefix: "03" },
+  { id: "machine-learning", label: "Machine Learning", shortLabel: "Machine Learning", prefix: "04" },
 ] as const;
 
 const FILTER_ROW_3 = [
   { id: "project-management", label: "Project Management", shortLabel: "Proj. Mgmt", prefix: "05" },
-  { id: "office-productivity", label: "Office & Productivity", shortLabel: "Productivity", prefix: "06" },
+  { id: "office", label: "Office", shortLabel: "Office", prefix: "06" },
 ] as const;
 
 const ALL_CATEGORY_FILTERS = [
@@ -146,11 +163,11 @@ function DomainsSection({
     DOMAIN_PILLARS[0].id
   );
 
-  const filteredSkills = useMemo(() => {
+  const categorySkills = useMemo(() => {
     if (selectedSkillCategory === "all") {
       const seen = new Set<string>();
       return SKILL_MATRIX.filter((s) => {
-        const key = s.name.toLowerCase().trim();
+        const key = `${s.name.toLowerCase().trim()}-${s.skillType}`;
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
@@ -161,11 +178,25 @@ function DomainsSection({
     return SKILL_MATRIX.filter((s) => s.category === selectedSkillCategory);
   }, [selectedSkillCategory]);
 
+  const coreSkills = useMemo(() => {
+    return categorySkills.filter((s) => s.skillType === "core-skills");
+  }, [categorySkills]);
+
+  const techStackSkills = useMemo(() => {
+    return categorySkills
+      .filter((s) => s.skillType === "tech-stack")
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
+  }, [categorySkills]);
+
+  const isAllCategory = selectedSkillCategory === "all";
+
   const avgProficiency = useMemo(() => {
-    if (filteredSkills.length === 0) return 0;
-    const sum = filteredSkills.reduce((acc, s) => acc + s.level, 0);
-    return Math.round(sum / filteredSkills.length);
-  }, [filteredSkills]);
+    const list = isAllCategory ? techStackSkills : categorySkills;
+    if (list.length === 0) return 0;
+    const sum = list.reduce((acc, s) => acc + s.level, 0);
+    return Math.round(sum / list.length);
+  }, [categorySkills, isAllCategory, techStackSkills]);
 
   const activeCategoryTitle = useMemo(() => {
     if (selectedSkillCategory === "all") return "ALL DOMAINS";
@@ -178,10 +209,13 @@ function DomainsSection({
     const seen = new Set<string>();
     let allCount = 0;
     SKILL_MATRIX.forEach((s) => {
-      const key = s.name.toLowerCase().trim();
-      if (!seen.has(key)) {
-        seen.add(key);
-        allCount++;
+      // For "all", user only displays tech stack
+      if (s.skillType === "tech-stack") {
+        const key = s.name.toLowerCase().trim();
+        if (!seen.has(key)) {
+          seen.add(key);
+          allCount++;
+        }
       }
       counts[s.category] = (counts[s.category] || 0) + 1;
     });
@@ -189,31 +223,53 @@ function DomainsSection({
     return counts;
   }, []);
 
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  // Responsive: Desktop (3 cols x 6 rows = 18), Tablet (2 cols x 6 rows = 12), Mobile (1 col x 6 rows = 6)
-  const [itemsPerPage, setItemsPerPage] = useState<number>(18);
+  const [corePage, setCorePage] = useState<number>(1);
+  const [stackPage, setStackPage] = useState<number>(1);
+
+  // Responsive itemsPerPage calculation based on viewport:
+  // Desktop (>= 1024): 3 cols -> Core: 2 rows (6 items), Stack: 4 rows (12 items)
+  // Tablet (>= 768): 2 cols -> Core: 2 rows (4 items), Stack: 4 rows (8 items)
+  // Mobile (< 768): 1 col -> Core: 3 rows (3 items), Stack: 6 rows (6 items)
+  const [coreItemsPerPage, setCoreItemsPerPage] = useState<number>(6);
+  const [stackItemsPerPage, setStackItemsPerPage] = useState<number>(12);
 
   useEffect(() => {
-    const updateItemsPerPage = () => {
+    const updatePaginationLimits = () => {
       const width = window.innerWidth;
       if (width >= 1024) {
-        setItemsPerPage(18); // 3 columns x 6 rows
+        setCoreItemsPerPage(6);
+        setStackItemsPerPage(12); // Desktop: 3 cols x 4 rows = 12 items
       } else if (width >= 768) {
-        setItemsPerPage(14); // 2 columns x 7 rows
+        setCoreItemsPerPage(4);
+        setStackItemsPerPage(8);  // Tablet: 2 cols x 4 rows = 8 items
       } else {
-        setItemsPerPage(6); // 1 column x 6 rows
+        setCoreItemsPerPage(3);
+        setStackItemsPerPage(6);  // Mobile: 1 col x 6 rows = 6 items
       }
     };
 
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
-    return () => window.removeEventListener("resize", updateItemsPerPage);
+    updatePaginationLimits();
+    window.addEventListener("resize", updatePaginationLimits);
+    return () => window.removeEventListener("resize", updatePaginationLimits);
   }, []);
 
-  const totalPages = Math.max(1, Math.ceil(filteredSkills.length / itemsPerPage));
-  const safePage = Math.min(currentPage, totalPages);
-  const startIndex = (safePage - 1) * itemsPerPage;
-  const paginatedSkills = filteredSkills.slice(startIndex, safePage * itemsPerPage);
+  // Core Skills Pagination (Hidden in 'all' category)
+  const totalCorePages = Math.max(1, Math.ceil(coreSkills.length / coreItemsPerPage));
+  const safeCorePage = Math.min(corePage, totalCorePages);
+  const coreStartIndex = (safeCorePage - 1) * coreItemsPerPage;
+  const paginatedCoreSkills = coreSkills.slice(
+    coreStartIndex,
+    safeCorePage * coreItemsPerPage
+  );
+
+  // Tech Stack Pagination (Applied consistently across all modes)
+  const totalStackPages = Math.max(1, Math.ceil(techStackSkills.length / stackItemsPerPage));
+  const safeStackPage = Math.min(stackPage, totalStackPages);
+  const stackStartIndex = (safeStackPage - 1) * stackItemsPerPage;
+  const paginatedTechStackSkills = techStackSkills.slice(
+    stackStartIndex,
+    safeStackPage * stackItemsPerPage
+  );
 
   const getPillarIcon = (id: string) => {
     switch (id) {
@@ -228,6 +284,158 @@ function DomainsSection({
       default:
         return Code2;
     }
+  };
+
+  {/* Distinct Core Skills Card: Architectural & Conceptual Focus with Category Color */}
+  const renderCoreSkillCard = (skill: SkillItem, index: number) => {
+    const SkillIcon = getSkillIcon(skill.name);
+    const catStyles = getSkillCategoryStyles(skill.category);
+    const segments = [20, 40, 60, 80, 100];
+
+    return (
+      <div
+        key={`core-${skill.category}-${skill.name}`}
+        className={`group relative rounded-2xl border ${catStyles.cardBorder} bg-gradient-to-br from-[#0c1322]/90 via-[#080e1a]/90 to-[#04070f]/95 p-4 sm:p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.6)]`}
+      >
+        {/* Micro Corner Crosshairs with Category Theme */}
+        <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${catStyles.crosshair}`} />
+
+        {/* Cyber Holographic Light Sweep & Ambient Glow */}
+        <div className={`pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full ${catStyles.glowOrb} blur-2xl transition-all duration-500`} />
+        <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 ease-out" />
+
+        <div>
+          {/* Top HUD Telemetry Row: Architectural Index + Segmented Gauge */}
+          <div className="relative z-10 flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <span className={`font-mono text-[9px] uppercase tracking-widest font-extrabold px-2 py-0.5 rounded-md border ${catStyles.badge}`}>
+                CORE.{(index + 1).toString().padStart(2, "0")}
+              </span>
+              <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider hidden sm:flex items-center gap-1">
+                <span className="text-slate-600">//</span>
+                <span>METHODOLOGY</span>
+              </span>
+            </div>
+
+            {/* Segmented Quantum Mastery Gauge */}
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-0.5">
+                {segments.map((thresh, i) => (
+                  <div
+                    key={i}
+                    className={`h-2.5 w-1 rounded-sm transition-all duration-300 ${
+                      skill.level >= thresh
+                        ? catStyles.meterActive
+                        : "bg-white/10"
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className={`font-mono text-xs font-bold tabular-nums px-1.5 py-0.5 rounded border border-white/10 bg-black/70 shadow-[0_0_8px_rgba(0,0,0,0.5)] ${catStyles.percentColor}`}>
+                {skill.level}%
+              </span>
+            </div>
+          </div>
+
+          {/* Core Skill Name & Architectural Icon */}
+          <div className="relative z-10 flex items-start gap-3 my-2">
+            <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-105 shadow-[inset_0_0_12px_rgba(0,0,0,0.6)] ${catStyles.iconBox}`}>
+              <SkillIcon className="h-5 w-5" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h4 className={`font-display text-sm sm:text-base font-bold text-white ${catStyles.titleHover} transition-colors tracking-tight leading-snug`}>
+                {skill.name}
+              </h4>
+              <p className="text-xs text-slate-300/90 leading-relaxed mt-1 font-normal line-clamp-2">
+                {skill.roleContext}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Architectural Verification Footer */}
+        <div className="relative z-10 pt-2.5 mt-2.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-slate-400">
+          <span className="inline-flex items-center gap-1.5 text-slate-300 text-[10px]">
+            <CheckCircle2 className={`h-3.5 w-3.5 ${catStyles.checkColor} shrink-0`} />
+            <span className="uppercase tracking-wider">SYSTEM ARCHITECTURE</span>
+          </span>
+          <span className={`inline-flex items-center gap-1 rounded-md border ${catStyles.badge} px-2 py-0.5 text-[10px] font-semibold`}>
+            <span className={`h-1 w-1 rounded-full ${catStyles.beacon} animate-pulse`} />
+            <span>{skill.experience}</span>
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  {/* Original Tech Stack Card: Preserved Design with Photonic Gauge */}
+  const renderTechStackCard = (skill: SkillItem) => {
+    const catStyles = getSkillCategoryStyles(skill.category);
+    const SkillIcon = getSkillIcon(skill.name);
+
+    return (
+      <div
+        key={`stack-${skill.category}-${skill.name}`}
+        className={`group relative rounded-2xl border border-white/[0.08] bg-[#07090E]/90 p-3.5 sm:p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${catStyles.cardGlow} flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)]`}
+      >
+        {/* Micro Corner Crosshairs */}
+        <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/20 group-hover:border-indigo-400 transition-colors" />
+
+        {/* Holographic Sweep */}
+        <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-transform duration-700 ease-out" />
+
+        {/* Top Section: Icon on Left, Name & Progress Bar on Right */}
+        <div className="relative z-10 flex items-center gap-3 mb-2.5">
+          <div
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-105 shadow-[inset_0_0_12px_rgba(0,0,0,0.6)] ${catStyles.iconBox}`}
+          >
+            <SkillIcon className="h-5 w-5" />
+          </div>
+
+          <div className="min-w-0 flex-1">
+            {/* Name + Level Percentage HUD Badge */}
+            <div className="flex items-center justify-between gap-1.5 mb-1.5">
+              <span className="font-display text-sm font-bold text-white group-hover:text-slate-100 truncate tracking-tight">
+                {skill.name}
+              </span>
+              <span
+                className={`font-mono text-xs font-bold tabular-nums px-2 py-0.5 rounded-md border border-white/10 bg-black/60 shadow-[0_0_10px_rgba(0,0,0,0.7)] ${catStyles.percentColor} shrink-0`}
+              >
+                {skill.level}%
+              </span>
+            </div>
+
+            {/* Tactical Photonic HUD Gauge with Laser Tip */}
+            <div className="relative h-2 w-full rounded-full bg-black/80 border border-white/10 overflow-hidden p-[1px]">
+              <div
+                className={`h-full rounded-full bg-gradient-to-r ${catStyles.barColor} relative transition-all duration-500`}
+                style={{ width: `${skill.level}%` }}
+              >
+                <span className="absolute right-0 top-0 bottom-0 w-1 rounded-full bg-white shadow-[0_0_6px_#ffffff]" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Row: Context & Experience Readout */}
+        <div className="relative z-10 flex items-center justify-between gap-2 text-[11px] pt-2 border-t border-white/[0.06] font-mono">
+          <span className="text-slate-400 truncate flex items-center gap-1">
+            <span className="text-slate-600">//</span>
+            <span className="truncate">{skill.roleContext}</span>
+          </span>
+          <span className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-white/[0.04] px-2 py-0.5 text-[10px] text-slate-300 shadow-[inset_0_0_6px_rgba(0,0,0,0.5)]">
+            <span className={`h-1 w-1 rounded-full ${catStyles.beacon}`} />
+            <span>{skill.experience}</span>
+          </span>
+        </div>
+      </div>
+    );
   };
 
   const getPillarStyles = (id: string) => {
@@ -320,17 +528,17 @@ function DomainsSection({
           dot: "bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse",
           pill: "bg-emerald-400/30 text-emerald-200 border border-emerald-400/40",
         };
-      case "ai-ml":
+      case "artificial-intelligence":
+        return {
+          btn: "bg-purple-400/20 text-white border-purple-400/70 shadow-[0_0_18px_rgba(192,132,252,0.35),inset_0_0_10px_rgba(192,132,252,0.2)]",
+          dot: "bg-purple-400 shadow-[0_0_8px_#c084fc] animate-pulse",
+          pill: "bg-purple-400/30 text-purple-200 border border-purple-400/40",
+        };
+      case "machine-learning":
         return {
           btn: "bg-indigo-400/20 text-white border-indigo-400/70 shadow-[0_0_18px_rgba(129,140,248,0.35),inset_0_0_10px_rgba(129,140,248,0.2)]",
           dot: "bg-indigo-400 shadow-[0_0_8px_#818cf8] animate-pulse",
           pill: "bg-indigo-400/30 text-indigo-200 border border-indigo-400/40",
-        };
-      case "ui-ux-design":
-        return {
-          btn: "bg-rose-400/20 text-white border-rose-400/70 shadow-[0_0_18px_rgba(251,113,133,0.35),inset_0_0_10px_rgba(251,113,133,0.2)]",
-          dot: "bg-rose-400 shadow-[0_0_8px_#fb7185] animate-pulse",
-          pill: "bg-rose-400/30 text-rose-200 border border-rose-400/40",
         };
       case "project-management":
         return {
@@ -338,7 +546,7 @@ function DomainsSection({
           dot: "bg-amber-400 shadow-[0_0_8px_#fbbf24] animate-pulse",
           pill: "bg-amber-400/30 text-amber-200 border border-amber-400/40",
         };
-      case "office-productivity":
+      case "office":
         return {
           btn: "bg-fuchsia-400/20 text-white border-fuchsia-400/70 shadow-[0_0_18px_rgba(232,121,249,0.35),inset_0_0_10px_rgba(232,121,249,0.2)]",
           dot: "bg-fuchsia-400 shadow-[0_0_8px_#e879f9] animate-pulse",
@@ -362,6 +570,14 @@ function DomainsSection({
           iconBox: "border-sky-400/35 bg-sky-500/10 text-sky-400",
           cardGlow: "hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)]",
           beacon: "bg-sky-400",
+          cardBorder: "border-sky-500/25 hover:border-sky-400/60 hover:shadow-[0_12px_35px_rgba(56,189,248,0.18)]",
+          crosshair: "border-sky-400/70",
+          badge: "border-sky-400/30 bg-sky-950/40 text-sky-300",
+          meterActive: "bg-sky-400 shadow-[0_0_6px_#38bdf8]",
+          checkColor: "text-sky-400",
+          glowOrb: "bg-sky-500/10 group-hover:bg-sky-500/20",
+          headerBorder: "border-sky-500/25",
+          titleHover: "group-hover:text-sky-100",
         };
       case "data-analysis":
         return {
@@ -370,22 +586,46 @@ function DomainsSection({
           iconBox: "border-emerald-400/35 bg-emerald-500/10 text-emerald-400",
           cardGlow: "hover:border-emerald-400/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.2)]",
           beacon: "bg-emerald-400",
+          cardBorder: "border-emerald-500/25 hover:border-emerald-400/60 hover:shadow-[0_12px_35px_rgba(16,185,129,0.18)]",
+          crosshair: "border-emerald-400/70",
+          badge: "border-emerald-400/30 bg-emerald-950/40 text-emerald-300",
+          meterActive: "bg-emerald-400 shadow-[0_0_6px_#34d399]",
+          checkColor: "text-emerald-400",
+          glowOrb: "bg-emerald-500/10 group-hover:bg-emerald-500/20",
+          headerBorder: "border-emerald-500/25",
+          titleHover: "group-hover:text-emerald-100",
         };
-      case "ai-ml":
+      case "artificial-intelligence":
         return {
-          barColor: "from-indigo-400 to-purple-400",
+          barColor: "from-purple-400 to-pink-500",
+          percentColor: "text-purple-300",
+          iconBox: "border-purple-400/35 bg-purple-500/10 text-purple-400",
+          cardGlow: "hover:border-purple-400/50 hover:shadow-[0_0_25px_rgba(192,132,252,0.2)]",
+          beacon: "bg-purple-400",
+          cardBorder: "border-purple-500/25 hover:border-purple-400/60 hover:shadow-[0_12px_35px_rgba(192,132,252,0.18)]",
+          crosshair: "border-purple-400/70",
+          badge: "border-purple-400/30 bg-purple-950/40 text-purple-300",
+          meterActive: "bg-purple-400 shadow-[0_0_6px_#c084fc]",
+          checkColor: "text-purple-400",
+          glowOrb: "bg-purple-500/10 group-hover:bg-purple-500/20",
+          headerBorder: "border-purple-500/25",
+          titleHover: "group-hover:text-purple-100",
+        };
+      case "machine-learning":
+        return {
+          barColor: "from-indigo-400 to-cyan-400",
           percentColor: "text-indigo-300",
           iconBox: "border-indigo-400/35 bg-indigo-500/10 text-indigo-400",
           cardGlow: "hover:border-indigo-400/50 hover:shadow-[0_0_25px_rgba(129,140,248,0.2)]",
           beacon: "bg-indigo-400",
-        };
-      case "ui-ux-design":
-        return {
-          barColor: "from-rose-400 to-pink-400",
-          percentColor: "text-rose-300",
-          iconBox: "border-rose-400/35 bg-rose-500/10 text-rose-400",
-          cardGlow: "hover:border-rose-400/50 hover:shadow-[0_0_25px_rgba(251,113,133,0.2)]",
-          beacon: "bg-rose-400",
+          cardBorder: "border-indigo-500/25 hover:border-indigo-400/60 hover:shadow-[0_12px_35px_rgba(129,140,248,0.18)]",
+          crosshair: "border-indigo-400/70",
+          badge: "border-indigo-400/30 bg-indigo-950/40 text-indigo-300",
+          meterActive: "bg-indigo-400 shadow-[0_0_6px_#818cf8]",
+          checkColor: "text-indigo-400",
+          glowOrb: "bg-indigo-500/10 group-hover:bg-indigo-500/20",
+          headerBorder: "border-indigo-500/25",
+          titleHover: "group-hover:text-indigo-100",
         };
       case "project-management":
         return {
@@ -394,14 +634,30 @@ function DomainsSection({
           iconBox: "border-amber-400/35 bg-amber-500/10 text-amber-400",
           cardGlow: "hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.2)]",
           beacon: "bg-amber-400",
+          cardBorder: "border-amber-500/25 hover:border-amber-400/60 hover:shadow-[0_12px_35px_rgba(245,158,11,0.18)]",
+          crosshair: "border-amber-400/70",
+          badge: "border-amber-400/30 bg-amber-950/40 text-amber-300",
+          meterActive: "bg-amber-400 shadow-[0_0_6px_#fbbf24]",
+          checkColor: "text-amber-400",
+          glowOrb: "bg-amber-500/10 group-hover:bg-amber-500/20",
+          headerBorder: "border-amber-500/25",
+          titleHover: "group-hover:text-amber-100",
         };
-      case "office-productivity":
+      case "office":
         return {
           barColor: "from-fuchsia-400 to-pink-500",
           percentColor: "text-fuchsia-300",
           iconBox: "border-fuchsia-400/35 bg-fuchsia-500/10 text-fuchsia-400",
           cardGlow: "hover:border-fuchsia-400/50 hover:shadow-[0_0_25px_rgba(232,121,249,0.2)]",
           beacon: "bg-fuchsia-400",
+          cardBorder: "border-fuchsia-500/25 hover:border-fuchsia-400/60 hover:shadow-[0_12px_35px_rgba(232,121,249,0.18)]",
+          crosshair: "border-fuchsia-400/70",
+          badge: "border-fuchsia-400/30 bg-fuchsia-950/40 text-fuchsia-300",
+          meterActive: "bg-fuchsia-400 shadow-[0_0_6px_#e879f9]",
+          checkColor: "text-fuchsia-400",
+          glowOrb: "bg-fuchsia-500/10 group-hover:bg-fuchsia-500/20",
+          headerBorder: "border-fuchsia-500/25",
+          titleHover: "group-hover:text-fuchsia-100",
         };
       default:
         return {
@@ -410,6 +666,14 @@ function DomainsSection({
           iconBox: "border-sky-400/35 bg-sky-500/10 text-sky-400",
           cardGlow: "hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)]",
           beacon: "bg-sky-400",
+          cardBorder: "border-sky-500/25 hover:border-sky-400/60 hover:shadow-[0_12px_35px_rgba(56,189,248,0.18)]",
+          crosshair: "border-sky-400/70",
+          badge: "border-sky-400/30 bg-sky-950/40 text-sky-300",
+          meterActive: "bg-sky-400 shadow-[0_0_6px_#38bdf8]",
+          checkColor: "text-sky-400",
+          glowOrb: "bg-sky-500/10 group-hover:bg-sky-500/20",
+          headerBorder: "border-sky-500/25",
+          titleHover: "group-hover:text-sky-100",
         };
     }
   };
@@ -521,8 +785,75 @@ function DomainsSection({
         return PiMicrosoftExcelLogoFill;
       case "Google Sheets":
         return SiGooglesheets;
+      case "Generative Text & Images":
+        return Sparkles;
       case "Large Language Models (LLM)":
         return RiBrainAi3Line;
+      case "Retrieval-Augmented Generation (RAG)":
+        return Database;
+      case "Prompt Engineering & Context Engineering":
+      case "Prompt Engineering & Context Design":
+        return Sparkles;
+      case "Automation":
+        return Zap;
+      case "Agentic AI":
+        return RiAiAgentLine;
+      case "Vector Database & Semantic Search":
+        return Database;
+      case "Natural Language Processing (NLP)":
+        return Terminal;
+      case "AI API Integration & Application Development":
+        return Network;
+      case "PyTorch":
+        return SiPytorch;
+      case "Hugging Face Transformers":
+        return SiHuggingface;
+      case "LangChain":
+        return SiLangchain;
+      case "LangGraph":
+        return Network;
+      case "FastAPI":
+        return SiFastapi;
+      case "PostgreSQL + pgvector":
+        return SiPostgresql;
+      case "Pinecone":
+        return Database;
+      case "ChromaDB":
+        return Database;
+      case "TensorFlow":
+        return SiTensorflow;
+      case "Gradio":
+        return SiGradio;
+      case "Open AI Codex":
+        return RiOpenaiFill;
+      case "Cline":
+        return Terminal;
+      case "spaCy":
+        return SiSpacy;
+      case "NLTK":
+        return BrainCircuit;
+      case "FAISS":
+        return Database;
+      case "Weaviate":
+        return Database;
+      case "Qdrant":
+        return SiQdrant;
+      case "Milvus":
+        return SiMilvus;
+      case "Redis":
+        return SiRedis;
+      case "Elasticsearch":
+        return SiElasticsearch;
+      case "Flask":
+        return SiFlask;
+      case "OpenCode":
+        return Code2;
+      case "9Router":
+        return Network;
+      case "n8n":
+        return SiN8N;
+      case "Hermes Agent":
+        return RiAiAgentLine;
       case "AI Agents":
         return RiAiAgentLine;
       case "Ollama":
@@ -605,8 +936,142 @@ function DomainsSection({
         return ShieldCheck;
       case "Statistical Analysis":
         return Activity;
+      // Core Engineering Skills Mappings
+      case "Frontend Development":
+        return Code2;
+      case "Backend Development":
+        return Terminal;
+      case "Full Stack Development":
+        return Code2;
+      case "Web Architecture & Design":
+        return Layers;
+      case "API Development & Integration":
+        return Network;
+      case "Database Design & Management":
+        return Database;
+      case "Software Engineering Principles":
+        return BrainCircuit;
+      case "Authentication & Web Security":
+        return ShieldCheck;
+      case "Testing & Debugging":
+        return CheckCircle2;
+      case "Web Performance Optimization":
+        return Zap;
+      case "DevOps & Application Deployment":
+        return Rocket;
+      case "SEO Optimization":
+        return Search;
+      case "Responsive Web Architecture":
+        return Layers;
+      case "RESTful API Architecture":
+        return Network;
+      case "Component-Driven Architecture":
+        return Code2;
+      case "State Management & Hydration":
+        return Activity;
+      case "Server-Side Rendering (SSR/SSG)":
+        return Rocket;
+      case "Database Modeling & Normalization":
+        return Database;
+      case "Web Performance Optimization":
+        return Zap;
+      case "Frontend Security Hardening":
+        return ShieldCheck;
+      case "Exploratory Data Analysis (EDA)":
+        return Search;
+      case "Statistical Inference & Hypothesis Testing":
+        return Activity;
+      case "Data Cleansing & ETL Transformation":
+        return Layers;
+      case "Data Analytics & Exploratory Data Analysis (EDA)":
+        return Search;
+      case "Business Intelligence & KPI Analysis":
+        return BarChart3;
+      case "Data Visualization & Dashboard Development":
+        return PieChart;
+      case "Database Querying & Data Modeling":
+        return Database;
+      case "Data Cleaning, Wrangling & Preprocessing":
+        return SlidersHorizontal;
+      case "Data Collection, Extraction & Integration":
+        return Network;
+      case "Statistical Analysis & Hypothesis Testing":
+        return Activity;
+      case "Data Transformation & ETL":
+        return Layers;
+      case "Data Validation & Quality Analysis":
+        return ShieldCheck;
+      case "Predictive & Statistical Analytics":
+        return LineChart;
+      case "Matplotlib":
+        return LineChart;
+      case "Seaborn":
+        return Activity;
+      case "JupyterLab":
+        return SiJupyter;
+      case "Business Intelligence & Dashboard Architecture":
+        return BarChart3;
+      case "Predictive Modeling & Regression":
       case "Predictive Analytics":
-        return TrendingUp;
+        return LineChart;
+      case "Spreadsheet Data Modeling":
+      case "Advanced Spreadsheet Automation":
+        return FileSpreadsheet;
+      case "ML Algorithms & Modeling":
+        return BrainCircuit;
+      case "Supervised & Unsupervised Learning":
+        return Activity;
+      case "Deep Learning & Neural Networks":
+        return BrainCircuit;
+      case "Feature Engineering & Selection":
+        return SlidersHorizontal;
+      case "Data Processing & Preprocessing":
+        return Layers;
+      case "Mathematics, Statistics & Probability for ML":
+        return LineChart;
+      case "XGBoost":
+      case "LightGBM":
+        return Zap;
+      case "Google Cloud Platform":
+        return SiGooglecloud;
+      case "Google Cloud Storage":
+        return SiGooglecloudstorage;
+      case "Dask":
+        return SiDask;
+      case "Machine Learning Lifecycle & Evaluation":
+        return BrainCircuit;
+      case "Natural Language Processing (NLP)":
+        return Terminal;
+      case "Prompt Engineering & Context Design":
+        return Sparkles;
+      case "Retrieval-Augmented Generation (RAG)":
+        return Database;
+      case "Autonomous Multi-Agent Orchestration":
+        return RiAiAgentLine;
+      case "Local LLM Inference & Optimization":
+        return RiBrainAi3Line;
+      case "User-Centered Design (UCD) & Wireframing":
+        return Eye;
+      case "Design System & Token Architecture":
+        return SlidersHorizontal;
+      case "Interactive Prototyping & Flow Simulation":
+        return Zap;
+      case "Visual Hierarchy & Typography Strategy":
+        return RiPaletteLine;
+      case "Agile & Scrum Sprint Planning":
+        return GitBranch;
+      case "Technical Specification & System Documentation":
+        return CheckCircle2;
+      case "Version Control & Branching Strategy":
+        return GitBranch;
+      case "Cross-Functional Task Orchestration":
+        return Network;
+      case "Executive Technical Writing & Formatting":
+        return CheckCircle2;
+      case "Structured Survey & Form Engineering":
+        return SlidersHorizontal;
+      case "Professional Corporate Correspondence":
+        return ShieldCheck;
       case "VBA":
         return FileSpreadsheet;
       case "ggplot2":
@@ -893,21 +1358,37 @@ function DomainsSection({
               </h3>
 
               {/* Real-Time Benchmark HUD Readout */}
-              <div className="mt-3.5 flex flex-wrap items-center gap-3 font-mono text-xs">
-                <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
+              <div className="mt-3.5 flex flex-wrap items-center gap-2 sm:gap-2.5 font-mono text-xs">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] uppercase text-slate-400">FILTERED NODES:</span>
-                  <span className="font-bold text-white tabular-nums">{filteredSkills.length}</span>
+                  <span className="text-[10px] uppercase text-slate-400">TOTAL:</span>
+                  <span className="font-bold text-white tabular-nums">
+                    {isAllCategory ? techStackSkills.length : categorySkills.length}
+                  </span>
                 </div>
-                <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
+                {!isAllCategory && (
+                  <>
+                    <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-cyan-400/30 bg-cyan-950/30 px-2.5 py-1 text-cyan-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                      <span className="text-[10px] uppercase text-cyan-400/80">CORE SKILLS:</span>
+                      <span className="font-bold text-cyan-200 tabular-nums">{coreSkills.length}</span>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-indigo-400/30 bg-indigo-950/30 px-2.5 py-1 text-indigo-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
+                      <span className="text-[10px] uppercase text-indigo-400/80">TECH STACK:</span>
+                      <span className="font-bold text-indigo-200 tabular-nums">{techStackSkills.length}</span>
+                    </div>
+                  </>
+                )}
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-                  <span className="text-[10px] uppercase text-slate-400">AVG PROFICIENCY:</span>
+                  <span className="text-[10px] uppercase text-slate-400">AVG:</span>
                   <span className="font-bold text-sky-300 tabular-nums">{avgProficiency}%</span>
                 </div>
-                <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
-                  <span className="text-[10px] uppercase text-slate-400">ACTIVE DOMAIN:</span>
-                  <span className="font-bold text-indigo-300 truncate max-w-[150px] sm:max-w-none">{activeCategoryTitle}</span>
+                  <span className="text-[10px] uppercase text-slate-400">DOMAIN:</span>
+                  <span className="font-bold text-indigo-300 truncate max-w-[130px] sm:max-w-none">{activeCategoryTitle}</span>
                 </div>
               </div>
             </div>
@@ -936,7 +1417,8 @@ function DomainsSection({
                           key={item.id}
                           onClick={() => {
                             setSelectedSkillCategory(item.id);
-                            setCurrentPage(1);
+                            setCorePage(1);
+                            setStackPage(1);
                             onTriggerPulse();
                           }}
                           className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-1.5 sm:px-2 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
@@ -983,7 +1465,8 @@ function DomainsSection({
                           key={item.id}
                           onClick={() => {
                             setSelectedSkillCategory(item.id);
-                            setCurrentPage(1);
+                            setCorePage(1);
+                            setStackPage(1);
                             onTriggerPulse();
                           }}
                           className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
@@ -1030,7 +1513,8 @@ function DomainsSection({
                           key={item.id}
                           onClick={() => {
                             setSelectedSkillCategory(item.id);
-                            setCurrentPage(1);
+                            setCorePage(1);
+                            setStackPage(1);
                             onTriggerPulse();
                           }}
                           className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
@@ -1066,145 +1550,242 @@ function DomainsSection({
                       );
                     })}
                   </div>
+
+
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Skills Grid */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {paginatedSkills.map((skill) => {
-              const catStyles = getSkillCategoryStyles(skill.category);
-              const SkillIcon = getSkillIcon(skill.name);
-
-              return (
-                <div
-                  key={`${skill.category}-${skill.name}`}
-                  className={`group relative rounded-2xl border border-white/[0.08] bg-[#07090E]/90 p-3.5 sm:p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${catStyles.cardGlow} flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)]`}
-                >
-                  {/* Micro Corner Crosshairs */}
-                  <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/20 group-hover:border-indigo-400 transition-colors" />
-                  <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/20 group-hover:border-indigo-400 transition-colors" />
-                  <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-white/20 group-hover:border-indigo-400 transition-colors" />
-                  <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/20 group-hover:border-indigo-400 transition-colors" />
-
-                  {/* Holographic Sweep */}
-                  <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-transform duration-700 ease-out" />
-
-                  {/* Top Section: Icon on Left, Name & Progress Bar on Right */}
-                  <div className="relative z-10 flex items-center gap-3 mb-2.5">
-                    <div
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-105 shadow-[inset_0_0_12px_rgba(0,0,0,0.6)] ${catStyles.iconBox}`}
-                    >
-                      <SkillIcon className="h-5 w-5" />
+          {/* Section 1: Core Skills & Methodologies (Hidden in 'All Domains', 3 Columns in Category View) */}
+          {!isAllCategory && (() => {
+            const activeCategoryStyle = getSkillCategoryStyles(selectedSkillCategory);
+            return (
+              <>
+                <div className="relative z-10 mb-8 sm:mb-12">
+                  {/* Core Skills Header with Category-Matching Color */}
+                  <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-5 sm:mb-6 border-b ${activeCategoryStyle.headerBorder}`}>
+                    <div className="flex items-center gap-3">
+                      <div className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border ${activeCategoryStyle.iconBox}`}>
+                        <Cpu className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+                      </div>
+                      <div>
+                        <div className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-widest ${activeCategoryStyle.percentColor} flex items-center gap-1.5`}>
+                          <span>SECTION.01</span>
+                          <span className="text-slate-600">//</span>
+                          <span className="text-white font-semibold">METHODOLOGIES & ARCHITECTURE</span>
+                        </div>
+                        <h4 className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
+                          Core Skills & Architectural Methodologies
+                        </h4>
+                      </div>
                     </div>
 
-                    <div className="min-w-0 flex-1">
-                      {/* Name + Percentage HUD Badge */}
-                      <div className="flex items-center justify-between gap-2 mb-1.5">
-                        <span className="font-display text-sm font-bold text-white group-hover:text-slate-100 truncate tracking-tight">
-                          {skill.name}
-                        </span>
-                        <span
-                          className={`font-mono text-xs font-bold tabular-nums px-2 py-0.5 rounded-md border border-white/10 bg-black/60 shadow-[0_0_10px_rgba(0,0,0,0.7)] ${catStyles.percentColor} shrink-0`}
-                        >
-                          {skill.level}%
-                        </span>
-                      </div>
-
-                      {/* Tactical Photonic HUD Gauge with Laser Tip */}
-                      <div className="relative h-2 w-full rounded-full bg-black/80 border border-white/10 overflow-hidden p-[1px]">
-                        <div
-                          className={`h-full rounded-full bg-gradient-to-r ${catStyles.barColor} relative transition-all duration-500`}
-                          style={{ width: `${skill.level}%` }}
-                        >
-                          <span className="absolute right-0 top-0 bottom-0 w-1 rounded-full bg-white shadow-[0_0_6px_#ffffff]" />
-                        </div>
-                      </div>
+                    <div className="flex items-center gap-2 self-start sm:self-auto">
+                      <span className={`font-mono text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-lg border ${activeCategoryStyle.badge} tabular-nums shadow-[0_0_10px_rgba(0,0,0,0.5)]`}>
+                        {coreSkills.length} CORE NODES
+                      </span>
                     </div>
                   </div>
 
-                  {/* Bottom Row: Context & Experience Readout */}
-                  <div className="relative z-10 flex items-center justify-between gap-2 text-[11px] pt-2 border-t border-white/[0.06] font-mono">
-                    <span className="text-slate-400 truncate flex items-center gap-1">
-                      <span className="text-slate-600">//</span>
-                      <span className="truncate">{skill.roleContext}</span>
-                    </span>
-                    <span className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-white/[0.04] px-2 py-0.5 text-[10px] text-slate-300 shadow-[inset_0_0_6px_rgba(0,0,0,0.5)]">
-                      <span className={`h-1 w-1 rounded-full ${catStyles.beacon}`} />
-                      <span>{skill.experience}</span>
-                    </span>
+                  {/* Core Skills Grid: 3 Columns on Desktop, 2 on Tablet, 1 on Mobile */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    {paginatedCoreSkills.length === 0 ? (
+                      <div className="col-span-full rounded-2xl border border-white/5 bg-black/30 p-8 text-center font-mono text-xs text-slate-500">
+                        NO CORE SKILLS REGISTERED IN THIS DOMAIN
+                      </div>
+                    ) : (
+                      paginatedCoreSkills.map((skill, idx) =>
+                        renderCoreSkillCard(skill, coreStartIndex + idx)
+                      )
+                    )}
+                  </div>
+
+                  {/* Core Skills Pagination Controller: Consistent Cyber HUD Layout */}
+                  {totalCorePages > 1 && (
+                    <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+                      {/* Corner Micro Crosshairs */}
+                      <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${activeCategoryStyle.crosshair}`} />
+
+                      <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
+                        <span className={`h-1.5 w-1.5 rounded-full ${activeCategoryStyle.beacon} animate-pulse shrink-0`} />
+                        <span>
+                          SYS.SHOWING [ {coreStartIndex + 1}–{Math.min(safeCorePage * coreItemsPerPage, coreSkills.length)} ] OF{" "}
+                          <span className={`${activeCategoryStyle.percentColor} font-bold`}>{coreSkills.length}</span> CORE NODES
+                        </span>
+                      </div>
+
+                      <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setCorePage((p) => Math.max(1, p - 1));
+                            onTriggerPulse();
+                          }}
+                          disabled={safeCorePage === 1}
+                          className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                        >
+                          <ChevronLeft className="h-3.5 w-3.5" />
+                          <span>PREV</span>
+                        </button>
+
+                        {Array.from({ length: totalCorePages }, (_, idx) => idx + 1).map((pageNum) => (
+                          <button
+                            key={pageNum}
+                            type="button"
+                            onClick={() => {
+                              setCorePage(pageNum);
+                              onTriggerPulse();
+                            }}
+                            className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                              safeCorePage === pageNum
+                                ? `${activeCategoryStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                                : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        ))}
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setCorePage((p) => Math.min(totalCorePages, p + 1));
+                            onTriggerPulse();
+                          }}
+                          disabled={safeCorePage === totalCorePages}
+                          className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                        >
+                          <span>NEXT</span>
+                          <ChevronRight className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Sci-Fi Ambient Divider between Core Skills and Tech Stack */}
+                <div className="relative z-10 my-8 sm:my-10 flex items-center justify-center">
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+                  <div className="absolute px-3 py-1 rounded-full border border-white/10 bg-[#080B12] text-[10px] font-mono text-slate-400 uppercase tracking-widest flex items-center gap-2 shadow-[0_0_15px_rgba(0,0,0,0.9)]">
+                    <span className={`h-1 w-1 rounded-full ${activeCategoryStyle.beacon} animate-pulse`} />
+                    <span>STACK TELEMETRY // TOOLING MATRIX</span>
+                    <span className="h-1 w-1 rounded-full bg-indigo-400 animate-pulse" />
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </>
+            );
+          })()}
 
-          {/* Pagination Controls when filtered skills exceed 1 view */}
-          {totalPages > 1 && (
-            <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
-              {/* Corner Micro Crosshairs */}
-              <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/20" />
-              <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/20" />
-              <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-white/20" />
-              <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/20" />
+          {/* Section 2: Tech Stack & Tooling Matrix (Positioned Below in Original 3 Columns) */}
+          <div className="relative z-10">
+            {/* Tech Stack Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-5 sm:mb-6 border-b border-indigo-500/25">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border border-indigo-400/40 bg-indigo-500/10 text-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+                  <Wrench className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+                </div>
+                <div>
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-indigo-400/80 flex items-center gap-1.5">
+                    <span>SECTION.02</span>
+                    <span className="text-slate-600">//</span>
+                    <span className="text-white font-semibold">TOOLING & FRAMEWORKS</span>
+                  </div>
+                  <h4 className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
+                    Production Tech Stack & Tools
+                  </h4>
+                </div>
+              </div>
 
-              <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse shrink-0" />
-                <span>
-                  SYS.SHOWING [ {(safePage - 1) * itemsPerPage + 1}–
-                  {Math.min(safePage * itemsPerPage, filteredSkills.length)} ] OF{" "}
-                  <span className="text-sky-400 font-bold">
-                    {filteredSkills.length}
-                  </span>{" "}
-                  NODES
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <span className="font-mono text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-lg border border-indigo-400/30 bg-indigo-950/40 text-indigo-300 tabular-nums shadow-[0_0_10px_rgba(99,102,241,0.2)]">
+                  {techStackSkills.length} STACK NODES
                 </span>
               </div>
+            </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
-                <button
-                  onClick={() => {
-                    setCurrentPage((p) => Math.max(1, p - 1));
-                    onTriggerPulse();
-                  }}
-                  disabled={safePage === 1}
-                  className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-sky-500/10 hover:border-sky-400/40 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
-                >
-                  <ChevronLeft className="h-3.5 w-3.5" />
-                  <span>PREV</span>
-                </button>
+            {/* Tech Stack Grid: Original 3 Columns Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {paginatedTechStackSkills.length === 0 ? (
+                <div className="col-span-full rounded-2xl border border-white/5 bg-black/30 p-8 text-center font-mono text-xs text-slate-500">
+                  NO TECH STACK NODES REGISTERED IN THIS DOMAIN
+                </div>
+              ) : (
+                paginatedTechStackSkills.map(renderTechStackCard)
+              )}
+            </div>
+          </div>
 
-                {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((pageNum) => (
+          {/* Tech Stack Pagination Controls: Consistent Cyber HUD Layout */}
+          {totalStackPages > 1 && (() => {
+            const activeStackStyle = getSkillCategoryStyles(selectedSkillCategory);
+            return (
+              <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+                {/* Corner Micro Crosshairs */}
+                <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${activeStackStyle.crosshair}`} />
+
+                <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
+                  <span className={`h-1.5 w-1.5 rounded-full ${activeStackStyle.beacon} animate-pulse shrink-0`} />
+                  <span>
+                    SYS.SHOWING [ {stackStartIndex + 1}–{Math.min(safeStackPage * stackItemsPerPage, techStackSkills.length)} ] OF{" "}
+                    <span className={`${activeStackStyle.percentColor} font-bold`}>{techStackSkills.length}</span> TECH STACK NODES
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
                   <button
-                    key={pageNum}
+                    type="button"
                     onClick={() => {
-                      setCurrentPage(pageNum);
+                      setStackPage((p) => Math.max(1, p - 1));
                       onTriggerPulse();
                     }}
-                    className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
-                      safePage === pageNum
-                        ? "bg-sky-400/25 text-white border border-sky-400/60 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
-                        : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
-                    }`}
+                    disabled={safeStackPage === 1}
+                    className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
                   >
-                    {pageNum}
+                    <ChevronLeft className="h-3.5 w-3.5" />
+                    <span>PREV</span>
                   </button>
-                ))}
 
-                <button
-                  onClick={() => {
-                    setCurrentPage((p) => Math.min(totalPages, p + 1));
-                    onTriggerPulse();
-                  }}
-                  disabled={safePage === totalPages}
-                  className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-sky-500/10 hover:border-sky-400/40 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
-                >
-                  <span>NEXT</span>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                </button>
+                  {Array.from({ length: totalStackPages }, (_, idx) => idx + 1).map((pageNum) => (
+                    <button
+                      key={pageNum}
+                      type="button"
+                      onClick={() => {
+                        setStackPage(pageNum);
+                        onTriggerPulse();
+                      }}
+                      className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                        safeStackPage === pageNum
+                          ? `${activeStackStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                          : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  ))}
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setStackPage((p) => Math.min(totalStackPages, p + 1));
+                      onTriggerPulse();
+                    }}
+                    disabled={safeStackPage === totalStackPages}
+                    className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                  >
+                    <span>NEXT</span>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
 
         {/* Dedicated Soft Skills Card */}

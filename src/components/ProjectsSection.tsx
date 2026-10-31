@@ -222,6 +222,60 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
     }
   };
 
+  const getProjectPaginationStyles = (filter: string) => {
+    switch (filter) {
+      case "web-development":
+        return {
+          crosshair: "border-sky-400/70",
+          beacon: "bg-sky-400 shadow-[0_0_8px_#38bdf8]",
+          percentColor: "text-sky-300",
+          badge: "border-sky-400/40 bg-sky-950/40 text-sky-200",
+        };
+      case "data-analysis":
+        return {
+          crosshair: "border-emerald-400/70",
+          beacon: "bg-emerald-400 shadow-[0_0_8px_#34d399]",
+          percentColor: "text-emerald-300",
+          badge: "border-emerald-400/40 bg-emerald-950/40 text-emerald-200",
+        };
+      case "ai-ml":
+        return {
+          crosshair: "border-indigo-400/70",
+          beacon: "bg-indigo-400 shadow-[0_0_8px_#818cf8]",
+          percentColor: "text-indigo-300",
+          badge: "border-indigo-400/40 bg-indigo-950/40 text-indigo-200",
+        };
+      case "desktop-mobile":
+        return {
+          crosshair: "border-amber-400/70",
+          beacon: "bg-amber-400 shadow-[0_0_8px_#fbbf24]",
+          percentColor: "text-amber-300",
+          badge: "border-amber-400/40 bg-amber-950/40 text-amber-200",
+        };
+      case "ui-ux":
+        return {
+          crosshair: "border-fuchsia-400/70",
+          beacon: "bg-fuchsia-400 shadow-[0_0_8px_#e879f9]",
+          percentColor: "text-fuchsia-300",
+          badge: "border-fuchsia-400/40 bg-fuchsia-950/40 text-fuchsia-200",
+        };
+      case "code-learning":
+        return {
+          crosshair: "border-teal-400/70",
+          beacon: "bg-teal-400 shadow-[0_0_8px_#2dd4bf]",
+          percentColor: "text-teal-300",
+          badge: "border-teal-400/40 bg-teal-950/40 text-teal-200",
+        };
+      default:
+        return {
+          crosshair: "border-sky-400/70",
+          beacon: "bg-sky-400 shadow-[0_0_8px_#38bdf8]",
+          percentColor: "text-sky-300",
+          badge: "border-sky-400/40 bg-sky-950/40 text-sky-200",
+        };
+    }
+  };
+
   return (
     <section
       id="projects"
@@ -583,22 +637,34 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                       </span>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech, tIdx) => (
-                        <span
-                          key={tech}
-                          className={`${
-                            tIdx >= 6 ? "hidden lg:inline-flex" : "inline-flex"
-                          } items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[11px] text-slate-200 hover:border-white/20 transition-colors`}
-                        >
+                      {project.techStack.map((tech, tIdx) => {
+                        // Max 6 on mobile (<md), max 10 on tablet/desktop (>=md), hidden beyond 10
+                        if (tIdx >= 10) return null;
+                        const isHiddenOnMobile = tIdx >= 6;
+                        return (
                           <span
-                            className={`h-1 w-1 rounded-full ${accent.techDot} opacity-80`}
-                          />
-                          <span>{tech}</span>
-                        </span>
-                      ))}
+                            key={tech}
+                            className={`${
+                              isHiddenOnMobile ? "hidden md:inline-flex" : "inline-flex"
+                            } items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[11px] text-slate-200 hover:border-white/20 transition-colors`}
+                          >
+                            <span
+                              className={`h-1 w-1 rounded-full ${accent.techDot} opacity-80`}
+                            />
+                            <span>{tech}</span>
+                          </span>
+                        );
+                      })}
+                      {/* Mobile +more badge (> 6 items) */}
                       {project.techStack.length > 6 && (
-                        <span className="lg:hidden inline-flex items-center rounded-lg border border-white/10 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-slate-300">
+                        <span className="md:hidden inline-flex items-center rounded-lg border border-white/10 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-slate-300">
                           +{project.techStack.length - 6} more
+                        </span>
+                      )}
+                      {/* Desktop & Tablet +more badge (> 10 items) */}
+                      {project.techStack.length > 10 && (
+                        <span className="hidden md:inline-flex items-center rounded-lg border border-white/10 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-slate-300">
+                          +{project.techStack.length - 10} more
                         </span>
                       )}
                     </div>
@@ -643,73 +709,79 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
           })}
         </div>
 
-        {/* Pagination Controls when filtered projects exceed 1 view */}
-        {totalPages > 1 && (
-          <div className="relative mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
-            {/* Corner Micro Crosshairs */}
-            <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/20" />
-            <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/20" />
-            <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-white/20" />
-            <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/20" />
+        {/* Pagination Controls when filtered projects exceed 1 view: Consistent Cyber HUD Layout */}
+        {totalPages > 1 && (() => {
+          const paginationStyle = getProjectPaginationStyles(activeFilter);
+          return (
+            <div className="relative z-10 mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+              {/* Corner Micro Crosshairs */}
+              <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${paginationStyle.crosshair}`} />
 
-            <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse shrink-0" />
-              <span>
-                SYS.SHOWING [ {(safePage - 1) * itemsPerPage + 1}–
-                {Math.min(safePage * itemsPerPage, filteredProjects.length)} ] OF{" "}
-                <span className="text-sky-400 font-bold">
-                  {filteredProjects.length}
-                </span>{" "}
-                PROJECTS
-              </span>
+              <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
+                <span className={`h-1.5 w-1.5 rounded-full ${paginationStyle.beacon} animate-pulse shrink-0`} />
+                <span>
+                  SYS.SHOWING [ {(safePage - 1) * itemsPerPage + 1}–
+                  {Math.min(safePage * itemsPerPage, filteredProjects.length)} ] OF{" "}
+                  <span className={`${paginationStyle.percentColor} font-bold`}>
+                    {filteredProjects.length}
+                  </span>{" "}
+                  PROJECTS
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCurrentPage((p) => Math.max(1, p - 1));
+                    onTriggerPulse?.();
+                  }}
+                  disabled={safePage === 1}
+                  className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  <span>PREV</span>
+                </button>
+
+                {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
+                  (pageNum) => (
+                    <button
+                      key={pageNum}
+                      type="button"
+                      onClick={() => {
+                        setCurrentPage(pageNum);
+                        onTriggerPulse?.();
+                      }}
+                      className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                        safePage === pageNum
+                          ? `${paginationStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                          : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  )
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCurrentPage((p) => Math.min(totalPages, p + 1));
+                    onTriggerPulse?.();
+                  }}
+                  disabled={safePage === totalPages}
+                  className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                >
+                  <span>NEXT</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
             </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
-              <button
-                onClick={() => {
-                  setCurrentPage((p) => Math.max(1, p - 1));
-                  onTriggerPulse?.();
-                }}
-                disabled={safePage === 1}
-                className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-sky-500/10 hover:border-sky-400/40 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
-              >
-                <ChevronLeft className="h-3.5 w-3.5" />
-                <span>PREV</span>
-              </button>
-
-              {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
-                (pageNum) => (
-                  <button
-                    key={pageNum}
-                    onClick={() => {
-                      setCurrentPage(pageNum);
-                      onTriggerPulse?.();
-                    }}
-                    className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
-                      safePage === pageNum
-                        ? "bg-sky-400/25 text-white border border-sky-400/60 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
-                        : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                )
-              )}
-
-              <button
-                onClick={() => {
-                  setCurrentPage((p) => Math.min(totalPages, p + 1));
-                  onTriggerPulse?.();
-                }}
-                disabled={safePage === totalPages}
-                className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-sky-500/10 hover:border-sky-400/40 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
-              >
-                <span>NEXT</span>
-                <ChevronRight className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
     </section>
   );

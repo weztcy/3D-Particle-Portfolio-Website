@@ -379,22 +379,22 @@ function CertificationsSection({
           })}
         </div>
 
-        {/* Pagination Controls when certifications exceed 1 view */}
+        {/* Pagination Controls when certifications exceed 1 view: Consistent Cyber HUD Layout */}
         {totalPages > 1 && (
-          <div className="relative mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+          <div className="relative z-10 mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
             {/* Corner Micro Crosshairs */}
-            <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/20" />
-            <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/20" />
-            <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-white/20" />
-            <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/20" />
+            <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-emerald-400/70" />
+            <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-emerald-400/70" />
+            <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-emerald-400/70" />
+            <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-emerald-400/70" />
 
             <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse shrink-0" />
               <span>
                 SYS.SHOWING [ {(safePage - 1) * itemsPerPage + 1}–
-                {Math.min(safePage * itemsPerPage, CERTIFICATIONS_LIST.length)} ] OF{" "}
-                <span className="text-emerald-400 font-bold">
-                  {CERTIFICATIONS_LIST.length}
+                {Math.min(safePage * itemsPerPage, displayedCertifications.length)} ] OF{" "}
+                <span className="text-emerald-300 font-bold">
+                  {displayedCertifications.length}
                 </span>{" "}
                 CERTIFICATIONS
               </span>
@@ -402,12 +402,13 @@ function CertificationsSection({
 
             <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
               <button
+                type="button"
                 onClick={() => {
                   setCurrentPage((p) => Math.max(1, p - 1));
                   onTriggerPulse?.();
                 }}
                 disabled={safePage === 1}
-                className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-emerald-500/10 hover:border-emerald-400/40 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
               >
                 <ChevronLeft className="h-3.5 w-3.5" />
                 <span>PREV</span>
@@ -417,13 +418,14 @@ function CertificationsSection({
                 (pageNum) => (
                   <button
                     key={pageNum}
+                    type="button"
                     onClick={() => {
                       setCurrentPage(pageNum);
                       onTriggerPulse?.();
                     }}
                     className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
                       safePage === pageNum
-                        ? "bg-emerald-400/25 text-white border border-emerald-400/60 shadow-[0_0_15px_rgba(16,185,129,0.4)]"
+                        ? "border-emerald-400/40 bg-emerald-950/40 text-emerald-200 border shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                         : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
                     }`}
                   >
@@ -433,12 +435,13 @@ function CertificationsSection({
               )}
 
               <button
+                type="button"
                 onClick={() => {
                   setCurrentPage((p) => Math.min(totalPages, p + 1));
                   onTriggerPulse?.();
                 }}
                 disabled={safePage === totalPages}
-                className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-emerald-500/10 hover:border-emerald-400/40 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
               >
                 <span>NEXT</span>
                 <ChevronRight className="h-3.5 w-3.5" />
