@@ -9,10 +9,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "UI/UX Design",
     year: "2026",
     status: "Completed",
-    imageUrl: "foodrecipe1.webp",
+    imageUrl: "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp",
     images: [
-      "foodrecipe1.webp",
-      "foodrecipe2.webp"
+      "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp",
+      "/images/projects/Food Recipe Mobile App UI_UX Design 2.webp"
     ],
     summary:
       "Mobile culinary discovery and cooking assistant interface engineered with high-contrast food photography hierarchy, thumb-zone navigation ergonomics, and streamlined step-by-step preparation cards to minimize cognitive load during active kitchen meal preparation.",
@@ -130,10 +130,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "UI/UX Design",
     year: "2026",
     status: "Completed",
-    imageUrl: "eparking1.webp",
+    imageUrl: "/images/projects/E-Parking Mobile App UI_UX Design 1.webp",
     images: [
-      "eparking1.webp",
-      "eparking2.webp"
+      "/images/projects/E-Parking Mobile App UI_UX Design 1.webp",
+      "/images/projects/E-Parking Mobile App UI_UX Design 2.webp",
+      "/images/projects/E-Parking Mobile App UI_UX Design 3.webp"
     ],
     summary:
       "Dark-mode mobile parking reservation interface engineered for urban drivers, pairing high-contrast glanceable typography, real-time garage occupancy telemetry, and architectural multi-deck bay selection to eliminate parking search friction, prevent overstay penalties, and minimize driver cognitive distraction.",
@@ -265,10 +266,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "UI/UX Design",
     year: "2026",
     status: "Completed",
-    imageUrl: "aorus1.webp",
+    imageUrl: "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp",
     images: [
-      "aorus1.webp",
-      "aorus2.webp"
+      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp",
+      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 2.webp",
+      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 3.webp"
     ],
     summary:
       "Cyberpunk-themed mobile e-commerce interface engineered for PC hardware enthusiasts, combining high-contrast OLED dark telemetry, structured generational chipset matrices, and curated hardware staging wishlists to accelerate technical compatibility verification, eliminate high-ticket purchase anxiety, and streamline tactile checkout ergonomics.",
@@ -400,15 +402,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2021",
     status: "Completed",
-    imageUrl: "aorusshowcase1.webp",
+    imageUrl: "/images/projects/Aorus Gaming Showcase 1.webp",
     images: [
-      "aorusshowcase1.webp",
-      "aorusshowcase2.webp",
-      "aorusshowcase3.webp",
-      "aorusshowcase4.webp",
-      "aorusshowcase5.webp",
-      "aorusshowcase6.webp",
-      "aorusshowcase7.webp"
+      "/images/projects/Aorus Gaming Showcase 1.webp"
     ],
     summary:
       "Interactive gaming hardware catalog and multimedia showcase engineered with semantic HTML5, custom dark-aesthetic CSS3, and vanilla JavaScript, featuring dynamic ambient video backgrounds, multi-angle hardware carousel controls, real-time digital clock synchronization, and a server-side PHP product registration portal.",
@@ -533,9 +529,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Mobile App",
     year: "2026",
     status: "Completed",
-    imageUrl: "rasanusantara1.webp",
+    imageUrl: "/images/projects/Rasa Nusantara - Indonesian Food Recipe 1.webp",
     images: [
-      "rasanusantara1.webp"
+      "/images/projects/Rasa Nusantara - Indonesian Food Recipe 1.webp",
+      "/images/projects/Rasa Nusantara - Indonesian Food Recipe 2.webp"
     ],
     summary:
       "Offline-first native Android culinary catalog engineered in Java 11 and Material Design 3, presenting 20 authentic Indonesian recipes through a dual-column RecyclerView grid, Bumptech Glide memory-safe bitmap downsampling, detailed cooking instructions, and an uncompromising zero-permission privacy model.",
@@ -687,11 +684,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Mobile App",
     year: "2026",
     status: "Completed",
-    imageUrl: "biocard1.webp",
+    imageUrl: "/images/projects/BioCard - Digital Biodata 1.webp",
     images: [
-      "biocard1.webp",
-      "biocard2.webp",
-      "biocard3.webp"
+      "/images/projects/BioCard - Digital Biodata 1.webp",
+      "/images/projects/BioCard - Digital Biodata 2.webp",
+      "/images/projects/BioCard - Digital Biodata 3.webp",
+      "/images/projects/BioCard - Digital Biodata 4.webp"
     ],
     summary:
       "Offline-first native Android profile management client engineered in Java 17 and Android Jetpack, delivering zero-permission photo importing via PhotoPicker contracts, Room SQLite single-record upsert persistence, dynamic Material 3 profile generation, and instantaneous native sharesheet dispatch.",
@@ -846,10 +844,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Mobile App",
     year: "2026",
     status: "Completed",
-    imageUrl: "calgeo1.webp",
+    imageUrl: "/images/projects/Calgeo - 2D Geometry Calculator 1.webp",
     images: [
-      "calgeo1.webp",
-      "calgeo2.webp"
+      "/images/projects/Calgeo - 2D Geometry Calculator 1.webp",
+      "/images/projects/Calgeo - 2D Geometry Calculator 2.webp"
     ],
     summary:
       "Offline-first native Android planar geometry engine built with Java 17 and Jetpack Navigation, delivering dynamic runtime form generation, Triangle Inequality validation, sub-millisecond calculation latency, and a zero-permission stateless memory footprint across eight 2D geometric shapes.",
@@ -1006,10 +1004,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Mobile App",
     year: "2026",
     status: "Completed",
-    imageUrl: "privena1.webp",
+    imageUrl: "/images/projects/Privena - Personal Data Management 1.webp",
     images: [
-      "privena1.webp",
-      "privena2.webp"
+      "/images/projects/Privena - Personal Data Management 1.webp",
+      "/images/projects/Privena - Personal Data Management 2.webp",
+      "/images/projects/Privena - Personal Data Management 3.webp"
     ],
     summary:
       "Offline-first native Android personal data vault engineered in Java and Realm 10.8.0, delivering zero-permission encrypted note management, Firebase Authentication and Realtime Database user profiling, reactive live query streams, and an edge-to-edge dark luxury cybersecurity interface.",
@@ -1158,9 +1157,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Mobile App",
     year: "2026",
     status: "Completed",
-    imageUrl: "numora1.webp",
+    imageUrl: "/images/projects/Numora - Calculator 1.webp",
     images: [
-      "numora1.webp"
+      "/images/projects/Numora - Calculator 1.webp",
+      "/images/projects/Numora - Calculator 2.webp"
     ],
     summary:
       "Offline-first native Android scientific calculator engineered in Kotlin 2.2 and Jetpack Compose, featuring a hand-crafted lexical analyzer, deterministic recursive descent parser, right-associative power evaluation, trigonometric angle switching, tactile haptic feedback, and an AMOLED black interface operating with zero device permissions.",
@@ -1313,10 +1313,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Desktop App",
     year: "2026",
     status: "Completed",
-    imageUrl: "carworkshop1.webp",
+    imageUrl: "/images/projects/Car Workshop Inventory 1.webp",
     images: [
-      "carworkshop1.webp",
-      "carworkshop2.webp"
+      "/images/projects/Car Workshop Inventory 1.webp"
     ],
     summary:
       "Cross-platform Java Swing desktop management client engineered with MySQL JDBC connectivity and JasperReports 5.6.0, delivering atomic multi-item inventory transactions, physical warehouse rack tracking, BCrypt-secured staff authentication, and automated audit document generation with an idle memory footprint under 45MB.",
@@ -1470,13 +1469,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Desktop App",
     year: "2026",
     status: "Completed",
-    imageUrl: "grosirsembako1.webp",
+    imageUrl: "/images/projects/Grosir Sembako Jaya Makmur POS 1.webp",
     images: [
-      "grosirsembako1.webp",
-      "grosirsembako2.webp",
-      "grosirsembako3.webp",
-      "grosirsembako4.webp",
-      "grosirsembako5.webp"
+      "/images/projects/Grosir Sembako Jaya Makmur POS 1.webp",
+      "/images/projects/Grosir Sembako Jaya Makmur POS 2.webp",
+      "/images/projects/Grosir Sembako Jaya Makmur POS 3.webp",
+      "/images/projects/Grosir Sembako Jaya Makmur POS 4.webp",
+      "/images/projects/Grosir Sembako Jaya Makmur POS 5.webp",
+      "/images/projects/Grosir Sembako Jaya Makmur POS 6.webp"
     ],
     summary:
       "High-velocity Java Swing desktop POS client engineered with FlatLaf Light and Google Gson, delivering multi-tier wholesale margin calculation, automated PPN 11% taxation, extended credit term interest penalties, offline JSON persistence, and 58mm/80mm thermal receipt printing.",
@@ -1630,13 +1630,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "silelo1.webp",
+    imageUrl: "/images/projects/SiLelo - Online Auction 1.webp",
     images: [
-      "silelo1.webp",
-      "silelo2.webp",
-      "silelo3.webp",
-      "silelo4.webp",
-      "silelo5.webp"
+      "/images/projects/SiLelo - Online Auction 1.webp",
+      "/images/projects/SiLelo - Online Auction 2.webp",
+      "/images/projects/SiLelo - Online Auction 3.webp",
+      "/images/projects/SiLelo - Online Auction 4.webp",
+      "/images/projects/SiLelo - Online Auction 5.webp",
+      "/images/projects/SiLelo - Online Auction 6.webp"
     ],
     summary:
       "Full-stack online auction and curated marketplace platform built with PHP and CodeIgniter 3, featuring a multi-role RBAC architecture, security deposit escrow validation, dynamic real-time bidding, automated winner adjudication, deposit-deducted invoice settlement, and behavioral category recommendation telemetry.",
@@ -1781,10 +1782,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "pustakanesia1.webp",
+    imageUrl: "/images/projects/Pustakanesia - Digital Library 1.webp",
     images: [
-      "pustakanesia1.webp",
-      "pustakanesia2.webp"
+      "/images/projects/Pustakanesia - Digital Library 1.webp",
+      "/images/projects/Pustakanesia - Digital Library 2.webp",
+      "/images/projects/Pustakanesia - Digital Library 3.webp"
     ],
     summary:
       "Full-stack digital library management and book circulation platform built with Laravel 8, Tailwind CSS, and MySQL, featuring multi-role RBAC, dynamic catalog search, many-to-many category indexing, atomic loan transaction engines with quota enforcement, and automated DomPDF report generation.",
@@ -1933,10 +1935,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "AI & Machine Learning",
     year: "2024",
     status: "Completed",
-    imageUrl: "centerofmass1.webp",
+    imageUrl: "/images/projects/Center of Mass and Velocity Calculator 1.webp",
     images: [
-      "centerofmass1.webp",
-      "centerofmass2.webp"
+      "/images/projects/Center of Mass and Velocity Calculator 1.webp",
+      "/images/projects/Center of Mass and Velocity Calculator 2.webp",
+      "/images/projects/Center of Mass and Velocity Calculator 3.webp"
     ],
     summary:
       "Vectorized scientific computing engine implemented in Python and NumPy to simulate discrete N-body mechanical systems, calculating spatial center-of-mass coordinates and aggregate kinematic velocity vectors with instant 2D/3D scatter and quiver vector field projections in sub-millisecond execution times.",
@@ -2052,10 +2055,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "AI & Machine Learning",
     year: "2024",
     status: "Completed",
-    imageUrl: "jakartahotel1.webp",
+    imageUrl: "/images/projects/Jakarta Hotel Review Sentiment Analysis 1.webp",
     images: [
-      "jakartahotel1.webp",
-      "jakartahotel2.webp"
+      "/images/projects/Jakarta Hotel Review Sentiment Analysis 1.webp",
+      "/images/projects/Jakarta Hotel Review Sentiment Analysis 2.webp"
     ],
     summary:
       "End-to-end natural language processing pipeline mining Google Maps reviews via SerpAPI, normalizing text with negation-preserving NLTK lemmatization, and deploying a maximum-margin Linear Support Vector Classifier through an interactive Streamlit web dashboard for real-time guest sentiment inference.",
@@ -2180,10 +2183,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "AI & Machine Learning",
     year: "2024",
     status: "Completed",
-    imageUrl: "kip1.webp",
+    imageUrl: "/images/projects/KIP Student Eligibility Prediction 1.webp",
     images: [
-      "kip1.webp",
-      "kip2.webp"
+      "/images/projects/KIP Student Eligibility Prediction 1.webp"
     ],
     summary:
       "Supervised machine learning decision-support platform leveraging Gaussian Naive Bayes and one-hot categorical encoding to classify student scholarship eligibility for Indonesia's PIP/KIP program from demographic and socioeconomic features, deployed via an interactive real-time Streamlit web dashboard.",
@@ -2307,10 +2309,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2024",
     status: "Completed",
-    imageUrl: "bpbdkebumen1.webp",
+    imageUrl: "/images/projects/BPBD Kebumen Website Replication 1.webp",
     images: [
-      "bpbdkebumen1.webp",
-      "bpbdkebumen2.webp"
+      "/images/projects/BPBD Kebumen Website Replication 1.webp"
     ],
     summary:
       "Responsive government web portal replication built with React 18, React-Bootstrap, and Bootstrap 5, featuring modular news feeds, interactive operational carousels, responsive municipal telemetry tables, dynamic search widgets, and structured emergency dispatch channels for regional disaster mitigation transparency.",
@@ -2439,13 +2440,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "siben1.webp",
+    imageUrl: "/images/projects/Siben - Disaster Preparedness 1.webp",
     images: [
-      "siben1.webp",
-      "siben2.webp",
-      "siben3.webp",
-      "siben4.webp",
-      "siben5.webp"
+      "/images/projects/Siben - Disaster Preparedness 1.webp",
+      "/images/projects/Siben - Disaster Preparedness 2.webp",
+      "/images/projects/Siben - Disaster Preparedness 3.webp",
+      "/images/projects/Siben - Disaster Preparedness 4.webp",
+      "/images/projects/Siben - Disaster Preparedness 5.webp",
+      "/images/projects/Siben - Disaster Preparedness 6.webp"
     ],
     summary:
       "Full-stack disaster preparedness and emergency response web platform built with React 18, Redux Toolkit, Express, and Sequelize on MySQL, delivering three-phase multi-hazard mitigation guides, real-time BMKG meteorological telemetry proxying, curated emergency news, and full-lifecycle CRUD incident tracking.",
@@ -2591,11 +2593,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "UI/UX Design",
     year: "2024",
     status: "Completed",
-    imageUrl: "prajagamer1.webp",
+    imageUrl: "/images/projects/Prajagamer Website UI_UX Design 1.webp",
     images: [
-      "prajagamer1.webp",
-      "prajagamer2.webp",
-      "prajagamer3.webp"
+      "/images/projects/Prajagamer Website UI_UX Design 1.webp"
     ],
     summary:
       "Civil service internship web platform designed for Disdukcapil Kota Semarang, combining a structured six-stage candidate onboarding guide, multi-step verified document submission wizard, and a real-time administrative KPI telemetry dashboard with Excel exports to eliminate bureaucratic friction and streamline public sector recruitment.",
@@ -2739,10 +2739,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "prajagamer1.webp",
+    imageUrl: "/images/projects/Prajagamer - Internship Registration 1.webp",
     images: [
-      "prajagamer1.webp",
-      "prajagamer2.webp"
+      "/images/projects/Prajagamer - Internship Registration 1.webp",
+      "/images/projects/Prajagamer - Internship Registration 2.webp",
+      "/images/projects/Prajagamer - Internship Registration 3.webp"
     ],
     summary:
       "Full-stack public sector internship admissions and candidate management platform built with React 18, Vite, Express 5, and Prisma SQLite, featuring dual-portal RBAC, multipart document verification, candidate status triaging, real-time telemetry, and client-side SheetJS Excel reporting.",
@@ -2907,12 +2908,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "poliklinik1.webp",
+    imageUrl: "/images/projects/Poliklinik Udinus 1.webp",
     images: [
-      "poliklinik1.webp",
-      "poliklinik2.webp",
-      "poliklinik3.webp",
-      "poliklinik4.webp"
+      "/images/projects/Poliklinik Udinus 1.webp",
+      "/images/projects/Poliklinik Udinus 2.webp",
+      "/images/projects/Poliklinik Udinus 3.webp",
+      "/images/projects/Poliklinik Udinus 4.webp",
+      "/images/projects/Poliklinik Udinus 5.webp"
     ],
     summary:
       "Full-stack campus healthcare management and outpatient booking platform built with native PHP 8.2, MySQL, and Bootstrap 5, featuring multi-role RBAC, dynamic AJAX doctor schedule resolution, automated Medical Record Number generation, shift collision prevention, and prescription billing computation.",
@@ -3056,12 +3058,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "AI & Machine Learning",
     year: "2024",
     status: "Completed",
-    imageUrl: "diabetes1.webp",
+    imageUrl: "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",
     images: [
-      "diabetes1.webp",
-      "diabetes2.webp",
-      "diabetes3.webp",
-      "diabetes4.webp"
+      "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",
+      "/images/projects/Diabetes Classification Using KNN with Data Normalization 2.webp",
+      "/images/projects/Diabetes Classification Using KNN with Data Normalization 3.webp",
+      "/images/projects/Diabetes Classification Using KNN with Data Normalization 4.webp",
+      "/images/projects/Diabetes Classification Using KNN with Data Normalization 5.webp"
     ],
     summary:
       "Supervised medical machine learning benchmark evaluating distance metric sensitivity in K-Nearest Neighbors for diabetes diagnosis across 768 patient records, leveraging Random Forest feature selection and comparative normalization to achieve 81.17% accuracy and statistically significant AUC gains.",
@@ -3190,16 +3193,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "cpplearning1.webp",
+    imageUrl: "/images/projects/CPP Learning Modules 1.webp",
     images: [
-      "cpplearning1.webp",
-      "cpplearning2.webp",
-      "cpplearning3.webp",
-      "cpplearning4.webp",
-      "cpplearning5.webp",
-      "cpplearning6.webp",
-      "cpplearning7.webp",
-      "cpplearning8.webp"
+      "/images/projects/CPP Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive C++20 educational curriculum comprising 17 modular pedagogical stages and 250 standalone compilable programs, delivering hands-on mastery of systems programming, memory architecture, RAII smart pointers, OOP design patterns, STL algorithms, and real-world terminal capstones.",
@@ -3339,16 +3335,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "pythonlearning1.webp",
+    imageUrl: "/images/projects/Python Learning Modules 1.webp",
     images: [
-      "pythonlearning1.webp",
-      "pythonlearning2.webp",
-      "pythonlearning3.webp",
-      "pythonlearning4.webp",
-      "pythonlearning5.webp",
-      "pythonlearning6.webp",
-      "pythonlearning7.webp",
-      "pythonlearning8.webp"
+      "/images/projects/Python Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive Python 3.10+ educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of core syntax, functional programming, OOP design patterns, classical data structures and algorithms, modern typing, ecosystem data libraries, and terminal capstones.",
@@ -3534,16 +3523,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "htmllearning1.webp",
+    imageUrl: "/images/projects/HTML Learning Modules 1.webp",
     images: [
-      "htmllearning1.webp",
-      "htmllearning2.webp",
-      "htmllearning3.webp",
-      "htmllearning4.webp",
-      "htmllearning5.webp",
-      "htmllearning6.webp",
-      "htmllearning7.webp",
-      "htmllearning8.webp"
+      "/images/projects/HTML Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive HTML5 educational curriculum comprising 18 modular pedagogical stages and 300 standalone interactive documents, delivering hands-on mastery of semantic markup, accessibility (WCAG/WAI-ARIA), form validation, multimedia, SVG/Canvas graphics, and complete multi-page web applications.",
@@ -3717,16 +3699,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "csslearning1.webp",
+    imageUrl: "/images/projects/CSS Learning Modules 1.webp",
     images: [
-      "csslearning1.webp",
-      "csslearning2.webp",
-      "csslearning3.webp",
-      "csslearning4.webp",
-      "csslearning5.webp",
-      "csslearning6.webp",
-      "csslearning7.webp",
-      "csslearning8.webp"
+      "/images/projects/CSS Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive CSS3 and Living Standard educational curriculum comprising 18 modular pedagogical tiers and 300 standalone stylesheets and HTML previews, delivering hands-on mastery of layout engines, CSS Grid, Flexbox, responsive design, cascade specificity, animations, modern at-rules, and production capstone projects.",
@@ -3906,16 +3881,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "javalearning1.webp",
+    imageUrl: "/images/projects/Java Learning Modules 1.webp",
     images: [
-      "javalearning1.webp",
-      "javalearning2.webp",
-      "javalearning3.webp",
-      "javalearning4.webp",
-      "javalearning5.webp",
-      "javalearning6.webp",
-      "javalearning7.webp",
-      "javalearning8.webp"
+      "/images/projects/Java Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive Java SE 21 LTS educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of core syntax, OOP architecture, collections, functional Streams, concurrency with Virtual Threads, JDBC persistence, and Spring Boot enterprise capstones.",
@@ -4098,16 +4066,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "javascriptlearning1.webp",
+    imageUrl: "/images/projects/JavaScript Learning Modules 1.webp",
     images: [
-      "javascriptlearning1.webp",
-      "javascriptlearning2.webp",
-      "javascriptlearning3.webp",
-      "javascriptlearning4.webp",
-      "javascriptlearning5.webp",
-      "javascriptlearning6.webp",
-      "javascriptlearning7.webp",
-      "javascriptlearning8.webp"
+      "/images/projects/JavaScript Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive ECMAScript (ES2023+) and Node.js curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of core syntax, closures, OOP prototypes, DOM and Web APIs, asynchronous Event Loop pipelines, Express 5 backend services, and full-stack capstones.",
@@ -4297,16 +4258,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "sqllearning1.webp",
+    imageUrl: "/images/projects/SQL Learning Modules 1.webp",
     images: [
-      "sqllearning1.webp",
-      "sqllearning2.webp",
-      "sqllearning3.webp",
-      "sqllearning4.webp",
-      "sqllearning5.webp",
-      "sqllearning6.webp",
-      "sqllearning7.webp",
-      "sqllearning8.webp"
+      "/images/projects/SQL Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive relational database educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable SQL programs, delivering hands-on mastery of relational query syntax, advanced multi-table joins, transactional concurrency, analytical window functions, query plan optimization, and enterprise capstone database systems.",
@@ -4497,16 +4451,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "phplearning1.webp",
+    imageUrl: "/images/projects/PHP Learning Modules 1.webp",
     images: [
-      "phplearning1.webp",
-      "phplearning2.webp",
-      "phplearning3.webp",
-      "phplearning4.webp",
-      "phplearning5.webp",
-      "phplearning6.webp",
-      "phplearning7.webp",
-      "phplearning8.webp"
+      "/images/projects/PHP Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive PHP 8.2+ educational curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of language syntax, strict typing, advanced OOP design patterns, PDO database integration, backend security, automated testing, and production-grade terminal capstones.",
@@ -4691,16 +4638,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Code Learning",
     year: "2026",
     status: "Completed",
-    imageUrl: "typescriptlearning1.webp",
+    imageUrl: "/images/projects/TypeScript Learning Modules 1.webp",
     images: [
-      "typescriptlearning1.webp",
-      "typescriptlearning2.webp",
-      "typescriptlearning3.webp",
-      "typescriptlearning4.webp",
-      "typescriptlearning5.webp",
-      "typescriptlearning6.webp",
-      "typescriptlearning7.webp",
-      "typescriptlearning8.webp"
+      "/images/projects/TypeScript Learning Modules 1.webp"
     ],
     summary:
       "Comprehensive TypeScript curriculum comprising 18 modular pedagogical tiers and 300 standalone executable programs, delivering hands-on mastery of static typing, discriminated unions, generic abstractions, mapped and conditional types, OOP architecture, asynchronous error pipelines, Express 5 backend services, and enterprise full-stack capstones.",
@@ -4890,10 +4830,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "aksaraya1.webp",
+    imageUrl: "/images/projects/Aksaraya - Digital Library Management 1.webp",
     images: [
-      "aksaraya1.webp",
-      "aksaraya2.webp"
+      "/images/projects/Aksaraya - Digital Library Management 1.webp",
+      "/images/projects/Aksaraya - Digital Library Management 2.webp",
+      "/images/projects/Aksaraya - Digital Library Management 3.webp"
     ],
     summary:
       "Full-stack digital library management and e-reading platform built with Laravel 13, Tailwind CSS v4, and Alpine.js, combining multi-faceted catalog search, in-browser PDF e-reader progress synchronization, automated circulation lifecycle tracking, barcode scanning, and multi-channel notification alerts.",
@@ -5035,12 +4976,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "brainsync1.webp",
+    imageUrl: "/images/projects/BrainSync - Personal Knowledge Management 1.webp",
     images: [
-      "brainsync1.webp",
-      "brainsync2.webp",
-      "brainsync3.webp",
-      "brainsync4.webp"
+      "/images/projects/BrainSync - Personal Knowledge Management 1.webp",
+      "/images/projects/BrainSync - Personal Knowledge Management 2.webp",
+      "/images/projects/BrainSync - Personal Knowledge Management 3.webp",
+      "/images/projects/BrainSync - Personal Knowledge Management 4.webp",
+      "/images/projects/BrainSync - Personal Knowledge Management 5.webp"
     ],
     summary:
       "Open-source personal knowledge management platform built with Next.js 16, React 19, Fastify, and Three.js, featuring bi-directional wiki-linking, 3D celestial knowledge graph visualization, PostgreSQL trigram fuzzy search, split-pane Markdown editing, and centralized GTD task management.",
@@ -5182,18 +5124,19 @@ category: "web-development",
 categoryLabel: "Web Development",
 year: "2026",
 status: "Completed",
-imageUrl: "nabungin1.webp",
+imageUrl: "/images/projects/Nabungin - Personal Finance Tracker 1.webp",
 images: [
-"nabungin1.webp",
-"nabungin2.webp",
-"nabungin3.webp",
-"nabungin4.webp",
-"nabungin5.webp",
-"nabungin6.webp",
-"nabungin7.webp",
-"nabungin8.webp",
-"nabungin9.webp"
-],
+      "/images/projects/Nabungin - Personal Finance Tracker 1.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 2.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 3.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 4.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 5.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 6.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 7.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 8.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 9.webp",
+      "/images/projects/Nabungin - Personal Finance Tracker 10.webp"
+    ],
 summary:
 "Full-stack personal finance platform engineered with Next.js 16, React 19, Express 5, and Prisma 7 on PostgreSQL 16, featuring a BigInt minor-unit ledger, multi-account portfolio reconciliation, period-based budget enforcement, automated recurring transaction scheduling, and interactive Recharts cashflow analytics.",
 overview:
@@ -5349,10 +5292,11 @@ repoUrl: "https://github.com/weztcy/Nabungin---Personal-Finance-Tracker"
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "rasanusantara1.webp",
+    imageUrl: "/images/projects/Rasa Nusantara - Indonesian Culinary UMKM Showcase & Management 1.webp",
     images: [
-      "rasanusantara1.webp",
-      "rasanusantara2.webp"
+      "/images/projects/Rasa Nusantara - Indonesian Culinary UMKM Showcase & Management 1.webp",
+      "/images/projects/Rasa Nusantara - Indonesian Culinary UMKM Showcase & Management 2.webp",
+      "/images/projects/Rasa Nusantara - Indonesian Culinary UMKM Showcase & Management 3.webp"
     ],
     summary:
       "Full-stack culinary MSME showcase and operational management platform engineered with Next.js 16 App Router, Express.js, TypeScript, and Prisma ORM on MySQL, delivering automated WhatsApp multi-item cart dispatching, dynamic regional filtering, and role-based vendor inventory governance.",
@@ -5497,14 +5441,15 @@ repoUrl: "https://github.com/weztcy/Nabungin---Personal-Finance-Tracker"
     categoryLabel: "Web Development",
     year: "2026",
     status: "Completed",
-    imageUrl: "smartinventory1.webp",
+    imageUrl: "/images/projects/Smart Inventory & Operations System 1.webp",
     images: [
-      "smartinventory1.webp",
-      "smartinventory2.webp",
-      "smartinventory3.webp",
-      "smartinventory4.webp",
-      "smartinventory5.webp",
-      "smartinventory6.webp"
+      "/images/projects/Smart Inventory & Operations System 1.webp",
+      "/images/projects/Smart Inventory & Operations System 2.webp",
+      "/images/projects/Smart Inventory & Operations System 3.webp",
+      "/images/projects/Smart Inventory & Operations System 4.webp",
+      "/images/projects/Smart Inventory & Operations System 5.webp",
+      "/images/projects/Smart Inventory & Operations System 6.webp",
+      "/images/projects/Smart Inventory & Operations System 7.webp"
     ],
     summary:
       "Industrial multi-tenant manufacturing SaaS ERP built with Next.js 16, Prisma ORM, and Tailwind CSS v4, featuring a serialized ACID inventory engine, 34-digit moving average cost valuation, multi-level BOM work orders, closed-loop scrap tracking, and automated stock opname reconciliation.",
@@ -5626,11 +5571,12 @@ repoUrl: "https://github.com/weztcy/Nabungin---Personal-Finance-Tracker"
     categoryLabel: "Desktop App",
     year: "2026",
     status: "Completed",
-    imageUrl: "webpconverter1.webp",
+    imageUrl: "/images/projects/WEBP Converter Pro 1.webp",
     images: [
-      "webpconverter1.webp",
-      "webpconverter2.webp",
-      "webpconverter3.webp"
+      "/images/projects/WEBP Converter Pro 1.webp",
+      "/images/projects/WEBP Converter Pro 2.webp",
+      "/images/projects/WEBP Converter Pro 3.webp",
+      "/images/projects/WEBP Converter Pro 4.webp"
     ],
     summary:
       "Native Windows desktop conversion studio built with PySide6 and Pillow, leveraging an adaptive multi-core process pool executor, asynchronous directory scanning, and dual-tier thumbnail caching to deliver high-throughput batch WebP transcoding with real-time hardware telemetry.",
@@ -5771,21 +5717,22 @@ repoUrl: "https://github.com/weztcy/Nabungin---Personal-Finance-Tracker"
     categoryLabel: "Desktop App",
     year: "2026",
     status: "Completed",
-    imageUrl: "pixvault1.webp",
+    imageUrl: "/images/projects/PixVault - Private Image Studio 1.webp",
     images: [
-      "pixvault1.webp",
-      "pixvault2.webp",
-      "pixvault3.webp",
-      "pixvault4.webp",
-      "pixvault5.webp",
-      "pixvault6.webp",
-      "pixvault7.webp",
-      "pixvault8.webp",
-      "pixvault9.webp",
-      "pixvault10.webp",
-      "pixvault11.webp",
-      "pixvault12.webp",
-      "pixvault13.webp"
+      "/images/projects/PixVault - Private Image Studio 1.webp",
+      "/images/projects/PixVault - Private Image Studio 2.webp",
+      "/images/projects/PixVault - Private Image Studio 3.webp",
+      "/images/projects/PixVault - Private Image Studio 4.webp",
+      "/images/projects/PixVault - Private Image Studio 5.webp",
+      "/images/projects/PixVault - Private Image Studio 6.webp",
+      "/images/projects/PixVault - Private Image Studio 7.webp",
+      "/images/projects/PixVault - Private Image Studio 8.webp",
+      "/images/projects/PixVault - Private Image Studio 9.webp",
+      "/images/projects/PixVault - Private Image Studio 10.webp",
+      "/images/projects/PixVault - Private Image Studio 11.webp",
+      "/images/projects/PixVault - Private Image Studio 12.webp",
+      "/images/projects/PixVault - Private Image Studio 13.webp",
+      "/images/projects/PixVault - Private Image Studio 14.webp"
     ],
     summary:
       "Air-gapped Windows desktop image optimization studio engineered with PySide6 and Pillow, leveraging an adaptive multi-core ProcessPoolExecutor, collision-free path allocation, LittleCMS color management, and multi-format codec bridges to deliver zero-telemetry batch processing with persistent local JSON audit logging.",
