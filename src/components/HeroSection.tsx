@@ -54,7 +54,7 @@ const ROLE_BADGES = [
     formation: "neural" as ParticleFormation,
   },
   {
-    label: "Machine Learning Engineer",
+    label: "ML Engineer",
     icon: Network,
     color: "text-amber-400 border-amber-400/30 bg-amber-400/10",
     formation: "clusters" as ParticleFormation,
@@ -338,10 +338,6 @@ export default function HeroSection({
                   {ROLE_BADGES.map((badge, idx) => {
                     const Icon = badge.icon;
                     const isHighlighted = idx === activeRoleIdx;
-                    const shortLabel =
-                      badge.label === "Machine Learning Engineer"
-                        ? "ML Engineer"
-                        : badge.label;
                     return (
                       <button
                         key={badge.label}
@@ -358,10 +354,7 @@ export default function HeroSection({
                         title={`Click to morph 3D manifold to ${badge.formation.toUpperCase()}`}
                       >
                         <Icon className="h-3.5 w-3.5 shrink-0" />
-                        <span className="truncate">
-                          <span className="sm:hidden">{shortLabel}</span>
-                          <span className="hidden sm:inline">{badge.label}</span>
-                        </span>
+                        <span className="truncate">{badge.label}</span>
                       </button>
                     );
                   })}

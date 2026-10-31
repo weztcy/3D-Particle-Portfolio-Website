@@ -78,7 +78,8 @@ export const DOMAIN_PILLARS: DomainPillar[] = [
     id: "ai-engineering",
     index: "03",
     title: "Artificial Intelligence & LLM Systems",
-    roleTitle: "AI Engineer",
+    roleTitle: "Artificial Intelligence Engineer",
+    shortRoleTitle: "AI Engineer",
     subtitle: "Large Language Models · Retrieval-Augmented Generation · Agentic AI",
     description:
       "Designing intelligent AI applications powered by Large Language Models (LLMs), production RAG pipelines, vector search databases, and autonomous multi-agent workflows.",
@@ -112,6 +113,7 @@ export const DOMAIN_PILLARS: DomainPillar[] = [
     index: "04",
     title: "Machine Learning Engineering",
     roleTitle: "Machine Learning Engineer",
+    shortRoleTitle: "ML Engineer",
     subtitle: "Supervised & Unsupervised Learning · Deep Learning · Neural Networks",
     description:
       "Building predictive machine learning pipelines, deep neural networks, and mathematical models backed by rigorous feature engineering and preprocessing.",

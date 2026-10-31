@@ -1141,7 +1141,7 @@ function DomainsSection({
                     DOMAIN // {pillar.index}
                   </div>
                   <div className="font-display text-xs font-bold text-white truncate">
-                    {pillar.roleTitle}
+                    {pillar.shortRoleTitle || pillar.roleTitle}
                   </div>
                 </div>
               </button>

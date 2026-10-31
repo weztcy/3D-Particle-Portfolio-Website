@@ -525,9 +525,10 @@ function ContactSection({
                             const active = selectedScope === pillar.title;
                             const styles = getPillarActiveStyles(pillar.id);
                             const shortRole =
-                              pillar.roleTitle === "Machine Learning Engineer"
+                              pillar.shortRoleTitle ||
+                              (pillar.roleTitle === "Machine Learning Engineer"
                                 ? "ML Engineer"
-                                : pillar.roleTitle;
+                                : pillar.roleTitle);
 
                             return (
                               <button
@@ -551,10 +552,7 @@ function ContactSection({
                                     active ? styles.iconColor : "text-slate-500"
                                   }`}
                                 />
-                                <span className="truncate">
-                                  <span className="sm:hidden">{shortRole}</span>
-                                  <span className="hidden sm:inline">{pillar.title}</span>
-                                </span>
+                                <span className="truncate">{shortRole}</span>
                               </button>
                             );
                           })}

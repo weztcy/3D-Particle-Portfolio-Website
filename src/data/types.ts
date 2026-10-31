@@ -11,6 +11,7 @@ export interface DomainPillar {
   index: string;
   title: string;
   roleTitle: string;
+  shortRoleTitle?: string;
   subtitle: string;
   description: string;
   metrics: { label: string; value: string }[];
