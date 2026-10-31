@@ -162,6 +162,22 @@ function DomainsSection({
   const [activePillarId, setActivePillarId] = useState<string>(
     DOMAIN_PILLARS[0].id
   );
+  const [expandedCapabilities, setExpandedCapabilities] = useState<Record<string, boolean>>({});
+
+  const toggleExpandCapabilities = (
+    pillarId: string,
+    trigger: Exclude<ParticleFormation, "auto">,
+    e?: React.MouseEvent
+  ) => {
+    if (e) e.stopPropagation();
+    setExpandedCapabilities((prev) => ({
+      ...prev,
+      [pillarId]: !prev[pillarId],
+    }));
+    setActivePillarId(pillarId);
+    onSelectFormation(trigger);
+    onTriggerPulse();
+  };
 
   const categorySkills = useMemo(() => {
     if (selectedSkillCategory === "all") {
@@ -1155,6 +1171,7 @@ function DomainsSection({
             const Icon = getPillarIcon(pillar.id);
             const pillarStyle = getPillarStyles(pillar.id);
             const isSelected = activePillarId === pillar.id;
+            const isExpanded = !!expandedCapabilities[pillar.id];
 
             return (
               <div
@@ -1262,13 +1279,9 @@ function DomainsSection({
                     className={`my-3.5 sm:my-4 h-px w-full bg-gradient-to-r ${pillarStyle.laserLine}`}
                   />
 
-                  {/* Core Capabilities Matrix Nodes: Always visible on md+, progressive disclosure on <md (expanded when active) */}
-                  <div
-                    className={`space-y-2 mb-4 sm:mb-5 ${
-                      isSelected ? "block" : "hidden lg:block"
-                    }`}
-                  >
-                    {pillar.capabilities.map((cap, i) => (
+                  {/* First 3 Core Capabilities Nodes: Always visible */}
+                  <div className="space-y-2 mb-2">
+                    {pillar.capabilities.slice(0, 3).map((cap, i) => (
                       <div
                         key={i}
                         className="group/cap flex items-start gap-2.5 rounded-xl border border-white/[0.05] bg-black/40 p-2.5 sm:p-3 text-xs sm:text-sm text-slate-200 transition-all duration-300 hover:border-sky-400/40 hover:bg-sky-500/5 hover:translate-x-1"
@@ -1283,14 +1296,53 @@ function DomainsSection({
                     ))}
                   </div>
 
-                  {/* Mobile Progressive Disclosure Prompt when collapsed (<md & !isSelected) */}
-                  {!isSelected && (
-                    <div className="lg:hidden mb-4 flex items-center justify-between rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-[10px] text-slate-300">
-                      <span>+ {pillar.capabilities.length} Core Capabilities</span>
-                      <span className={pillarStyle.badgeText}>TAP TO EXPAND →</span>
+                  {/* Progressive Disclosure (Tap to Expand / Collapse remaining capabilities) */}
+                  {pillar.capabilities.length > 3 && (
+                    <div className="mb-4 sm:mb-5 space-y-2">
+                      {isExpanded && (
+                        <div className="space-y-2">
+                          {pillar.capabilities.slice(3).map((cap, i) => (
+                            <div
+                              key={i + 3}
+                              className="group/cap flex items-start gap-2.5 rounded-xl border border-white/[0.05] bg-black/40 p-2.5 sm:p-3 text-xs sm:text-sm text-slate-200 transition-all duration-300 hover:border-sky-400/40 hover:bg-sky-500/5 hover:translate-x-1"
+                            >
+                              <CheckCircle2
+                                className={`h-4 w-4 shrink-0 mt-0.5 ${pillarStyle.checkIcon} group-hover/cap:scale-110 transition-transform`}
+                              />
+                              <span className="leading-relaxed font-normal">
+                                {cap}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={(e) =>
+                          toggleExpandCapabilities(
+                            pillar.id,
+                            pillar.formationTrigger,
+                            e
+                          )
+                        }
+                        className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-black/40 hover:bg-white/[0.06] hover:border-white/20 px-3 py-2 font-mono text-[10px] text-slate-300 transition-all cursor-pointer group/toggle active:scale-[0.99]"
+                      >
+                        <span className="text-slate-300 font-medium">
+                          {isExpanded
+                            ? `Showing all ${pillar.capabilities.length} capabilities`
+                            : `+ ${pillar.capabilities.length - 3} Core Capabilities`}
+                        </span>
+                        <span
+                          className={`${pillarStyle.badgeText} font-bold group-hover/toggle:translate-x-0.5 transition-transform flex items-center gap-1`}
+                        >
+                          <span>{isExpanded ? "TAP TO COLLAPSE" : "TAP TO EXPAND"}</span>
+                          <span>{isExpanded ? "↑" : "→"}</span>
+                        </span>
+                      </button>
                     </div>
                   )}
-                </div>
+</div>
 
                 {/* 3D Preview Indicator Command Strip */}
                 <div className="relative z-10 pt-3.5 sm:pt-4 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
