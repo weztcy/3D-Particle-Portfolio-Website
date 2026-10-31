@@ -283,6 +283,7 @@ export default function SynapticParticleCanvas({
     turbulence,
     pulseTrigger,
     scrollProgress: 0,
+    scrollY: 0,
   });
 
   useEffect(() => {
@@ -440,17 +441,38 @@ export default function SynapticParticleCanvas({
       }
     };
 
-    // Cache maxScroll to prevent forced layout reflow during scroll events
+    // Cache maxScroll with dynamic Observer to prevent forced layout reflow during scroll events
     let cachedMaxScroll = Math.max(
       document.documentElement.scrollHeight - window.innerHeight,
       1
     );
 
-    const handleScroll = () => {
-      stateRef.current.scrollProgress = Math.min(
-        Math.max(window.scrollY / cachedMaxScroll, 0),
+    const updateMaxScroll = () => {
+      cachedMaxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
         1
       );
+    };
+
+    let lastScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+    let scrollVelocity = 0;
+    let smoothVelocity = 0;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const deltaY = currentY - lastScrollY;
+      lastScrollY = currentY;
+      scrollVelocity = deltaY;
+
+      if (currentY > cachedMaxScroll) {
+        updateMaxScroll();
+      }
+
+      stateRef.current.scrollProgress = Math.min(
+        Math.max(currentY / cachedMaxScroll, 0),
+        1
+      );
+      stateRef.current.scrollY = currentY;
     };
 
     const handleResize = () => {
@@ -460,11 +482,17 @@ export default function SynapticParticleCanvas({
       const pr = Math.min(window.devicePixelRatio, 2);
       renderer.setPixelRatio(pr);
       uniforms.uPixelRatio.value = pr;
-      cachedMaxScroll = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        1
-      );
+      updateMaxScroll();
     };
+
+    const resizeObserver =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(() => updateMaxScroll())
+        : null;
+
+    if (resizeObserver && typeof document !== "undefined" && document.body) {
+      resizeObserver.observe(document.body);
+    }
 
     window.addEventListener("mousemove", handlePointerMove, { passive: true });
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
@@ -573,24 +601,45 @@ export default function SynapticParticleCanvas({
         uniforms.uCursorWorld.value.lerp(cursorIntersect, 0.18);
       }
 
-      // Scroll & Cursor Parallax Camera Choreography
+      // Scroll velocity inertia smoothing and decay
+      smoothVelocity = THREE.MathUtils.lerp(smoothVelocity, scrollVelocity, 0.12);
+      scrollVelocity *= 0.88;
+
+      const motionScale = prefersReducedMotion ? 0.35 : 1.0;
       const scrollP = stateRef.current.scrollProgress;
-      const targetCamX = pointerNDC.x * 1.9 + Math.sin(scrollP * Math.PI * 2) * 1.4;
-      const targetCamY = 2.0 + pointerNDC.y * 1.3 - scrollP * 2.2;
-      const targetCamZ = 18.5 - Math.sin(scrollP * Math.PI) * 2.8;
+      const scrollY = stateRef.current.scrollY || 0;
 
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetCamX, 0.045);
-      camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetCamY, 0.045);
-      camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetCamZ, 0.045);
-      camera.lookAt(0, -scrollP * 0.8, 0);
+      // Scroll & Cursor Parallax Camera Choreography
+      // Harmonic section rhythm zoom that breathes as user scrolls
+      const scrollCycle = scrollY * 0.0018 * motionScale;
+      const targetCamZ =
+        18.5 - Math.sin(scrollCycle) * 2.5 - Math.sin(scrollP * Math.PI) * 1.6;
+      const targetCamX =
+        pointerNDC.x * 1.9 + Math.sin(scrollCycle * 0.8) * 1.3 * motionScale;
+      const targetCamY =
+        2.0 +
+        pointerNDC.y * 1.3 -
+        Math.sin(scrollCycle * 0.5) * 1.5 * motionScale -
+        scrollP * 1.8;
 
-      // Rotate particle manifold and orbital rings smoothly
-      pointsMesh.rotation.y = elapsed * 0.055 + scrollP * 1.15;
-      pointsMesh.rotation.x = Math.sin(elapsed * 0.15) * 0.08 + scrollP * 0.25;
+      camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetCamX, 0.05);
+      camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetCamY, 0.05);
+      camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetCamZ, 0.05);
+      camera.lookAt(0, -Math.sin(scrollCycle * 0.5) * 0.6 - scrollP * 0.5, 0);
+
+      // Rotate particle manifold, orbital rings, and synaptic lines with scroll & kinetic momentum
+      const scrollRotationY =
+        (scrollY * 0.0014 + smoothVelocity * 0.007) * motionScale;
+      const scrollRotationX =
+        (Math.sin(scrollCycle) * 0.2 + smoothVelocity * 0.003) * motionScale;
+
+      pointsMesh.rotation.y = elapsed * 0.055 + scrollRotationY;
+      pointsMesh.rotation.x = Math.sin(elapsed * 0.15) * 0.08 + scrollRotationX;
       synapticLines.rotation.copy(pointsMesh.rotation);
 
-      ringGroup.rotation.y = -elapsed * 0.04;
-      ringGroup.rotation.x = Math.cos(elapsed * 0.12) * 0.06;
+      ringGroup.rotation.y = -elapsed * 0.04 - scrollRotationY * 0.5;
+      ringGroup.rotation.x =
+        Math.cos(elapsed * 0.12) * 0.06 - scrollRotationX * 0.5;
 
       // Update Dynamic Synaptic Network Filaments between hub particles
       const posArr = (geometry.getAttribute("position") as THREE.BufferAttribute)
@@ -684,6 +733,9 @@ export default function SynapticParticleCanvas({
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
       geometry.dispose();
       material.dispose();
       lineGeometry.dispose();
