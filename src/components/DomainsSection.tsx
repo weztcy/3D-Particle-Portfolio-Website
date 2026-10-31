@@ -1610,7 +1610,7 @@ function DomainsSection({
                       </div>
                       <div>
                         <div className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-widest ${activeCategoryStyle.percentColor} flex items-center gap-1.5`}>
-                          <span>SECTION.01</span>
+                          <span>SECTION.</span>
                           <span className="text-slate-600">//</span>
                           <span className="text-white font-semibold">METHODOLOGIES & ARCHITECTURE</span>
                         </div>
@@ -1729,7 +1729,7 @@ function DomainsSection({
                 </div>
                 <div>
                   <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-indigo-400/80 flex items-center gap-1.5">
-                    <span>SECTION.02</span>
+                    <span>SECTION.</span>
                     <span className="text-slate-600">//</span>
                     <span className="text-white font-semibold">TOOLING & FRAMEWORKS</span>
                   </div>
