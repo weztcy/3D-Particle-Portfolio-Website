@@ -1232,7 +1232,8 @@ function DomainsSection({
                         <span
                           className={`inline-block font-mono text-xs font-bold ${pillarStyle.badgeText} mt-0.5`}
                         >
-                          {pillar.roleTitle}
+                          <span className="inline sm:hidden">{pillar.shortRoleTitle || pillar.roleTitle}</span>
+                          <span className="hidden sm:inline">{pillar.roleTitle}</span>
                         </span>
                       </div>
                     </div>
