@@ -207,7 +207,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     category: "web-development",
     skillType: "tech-stack",
     level: 90,
-    experience: calcExp(2024),
+    experience: calcExp(2023),
     roleContext: "NoSQL document storage, aggregation pipelines & flexible schemas",
   },
   {
@@ -223,7 +223,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     category: "web-development",
     skillType: "tech-stack",
     level: 93,
-    experience: calcExp(2024),
+    experience: calcExp(2023),
     roleContext: "Type-safe database ORM, automated migrations & query builder",
   },
   {
@@ -303,7 +303,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     category: "web-development",
     skillType: "tech-stack",
     level: 91,
-    experience: calcExp(2025),
+    experience: calcExp(2023),
     roleContext: "Zero-overhead type-safe SQL query builder & lightweight schema migration",
   },
   {
@@ -383,7 +383,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     category: "web-development",
     skillType: "tech-stack",
     level: 95,
-    experience: calcExp(2024),
+    experience: calcExp(2023),
     roleContext: "Accessible, copy-paste Radix UI components styled with Tailwind CSS",
   },
   {
