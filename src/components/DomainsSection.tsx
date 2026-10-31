@@ -70,7 +70,7 @@ interface DomainsSectionProps {
 
 const FILTER_ROW_1 = [
   { id: "all", label: "All Domains", shortLabel: "All", prefix: "00" },
-  { id: "web-development", label: "Web Dev", shortLabel: "Web", prefix: "01" },
+  { id: "web-development", label: "Web Development", shortLabel: "Web", prefix: "01" },
   { id: "data-analysis", label: "Data Analytics", shortLabel: "Data", prefix: "02" },
 ] as const;
 
@@ -739,7 +739,7 @@ export default function DomainsSection({
             </div>
 
             {/* Filter Category Console Bar - Strictly 3 Rows Maximum */}
-            <div className="w-full lg:max-w-2xl xl:max-w-none xl:w-[500px] 2xl:w-[540px]">
+            <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[535px] 2xl:w-[555px]">
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-2 sm:p-2.5 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
                 {/* Optical Corner HUD Crosshairs */}
                 <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-indigo-400/80" />
@@ -765,7 +765,7 @@ export default function DomainsSection({
                             setCurrentPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-1.5 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-1.5 sm:px-2 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
