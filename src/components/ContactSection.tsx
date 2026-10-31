@@ -57,16 +57,17 @@ const getPillarActiveStyles = (id: string) => {
         iconColor: "text-emerald-300",
       };
     case "ai-engineering":
+    case "artificial-intelligence":
       return {
         active:
-          "border-indigo-400 bg-indigo-400/15 text-indigo-300 shadow-[0_0_16px_rgba(129,140,248,0.25)]",
-        iconColor: "text-indigo-300",
+          "border-purple-400 bg-purple-400/15 text-purple-300 shadow-[0_0_16px_rgba(192,132,252,0.25)]",
+        iconColor: "text-purple-300",
       };
     case "machine-learning":
       return {
         active:
-          "border-amber-400 bg-amber-400/15 text-amber-300 shadow-[0_0_16px_rgba(245,158,11,0.25)]",
-        iconColor: "text-amber-300",
+          "border-indigo-400 bg-indigo-400/15 text-indigo-300 shadow-[0_0_16px_rgba(129,140,248,0.25)]",
+        iconColor: "text-indigo-300",
       };
     default:
       return {

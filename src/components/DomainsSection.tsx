@@ -485,6 +485,21 @@ function DomainsSection({
           beacon: "bg-emerald-400",
         };
       case "ai-engineering":
+      case "artificial-intelligence":
+        return {
+          badgeText: "text-purple-300",
+          badgePill: "border-purple-400/35 bg-purple-400/10 text-purple-300",
+          iconBox: "border-purple-400/40 bg-purple-500/10 text-purple-400",
+          checkIcon: "text-purple-400",
+          glowBg: "from-purple-500/20 via-purple-500/5 to-transparent",
+          cornerColor: "border-purple-400/80",
+          borderNormal: "border-purple-500/25 hover:border-purple-400/60 hover:shadow-[0_0_35px_rgba(192,132,252,0.2)]",
+          borderSelected: "border-purple-400 bg-[#0A0D17]/95 shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_40px_rgba(192,132,252,0.3)]",
+          titleHover: "group-hover:text-purple-300",
+          laserLine: "from-transparent via-purple-400/40 to-transparent",
+          beacon: "bg-purple-400",
+        };
+      case "machine-learning":
         return {
           badgeText: "text-indigo-300",
           badgePill: "border-indigo-400/35 bg-indigo-400/10 text-indigo-300",
@@ -497,20 +512,6 @@ function DomainsSection({
           titleHover: "group-hover:text-indigo-300",
           laserLine: "from-transparent via-indigo-400/40 to-transparent",
           beacon: "bg-indigo-400",
-        };
-      case "machine-learning":
-        return {
-          badgeText: "text-amber-300",
-          badgePill: "border-amber-400/35 bg-amber-400/10 text-amber-300",
-          iconBox: "border-amber-400/40 bg-amber-500/10 text-amber-400",
-          checkIcon: "text-amber-400",
-          glowBg: "from-amber-500/20 via-amber-500/5 to-transparent",
-          cornerColor: "border-amber-400/80",
-          borderNormal: "border-amber-500/25 hover:border-amber-400/60 hover:shadow-[0_0_35px_rgba(245,158,11,0.2)]",
-          borderSelected: "border-amber-400 bg-[#0A0D17]/95 shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_40px_rgba(245,158,11,0.3)]",
-          titleHover: "group-hover:text-amber-300",
-          laserLine: "from-transparent via-amber-400/40 to-transparent",
-          beacon: "bg-amber-400",
         };
       default:
         return {

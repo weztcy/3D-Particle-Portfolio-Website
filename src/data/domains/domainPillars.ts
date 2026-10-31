@@ -111,7 +111,7 @@ export const DOMAIN_PILLARS: DomainPillar[] = [
   {
     id: "machine-learning",
     index: "04",
-    title: "Machine Learning Engineering",
+    title: "End-to-End Machine Learning Systems",
     roleTitle: "Machine Learning Engineer",
     shortRoleTitle: "ML Engineer",
     subtitle: "Supervised & Unsupervised Learning · Deep Learning · Neural Networks",
