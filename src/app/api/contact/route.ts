@@ -68,6 +68,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json(
+        { error: "Malformed payload: Expected a valid JSON object." },
+        { status: 400 }
+      );
+    }
+
     const {
       name,
       email,
@@ -222,14 +229,14 @@ export async function POST(request: Request) {
 
     if (!gmailPass) {
       console.error(
-        "[Nodemailer] GMAIL_APP_PASSWORD is not set in environment variables."
+        "[Nodemailer] GMAIL_APP_PASSWORD is not set in server environment variables."
       );
       return NextResponse.json(
         {
           error:
-            "Mail server gateway is unconfigured. Please configure GMAIL_APP_PASSWORD in .env.local with a 16-character Google App Password.",
+            "Mail transmission gateway is temporarily unconfigured on this host. Please connect directly via LinkedIn or direct email.",
         },
-        { status: 500 }
+        { status: 503 }
       );
     }
 
@@ -368,8 +375,7 @@ Reply directly to this email to contact ${trimmedName} (${trimmedEmail}).
     return NextResponse.json(
       {
         error:
-          error?.message ||
-          "Failed to dispatch transmission through gateway. Please verify mail credentials.",
+          "Failed to dispatch transmission through gateway. Please try again later or contact directly via alternative channels.",
       },
       { status: 500 }
     );

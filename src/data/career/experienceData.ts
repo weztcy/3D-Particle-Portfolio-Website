@@ -5,7 +5,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
     id: "independent-software-data-solutions",
     period: "July 2025 — Present",
     role: "Web Developer & Data Analyst",
-    organization: "Independent Software & Data Solutions",
+    organization: "Independent Digital Solutions",
     location: "Remote, Indonesia",
     type: "Full-Time",
     summary:

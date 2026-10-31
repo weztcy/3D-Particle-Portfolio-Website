@@ -318,7 +318,7 @@ export default function SynapticParticleCanvas({
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.innerHTML = "";
+    container.replaceChildren();
     container.appendChild(renderer.domElement);
 
     // Precompute all 5 mathematical manifolds

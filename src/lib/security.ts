@@ -84,24 +84,41 @@ export function checkRateLimit(ip: string): {
   };
 }
 
+const IP_FORMAT_REGEX = /^[a-fA-F0-9:.]+$/;
+
+function sanitizeIp(rawIp: string | null | undefined): string | null {
+  if (!rawIp) return null;
+  const trimmed = rawIp.trim();
+  if (trimmed.length < 3 || trimmed.length > 45) return null;
+  if (!IP_FORMAT_REGEX.test(trimmed)) return null;
+  return trimmed;
+}
+
 /**
- * Extracts Client IP address taking proxies / load balancers into account
+ * Extracts and validates Client IP address prioritizing trusted reverse-proxy headers
  */
 export function getClientIp(request: Request): string {
+  // 1. Cloudflare connecting IP (upstream-verified proxy header)
+  const cfConnectingIp = sanitizeIp(request.headers.get("cf-connecting-ip"));
+  if (cfConnectingIp) return cfConnectingIp;
+
+  // 2. Standard reverse proxy real IP (Nginx, Vercel edge proxy)
+  const realIp = sanitizeIp(request.headers.get("x-real-ip"));
+  if (realIp) return realIp;
+
+  // 3. Fallback to X-Forwarded-For header (first upstream hop)
   const forwardedFor = request.headers.get("x-forwarded-for");
   if (forwardedFor) {
-    const firstIp = forwardedFor.split(",")[0]?.trim();
-    if (firstIp) return firstIp;
+    const firstRaw = forwardedFor.split(",")[0]?.trim();
+    const validatedFirst = sanitizeIp(firstRaw);
+    if (validatedFirst) return validatedFirst;
   }
-  const realIp = request.headers.get("x-real-ip");
-  if (realIp) return realIp.trim();
-  const cfConnectingIp = request.headers.get("cf-connecting-ip");
-  if (cfConnectingIp) return cfConnectingIp.trim();
+
   return "127.0.0.1";
 }
 
 /**
- * CSRF and Origin Guard
+ * CSRF and Origin Guard with Reverse-Proxy Host Alignment
  */
 export function isAllowedOrigin(request: Request): boolean {
   const secFetchSite = request.headers.get("sec-fetch-site");
@@ -111,36 +128,67 @@ export function isAllowedOrigin(request: Request): boolean {
 
   const origin = request.headers.get("origin");
   const host = request.headers.get("host");
+  const forwardedHost = request.headers.get("x-forwarded-host");
+  const targetHost = forwardedHost || host;
 
-  if (!origin) {
-    return true; // Direct/same-origin navigation or test clients
+  if (origin) {
+    try {
+      const originUrl = new URL(origin);
+      // Allow localhost & loopback in dev
+      if (
+        originUrl.hostname === "localhost" ||
+        originUrl.hostname === "127.0.0.1"
+      ) {
+        return true;
+      }
+      // Match origin host with request Host or Forwarded Host
+      if (
+        targetHost &&
+        (originUrl.host === targetHost || (host && originUrl.host === host))
+      ) {
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
   }
 
-  try {
-    const originUrl = new URL(origin);
-    // Allow localhost & loopback in dev
-    if (
-      originUrl.hostname === "localhost" ||
-      originUrl.hostname === "127.0.0.1"
-    ) {
-      return true;
+  // If origin header is absent, inspect Referer header when provided
+  const referer = request.headers.get("referer");
+  if (referer) {
+    try {
+      const refererUrl = new URL(referer);
+      if (
+        refererUrl.hostname === "localhost" ||
+        refererUrl.hostname === "127.0.0.1"
+      ) {
+        return true;
+      }
+      if (
+        targetHost &&
+        (refererUrl.host === targetHost || (host && refererUrl.host === host))
+      ) {
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
     }
-    // Match origin host with request Host header
-    if (host && originUrl.host === host) {
-      return true;
-    }
-    return false;
-  } catch {
-    return false;
   }
+
+  // Direct same-origin navigation or test clients
+  return true;
 }
 
 /**
- * CRLF / Email Header Injection Detector
- * Ensures single-line header fields cannot inject SMTP carriage returns or newlines
+ * CRLF & Null Byte / Email Header Injection Detector
+ * Ensures single-line header fields cannot inject SMTP carriage returns, newlines, or null bytes
  */
 export function detectCrlfInjection(input: string): boolean {
-  return /[\r\n]/.test(input);
+  if (/[\r\n\0]/.test(input)) return true;
+  if (/%0[ad0]/i.test(input)) return true;
+  return false;
 }
 
 /**
