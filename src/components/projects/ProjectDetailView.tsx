@@ -369,7 +369,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
               {/* Left Column: Project Name, Category, Year, Status & Actions */}
-              <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+              <div className="lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                   <span className="inline-flex items-center gap-2 rounded-lg border border-sky-400/35 bg-sky-500/10 px-2.5 sm:px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -388,6 +388,116 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                 <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
                   {project.title}
                 </h1>
+
+                {/* Mobile & Tablet Preview Images (Positioned below Project Title on < lg) */}
+                <div className="block lg:hidden pt-2">
+                  <div className="relative overflow-hidden rounded-2xl border border-sky-400/30 bg-[#080B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(56,189,248,0.1)]">
+                    {/* Optical HUD Crosshairs */}
+                    <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
+                    <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
+                    <div className="pointer-events-none absolute bottom-11 left-2 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
+                    <div className="pointer-events-none absolute bottom-11 right-2 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
+
+                    {/* 16:9 Image Container */}
+                    <div
+                      onMouseEnter={() => setIsPaused(true)}
+                      onMouseLeave={() => setIsPaused(false)}
+                      onClick={() => {
+                        if (currentImage && !hasCurrentImageError) {
+                          setIsLightboxOpen(true);
+                          handleTriggerPulse();
+                        }
+                      }}
+                      className={`relative aspect-video w-full overflow-hidden bg-slate-950/90 group select-none ${
+                        currentImage && !hasCurrentImageError
+                          ? "cursor-pointer"
+                          : ""
+                      }`}
+                    >
+                      {currentImage && !hasCurrentImageError ? (
+                        <img
+                          key={currentImage}
+                          src={currentImage}
+                          alt={`${project.title} - Preview ${currentImageIndex + 1}`}
+                          onError={() =>
+                            setImgErrors((prev) => ({
+                              ...prev,
+                              [currentImageIndex]: true,
+                            }))
+                          }
+                          className="h-full w-full object-cover object-center group-hover:scale-105 transition-all duration-500 ease-out"
+                        />
+                      ) : (
+                        <div className="h-full w-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-[#0C0F17] to-indigo-950/40 p-6 text-center">
+                          <Terminal className="h-12 w-12 text-sky-400/60 mb-3" />
+                          <span className="font-mono text-xs text-slate-300 font-semibold">
+                            {project.code}
+                          </span>
+                          <span className="font-mono text-[11px] text-slate-500 mt-1">
+                            {project.categoryLabel}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Click to Zoom Hint Overlay */}
+                      {currentImage && !hasCurrentImageError && (
+                        <div className="pointer-events-none absolute top-3 right-3 rounded-lg border border-sky-400/40 bg-black/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-sky-200 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-[0_0_12px_rgba(56,189,248,0.25)] z-20">
+                          <Maximize2 className="h-3 w-3 text-sky-400" />
+                          <span>OPTICAL_HUD // ENLARGE</span>
+                        </div>
+                      )}
+
+                      {/* Multiple Images Navigation Controls */}
+                      {hasMultipleImages && (
+                        <>
+                          <button
+                            type="button"
+                            onClick={handlePrevImage}
+                            aria-label="Previous Image"
+                            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-xl border border-sky-400/40 bg-black/80 text-sky-300 backdrop-blur-md hover:border-sky-400 hover:bg-sky-500/20 hover:text-white hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all z-10"
+                          >
+                            <ChevronLeft className="h-4 w-4" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleNextImage}
+                            aria-label="Next Image"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-xl border border-sky-400/40 bg-black/80 text-sky-300 backdrop-blur-md hover:border-sky-400 hover:bg-sky-500/20 hover:text-white hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all z-10"
+                          >
+                            <ChevronRight className="h-4 w-4" />
+                          </button>
+
+                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-black/80 px-2.5 py-1 backdrop-blur-md shadow-[0_0_12px_rgba(0,0,0,0.8)]">
+                            {projectImages.map((_, idx) => (
+                              <button
+                                key={idx}
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setCurrentImageIndex(idx);
+                                  handleTriggerPulse();
+                                }}
+                                aria-label={`Go to slide ${idx + 1}`}
+                                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                                  currentImageIndex === idx
+                                    ? "w-4 bg-sky-400 shadow-[0_0_10px_#38bdf8]"
+                                    : "w-1.5 bg-white/40 hover:bg-white/80"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Image Footer Info */}
+                    <div className="flex items-center justify-end gap-2 px-4 py-2.5 border-t border-emerald-500/40 bg-gradient-to-r from-emerald-950/60 via-emerald-950/90 to-emerald-900/90 text-emerald-300 font-mono text-xs font-bold tracking-wider shadow-[inset_0_1px_0_rgba(16,185,129,0.2)]">
+                      <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                      <span className="tracking-widest">STATUS // {project.status.toUpperCase()}</span>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Header Quick Actions */}
                 <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
@@ -417,8 +527,8 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                 </div>
               </div>
 
-              {/* Right Column: Cover Image (Consistent with Certificate Image Card) */}
-              <div className="lg:col-span-5">
+              {/* Right Column: Cover Image (Desktop Only, lg+) */}
+              <div className="hidden lg:block lg:col-span-5">
                 <div className="relative overflow-hidden rounded-2xl border border-sky-400/30 bg-[#080B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(56,189,248,0.1)]">
                   {/* Optical HUD Crosshairs */}
                   <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
@@ -635,7 +745,16 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   </span>
 
                   <div>
-                    <div className="flex flex-wrap sm:flex-nowrap items-start justify-between gap-2 sm:gap-3 mb-3">
+                    {/* Top Badge for Mobile & Tablet (< lg): Right aligned above title */}
+                    {feat.badge && (
+                      <div className="flex lg:hidden justify-end mb-2.5">
+                        <span className="rounded-lg border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 font-mono text-[10px] sm:text-[11px] font-semibold text-sky-300">
+                          {feat.badge}
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="flex items-start justify-between gap-2 sm:gap-3 mb-3">
                       <div className="flex items-center gap-2.5 min-w-0">
                         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-sky-400/40 bg-sky-400/15 font-mono text-xs font-bold text-sky-300 shadow-[0_0_10px_rgba(56,189,248,0.2)]">
                           0{idx + 1}
@@ -644,8 +763,9 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                           {feat.title}
                         </h3>
                       </div>
+                      {/* Desktop Badge (lg+): Right aligned inline next to title */}
                       {feat.badge && (
-                        <span className="rounded-lg border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 font-mono text-[10px] sm:text-[11px] font-semibold text-sky-300 shrink-0">
+                        <span className="hidden lg:inline-flex rounded-lg border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-sky-300 shrink-0">
                           {feat.badge}
                         </span>
                       )}
@@ -905,7 +1025,9 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
               {/* System Architecture & Quality Verification Protocol (Universal across all categories) */}
               <div
-                className="group relative overflow-hidden rounded-2xl border border-sky-500/20 bg-black/60 p-5 flex flex-col justify-between"
+                className={`group relative overflow-hidden rounded-2xl border border-sky-500/20 bg-black/60 p-5 flex flex-col justify-between ${
+                  project.repoUrl ? "sm:col-span-2 lg:col-span-1" : ""
+                }`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
