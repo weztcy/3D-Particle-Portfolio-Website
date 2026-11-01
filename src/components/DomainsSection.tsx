@@ -133,17 +133,17 @@ interface DomainsSectionProps {
 
 const FILTER_ROW_1 = [
   { id: "all", label: "All Domains", shortLabel: "All", prefix: "00" },
-  { id: "web-development", label: "Web Development", shortLabel: "Web", prefix: "01" },
-  { id: "data-analysis", label: "Data Analytics", shortLabel: "Data", prefix: "02" },
+  { id: "web-development", label: "Web Development", shortLabel: "Web Dev", prefix: "01" },
+  { id: "data-analysis", label: "Data Analytics", shortLabel: "Data Analytics", prefix: "02" },
 ] as const;
 
 const FILTER_ROW_2 = [
-  { id: "artificial-intelligence", label: "Artificial Intelligence", shortLabel: "Artificial Intelligence", prefix: "03" },
-  { id: "machine-learning", label: "Machine Learning", shortLabel: "Machine Learning", prefix: "04" },
+  { id: "artificial-intelligence", label: "Artificial Intelligence", shortLabel: "AI", prefix: "03" },
+  { id: "machine-learning", label: "Machine Learning", shortLabel: "ML", prefix: "04" },
 ] as const;
 
 const FILTER_ROW_3 = [
-  { id: "project-management", label: "Project Management", shortLabel: "Proj. Mgmt", prefix: "05" },
+  { id: "project-management", label: "Project Management", shortLabel: "Project Management", prefix: "05" },
   { id: "office", label: "Office", shortLabel: "Office", prefix: "06" },
 ] as const;
 
@@ -1394,7 +1394,7 @@ function DomainsSection({
                 <span>TECHNICAL TELEMETRY & TOOLING MATRIX</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mt-1">
-                Production Stack & Quantitative<span className="block">Proficiency.</span>
+                Production Stack & Quantitative <span className="sm:block inline">Proficiency.</span>
               </h3>
 
               {/* Real-Time Benchmark HUD Readout */}
@@ -1448,7 +1448,7 @@ function DomainsSection({
                 {/* 3 Rows Maximum System */}
                 <div className="relative z-10 flex flex-col gap-1.5">
                   {/* Row 1: 3 Columns (All Domains, Web Dev, Data Analytics) */}
-                  <div className="grid grid-cols-3 gap-1 sm:gap-1.5">
+                  <div className="flex w-full gap-1 sm:gap-1.5">
                     {FILTER_ROW_1.map((item) => {
                       const isActive = selectedSkillCategory === item.id;
                       const activeStyles = getSkillFilterActiveStyles(item.id);
@@ -1461,7 +1461,7 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -1499,7 +1499,7 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -1537,7 +1537,7 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
