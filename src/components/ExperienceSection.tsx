@@ -127,13 +127,15 @@ function ExperienceSection() {
                       <h3 className="font-display text-lg sm:text-2xl font-bold text-white group-hover/card:text-blue-300 transition-colors leading-tight">
                         {exp.role}
                       </h3>
-                      <div className="font-mono text-xs text-blue-300/90 mt-1 mb-3.5 sm:mb-4 flex items-center gap-2 flex-wrap">
-                        <Building2 className="h-3.5 w-3.5 text-blue-400 shrink-0" />
-                        <span className="font-semibold text-blue-200">{exp.organization}</span>
-                        <span className="text-slate-600">·</span>
-                        <span className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-0.5 text-slate-400 text-[11px]">
-                          {exp.type}
-                        </span>
+                      <div className="font-mono text-xs text-blue-300/90 mt-1.5 mb-3.5 sm:mb-4 flex items-start gap-2">
+                        <Building2 className="h-3.5 w-3.5 text-blue-400 shrink-0 mt-0.5" />
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+                          <span className="font-semibold text-blue-200 leading-snug">{exp.organization}</span>
+                          <span className="text-slate-600 hidden sm:inline">·</span>
+                          <span className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-0.5 text-slate-400 text-[11px] shrink-0">
+                            {exp.type}
+                          </span>
+                        </div>
                       </div>
 
                       {/* Summary */}
