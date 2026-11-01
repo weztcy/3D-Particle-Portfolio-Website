@@ -257,11 +257,11 @@ export default function CvPage() {
           </div>
 
           <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-bold text-sky-300 text-[11px] sm:text-sm tracking-wider truncate">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-bold text-sky-300 text-[11px] sm:text-sm tracking-wider truncate min-w-0">
                 [ EXECUTIVE DOSSIER // CURRICULUM VITAE ]
               </span>
-              <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-[10px] text-emerald-400 font-bold whitespace-nowrap">
+              <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-[10px] text-emerald-400 font-bold whitespace-nowrap shrink-0">
                 <CheckCircle2 className="h-2.5 w-2.5" />
                 ATS-OPTIMIZED · VERIFIED
               </span>

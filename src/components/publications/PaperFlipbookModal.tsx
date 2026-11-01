@@ -306,17 +306,17 @@ export default function PaperFlipbookModal({
           </div>
 
           <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-bold text-amber-300 text-[11px] sm:text-sm tracking-wider truncate">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-bold text-amber-300 text-[11px] sm:text-sm tracking-wider truncate min-w-0">
                 [ PEER-REVIEWED SCIENTIFIC ARTICLE // JAIC-2025 ]
               </span>
-              <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-[10px] text-amber-300 font-bold whitespace-nowrap">
+              <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-[10px] text-amber-300 font-bold whitespace-nowrap shrink-0">
                 <CheckCircle2 className="h-2.5 w-2.5" />
                 SINTA 3 · VERIFIED
               </span>
             </div>
             <p
-              className="text-[11px] sm:text-xs text-slate-300 font-sans font-medium leading-snug line-clamp-1 sm:line-clamp-2 xl:line-clamp-1"
+              className="text-[11px] sm:text-xs text-slate-300 font-sans font-medium leading-snug truncate"
               title={title}
             >
               {title}
