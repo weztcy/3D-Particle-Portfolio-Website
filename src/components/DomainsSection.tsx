@@ -1394,7 +1394,7 @@ function DomainsSection({
                 <span>TECHNICAL TELEMETRY & TOOLING MATRIX</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mt-1">
-                Production Stack & Quantitative Proficiency.
+                Production Stack & Quantitative<span className="block">Proficiency.</span>
               </h3>
 
               {/* Real-Time Benchmark HUD Readout */}
@@ -1434,7 +1434,7 @@ function DomainsSection({
             </div>
 
             {/* Filter Category Console Bar - Strictly 3 Rows Maximum */}
-            <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[535px] 2xl:w-[555px]">
+            <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[480px] 2xl:w-[500px]">
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-2 sm:p-2.5 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
                 {/* Optical Corner HUD Crosshairs */}
                 <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-indigo-400/80" />
@@ -1461,13 +1461,13 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-1.5 sm:px-2 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
                           }`}
                         >
-                          <div className="flex items-center gap-1 sm:gap-1.5 truncate min-w-0">
+                          <div className="flex items-center gap-1 sm:gap-1.5 truncate min-w-0 text-left">
                             <span
                               className={`hidden min-[380px]:inline-block h-1.5 w-1.5 rounded-full shrink-0 transition-all ${
                                 isActive
@@ -1475,21 +1475,11 @@ function DomainsSection({
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate">
+                            <span className="truncate text-left">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
                           </div>
-
-                          <span
-                            className={`shrink-0 ml-1 px-1 sm:px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums transition-colors ${
-                              isActive
-                                ? activeStyles.pill
-                                : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
-                            }`}
-                          >
-                            {categoryCounts[item.id] ?? 0}
-                          </span>
                         </button>
                       );
                     })}
@@ -1509,13 +1499,13 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
                           }`}
                         >
-                          <div className="flex items-center gap-1.5 truncate">
+                          <div className="flex items-center gap-1.5 truncate text-left">
                             <span
                               className={`h-1.5 w-1.5 rounded-full shrink-0 transition-all ${
                                 isActive
@@ -1523,21 +1513,11 @@ function DomainsSection({
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate">
+                            <span className="truncate text-left">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
                           </div>
-
-                          <span
-                            className={`shrink-0 ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold tabular-nums transition-colors ${
-                              isActive
-                                ? activeStyles.pill
-                                : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
-                            }`}
-                          >
-                            {categoryCounts[item.id] ?? 0}
-                          </span>
                         </button>
                       );
                     })}
@@ -1557,13 +1537,13 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
                           }`}
                         >
-                          <div className="flex items-center gap-1.5 truncate">
+                          <div className="flex items-center gap-1.5 truncate text-left">
                             <span
                               className={`h-1.5 w-1.5 rounded-full shrink-0 transition-all ${
                                 isActive
@@ -1571,21 +1551,11 @@ function DomainsSection({
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate">
+                            <span className="truncate text-left">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
                           </div>
-
-                          <span
-                            className={`shrink-0 ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold tabular-nums transition-colors ${
-                              isActive
-                                ? activeStyles.pill
-                                : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
-                            }`}
-                          >
-                            {categoryCounts[item.id] ?? 0}
-                          </span>
                         </button>
                       );
                     })}
