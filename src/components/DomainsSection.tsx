@@ -850,6 +850,14 @@ function DomainsSection({
         return SiLangchain;
       case "LangGraph":
         return Network;
+      case "LlamaIndex":
+      case "llama-index":
+        return Layers;
+      case "LLaMA CPP":
+      case "llama.cpp":
+      case "Llama.cpp":
+      case "llama-cpp":
+        return Cpu;
       case "FastAPI":
         return SiFastapi;
       case "PostgreSQL + pgvector":

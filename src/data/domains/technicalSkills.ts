@@ -730,7 +730,7 @@ export const SKILL_MATRIX: SkillItem[] = [
   },
 
   // ==========================================
-  // 3. Artificial Intelligence (9 Core Skills + 38 Tech Stack)
+  // 3. Artificial Intelligence (9 Core Skills + 40 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -1109,6 +1109,22 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 92,
     experience: calcExp(2025),
     roleContext: "Open-weights autonomous reasoning agent, function calling & goal pursuit",
+  },
+  {
+    name: "LlamaIndex",
+    category: "artificial-intelligence",
+    skillType: "tech-stack",
+    level: 95,
+    experience: calcExp(2025),
+    roleContext: "Data framework for LLM applications, ingestion, indexing & advanced RAG pipelines",
+  },
+  {
+    name: "LLaMA CPP",
+    category: "artificial-intelligence",
+    skillType: "tech-stack",
+    level: 94,
+    experience: calcExp(2025),
+    roleContext: "High-performance quantized LLM inference on CPU/GPU via GGUF & raw C/C++ runtime",
   },
 
   // ==========================================
