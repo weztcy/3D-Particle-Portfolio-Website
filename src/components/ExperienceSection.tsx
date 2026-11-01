@@ -157,16 +157,20 @@ function ExperienceSection() {
                       </ul>
 
                       {hasMoreHighlights && (
-                        <div className="sm:hidden flex justify-center mt-3">
+                        <div className="sm:hidden mt-3">
                           <button
                             type="button"
                             onClick={() => toggleExpHighlights(exp.id)}
-                            className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-blue-400/30 bg-blue-500/10 px-3 py-1 font-mono text-[10px] font-semibold text-blue-300 hover:bg-blue-500/20 active:scale-95 transition-all"
+                            className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-black/40 hover:bg-white/[0.06] hover:border-white/20 px-3 py-2 font-mono text-[10px] text-slate-300 transition-all cursor-pointer group/toggle active:scale-[0.99]"
                           >
-                            <span>
+                            <span className="text-slate-300 font-medium">
                               {isExpanded
-                                ? "Show Less"
-                                : "Show More Highlights"}
+                                ? "Collapse Additional Highlights"
+                                : `+ ${exp.highlights.length - 2} Key Highlights`}
+                            </span>
+                            <span className="text-blue-400 font-bold group-hover/toggle:translate-x-0.5 transition-transform flex items-center gap-1">
+                              <span>{isExpanded ? "TAP TO COLLAPSE" : "TAP TO EXPAND"}</span>
+                              <span>{isExpanded ? "↑" : "→"}</span>
                             </span>
                           </button>
                         </div>
