@@ -1366,7 +1366,7 @@ export const SKILL_MATRIX: SkillItem[] = [
   },
 
   // ==========================================
-  // 5. Project Management & Collaboration (4 Core Skills + 4 Tech Stack)
+  // 5. Project Management & Collaboration (4 Core Skills + 6 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -1434,9 +1434,25 @@ export const SKILL_MATRIX: SkillItem[] = [
     experience: calcExp(2023),
     roleContext: "Team cloud storage, shared workspaces & asset collaboration",
   },
+  {
+    name: "Asana",
+    category: "project-management",
+    skillType: "tech-stack",
+    level: 95,
+    experience: calcExp(2023),
+    roleContext: "Cross-functional task workflows, sprint planning & timeline milestones",
+  },
+  {
+    name: "Jira",
+    category: "project-management",
+    skillType: "tech-stack",
+    level: 95,
+    experience: calcExp(2023),
+    roleContext: "Agile issue tracking, sprint backlog grooming & release roadmaps",
+  },
 
   // ==========================================
-  // 6. Office (4 Core Skills + 7 Tech Stack)
+  // 6. Office (4 Core Skills + 11 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -1527,6 +1543,38 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 98,
     experience: calcExp(2020),
     roleContext: "Centralized cloud document organization, sharing & backup",
+  },
+  {
+    name: "Canva",
+    category: "office",
+    skillType: "tech-stack",
+    level: 96,
+    experience: calcExp(2021),
+    roleContext: "Visual asset design, pitch deck graphics & presentation collateral",
+  },
+  {
+    name: "Google Slides",
+    category: "office",
+    skillType: "tech-stack",
+    level: 97,
+    experience: calcExp(2021),
+    roleContext: "Collaborative cloud presentation decks, stakeholder reviews & slide animations",
+  },
+  {
+    name: "Microsoft PowerPoint",
+    category: "office",
+    skillType: "tech-stack",
+    level: 98,
+    experience: calcExp(2020),
+    roleContext: "Executive slide decks, corporate presentations & visual storytelling",
+  },
+  {
+    name: "OneDrive",
+    category: "office",
+    skillType: "tech-stack",
+    level: 97,
+    experience: calcExp(2020),
+    roleContext: "Enterprise cloud backup, cross-device sync & secure document repository",
   },
 
 ];
