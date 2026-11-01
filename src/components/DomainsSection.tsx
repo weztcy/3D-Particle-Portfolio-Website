@@ -76,6 +76,8 @@ import {
   SiGoogleforms,
   SiGmail,
   SiFigma,
+  SiAsana,
+  SiJira,
 } from "react-icons/si";
 import { FaAws, FaJava } from "react-icons/fa6";
 import {
@@ -112,6 +114,7 @@ import {
   PiMicrosoftPowerpointLogoFill,
 } from "react-icons/pi";
 import { TbSql } from "react-icons/tb";
+import { ImOnedrive } from "react-icons/im";
 import { getPaginationRange } from "@/lib/pagination";
 import {
   RiBrainAi3Line,
@@ -927,6 +930,14 @@ function DomainsSection({
         return RiPaletteLine;
       case "Microsoft PowerPoint":
         return PiMicrosoftPowerpointLogoFill;
+      case "OneDrive":
+      case "onedrive":
+      case "Microsoft OneDrive":
+        return ImOnedrive;
+      case "Asana":
+        return SiAsana;
+      case "Jira":
+        return SiJira;
             case "Pandas":
         return SiPandas;
       case "NumPy":
@@ -2077,15 +2088,17 @@ function DomainsSection({
                     </div>
                   </div>
 
-                  <div className="flex items-end justify-between gap-3 text-[11px]">
-                    <span className="text-slate-400 leading-relaxed">
+                  <div className="flex flex-col justify-between flex-1 gap-2.5 text-[11px] mt-1">
+                    <p className="text-slate-400 leading-relaxed">
                       {softSkill.description}
-                    </span>
-                    <span
-                      className={`shrink-0 rounded border px-1.5 py-0.5 font-mono text-[10px] ${badgeStyle}`}
-                    >
-                      {softSkill.categoryTag}
-                    </span>
+                    </p>
+                    <div className="flex justify-end pt-0.5">
+                      <span
+                        className={`rounded border px-1.5 py-0.5 font-mono text-[10px] ${badgeStyle}`}
+                      >
+                        {softSkill.categoryTag}
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
