@@ -1611,7 +1611,7 @@ function DomainsSection({
 
                     <div className="flex items-center gap-2 self-start sm:self-auto">
                       <span className={`font-mono text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-lg border ${activeCategoryStyle.badge} tabular-nums shadow-[0_0_10px_rgba(0,0,0,0.5)]`}>
-                        {coreSkills.length} CORE NODES
+                        {coreSkills.length} CORE SKILLS
                       </span>
                     </div>
                   </div>
@@ -1642,7 +1642,7 @@ function DomainsSection({
                         <span className={`h-1.5 w-1.5 rounded-full ${activeCategoryStyle.beacon} animate-pulse shrink-0`} />
                         <span>
                           SYS.SHOWING [ {coreStartIndex + 1}–{Math.min(safeCorePage * coreItemsPerPage, coreSkills.length)} ] OF{" "}
-                          <span className={`${activeCategoryStyle.percentColor} font-bold`}>{coreSkills.length}</span> CORE NODES
+                          <span className={`${activeCategoryStyle.percentColor} font-bold`}>{coreSkills.length}</span> CORE SKILLS
                         </span>
                       </div>
 
@@ -1781,7 +1781,7 @@ function DomainsSection({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {paginatedTechStackSkills.length === 0 ? (
                 <div className="col-span-full rounded-2xl border border-white/5 bg-black/30 p-8 text-center font-mono text-xs text-slate-500">
-                  NO TECH STACK NODES REGISTERED IN THIS DOMAIN
+                  NO TECH STACK REGISTERED IN THIS DOMAIN
                 </div>
               ) : (
                 paginatedTechStackSkills.map(renderTechStackCard)
@@ -1804,7 +1804,7 @@ function DomainsSection({
                   <span className={`h-1.5 w-1.5 rounded-full ${activeStackStyle.beacon} animate-pulse shrink-0`} />
                   <span>
                     SYS.SHOWING [ {stackStartIndex + 1}–{Math.min(safeStackPage * stackItemsPerPage, techStackSkills.length)} ] OF{" "}
-                    <span className={`${activeStackStyle.percentColor} font-bold`}>{techStackSkills.length}</span> TECH STACK NODES
+                    <span className={`${activeStackStyle.percentColor} font-bold`}>{techStackSkills.length}</span> TECH STACK
                   </span>
                 </div>
 
