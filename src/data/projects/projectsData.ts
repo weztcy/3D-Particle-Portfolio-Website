@@ -4,7 +4,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
   {
     id: "food-recipe-mobile-app-uiux-design",
     code: "PRO-01 // UX-01",
-    title: "Food Recipe Mobile App UIUX Design",
+    title: "Food Recipe Mobile App UI/UX Design",
     category: "ui-ux",
     categoryLabel: "UI/UX Design",
     year: "2026",
@@ -125,7 +125,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
   {
     id: "e-parking-mobile-app-uiux-design",
     code: "PRO-02 // UX-02",
-    title: "E-Parking Mobile App UIUX Design",
+    title: "E-Parking Mobile App UI/UX Design",
     category: "ui-ux",
     categoryLabel: "UI/UX Design",
     year: "2026",
@@ -261,7 +261,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
   {
     id: "aorus-gaming-shop-mobile-app-uiux-design",
     code: "PRO-03 // UX-03",
-    title: "Aorus Gaming Shop Mobile App UIUX Design",
+    title: "Aorus Gaming Shop Mobile App UI/UX Design",
     category: "ui-ux",
     categoryLabel: "UI/UX Design",
     year: "2026",
@@ -2588,7 +2588,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
   {
     id: "prajagamer-website-uiux-design",
     code: "PRO-19 // UX-04",
-    title: "Prajagamer Website UIUX Design",
+    title: "Prajagamer Website UI/UX Design",
     category: "ui-ux",
     categoryLabel: "UI/UX Design",
     year: "2024",

@@ -501,28 +501,13 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
                 {/* Header Quick Actions */}
                 <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
-                  {project.repoUrl && (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleTriggerPulse}
-                      className="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-xl border border-sky-400/50 bg-gradient-to-r from-sky-400 via-sky-300 to-indigo-400 px-5 sm:px-6 py-3 font-mono text-xs font-bold text-slate-950 shadow-[0_0_28px_rgba(56,189,248,0.35)] hover:shadow-[0_0_40px_rgba(56,189,248,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-                    >
-                      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                      <FolderGit2 className="h-4 w-4 text-slate-950 shrink-0" />
-                      <span>GITHUB REPOSITORY</span>
-                      <ExternalLink className="h-3.5 w-3.5 text-slate-950 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
-                    </a>
-                  )}
-
                   <a
                     href="#project-links"
                     onClick={handleTriggerPulse}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-5 py-3 font-mono text-xs font-semibold text-sky-200 hover:text-white transition-all shadow-[0_0_15px_rgba(56,189,248,0.15)]"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-5 py-3 font-mono text-xs font-semibold text-sky-200 hover:text-white transition-all shadow-[0_0_15px_rgba(56,189,248,0.15)]"
                   >
+                    <FolderGit2 className="h-4 w-4 text-sky-400 shrink-0" />
                     <span>PROJECT LINKS & RESOURCES</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                   </a>
                 </div>
               </div>
