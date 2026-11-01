@@ -366,20 +366,44 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
                   {cert.title}
                 </h1>
 
-                {/* Header Quick Actions */}
-                <div className="flex flex-wrap items-center gap-3 pt-1 sm:pt-2">
+                {/* Header Quick Actions - Futuristic Cyber Command Button */}
+                <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                   {cert.credentialUrl && (
                     <a
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleTriggerPulse}
-                      className="group relative w-full sm:w-auto justify-center inline-flex items-center gap-2.5 overflow-hidden rounded-xl border border-sky-400/50 bg-gradient-to-r from-sky-400 via-sky-300 to-indigo-400 px-5 sm:px-6 py-3 font-mono text-xs font-bold text-slate-950 shadow-[0_0_28px_rgba(56,189,248,0.35)] hover:shadow-[0_0_40px_rgba(56,189,248,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                      className="group relative inline-flex items-center justify-between sm:justify-center gap-3 overflow-hidden rounded-xl border border-sky-400/40 bg-gradient-to-r from-sky-950/80 via-[#0B1226] to-indigo-950/80 backdrop-blur-xl px-5 sm:px-6 py-3 sm:py-3.5 font-mono text-xs sm:text-[13px] font-bold tracking-wider text-white shadow-[0_0_25px_rgba(56,189,248,0.2),inset_0_1px_0_rgba(255,255,255,0.12)] hover:border-sky-300 hover:shadow-[0_0_40px_rgba(56,189,248,0.45),inset_0_1px_0_rgba(255,255,255,0.25)] hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 select-none cursor-pointer w-full sm:w-auto"
                     >
-                      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                      <ShieldCheck className="h-4 w-4 text-slate-950 shrink-0" />
-                      <span>VERIFY OFFICIAL CREDENTIAL</span>
-                      <ExternalLink className="h-3.5 w-3.5 text-slate-950 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+                      {/* Corner HUD Crosshairs */}
+                      <div className="pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l border-sky-400/80 group-hover:border-white transition-colors" />
+                      <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r border-sky-400/80 group-hover:border-white transition-colors" />
+
+                      {/* Cyber Light Beam Shimmer Sweeper */}
+                      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-sky-400/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+
+                      {/* Left: Futuristic Icon Pod & Live Signal Ping */}
+                      <div className="relative z-10 flex items-center gap-2.5">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-sky-400/40 bg-sky-500/15 text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.3)] group-hover:bg-sky-400 group-hover:text-slate-950 group-hover:border-sky-300 transition-all duration-300 shrink-0">
+                          <ShieldCheck className="h-4 w-4 transition-transform group-hover:scale-110" />
+                        </div>
+                        <span className="relative flex h-2 w-2 shrink-0">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_6px_#34d399]" />
+                        </span>
+                      </div>
+
+                      {/* Center: Command Title */}
+                      <span className="relative z-10 font-mono tracking-wider font-extrabold text-slate-100 group-hover:text-white transition-colors">
+                        VERIFY OFFICIAL CREDENTIAL
+                      </span>
+
+                      {/* Right: Holographic Telemetry Badge */}
+                      <span className="relative z-10 inline-flex items-center gap-1 font-mono text-[10px] text-sky-300 border border-sky-400/30 bg-sky-400/10 px-2 py-0.5 rounded-md group-hover:border-sky-300 group-hover:bg-sky-400/20 group-hover:text-white transition-all shrink-0">
+                        <span>VERIFY</span>
+                        <ExternalLink className="h-3 w-3 text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </span>
                     </a>
                   )}
                 </div>

@@ -54,9 +54,9 @@ const getProjectNumber = (p: ProjectCaseStudy): number => {
   return match ? parseInt(match[1], 10) : 0;
 };
 
-// All projects sorted chronologically from newest (PRO-36) down to oldest (PRO-01)
+// All projects sorted in ascending order from PRO-01 up to PRO-38
 const CHRONOLOGICAL_PROJECTS: ProjectCaseStudy[] = [...PROJECT_CASE_STUDIES].sort(
-  (a, b) => getProjectNumber(b) - getProjectNumber(a)
+  (a, b) => getProjectNumber(a) - getProjectNumber(b)
 );
 
 function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
@@ -499,15 +499,41 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   </div>
                 </div>
 
-                {/* Header Quick Actions */}
+                {/* Header Quick Actions - Futuristic Cyber Command Button */}
                 <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                   <a
                     href="#project-links"
                     onClick={handleTriggerPulse}
-                    className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-5 py-3 font-mono text-xs font-semibold text-sky-200 hover:text-white transition-all shadow-[0_0_15px_rgba(56,189,248,0.15)]"
+                    className="group relative inline-flex items-center justify-between sm:justify-center gap-3 overflow-hidden rounded-xl border border-sky-400/40 bg-gradient-to-r from-sky-950/80 via-[#0B1226] to-indigo-950/80 backdrop-blur-xl px-5 sm:px-6 py-3 sm:py-3.5 font-mono text-xs sm:text-[13px] font-bold tracking-wider text-white shadow-[0_0_25px_rgba(56,189,248,0.2),inset_0_1px_0_rgba(255,255,255,0.12)] hover:border-sky-300 hover:shadow-[0_0_40px_rgba(56,189,248,0.45),inset_0_1px_0_rgba(255,255,255,0.25)] hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 select-none cursor-pointer"
                   >
-                    <FolderGit2 className="h-4 w-4 text-sky-400 shrink-0" />
-                    <span>PROJECT LINKS & RESOURCES</span>
+                    {/* Corner HUD Crosshairs */}
+                    <div className="pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l border-sky-400/80 group-hover:border-white transition-colors" />
+                    <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r border-sky-400/80 group-hover:border-white transition-colors" />
+
+                    {/* Cyber Light Beam Shimmer Sweeper */}
+                    <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-sky-400/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+
+                    {/* Left: Futuristic Icon Pod & Live Signal Ping */}
+                    <div className="relative z-10 flex items-center gap-2.5">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-sky-400/40 bg-sky-500/15 text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.3)] group-hover:bg-sky-400 group-hover:text-slate-950 group-hover:border-sky-300 transition-all duration-300 shrink-0">
+                        <FolderGit2 className="h-4 w-4 transition-transform group-hover:scale-110" />
+                      </div>
+                      <span className="relative flex h-2 w-2 shrink-0">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-80" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400 shadow-[0_0_6px_#38bdf8]" />
+                      </span>
+                    </div>
+
+                    {/* Center: Command Title */}
+                    <span className="relative z-10 font-mono tracking-wider font-extrabold text-slate-100 group-hover:text-white transition-colors">
+                      PROJECT LINKS &amp; RESOURCES
+                    </span>
+
+                    {/* Right: Holographic Telemetry Badge */}
+                    <span className="relative z-10 inline-flex items-center gap-1 font-mono text-[10px] text-sky-300 border border-sky-400/30 bg-sky-400/10 px-2 py-0.5 rounded-md group-hover:border-sky-300 group-hover:bg-sky-400/20 group-hover:text-white transition-all shrink-0">
+                      <span>OPEN</span>
+                      <ChevronRight className="h-3 w-3 text-sky-400 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
                   </a>
                 </div>
               </div>
