@@ -442,7 +442,7 @@ function ContactSection({
                       <span className="flex items-center gap-1.5 font-bold text-slate-200 tracking-wider text-[11px] sm:text-xs">
                         <Terminal className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                         <span className="sm:hidden">PROJECT DISPATCH TERMINAL</span>
-                        <span className="hidden sm:inline">PROJECT DISPATCH TERMINAL // YDP-2026</span>
+                        <span className="hidden sm:inline">PROJECT DISPATCH TERMINAL // SECURED</span>
                       </span>
                     </div>
 
