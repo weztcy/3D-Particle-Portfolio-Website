@@ -111,13 +111,13 @@ function ExperienceSection() {
                     <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover/card:translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 ease-in-out" />
 
                     <div className="relative z-10">
-                      {/* Period & Location */}
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5 font-mono text-[11px] sm:text-xs">
+                      {/* Period & Location (Desktop/Tablet) */}
+                      <div className="flex items-center justify-between gap-2 mb-3.5 font-mono text-[11px] sm:text-xs">
                         <div className="inline-flex items-center gap-2 rounded-lg border border-blue-400/35 bg-blue-500/10 px-2.5 py-1 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.2)] font-bold">
                           <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse shrink-0" />
                           <span>{exp.period}</span>
                         </div>
-                        <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-slate-300">
+                        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-slate-300">
                           <MapPin className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                           <span>{exp.location}</span>
                         </span>
@@ -127,7 +127,7 @@ function ExperienceSection() {
                       <h3 className="font-display text-lg sm:text-2xl font-bold text-white group-hover/card:text-blue-300 transition-colors leading-tight">
                         {exp.role}
                       </h3>
-                      <div className="font-mono text-xs text-blue-300/90 mt-1.5 mb-3.5 sm:mb-4 flex items-start gap-2">
+                      <div className="font-mono text-xs text-blue-300/90 mt-1.5 mb-2.5 sm:mb-4 flex items-start gap-2">
                         <Building2 className="h-3.5 w-3.5 text-blue-400 shrink-0 mt-0.5" />
                         <div className="min-w-0 flex-1 leading-relaxed">
                           <span className="font-semibold text-blue-200">{exp.organization}</span>
@@ -136,6 +136,14 @@ function ExperienceSection() {
                             {exp.type}
                           </span>
                         </div>
+                      </div>
+
+                      {/* Mobile Location Badge (Underneath Icon & Organization) */}
+                      <div className="sm:hidden mb-3.5">
+                        <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 font-mono text-[11px] text-slate-300">
+                          <MapPin className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                          <span>{exp.location}</span>
+                        </span>
                       </div>
 
                       {/* Summary */}
