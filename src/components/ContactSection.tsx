@@ -903,7 +903,7 @@ function ContactSection({
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
               <span className="text-slate-300">
-                © {new Date().getFullYear()} {PROFILE_DATA.name}. ALL RIGHTS RESERVED.
+                © {PROFILE_DATA.name}. ALL RIGHTS RESERVED.
               </span>
             </div>
             <div className="flex items-center gap-3 text-[10px] text-slate-400 font-mono">
