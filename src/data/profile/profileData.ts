@@ -26,7 +26,7 @@ export const PROFILE_DATA = {
   globalMetrics: [
     {
       // Keep years of experience manually controlled.
-      value: "1+",
+      value: "4+",
       label: "Years Experience",
     },
     {
