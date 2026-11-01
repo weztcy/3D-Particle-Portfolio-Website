@@ -34,11 +34,11 @@ function ExperienceSection() {
   const router = useRouter();
   const [imageError, setImageError] = useState(false);
   const [logoError, setLogoError] = useState(false);
-  const [expandedExpIds, setExpandedExpIds] = useState<Record<string, boolean>>({});
+  const [expandedExpId, setExpandedExpId] = useState<string | null>(null);
   const [readingPaper, setReadingPaper] = useState<PublicationItem | null>(null);
 
   const toggleExpHighlights = (id: string) => {
-    setExpandedExpIds((prev) => ({ ...prev, [id]: !prev[id] }));
+    setExpandedExpId((current) => (current === id ? null : id));
   };
 
   return (
@@ -75,7 +75,7 @@ function ExperienceSection() {
 
             <div className="relative pl-5 sm:pl-8 border-l-2 border-blue-500/20 space-y-6 sm:space-y-8 before:absolute before:top-0 before:bottom-0 before:-left-[2px] before:w-[2px] before:bg-gradient-to-b before:from-blue-400 before:via-blue-500/40 before:to-transparent">
               {EXPERIENCE_TIMELINE.map((exp, idx) => {
-                const isExpanded = !!expandedExpIds[exp.id];
+                const isExpanded = expandedExpId === exp.id;
                 const hasMoreHighlights = exp.highlights.length > 2;
                 return (
                 <div key={exp.id} className="relative group">
@@ -99,7 +99,18 @@ function ExperienceSection() {
                     />
                   </span>
 
-                  <div className="group/card relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-4 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(59,130,246,0.25)]">
+                  <div
+                    onClick={() => toggleExpHighlights(exp.id)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggleExpHighlights(exp.id);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    className="group/card relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-4 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(59,130,246,0.25)] cursor-pointer select-none focus:outline-none focus:border-blue-400/80"
+                  >
                     {/* Optical Corner HUD Crosshairs */}
                     <div className="pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
                     <div className="pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
@@ -166,23 +177,19 @@ function ExperienceSection() {
                         ))}
                       </ul>
 
-                      {hasMoreHighlights && (
+                      {hasMoreHighlights && !isExpanded && (
                         <div className="sm:hidden mt-3">
-                          <button
-                            type="button"
-                            onClick={() => toggleExpHighlights(exp.id)}
-                            className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-black/40 hover:bg-white/[0.06] hover:border-white/20 px-3 py-2 font-mono text-[10px] text-slate-300 transition-all cursor-pointer group/toggle active:scale-[0.99]"
+                          <div
+                            className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-black/40 hover:bg-white/[0.06] hover:border-white/20 px-3 py-2 font-mono text-[10px] text-slate-300 transition-all group/toggle"
                           >
                             <span className="text-slate-300 font-medium">
-                              {isExpanded
-                                ? "Collapse Additional Highlights"
-                                : `+ ${exp.highlights.length - 2} Key Highlights`}
+                              + {exp.highlights.length - 2} Key Highlights
                             </span>
                             <span className="text-blue-400 font-bold group-hover/toggle:translate-x-0.5 transition-transform flex items-center gap-1">
-                              <span>{isExpanded ? "TAP TO COLLAPSE" : "TAP TO EXPAND"}</span>
-                              <span>{isExpanded ? "↑" : "→"}</span>
+                              <span>TAP TO EXPAND</span>
+                              <span>→</span>
                             </span>
-                          </button>
+                          </div>
                         </div>
                       )}
                     </div>
