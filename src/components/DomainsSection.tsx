@@ -1416,7 +1416,7 @@ function DomainsSection({
               </h3>
 
               {/* Real-Time Benchmark HUD Readout */}
-              <div className="mt-3.5 flex flex-wrap items-center gap-2 sm:gap-2.5 font-mono text-xs">
+              <div className="mt-3.5 hidden sm:flex flex-wrap items-center gap-2 sm:gap-2.5 font-mono text-xs">
                 <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-[10px] uppercase text-slate-400">TOTAL:</span>
@@ -1609,7 +1609,7 @@ function DomainsSection({
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 self-start sm:self-auto">
+                    <div className="hidden sm:flex items-center gap-2 self-start sm:self-auto">
                       <span className={`font-mono text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-lg border ${activeCategoryStyle.badge} tabular-nums shadow-[0_0_10px_rgba(0,0,0,0.5)]`}>
                         {coreSkills.length} CORE SKILLS
                       </span>
@@ -1770,7 +1770,7 @@ function DomainsSection({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 self-start sm:self-auto">
+              <div className="hidden sm:flex items-center gap-2 self-start sm:self-auto">
                 <span className="font-mono text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-lg border border-indigo-400/30 bg-indigo-950/40 text-indigo-300 tabular-nums shadow-[0_0_10px_rgba(99,102,241,0.2)]">
                   {techStackSkills.length} STACK NODES
                 </span>
