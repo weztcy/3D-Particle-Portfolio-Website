@@ -770,7 +770,7 @@ function ContactSection({
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-[10px] text-cyan-300 font-mono bg-cyan-950/70 border border-cyan-400/30 px-2 py-0.5 rounded-md shadow-[0_0_10px_rgba(6,182,212,0.15)]">
                   <span className="h-1 w-1 rounded-full bg-cyan-400 animate-pulse" />
-                  <span>REV // v2.6</span>
+                  <span>VERS // v2.6</span>
                 </span>
               </div>
               {/* Futuristic Synaptic Signal Pod & Cryptographic Verification */}
