@@ -745,15 +745,6 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   </span>
 
                   <div>
-                    {/* Top Badge for Mobile & Tablet (< lg): Right aligned above title */}
-                    {feat.badge && (
-                      <div className="flex lg:hidden justify-end mb-2.5">
-                        <span className="rounded-lg border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 font-mono text-[10px] sm:text-[11px] font-semibold text-sky-300">
-                          {feat.badge}
-                        </span>
-                      </div>
-                    )}
-
                     <div className="flex items-start justify-between gap-2 sm:gap-3 mb-3">
                       <div className="flex items-center gap-2.5 min-w-0">
                         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-sky-400/40 bg-sky-400/15 font-mono text-xs font-bold text-sky-300 shadow-[0_0_10px_rgba(56,189,248,0.2)]">
@@ -773,6 +764,15 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     <p className="text-xs sm:text-sm text-slate-300/90 leading-relaxed pl-0 sm:pl-9 font-normal">
                       {feat.description}
                     </p>
+
+                    {/* Bottom Badge for Mobile & Tablet (< lg): Right aligned after description */}
+                    {feat.badge && (
+                      <div className="flex lg:hidden justify-end mt-3">
+                        <span className="rounded-lg border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 font-mono text-[10px] sm:text-[11px] font-semibold text-sky-300">
+                          {feat.badge}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
