@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { getPaginationRange } from "@/lib/pagination";
 import {
   Award,
   ArrowUpRight,
@@ -79,6 +80,15 @@ function CertificationsSection({
     Math.ceil(displayedCertifications.length / itemsPerPage)
   );
   const safePage = Math.min(currentPage, totalPages);
+
+  const desktopPages = useMemo(
+    () => getPaginationRange(safePage, totalPages, 9),
+    [safePage, totalPages]
+  );
+  const mobilePages = useMemo(
+    () => getPaginationRange(safePage, totalPages, 4),
+    [safePage, totalPages]
+  );
   const paginatedCertifications = displayedCertifications.slice(
     (safePage - 1) * itemsPerPage,
     safePage * itemsPerPage
@@ -414,25 +424,65 @@ function CertificationsSection({
                 <span>PREV</span>
               </button>
 
-              {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
-                (pageNum) => (
-                  <button
-                    key={pageNum}
-                    type="button"
-                    onClick={() => {
-                      setCurrentPage(pageNum);
-                      onTriggerPulse?.();
-                    }}
-                    className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
-                      safePage === pageNum
-                        ? "border-emerald-400/40 bg-emerald-950/40 text-emerald-200 border shadow-[0_0_15px_rgba(0,0,0,0.5)]"
-                        : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                )
-              )}
+              {/* Desktop & Tablet Page Numbers (max 9, ..., last) */}
+              <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
+                {desktopPages.map((item, idx) =>
+                  typeof item === "number" ? (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => {
+                        setCurrentPage(item);
+                        onTriggerPulse?.();
+                      }}
+                      className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                        safePage === item
+                          ? "border-emerald-400/40 bg-emerald-950/40 text-emerald-200 border shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+                          : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  ) : (
+                    <span
+                      key={`desktop-ellipsis-${idx}`}
+                      className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                    >
+                      ...
+                    </span>
+                  )
+                )}
+              </div>
+
+              {/* Mobile Page Numbers (max 4, ..., last) */}
+              <div className="flex sm:hidden items-center gap-1">
+                {mobilePages.map((item, idx) =>
+                  typeof item === "number" ? (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => {
+                        setCurrentPage(item);
+                        onTriggerPulse?.();
+                      }}
+                      className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                        safePage === item
+                          ? "border-emerald-400/40 bg-emerald-950/40 text-emerald-200 border shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+                          : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  ) : (
+                    <span
+                      key={`mobile-ellipsis-${idx}`}
+                      className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                    >
+                      ...
+                    </span>
+                  )
+                )}
+              </div>
 
               <button
                 type="button"

@@ -112,6 +112,7 @@ import {
   PiMicrosoftPowerpointLogoFill,
 } from "react-icons/pi";
 import { TbSql } from "react-icons/tb";
+import { getPaginationRange } from "@/lib/pagination";
 import {
   RiBrainAi3Line,
   RiAiAgentLine,
@@ -285,6 +286,23 @@ function DomainsSection({
   const paginatedTechStackSkills = techStackSkills.slice(
     stackStartIndex,
     safeStackPage * stackItemsPerPage
+  );
+
+  const desktopCorePages = useMemo(
+    () => getPaginationRange(safeCorePage, totalCorePages, 9),
+    [safeCorePage, totalCorePages]
+  );
+  const mobileCorePages = useMemo(
+    () => getPaginationRange(safeCorePage, totalCorePages, 4),
+    [safeCorePage, totalCorePages]
+  );
+  const desktopStackPages = useMemo(
+    () => getPaginationRange(safeStackPage, totalStackPages, 9),
+    [safeStackPage, totalStackPages]
+  );
+  const mobileStackPages = useMemo(
+    () => getPaginationRange(safeStackPage, totalStackPages, 4),
+    [safeStackPage, totalStackPages]
   );
 
   const getPillarIcon = (id: string) => {
@@ -1642,23 +1660,65 @@ function DomainsSection({
                           <span>PREV</span>
                         </button>
 
-                        {Array.from({ length: totalCorePages }, (_, idx) => idx + 1).map((pageNum) => (
-                          <button
-                            key={pageNum}
-                            type="button"
-                            onClick={() => {
-                              setCorePage(pageNum);
-                              onTriggerPulse();
-                            }}
-                            className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
-                              safeCorePage === pageNum
-                                ? `${activeCategoryStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
-                                : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
-                            }`}
-                          >
-                            {pageNum}
-                          </button>
-                        ))}
+                        {/* Desktop & Tablet Core Pages (max 9, ..., last) */}
+                        <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
+                          {desktopCorePages.map((item, idx) =>
+                            typeof item === "number" ? (
+                              <button
+                                key={item}
+                                type="button"
+                                onClick={() => {
+                                  setCorePage(item);
+                                  onTriggerPulse();
+                                }}
+                                className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                                  safeCorePage === item
+                                    ? `${activeCategoryStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                                    : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                                }`}
+                              >
+                                {item}
+                              </button>
+                            ) : (
+                              <span
+                                key={`core-desktop-ellipsis-${idx}`}
+                                className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                              >
+                                ...
+                              </span>
+                            )
+                          )}
+                        </div>
+
+                        {/* Mobile Core Pages (max 4, ..., last) */}
+                        <div className="flex sm:hidden items-center gap-1">
+                          {mobileCorePages.map((item, idx) =>
+                            typeof item === "number" ? (
+                              <button
+                                key={item}
+                                type="button"
+                                onClick={() => {
+                                  setCorePage(item);
+                                  onTriggerPulse();
+                                }}
+                                className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                                  safeCorePage === item
+                                    ? `${activeCategoryStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                                    : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                                }`}
+                              >
+                                {item}
+                              </button>
+                            ) : (
+                              <span
+                                key={`core-mobile-ellipsis-${idx}`}
+                                className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                              >
+                                ...
+                              </span>
+                            )
+                          )}
+                        </div>
 
                         <button
                           type="button"
@@ -1762,23 +1822,65 @@ function DomainsSection({
                     <span>PREV</span>
                   </button>
 
-                  {Array.from({ length: totalStackPages }, (_, idx) => idx + 1).map((pageNum) => (
-                    <button
-                      key={pageNum}
-                      type="button"
-                      onClick={() => {
-                        setStackPage(pageNum);
-                        onTriggerPulse();
-                      }}
-                      className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
-                        safeStackPage === pageNum
-                          ? `${activeStackStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
-                          : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
-                      }`}
-                    >
-                      {pageNum}
-                    </button>
-                  ))}
+                  {/* Desktop & Tablet Stack Pages (max 9, ..., last) */}
+                  <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
+                    {desktopStackPages.map((item, idx) =>
+                      typeof item === "number" ? (
+                        <button
+                          key={item}
+                          type="button"
+                          onClick={() => {
+                            setStackPage(item);
+                            onTriggerPulse();
+                          }}
+                          className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                            safeStackPage === item
+                              ? `${activeStackStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                              : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                          }`}
+                        >
+                          {item}
+                        </button>
+                      ) : (
+                        <span
+                          key={`stack-desktop-ellipsis-${idx}`}
+                          className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                        >
+                          ...
+                        </span>
+                      )
+                    )}
+                  </div>
+
+                  {/* Mobile Stack Pages (max 4, ..., last) */}
+                  <div className="flex sm:hidden items-center gap-1">
+                    {mobileStackPages.map((item, idx) =>
+                      typeof item === "number" ? (
+                        <button
+                          key={item}
+                          type="button"
+                          onClick={() => {
+                            setStackPage(item);
+                            onTriggerPulse();
+                          }}
+                          className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                            safeStackPage === item
+                              ? `${activeStackStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
+                              : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
+                          }`}
+                        >
+                          {item}
+                        </button>
+                      ) : (
+                        <span
+                          key={`stack-mobile-ellipsis-${idx}`}
+                          className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                        >
+                          ...
+                        </span>
+                      )
+                    )}
+                  </div>
 
                   <button
                     type="button"
