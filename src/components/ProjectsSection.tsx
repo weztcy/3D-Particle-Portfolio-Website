@@ -133,11 +133,11 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
   const safePage = Math.min(currentPage, totalPages);
 
   const desktopPages = useMemo(
-    () => getPaginationRange(safePage, totalPages, 9),
+    () => getPaginationRange(safePage, totalPages, 10),
     [safePage, totalPages]
   );
   const mobilePages = useMemo(
-    () => getPaginationRange(safePage, totalPages, 4),
+    () => getPaginationRange(safePage, totalPages, 5),
     [safePage, totalPages]
   );
   const paginatedProjects = filteredProjects.slice(
@@ -742,7 +742,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
+              <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-1.5 shrink-0">
                 <button
                   type="button"
                   onClick={() => {
@@ -750,13 +750,13 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                     onTriggerPulse?.();
                   }}
                   disabled={safePage === 1}
-                  className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                  className="shrink-0 inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2 sm:px-3.5 py-1.5 font-mono text-[10px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
                 >
-                  <ChevronLeft className="h-3.5 w-3.5" />
+                  <ChevronLeft className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                   <span>PREV</span>
                 </button>
 
-                {/* Desktop & Tablet Page Numbers (max 9, ..., last) */}
+                {/* Desktop & Tablet Page Numbers (max 10) */}
                 <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
                   {desktopPages.map((item, idx) =>
                     typeof item === "number" ? (
@@ -786,8 +786,8 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                   )}
                 </div>
 
-                {/* Mobile Page Numbers (max 4, ..., last) */}
-                <div className="flex sm:hidden items-center gap-1">
+                {/* Mobile Page Numbers (max 5) */}
+                <div className="flex sm:hidden items-center gap-1 shrink-0 py-0.5">
                   {mobilePages.map((item, idx) =>
                     typeof item === "number" ? (
                       <button
@@ -797,7 +797,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                           setCurrentPage(item);
                           onTriggerPulse?.();
                         }}
-                        className={`h-7 sm:h-8 min-w-[28px] sm:min-w-[32px] rounded-xl px-2 sm:px-2.5 font-mono text-[11px] sm:text-xs font-bold transition-all duration-300 ${
+                        className={`h-7 min-w-[26px] rounded-xl px-1.5 font-mono text-[10px] font-bold shrink-0 transition-all duration-300 ${
                           safePage === item
                             ? `${paginationStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
                             : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
@@ -808,7 +808,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                     ) : (
                       <span
                         key={`mobile-ellipsis-${idx}`}
-                        className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none"
+                        className="flex items-center justify-center h-7 w-6 font-mono text-xs text-slate-500 select-none shrink-0"
                       >
                         ...
                       </span>
@@ -823,10 +823,10 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                     onTriggerPulse?.();
                   }}
                   disabled={safePage === totalPages}
-                  className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
+                  className="shrink-0 inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2 sm:px-3.5 py-1.5 font-mono text-[10px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-300"
                 >
                   <span>NEXT</span>
-                  <ChevronRight className="h-3.5 w-3.5" />
+                  <ChevronRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                 </button>
               </div>
             </div>

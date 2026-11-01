@@ -44,3 +44,12 @@ body {
   background: #38bdf8;
 }
 
+
+/* Hide scrollbar for clean horizontal pagination touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

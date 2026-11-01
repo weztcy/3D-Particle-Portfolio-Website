@@ -35,3 +35,4 @@ export function getPaginationRange(
 
   return range;
 }
+
