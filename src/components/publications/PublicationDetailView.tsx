@@ -888,20 +888,16 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                     <div className="rounded-2xl border border-white/10 bg-black/60 p-4 font-mono text-xs space-y-2.5 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
                       <div className="flex items-start justify-between gap-4 text-slate-400">
                         <span className="text-[11px] uppercase tracking-wider shrink-0 mt-0.5">JOURNAL:</span>
-                        <div className="text-right">
+                        <div className="text-right text-white font-bold leading-snug max-w-[290px] sm:max-w-[340px]">
                           {(pub.journalName || pub.publisher).includes(" (JAIC)") ? (
-                            <>
-                              <div className="text-white font-bold leading-snug">
-                                {(pub.journalName || pub.publisher).replace(" (JAIC)", "")}
-                              </div>
-                              <div className="text-amber-300 font-mono text-[11px] font-semibold mt-0.5">
+                            <span>
+                              {(pub.journalName || pub.publisher).replace(" (JAIC)", "")}{" "}
+                              <span className="text-amber-300 font-mono text-[11px] font-semibold whitespace-nowrap">
                                 (JAIC)
-                              </div>
-                            </>
+                              </span>
+                            </span>
                           ) : (
-                            <div className="text-white font-bold leading-snug">
-                              {pub.journalName || pub.publisher}
-                            </div>
+                            <span>{pub.journalName || pub.publisher}</span>
                           )}
                         </div>
                       </div>
