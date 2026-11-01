@@ -243,7 +243,7 @@ function ContactSection({
                       </span>
                       <button
                         onClick={handleCopyEmail}
-                        className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-sky-400/40 bg-sky-400/10 px-3.5 py-1.5 font-mono text-xs font-bold text-sky-300 hover:bg-sky-400/25 hover:border-sky-400/70 hover:text-white hover:shadow-[0_0_16px_rgba(56,189,248,0.35)] transition-all active:scale-95"
+                        className="shrink-0 hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-sky-400/40 bg-sky-400/10 px-3.5 py-1.5 font-mono text-xs font-bold text-sky-300 hover:bg-sky-400/25 hover:border-sky-400/70 hover:text-white hover:shadow-[0_0_16px_rgba(56,189,248,0.35)] transition-all active:scale-95"
                       >
                         {copiedEmail ? (
                           <>
@@ -431,21 +431,22 @@ function ContactSection({
 
                 <div className="relative z-10">
                   <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-white/10 pb-3.5 sm:pb-4 mb-5 sm:mb-6 font-mono text-xs">
-                    <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-full sm:w-auto flex items-center justify-center sm:justify-start gap-2 min-w-0">
                       {/* 3 Cyber Console LEDs */}
                       <div className="flex items-center gap-1.5 shrink-0">
                         <span className="h-2 w-2 rounded-full bg-rose-500/80 shadow-[0_0_6px_rgba(244,63,94,0.6)]" />
                         <span className="h-2 w-2 rounded-full bg-amber-500/80 shadow-[0_0_6px_rgba(245,158,11,0.6)]" />
                         <span className="h-2 w-2 rounded-full bg-emerald-500/80 shadow-[0_0_6px_rgba(16,185,129,0.6)]" />
                       </div>
-                      <span className="text-slate-600 hidden sm:inline">//</span>
-                      <span className="flex items-center gap-1.5 font-bold text-slate-200 tracking-wider text-[11px] sm:text-xs truncate">
+                      <span className="text-slate-600">//</span>
+                      <span className="flex items-center gap-1.5 font-bold text-slate-200 tracking-wider text-[11px] sm:text-xs">
                         <Terminal className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-                        <span className="truncate">PROJECT DISPATCH TERMINAL // YDP-2026</span>
+                        <span className="sm:hidden">PROJECT DISPATCH TERMINAL</span>
+                        <span className="hidden sm:inline">PROJECT DISPATCH TERMINAL // YDP-2026</span>
                       </span>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <div className="w-full sm:w-auto flex flex-wrap items-center justify-center sm:justify-end gap-1.5 sm:gap-2">
                       <div className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-950/60 px-2.5 py-1 text-[10px] sm:text-[11px] font-semibold text-sky-300">
                         <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                         <span>CYBERSHIELD ACTIVE</span>
