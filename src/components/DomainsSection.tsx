@@ -142,8 +142,8 @@ const FILTER_ROW_1 = [
 ] as const;
 
 const FILTER_ROW_2 = [
-  { id: "artificial-intelligence", label: "Artificial Intelligence", shortLabel: "AI Engineering", prefix: "03" },
-  { id: "machine-learning", label: "Machine Learning", shortLabel: "ML Engineering", prefix: "04" },
+  { id: "artificial-intelligence", label: "Artificial Intelligence", shortLabel: "AI", prefix: "03" },
+  { id: "machine-learning", label: "Machine Learning", shortLabel: "ML", prefix: "04" },
 ] as const;
 
 const FILTER_ROW_3 = [
