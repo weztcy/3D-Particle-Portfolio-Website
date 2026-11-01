@@ -307,7 +307,7 @@ export default function PaperFlipbookModal({
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-bold text-amber-300 text-[11px] sm:text-sm tracking-wider truncate sm:whitespace-nowrap">
+              <span className="font-bold text-amber-300 text-[11px] sm:text-sm tracking-wider truncate">
                 [ PEER-REVIEWED SCIENTIFIC ARTICLE // JAIC-2025 ]
               </span>
               <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-[10px] text-amber-300 font-bold whitespace-nowrap">
@@ -315,14 +315,17 @@ export default function PaperFlipbookModal({
                 SINTA 3 · VERIFIED
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-300 font-sans font-medium leading-snug line-clamp-1 sm:line-clamp-none break-words">
+            <p
+              className="text-[11px] sm:text-xs text-slate-300 font-sans font-medium leading-snug line-clamp-1 sm:line-clamp-2 xl:line-clamp-1"
+              title={title}
+            >
               {title}
             </p>
           </div>
         </div>
 
         {/* Right: Controls */}
-        <div className="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2 w-full sm:w-auto pt-1.5 sm:pt-0 border-t border-white/10 sm:border-0 shrink-0">
+        <div className="flex items-center justify-between xl:justify-end gap-1.5 sm:gap-2 w-full xl:w-auto pt-2 xl:pt-0 border-t border-white/10 xl:border-0 shrink-0">
           {/* View Mode Switcher (Scroll All vs Slide View) */}
           <div className="inline-flex items-center gap-1 bg-black/60 rounded-xl p-1 border border-white/10">
             <button

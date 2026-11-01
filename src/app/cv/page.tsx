@@ -258,7 +258,7 @@ export default function CvPage() {
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-bold text-sky-300 text-[11px] sm:text-sm tracking-wider truncate sm:whitespace-nowrap">
+              <span className="font-bold text-sky-300 text-[11px] sm:text-sm tracking-wider truncate">
                 [ EXECUTIVE DOSSIER // CURRICULUM VITAE ]
               </span>
               <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-[10px] text-emerald-400 font-bold whitespace-nowrap">
@@ -266,14 +266,17 @@ export default function CvPage() {
                 ATS-OPTIMIZED · VERIFIED
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-300 font-sans font-medium leading-snug truncate sm:whitespace-normal">
+            <p
+              className="text-[11px] sm:text-xs text-slate-300 font-sans font-medium leading-snug truncate"
+              title={`CV Yohanes Dimas Pratama · ${PROFILE_DATA.title}`}
+            >
               CV Yohanes Dimas Pratama · {PROFILE_DATA.title}
             </p>
           </div>
         </div>
 
         {/* Right: Controls */}
-        <div className="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2 w-full sm:w-auto pt-1.5 sm:pt-0 border-t border-white/10 sm:border-0 shrink-0">
+        <div className="flex items-center justify-between xl:justify-end gap-1.5 sm:gap-2 w-full xl:w-auto pt-2 xl:pt-0 border-t border-white/10 xl:border-0 shrink-0">
           {/* View Mode Switcher (Scroll All vs Slide View) */}
           <div className="inline-flex items-center gap-1 bg-black/60 rounded-xl p-1 border border-white/10">
             <button
