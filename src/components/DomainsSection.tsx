@@ -2009,8 +2009,8 @@ function DomainsSection({
                           <span>PREV</span>
                         </button>
 
-                        {/* Desktop & Tablet Core Pages (max 10) */}
-                        <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
+                        {/* Desktop Core Pages (max 10, visible only on lg+) */}
+                        <div className="hidden lg:flex items-center gap-1 sm:gap-1.5">
                           {desktopCorePages.map((item, idx) =>
                             typeof item === "number" ? (
                               <button
@@ -2039,8 +2039,8 @@ function DomainsSection({
                           )}
                         </div>
 
-                        {/* Mobile Core Pages (max 5) */}
-                        <div className="flex sm:hidden items-center gap-1 shrink-0 py-0.5">
+                        {/* Mobile & Tablet Core Pages (max 5, visible on mobile & tablet <lg) */}
+                        <div className="flex lg:hidden items-center gap-1 shrink-0 py-0.5">
                           {mobileCorePages.map((item, idx) =>
                             typeof item === "number" ? (
                               <button
@@ -2050,7 +2050,7 @@ function DomainsSection({
                                   setCorePage(item);
                                   onTriggerPulse();
                                 }}
-                                className={`h-7 min-w-[26px] rounded-xl px-1.5 font-mono text-[10px] font-bold shrink-0 transition-all duration-300 ${
+                                className={`h-7 sm:h-8 min-w-[26px] sm:min-w-[32px] rounded-xl px-1.5 sm:px-2.5 font-mono text-[10px] sm:text-xs font-bold shrink-0 transition-all duration-300 ${
                                   safeCorePage === item
                                     ? `${activeCategoryStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
                                     : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
@@ -2061,7 +2061,7 @@ function DomainsSection({
                             ) : (
                               <span
                                 key={`core-mobile-ellipsis-${idx}`}
-                                className="flex items-center justify-center h-7 w-6 font-mono text-xs text-slate-500 select-none shrink-0"
+                                className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none shrink-0"
                               >
                                 ...
                               </span>
@@ -2171,8 +2171,8 @@ function DomainsSection({
                     <span>PREV</span>
                   </button>
 
-                  {/* Desktop & Tablet Stack Pages (max 10) */}
-                  <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
+                  {/* Desktop Tech Stack Pages (max 10, visible only on lg+) */}
+                  <div className="hidden lg:flex items-center gap-1 sm:gap-1.5">
                     {desktopStackPages.map((item, idx) =>
                       typeof item === "number" ? (
                         <button
@@ -2201,8 +2201,8 @@ function DomainsSection({
                     )}
                   </div>
 
-                  {/* Mobile Stack Pages (max 5) */}
-                  <div className="flex sm:hidden items-center gap-1 shrink-0 py-0.5">
+                  {/* Mobile & Tablet Tech Stack Pages (max 5, visible on mobile & tablet <lg) */}
+                  <div className="flex lg:hidden items-center gap-1 shrink-0 py-0.5">
                     {mobileStackPages.map((item, idx) =>
                       typeof item === "number" ? (
                         <button
@@ -2212,7 +2212,7 @@ function DomainsSection({
                             setStackPage(item);
                             onTriggerPulse();
                           }}
-                          className={`h-7 min-w-[26px] rounded-xl px-1.5 font-mono text-[10px] font-bold shrink-0 transition-all duration-300 ${
+                          className={`h-7 sm:h-8 min-w-[26px] sm:min-w-[32px] rounded-xl px-1.5 sm:px-2.5 font-mono text-[10px] sm:text-xs font-bold shrink-0 transition-all duration-300 ${
                             safeStackPage === item
                               ? `${activeStackStyle.badge} border shadow-[0_0_15px_rgba(0,0,0,0.5)]`
                               : "text-slate-400 hover:text-white hover:bg-white/5 border border-white/5 bg-white/[0.02]"
@@ -2223,7 +2223,7 @@ function DomainsSection({
                       ) : (
                         <span
                           key={`stack-mobile-ellipsis-${idx}`}
-                          className="flex items-center justify-center h-7 w-6 font-mono text-xs text-slate-500 select-none shrink-0"
+                          className="flex items-center justify-center h-7 sm:h-8 w-6 sm:w-7 font-mono text-xs text-slate-500 select-none shrink-0"
                         >
                           ...
                         </span>
