@@ -78,8 +78,64 @@ import {
   SiFigma,
   SiAsana,
   SiJira,
+  SiRust,
+  SiSvelte,
+  SiAntdesign,
+  SiChakraui,
+  SiDaisyui,
+  SiSemanticui,
+  SiRadixui,
+  SiCodeigniter,
+  SiDotnet,
+  SiVitest,
+  SiTestinglibrary,
+  SiPytest,
+  SiJunit5,
+  SiGit,
+  SiGitlab,
+  SiMariadb,
+  SiFirebase,
+  SiSupabase,
+  SiGooglechrome,
+  SiNginx,
+  SiApache,
+  SiNetlify,
+  SiCloudflare,
+  SiHostinger,
+  SiWordpress,
+  SiOwasp,
+  SiPagespeedinsights,
+  SiGoogleanalytics,
+  SiGooglesearchconsole,
+  SiGoogletagmanager,
+  SiGoogleslides,
+  SiCline,
+  SiVllm,
+  SiCrewai,
+  SiPydantic,
+  SiHaystack,
+  SiOpensearch,
+  SiFlux,
+  SiNeon,
+  SiClickhouse,
+  SiModelcontextprotocol,
+  SiKeras,
+  SiOpencv,
+  SiUltralytics,
+  SiOpenaigym,
+  SiRay,
+  SiPycharm,
+  SiApachespark,
+  SiMeta,
+  SiBoost,
+  SiR,
+  SiTidyverse,
+  SiLeaflet,
+  SiRstudioide,
+  SiQuarto,
+  SiKaggle,
 } from "react-icons/si";
-import { FaAws, FaJava } from "react-icons/fa6";
+import { FaAws, FaJava, FaShieldHalved, FaBroom, FaScaleUnbalanced } from "react-icons/fa6";
 import {
   SiPandas,
   SiNumpy,
@@ -113,14 +169,51 @@ import {
   PiMicrosoftWordLogoFill,
   PiMicrosoftPowerpointLogoFill,
 } from "react-icons/pi";
-import { TbSql } from "react-icons/tb";
+import {
+  TbSql,
+  TbBrandCSharp,
+  TbBrandSpeedtest,
+  TbTestPipe,
+  TbDatabaseEdit,
+  TbFilter,
+  TbArrowsExchange,
+  TbFileTypeCsv,
+  TbCalendarTime,
+  TbRegex,
+  TbTransform,
+  TbTableSpark,
+  TbTerminal2,
+  TbComponents,
+  TbBrowser,
+  TbDatabaseSearch,
+  TbPhotoSpark,
+  TbSwitchHorizontal,
+  TbGauge,
+  TbCpu,
+  TbProtocol,
+  TbBinaryTree,
+  TbBinaryTree2,
+  TbViewfinder,
+  TbMatrix,
+  TbVector,
+  TbRobot,
+  TbTargetArrow,
+  TbLanguage,
+} from "react-icons/tb";
 import { ImOnedrive } from "react-icons/im";
+import { BiBarChartSquare } from "react-icons/bi";
 import { getPaginationRange } from "@/lib/pagination";
 import {
   RiBrainAi3Line,
   RiAiAgentLine,
   RiPaletteLine,
+  RiFlowChart,
+  RiNodeTree,
   RiOpenaiFill,
+  RiFunctions,
+  RiTable2,
+  RiFileExcelLine,
+  RiFileExcel2Line,
 } from "react-icons/ri";
 import {
   DOMAIN_PILLARS,
@@ -313,11 +406,17 @@ function DomainsSection({
       case "web-development":
         return Code2;
       case "data-analytics":
+      case "data-analysis":
         return Database;
       case "ai-engineering":
+      case "artificial-intelligence":
         return BrainCircuit;
       case "machine-learning":
         return Cpu;
+      case "project-management":
+        return GitBranch;
+      case "office":
+        return FileSpreadsheet;
       default:
         return Code2;
     }
@@ -849,7 +948,7 @@ function DomainsSection({
       case "LangChain":
         return SiLangchain;
       case "LangGraph":
-        return Network;
+        return SiLangchain;
       case "LlamaIndex":
       case "llama-index":
         return Layers;
@@ -857,15 +956,16 @@ function DomainsSection({
       case "llama.cpp":
       case "Llama.cpp":
       case "llama-cpp":
-        return Cpu;
+        return TbCpu;
       case "FastAPI":
         return SiFastapi;
       case "PostgreSQL + pgvector":
         return SiPostgresql;
       case "Pinecone":
-        return Database;
+        return TbDatabaseSearch;
+      case "Chroma":
       case "ChromaDB":
-        return Database;
+        return TbDatabaseSearch;
       case "TensorFlow":
         return SiTensorflow;
       case "Gradio":
@@ -873,15 +973,15 @@ function DomainsSection({
       case "Open AI Codex":
         return RiOpenaiFill;
       case "Cline":
-        return Terminal;
+        return SiCline;
       case "spaCy":
         return SiSpacy;
       case "NLTK":
-        return BrainCircuit;
+        return TbLanguage;
       case "FAISS":
-        return Database;
+        return SiMeta;
       case "Weaviate":
-        return Database;
+        return TbVector;
       case "Qdrant":
         return SiQdrant;
       case "Milvus":
@@ -893,7 +993,7 @@ function DomainsSection({
       case "Flask":
         return SiFlask;
       case "OpenCode":
-        return Code2;
+        return TbTerminal2;
       case "9Router":
         return Network;
       case "n8n":
@@ -962,6 +1062,7 @@ function DomainsSection({
       case "Google BigQuery":
         return SiGooglebigquery;
       case "Google Looker Studio":
+      case "Looker Studio":
         return SiLooker;
       case "Plotly":
         return SiPlotly;
@@ -970,7 +1071,8 @@ function DomainsSection({
       case "Dash":
         return SiDash;
       case "Power BI":
-        return BarChart3;
+      case "Microsoft Power BI":
+        return BiBarChartSquare;
       case "Tableau":
         return LineChart;
       case "Business Intelligence (BI)":
@@ -992,11 +1094,11 @@ function DomainsSection({
         return Activity;
       // Core Engineering Skills Mappings
       case "Frontend Development":
-        return Code2;
+        return TbBrowser;
       case "Backend Development":
         return Terminal;
       case "Full Stack Development":
-        return Code2;
+        return Layers;
       case "Web Architecture & Design":
         return Layers;
       case "API Development & Integration":
@@ -1020,7 +1122,7 @@ function DomainsSection({
       case "RESTful API Architecture":
         return Network;
       case "Component-Driven Architecture":
-        return Code2;
+        return TbComponents;
       case "State Management & Hydration":
         return Activity;
       case "Server-Side Rendering (SSR/SSG)":
@@ -1033,6 +1135,91 @@ function DomainsSection({
         return ShieldCheck;
       case "Exploratory Data Analysis (EDA)":
         return Search;
+      // Web Development & Office Newly Mapped Skills
+      case "C#":
+        return TbBrandCSharp;
+      case "Rust":
+        return SiRust;
+      case "Svelte":
+        return SiSvelte;
+      case "Ant Design":
+        return SiAntdesign;
+      case "Chakra UI":
+        return SiChakraui;
+      case "DaisyUI":
+        return SiDaisyui;
+      case "Semantic UI":
+        return SiSemanticui;
+      case "Radix UI":
+        return SiRadixui;
+      case "CodeIgniter":
+        return SiCodeigniter;
+      case "ASP.NET Core":
+        return SiDotnet;
+      case "Vitest":
+        return SiVitest;
+      case "Playwright":
+        return TbTestPipe;
+      case "Testing Library":
+        return SiTestinglibrary;
+      case "PHPUnit":
+        return SiPhp;
+      case "Pytest":
+        return SiPytest;
+      case "JUnit":
+        return SiJunit5;
+      case "Git":
+        return SiGit;
+      case "GitLab":
+      case "GitLab CI/CD":
+        return SiGitlab;
+      case "MariaDB":
+        return SiMariadb;
+      case "Firebase":
+        return SiFirebase;
+      case "Supabase":
+        return SiSupabase;
+      case "Chrome DevTools":
+        return SiGooglechrome;
+      case "React DevTools":
+        return SiReact;
+      case "Vue DevTools":
+        return SiVuedotjs;
+      case "Nginx":
+        return SiNginx;
+      case "Apache":
+        return SiApache;
+      case "Amazon Web Services":
+        return FaAws;
+      case "Google Cloud Platform":
+        return SiGooglecloud;
+      case "Netlify":
+        return SiNetlify;
+      case "Cloudflare":
+        return SiCloudflare;
+      case "Hostinger":
+        return SiHostinger;
+      case "WordPress":
+        return SiWordpress;
+      case "OWASP ZAP":
+        return SiOwasp;
+      case "Cloudflare WAF":
+        return FaShieldHalved;
+      case "Google PageSpeed Insights":
+        return SiPagespeedinsights;
+      case "WebPageTest":
+        return TbBrandSpeedtest;
+      case "Google Analytics 4":
+      case "Google Analytics":
+        return SiGoogleanalytics;
+      case "Google Search Console":
+        return SiGooglesearchconsole;
+      case "Google Tag Manager":
+        return SiGoogletagmanager;
+      case "Prisma ORM":
+        return SiPrisma;
+      case "Google Slides":
+        return SiGoogleslides;
       case "Statistical Inference & Hypothesis Testing":
         return Activity;
       case "Data Cleansing & ETL Transformation":
@@ -1084,8 +1271,9 @@ function DomainsSection({
       case "Mathematics, Statistics & Probability for ML":
         return LineChart;
       case "XGBoost":
+        return TbBinaryTree;
       case "LightGBM":
-        return Zap;
+        return TbBinaryTree2;
       case "Google Cloud Platform":
         return SiGooglecloud;
       case "Google Cloud Storage":
@@ -1117,6 +1305,7 @@ function DomainsSection({
       case "Technical Specification & System Documentation":
         return CheckCircle2;
       case "Version Control & Branching Strategy":
+      case "Version Control & CI/CD Pipelines":
         return GitBranch;
       case "Cross-Functional Task Orchestration":
         return Network;
@@ -1127,11 +1316,159 @@ function DomainsSection({
       case "Professional Corporate Correspondence":
         return ShieldCheck;
       case "VBA":
-        return FileSpreadsheet;
+      case "VBA (Visual Basic for Applications)":
+        return RiFileExcelLine;
       case "ggplot2":
+      case "Ggplot2":
         return RiPaletteLine;
       case "Exploratory Data Analysis (EDA)":
         return Search;
+      // Data Analytics Tooling & Libraries
+      case "R":
+        return SiR;
+      case "DAX":
+        return RiFunctions;
+      case "Power Query M":
+        return TbDatabaseEdit;
+      case "Tidyverse":
+        return SiTidyverse;
+      case "dplyr":
+      case "Dplyr":
+        return TbFilter;
+      case "tidyr":
+      case "Tidyr":
+        return TbArrowsExchange;
+      case "data.table":
+      case "Data.Table":
+      case "data.Table":
+      case "Data.table":
+        return RiTable2;
+      case "readr":
+      case "Readr":
+        return TbFileTypeCsv;
+      case "readxl":
+      case "Readxl":
+        return RiFileExcel2Line;
+      case "lubridate":
+      case "Lubridate":
+        return TbCalendarTime;
+      case "stringr":
+      case "Stringr":
+        return TbRegex;
+      case "broom":
+      case "Broom":
+        return FaBroom;
+      case "leaflet":
+      case "Leaflet":
+        return SiLeaflet;
+      case "Shiny":
+        return SiRstudioide;
+      case "Quarto":
+        return SiQuarto;
+      case "Power Query":
+        return TbTransform;
+      case "Power Pivot":
+        return TbTableSpark;
+      case "Kaggle":
+      case "Kaggle Notebooks":
+        return SiKaggle;
+      // Machine Learning Tooling & Ecosystem
+      case "Keras":
+        return SiKeras;
+      case "OpenCV":
+        return SiOpencv;
+      case "Ultralytics YOLO":
+        return SiUltralytics;
+      case "TorchVision":
+        return TbViewfinder;
+      case "JAX":
+        return TbMatrix;
+      case "CatBoost":
+        return SiBoost;
+      case "imbalanced-learn":
+        return FaScaleUnbalanced;
+      case "Gensim":
+        return TbVector;
+      case "Stable-Baselines3":
+        return TbRobot;
+      case "Ray RLlib":
+        return SiRay;
+      case "Gymnasium":
+        return SiOpenaigym;
+      case "Prophet":
+        return SiMeta;
+      case "Darts":
+        return TbTargetArrow;
+      case "PyCharm":
+        return SiPycharm;
+      case "PySpark":
+        return SiApachespark;
+      // AI Engineering & LLM Ecosystem
+      case "vLLM":
+        return SiVllm;
+      case "SGLang":
+        return TbGauge;
+      case "llama.cpp":
+      case "LLaMA CPP":
+        return TbCpu;
+      case "LiteLLM":
+        return TbSwitchHorizontal;
+      case "LangGraph":
+        return SiLangchain;
+      case "CrewAI":
+        return SiCrewai;
+      case "Pydantic AI":
+        return SiPydantic;
+      case "Vercel AI SDK":
+        return SiVercel;
+      case "OpenAI Agents SDK":
+        return RiOpenaiFill;
+      case "Google Agent Development Kit (ADK)":
+        return SiGoogle;
+      case "Haystack":
+        return SiHaystack;
+      case "RAGFlow":
+        return RiFlowChart;
+      case "FAISS":
+        return SiMeta;
+      case "Chroma":
+      case "ChromaDB":
+        return TbDatabaseSearch;
+      case "Weaviate":
+        return TbVector;
+      case "Pinecone":
+        return TbDatabaseSearch;
+      case "pgvector":
+      case "PostgreSQL + pgvector":
+        return SiPostgresql;
+      case "OpenSearch":
+        return SiOpensearch;
+      case "ComfyUI":
+        return RiNodeTree;
+      case "Diffusers":
+        return SiHuggingface;
+      case "Stable Diffusion WebUI":
+        return TbPhotoSpark;
+      case "FLUX":
+        return SiFlux;
+      case "MCP (Model Context Protocol)":
+      case "MCP":
+        return SiModelcontextprotocol;
+      case "FastMCP":
+        return TbProtocol;
+      case "MongoDB Atlas":
+        return SiMongodb;
+      case "Google AI Studio":
+        return SiGoogle;
+      case "Neon":
+        return SiNeon;
+      case "ClickHouse":
+        return SiClickhouse;
+      case "OpenAI Codex":
+      case "Open AI Codex":
+        return RiOpenaiFill;
+      case "Cline":
+        return SiCline;
       default:
         return Code2;
     }
