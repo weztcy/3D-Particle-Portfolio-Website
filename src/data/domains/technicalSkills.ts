@@ -700,7 +700,7 @@ export const SKILL_MATRIX: SkillItem[] = [
   },
 
   // ==========================================
-  // 2. Data Analytics (10 Core Skills + 43 Tech Stack)
+  // 2. Data Analytics (10 Core Skills + 42 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -1119,14 +1119,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 95,
     experience: calcExp(2024),
     roleContext: "Cloud-hosted GPU/CPU analytical computing, collaborative analysis & shared research environments",
-  },
-  {
-    name: "Kaggle Notebooks",
-    category: "data-analysis",
-    skillType: "tech-stack",
-    level: 93,
-    experience: calcExp(2024),
-    roleContext: "Cloud reproducible notebook environments, competitive data analysis & public dataset exploration",
   },
 
   // ==========================================
@@ -1616,7 +1608,7 @@ export const SKILL_MATRIX: SkillItem[] = [
   },
 
   // ==========================================
-  // 4. Machine Learning (6 Core Skills + 37 Tech Stack)
+  // 4. Machine Learning (6 Core Skills + 36 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -1891,14 +1883,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 95,
     experience: calcExp(2025),
     roleContext: "Cloud-hosted GPU/TPU computing for rapid deep learning & collaborative model training",
-  },
-  {
-    name: "Kaggle Notebooks",
-    category: "machine-learning",
-    skillType: "tech-stack",
-    level: 93,
-    experience: calcExp(2025),
-    roleContext: "Cloud reproducible notebook environments, competitive ML benchmarking & dataset analysis",
   },
   {
     name: "NumPy",
