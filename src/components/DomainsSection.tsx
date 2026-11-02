@@ -1773,13 +1773,6 @@ function DomainsSection({
 
               {/* Real-Time Benchmark HUD Readout */}
               <div className="mt-3.5 hidden sm:flex flex-wrap items-center gap-2 sm:gap-2.5 font-mono text-xs">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-white/10 bg-black/50 px-2.5 py-1 text-slate-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] uppercase text-slate-400">TOTAL:</span>
-                  <span className="font-bold text-white tabular-nums">
-                    {isAllCategory ? techStackSkills.length : categorySkills.length}
-                  </span>
-                </div>
                 {!isAllCategory && (
                   <>
                     <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-cyan-400/30 bg-cyan-950/30 px-2.5 py-1 text-cyan-300">
