@@ -37,7 +37,7 @@ export const DOMAIN_PILLARS: DomainPillar[] = [
     roleTitle: "Data Analyst",
     subtitle: "Exploratory Analysis · Business Intelligence · Predictive Analytics",
     description:
-      "Transforming complex raw data into actionable strategic intelligence through exploratory diagnostics, multidimensional modeling, automated ETL pipelines, and executive dashboards.",
+      "Transforming raw data into actionable strategic intelligence through exploratory diagnostics, multidimensional modeling, automated ETL pipelines, and executive dashboards.",
     metrics: [
       { label: "Experience", value: calcExp(2024) },
       { label: "Mastered Tech", value: getSkillCount("data-analysis") },
@@ -60,7 +60,7 @@ export const DOMAIN_PILLARS: DomainPillar[] = [
     shortRoleTitle: "AI Engineer",
     subtitle: "Large Language Models · Retrieval-Augmented Generation · Agentic Systems",
     description:
-      "Architecting production-ready AI systems powered by high-throughput foundation model inference, hybrid retrieval pipelines, standard tool protocols, and autonomous multi-agent workflows.",
+      "Architecting production-ready AI systems powered by high-throughput foundation model inference, hybrid retrieval pipelines, tool protocols, and autonomous multi-agent workflows.",
     metrics: [
       { label: "Experience", value: calcExp(2025) },
       { label: "Mastered Tech", value: getSkillCount("artificial-intelligence") },
