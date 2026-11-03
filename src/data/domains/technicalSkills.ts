@@ -22,7 +22,7 @@ export const calcExp = (startYear: number, startMonth: number = 1): string => {
 };
 export const SKILL_MATRIX: SkillItem[] = [
   // ==========================================
-  // 1. Web Development (12 Core Skills + 76 Tech Stack)
+  // 1. Web Development (12 Core Skills + 70 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -379,14 +379,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     roleContext: "Cross-platform high-performance C# framework for building modern cloud-based web APIs",
   },
   {
-    name: "Vitest",
-    category: "web-development",
-    skillType: "tech-stack",
-    level: 92,
-    experience: calcExp(2024),
-    roleContext: "Next-generation Vite-native unit and integration test runner with instant HMR feedback",
-  },
-  {
     name: "Playwright",
     category: "web-development",
     skillType: "tech-stack",
@@ -401,14 +393,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 92,
     experience: calcExp(2023),
     roleContext: "DOM and React testing utilities focused on user behavior and accessibility best practices",
-  },
-  {
-    name: "PHPUnit",
-    category: "web-development",
-    skillType: "tech-stack",
-    level: 90,
-    experience: calcExp(2024),
-    roleContext: "Programmer-oriented unit testing framework for PHP test suites, mocks & assertions",
   },
   {
     name: "Git",
