@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import { IoIosCloudOutline } from "react-icons/io";
+import { MdOutlineWeb } from "react-icons/md";
 import {
   BarChart3,
   LineChart,
@@ -1105,8 +1106,21 @@ function DomainsSection({
       case "Full-Stack Development":
         return Layers;
       // --- Master Tailored Core Skills Mappings (57 items) ---
+      case "Data Acquisition, Extraction & Integration":
+        return Network;
+      case "Database Querying & Analytical Data Modeling":
+        return Database;
+      case "Statistical Analysis, Hypothesis Testing & Time-Series Analysis":
+        return Activity;
+      case "Business Intelligence, KPI Design & Performance Analysis":
+        return BarChart3;
+      case "Data Visualization, Dashboard Development & Data Storytelling":
+        return PieChart;
+      case "Data Quality Assurance & Validation":
+        return ShieldCheck;
+
       case "Web Architecture & System Design":
-        return Layers;
+        return MdOutlineWeb;
       case "Frontend Engineering & SPA/SSR Architecture":
         return TbBrowser;
       case "Backend Engineering & Server Runtimes":
