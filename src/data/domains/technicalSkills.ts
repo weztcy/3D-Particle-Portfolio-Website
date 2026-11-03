@@ -1099,7 +1099,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     roleContext: "Cloud-hosted GPU/CPU analytical computing, collaborative analysis & shared research environments",
   },
   // ==========================================
-  // 3. Artificial Intelligence (12 Core Skills + 51 Tech Stack)
+  // 3. Artificial Intelligence (12 Core Skills + 48 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -1241,14 +1241,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     roleContext: "Pretrained transformer inference, tokenization, PEFT/LoRA fine-tuning & model hub integrations",
   },
   {
-    name: "PyTorch",
-    category: "artificial-intelligence",
-    skillType: "tech-stack",
-    level: 94,
-    experience: calcExp(2025),
-    roleContext: "Deep learning tensor computing, GPU acceleration, custom loss functions & neural network research",
-  },
-  {
     name: "vLLM",
     category: "artificial-intelligence",
     skillType: "tech-stack",
@@ -1287,14 +1279,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 93,
     experience: calcExp(2025),
     roleContext: "Universal LLM gateway proxy, 100+ provider routing, load balancing & OpenAI-format normalization",
-  },
-  {
-    name: "TensorFlow",
-    category: "artificial-intelligence",
-    skillType: "tech-stack",
-    level: 91,
-    experience: calcExp(2025),
-    roleContext: "Production ML deployment, saved model graphs, edge compilation & distributed training",
   },
   {
     name: "LangChain",
@@ -1353,7 +1337,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     roleContext: "Autonomous agent loops, handoffs, function calling & OpenAI ecosystem integration",
   },
   {
-    name: "Google Agent Development Kit (ADK)",
+    name: "Google Agent Development Kit",
     category: "artificial-intelligence",
     skillType: "tech-stack",
     level: 93,
@@ -1519,14 +1503,6 @@ export const SKILL_MATRIX: SkillItem[] = [
     level: 94,
     experience: calcExp(2025),
     roleContext: "Node-based workflow automation, LangChain AI agent integration, webhook routing & event triggers",
-  },
-  {
-    name: "Playwright",
-    category: "artificial-intelligence",
-    skillType: "tech-stack",
-    level: 93,
-    experience: calcExp(2025),
-    roleContext: "Headless browser automation, dynamic DOM extraction, web agent scraping & action execution",
   },
   {
     name: "MCP (Model Context Protocol)",

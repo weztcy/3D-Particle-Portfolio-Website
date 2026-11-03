@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import { IoIosCloudOutline } from "react-icons/io";
+import { GiWingfoot } from "react-icons/gi";
 import { MdOutlineWeb } from "react-icons/md";
 import {
   BarChart3,
@@ -1003,7 +1004,7 @@ function DomainsSection({
       case "n8n":
         return SiN8N;
       case "Hermes Agent":
-        return RiAiAgentLine;
+        return GiWingfoot;
       case "AI Agents":
         return RiAiAgentLine;
       case "Ollama":
