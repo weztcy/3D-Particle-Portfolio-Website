@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
+import { IoIosCloudOutline } from "react-icons/io";
 import {
   BarChart3,
   LineChart,
@@ -26,6 +27,8 @@ import {
   Cpu,
   Wrench,
   SlidersHorizontal,
+  FlaskConical,
+  Cloud,
 } from "lucide-react";
 import {
   SiHtml5,
@@ -1093,6 +1096,126 @@ function DomainsSection({
       case "Statistical Analysis":
         return Activity;
       // Core Engineering Skills Mappings
+      case "SEO Optimization & Web Analytics":
+        return Search;
+      case "Performance & Scalability Optimization":
+        return Zap;
+      case "Security & Vulnerability Hardening":
+        return ShieldCheck;
+      case "Full-Stack Development":
+        return Layers;
+      // --- Master Tailored Core Skills Mappings (57 items) ---
+      case "Web Architecture & System Design":
+        return Layers;
+      case "Frontend Engineering & SPA/SSR Architecture":
+        return TbBrowser;
+      case "Backend Engineering & Server Runtimes":
+        return Terminal;
+      case "Database Design, Modeling & ORM Management":
+        return Database;
+      case "API Design, Gateways & Integration":
+        return Network;
+      case "Application Security & Vulnerability Hardening":
+        return ShieldCheck;
+      case "Automated Testing & Quality Assurance":
+        return FlaskConical;
+      case "Web Performance & Core Web Vitals Optimization":
+        return Zap;
+      case "Cloud Infrastructure & Containerization":
+        return IoIosCloudOutline;
+      case "CI/CD Automation & Release Engineering":
+        return Rocket;
+      case "Design Systems & Component Architecture":
+        return TbComponents;
+      case "SEO & Digital Telemetry Engineering":
+        return Search;
+      case "Exploratory Data Analysis (EDA) & Diagnostics":
+        return Search;
+      case "Data Cleansing, Wrangling & Preprocessing":
+        return SlidersHorizontal;
+      case "Relational Database Querying & Modeling":
+        return Database;
+      case "Data Transformation & ETL Processing":
+        return Layers;
+      case "Business Intelligence & Executive Dashboards":
+        return BarChart3;
+      case "KPI Formulation & Strategic Telemetry":
+        return LineChart;
+      case "Data Storytelling & Visual Communication":
+        return PieChart;
+      case "Automated Reporting & Reproducible Analytics":
+        return FileSpreadsheet;
+      case "Predictive Modeling & Trend Forecasting":
+        return BrainCircuit;
+      case "Data Quality Auditing & Governance":
+        return ShieldCheck;
+      case "Large Language Model (LLM) Inference & Serving":
+        return RiBrainAi3Line;
+      case "Retrieval-Augmented Generation (RAG) Architecture":
+        return Database;
+      case "Autonomous Agentic AI & Multi-Agent Systems":
+        return RiAiAgentLine;
+      case "Model Context Protocol (MCP) & Tool Orchestration":
+        return SiModelcontextprotocol;
+      case "Vector Databases & Hybrid Semantic Search":
+        return Network;
+      case "Generative Vision & Diffusion Pipelines":
+        return Sparkles;
+      case "AI Backend Services & Real-Time Streaming":
+        return Rocket;
+      case "Workflow Automation & Intelligent Task Orchestration":
+        return Zap;
+      case "Foundational Deep Learning & Model Adaptation":
+        return BrainCircuit;
+      case "High-Performance Caching & Vector Telemetry":
+        return Cpu;
+      case "Natural Language Processing & Semantic Understanding":
+        return Terminal;
+      case "Supervised & Unsupervised Learning Algorithms":
+        return Activity;
+      case "Deep Learning & Neural Network Architectures":
+        return BrainCircuit;
+      case "Computer Vision & Object Detection":
+        return Eye;
+      case "Natural Language Processing & Text Mining":
+        return Terminal;
+      case "Time Series Analysis & Forecasting":
+        return LineChart;
+      case "Reinforcement Learning & Decision Policies":
+        return SlidersHorizontal;
+      case "Feature Engineering & Dimensionality Reduction":
+        return SlidersHorizontal;
+      case "Distributed Data Processing & Parallel Computing":
+        return Layers;
+      case "Model Validation, Testing & Performance Benchmarking":
+        return CheckCircle2;
+      case "Model Serving & Interactive Prototyping":
+        return Rocket;
+      case "Agile & Scrum Sprint Orchestration":
+        return GitBranch;
+      case "Product Backlog Grooming & Prioritization":
+        return CheckCircle2;
+      case "Technical Documentation & Knowledge Architecture":
+        return FileSpreadsheet;
+      case "Milestone Roadmapping & Deliverable Tracking":
+        return LineChart;
+      case "Cross-Functional Stakeholder Alignment":
+        return Network;
+      case "Risk Management & Blocker Resolution":
+        return ShieldCheck;
+      case "Advanced Spreadsheet Modeling & Data Reconciliation":
+        return FileSpreadsheet;
+      case "Executive Technical Writing & Document Design":
+        return CheckCircle2;
+      case "Executive Presentation & Visual Deck Crafting":
+        return PieChart;
+      case "Cloud Workspace Architecture & Access Governance":
+        return Layers;
+      case "Structured Form Engineering & Intake Automation":
+        return SlidersHorizontal;
+      case "Corporate Correspondence & Communication Triage":
+        return ShieldCheck;
+
       case "Frontend Development":
         return TbBrowser;
       case "Backend Development":
