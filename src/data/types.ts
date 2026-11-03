@@ -16,7 +16,6 @@ export interface DomainPillar {
   description: string;
   metrics: { label: string; value: string }[];
   capabilities: string[];
-  technologies: string[];
   formationTrigger: Exclude<ParticleFormation, "auto">;
 }
 
