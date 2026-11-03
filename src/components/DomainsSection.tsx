@@ -1107,6 +1107,38 @@ function DomainsSection({
       case "Full-Stack Development":
         return Layers;
       // --- Master Tailored Core Skills Mappings (57 items) ---
+      case "Model Context Protocol & Tool Orchestration":
+        return SiModelcontextprotocol;
+      case "Retrieval-Augmented Generation":
+        return Database;
+      case "Exploratory Data Analysis & Diagnostics":
+        return Search;
+      case "LLM & Foundation Model Integration":
+        return RiBrainAi3Line;
+      case "Agentic AI & Multi-Agent Systems":
+        return RiAiAgentLine;
+      case "AI Data, Database & Caching Integration":
+        return Database;
+
+      case "Large Language Model (LLM) & Foundation Model Integration":
+        return RiBrainAi3Line;
+      case "LLM Inference & Model Serving":
+        return Rocket;
+      case "Agentic AI, Multi-Agent Systems & Tool Orchestration":
+        return RiAiAgentLine;
+      case "Embedding, Vector Databases & Hybrid Semantic Search":
+        return Network;
+      case "Natural Language Processing (NLP) & Semantic Understanding":
+        return TbLanguage;
+      case "Generative AI & Multimodal Content Generation":
+        return Sparkles;
+      case "AI-Powered Application & API Development":
+        return Code2;
+      case "AI Workflow Automation & Intelligent System Integration":
+        return Zap;
+      case "AI Data, Database & High-Performance Caching":
+        return Cpu;
+
       case "Data Acquisition, Extraction & Integration":
         return Network;
       case "Database Querying & Analytical Data Modeling":
@@ -1188,6 +1220,7 @@ function DomainsSection({
         return Terminal;
       case "Supervised & Unsupervised Learning Algorithms":
         return Activity;
+      case "Deep Learning & Neural Network":
       case "Deep Learning & Neural Network Architectures":
         return BrainCircuit;
       case "Computer Vision & Object Detection":
@@ -1561,6 +1594,7 @@ function DomainsSection({
         return SiVercel;
       case "OpenAI Agents SDK":
         return RiOpenaiFill;
+      case "Google Agent Development Kit":
       case "Google Agent Development Kit (ADK)":
         return SiGoogle;
       case "Haystack":
