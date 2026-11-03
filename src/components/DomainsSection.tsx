@@ -1120,7 +1120,7 @@ function DomainsSection({
         return ShieldCheck;
 
       case "Web Architecture & System Design":
-        return MdOutlineWeb;
+        return RiFlowChart;
       case "Frontend Engineering & SPA/SSR Architecture":
         return TbBrowser;
       case "Backend Engineering & Server Runtimes":
