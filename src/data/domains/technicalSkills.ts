@@ -2,7 +2,7 @@ import { SkillItem } from "../types";
 
 /**
  * Dynamic experience calculator relative to anchor start dates:
- * - Office: Started 2020 (max 6+ yrs as of 2026)
+ * - Office & Productivity: Started 2020 (max 6+ yrs as of 2026)
  * - Web Development: Started 2022 (max 4+ yrs as of 2026)
  * - Project Management: Started 2023 (max 3+ yrs as of 2026)
  * - Data Analytics: Started 2024 (max 2+ yrs as of 2026)
@@ -421,7 +421,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     roleContext: "Collaborative Git repository management, issue boards, code reviews & DevOps lifecycle",
   },
   {
-    name: "GitLab CI/CD",
+    name: "CI/CD",
     category: "web-development",
     skillType: "tech-stack",
     level: 90,
@@ -1959,7 +1959,7 @@ export const SKILL_MATRIX: SkillItem[] = [
     roleContext: "Lightweight Python microservices for rapid ML inference API prototypes",
   },
   // ==========================================
-  // 5. Project Management (6 Core Skills + 6 Tech Stack)
+  // 5. Project Management (6 Core Skills + 8 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
@@ -2013,12 +2013,28 @@ export const SKILL_MATRIX: SkillItem[] = [
 
   // --- Tech Stack ---
   {
+    name: "Git",
+    category: "project-management",
+    skillType: "tech-stack",
+    level: 96,
+    experience: calcExp(2023),
+    roleContext: "Distributed version control, branching strategies, commit history governance & code versioning",
+  },
+  {
     name: "GitHub",
     category: "project-management",
     skillType: "tech-stack",
     level: 96,
     experience: calcExp(2023),
     roleContext: "Git version control, repositories, collaboration & pull requests",
+  },
+  {
+    name: "GitLab",
+    category: "project-management",
+    skillType: "tech-stack",
+    level: 93,
+    experience: calcExp(2024),
+    roleContext: "Issue boards, milestone tracking, merge requests, team collaboration & agile delivery",
   },
   {
     name: "Trello",
@@ -2060,63 +2076,64 @@ export const SKILL_MATRIX: SkillItem[] = [
     experience: calcExp(2023),
     roleContext: "Agile issue tracking, sprint backlog grooming & release roadmaps",
   },
+
   // ==========================================
-  // 6. Office & Productivity (6 Core Skills + 11 Tech Stack)
+  // 6. Office & Productivity (6 Core Skills + 14 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
-    name: "Advanced Spreadsheet Modeling & Data Reconciliation",
-    category: "office",
+    name: "Advanced Spreadsheet Modeling & Quantitative Analysis",
+    category: "office-productivity",
     skillType: "core-skills",
     level: 98,
     experience: calcExp(2020),
-    roleContext: "Complex nested lookup logic, tabular reconciliation, dynamic summary matrices & numerical integrity auditing",
+    roleContext: "Complex formula modeling, tabular reconciliation, data validation, pivot summarization & numerical integrity auditing",
   },
   {
-    name: "Executive Technical Writing & Document Design",
-    category: "office",
+    name: "Executive Document Engineering & Professional Reporting",
+    category: "office-productivity",
     skillType: "core-skills",
     level: 97,
     experience: calcExp(2020),
-    roleContext: "Publication-grade typography, standardized document formatting, technical whitepapers & formal report composition",
+    roleContext: "Structured document typography, standard operating procedures, publication formatting & technical report synthesis",
   },
   {
-    name: "Executive Presentation & Visual Deck Crafting",
-    category: "office",
+    name: "Executive Presentation Design & Visual Asset Synthesis",
+    category: "office-productivity",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2021),
-    roleContext: "Visual communication hierarchy, executive briefing decks, slide narrative progression & multimedia collateral",
+    roleContext: "Strategic narrative progression, executive briefing decks, visual hierarchy & branded corporate collateral creation",
   },
   {
-    name: "Cloud Workspace Architecture & Access Governance",
-    category: "office",
+    name: "Cloud Workspace Governance & Centralized File Management",
+    category: "office-productivity",
     skillType: "core-skills",
     level: 97,
     experience: calcExp(2020),
-    roleContext: "Folder taxonomy hierarchies, permission management, concurrent co-authoring workflows & asset repository management",
+    roleContext: "Folder taxonomy hierarchies, access permission protocols, cross-device synchronization & secure cloud asset repositories",
   },
   {
-    name: "Structured Form Engineering & Intake Automation",
-    category: "office",
-    skillType: "core-skills",
-    level: 96,
-    experience: calcExp(2021),
-    roleContext: "Conditional branching questionnaire design, digital response capture, survey validation & automated data intake",
-  },
-  {
-    name: "Corporate Correspondence & Communication Triage",
-    category: "office",
+    name: "Corporate Correspondence & Executive Communication Triage",
+    category: "office-productivity",
     skillType: "core-skills",
     level: 98,
     experience: calcExp(2020),
-    roleContext: "Professional stakeholder correspondence, executive briefing summaries, formal email protocols & thread triage",
+    roleContext: "Professional stakeholder correspondence, calendar orchestration, executive briefing protocol & thread management",
+  },
+  {
+    name: "Virtual Collaboration Orchestration & Digital Intake Systems",
+    category: "office-productivity",
+    skillType: "core-skills",
+    level: 97,
+    experience: calcExp(2021),
+    roleContext: "Real-time team conferencing, hybrid meeting facilitation, interactive digital forms & automated survey collection workflows",
   },
 
   // --- Tech Stack ---
   {
     name: "Microsoft Word",
-    category: "office",
+    category: "office-productivity",
     skillType: "tech-stack",
     level: 97,
     experience: calcExp(2020),
@@ -2124,71 +2141,15 @@ export const SKILL_MATRIX: SkillItem[] = [
   },
   {
     name: "Microsoft Excel",
-    category: "office",
+    category: "office-productivity",
     skillType: "tech-stack",
     level: 98,
     experience: calcExp(2020),
     roleContext: "Administrative reporting, spreadsheet management & calculations",
   },
   {
-    name: "Google Docs",
-    category: "office",
-    skillType: "tech-stack",
-    level: 98,
-    experience: calcExp(2020),
-    roleContext: "Real-time collaborative drafting, shared editing & reviews",
-  },
-  {
-    name: "Google Sheets",
-    category: "office",
-    skillType: "tech-stack",
-    level: 97,
-    experience: calcExp(2021),
-    roleContext: "Collaborative sheets, project tracking & data organization",
-  },
-  {
-    name: "Google Forms",
-    category: "office",
-    skillType: "tech-stack",
-    level: 96,
-    experience: calcExp(2021),
-    roleContext: "Surveys, structured data collection & automated response sheets",
-  },
-  {
-    name: "Gmail",
-    category: "office",
-    skillType: "tech-stack",
-    level: 99,
-    experience: calcExp(2020),
-    roleContext: "Professional communication, label organization & email workflows",
-  },
-  {
-    name: "Google Drive",
-    category: "office",
-    skillType: "tech-stack",
-    level: 98,
-    experience: calcExp(2020),
-    roleContext: "Centralized cloud document organization, sharing & backup",
-  },
-  {
-    name: "Canva",
-    category: "office",
-    skillType: "tech-stack",
-    level: 96,
-    experience: calcExp(2021),
-    roleContext: "Visual asset design, pitch deck graphics & presentation collateral",
-  },
-  {
-    name: "Google Slides",
-    category: "office",
-    skillType: "tech-stack",
-    level: 97,
-    experience: calcExp(2021),
-    roleContext: "Collaborative cloud presentation decks, stakeholder reviews & slide animations",
-  },
-  {
     name: "Microsoft PowerPoint",
-    category: "office",
+    category: "office-productivity",
     skillType: "tech-stack",
     level: 98,
     experience: calcExp(2020),
@@ -2196,10 +2157,90 @@ export const SKILL_MATRIX: SkillItem[] = [
   },
   {
     name: "OneDrive",
-    category: "office",
+    category: "office-productivity",
     skillType: "tech-stack",
     level: 97,
     experience: calcExp(2020),
     roleContext: "Enterprise cloud backup, cross-device sync & secure document repository",
+  },
+  {
+    name: "Microsoft Teams",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 96,
+    experience: calcExp(2021),
+    roleContext: "Enterprise team collaboration, channel communications, video meetings & cloud app integration",
+  },
+  {
+    name: "Outlook",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 97,
+    experience: calcExp(2020),
+    roleContext: "Corporate email correspondence, calendar scheduling, contact management & meeting coordination",
+  },
+  {
+    name: "Google Gmail",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 99,
+    experience: calcExp(2020),
+    roleContext: "Professional communication, label organization & email workflows",
+  },
+  {
+    name: "Google Docs",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 98,
+    experience: calcExp(2020),
+    roleContext: "Real-time collaborative drafting, shared editing & reviews",
+  },
+  {
+    name: "Google Sheets",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 97,
+    experience: calcExp(2021),
+    roleContext: "Collaborative sheets, project tracking & data organization",
+  },
+  {
+    name: "Google Slides",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 97,
+    experience: calcExp(2021),
+    roleContext: "Collaborative cloud presentation decks, stakeholder reviews & slide animations",
+  },
+  {
+    name: "Google Meet",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 98,
+    experience: calcExp(2021),
+    roleContext: "High-definition virtual conferencing, screen sharing, interactive breakout rooms & meeting recordings",
+  },
+  {
+    name: "Google Forms",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 96,
+    experience: calcExp(2021),
+    roleContext: "Surveys, structured data collection & automated response sheets",
+  },
+  {
+    name: "Google Drive",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 98,
+    experience: calcExp(2020),
+    roleContext: "Centralized cloud document organization, sharing & backup",
+  },
+  {
+    name: "Canva",
+    category: "office-productivity",
+    skillType: "tech-stack",
+    level: 96,
+    experience: calcExp(2021),
+    roleContext: "Visual asset design, pitch deck graphics & presentation collateral",
   },
 ];

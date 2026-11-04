@@ -25,6 +25,7 @@ export type SkillCategory =
   | "artificial-intelligence"
   | "machine-learning"
   | "project-management"
+  | "office-productivity"
   | "office";
 
 export type SkillType = "core-skills" | "tech-stack";

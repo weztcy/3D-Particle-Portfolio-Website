@@ -168,11 +168,20 @@ import {
   SiN8N,
   SiDask,
   SiGooglecloudstorage,
+  SiGooglemeet,
 } from "react-icons/si";
 import {
   PiMicrosoftExcelLogoFill,
   PiMicrosoftWordLogoFill,
   PiMicrosoftPowerpointLogoFill,
+  PiMicrosoftTeamsLogoFill,
+  PiMicrosoftOutlookLogoFill,
+  PiTableFill,
+  PiFileTextFill,
+  PiPresentationChartFill,
+  PiCloudCheckFill,
+  PiEnvelopeOpenFill,
+  PiVideoConferenceFill,
 } from "react-icons/pi";
 import {
   TbSql,
@@ -246,7 +255,7 @@ const FILTER_ROW_2 = [
 
 const FILTER_ROW_3 = [
   { id: "project-management", label: "Project Management", shortLabel: "Project Management", prefix: "05" },
-  { id: "office", label: "Office", shortLabel: "Office", prefix: "06" },
+  { id: "office-productivity", label: "Office & Productivity", shortLabel: "Office", prefix: "06" },
 ] as const;
 
 const ALL_CATEGORY_FILTERS = [
@@ -421,6 +430,7 @@ function DomainsSection({
       case "project-management":
         return GitBranch;
       case "office":
+      case "office-productivity":
         return FileSpreadsheet;
       default:
         return Code2;
@@ -689,6 +699,7 @@ function DomainsSection({
           pill: "bg-amber-400/30 text-amber-200 border border-amber-400/40",
         };
       case "office":
+      case "office-productivity":
         return {
           btn: "bg-fuchsia-400/20 text-white border-fuchsia-400/70 shadow-[0_0_18px_rgba(232,121,249,0.35),inset_0_0_10px_rgba(232,121,249,0.2)]",
           dot: "bg-fuchsia-400 shadow-[0_0_8px_#e879f9] animate-pulse",
@@ -786,6 +797,7 @@ function DomainsSection({
           titleHover: "group-hover:text-amber-100",
         };
       case "office":
+      case "office-productivity":
         return {
           barColor: "from-fuchsia-400 to-pink-500",
           percentColor: "text-fuchsia-300",
@@ -1027,8 +1039,30 @@ function DomainsSection({
         return SiGoogledocs;
       case "Google Forms":
         return SiGoogleforms;
+      case "Google Gmail":
       case "Gmail":
         return SiGmail;
+      case "Microsoft Teams":
+      case "Teams":
+        return PiMicrosoftTeamsLogoFill;
+      case "Outlook":
+      case "Microsoft Outlook":
+        return PiMicrosoftOutlookLogoFill;
+      case "Google Meet":
+      case "Meet":
+        return SiGooglemeet;
+      case "Advanced Spreadsheet Modeling & Quantitative Analysis":
+        return PiTableFill;
+      case "Executive Document Engineering & Professional Reporting":
+        return PiFileTextFill;
+      case "Executive Presentation Design & Visual Asset Synthesis":
+        return PiPresentationChartFill;
+      case "Cloud Workspace Governance & Centralized File Management":
+        return PiCloudCheckFill;
+      case "Corporate Correspondence & Executive Communication Triage":
+        return PiEnvelopeOpenFill;
+      case "Virtual Collaboration Orchestration & Digital Intake Systems":
+        return PiVideoConferenceFill;
       case "Performance Optimization":
         return Zap;
       case "SEO Optimization":
@@ -2259,13 +2293,8 @@ function DomainsSection({
                 </div>
 
                 {/* Sci-Fi Ambient Divider between Core Skills and Tech Stack */}
-                <div className="relative z-10 my-8 sm:my-10 flex items-center justify-center">
+                <div className="relative z-10 my-6 sm:my-8 flex items-center justify-center">
                   <div className="h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-                  <div className="absolute px-3 py-1 rounded-full border border-white/10 bg-[#080B12] text-[10px] font-mono text-slate-400 uppercase tracking-widest flex items-center gap-2 shadow-[0_0_15px_rgba(0,0,0,0.9)]">
-                    <span className={`h-1 w-1 rounded-full ${activeCategoryStyle.beacon} animate-pulse`} />
-                    <span>STACK TELEMETRY // TOOLING MATRIX</span>
-                    <span className="h-1 w-1 rounded-full bg-indigo-400 animate-pulse" />
-                  </div>
                 </div>
               </>
             );
