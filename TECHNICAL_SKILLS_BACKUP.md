@@ -1,890 +1,670 @@
-# TECHNICAL SKILLS BACKUP (CORE SKILLS & TECH STACK)
+# Technical Skills & Tooling Master Backup
 
-> Dokumen ini berfungsi sebagai master backup lengkap untuk seluruh data **Core Skills** dan **Tech Stack** di `src/data/domains/technicalSkills.ts`. Jika terjadi perubahan data di masa mendatang, seluruh susunan, nama, level, anchor experience, dan role context dapat dipulihkan secara instan dari file ini.
-
----
-
-## 1. Web Development (12 Core Skills + 70 Tech Stack)
-
-### Core Skills (12 Items)
-
-1. **Web Architecture & Design**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Scalable modular system design, microservices & client-server decoupling*
-2. **Frontend Development**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Responsive UI/UX interfaces, component systems, client-side state & interactive web apps*
-3. **Backend Development**
-   - Level: `95%` | Experience: `calcExp(2022)`
-   - Role Context: *Server runtime architectures, microservices, database transactions & business logic*
-4. **Database Design & Management**
-   - Level: `95%` | Experience: `calcExp(2022)`
-   - Role Context: *Relational schema modeling, normalization, indexing & connection pooling*
-5. **API Development & Integration**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *RESTful & GraphQL API design, serialization, error handling & gateway routing*
-6. **Software Engineering Principles**
-   - Level: `95%` | Experience: `calcExp(2022)`
-   - Role Context: *SOLID design patterns, clean architecture, DRY & maintainable codebases*
-7. **Authentication & Web Security**
-   - Level: `93%` | Experience: `calcExp(2023)`
-   - Role Context: *JWT, OAuth2, session handling, RBAC, CSRF/XSS protection & strict CSP*
-8. **Testing & Debugging**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *Unit, integration, E2E testing pipelines, root-cause diagnostics & profiling*
-9. **Web Performance Optimization**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *Core Web Vitals tuning, bundle code-splitting, tree-shaking & edge caching*
-10. **SEO Optimization**
-   - Level: `94%` | Experience: `calcExp(2023)`
-   - Role Context: *Semantic metadata, Open Graph protocols, structured JSON-LD & crawlability*
-11. **DevOps & Application Deployment**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *CI/CD automated pipelines, containerization, staging environments & zero-downtime rollouts*
-12. **Version Control & CI/CD Pipelines**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Git-flow protocols, automated test/build CI/CD pipelines, PR code reviews & conflict resolution*
-
-### Tech Stack (70 Items)
-
-1. **HTML5**
-   - Level: `98%` | Experience: `calcExp(2022)`
-   - Role Context: *Semantic markup, modern HTML5 APIs, accessibility (a11y) & SEO optimization*
-2. **CSS3**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Modern responsive layouts, Flexbox, CSS Grid, custom keyframes & GPU-accelerated animations*
-3. **JavaScript**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *ES6+, modern asynchronous logic, DOM manipulation & client runtime execution*
-4. **TypeScript**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *Type-safe architectures, strict generic interfaces, utility types & contract soundness*
-5. **PHP**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *Server-side scripting, MVC backend development, OOP & database connectivity*
-6. **Java**
-   - Level: `89%` | Experience: `calcExp(2024)`
-   - Role Context: *Object-oriented backend services, enterprise architecture, concurrency & thread safety*
-7. **C#**
-   - Level: `88%` | Experience: `calcExp(2024)`
-   - Role Context: *Strongly-typed enterprise backends, LINQ queries, asynchronous tasks & REST services*
-8. **Rust**
-   - Level: `85%` | Experience: `calcExp(2025)`
-   - Role Context: *Memory-safe systems programming, high-performance web services & WebAssembly compilation*
-9. **SQL**
-   - Level: `95%` | Experience: `calcExp(2022)`
-   - Role Context: *Complex query optimization, relational indexing, CTEs & multi-table transaction profiling*
-10. **React.js**
-   - Level: `96%` | Experience: `calcExp(2023)`
-   - Role Context: *Component-based architecture, hooks, virtual DOM reconciliation & scalable state patterns*
-11. **Next.js**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *App Router, SSR, SSG, Server Actions, route handlers & edge runtime optimization*
-12. **Vue.js**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *Progressive frontend framework, Single-File Components (SFC) & Composition API reactivity*
-13. **Nuxt.js**
-   - Level: `89%` | Experience: `calcExp(2024)`
-   - Role Context: *Vue-based full-stack SSR/SSG framework, auto-imports & modular server routing*
-14. **Angular**
-   - Level: `87%` | Experience: `calcExp(2024)`
-   - Role Context: *Enterprise TypeScript frontend framework, RxJS reactive streams & modular dependency injection*
-15. **Svelte**
-   - Level: `88%` | Experience: `calcExp(2024)`
-   - Role Context: *Compile-time reactive frontend components, zero runtime overhead & lean bundle footprints*
-16. **Tailwind CSS**
-   - Level: `98%` | Experience: `calcExp(2023)`
-   - Role Context: *Utility-first design systems, custom theme configuration, JIT compiler & responsive UI*
-17. **Bootstrap**
-   - Level: `94%` | Experience: `calcExp(2022)`
-   - Role Context: *Rapid responsive grid prototyping, utility classes & accessible cross-browser UI components*
-18. **Material UI**
-   - Level: `91%` | Experience: `calcExp(2023)`
-   - Role Context: *React component library implementing Google's Material Design system with custom themes*
-19. **Ant Design**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *Enterprise-grade React UI component library for high-density administrative dashboards*
-20. **Chakra UI**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *Modular, accessible and composable React component library with styled-system props*
-21. **Shadcn/UI**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *Accessible, copy-paste Radix UI primitives styled with Tailwind CSS & custom variants*
-22. **DaisyUI**
-   - Level: `91%` | Experience: `calcExp(2024)`
-   - Role Context: *Semantic component class extension for Tailwind CSS, clean themes & lightweight markup*
-23. **Semantic UI**
-   - Level: `88%` | Experience: `calcExp(2023)`
-   - Role Context: *Human-friendly natural language UI styling framework for responsive web layouts*
-24. **Radix UI**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Unstyled, accessible headless UI primitives for building custom high-performance design systems*
-25. **Node.js**
-   - Level: `93%` | Experience: `calcExp(2023)`
-   - Role Context: *Event-driven server runtime, microservices, asynchronous I/O & RESTful API backends*
-26. **Express.js**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *Lightweight middleware pipelines, REST routing, error handling & backend microservices*
-27. **NestJS**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *TypeScript modular server architecture, dependency injection & enterprise REST/GraphQL APIs*
-28. **Laravel**
-   - Level: `92%` | Experience: `calcExp(2024)`
-   - Role Context: *PHP MVC framework, Eloquent ORM, Blade templating, authentication & queue workers*
-29. **CodeIgniter**
-   - Level: `89%` | Experience: `calcExp(2023)`
-   - Role Context: *Lightweight PHP MVC framework, rapid development, low footprint & secure routing*
-30. **Django**
-   - Level: `89%` | Experience: `calcExp(2024)`
-   - Role Context: *Python batteries-included web framework, ORM, admin dashboards & secure CSRF/auth*
-31. **Spring Boot**
-   - Level: `88%` | Experience: `calcExp(2024)`
-   - Role Context: *Enterprise Java microservices, production-ready REST APIs & modular dependency injection*
-32. **ASP.NET Core**
-   - Level: `88%` | Experience: `calcExp(2024)`
-   - Role Context: *Cross-platform high-performance C# framework for building modern cloud-based web APIs*
-33. **Playwright**
-   - Level: `91%` | Experience: `calcExp(2024)`
-   - Role Context: *Reliable end-to-end browser automation, cross-browser testing & resilient locator workflows*
-34. **Testing Library**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *DOM and React testing utilities focused on user behavior and accessibility best practices*
-35. **Git**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Distributed version control, branch orchestration, interactive rebasing & conflict resolution*
-36. **GitHub**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Remote repository hosting, pull request reviews, GitHub Actions CI/CD & project tracking*
-37. **GitLab**
-   - Level: `91%` | Experience: `calcExp(2024)`
-   - Role Context: *Collaborative Git repository management, issue boards, code reviews & DevOps lifecycle*
-38. **GitLab CI/CD**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *Automated YAML pipeline configuration, build runners, test execution & multi-stage deployment*
-39. **MySQL**
-   - Level: `94%` | Experience: `calcExp(2022)`
-   - Role Context: *Relational data persistence, schema tuning, query execution plans & index optimization*
-40. **PostgreSQL**
-   - Level: `94%` | Experience: `calcExp(2023)`
-   - Role Context: *Advanced relational database modeling, ACID compliance, JSONB queries & indexing strategies*
-41. **MariaDB**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *High-performance relational drop-in MySQL fork with advanced storage engines & replication*
-42. **SQLite**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *Self-contained serverless embedded SQL engine for local data persistence & edge storage*
-43. **MongoDB**
-   - Level: `90%` | Experience: `calcExp(2023)`
-   - Role Context: *NoSQL document storage, flexible BSON schemas, indexing & aggregation pipeline queries*
-44. **Redis**
-   - Level: `92%` | Experience: `calcExp(2024)`
-   - Role Context: *In-memory key-value data store for high-throughput caching, session management & Pub/Sub*
-45. **Firebase**
-   - Level: `91%` | Experience: `calcExp(2023)`
-   - Role Context: *BaaS platform for real-time Firestore database, user authentication & serverless cloud functions*
-46. **Supabase**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Open-source Firebase alternative powered by PostgreSQL, Row Level Security & instant REST APIs*
-47. **Postman**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *API testing, automated endpoint collections, mock servers & environment variable chaining*
-48. **Swagger**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *OpenAPI specification authoring, interactive sandbox testing & contract documentation*
-49. **Figma**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *UI/UX component design, responsive wireframes, design tokens & design-to-code dev handoff*
-50. **Chrome DevTools**
-   - Level: `96%` | Experience: `calcExp(2022)`
-   - Role Context: *Advanced runtime debugging, network waterfall inspection, DOM inspection & memory heap profiling*
-51. **React DevTools**
-   - Level: `94%` | Experience: `calcExp(2023)`
-   - Role Context: *React component tree inspection, hook state debugging & component re-render profiling*
-52. **Vue DevTools**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *Vue component hierarchy inspection, Pinia/Vuex state tracking & event timelines*
-53. **Docker**
-   - Level: `91%` | Experience: `calcExp(2024)`
-   - Role Context: *Containerization, multi-stage Dockerfiles, Docker Compose & reproducible runtime isolation*
-54. **Kubernetes**
-   - Level: `86%` | Experience: `calcExp(2025)`
-   - Role Context: *Container orchestration, automated rollouts, scaling, service routing & pod resource management*
-55. **Amazon Web Services**
-   - Level: `88%` | Experience: `calcExp(2024)`
-   - Role Context: *Cloud hosting, S3 storage buckets, EC2 compute instances, IAM security & cloud networking*
-56. **Google Cloud Platform**
-   - Level: `88%` | Experience: `calcExp(2024)`
-   - Role Context: *Cloud Run container services, Compute Engine, Cloud Storage & IAM permission policies*
-57. **Vercel**
-   - Level: `94%` | Experience: `calcExp(2023)`
-   - Role Context: *Serverless edge deployments, automated Git CI/CD preview pipelines & edge middleware*
-58. **Netlify**
-   - Level: `92%` | Experience: `calcExp(2023)`
-   - Role Context: *JAMstack edge hosting, deploy previews, serverless functions & DNS zone management*
-59. **Cloudflare**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Global CDN distribution, DNS routing, SSL/TLS encryption & edge performance caching*
-60. **Hostinger**
-   - Level: `92%` | Experience: `calcExp(2022)`
-   - Role Context: *Web hosting orchestration, cPanel/hPanel management, database setup & domain DNS mapping*
-61. **WordPress**
-   - Level: `90%` | Experience: `calcExp(2022)`
-   - Role Context: *Content management system, custom theme development, PHP template hierarchy & plugin integration*
-62. **OWASP ZAP**
-   - Level: `88%` | Experience: `calcExp(2025)`
-   - Role Context: *Automated vulnerability scanning, web security assessment, penetration tests & threat analysis*
-63. **Google PageSpeed Insights**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *Lighthouse performance audits, Core Web Vitals metric diagnostics & optimization strategies*
-64. **WebPageTest**
-   - Level: `92%` | Experience: `calcExp(2024)`
-   - Role Context: *Deep web performance profiling, waterfall timeline analysis & connection speed emulation*
-65. **Google Analytics**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Event-based user telemetry tracking, conversion funnel analysis & custom audience segmentation*
-66. **Google Search Console**
-   - Level: `94%` | Experience: `calcExp(2023)`
-   - Role Context: *Search indexation monitoring, sitemap submission, crawl error diagnostics & search CTR analysis*
-67. **Google Tag Manager**
-   - Level: `92%` | Experience: `calcExp(2024)`
-   - Role Context: *Centralized tag orchestration, trigger variables, conversion event firing & third-party scripts*
-68. **Prisma ORM**
-   - Level: `93%` | Experience: `calcExp(2023)`
-   - Role Context: *Type-safe database ORM, declarative schema modeling, automated migrations & query builder*
-69. **Drizzle ORM**
-   - Level: `91%` | Experience: `calcExp(2023)`
-   - Role Context: *Zero-overhead type-safe SQL query builder, relational queries & lightweight migrations*
-70. **Eloquent ORM**
-   - Level: `92%` | Experience: `calcExp(2024)`
-   - Role Context: *ActiveRecord database abstraction, relationship mapping, eager loading & database seeders*
+> **Document Status**: Production Synchronization & Recovery Checkpoint  
+> **Source Target**: `src/data/domains/technicalSkills.ts`  
+> **Last Synchronized**: 2026-11-03  
+> **Purpose**: Serves as the authoritative backup and restore point for all domain telemetry, core competencies, and production tech stack items.
 
 ---
 
-## 2. Data Analytics (10 Core Skills + 42 Tech Stack)
+## 📊 High-Level Metrics Summary
 
-### Core Skills (10 Items)
-
-1. **Data Analytics & Exploratory Data Analysis (EDA)**
-   - Level: `97%` | Experience: `calcExp(2024)`
-   - Role Context: *Distribution diagnostics, anomaly identification, multivariate correlation & data profiling*
-2. **Database Querying & Data Modeling**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Complex relational queries, CTEs, star/snowflake schema designs & indexing*
-3. **Data Cleaning, Wrangling & Preprocessing**
-   - Level: `97%` | Experience: `calcExp(2024)`
-   - Role Context: *Missing value imputation, outlier handling, string normalization & deduplication*
-4. **Statistical Analysis & Hypothesis Testing**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Parametric/non-parametric tests, confidence intervals, ANOVA & p-value analysis*
-5. **Business Intelligence & KPI Analysis**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Executive metric scorecard formulation, growth tracking & strategic telemetry*
-6. **Data Visualization & Dashboard Development**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Interactive BI dashboards, aesthetic data storytelling & visual decision trees*
-7. **Data Transformation & ETL**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Automated ETL/ELT pipelines, aggregation jobs & structured data marts*
-8. **Data Collection, Extraction & Integration**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Multi-source ingestion, API web scraping, pipeline connectors & data staging*
-9. **Data Validation & Quality Analysis**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Integrity constraints, schema auditing, drift detection & automated assertions*
-10. **Predictive & Statistical Analytics**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Regression forecasting, causal inference, time-series projections & trend modeling*
-
-### Tech Stack (42 Items)
-
-1. **Python**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Data manipulation, analytical automation, statistical scripting & exploratory data pipelines*
-2. **R**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Statistical computing, econometric analysis, hypothesis testing & reproducible research*
-3. **SQL**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Complex analytical queries, window functions, CTEs, multi-table joins & aggregation indexing*
-4. **VBA**
-   - Level: `91%` | Experience: `calcExp(2024)`
-   - Role Context: *Excel macro automation, custom workbook procedures & repetitive reporting workflow optimization*
-5. **DAX**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Data Analysis Expressions, calculated columns, measures & dynamic time intelligence modeling*
-6. **Power Query M**
-   - Level: `92%` | Experience: `calcExp(2024)`
-   - Role Context: *M formula language authoring, custom ETL step sequencing & data extraction pipelines*
-7. **Pandas**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *High-performance DataFrame operations, multi-index aggregation, reshaping & cleaning workflows*
-8. **NumPy**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *N-dimensional array vectorization, numerical routines, linear algebra & matrix computation*
-9. **SciPy**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Scientific computing, probability distributions, statistical tests & curve fitting optimization*
-10. **Matplotlib**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Publication-grade charts, figure customizations, multi-panel plots & static visualization rendering*
-11. **Seaborn**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *Statistical visualizations, distribution heatmaps, pairplots & multivariate regression plots*
-12. **Plotly**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Interactive web graphics, dynamic scatter/line controls, hover tooltips & analytical visualizers*
-13. **Scikit-learn**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Supervised and unsupervised learning, classification, clustering, PCA & predictive modeling*
-14. **Tidyverse**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Cohesive R data science ecosystem, tidy data principles & harmonious analytical workflows*
-15. **Dplyr**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Fast data grammar manipulation, filtering, selecting, mutating & piping data transformations*
-16. **Tidyr**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Data reshaping, tidy format pivoting (pivot_longer, pivot_wider) & nesting tabular structures*
-17. **Data.Table**
-   - Level: `91%` | Experience: `calcExp(2025)`
-   - Role Context: *Fast memory-efficient aggregation, concise syntax & large-dataset manipulation in R*
-18. **Readr**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Fast rectangular text data parsing, structured CSV/TSV ingestion & column type inference*
-19. **Readxl**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Extracting tabular data from Excel workbooks into clean R tibbles without external dependencies*
-20. **Lubridate**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Date and time parsing, duration calculations, time zone handling & period arithmetic in R*
-21. **Stringr**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Consistent string manipulation, regular expression pattern matching & text data cleaning*
-22. **Broom**
-   - Level: `90%` | Experience: `calcExp(2025)`
-   - Role Context: *Tidying statistical model outputs into standardized data frames with glance, tidy & augment*
-23. **Ggplot2**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Grammar of Graphics analytical visualizations, layered aesthetic geometries & publication faceted charts*
-24. **Leaflet**
-   - Level: `89%` | Experience: `calcExp(2025)`
-   - Role Context: *Interactive geospatial mapping, choropleth rendering, point clusters & spatial visual telemetry*
-25. **Shiny**
-   - Level: `90%` | Experience: `calcExp(2025)`
-   - Role Context: *Interactive R web applications, reactive computational graphs & dynamic data exploration portals*
-26. **Quarto**
-   - Level: `91%` | Experience: `calcExp(2025)`
-   - Role Context: *Scientific and technical publishing system, reproducible computational documents & executive reports*
-27. **Microsoft Excel**
-   - Level: `98%` | Experience: `calcExp(2024)`
-   - Role Context: *Advanced nested formulas, Power Query ETL, Pivot Tables, audit models & scenario managers*
-28. **Google Sheets**
-   - Level: `97%` | Experience: `calcExp(2024)`
-   - Role Context: *Cloud spreadsheet analytics, QUERY functions, collaborative pivot reporting & AppSheet bridges*
-29. **Power Query**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *Automated data ingestion, schema transformation, multi-source merging & ETL cleaning pipelines*
-30. **Power Pivot**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Tabular data modeling, relationship creation, memory compression & star schema design*
-31. **Microsoft Power BI**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Interactive executive dashboards, star schema data modeling, DAX measures & workspace gateways*
-32. **Tableau**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Visual analytics, calculated fields, LOD expressions, parameters & interactive stakeholder dashboards*
-33. **Google Looker Studio**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Live stakeholder dashboards, multi-source blend, automated metric refreshes & interactive reports*
-34. **MySQL**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Database querying, structured reporting tables, indexing strategies & relational data integrity*
-35. **PostgreSQL**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *Analytical relational queries, JSONB operations, window aggregations & procedural functions*
-36. **SQLite**
-   - Level: `93%` | Experience: `calcExp(2024)`
-   - Role Context: *Embedded lightweight database querying, analytical prototyping & localized file databases*
-37. **MongoDB**
-   - Level: `90%` | Experience: `calcExp(2024)`
-   - Role Context: *NoSQL document querying, aggregation framework pipelines & semi-structured JSON telemetry*
-38. **MariaDB**
-   - Level: `91%` | Experience: `calcExp(2024)`
-   - Role Context: *High-performance relational querying, analytical table storage & enterprise compatibility*
-39. **Google BigQuery**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Petabyte-scale analytical querying, partitioning, clustering & cloud data warehousing*
-40. **Jupyter Notebook**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Iterative exploratory research, code narrative, statistical markdown & visual chart prototyping*
-41. **JupyterLab**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *Next-gen modular IDE for data science, multi-tab notebooks, terminal consoles & workspace extensions*
-42. **Google Colab**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *Cloud-hosted GPU/CPU analytical computing, collaborative analysis & shared research environments*
+| Category | Domain Key | Core Skills | Tech Stack | Total Telemetry |
+| :--- | :--- | :---: | :---: | :---: |
+| **Web Development** | `web-development` | **12** | **70** | **82** |
+| **Data Analytics** | `data-analysis` | **9** | **42** | **51** |
+| **Artificial Intelligence** | `artificial-intelligence` | **12** | **48** | **60** |
+| **Machine Learning** | `machine-learning` | **10** | **36** | **46** |
+| **Project Management** | `project-management` | **6** | **6** | **12** |
+| **Office** | `office` | **6** | **11** | **17** |
+| **TOTAL** | *Across All 6 Domains* | **55** | **213** | **268** |
 
 ---
 
-## 3. Artificial Intelligence (9 Core Skills + 51 Tech Stack)
+## 1. Web Development (`web-development`)
 
-### Core Skills (9 Items)
+### Core Skills (12)
 
-1. **Large Language Models (LLM)**
-   - Level: `97%` | Experience: `calcExp(2025)`
-   - Role Context: *Pretrained transformer inference, parameter quantization, context windowing & model serving*
-2. **Retrieval-Augmented Generation (RAG)**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Dense vector retrieval, semantic chunking, re-ranking & hybrid search architectures*
-3. **Agentic AI**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Autonomous multi-agent loops, reflection patterns, tool execution & goal decomposition*
-4. **Prompt Engineering & Context Engineering**
-   - Level: `97%` | Experience: `calcExp(2025)`
-   - Role Context: *Few-shot conditioning, structured schema enforcement, chain-of-thought & system prompting*
-5. **Vector Database & Semantic Search**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *High-dimensional embedding indexing, cosine similarity, HNSW graphs & metadata filtering*
-6. **AI API Integration & Application Development**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Production LLM wrappers, streaming responses, fallback routing & rate-limit resilience*
-7. **Natural Language Processing (NLP)**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Tokenization, named entity recognition (NER), semantic parsing & sentiment classification*
-8. **Generative Text & Images**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Multimodal generative pipelines, diffusion prompting, text synthesis & vision-language models*
-9. **Automation**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Headless task orchestration, workflow triggers, intelligent scheduling & automated pipelines*
+1. **Web Architecture & System Design** (96%, calcExp(2022))
+   - *Context*: Scalable modular system design, client-server decoupling, distributed microservices & high-availability patterns
+2. **Full-Stack Development** (96%, calcExp(2022))
+   - *Context*: End-to-end web engineering, client-side rendering, server runtime coordination & relational persistence
+3. **Database Design & Management** (95%, calcExp(2022))
+   - *Context*: Relational and document schema modeling, normalization, indexing strategies & connection pooling
+4. **API Development & Integration** (96%, calcExp(2022))
+   - *Context*: RESTful endpoints, interface contract specifications, serialization protocols & third-party service integration
+5. **Software Engineering Principles** (95%, calcExp(2022))
+   - *Context*: SOLID design patterns, clean architecture, code reusability, modular boundaries & maintainable codebases
+6. **Security & Vulnerability Hardening** (94%, calcExp(2023))
+   - *Context*: Role-based access control, cryptographic token authentication, session validation & cross-site attack mitigation
+7. **Automated Testing & Quality Assurance** (93%, calcExp(2023))
+   - *Context*: End-to-end browser automation suites, component unit testing, integration verification & continuous test assertions
+8. **Performance & Scalability Optimization** (95%, calcExp(2023))
+   - *Context*: Runtime latency reduction, bundle optimization, asset compression, edge caching & scalable traffic handling
+9. **SEO Optimization & Web Analytics** (94%, calcExp(2023))
+   - *Context*: Semantic metadata markup, crawler discoverability, structured data schemas & user interaction telemetry tracking
+10. **DevOps & Application Deployment** (93%, calcExp(2023))
+   - *Context*: Multi-environment deployment workflows, cloud hosting configurations, staging environments & zero-downtime rollouts
+11. **Cloud Infrastructure & Containerization** (93%, calcExp(2023))
+   - *Context*: Container virtualization, service orchestration, cloud compute provisioning, serverless deployment & edge networking
+12. **Version Control & CI/CD Pipelines** (96%, calcExp(2022))
+   - *Context*: Branching workflows, pull request review gates, automated build verification & continuous artifact delivery
 
-### Tech Stack (51 Items)
+### Tech Stack (70)
 
-1. **Python**
-   - Level: `97%` | Experience: `calcExp(2025)`
-   - Role Context: *Primary language for AI agent loops, LLM orchestration, model evaluation & backend serving*
-2. **JavaScript**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Client-side AI integrations, streaming interfaces, Node.js agent runtimes & edge workflows*
-3. **TypeScript**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Type-safe AI agent architectures, strict schema validation & structured tool calling contracts*
-4. **SQL**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Analytical dataset querying, structured training corpora extraction & relational data filtering*
-5. **Hugging Face Transformers**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Pretrained transformer inference, tokenization, PEFT/LoRA fine-tuning & model hub integrations*
-6. **PyTorch**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Deep learning tensor computing, GPU acceleration, custom loss functions & neural network research*
-7. **vLLM**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *High-throughput LLM serving, PagedAttention memory management, continuous batching & GPU optimization*
-8. **SGLang**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Fast structured language generation, RadixAttention KV cache reuse & multi-turn agent execution*
-9. **llama.cpp**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *High-performance quantized LLM inference on CPU/GPU via GGUF & raw C/C++ runtime execution*
-10. **Ollama**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Local LLM runtime management, Modelfile customization, REST API endpoints & offline privacy*
-11. **LiteLLM**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Universal LLM gateway proxy, 100+ provider routing, load balancing & OpenAI-format normalization*
-12. **TensorFlow**
-   - Level: `91%` | Experience: `calcExp(2025)`
-   - Role Context: *Production ML deployment, saved model graphs, edge compilation & distributed training*
-13. **LangChain**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Composable LLM application primitives, memory chains, output parsers & retrieval connectors*
-14. **LangGraph**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Cyclic stateful multi-agent workflows, checkpointing, human-in-the-loop & graph orchestration*
-15. **LlamaIndex**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Data framework for LLM applications, document ingestion, chunking, indexing & advanced RAG*
-16. **CrewAI**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Role-playing autonomous agent collaboration, hierarchical delegation & multi-agent execution*
-17. **Pydantic AI**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Type-safe GenAI framework, structured output validation, dependency injection & agent testing*
-18. **Vercel AI SDK**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Streaming UI responses, generative UI components, tool calling & React server hooks*
-19. **OpenAI Agents SDK**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Autonomous agent loops, handoffs, function calling & OpenAI ecosystem integration*
-20. **Google Agent Development Kit (ADK)**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Enterprise agent orchestration, Gemini multimodal API integration & Google ecosystem tooling*
-21. **Haystack**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *End-to-end modular NLP pipelines, custom document search nodes & conversational agents*
-22. **RAGFlow**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Deep document understanding-based RAG engine with visual template extraction & hybrid retrieval*
-23. **FAISS**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Dense vector clustering, high-dimensional similarity indexing & GPU-accelerated nearest neighbors*
-24. **Chroma**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Embedded vector database for semantic search, collection filtering & local developer iteration*
-25. **Milvus**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Cloud-native distributed vector database designed for billion-scale high-throughput indexing*
-26. **Qdrant**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *High-performance vector search engine with payload-based hardware-accelerated filtering*
-27. **Weaviate**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Open-source AI-native vector search engine with hybrid sparse-dense inverted indexing*
-28. **Pinecone**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Managed serverless vector database, low-latency similarity search & automated index tiering*
-29. **pgvector**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *PostgreSQL vector similarity search extension, HNSW/IVFFlat indexing & relational co-location*
-30. **Elasticsearch**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *BM25 keyword search, dense vector scoring, hybrid search fusion & distributed telemetry*
-31. **OpenSearch**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Distributed search suite, neural search pipelines, k-NN vector indexing & analytics*
-32. **ComfyUI**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Modular graph/node-based GUI for Stable Diffusion, FLUX pipelines, ControlNet & LoRA workflows*
-33. **Diffusers**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *State-of-the-art diffusion models for image, audio & 3D generation with PyTorch acceleration*
-34. **Stable Diffusion WebUI**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Interactive generative AI studio, prompt scheduling, inpainting, outpainting & latent upscaling*
-35. **FLUX**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Next-gen rectified flow transformer model for ultra-photorealistic image generation & typography*
-36. **FastAPI**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *High-performance async Python backend, SSE streaming, OpenAPI schemas & model gateway routing*
-37. **Flask**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Lightweight WSGI Python microframework for rapid AI prototype serving & custom middleware*
-38. **Google Antigravity**
-   - Level: `97%` | Experience: `calcExp(2025)`
-   - Role Context: *Advanced agentic coding environment, deep reasoning, subagent delegation & context engineering*
-39. **LM Studio**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Desktop LLM evaluation interface, local GGUF model testing, hardware profiling & API servers*
-40. **n8n**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Node-based workflow automation, LangChain AI agent integration, webhook routing & event triggers*
-41. **Playwright**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Headless browser automation, dynamic DOM extraction, web agent scraping & action execution*
-42. **MCP (Model Context Protocol)**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Standardized protocol for connecting LLMs to external data sources, developer tools & local services*
-43. **FastMCP**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *High-level framework for building Model Context Protocol servers with decorators & type hints*
-44. **Redis**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *In-memory message broker, LLM session chat history caching, semantic caching & rate limiting*
-45. **MongoDB Atlas**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Cloud document database with integrated Vector Search, hybrid querying & flexible schema JSON*
-46. **Google AI Studio**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Prototyping environment for Gemini 2.0/1.5, multimodal prompting, system instructions & tuning*
-47. **Neon**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Serverless Postgres with instant branching, autoscaling compute & pgvector embedding storage*
-48. **ClickHouse**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Ultra-fast columnar database for real-time AI telemetry, LLM token logging & event analytics*
-49. **OpenAI Codex**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Automated code synthesis, AST parsing, algorithmic refactoring & code generation workflows*
-50. **Cline**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Autonomous coding agent CLI and extension, tool execution loops & iterative codebase edits*
-51. **Hermes Agent**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Function-calling autonomous agent architecture with specialized reasoning & tool use loops*
+1. **HTML5** (98%, calcExp(2022))
+   - *Context*: Semantic markup, modern HTML5 APIs, accessibility (a11y) & SEO optimization
+2. **CSS3** (96%, calcExp(2022))
+   - *Context*: Modern responsive layouts, Flexbox, CSS Grid, custom keyframes & GPU-accelerated animations
+3. **JavaScript** (96%, calcExp(2022))
+   - *Context*: ES6+, modern asynchronous logic, DOM manipulation & client runtime execution
+4. **TypeScript** (95%, calcExp(2023))
+   - *Context*: Type-safe architectures, strict generic interfaces, utility types & contract soundness
+5. **PHP** (92%, calcExp(2023))
+   - *Context*: Server-side scripting, MVC backend development, OOP & database connectivity
+6. **Java** (89%, calcExp(2024))
+   - *Context*: Object-oriented backend services, enterprise architecture, concurrency & thread safety
+7. **C#** (88%, calcExp(2024))
+   - *Context*: Strongly-typed enterprise backends, LINQ queries, asynchronous tasks & REST services
+8. **Rust** (85%, calcExp(2025))
+   - *Context*: Memory-safe systems programming, high-performance web services & WebAssembly compilation
+9. **SQL** (95%, calcExp(2022))
+   - *Context*: Complex query optimization, relational indexing, CTEs & multi-table transaction profiling
+10. **React.js** (96%, calcExp(2023))
+   - *Context*: Component-based architecture, hooks, virtual DOM reconciliation & scalable state patterns
+11. **Next.js** (95%, calcExp(2023))
+   - *Context*: App Router, SSR, SSG, Server Actions, route handlers & edge runtime optimization
+12. **Vue.js** (90%, calcExp(2024))
+   - *Context*: Progressive frontend framework, Single-File Components (SFC) & Composition API reactivity
+13. **Nuxt.js** (89%, calcExp(2024))
+   - *Context*: Vue-based full-stack SSR/SSG framework, auto-imports & modular server routing
+14. **Angular** (87%, calcExp(2024))
+   - *Context*: Enterprise TypeScript frontend framework, RxJS reactive streams & modular dependency injection
+15. **Svelte** (88%, calcExp(2024))
+   - *Context*: Compile-time reactive frontend components, zero runtime overhead & lean bundle footprints
+16. **Tailwind CSS** (98%, calcExp(2023))
+   - *Context*: Utility-first design systems, custom theme configuration, JIT compiler & responsive UI
+17. **Bootstrap** (94%, calcExp(2022))
+   - *Context*: Rapid responsive grid prototyping, utility classes & accessible cross-browser UI components
+18. **Material UI** (91%, calcExp(2023))
+   - *Context*: React component library implementing Google's Material Design system with custom themes
+19. **Ant Design** (90%, calcExp(2024))
+   - *Context*: Enterprise-grade React UI component library for high-density administrative dashboards
+20. **Chakra UI** (90%, calcExp(2024))
+   - *Context*: Modular, accessible and composable React component library with styled-system props
+21. **Shadcn/UI** (95%, calcExp(2023))
+   - *Context*: Accessible, copy-paste Radix UI primitives styled with Tailwind CSS & custom variants
+22. **DaisyUI** (91%, calcExp(2024))
+   - *Context*: Semantic component class extension for Tailwind CSS, clean themes & lightweight markup
+23. **Semantic UI** (88%, calcExp(2023))
+   - *Context*: Human-friendly natural language UI styling framework for responsive web layouts
+24. **Radix UI** (93%, calcExp(2024))
+   - *Context*: Unstyled, accessible headless UI primitives for building custom high-performance design systems
+25. **Node.js** (93%, calcExp(2023))
+   - *Context*: Event-driven server runtime, microservices, asynchronous I/O & RESTful API backends
+26. **Express.js** (92%, calcExp(2023))
+   - *Context*: Lightweight middleware pipelines, REST routing, error handling & backend microservices
+27. **NestJS** (90%, calcExp(2024))
+   - *Context*: TypeScript modular server architecture, dependency injection & enterprise REST/GraphQL APIs
+28. **Laravel** (92%, calcExp(2024))
+   - *Context*: PHP MVC framework, Eloquent ORM, Blade templating, authentication & queue workers
+29. **CodeIgniter** (89%, calcExp(2023))
+   - *Context*: Lightweight PHP MVC framework, rapid development, low footprint & secure routing
+30. **Django** (89%, calcExp(2024))
+   - *Context*: Python batteries-included web framework, ORM, admin dashboards & secure CSRF/auth
+31. **Spring Boot** (88%, calcExp(2024))
+   - *Context*: Enterprise Java microservices, production-ready REST APIs & modular dependency injection
+32. **ASP.NET Core** (88%, calcExp(2024))
+   - *Context*: Cross-platform high-performance C# framework for building modern cloud-based web APIs
+33. **Playwright** (91%, calcExp(2024))
+   - *Context*: Reliable end-to-end browser automation, cross-browser testing & resilient locator workflows
+34. **Testing Library** (92%, calcExp(2023))
+   - *Context*: DOM and React testing utilities focused on user behavior and accessibility best practices
+35. **Git** (96%, calcExp(2022))
+   - *Context*: Distributed version control, branch orchestration, interactive rebasing & conflict resolution
+36. **GitHub** (96%, calcExp(2022))
+   - *Context*: Remote repository hosting, pull request reviews, GitHub Actions CI/CD & project tracking
+37. **GitLab** (91%, calcExp(2024))
+   - *Context*: Collaborative Git repository management, issue boards, code reviews & DevOps lifecycle
+38. **GitLab CI/CD** (90%, calcExp(2024))
+   - *Context*: Automated YAML pipeline configuration, build runners, test execution & multi-stage deployment
+39. **MySQL** (94%, calcExp(2022))
+   - *Context*: Relational data persistence, schema tuning, query execution plans & index optimization
+40. **PostgreSQL** (94%, calcExp(2023))
+   - *Context*: Advanced relational database modeling, ACID compliance, JSONB queries & indexing strategies
+41. **MariaDB** (92%, calcExp(2023))
+   - *Context*: High-performance relational drop-in MySQL fork with advanced storage engines & replication
+42. **SQLite** (92%, calcExp(2023))
+   - *Context*: Self-contained serverless embedded SQL engine for local data persistence & edge storage
+43. **MongoDB** (90%, calcExp(2023))
+   - *Context*: NoSQL document storage, flexible BSON schemas, indexing & aggregation pipeline queries
+44. **Redis** (92%, calcExp(2024))
+   - *Context*: In-memory key-value data store for high-throughput caching, session management & Pub/Sub
+45. **Firebase** (91%, calcExp(2023))
+   - *Context*: BaaS platform for real-time Firestore database, user authentication & serverless cloud functions
+46. **Supabase** (93%, calcExp(2024))
+   - *Context*: Open-source Firebase alternative powered by PostgreSQL, Row Level Security & instant REST APIs
+47. **Postman** (95%, calcExp(2023))
+   - *Context*: API testing, automated endpoint collections, mock servers & environment variable chaining
+48. **Swagger** (93%, calcExp(2024))
+   - *Context*: OpenAPI specification authoring, interactive sandbox testing & contract documentation
+49. **Figma** (92%, calcExp(2023))
+   - *Context*: UI/UX component design, responsive wireframes, design tokens & design-to-code dev handoff
+50. **Chrome DevTools** (96%, calcExp(2022))
+   - *Context*: Advanced runtime debugging, network waterfall inspection, DOM inspection & memory heap profiling
+51. **React DevTools** (94%, calcExp(2023))
+   - *Context*: React component tree inspection, hook state debugging & component re-render profiling
+52. **Vue DevTools** (90%, calcExp(2024))
+   - *Context*: Vue component hierarchy inspection, Pinia/Vuex state tracking & event timelines
+53. **Docker** (91%, calcExp(2024))
+   - *Context*: Containerization, multi-stage Dockerfiles, Docker Compose & reproducible runtime isolation
+54. **Kubernetes** (86%, calcExp(2025))
+   - *Context*: Container orchestration, automated rollouts, scaling, service routing & pod resource management
+55. **Amazon Web Services** (88%, calcExp(2024))
+   - *Context*: Cloud hosting, S3 storage buckets, EC2 compute instances, IAM security & cloud networking
+56. **Google Cloud Platform** (88%, calcExp(2024))
+   - *Context*: Cloud Run container services, Compute Engine, Cloud Storage & IAM permission policies
+57. **Vercel** (94%, calcExp(2023))
+   - *Context*: Serverless edge deployments, automated Git CI/CD preview pipelines & edge middleware
+58. **Netlify** (92%, calcExp(2023))
+   - *Context*: JAMstack edge hosting, deploy previews, serverless functions & DNS zone management
+59. **Cloudflare** (93%, calcExp(2024))
+   - *Context*: Global CDN distribution, DNS routing, SSL/TLS encryption & edge performance caching
+60. **Hostinger** (92%, calcExp(2022))
+   - *Context*: Web hosting orchestration, cPanel/hPanel management, database setup & domain DNS mapping
+61. **WordPress** (90%, calcExp(2022))
+   - *Context*: Content management system, custom theme development, PHP template hierarchy & plugin integration
+62. **OWASP ZAP** (88%, calcExp(2025))
+   - *Context*: Automated vulnerability scanning, web security assessment, penetration tests & threat analysis
+63. **Google PageSpeed Insights** (95%, calcExp(2023))
+   - *Context*: Lighthouse performance audits, Core Web Vitals metric diagnostics & optimization strategies
+64. **WebPageTest** (92%, calcExp(2024))
+   - *Context*: Deep web performance profiling, waterfall timeline analysis & connection speed emulation
+65. **Google Analytics** (93%, calcExp(2024))
+   - *Context*: Event-based user telemetry tracking, conversion funnel analysis & custom audience segmentation
+66. **Google Search Console** (94%, calcExp(2023))
+   - *Context*: Search indexation monitoring, sitemap submission, crawl error diagnostics & search CTR analysis
+67. **Google Tag Manager** (92%, calcExp(2024))
+   - *Context*: Centralized tag orchestration, trigger variables, conversion event firing & third-party scripts
+68. **Prisma ORM** (93%, calcExp(2023))
+   - *Context*: Type-safe database ORM, declarative schema modeling, automated migrations & query builder
+69. **Drizzle ORM** (91%, calcExp(2023))
+   - *Context*: Zero-overhead type-safe SQL query builder, relational queries & lightweight migrations
+70. **Eloquent ORM** (92%, calcExp(2024))
+   - *Context*: ActiveRecord database abstraction, relationship mapping, eager loading & database seeders
 
 ---
 
-## 4. Machine Learning (6 Core Skills + 36 Tech Stack)
+## 2. Data Analytics (`data-analysis`)
 
-### Core Skills (6 Items)
+### Core Skills (9)
 
-1. **ML Algorithms & Modeling**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Algorithm selection, hypothesis formulation, hyperparameter optimization & cross-validation*
-2. **Supervised & Unsupervised Learning**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Classification, regression trees, K-Means clustering, hierarchical grouping & anomaly detection*
-3. **Deep Learning & Neural Networks**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Feedforward architectures, backpropagation, activation optimization & gradient descent*
-4. **Feature Engineering & Selection**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Categorical encoding, numerical scaling, PCA dimensionality reduction & feature importance*
-5. **Data Processing & Preprocessing**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Missing data imputation, noise reduction, outlier truncation & structured pipeline design*
-6. **Mathematics, Statistics & Probability for ML**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Multivariate calculus, linear algebra, Bayes theorem, probability distributions & loss functions*
+1. **Data Acquisition, Extraction & Integration** (95%, calcExp(2024))
+   - *Context*: Consolidating structured and semi-structured feeds from multi-source endpoints, file repositories & external data interfaces
+2. **Database Querying & Analytical Data Modeling** (96%, calcExp(2024))
+   - *Context*: Complex relational queries, analytical joins, aggregation algorithms, window functions, star and snowflake dimensional schema design
+3. **Data Cleaning, Wrangling & Preprocessing** (97%, calcExp(2024))
+   - *Context*: Missing observation imputation, outlier diagnostics, string normalization, date-time restructuring & tabular data harmonization
+4. **Data Transformation & ETL Processing** (95%, calcExp(2025))
+   - *Context*: Designing automated data transformation pipelines, staging layers, schema mapping & curated analytical data marts
+5. **Exploratory Data Analysis & Diagnostics** (97%, calcExp(2024))
+   - *Context*: Univariate and multivariate distribution diagnostics, correlation discovery, anomaly detection & preliminary data profiling
+6. **Statistical Analysis, Hypothesis Testing & Time-Series Analysis** (95%, calcExp(2025))
+   - *Context*: Parametric and non-parametric testing, confidence intervals, variance analysis, seasonality decomposition & temporal trend extrapolation
+7. **Business Intelligence, KPI Design & Performance Analysis** (96%, calcExp(2024))
+   - *Context*: Formulating business metric scorecards, growth attribution, executive cockpit telemetry & operational performance tracking
+8. **Data Visualization, Dashboard Development & Data Storytelling** (96%, calcExp(2024))
+   - *Context*: Translating quantitative insights into intuitive visual narratives, interactive drill-down cockpits, charts & spatial data maps
+9. **Data Quality Assurance & Validation** (94%, calcExp(2025))
+   - *Context*: Integrity constraint assertions, automated schema auditing, data drift detection, anomaly monitoring & reliability governance
 
-### Tech Stack (36 Items)
+### Tech Stack (42)
 
-1. **Python**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Primary programming language for statistical modeling, scientific computing & ML pipelines*
-2. **SQL**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Feature extraction, analytical queries, data warehousing & training set preparation*
-3. **Scikit-learn**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Classical ML algorithms, model evaluation, cross-validation & preprocessing transformers*
-4. **XGBoost**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Scalable tree boosting, gradient decision tree ensembles & competitive modeling*
-5. **LightGBM**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *High-performance gradient boosting framework with histogram-based algorithms*
-6. **CatBoost**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Gradient boosting on decision trees with native categorical feature support & minimal tuning*
-7. **imbalanced-learn**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Class imbalance remediation via SMOTE, ADASYN, random undersampling & cost-sensitive learning*
-8. **PyTorch**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Neural network architecture development, GPU tensor computing & deep learning models*
-9. **TensorFlow**
-   - Level: `91%` | Experience: `calcExp(2025)`
-   - Role Context: *End-to-end open source platform for machine learning, computational graphs & deployment*
-10. **Keras**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *High-level neural network API for fast experimentation, sequential models & functional layers*
-11. **JAX**
-   - Level: `89%` | Experience: `calcExp(2025)`
-   - Role Context: *Composable transformations of Python+NumPy programs with Autograd & XLA compilation*
-12. **OpenCV**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Real-time computer vision, image processing, contour filtering & video frame transformations*
-13. **TorchVision**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Datasets, model architectures & image transformations for PyTorch computer vision tasks*
-14. **Ultralytics YOLO**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Real-time object detection, instance segmentation, bounding box tracking & model exporting*
-15. **Hugging Face Transformers**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Pretrained transformer architectures, tokenization, transfer learning & model fine-tuning*
-16. **spaCy**
-   - Level: `93%` | Experience: `calcExp(2025)`
-   - Role Context: *Industrial-strength NLP, named entity recognition (NER), POS tagging & dependency parsing*
-17. **NLTK**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Natural Language Toolkit for text preprocessing, stemmers, tokenization & linguistic corpora*
-18. **Gensim**
-   - Level: `90%` | Experience: `calcExp(2025)`
-   - Role Context: *Topic modeling with LDA, document similarity indexing & Word2Vec unsupervised semantic vectors*
-19. **Stable-Baselines3**
-   - Level: `89%` | Experience: `calcExp(2025)`
-   - Role Context: *Reliable implementations of reinforcement learning algorithms (PPO, DQN, A2C, SAC)*
-20. **Ray RLlib**
-   - Level: `88%` | Experience: `calcExp(2025)`
-   - Role Context: *Distributed reinforcement learning, multi-agent training & large-scale policy evaluation*
-21. **Gymnasium**
-   - Level: `90%` | Experience: `calcExp(2025)`
-   - Role Context: *Standard API for reinforcement learning environments, Markov decision processes & simulation step loops*
-22. **Prophet**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Decomposable additive time-series forecasting handling seasonality, trends & holiday effects*
-23. **Darts**
-   - Level: `91%` | Experience: `calcExp(2025)`
-   - Role Context: *Time series forecasting with unified statistical & deep learning models (N-BEATS, TiDE, ARIMA)*
-24. **FastAPI**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Asynchronous microservice endpoints for low-latency ML model serving & inference pipelines*
-25. **PyCharm**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Dedicated Python IDE with intelligent code completion, visual debugger & virtual environment tooling*
-26. **Jupyter Notebook**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Interactive prototyping, visual ML experiments & reproducible data science documentation*
-27. **JupyterLab**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Next-gen modular IDE for data science, multi-tab notebooks, terminal consoles & workspace extensions*
-28. **Google Colab**
-   - Level: `95%` | Experience: `calcExp(2025)`
-   - Role Context: *Cloud-hosted GPU/TPU computing for rapid deep learning & collaborative model training*
-29. **NumPy**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Vectorized array calculations, linear algebra operations & high-speed numerical routines*
-30. **Pandas**
-   - Level: `96%` | Experience: `calcExp(2025)`
-   - Role Context: *Tabular data wrangling, feature transformation, grouping & exploratory analysis*
-31. **Polars**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *High-speed multi-threaded columnar data processing for massive ML datasets*
-32. **Dask**
-   - Level: `89%` | Experience: `calcExp(2025)`
-   - Role Context: *Flexible parallel computing library for analytics & scaling Python code across clusters*
-33. **PySpark**
-   - Level: `90%` | Experience: `calcExp(2025)`
-   - Role Context: *Distributed big data processing, MLlib machine learning pipelines & large-scale feature engineering*
-34. **Pytest**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Automated unit testing, parameterization, test fixtures & ML pipeline validation*
-35. **Streamlit**
-   - Level: `94%` | Experience: `calcExp(2025)`
-   - Role Context: *Rapid deployment of interactive ML prototypes, model inference demos & dashboards*
-36. **Flask**
-   - Level: `92%` | Experience: `calcExp(2025)`
-   - Role Context: *Lightweight Python microservices for rapid ML inference API prototypes*
+1. **Python** (96%, calcExp(2024))
+   - *Context*: Data manipulation, analytical automation, statistical scripting & exploratory data pipelines
+2. **R** (93%, calcExp(2024))
+   - *Context*: Statistical computing, econometric analysis, hypothesis testing & reproducible research
+3. **SQL** (96%, calcExp(2024))
+   - *Context*: Complex analytical queries, window functions, CTEs, multi-table joins & aggregation indexing
+4. **VBA** (91%, calcExp(2024))
+   - *Context*: Excel macro automation, custom workbook procedures & repetitive reporting workflow optimization
+5. **DAX** (94%, calcExp(2024))
+   - *Context*: Data Analysis Expressions, calculated columns, measures & dynamic time intelligence modeling
+6. **Power Query M** (92%, calcExp(2024))
+   - *Context*: M formula language authoring, custom ETL step sequencing & data extraction pipelines
+7. **Pandas** (96%, calcExp(2024))
+   - *Context*: High-performance DataFrame operations, multi-index aggregation, reshaping & cleaning workflows
+8. **NumPy** (95%, calcExp(2024))
+   - *Context*: N-dimensional array vectorization, numerical routines, linear algebra & matrix computation
+9. **SciPy** (92%, calcExp(2025))
+   - *Context*: Scientific computing, probability distributions, statistical tests & curve fitting optimization
+10. **Matplotlib** (94%, calcExp(2024))
+   - *Context*: Publication-grade charts, figure customizations, multi-panel plots & static visualization rendering
+11. **Seaborn** (95%, calcExp(2024))
+   - *Context*: Statistical visualizations, distribution heatmaps, pairplots & multivariate regression plots
+12. **Plotly** (93%, calcExp(2025))
+   - *Context*: Interactive web graphics, dynamic scatter/line controls, hover tooltips & analytical visualizers
+13. **Scikit-learn** (93%, calcExp(2024))
+   - *Context*: Supervised and unsupervised learning, classification, clustering, PCA & predictive modeling
+14. **Tidyverse** (92%, calcExp(2025))
+   - *Context*: Cohesive R data science ecosystem, tidy data principles & harmonious analytical workflows
+15. **Dplyr** (93%, calcExp(2025))
+   - *Context*: Fast data grammar manipulation, filtering, selecting, mutating & piping data transformations
+16. **Tidyr** (92%, calcExp(2025))
+   - *Context*: Data reshaping, tidy format pivoting (pivot_longer, pivot_wider) & nesting tabular structures
+17. **Data.Table** (91%, calcExp(2025))
+   - *Context*: Fast memory-efficient aggregation, concise syntax & large-dataset manipulation in R
+18. **Readr** (92%, calcExp(2025))
+   - *Context*: Fast rectangular text data parsing, structured CSV/TSV ingestion & column type inference
+19. **Readxl** (92%, calcExp(2025))
+   - *Context*: Extracting tabular data from Excel workbooks into clean R tibbles without external dependencies
+20. **Lubridate** (93%, calcExp(2025))
+   - *Context*: Date and time parsing, duration calculations, time zone handling & period arithmetic in R
+21. **Stringr** (92%, calcExp(2025))
+   - *Context*: Consistent string manipulation, regular expression pattern matching & text data cleaning
+22. **Broom** (90%, calcExp(2025))
+   - *Context*: Tidying statistical model outputs into standardized data frames with glance, tidy & augment
+23. **Ggplot2** (94%, calcExp(2024))
+   - *Context*: Grammar of Graphics analytical visualizations, layered aesthetic geometries & publication faceted charts
+24. **Leaflet** (89%, calcExp(2025))
+   - *Context*: Interactive geospatial mapping, choropleth rendering, point clusters & spatial visual telemetry
+25. **Shiny** (90%, calcExp(2025))
+   - *Context*: Interactive R web applications, reactive computational graphs & dynamic data exploration portals
+26. **Quarto** (91%, calcExp(2025))
+   - *Context*: Scientific and technical publishing system, reproducible computational documents & executive reports
+27. **Microsoft Excel** (98%, calcExp(2024))
+   - *Context*: Advanced nested formulas, Power Query ETL, Pivot Tables, audit models & scenario managers
+28. **Google Sheets** (97%, calcExp(2024))
+   - *Context*: Cloud spreadsheet analytics, QUERY functions, collaborative pivot reporting & AppSheet bridges
+29. **Power Query** (95%, calcExp(2024))
+   - *Context*: Automated data ingestion, schema transformation, multi-source merging & ETL cleaning pipelines
+30. **Power Pivot** (94%, calcExp(2024))
+   - *Context*: Tabular data modeling, relationship creation, memory compression & star schema design
+31. **Microsoft Power BI** (96%, calcExp(2024))
+   - *Context*: Interactive executive dashboards, star schema data modeling, DAX measures & workspace gateways
+32. **Tableau** (93%, calcExp(2024))
+   - *Context*: Visual analytics, calculated fields, LOD expressions, parameters & interactive stakeholder dashboards
+33. **Google Looker Studio** (94%, calcExp(2024))
+   - *Context*: Live stakeholder dashboards, multi-source blend, automated metric refreshes & interactive reports
+34. **MySQL** (94%, calcExp(2024))
+   - *Context*: Database querying, structured reporting tables, indexing strategies & relational data integrity
+35. **PostgreSQL** (95%, calcExp(2024))
+   - *Context*: Analytical relational queries, JSONB operations, window aggregations & procedural functions
+36. **SQLite** (93%, calcExp(2024))
+   - *Context*: Embedded lightweight database querying, analytical prototyping & localized file databases
+37. **MongoDB** (90%, calcExp(2024))
+   - *Context*: NoSQL document querying, aggregation framework pipelines & semi-structured JSON telemetry
+38. **MariaDB** (91%, calcExp(2024))
+   - *Context*: High-performance relational querying, analytical table storage & enterprise compatibility
+39. **Google BigQuery** (92%, calcExp(2025))
+   - *Context*: Petabyte-scale analytical querying, partitioning, clustering & cloud data warehousing
+40. **Jupyter Notebook** (96%, calcExp(2024))
+   - *Context*: Iterative exploratory research, code narrative, statistical markdown & visual chart prototyping
+41. **JupyterLab** (95%, calcExp(2024))
+   - *Context*: Next-gen modular IDE for data science, multi-tab notebooks, terminal consoles & workspace extensions
+42. **Google Colab** (95%, calcExp(2024))
+   - *Context*: Cloud-hosted GPU/CPU analytical computing, collaborative analysis & shared research environments
 
 ---
 
-## 5. Project Management (4 Core Skills + 6 Tech Stack)
+## 3. Artificial Intelligence (`artificial-intelligence`)
 
-### Core Skills (4 Items)
+### Core Skills (12)
 
-1. **Agile & Scrum Sprint Planning**
-   - Level: `95%` | Experience: `calcExp(2024)`
-   - Role Context: *Sprint backlog grooming, milestone roadmapping & iterative deliverables*
-2. **Technical Specification & System Documentation**
-   - Level: `96%` | Experience: `calcExp(2023)`
-   - Role Context: *Architecture blueprints, technical guides, system wikis & release notes*
-3. **Version Control & Branching Strategy**
-   - Level: `96%` | Experience: `calcExp(2023)`
-   - Role Context: *Git-flow protocols, pull request code reviews & merge conflict resolution*
-4. **Cross-Functional Task Orchestration**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Deliverable tracking, dependency resolution & stakeholder communication*
+1. **LLM & Foundation Model Integration** (97%, calcExp(2025))
+   - *Context*: Pretrained foundation model adaptation, context window parameterization, interface orchestration & multi-model integration
+2. **LLM Inference & Model Serving** (96%, calcExp(2025))
+   - *Context*: High-throughput runtime serving, continuous batching, model quantization acceleration & low-latency local deployment
+3. **Retrieval-Augmented Generation** (96%, calcExp(2025))
+   - *Context*: Dense vector retrieval pipelines, semantic chunking strategies, hybrid search fusion, re-ranking & grounded context injection
+4. **Agentic AI & Multi-Agent Systems** (96%, calcExp(2025))
+   - *Context*: Autonomous multi-agent loops, goal decomposition, reflective self-correction & stateful task execution memory
+5. **Model Context Protocol & Tool Orchestration** (95%, calcExp(2025))
+   - *Context*: Standardized tool integration protocols, client-server runtime hooks, sandboxed capability execution & automated tool invocation
+6. **Prompt Engineering & Context Engineering** (97%, calcExp(2025))
+   - *Context*: Few-shot conditioning, chain-of-thought elicitation, structured schema enforcement & context window utilization optimization
+7. **Embedding, Vector Databases & Hybrid Semantic Search** (95%, calcExp(2025))
+   - *Context*: High-dimensional embedding spaces, approximate nearest neighbor indexing, graph retrieval & hybrid sparse-dense search
+8. **Natural Language Processing & Semantic Understanding** (95%, calcExp(2025))
+   - *Context*: Subword tokenization, named entity recognition, semantic parsing, intent classification & lexical representation modeling
+9. **Generative AI & Multimodal Content Generation** (95%, calcExp(2025))
+   - *Context*: Latent diffusion image synthesis, modular node conditioning, multimodal reasoning pipelines & cross-modal generative synthesis
+10. **AI-Powered Application & API Development** (96%, calcExp(2025))
+   - *Context*: High-concurrency streaming response endpoints, model gateway routing, backpressure handling & resilient AI microservice backends
+11. **AI Workflow Automation & Intelligent System Integration** (95%, calcExp(2025))
+   - *Context*: Event-driven workflow execution, headless task orchestration, autonomous browser routines & automated pipeline scheduling
+12. **AI Data, Database & Caching Integration** (94%, calcExp(2025))
+   - *Context*: Low-latency memory caching, distributed session state persistence, telemetry logging & semantic query cache acceleration
 
-### Tech Stack (6 Items)
+### Tech Stack (48)
 
-1. **GitHub**
-   - Level: `96%` | Experience: `calcExp(2023)`
-   - Role Context: *Git version control, repositories, collaboration & pull requests*
-2. **Trello**
-   - Level: `94%` | Experience: `calcExp(2024)`
-   - Role Context: *Kanban board task management, milestone tracking & team workflows*
-3. **Notion**
-   - Level: `96%` | Experience: `calcExp(2024)`
-   - Role Context: *Project documentation, knowledge wikis, roadmaps & sprint logs*
-4. **Google Drive**
-   - Level: `98%` | Experience: `calcExp(2023)`
-   - Role Context: *Team cloud storage, shared workspaces & asset collaboration*
-5. **Asana**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *Cross-functional task workflows, sprint planning & timeline milestones*
-6. **Jira**
-   - Level: `95%` | Experience: `calcExp(2023)`
-   - Role Context: *Agile issue tracking, sprint backlog grooming & release roadmaps*
+1. **Python** (97%, calcExp(2025))
+   - *Context*: Primary language for AI agent loops, LLM orchestration, model evaluation & backend serving
+2. **JavaScript** (95%, calcExp(2025))
+   - *Context*: Client-side AI integrations, streaming interfaces, Node.js agent runtimes & edge workflows
+3. **TypeScript** (95%, calcExp(2025))
+   - *Context*: Type-safe AI agent architectures, strict schema validation & structured tool calling contracts
+4. **SQL** (95%, calcExp(2025))
+   - *Context*: Analytical dataset querying, structured training corpora extraction & relational data filtering
+5. **Hugging Face Transformers** (95%, calcExp(2025))
+   - *Context*: Pretrained transformer inference, tokenization, PEFT/LoRA fine-tuning & model hub integrations
+6. **vLLM** (94%, calcExp(2025))
+   - *Context*: High-throughput LLM serving, PagedAttention memory management, continuous batching & GPU optimization
+7. **SGLang** (92%, calcExp(2025))
+   - *Context*: Fast structured language generation, RadixAttention KV cache reuse & multi-turn agent execution
+8. **llama.cpp** (94%, calcExp(2025))
+   - *Context*: High-performance quantized LLM inference on CPU/GPU via GGUF & raw C/C++ runtime execution
+9. **Ollama** (96%, calcExp(2025))
+   - *Context*: Local LLM runtime management, Modelfile customization, REST API endpoints & offline privacy
+10. **LiteLLM** (93%, calcExp(2025))
+   - *Context*: Universal LLM gateway proxy, 100+ provider routing, load balancing & OpenAI-format normalization
+11. **LangChain** (96%, calcExp(2025))
+   - *Context*: Composable LLM application primitives, memory chains, output parsers & retrieval connectors
+12. **LangGraph** (95%, calcExp(2025))
+   - *Context*: Cyclic stateful multi-agent workflows, checkpointing, human-in-the-loop & graph orchestration
+13. **LlamaIndex** (95%, calcExp(2025))
+   - *Context*: Data framework for LLM applications, document ingestion, chunking, indexing & advanced RAG
+14. **CrewAI** (94%, calcExp(2025))
+   - *Context*: Role-playing autonomous agent collaboration, hierarchical delegation & multi-agent execution
+15. **Pydantic AI** (93%, calcExp(2025))
+   - *Context*: Type-safe GenAI framework, structured output validation, dependency injection & agent testing
+16. **Vercel AI SDK** (95%, calcExp(2025))
+   - *Context*: Streaming UI responses, generative UI components, tool calling & React server hooks
+17. **OpenAI Agents SDK** (94%, calcExp(2025))
+   - *Context*: Autonomous agent loops, handoffs, function calling & OpenAI ecosystem integration
+18. **Google Agent Development Kit** (93%, calcExp(2025))
+   - *Context*: Enterprise agent orchestration, Gemini multimodal API integration & Google ecosystem tooling
+19. **Haystack** (92%, calcExp(2025))
+   - *Context*: End-to-end modular NLP pipelines, custom document search nodes & conversational agents
+20. **RAGFlow** (92%, calcExp(2025))
+   - *Context*: Deep document understanding-based RAG engine with visual template extraction & hybrid retrieval
+21. **FAISS** (93%, calcExp(2025))
+   - *Context*: Dense vector clustering, high-dimensional similarity indexing & GPU-accelerated nearest neighbors
+22. **Chroma** (94%, calcExp(2025))
+   - *Context*: Embedded vector database for semantic search, collection filtering & local developer iteration
+23. **Milvus** (93%, calcExp(2025))
+   - *Context*: Cloud-native distributed vector database designed for billion-scale high-throughput indexing
+24. **Qdrant** (94%, calcExp(2025))
+   - *Context*: High-performance vector search engine with payload-based hardware-accelerated filtering
+25. **Weaviate** (93%, calcExp(2025))
+   - *Context*: Open-source AI-native vector search engine with hybrid sparse-dense inverted indexing
+26. **Pinecone** (94%, calcExp(2025))
+   - *Context*: Managed serverless vector database, low-latency similarity search & automated index tiering
+27. **pgvector** (95%, calcExp(2025))
+   - *Context*: PostgreSQL vector similarity search extension, HNSW/IVFFlat indexing & relational co-location
+28. **Elasticsearch** (92%, calcExp(2025))
+   - *Context*: BM25 keyword search, dense vector scoring, hybrid search fusion & distributed telemetry
+29. **OpenSearch** (92%, calcExp(2025))
+   - *Context*: Distributed search suite, neural search pipelines, k-NN vector indexing & analytics
+30. **ComfyUI** (93%, calcExp(2025))
+   - *Context*: Modular graph/node-based GUI for Stable Diffusion, FLUX pipelines, ControlNet & LoRA workflows
+31. **Diffusers** (93%, calcExp(2025))
+   - *Context*: State-of-the-art diffusion models for image, audio & 3D generation with PyTorch acceleration
+32. **Stable Diffusion WebUI** (94%, calcExp(2025))
+   - *Context*: Interactive generative AI studio, prompt scheduling, inpainting, outpainting & latent upscaling
+33. **FLUX** (95%, calcExp(2025))
+   - *Context*: Next-gen rectified flow transformer model for ultra-photorealistic image generation & typography
+34. **FastAPI** (96%, calcExp(2025))
+   - *Context*: High-performance async Python backend, SSE streaming, OpenAPI schemas & model gateway routing
+35. **Flask** (92%, calcExp(2025))
+   - *Context*: Lightweight WSGI Python microframework for rapid AI prototype serving & custom middleware
+36. **Google Antigravity** (97%, calcExp(2025))
+   - *Context*: Advanced agentic coding environment, deep reasoning, subagent delegation & context engineering
+37. **LM Studio** (95%, calcExp(2025))
+   - *Context*: Desktop LLM evaluation interface, local GGUF model testing, hardware profiling & API servers
+38. **n8n** (94%, calcExp(2025))
+   - *Context*: Node-based workflow automation, LangChain AI agent integration, webhook routing & event triggers
+39. **MCP (Model Context Protocol)** (96%, calcExp(2025))
+   - *Context*: Standardized protocol for connecting LLMs to external data sources, developer tools & local services
+40. **FastMCP** (94%, calcExp(2025))
+   - *Context*: High-level framework for building Model Context Protocol servers with decorators & type hints
+41. **Redis** (94%, calcExp(2025))
+   - *Context*: In-memory message broker, LLM session chat history caching, semantic caching & rate limiting
+42. **MongoDB Atlas** (93%, calcExp(2025))
+   - *Context*: Cloud document database with integrated Vector Search, hybrid querying & flexible schema JSON
+43. **Google AI Studio** (96%, calcExp(2025))
+   - *Context*: Prototyping environment for Gemini 2.0/1.5, multimodal prompting, system instructions & tuning
+44. **Neon** (93%, calcExp(2025))
+   - *Context*: Serverless Postgres with instant branching, autoscaling compute & pgvector embedding storage
+45. **ClickHouse** (92%, calcExp(2025))
+   - *Context*: Ultra-fast columnar database for real-time AI telemetry, LLM token logging & event analytics
+46. **OpenAI Codex** (95%, calcExp(2025))
+   - *Context*: Automated code synthesis, AST parsing, algorithmic refactoring & code generation workflows
+47. **Cline** (95%, calcExp(2025))
+   - *Context*: Autonomous coding agent CLI and extension, tool execution loops & iterative codebase edits
+48. **Hermes Agent** (94%, calcExp(2025))
+   - *Context*: Function-calling autonomous agent architecture with specialized reasoning & tool use loops
 
 ---
 
-## 6. Office (4 Core Skills + 11 Tech Stack)
+## 4. Machine Learning (`machine-learning`)
 
-### Core Skills (4 Items)
+### Core Skills (10)
 
-1. **Advanced Spreadsheet Automation**
-   - Level: `98%` | Experience: `calcExp(2020)`
-   - Role Context: *Formula logic chaining, multi-sheet aggregation & automated auditing*
-2. **Executive Technical Writing & Formatting**
-   - Level: `97%` | Experience: `calcExp(2020)`
-   - Role Context: *Structured publication layout, technical prose & institutional reporting*
-3. **Professional Corporate Correspondence**
-   - Level: `98%` | Experience: `calcExp(2020)`
-   - Role Context: *Thread triage, stakeholder correspondence & official email protocols*
-4. **Structured Survey & Form Engineering**
-   - Level: `96%` | Experience: `calcExp(2021)`
-   - Role Context: *Branching logic forms, survey data normalization & intake workflows*
+1. **Supervised & Unsupervised Learning** (96%, calcExp(2025))
+   - *Context*: Gradient boosted decision trees, ensemble methods, clustering partitions, anomaly detection & classification modeling
+2. **Deep Learning & Neural Network** (94%, calcExp(2025))
+   - *Context*: Feedforward and convolutional networks, backpropagation optimization, regularization & activation function tuning
+3. **Computer Vision & Object Detection** (93%, calcExp(2025))
+   - *Context*: Real-time object localization, image classification, spatial feature extraction & visual pattern recognition
+4. **Natural Language Processing & Text Mining** (94%, calcExp(2025))
+   - *Context*: Tokenization semantics, sentiment classification, entity extraction & dense representation embeddings
+5. **Time Series Analysis & Forecasting** (94%, calcExp(2025))
+   - *Context*: Seasonality decomposition, autoregressive modeling, trend extrapolation & multi-horizon forecasting
+6. **Reinforcement Learning & Decision Policies** (92%, calcExp(2025))
+   - *Context*: Policy gradient algorithms, environment observation feedback loops, reward shaping & sequential decision systems
+7. **Feature Engineering & Dimensionality Reduction** (95%, calcExp(2025))
+   - *Context*: Categorical encoding, continuous variable scaling, variance filtering & principal component projection
+8. **Distributed Data Processing & Parallel Computing** (94%, calcExp(2025))
+   - *Context*: Large-scale batch data manipulation, vectorized memory operations & partitioned parallel compute pipelines
+9. **Model Validation, Testing & Performance Benchmarking** (95%, calcExp(2025))
+   - *Context*: Stratified cross-validation, precision-recall analysis, regression assertion tests & generalization auditing
+10. **Model Serving & Interactive Prototyping** (94%, calcExp(2025))
+   - *Context*: Deploying prediction inference endpoints, interactive prototype dashboards & real-time prediction microservices
 
-### Tech Stack (11 Items)
+### Tech Stack (36)
 
-1. **Microsoft Word**
-   - Level: `97%` | Experience: `calcExp(2020)`
-   - Role Context: *Professional documentation, technical writing & structured reports*
-2. **Microsoft Excel**
-   - Level: `98%` | Experience: `calcExp(2020)`
-   - Role Context: *Administrative reporting, spreadsheet management & calculations*
-3. **Google Docs**
-   - Level: `98%` | Experience: `calcExp(2020)`
-   - Role Context: *Real-time collaborative drafting, shared editing & reviews*
-4. **Google Sheets**
-   - Level: `97%` | Experience: `calcExp(2021)`
-   - Role Context: *Collaborative sheets, project tracking & data organization*
-5. **Google Forms**
-   - Level: `96%` | Experience: `calcExp(2021)`
-   - Role Context: *Surveys, structured data collection & automated response sheets*
-6. **Gmail**
-   - Level: `99%` | Experience: `calcExp(2020)`
-   - Role Context: *Professional communication, label organization & email workflows*
-7. **Google Drive**
-   - Level: `98%` | Experience: `calcExp(2020)`
-   - Role Context: *Centralized cloud document organization, sharing & backup*
-8. **Canva**
-   - Level: `96%` | Experience: `calcExp(2021)`
-   - Role Context: *Visual asset design, pitch deck graphics & presentation collateral*
-9. **Google Slides**
-   - Level: `97%` | Experience: `calcExp(2021)`
-   - Role Context: *Collaborative cloud presentation decks, stakeholder reviews & slide animations*
-10. **Microsoft PowerPoint**
-   - Level: `98%` | Experience: `calcExp(2020)`
-   - Role Context: *Executive slide decks, corporate presentations & visual storytelling*
-11. **OneDrive**
-   - Level: `97%` | Experience: `calcExp(2020)`
-   - Role Context: *Enterprise cloud backup, cross-device sync & secure document repository*
+1. **Python** (96%, calcExp(2025))
+   - *Context*: Primary programming language for statistical modeling, scientific computing & ML pipelines
+2. **SQL** (95%, calcExp(2025))
+   - *Context*: Feature extraction, analytical queries, data warehousing & training set preparation
+3. **Scikit-learn** (96%, calcExp(2025))
+   - *Context*: Classical ML algorithms, model evaluation, cross-validation & preprocessing transformers
+4. **XGBoost** (95%, calcExp(2025))
+   - *Context*: Scalable tree boosting, gradient decision tree ensembles & competitive modeling
+5. **LightGBM** (94%, calcExp(2025))
+   - *Context*: High-performance gradient boosting framework with histogram-based algorithms
+6. **CatBoost** (93%, calcExp(2025))
+   - *Context*: Gradient boosting on decision trees with native categorical feature support & minimal tuning
+7. **imbalanced-learn** (92%, calcExp(2025))
+   - *Context*: Class imbalance remediation via SMOTE, ADASYN, random undersampling & cost-sensitive learning
+8. **PyTorch** (94%, calcExp(2025))
+   - *Context*: Neural network architecture development, GPU tensor computing & deep learning models
+9. **TensorFlow** (91%, calcExp(2025))
+   - *Context*: End-to-end open source platform for machine learning, computational graphs & deployment
+10. **Keras** (93%, calcExp(2025))
+   - *Context*: High-level neural network API for fast experimentation, sequential models & functional layers
+11. **JAX** (89%, calcExp(2025))
+   - *Context*: Composable transformations of Python+NumPy programs with Autograd & XLA compilation
+12. **OpenCV** (92%, calcExp(2025))
+   - *Context*: Real-time computer vision, image processing, contour filtering & video frame transformations
+13. **TorchVision** (92%, calcExp(2025))
+   - *Context*: Datasets, model architectures & image transformations for PyTorch computer vision tasks
+14. **Ultralytics YOLO** (94%, calcExp(2025))
+   - *Context*: Real-time object detection, instance segmentation, bounding box tracking & model exporting
+15. **Hugging Face Transformers** (94%, calcExp(2025))
+   - *Context*: Pretrained transformer architectures, tokenization, transfer learning & model fine-tuning
+16. **spaCy** (93%, calcExp(2025))
+   - *Context*: Industrial-strength NLP, named entity recognition (NER), POS tagging & dependency parsing
+17. **NLTK** (92%, calcExp(2025))
+   - *Context*: Natural Language Toolkit for text preprocessing, stemmers, tokenization & linguistic corpora
+18. **Gensim** (90%, calcExp(2025))
+   - *Context*: Topic modeling with LDA, document similarity indexing & Word2Vec unsupervised semantic vectors
+19. **Stable-Baselines3** (89%, calcExp(2025))
+   - *Context*: Reliable implementations of reinforcement learning algorithms (PPO, DQN, A2C, SAC)
+20. **Ray RLlib** (88%, calcExp(2025))
+   - *Context*: Distributed reinforcement learning, multi-agent training & large-scale policy evaluation
+21. **Gymnasium** (90%, calcExp(2025))
+   - *Context*: Standard API for reinforcement learning environments, Markov decision processes & simulation step loops
+22. **Prophet** (92%, calcExp(2025))
+   - *Context*: Decomposable additive time-series forecasting handling seasonality, trends & holiday effects
+23. **Darts** (91%, calcExp(2025))
+   - *Context*: Time series forecasting with unified statistical & deep learning models (N-BEATS, TiDE, ARIMA)
+24. **FastAPI** (95%, calcExp(2025))
+   - *Context*: Asynchronous microservice endpoints for low-latency ML model serving & inference pipelines
+25. **PyCharm** (94%, calcExp(2025))
+   - *Context*: Dedicated Python IDE with intelligent code completion, visual debugger & virtual environment tooling
+26. **Jupyter Notebook** (96%, calcExp(2025))
+   - *Context*: Interactive prototyping, visual ML experiments & reproducible data science documentation
+27. **JupyterLab** (95%, calcExp(2025))
+   - *Context*: Next-gen modular IDE for data science, multi-tab notebooks, terminal consoles & workspace extensions
+28. **Google Colab** (95%, calcExp(2025))
+   - *Context*: Cloud-hosted GPU/TPU computing for rapid deep learning & collaborative model training
+29. **NumPy** (96%, calcExp(2025))
+   - *Context*: Vectorized array calculations, linear algebra operations & high-speed numerical routines
+30. **Pandas** (96%, calcExp(2025))
+   - *Context*: Tabular data wrangling, feature transformation, grouping & exploratory analysis
+31. **Polars** (92%, calcExp(2025))
+   - *Context*: High-speed multi-threaded columnar data processing for massive ML datasets
+32. **Dask** (89%, calcExp(2025))
+   - *Context*: Flexible parallel computing library for analytics & scaling Python code across clusters
+33. **PySpark** (90%, calcExp(2025))
+   - *Context*: Distributed big data processing, MLlib machine learning pipelines & large-scale feature engineering
+34. **Pytest** (92%, calcExp(2025))
+   - *Context*: Automated unit testing, parameterization, test fixtures & ML pipeline validation
+35. **Streamlit** (94%, calcExp(2025))
+   - *Context*: Rapid deployment of interactive ML prototypes, model inference demos & dashboards
+36. **Flask** (92%, calcExp(2025))
+   - *Context*: Lightweight Python microservices for rapid ML inference API prototypes
 
 ---
 
-## Ringkasan Total Data Portfolio
+## 5. Project Management (`project-management`)
 
-- **Total Core Skills**: 45 items
-- **Total Tech Stack**: 216 items
-- **Total Keseluruhan Skills Terdaftar**: 261 items
+### Core Skills (6)
 
-### Quick Restoration TypeScript Array Template
+1. **Agile & Scrum Sprint Orchestration** (96%, calcExp(2023))
+   - *Context*: Sprint cadence planning, backlog grooming, daily synchronization facilitation & velocity tracking
+2. **Product Backlog Grooming & Prioritization** (95%, calcExp(2023))
+   - *Context*: User story formalization, acceptance criteria definition, complexity estimation & requirement prioritization
+3. **Technical Documentation & Knowledge Architecture** (96%, calcExp(2023))
+   - *Context*: System wikis, architectural decision records, standard operating procedures & release documentation governance
+4. **Milestone Roadmapping & Deliverable Tracking** (95%, calcExp(2024))
+   - *Context*: Long-term release schedules, milestone checkpoint gating, dependency tracking & deliverable timeline governance
+5. **Cross-Functional Stakeholder Alignment** (94%, calcExp(2024))
+   - *Context*: Bridging engineering execution with business objectives, progress telemetry reporting & stakeholder communication
+6. **Risk Management & Blocker Resolution** (94%, calcExp(2024))
+   - *Context*: Identifying technical bottlenecks, proactive risk mitigation, dependency unblocking & issue escalation paths
 
-Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari array `SKILL_MATRIX` dapat disalin langsung dari blok kode di bawah ini:
+### Tech Stack (6)
+
+1. **GitHub** (96%, calcExp(2023))
+   - *Context*: Git version control, repositories, collaboration & pull requests
+2. **Trello** (94%, calcExp(2024))
+   - *Context*: Kanban board task management, milestone tracking & team workflows
+3. **Notion** (96%, calcExp(2024))
+   - *Context*: Project documentation, knowledge wikis, roadmaps & sprint logs
+4. **Google Drive** (98%, calcExp(2023))
+   - *Context*: Team cloud storage, shared workspaces & asset collaboration
+5. **Asana** (95%, calcExp(2023))
+   - *Context*: Cross-functional task workflows, sprint planning & timeline milestones
+6. **Jira** (95%, calcExp(2023))
+   - *Context*: Agile issue tracking, sprint backlog grooming & release roadmaps
+
+---
+
+## 6. Office (`office`)
+
+### Core Skills (6)
+
+1. **Advanced Spreadsheet Modeling & Data Reconciliation** (98%, calcExp(2020))
+   - *Context*: Complex nested lookup logic, tabular reconciliation, dynamic summary matrices & numerical integrity auditing
+2. **Executive Technical Writing & Document Design** (97%, calcExp(2020))
+   - *Context*: Publication-grade typography, standardized document formatting, technical whitepapers & formal report composition
+3. **Executive Presentation & Visual Deck Crafting** (96%, calcExp(2021))
+   - *Context*: Visual communication hierarchy, executive briefing decks, slide narrative progression & multimedia collateral
+4. **Cloud Workspace Architecture & Access Governance** (97%, calcExp(2020))
+   - *Context*: Folder taxonomy hierarchies, permission management, concurrent co-authoring workflows & asset repository management
+5. **Structured Form Engineering & Intake Automation** (96%, calcExp(2021))
+   - *Context*: Conditional branching questionnaire design, digital response capture, survey validation & automated data intake
+6. **Corporate Correspondence & Communication Triage** (98%, calcExp(2020))
+   - *Context*: Professional stakeholder correspondence, executive briefing summaries, formal email protocols & thread triage
+
+### Tech Stack (11)
+
+1. **Microsoft Word** (97%, calcExp(2020))
+   - *Context*: Professional documentation, technical writing & structured reports
+2. **Microsoft Excel** (98%, calcExp(2020))
+   - *Context*: Administrative reporting, spreadsheet management & calculations
+3. **Google Docs** (98%, calcExp(2020))
+   - *Context*: Real-time collaborative drafting, shared editing & reviews
+4. **Google Sheets** (97%, calcExp(2021))
+   - *Context*: Collaborative sheets, project tracking & data organization
+5. **Google Forms** (96%, calcExp(2021))
+   - *Context*: Surveys, structured data collection & automated response sheets
+6. **Gmail** (99%, calcExp(2020))
+   - *Context*: Professional communication, label organization & email workflows
+7. **Google Drive** (98%, calcExp(2020))
+   - *Context*: Centralized cloud document organization, sharing & backup
+8. **Canva** (96%, calcExp(2021))
+   - *Context*: Visual asset design, pitch deck graphics & presentation collateral
+9. **Google Slides** (97%, calcExp(2021))
+   - *Context*: Collaborative cloud presentation decks, stakeholder reviews & slide animations
+10. **Microsoft PowerPoint** (98%, calcExp(2020))
+   - *Context*: Executive slide decks, corporate presentations & visual storytelling
+11. **OneDrive** (97%, calcExp(2020))
+   - *Context*: Enterprise cloud backup, cross-device sync & secure document repository
+
+---
+
+## 🚀 TypeScript Code Block for Instant Restoration
+
+If `src/data/domains/technicalSkills.ts` needs to be restored, paste the following code block:
 
 ```typescript
+import { SkillItem } from "../types";
+
+/**
+ * Dynamic experience calculator relative to anchor start dates:
+ * - Office: Started 2020 (max 6+ yrs as of 2026)
+ * - Web Development: Started 2022 (max 4+ yrs as of 2026)
+ * - Project Management: Started 2023 (max 3+ yrs as of 2026)
+ * - Data Analytics: Started 2024 (max 2+ yrs as of 2026)
+ * - AI & ML: Started 2025 (max 1+ yrs as of 2026)
+ *
+ * Automatically increments across past, present, and future years.
+ */
+export const calcExp = (startYear: number, startMonth: number = 1): string => {
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() + 1;
+  let years = currentYear - startYear;
+  if (currentMonth < startMonth) {
+    years -= 1;
+  }
+  return `${Math.max(1, years)}+ yrs`;
+};
+
+export const SKILL_MATRIX: SkillItem[] = [
   // ==========================================
   // 1. Web Development (12 Core Skills + 70 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
-    name: "Web Architecture & Design",
+    name: "Web Architecture & System Design",
     category: "web-development",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2022),
-    roleContext: "Scalable modular system design, microservices & client-server decoupling",
+    roleContext: "Scalable modular system design, client-server decoupling, distributed microservices & high-availability patterns",
   },
   {
-    name: "Frontend Development",
+    name: "Full-Stack Development",
     category: "web-development",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2022),
-    roleContext: "Responsive UI/UX interfaces, component systems, client-side state & interactive web apps",
-  },
-  {
-    name: "Backend Development",
-    category: "web-development",
-    skillType: "core-skills",
-    level: 95,
-    experience: calcExp(2022),
-    roleContext: "Server runtime architectures, microservices, database transactions & business logic",
+    roleContext: "End-to-end web engineering, client-side rendering, server runtime coordination & relational persistence",
   },
   {
     name: "Database Design & Management",
@@ -892,7 +672,7 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2022),
-    roleContext: "Relational schema modeling, normalization, indexing & connection pooling",
+    roleContext: "Relational and document schema modeling, normalization, indexing strategies & connection pooling",
   },
   {
     name: "API Development & Integration",
@@ -900,7 +680,7 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2022),
-    roleContext: "RESTful & GraphQL API design, serialization, error handling & gateway routing",
+    roleContext: "RESTful endpoints, interface contract specifications, serialization protocols & third-party service integration",
   },
   {
     name: "Software Engineering Principles",
@@ -908,47 +688,55 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2022),
-    roleContext: "SOLID design patterns, clean architecture, DRY & maintainable codebases",
+    roleContext: "SOLID design patterns, clean architecture, code reusability, modular boundaries & maintainable codebases",
   },
   {
-    name: "Authentication & Web Security",
-    category: "web-development",
-    skillType: "core-skills",
-    level: 93,
-    experience: calcExp(2023),
-    roleContext: "JWT, OAuth2, session handling, RBAC, CSRF/XSS protection & strict CSP",
-  },
-  {
-    name: "Testing & Debugging",
-    category: "web-development",
-    skillType: "core-skills",
-    level: 92,
-    experience: calcExp(2023),
-    roleContext: "Unit, integration, E2E testing pipelines, root-cause diagnostics & profiling",
-  },
-  {
-    name: "Web Performance Optimization",
-    category: "web-development",
-    skillType: "core-skills",
-    level: 95,
-    experience: calcExp(2023),
-    roleContext: "Core Web Vitals tuning, bundle code-splitting, tree-shaking & edge caching",
-  },
-  {
-    name: "SEO Optimization",
+    name: "Security & Vulnerability Hardening",
     category: "web-development",
     skillType: "core-skills",
     level: 94,
     experience: calcExp(2023),
-    roleContext: "Semantic metadata, Open Graph protocols, structured JSON-LD & crawlability",
+    roleContext: "Role-based access control, cryptographic token authentication, session validation & cross-site attack mitigation",
+  },
+  {
+    name: "Automated Testing & Quality Assurance",
+    category: "web-development",
+    skillType: "core-skills",
+    level: 93,
+    experience: calcExp(2023),
+    roleContext: "End-to-end browser automation suites, component unit testing, integration verification & continuous test assertions",
+  },
+  {
+    name: "Performance & Scalability Optimization",
+    category: "web-development",
+    skillType: "core-skills",
+    level: 95,
+    experience: calcExp(2023),
+    roleContext: "Runtime latency reduction, bundle optimization, asset compression, edge caching & scalable traffic handling",
+  },
+  {
+    name: "SEO Optimization & Web Analytics",
+    category: "web-development",
+    skillType: "core-skills",
+    level: 94,
+    experience: calcExp(2023),
+    roleContext: "Semantic metadata markup, crawler discoverability, structured data schemas & user interaction telemetry tracking",
   },
   {
     name: "DevOps & Application Deployment",
     category: "web-development",
     skillType: "core-skills",
-    level: 92,
+    level: 93,
     experience: calcExp(2023),
-    roleContext: "CI/CD automated pipelines, containerization, staging environments & zero-downtime rollouts",
+    roleContext: "Multi-environment deployment workflows, cloud hosting configurations, staging environments & zero-downtime rollouts",
+  },
+  {
+    name: "Cloud Infrastructure & Containerization",
+    category: "web-development",
+    skillType: "core-skills",
+    level: 93,
+    experience: calcExp(2023),
+    roleContext: "Container virtualization, service orchestration, cloud compute provisioning, serverless deployment & edge networking",
   },
   {
     name: "Version Control & CI/CD Pipelines",
@@ -956,8 +744,9 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2022),
-    roleContext: "Git-flow protocols, automated test/build CI/CD pipelines, PR code reviews & conflict resolution",
+    roleContext: "Branching workflows, pull request review gates, automated build verification & continuous artifact delivery",
   },
+
   // --- Tech Stack ---
   {
     name: "HTML5",
@@ -1519,26 +1308,25 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     experience: calcExp(2024),
     roleContext: "ActiveRecord database abstraction, relationship mapping, eager loading & database seeders",
   },
-
   // ==========================================
-  // 2. Data Analytics (10 Core Skills + 42 Tech Stack)
+  // 2. Data Analytics (9 Core Skills + 42 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
-    name: "Data Analytics & Exploratory Data Analysis (EDA)",
+    name: "Data Acquisition, Extraction & Integration",
     category: "data-analysis",
     skillType: "core-skills",
-    level: 97,
+    level: 95,
     experience: calcExp(2024),
-    roleContext: "Distribution diagnostics, anomaly identification, multivariate correlation & data profiling",
+    roleContext: "Consolidating structured and semi-structured feeds from multi-source endpoints, file repositories & external data interfaces",
   },
   {
-    name: "Database Querying & Data Modeling",
+    name: "Database Querying & Analytical Data Modeling",
     category: "data-analysis",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2024),
-    roleContext: "Complex relational queries, CTEs, star/snowflake schema designs & indexing",
+    roleContext: "Complex relational queries, analytical joins, aggregation algorithms, window functions, star and snowflake dimensional schema design",
   },
   {
     name: "Data Cleaning, Wrangling & Preprocessing",
@@ -1546,64 +1334,57 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     skillType: "core-skills",
     level: 97,
     experience: calcExp(2024),
-    roleContext: "Missing value imputation, outlier handling, string normalization & deduplication",
+    roleContext: "Missing observation imputation, outlier diagnostics, string normalization, date-time restructuring & tabular data harmonization",
   },
   {
-    name: "Statistical Analysis & Hypothesis Testing",
+    name: "Data Transformation & ETL Processing",
     category: "data-analysis",
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2025),
-    roleContext: "Parametric/non-parametric tests, confidence intervals, ANOVA & p-value analysis",
+    roleContext: "Designing automated data transformation pipelines, staging layers, schema mapping & curated analytical data marts",
   },
   {
-    name: "Business Intelligence & KPI Analysis",
+    name: "Exploratory Data Analysis & Diagnostics",
     category: "data-analysis",
     skillType: "core-skills",
-    level: 96,
+    level: 97,
     experience: calcExp(2024),
-    roleContext: "Executive metric scorecard formulation, growth tracking & strategic telemetry",
+    roleContext: "Univariate and multivariate distribution diagnostics, correlation discovery, anomaly detection & preliminary data profiling",
   },
   {
-    name: "Data Visualization & Dashboard Development",
-    category: "data-analysis",
-    skillType: "core-skills",
-    level: 96,
-    experience: calcExp(2024),
-    roleContext: "Interactive BI dashboards, aesthetic data storytelling & visual decision trees",
-  },
-  {
-    name: "Data Transformation & ETL",
+    name: "Statistical Analysis, Hypothesis Testing & Time-Series Analysis",
     category: "data-analysis",
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2025),
-    roleContext: "Automated ETL/ELT pipelines, aggregation jobs & structured data marts",
+    roleContext: "Parametric and non-parametric testing, confidence intervals, variance analysis, seasonality decomposition & temporal trend extrapolation",
   },
   {
-    name: "Data Collection, Extraction & Integration",
+    name: "Business Intelligence, KPI Design & Performance Analysis",
+    category: "data-analysis",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2024),
+    roleContext: "Formulating business metric scorecards, growth attribution, executive cockpit telemetry & operational performance tracking",
+  },
+  {
+    name: "Data Visualization, Dashboard Development & Data Storytelling",
+    category: "data-analysis",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2024),
+    roleContext: "Translating quantitative insights into intuitive visual narratives, interactive drill-down cockpits, charts & spatial data maps",
+  },
+  {
+    name: "Data Quality Assurance & Validation",
     category: "data-analysis",
     skillType: "core-skills",
     level: 94,
     experience: calcExp(2025),
-    roleContext: "Multi-source ingestion, API web scraping, pipeline connectors & data staging",
+    roleContext: "Integrity constraint assertions, automated schema auditing, data drift detection, anomaly monitoring & reliability governance",
   },
-  {
-    name: "Data Validation & Quality Analysis",
-    category: "data-analysis",
-    skillType: "core-skills",
-    level: 94,
-    experience: calcExp(2025),
-    roleContext: "Integrity constraints, schema auditing, drift detection & automated assertions",
-  },
-  {
-    name: "Predictive & Statistical Analytics",
-    category: "data-analysis",
-    skillType: "core-skills",
-    level: 93,
-    experience: calcExp(2025),
-    roleContext: "Regression forecasting, causal inference, time-series projections & trend modeling",
-  },
+
   // --- Tech Stack ---
   {
     name: "Python",
@@ -1941,34 +1722,49 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     experience: calcExp(2024),
     roleContext: "Cloud-hosted GPU/CPU analytical computing, collaborative analysis & shared research environments",
   },
-
   // ==========================================
-  // 3. Artificial Intelligence (9 Core Skills + 51 Tech Stack)
+  // 3. Artificial Intelligence (12 Core Skills + 48 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
-    name: "Large Language Models (LLM)",
+    name: "LLM & Foundation Model Integration",
     category: "artificial-intelligence",
     skillType: "core-skills",
     level: 97,
     experience: calcExp(2025),
-    roleContext: "Pretrained transformer inference, parameter quantization, context windowing & model serving",
+    roleContext: "Pretrained foundation model adaptation, context window parameterization, interface orchestration & multi-model integration",
   },
   {
-    name: "Retrieval-Augmented Generation (RAG)",
+    name: "LLM Inference & Model Serving",
     category: "artificial-intelligence",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2025),
-    roleContext: "Dense vector retrieval, semantic chunking, re-ranking & hybrid search architectures",
+    roleContext: "High-throughput runtime serving, continuous batching, model quantization acceleration & low-latency local deployment",
   },
   {
-    name: "Agentic AI",
+    name: "Retrieval-Augmented Generation",
+    category: "artificial-intelligence",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2025),
+    roleContext: "Dense vector retrieval pipelines, semantic chunking strategies, hybrid search fusion, re-ranking & grounded context injection",
+  },
+  {
+    name: "Agentic AI & Multi-Agent Systems",
+    category: "artificial-intelligence",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2025),
+    roleContext: "Autonomous multi-agent loops, goal decomposition, reflective self-correction & stateful task execution memory",
+  },
+  {
+    name: "Model Context Protocol & Tool Orchestration",
     category: "artificial-intelligence",
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2025),
-    roleContext: "Autonomous multi-agent loops, reflection patterns, tool execution & goal decomposition",
+    roleContext: "Standardized tool integration protocols, client-server runtime hooks, sandboxed capability execution & automated tool invocation",
   },
   {
     name: "Prompt Engineering & Context Engineering",
@@ -1976,48 +1772,57 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     skillType: "core-skills",
     level: 97,
     experience: calcExp(2025),
-    roleContext: "Few-shot conditioning, structured schema enforcement, chain-of-thought & system prompting",
+    roleContext: "Few-shot conditioning, chain-of-thought elicitation, structured schema enforcement & context window utilization optimization",
   },
   {
-    name: "Vector Database & Semantic Search",
+    name: "Embedding, Vector Databases & Hybrid Semantic Search",
     category: "artificial-intelligence",
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2025),
-    roleContext: "High-dimensional embedding indexing, cosine similarity, HNSW graphs & metadata filtering",
+    roleContext: "High-dimensional embedding spaces, approximate nearest neighbor indexing, graph retrieval & hybrid sparse-dense search",
   },
   {
-    name: "AI API Integration & Application Development",
+    name: "Natural Language Processing & Semantic Understanding",
+    category: "artificial-intelligence",
+    skillType: "core-skills",
+    level: 95,
+    experience: calcExp(2025),
+    roleContext: "Subword tokenization, named entity recognition, semantic parsing, intent classification & lexical representation modeling",
+  },
+  {
+    name: "Generative AI & Multimodal Content Generation",
+    category: "artificial-intelligence",
+    skillType: "core-skills",
+    level: 95,
+    experience: calcExp(2025),
+    roleContext: "Latent diffusion image synthesis, modular node conditioning, multimodal reasoning pipelines & cross-modal generative synthesis",
+  },
+  {
+    name: "AI-Powered Application & API Development",
     category: "artificial-intelligence",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2025),
-    roleContext: "Production LLM wrappers, streaming responses, fallback routing & rate-limit resilience",
+    roleContext: "High-concurrency streaming response endpoints, model gateway routing, backpressure handling & resilient AI microservice backends",
   },
   {
-    name: "Natural Language Processing (NLP)",
+    name: "AI Workflow Automation & Intelligent System Integration",
     category: "artificial-intelligence",
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2025),
-    roleContext: "Tokenization, named entity recognition (NER), semantic parsing & sentiment classification",
+    roleContext: "Event-driven workflow execution, headless task orchestration, autonomous browser routines & automated pipeline scheduling",
   },
   {
-    name: "Generative Text & Images",
+    name: "AI Data, Database & Caching Integration",
     category: "artificial-intelligence",
     skillType: "core-skills",
-    level: 95,
+    level: 94,
     experience: calcExp(2025),
-    roleContext: "Multimodal generative pipelines, diffusion prompting, text synthesis & vision-language models",
+    roleContext: "Low-latency memory caching, distributed session state persistence, telemetry logging & semantic query cache acceleration",
   },
-  {
-    name: "Automation",
-    category: "artificial-intelligence",
-    skillType: "core-skills",
-    level: 95,
-    experience: calcExp(2025),
-    roleContext: "Headless task orchestration, workflow triggers, intelligent scheduling & automated pipelines",
-  },
+
   // --- Tech Stack ---
   {
     name: "Python",
@@ -2060,14 +1865,6 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     roleContext: "Pretrained transformer inference, tokenization, PEFT/LoRA fine-tuning & model hub integrations",
   },
   {
-    name: "PyTorch",
-    category: "artificial-intelligence",
-    skillType: "tech-stack",
-    level: 94,
-    experience: calcExp(2025),
-    roleContext: "Deep learning tensor computing, GPU acceleration, custom loss functions & neural network research",
-  },
-  {
     name: "vLLM",
     category: "artificial-intelligence",
     skillType: "tech-stack",
@@ -2106,14 +1903,6 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     level: 93,
     experience: calcExp(2025),
     roleContext: "Universal LLM gateway proxy, 100+ provider routing, load balancing & OpenAI-format normalization",
-  },
-  {
-    name: "TensorFlow",
-    category: "artificial-intelligence",
-    skillType: "tech-stack",
-    level: 91,
-    experience: calcExp(2025),
-    roleContext: "Production ML deployment, saved model graphs, edge compilation & distributed training",
   },
   {
     name: "LangChain",
@@ -2172,7 +1961,7 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     roleContext: "Autonomous agent loops, handoffs, function calling & OpenAI ecosystem integration",
   },
   {
-    name: "Google Agent Development Kit (ADK)",
+    name: "Google Agent Development Kit",
     category: "artificial-intelligence",
     skillType: "tech-stack",
     level: 93,
@@ -2340,14 +2129,6 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     roleContext: "Node-based workflow automation, LangChain AI agent integration, webhook routing & event triggers",
   },
   {
-    name: "Playwright",
-    category: "artificial-intelligence",
-    skillType: "tech-stack",
-    level: 93,
-    experience: calcExp(2025),
-    roleContext: "Headless browser automation, dynamic DOM extraction, web agent scraping & action execution",
-  },
-  {
     name: "MCP (Model Context Protocol)",
     category: "artificial-intelligence",
     skillType: "tech-stack",
@@ -2427,59 +2208,91 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     experience: calcExp(2025),
     roleContext: "Function-calling autonomous agent architecture with specialized reasoning & tool use loops",
   },
-
   // ==========================================
-  // 4. Machine Learning (6 Core Skills + 36 Tech Stack)
+  // 4. Machine Learning (10 Core Skills + 36 Tech Stack)
   // ==========================================
   // --- Core Skills ---
-  {
-    name: "ML Algorithms & Modeling",
-    category: "machine-learning",
-    skillType: "core-skills",
-    level: 96,
-    experience: calcExp(2025),
-    roleContext: "Algorithm selection, hypothesis formulation, hyperparameter optimization & cross-validation",
-  },
   {
     name: "Supervised & Unsupervised Learning",
     category: "machine-learning",
     skillType: "core-skills",
-    level: 95,
-    experience: calcExp(2025),
-    roleContext: "Classification, regression trees, K-Means clustering, hierarchical grouping & anomaly detection",
-  },
-  {
-    name: "Deep Learning & Neural Networks",
-    category: "machine-learning",
-    skillType: "core-skills",
-    level: 93,
-    experience: calcExp(2025),
-    roleContext: "Feedforward architectures, backpropagation, activation optimization & gradient descent",
-  },
-  {
-    name: "Feature Engineering & Selection",
-    category: "machine-learning",
-    skillType: "core-skills",
-    level: 95,
-    experience: calcExp(2025),
-    roleContext: "Categorical encoding, numerical scaling, PCA dimensionality reduction & feature importance",
-  },
-  {
-    name: "Data Processing & Preprocessing",
-    category: "machine-learning",
-    skillType: "core-skills",
     level: 96,
     experience: calcExp(2025),
-    roleContext: "Missing data imputation, noise reduction, outlier truncation & structured pipeline design",
+    roleContext: "Gradient boosted decision trees, ensemble methods, clustering partitions, anomaly detection & classification modeling",
   },
   {
-    name: "Mathematics, Statistics & Probability for ML",
+    name: "Deep Learning & Neural Network",
     category: "machine-learning",
     skillType: "core-skills",
     level: 94,
     experience: calcExp(2025),
-    roleContext: "Multivariate calculus, linear algebra, Bayes theorem, probability distributions & loss functions",
+    roleContext: "Feedforward and convolutional networks, backpropagation optimization, regularization & activation function tuning",
   },
+  {
+    name: "Computer Vision & Object Detection",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 93,
+    experience: calcExp(2025),
+    roleContext: "Real-time object localization, image classification, spatial feature extraction & visual pattern recognition",
+  },
+  {
+    name: "Natural Language Processing & Text Mining",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 94,
+    experience: calcExp(2025),
+    roleContext: "Tokenization semantics, sentiment classification, entity extraction & dense representation embeddings",
+  },
+  {
+    name: "Time Series Analysis & Forecasting",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 94,
+    experience: calcExp(2025),
+    roleContext: "Seasonality decomposition, autoregressive modeling, trend extrapolation & multi-horizon forecasting",
+  },
+  {
+    name: "Reinforcement Learning & Decision Policies",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 92,
+    experience: calcExp(2025),
+    roleContext: "Policy gradient algorithms, environment observation feedback loops, reward shaping & sequential decision systems",
+  },
+  {
+    name: "Feature Engineering & Dimensionality Reduction",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 95,
+    experience: calcExp(2025),
+    roleContext: "Categorical encoding, continuous variable scaling, variance filtering & principal component projection",
+  },
+  {
+    name: "Distributed Data Processing & Parallel Computing",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 94,
+    experience: calcExp(2025),
+    roleContext: "Large-scale batch data manipulation, vectorized memory operations & partitioned parallel compute pipelines",
+  },
+  {
+    name: "Model Validation, Testing & Performance Benchmarking",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 95,
+    experience: calcExp(2025),
+    roleContext: "Stratified cross-validation, precision-recall analysis, regression assertion tests & generalization auditing",
+  },
+  {
+    name: "Model Serving & Interactive Prototyping",
+    category: "machine-learning",
+    skillType: "core-skills",
+    level: 94,
+    experience: calcExp(2025),
+    roleContext: "Deploying prediction inference endpoints, interactive prototype dashboards & real-time prediction microservices",
+  },
+
   // --- Tech Stack ---
   {
     name: "Python",
@@ -2769,43 +2582,59 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     experience: calcExp(2025),
     roleContext: "Lightweight Python microservices for rapid ML inference API prototypes",
   },
-
   // ==========================================
-  // 5. Project Management (4 Core Skills + 6 Tech Stack)
+  // 5. Project Management (6 Core Skills + 6 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
-    name: "Agile & Scrum Sprint Planning",
+    name: "Agile & Scrum Sprint Orchestration",
+    category: "project-management",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2023),
+    roleContext: "Sprint cadence planning, backlog grooming, daily synchronization facilitation & velocity tracking",
+  },
+  {
+    name: "Product Backlog Grooming & Prioritization",
+    category: "project-management",
+    skillType: "core-skills",
+    level: 95,
+    experience: calcExp(2023),
+    roleContext: "User story formalization, acceptance criteria definition, complexity estimation & requirement prioritization",
+  },
+  {
+    name: "Technical Documentation & Knowledge Architecture",
+    category: "project-management",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2023),
+    roleContext: "System wikis, architectural decision records, standard operating procedures & release documentation governance",
+  },
+  {
+    name: "Milestone Roadmapping & Deliverable Tracking",
     category: "project-management",
     skillType: "core-skills",
     level: 95,
     experience: calcExp(2024),
-    roleContext: "Sprint backlog grooming, milestone roadmapping & iterative deliverables",
+    roleContext: "Long-term release schedules, milestone checkpoint gating, dependency tracking & deliverable timeline governance",
   },
   {
-    name: "Technical Specification & System Documentation",
-    category: "project-management",
-    skillType: "core-skills",
-    level: 96,
-    experience: calcExp(2023),
-    roleContext: "Architecture blueprints, technical guides, system wikis & release notes",
-  },
-  {
-    name: "Version Control & Branching Strategy",
-    category: "project-management",
-    skillType: "core-skills",
-    level: 96,
-    experience: calcExp(2023),
-    roleContext: "Git-flow protocols, pull request code reviews & merge conflict resolution",
-  },
-  {
-    name: "Cross-Functional Task Orchestration",
+    name: "Cross-Functional Stakeholder Alignment",
     category: "project-management",
     skillType: "core-skills",
     level: 94,
     experience: calcExp(2024),
-    roleContext: "Deliverable tracking, dependency resolution & stakeholder communication",
+    roleContext: "Bridging engineering execution with business objectives, progress telemetry reporting & stakeholder communication",
   },
+  {
+    name: "Risk Management & Blocker Resolution",
+    category: "project-management",
+    skillType: "core-skills",
+    level: 94,
+    experience: calcExp(2024),
+    roleContext: "Identifying technical bottlenecks, proactive risk mitigation, dependency unblocking & issue escalation paths",
+  },
+
   // --- Tech Stack ---
   {
     name: "GitHub",
@@ -2855,43 +2684,59 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     experience: calcExp(2023),
     roleContext: "Agile issue tracking, sprint backlog grooming & release roadmaps",
   },
-
   // ==========================================
-  // 6. Office (4 Core Skills + 11 Tech Stack)
+  // 6. Office & Productivity (6 Core Skills + 11 Tech Stack)
   // ==========================================
   // --- Core Skills ---
   {
-    name: "Advanced Spreadsheet Automation",
+    name: "Advanced Spreadsheet Modeling & Data Reconciliation",
     category: "office",
     skillType: "core-skills",
     level: 98,
     experience: calcExp(2020),
-    roleContext: "Formula logic chaining, multi-sheet aggregation & automated auditing",
+    roleContext: "Complex nested lookup logic, tabular reconciliation, dynamic summary matrices & numerical integrity auditing",
   },
   {
-    name: "Executive Technical Writing & Formatting",
+    name: "Executive Technical Writing & Document Design",
     category: "office",
     skillType: "core-skills",
     level: 97,
     experience: calcExp(2020),
-    roleContext: "Structured publication layout, technical prose & institutional reporting",
+    roleContext: "Publication-grade typography, standardized document formatting, technical whitepapers & formal report composition",
   },
   {
-    name: "Professional Corporate Correspondence",
-    category: "office",
-    skillType: "core-skills",
-    level: 98,
-    experience: calcExp(2020),
-    roleContext: "Thread triage, stakeholder correspondence & official email protocols",
-  },
-  {
-    name: "Structured Survey & Form Engineering",
+    name: "Executive Presentation & Visual Deck Crafting",
     category: "office",
     skillType: "core-skills",
     level: 96,
     experience: calcExp(2021),
-    roleContext: "Branching logic forms, survey data normalization & intake workflows",
+    roleContext: "Visual communication hierarchy, executive briefing decks, slide narrative progression & multimedia collateral",
   },
+  {
+    name: "Cloud Workspace Architecture & Access Governance",
+    category: "office",
+    skillType: "core-skills",
+    level: 97,
+    experience: calcExp(2020),
+    roleContext: "Folder taxonomy hierarchies, permission management, concurrent co-authoring workflows & asset repository management",
+  },
+  {
+    name: "Structured Form Engineering & Intake Automation",
+    category: "office",
+    skillType: "core-skills",
+    level: 96,
+    experience: calcExp(2021),
+    roleContext: "Conditional branching questionnaire design, digital response capture, survey validation & automated data intake",
+  },
+  {
+    name: "Corporate Correspondence & Communication Triage",
+    category: "office",
+    skillType: "core-skills",
+    level: 98,
+    experience: calcExp(2020),
+    roleContext: "Professional stakeholder correspondence, executive briefing summaries, formal email protocols & thread triage",
+  },
+
   // --- Tech Stack ---
   {
     name: "Microsoft Word",
@@ -2981,5 +2826,6 @@ Untuk melakukan restore penuh ke `src/data/domains/technicalSkills.ts`, isi dari
     experience: calcExp(2020),
     roleContext: "Enterprise cloud backup, cross-device sync & secure document repository",
   },
+];
 
 ```
