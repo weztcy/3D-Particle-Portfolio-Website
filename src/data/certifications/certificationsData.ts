@@ -18,7 +18,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2022",
     "issueDate": "December 2022",
     "credentialId": "014/4/SYEF/PS/OEC/XII/2022",
-    "credentialUrl": "https://example.com/credentials/public-speaking-training",
+    "credentialUrl": "",
     "imageUrl": "/images/certifications/public-speaking-training.webp",
     "images": [
       "/images/certifications/public-speaking-training.webp"
@@ -51,7 +51,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2022",
     "issueDate": "December 2022",
     "credentialId": "011/1/SYEF/L/OEC/XII/2022",
-    "credentialUrl": "https://example.com/credentials/leadership-training",
+    "credentialUrl": "",
     "imageUrl": "/images/certifications/leadership-training.webp",
     "images": [
       "/images/certifications/leadership-training.webp"
@@ -84,7 +84,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2025",
     "issueDate": "January 2025",
     "credentialId": "CFLT-20250114-OL00479",
-    "credentialUrl": "https://example.com/credentials/toefl-itp",
+    "credentialUrl": "",
     "imageUrl": "/images/certifications/toefl-itp.webp",
     "images": [
       "/images/certifications/toefl-itp.webp"
@@ -117,7 +117,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2025",
     "issueDate": "January 2025",
     "credentialId": "62010213150073582025",
-    "credentialUrl": "https://example.com/credentials/certification-scheme-of-web-developer",
+    "credentialUrl": "",
     "imageUrl": "/images/certifications/web-developer-certification1.webp",
     "images": [
       "/images/certifications/web-developer-certification1.webp",
@@ -203,7 +203,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2026",
     "issueDate": "February 2026",
     "credentialId": "MS-20260223-cui4Bn8ZTAcuoudcgrT5",
-    "credentialUrl": "https://example.com/credentials/microsoft-excel-basic",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-YyWwjTwHpdltm3nnpVTG/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-cui4Bn8ZTAcuoudcgrT5.pdf",
     "imageUrl": "/images/certifications/microsoft-excel-basic.webp",
     "images": [
       "/images/certifications/microsoft-excel-basic.webp"
@@ -252,7 +252,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2026",
     "issueDate": "February 2026",
     "credentialId": "MS-20260225-kxGOhHbAHino0Ycrvsp4",
-    "credentialUrl": "https://example.com/credentials/microsoft-excel-intermediate",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-D4Wpiy4b8QjoaeqQKr57/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-kxGOhHbAHino0Ycrvsp4.pdf",
     "imageUrl": "/images/certifications/microsoft-excel-intermediate.webp",
     "images": [
       "/images/certifications/microsoft-excel-intermediate.webp"
@@ -329,7 +329,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2026",
     "issueDate": "February 2026",
     "credentialId": "MS-20260226-oLsz2W9CNAA3uSGFc7Lm",
-    "credentialUrl": "https://example.com/credentials/microsoft-excel-advanced",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-q4UxJQUaSD1OshMqlZap/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-oLsz2W9CNAA3uSGFc7Lm.pdf",
     "imageUrl": "/images/certifications/microsoft-excel-advanced.webp",
     "images": [
       "/images/certifications/microsoft-excel-advanced.webp"
@@ -355,19 +355,19 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     ]
   },
   {
-    "id": "data-manipulation-in-excel",
+    "id": "data-manipulation",
     "code": "CERT-08",
-    "title": "Data Manipulation in Excel",
+    "title": "Data Manipulation",
     "issuer": "MySkill",
     "year": "2026",
     "issueDate": "March 2026",
-    "credentialId": "MS-20260302-k4fkN5R0qnGsE2LnDDce",
-    "credentialUrl": "https://example.com/credentials/data-manipulation-in-excel",
+    "credentialId": "MS-20260302-k4fkN5R0gnGsE2LnDDce",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-72oMe86JQLzbEq4asqtE/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-k4fkN5R0gnGsE2LnDDce.pdf",
     "imageUrl": "/images/certifications/data-manipulation-excel.webp",
     "images": [
       "/images/certifications/data-manipulation-excel.webp"
     ],
-    "overview": "Data Manipulation in Excel is a MySkill credential dated March 2026 centered on preparing spreadsheet data for use and analysis. Its recorded scope moves from Excel functions and advanced functions to array formulas, then to data cleaning, preprocessing, and more advanced manipulation of values and ranges. The emphasis is on transforming inconsistent or unstructured worksheet entries into data that can be summarized more reliably; no specific source dataset or transformation result is claimed.",
+    "overview": "Data Manipulation is a MySkill credential dated March 2026 centered on preparing spreadsheet data for use and analysis. Its recorded scope moves from Excel functions and advanced functions to array formulas, then to data cleaning, preprocessing, and more advanced manipulation of values and ranges. The emphasis is on transforming inconsistent or unstructured worksheet entries into data that can be summarized more reliably; no specific source dataset or transformation result is claimed.",
     "keyModules": [
       {
         "title": "Excel Functions for Data Manipulation",
@@ -399,7 +399,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2026",
     "issueDate": "March 2026",
     "credentialId": "MS-20260303-7TsPx8Jb8ApaMX5qohEC",
-    "credentialUrl": "https://example.com/credentials/forecasting-regression-and-statistic-in-excel",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-6ce8y9S5Ztsa1FAt8fH8/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-7TsPx8Jb8ApaMX5qohEC.pdf",
     "imageUrl": "/images/certifications/forecasting-regression-statistics-excel.webp",
     "images": [
       "/images/certifications/forecasting-regression-statistics-excel.webp"
@@ -436,7 +436,7 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     "year": "2026",
     "issueDate": "April 2026",
     "credentialId": "MS-20260409-3ngQyYiMuxRFf18HrRzW",
-    "credentialUrl": "https://example.com/credentials/microsoft-word",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-hduHeD7S0xBSpuL0uGEo/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-3ngQyYiMuxRFf18HrRzW.pdf",
     "imageUrl": "/images/certifications/microsoft-word.webp",
     "images": [
       "/images/certifications/microsoft-word.webp"
@@ -466,19 +466,19 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     ]
   },
   {
-    "id": "microsoft-power-point",
+    "id": "microsoft-powerpoint",
     "code": "CERT-11",
-    "title": "Microsoft Power Point",
+    "title": "Microsoft PowerPoint",
     "issuer": "MySkill",
     "year": "2026",
     "issueDate": "April 2026",
     "credentialId": "MS-20260411-quEXTcp9LgQSooQ6pJMH",
-    "credentialUrl": "https://example.com/credentials/microsoft-power-point",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/topic-HNDa5BHYCis9ab0QTggf/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-quEXTcp9LgQSooQ6pJMH.pdf",
     "imageUrl": "/images/certifications/microsoft-powerpoint.webp",
     "images": [
       "/images/certifications/microsoft-powerpoint.webp"
     ],
-    "overview": "Microsoft Power Point is a MySkill credential dated April 2026 about building and managing slide presentations. The recorded topics progress from PowerPoint basics and presentation management to arranging slides and inserting or formatting text, shapes, and media. Tables, charts, SmartArt, and 3D models are also named as content types, so the credential covers both slide organization and visual communication; it does not document a particular presentation or audience outcome.",
+    "overview": "Microsoft PowerPoint is a MySkill credential dated April 2026 about building and managing slide presentations. The recorded topics progress from PowerPoint basics and presentation management to arranging slides and inserting or formatting text, shapes, and media. Tables, charts, SmartArt, and 3D models are also named as content types, so the credential covers both slide organization and visual communication; it does not document a particular presentation or audience outcome.",
     "keyModules": [
       {
         "title": "Introduction to Microsoft PowerPoint",
@@ -503,19 +503,19 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     ]
   },
   {
-    "id": "mastery-in-microsoft-excel-word-and-powerpoint",
+    "id": "microsoft-excel-word-and-powerpoint",
     "code": "CERT-12",
-    "title": "Mastery in Microsoft Excel, Word and PowerPoint",
+    "title": "Microsoft Excel, Word and PowerPoint",
     "issuer": "MySkill",
     "year": "2026",
     "issueDate": "April 2026",
     "credentialId": "MS-20260411-K11ksIjZRW7YeytCnEMr",
-    "credentialUrl": "https://example.com/credentials/mastery-in-microsoft-excel-word-and-powerpoint",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/learning-path-kpIIH7ZvWgW3muNNmC1V/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-K11ksIjZRW7YeytCnEMr.pdf",
     "imageUrl": "/images/certifications/microsoft-excel-word-powerpoint.webp",
     "images": [
       "/images/certifications/microsoft-excel-word-powerpoint.webp"
     ],
-    "overview": "Mastery in Microsoft Excel, Word and PowerPoint is a MySkill credential dated April 2026 that groups spreadsheet, document, and presentation skills into one recorded set of competencies. Its Excel portion names basic, intermediate, and advanced levels alongside data manipulation and forecasting, regression, and statistics; the remaining areas are Microsoft Word and Microsoft PowerPoint. The scope therefore connects working with data, preparing written documents, and communicating material through slides, without asserting a specific workplace project or outcome.",
+    "overview": "Microsoft Excel, Word and PowerPoint is a MySkill credential dated April 2026 that groups spreadsheet, document, and presentation skills into one recorded set of competencies. Its Excel portion names basic, intermediate, and advanced levels alongside data manipulation and forecasting, regression, and statistics; the remaining areas are Microsoft Word and Microsoft PowerPoint. The scope therefore connects working with data, preparing written documents, and communicating material through slides, without asserting a specific workplace project or outcome.",
     "keyModules": [
       {
         "title": "Microsoft Excel Basic",
@@ -548,20 +548,20 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     ]
   },
   {
-    "id": "microsoft-excel-basic-to-advanced-fullstack-intensive-bootcamp",
+    "id": "microsoft-excel-basic-to-advanced-fullstack-intensive-bootcamp-batch-32",
     "code": "CERT-13",
-    "title": "Microsoft Excel Basic To Advanced: Fullstack Intensive Bootcamp",
+    "title": "Microsoft Excel Basic To Advanced: Fullstack Intensive Bootcamp - Batch 32",
     "issuer": "MySkill",
     "year": "2026",
     "issueDate": "March 2026",
     "credentialId": "MS-3/4/2026-pcfg8zurrC2aUj9BWNx1",
-    "credentialUrl": "https://example.com/credentials/microsoft-excel-basic-to-advanced-fullstack-intensive-bootcamp",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/bootcamp-Gi7yyK6whnZr1WDRLo9G/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-pcfg8zurrC2aUj9BWNx1.pdf",
     "imageUrl": "/images/certifications/microsoft-excel-bootcamp-myskill1.webp",
     "images": [
       "/images/certifications/microsoft-excel-bootcamp-myskill1.webp",
       "/images/certifications/microsoft-excel-bootcamp-myskill2.webp"
     ],
-    "overview": "Microsoft Excel Basic To Advanced: Fullstack Intensive Bootcamp is a MySkill credential dated March 2026 describing a multi-module Excel learning program. The listed progression begins with career context and basic formulas, then covers formatting and cleansing, conditional logic, data validation, and visualization. VLOOKUP and INDEX/MATCH, PivotTables, dashboard reporting, and VBA macros extend the technical scope, while a career class and group project presentation appear among the learning modules. The record names those activities but does not specify a project topic or measurable result.",
+    "overview": "Microsoft Excel Basic To Advanced: Fullstack Intensive Bootcamp - Batch 32 is a MySkill credential dated March 2026 describing a multi-module Excel learning program. The listed progression begins with career context and basic formulas, then covers formatting and cleansing, conditional logic, data validation, and visualization. VLOOKUP and INDEX/MATCH, PivotTables, dashboard reporting, and VBA macros extend the technical scope, while a career class and group project presentation appear among the learning modules. The record names those activities but does not specify a project topic or measurable result.",
     "keyModules": [
       {
         "title": "Career Excel Path",
@@ -614,20 +614,20 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     ]
   },
   {
-    "id": "artificial-intelligence-and-automation-bootcamp",
+    "id": "artificial-intelligence-and-automation-bootcamp-batch-2",
     "code": "CERT-14",
-    "title": "Artificial Intelligence and Automation Bootcamp",
+    "title": "Artificial Intelligence And Automation Bootcamp - Batch 2",
     "issuer": "MySkill",
     "year": "2026",
     "issueDate": "April 2026",
     "credentialId": "MS-24/4/2026-2OjoYsQbyVnBCKRNsYb1",
-    "credentialUrl": "https://example.com/credentials/artificial-intelligence-and-automation-bootcamp",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/bootcamp-v7iZtEezhyXQXKPPI1fj/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-2OjoYsQbyVnBCKRNsYb1.pdf",
     "imageUrl": "/images/certifications/ai-automation-bootcamp-myskill1.webp",
     "images": [
       "/images/certifications/ai-automation-bootcamp-myskill1.webp",
       "/images/certifications/ai-automation-bootcamp-myskill2.webp"
     ],
-    "overview": "Artificial Intelligence and Automation Bootcamp is a MySkill credential dated April 2026 focused on AI-assisted work and no-code automation. The recorded curriculum begins with AI and generative AI concepts, using ChatGPT at work, AI-assisted development, and no-code web building. It then turns to n8n workflows for connecting forms, sheets, and email, automating social media tasks, and building a chatbot. These are listed learning modules, not evidence that a particular automation was deployed or used in production.",
+    "overview": "Artificial Intelligence And Automation Bootcamp - Batch 2 is a MySkill credential dated April 2026 focused on AI-assisted work and no-code automation. The recorded curriculum begins with AI and generative AI concepts, using ChatGPT at work, AI-assisted development, and no-code web building. It then turns to n8n workflows for connecting forms, sheets, and email, automating social media tasks, and building a chatbot. These are listed learning modules, not evidence that a particular automation was deployed or used in production.",
     "keyModules": [
       {
         "title": "Introduction to AI & Generative AI",
@@ -664,20 +664,20 @@ export const CERTIFICATIONS_LIST: CertificationItem[] = [
     ]
   },
   {
-    "id": "data-analysis-fullstack-intensive-bootcamp",
+    "id": "data-analysis-fullstack-intensive-bootcamp-batch-27",
     "code": "CERT-15",
-    "title": "Data Analysis: Fullstack Intensive Bootcamp",
+    "title": "Data Analysis: Fullstack Intensive Bootcamp - Batch 27",
     "issuer": "MySkill",
     "year": "2026",
     "issueDate": "May 2026",
     "credentialId": "MS-4/6/2026-C3adUqPpMsm4oSRjjzpH",
-    "credentialUrl": "https://example.com/credentials/data-analysis-fullstack-intensive-bootcamp",
+    "credentialUrl": "https://storage.googleapis.com/myskill-v2-certificates/bootcamp-j1e7JUpg14tT0mnUOma6/Mr7ivsBWnrWZlgYjbXANyMrRoqr2-C3adUqPpMsm4oSRjjzpH.pdf",
     "imageUrl": "/images/certifications/data-analysis-bootcamp-myskill1.webp",
     "images": [
       "/images/certifications/data-analysis-bootcamp-myskill1.webp",
       "/images/certifications/data-analysis-bootcamp-myskill2.webp"
     ],
-    "overview": "Data Analysis: Fullstack Intensive Bootcamp is a MySkill credential dated May 2026 covering an end-to-end path for analytical work. Modules introduce the analyst's role, statistics, problem solving, and data formatting and validation before moving into SQL basics, business-data analysis, SQL interview cases, Python-based analysis, and visualization. The curriculum connects framing a question and preparing data with querying, analyzing, and communicating findings; the source does not identify a dataset, project, or measured result.",
+    "overview": "Data Analysis: Fullstack Intensive Bootcamp - Batch 27 is a MySkill credential dated May 2026 covering an end-to-end path for analytical work. Modules introduce the analyst's role, statistics, problem solving, and data formatting and validation before moving into SQL basics, business-data analysis, SQL interview cases, Python-based analysis, and visualization. The curriculum connects framing a question and preparing data with querying, analyzing, and communicating findings; the source does not identify a dataset, project, or measured result.",
     "keyModules": [
       {
         "title": "Kickstart Career as Data Analysis",
