@@ -447,7 +447,7 @@ export default function HeroSection({
 
                     {/* Gmail */}
                     <a
-                      href={`mailto:${PROFILE_DATA.email}`}
+                      href={PROFILE_DATA.mailtoLink || `mailto:${PROFILE_DATA.email}`}
                       title="Send Email (Gmail)"
                       className="group/btn relative flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-rose-500/30 bg-rose-500/10 text-rose-400 hover:border-rose-400 hover:bg-rose-400/20 hover:text-white hover:shadow-[0_0_18px_rgba(244,63,94,0.45)] transition-all duration-300 active:scale-95"
                     >

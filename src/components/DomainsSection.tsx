@@ -1667,7 +1667,7 @@ function DomainsSection({
             <p className="text-xs sm:text-base text-slate-400 leading-relaxed">
               Integrating the full spectrum of modern engineering: from
               mathematical modeling & causal data analytics to autonomous AI systems and
-              production-grade immersive web platforms.
+              production-grade full-stack web platforms.
             </p>
           </div>
 

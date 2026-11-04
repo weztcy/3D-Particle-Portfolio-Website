@@ -206,7 +206,7 @@ function ContactSection({
                 <p className="text-xs sm:text-base text-slate-300 leading-relaxed">
                   Available for enterprise-grade AI/LLM systems collaboration,
                   machine learning & data architecture consulting, and high-performance
-                  3D web platform engineering.
+                  full-stack web platform engineering.
                 </p>
               </div>
 
@@ -396,7 +396,7 @@ function ContactSection({
 
                 {/* Gmail */}
                 <a
-                  href={`mailto:${PROFILE_DATA.email}`}
+                  href={PROFILE_DATA.mailtoLink || `mailto:${PROFILE_DATA.email}`}
                   title="Send Email (Gmail)"
                   className="group/btn relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-rose-500/30 bg-rose-500/10 text-rose-400 hover:border-rose-400 hover:bg-rose-400/20 hover:text-white hover:shadow-[0_0_18px_rgba(244,63,94,0.45)] transition-all duration-300 active:scale-95"
                 >
