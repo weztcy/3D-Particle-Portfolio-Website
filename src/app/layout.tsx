@@ -47,6 +47,7 @@ export const metadata: Metadata = {
   keywords: [
     "Yohanes Dimas Pratama",
     "Yohanes Dimas",
+    "Dimas Pratama",
     "Web Developer Indonesia",
     "Data Analyst Indonesia",
     "AI Engineer Indonesia",
