@@ -2103,7 +2103,7 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start h-[30px] sm:h-[34px] px-2 sm:px-2.5 text-[10px] sm:text-xs font-semibold flex-auto ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -2117,7 +2117,7 @@ function DomainsSection({
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate text-left">
+                            <span className="truncate text-left whitespace-nowrap">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
@@ -2141,7 +2141,7 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start h-[30px] sm:h-[34px] px-2 sm:px-3 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -2155,7 +2155,7 @@ function DomainsSection({
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate text-left">
+                            <span className="truncate text-left whitespace-nowrap">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
@@ -2179,7 +2179,7 @@ function DomainsSection({
                             setStackPage(1);
                             onTriggerPulse();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-start h-[30px] sm:h-[34px] px-2 sm:px-3 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -2193,7 +2193,7 @@ function DomainsSection({
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate text-left">
+                            <span className="truncate text-left whitespace-nowrap">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>

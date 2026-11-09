@@ -419,7 +419,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                             setCurrentPage(1);
                             onTriggerPulse?.();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between h-[30px] sm:h-[34px] px-2 sm:px-2.5 text-[10px] sm:text-xs font-semibold flex-auto ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -440,7 +440,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                           </div>
 
                           <span
-                            className={`shrink-0 ml-1 px-1 sm:px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums transition-colors ${
+                            className={`shrink-0 ml-1 px-1 sm:px-1.5 h-4 sm:h-[18px] inline-flex items-center justify-center rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums leading-none transition-colors ${
                               isActive
                                 ? activeStyles.pill
                                 : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
@@ -466,7 +466,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                             setCurrentPage(1);
                             onTriggerPulse?.();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between h-[30px] sm:h-[34px] px-2 sm:px-2.5 text-[10px] sm:text-xs font-semibold flex-auto ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -487,7 +487,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                           </div>
 
                           <span
-                            className={`shrink-0 ml-1 px-1 sm:px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums transition-colors ${
+                            className={`shrink-0 ml-1 px-1 sm:px-1.5 h-4 sm:h-[18px] inline-flex items-center justify-center rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums leading-none transition-colors ${
                               isActive
                                 ? activeStyles.pill
                                 : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
@@ -513,7 +513,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                             setCurrentPage(1);
                             onTriggerPulse?.();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between h-[30px] sm:h-[34px] px-2 sm:px-3 text-[10px] sm:text-xs font-semibold ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -527,14 +527,14 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate">
+                            <span className="truncate whitespace-nowrap">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
                           </div>
 
                           <span
-                            className={`shrink-0 ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold tabular-nums transition-colors ${
+                            className={`shrink-0 ml-1 px-1 sm:px-1.5 h-4 sm:h-[18px] inline-flex items-center justify-center rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums leading-none transition-colors ${
                               isActive
                                 ? activeStyles.pill
                                 : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
