@@ -90,14 +90,6 @@ export interface ExperienceItem {
   highlights: string[];
 }
 
-export interface AchievementItem {
-  id: string;
-  year: string;
-  title: string;
-  issuer: string;
-  category: "Award" | "Publication" | "Certification" | "Open Source";
-}
-
 export interface EducationItem {
   universityName: string;
   degree: string;

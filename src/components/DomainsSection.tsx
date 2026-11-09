@@ -31,6 +31,7 @@ import {
   SlidersHorizontal,
   FlaskConical,
   Cloud,
+  MessageSquare,
 } from "lucide-react";
 import {
   SiHtml5,
@@ -139,6 +140,12 @@ import {
   SiRstudioide,
   SiQuarto,
   SiKaggle,
+  SiGo,
+  SiApachesuperset,
+  SiDuckdb,
+  SiAnthropic,
+  SiDeepseek,
+  SiDify,
 } from "react-icons/si";
 import { FaAws, FaJava, FaShieldHalved, FaBroom, FaScaleUnbalanced } from "react-icons/fa6";
 import {
@@ -213,9 +220,10 @@ import {
   TbRobot,
   TbTargetArrow,
   TbLanguage,
+  TbCursorText,
 } from "react-icons/tb";
 import { ImOnedrive } from "react-icons/im";
-import { BiBarChartSquare } from "react-icons/bi";
+import { BiBarChartSquare, BiLogoHeroku } from "react-icons/bi";
 import { getPaginationRange } from "@/lib/pagination";
 import {
   RiBrainAi3Line,
@@ -903,6 +911,8 @@ function DomainsSection({
       case "Postman":
         return SiPostman;
       case "Swagger":
+      case "Swagger / OpenAPI":
+      case "OpenAPI":
         return SiSwagger;
       case "Vue.js":
       case "Vue":
@@ -927,7 +937,13 @@ function DomainsSection({
       case "Kubernetes":
         return SiKubernetes;
       case "GCP":
+      case "Google Cloud Platform (GCP)":
         return SiGooglecloud;
+      case "Go":
+      case "Golang":
+        return SiGo;
+      case "Heroku":
+        return BiLogoHeroku;
       case "OpenAI Codex":
       case "Codex":
         return RiOpenaiFill;
@@ -988,6 +1004,7 @@ function DomainsSection({
       case "Gradio":
         return SiGradio;
       case "Open AI Codex":
+      case "Codex":
         return RiOpenaiFill;
       case "Cline":
         return SiCline;
@@ -1025,6 +1042,28 @@ function DomainsSection({
         return SiLmstudio;
       case "Google Antigravity":
         return SiGoogle;
+      case "Google ADK":
+        return SiGoogle;
+      case "Dify":
+        return SiDify;
+      case "Embedchain":
+        return Database;
+      case "Stable Diffusion":
+        return Sparkles;
+      case "Chainlit":
+        return MessageSquare;
+      case "Cursor":
+        return TbCursorText;
+      case "Claude Code":
+        return SiAnthropic;
+      case "DeepSeek Harness":
+        return SiDeepseek;
+      case "Browser Use":
+        return TbBrowser;
+      case "Composio":
+        return RiAiAgentLine;
+      case "MCP":
+        return SiModelcontextprotocol;
       case "GitHub":
         return SiGithub;
       case "Trello":
@@ -1563,6 +1602,24 @@ function DomainsSection({
       case "broom":
       case "Broom":
         return FaBroom;
+      case "janitor":
+      case "Janitor":
+        return FaBroom;
+      case "Statsmodels":
+      case "statsmodels":
+        return Activity;
+      case "Pingouin":
+      case "pingouin":
+        return RiFunctions;
+      case "survey":
+      case "Survey":
+        return FaScaleUnbalanced;
+      case "Apache Superset":
+      case "Superset":
+        return SiApachesuperset;
+      case "DuckDB":
+      case "duckdb":
+        return SiDuckdb;
       case "leaflet":
       case "Leaflet":
         return SiLeaflet;
@@ -1592,6 +1649,17 @@ function DomainsSection({
         return SiBoost;
       case "imbalanced-learn":
         return FaScaleUnbalanced;
+      case "Feature-engine":
+      case "feature-engine":
+        return SlidersHorizontal;
+      case "Hugging Face Datasets":
+      case "Hugging Face Tokenizers":
+        return SiHuggingface;
+      case "StatsForecast":
+      case "statsforecast":
+        return LineChart;
+      case "sktime":
+        return TbCalendarTime;
       case "Gensim":
         return TbVector;
       case "Stable-Baselines3":
@@ -1672,6 +1740,7 @@ function DomainsSection({
         return SiClickhouse;
       case "OpenAI Codex":
       case "Open AI Codex":
+      case "Codex":
         return RiOpenaiFill;
       case "Cline":
         return SiCline;
