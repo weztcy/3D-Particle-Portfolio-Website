@@ -25,13 +25,14 @@ const PROJECT_FILTER_ROW_1 = [
 ] as const;
 
 const PROJECT_FILTER_ROW_2 = [
-  { id: "ai-ml", label: "AI & Machine Learning", shortLabel: "AI & ML", prefix: "03" },
-  { id: "desktop-mobile", label: "Desktop & Mobile App", shortLabel: "Desktop & Mobile App", prefix: "04" },
+  { id: "ai-engineering", label: "AI Engineering", shortLabel: "AI", prefix: "03" },
+  { id: "machine-learning", label: "Machine Learning", shortLabel: "ML", prefix: "04" },
+  { id: "desktop-mobile", label: "Desktop & Mobile App", shortLabel: "App", prefix: "05" },
 ] as const;
 
 const PROJECT_FILTER_ROW_3 = [
-  { id: "ui-ux", label: "UI/UX Design", shortLabel: "UI/UX Design", prefix: "05" },
-  { id: "code-learning", label: "Code Learning", shortLabel: "Code Learning", prefix: "06" },
+  { id: "ui-ux", label: "UI/UX Design", shortLabel: "UI/UX Design", prefix: "06" },
+  { id: "code-learning", label: "Code Learning", shortLabel: "Code Learning", prefix: "07" },
 ] as const;
 
 const getProjectFilterActiveStyles = (id: string) => {
@@ -49,7 +50,13 @@ const getProjectFilterActiveStyles = (id: string) => {
         dot: "bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse",
         pill: "bg-emerald-400/30 text-emerald-200 border border-emerald-400/40",
       };
-    case "ai-ml":
+    case "ai-engineering":
+      return {
+        btn: "bg-purple-400/20 text-white border-purple-400/70 shadow-[0_0_18px_rgba(192,132,252,0.35),inset_0_0_10px_rgba(192,132,252,0.2)]",
+        dot: "bg-purple-400 shadow-[0_0_8px_#c084fc] animate-pulse",
+        pill: "bg-purple-400/30 text-purple-200 border border-purple-400/40",
+      };
+    case "machine-learning":
       return {
         btn: "bg-indigo-400/20 text-white border-indigo-400/70 shadow-[0_0_18px_rgba(129,140,248,0.35),inset_0_0_10px_rgba(129,140,248,0.2)]",
         dot: "bg-indigo-400 shadow-[0_0_8px_#818cf8] animate-pulse",
@@ -148,6 +155,13 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {
       all: PROJECT_CASE_STUDIES.length,
+      "web-development": 0,
+      "data-analysis": 0,
+      "ai-engineering": 0,
+      "machine-learning": 0,
+      "desktop-mobile": 0,
+      "ui-ux": 0,
+      "code-learning": 0,
     };
     PROJECT_CASE_STUDIES.forEach((p) => {
       counts[p.category] = (counts[p.category] || 0) + 1;
@@ -229,6 +243,18 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
           techDot: "bg-teal-400",
           button: "border-teal-400/40 bg-teal-400/10 text-teal-300 hover:bg-teal-400/25 hover:border-teal-400/70 hover:text-white hover:shadow-[0_0_20px_rgba(45,212,191,0.35)]",
         };
+      case "purple":
+        return {
+          badge: "border-purple-400/40 bg-purple-400/10 text-purple-300 shadow-[0_0_12px_rgba(192,132,252,0.15)]",
+          metricText: "text-purple-400",
+          cornerColor: "border-purple-400/80",
+          cardHover: "hover:border-purple-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(192,132,252,0.22)]",
+          glowBg: "from-purple-500/20 via-purple-500/5 to-transparent",
+          beacon: "bg-purple-400 shadow-[0_0_8px_#c084fc]",
+          titleHover: "group-hover:text-purple-300",
+          techDot: "bg-purple-400",
+          button: "border-purple-400/40 bg-purple-400/10 text-purple-300 hover:bg-purple-400/25 hover:border-purple-400/70 hover:text-white hover:shadow-[0_0_20px_rgba(192,132,252,0.35)]",
+        };
     }
   };
 
@@ -248,7 +274,14 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
           percentColor: "text-emerald-300",
           badge: "border-emerald-400/40 bg-emerald-950/40 text-emerald-200",
         };
-      case "ai-ml":
+      case "ai-engineering":
+        return {
+          crosshair: "border-purple-400/70",
+          beacon: "bg-purple-400 shadow-[0_0_8px_#c084fc]",
+          percentColor: "text-purple-300",
+          badge: "border-purple-400/40 bg-purple-950/40 text-purple-200",
+        };
+      case "machine-learning":
         return {
           crosshair: "border-indigo-400/70",
           beacon: "bg-indigo-400 shadow-[0_0_8px_#818cf8]",
@@ -360,7 +393,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
             </div>
 
             {/* Filter Category Console Bar - Strictly 3 Rows Maximum */}
-            <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[535px] 2xl:w-[555px]">
+            <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[570px] 2xl:w-[590px]">
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-2 sm:p-2.5 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
                 {/* Optical Corner HUD Crosshairs */}
                 <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-sky-400/80" />
@@ -386,7 +419,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                             setCurrentPage(1);
                             onTriggerPulse?.();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-1.5 sm:px-2 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
@@ -420,8 +453,8 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                     })}
                   </div>
 
-                  {/* Row 2: 2 Columns (AI & Machine Learning, Desktop & Mobile) */}
-                  <div className="grid grid-cols-2 gap-1.5">
+                  {/* Row 2: 3 Columns (AI Engineering, Machine Learning, Desktop & Mobile) */}
+                  <div className="flex w-full gap-1 sm:gap-1.5">
                     {PROJECT_FILTER_ROW_2.map((item) => {
                       const isActive = activeFilter === item.id;
                       const activeStyles = getProjectFilterActiveStyles(item.id);
@@ -433,28 +466,28 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                             setCurrentPage(1);
                             onTriggerPulse?.();
                           }}
-                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold ${
+                          className={`group relative overflow-hidden rounded-xl border font-mono transition-all duration-300 flex items-center justify-between px-2 sm:px-2.5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold flex-auto ${
                             isActive
                               ? activeStyles.btn
                               : "border-white/10 bg-black/50 text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/[0.04]"
                           }`}
                         >
-                          <div className="flex items-center gap-1.5 truncate">
+                          <div className="flex items-center gap-1 sm:gap-1.5 truncate min-w-0">
                             <span
-                              className={`h-1.5 w-1.5 rounded-full shrink-0 transition-all ${
+                              className={`hidden min-[380px]:inline-block h-1.5 w-1.5 rounded-full shrink-0 transition-all ${
                                 isActive
                                   ? activeStyles.dot
                                   : "bg-slate-600 group-hover:bg-slate-400"
                               }`}
                             />
-                            <span className="truncate">
+                            <span className="truncate whitespace-nowrap">
                               <span className="sm:inline hidden">{item.label}</span>
                               <span className="sm:hidden">{item.shortLabel}</span>
                             </span>
                           </div>
 
                           <span
-                            className={`shrink-0 ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold tabular-nums transition-colors ${
+                            className={`shrink-0 ml-1 px-1 sm:px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold tabular-nums transition-colors ${
                               isActive
                                 ? activeStyles.pill
                                 : "bg-white/[0.04] text-slate-500 border border-white/5 group-hover:text-slate-300"
@@ -519,7 +552,7 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
         </div>
       </div>
 
-        {/* Equal-Width Project Grid: Mobile 1 col (3 rows), Tablet 2 cols (2 rows), Desktop 3 cols (2 rows) */}
+        {/* Equal-Width Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6">
           {paginatedProjects.map((project) => {
             const accent = getAccentClasses(project.accentColor);

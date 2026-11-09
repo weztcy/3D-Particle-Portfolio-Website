@@ -50,7 +50,8 @@ export interface SoftSkillItem {
 export type ProjectCategory =
   | "web-development"
   | "data-analysis"
-  | "ai-ml"
+  | "ai-engineering"
+  | "machine-learning"
   | "desktop-mobile"
   | "ui-ux"
   | "code-learning";
@@ -75,7 +76,7 @@ export interface ProjectCaseStudy {
   evaluation: string;
   outcomes: string[];
   techStack: string[];
-  accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal";
+  accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple";
   repoUrl?: string;
 }
 

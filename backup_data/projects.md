@@ -23,15 +23,15 @@
 | 11 | `PRO-11 // APP-07` | **Grosir Sembako Jaya Makmur POS** | `Desktop App` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/Grosir-Sembako-Jaya-Makmur-POS) |
 | 12 | `PRO-12 // WEB-02` | **SiLelo - Online Auction** | `Web Development` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/SiLelo---Online-Auction) |
 | 13 | `PRO-13 // WEB-03` | **Pustakanesia - Digital Library** | `Web Development` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/Pustakanesia---Digital-Library) |
-| 14 | `PRO-14 // AI-01` | **Center of Mass and Velocity Calculator** | `AI & Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Center-of-Mass-and-Velocity-Calculator) |
-| 15 | `PRO-15 // AI-02` | **Jakarta Hotel Review Sentiment Analysis** | `AI & Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Jakarta-Hotel-Review-Sentiment-Analysis) |
-| 16 | `PRO-16 // AI-03` | **KIP Student Eligibility Prediction** | `AI & Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/KIP-Student-Eligibility-Prediction) |
+| 14 | `PRO-14 // ML-01` | **Center of Mass and Velocity Calculator** | `Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Center-of-Mass-and-Velocity-Calculator) |
+| 15 | `PRO-15 // ML-02` | **Jakarta Hotel Review Sentiment Analysis** | `Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Jakarta-Hotel-Review-Sentiment-Analysis) |
+| 16 | `PRO-16 // ML-03` | **KIP Student Eligibility Prediction** | `Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/KIP-Student-Eligibility-Prediction) |
 | 17 | `PRO-17 // WEB-04` | **BPBD Kebumen Website Replication** | `Web Development` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/BPBD-Kebumen-Website-Replication) |
 | 18 | `PRO-18 // WEB-05` | **Siben - Disaster Preparedness** | `Web Development` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/Siben---Disaster-Preparedness) |
 | 19 | `PRO-19 // UX-04` | **Prajagamer Website UI/UX Design** | `UI/UX Design` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Prajagamer-Website-UIUX-Design) |
 | 20 | `PRO-20 // WEB-06` | **Prajagamer - Internship Registration** | `Web Development` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/Prajagamer---Internship-Registration) |
 | 21 | `PRO-21 // WEB-07` | **Poliklinik Udinus** | `Web Development` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/Poliklinik-Udinus) |
-| 22 | `PRO-22 // AI-04` | **Diabetes Classification Using KNN with Data Normalization** | `AI & Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization) |
+| 22 | `PRO-22 // ML-04` | **Diabetes Classification Using KNN with Data Normalization** | `Machine Learning` | 2024 | `Completed` | [GitHub Repo](https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization) |
 | 23 | `PRO-23 // LEARN-01` | **CPP Learning Modules** | `Code Learning` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/CPP-Learning-Modules) |
 | 24 | `PRO-24 // LEARN-02` | **Python Learning Modules** | `Code Learning` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/Python-Learning-Modules) |
 | 25 | `PRO-25 // LEARN-03` | **HTML Learning Modules** | `Code Learning` | 2026 | `Completed` | [GitHub Repo](https://github.com/weztcy/HTML-Learning-Modules) |
@@ -961,12 +961,12 @@ During local benchmarking and simulated multi-user circulation testing under PHP
 
 ---
 
-### 14. [PRO-14 // AI-01] Center of Mass and Velocity Calculator
+### 14. [PRO-14 // ML-01] Center of Mass and Velocity Calculator
 
 - **ID:** `center-of-mass-and-velocity-calculator`
-- **Code:** `PRO-14 // AI-01`
+- **Code:** `PRO-14 // ML-01`
 - **Title:** **Center of Mass and Velocity Calculator**
-- **Category:** `ai-ml` (AI & Machine Learning)
+- **Category:** `machine-learning` (Machine Learning)
 - **Year:** 2024
 - **Status:** `Completed`
 - **Theme Accent:** `indigo`
@@ -1027,12 +1027,12 @@ Empirical validation across multiple academic benchmark problem sets confirmed 1
 
 ---
 
-### 15. [PRO-15 // AI-02] Jakarta Hotel Review Sentiment Analysis
+### 15. [PRO-15 // ML-02] Jakarta Hotel Review Sentiment Analysis
 
 - **ID:** `jakarta-hotel-review-sentiment-analysis`
-- **Code:** `PRO-15 // AI-02`
+- **Code:** `PRO-15 // ML-02`
 - **Title:** **Jakarta Hotel Review Sentiment Analysis**
-- **Category:** `ai-ml` (AI & Machine Learning)
+- **Category:** `machine-learning` (Machine Learning)
 - **Year:** 2024
 - **Status:** `Completed`
 - **Theme Accent:** `indigo`
@@ -1093,12 +1093,12 @@ The linear support vector classifier was evaluated on a 70/30 holdout split acro
 
 ---
 
-### 16. [PRO-16 // AI-03] KIP Student Eligibility Prediction
+### 16. [PRO-16 // ML-03] KIP Student Eligibility Prediction
 
 - **ID:** `kip-student-eligibility-prediction`
-- **Code:** `PRO-16 // AI-03`
+- **Code:** `PRO-16 // ML-03`
 - **Title:** **KIP Student Eligibility Prediction**
-- **Category:** `ai-ml` (AI & Machine Learning)
+- **Category:** `machine-learning` (Machine Learning)
 - **Year:** 2024
 - **Status:** `Completed`
 - **Theme Accent:** `indigo`
@@ -1507,12 +1507,12 @@ During comprehensive local benchmarking and clinical workflow simulation, Polikl
 
 ---
 
-### 22. [PRO-22 // AI-04] Diabetes Classification Using KNN with Data Normalization
+### 22. [PRO-22 // ML-04] Diabetes Classification Using KNN with Data Normalization
 
 - **ID:** `diabetes-classification-using-knn-with-data-normalization`
-- **Code:** `PRO-22 // AI-04`
+- **Code:** `PRO-22 // ML-04`
 - **Title:** **Diabetes Classification Using KNN with Data Normalization**
-- **Category:** `ai-ml` (AI & Machine Learning)
+- **Category:** `machine-learning` (Machine Learning)
 - **Year:** 2024
 - **Status:** `Completed`
 - **Theme Accent:** `indigo`
@@ -4476,10 +4476,10 @@ Empirical runtime benchmarking conducted on a 16-core Windows 11 workstation (AM
   },
   {
     "id": "center-of-mass-and-velocity-calculator",
-    "code": "PRO-14 // AI-01",
+    "code": "PRO-14 // ML-01",
     "title": "Center of Mass and Velocity Calculator",
-    "category": "ai-ml",
-    "categoryLabel": "AI & Machine Learning",
+    "category": "machine-learning",
+    "categoryLabel": "Machine Learning",
     "year": "2024",
     "status": "Completed",
     "imageUrl": "/images/projects/Center of Mass and Velocity Calculator 1.webp",
@@ -4580,10 +4580,10 @@ Empirical runtime benchmarking conducted on a 16-core Windows 11 workstation (AM
   },
   {
     "id": "jakarta-hotel-review-sentiment-analysis",
-    "code": "PRO-15 // AI-02",
+    "code": "PRO-15 // ML-02",
     "title": "Jakarta Hotel Review Sentiment Analysis",
-    "category": "ai-ml",
-    "categoryLabel": "AI & Machine Learning",
+    "category": "machine-learning",
+    "categoryLabel": "Machine Learning",
     "year": "2024",
     "status": "Completed",
     "imageUrl": "/images/projects/Jakarta Hotel Review Sentiment Analysis 1.webp",
@@ -4691,10 +4691,10 @@ Empirical runtime benchmarking conducted on a 16-core Windows 11 workstation (AM
   },
   {
     "id": "kip-student-eligibility-prediction",
-    "code": "PRO-16 // AI-03",
+    "code": "PRO-16 // ML-03",
     "title": "KIP Student Eligibility Prediction",
-    "category": "ai-ml",
-    "categoryLabel": "AI & Machine Learning",
+    "category": "machine-learning",
+    "categoryLabel": "Machine Learning",
     "year": "2024",
     "status": "Completed",
     "imageUrl": "/images/projects/KIP Student Eligibility Prediction 1.webp",
@@ -5453,10 +5453,10 @@ Empirical runtime benchmarking conducted on a 16-core Windows 11 workstation (AM
   },
   {
     "id": "diabetes-classification-using-knn-with-data-normalization",
-    "code": "PRO-22 // AI-04",
+    "code": "PRO-22 // ML-04",
     "title": "Diabetes Classification Using KNN with Data Normalization",
-    "category": "ai-ml",
-    "categoryLabel": "AI & Machine Learning",
+    "category": "machine-learning",
+    "categoryLabel": "Machine Learning",
     "year": "2024",
     "status": "Completed",
     "imageUrl": "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",

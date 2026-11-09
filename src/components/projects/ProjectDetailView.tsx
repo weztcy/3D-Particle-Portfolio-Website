@@ -43,7 +43,8 @@ const CATEGORY_FORMATION_MAP: Record<
 > = {
   "web-development": "wave",
   "data-analysis": "clusters",
-  "ai-ml": "neural",
+  "ai-engineering": "neural",
+  "machine-learning": "clusters",
   "desktop-mobile": "helix",
   "ui-ux": "sphere",
   "code-learning": "neural",
@@ -114,6 +115,15 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-teal-400/30",
         glowBg: "from-teal-500/15 via-transparent to-transparent",
         iconBg: "border-teal-400/30 bg-teal-400/10 text-teal-300",
+      };
+    case "purple":
+      return {
+        badge: "border-purple-400/35 bg-purple-400/10 text-purple-300",
+        metricText: "text-purple-400",
+        hoverBorder: "hover:border-purple-400/50",
+        borderAccent: "border-purple-400/30",
+        glowBg: "from-purple-500/15 via-transparent to-transparent",
+        iconBg: "border-purple-400/30 bg-purple-400/10 text-purple-300",
       };
   }
 }

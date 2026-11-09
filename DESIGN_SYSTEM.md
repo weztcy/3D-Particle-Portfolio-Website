@@ -323,11 +323,12 @@ The layout adopts a **12-column responsive grid** wrapped in a maximum width of 
 | [Search, Category Tabs, Proficiency Filtering & Responsive Pagination]            |
 +-----------------------------------------------------------------------------------+
 | SECTION 02: SELECTED WORKS & PRODUCTION CASE STUDIES                              |
-| [38 In-Depth Production Case Studies across 6 Filter Categories:                  |
+| [38 In-Depth Production Case Studies across 7 Filter Categories:                  |
 |  - All Projects (38)                                                              |
 |  - Web Development (12)                                                           |
 |  - Data Analytics (2)                                                             |
-|  - AI & Machine Learning (4)                                                      |
+|  - AI Engineering (0 // In Staging)                                               |
+|  - Machine Learning (4)                                                           |
 |  - Desktop & Mobile App (9)                                                       |
 |  - UI/UX Design (4)                                                               |
 |  - Code Learning (7)]                                                             |
@@ -589,7 +590,8 @@ src/data/
 | `web-development` | Web Development | **12** | Enterprise platforms, Next.js SSR apps, REST/GraphQL APIs, microservices |
 | `desktop-mobile` | Desktop & Mobile App | **9** | Cross-platform Flutter apps, Electron clients, native responsive utilities |
 | `code-learning` | Code Learning & Visualizers | **7** | Interactive algorithm visualizers, computer science simulations |
-| `ai-ml` | AI & Machine Learning | **4** | Deep neural classification, computer vision pipelines, LLM agent systems |
+| `ai-engineering` | AI Engineering | **0** | Autonomous multi-agent architectures, RAG knowledge retrieval, foundation model pipelines (In Staging) |
+| `machine-learning` | Machine Learning | **4** | Deep neural classification, computer vision pipelines, predictive analytics |
 | `ui-ux` | UI/UX Design Systems | **4** | High-fidelity Figma prototypes, design tokens, responsive design systems |
 | `data-analysis` | Data Analytics & BI | **2** | Interactive BI dashboards, statistical exploratory analytics |
 | **Total Case Studies** | | **38** | All indexed with deep links, metrics, and architecture blueprints |
