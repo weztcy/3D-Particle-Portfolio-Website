@@ -30,6 +30,13 @@ import SynapticParticleCanvas, {
   TelemetryData,
 } from "@/components/canvas/SynapticParticleCanvas";
 import ParticleControllerHUD from "@/components/ParticleControllerHUD";
+import WebDevDetailView from "./categories/WebDevDetailView";
+import DataAnalyticsDetailView from "./categories/DataAnalyticsDetailView";
+import AIEngineeringDetailView from "./categories/AIEngineeringDetailView";
+import MachineLearningDetailView from "./categories/MachineLearningDetailView";
+import DesktopMobileDetailView from "./categories/DesktopMobileDetailView";
+import UIUXDetailView from "./categories/UIUXDetailView";
+import CodeLearningDetailView from "./categories/CodeLearningDetailView";
 import {
   PROJECT_CASE_STUDIES,
   ProjectCaseStudy,
@@ -70,6 +77,24 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-sky-400/30",
         glowBg: "from-sky-500/15 via-transparent to-transparent",
         iconBg: "border-sky-400/30 bg-sky-400/10 text-sky-300",
+        headerBorder: "border-sky-500/20",
+        headerGlow: "after:via-sky-400/50",
+        returnBtn: "border-sky-400/30 bg-sky-500/5 text-sky-200 hover:text-white hover:border-sky-400/70 hover:bg-sky-500/15 hover:shadow-[0_0_20px_rgba(56,189,248,0.25)]",
+        returnIcon: "text-sky-400",
+        divider: "text-sky-500/40",
+        breadcrumbBadge: "border-sky-400/30 bg-sky-400/10 text-sky-300",
+        nodeBox: "border-sky-500/25 bg-sky-950/20 shadow-[inset_0_0_12px_rgba(56,189,248,0.06)]",
+        nodeTotal: "text-sky-400",
+        nodePulse: "bg-sky-400",
+        navHover: "hover:bg-sky-400/10 hover:text-sky-300 hover:border-sky-400/30",
+        navIcon: "text-sky-400",
+        selection: "selection:bg-sky-400/30",
+        cardBorder: "border-sky-500/25",
+        cardHover: "hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]",
+        crosshair: "border-sky-400/60",
+        textAccent: "text-sky-400",
+        textHover: "group-hover:text-sky-300",
+        actionBtn: "border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 text-sky-200 hover:text-white",
       };
     case "indigo":
       return {
@@ -79,6 +104,24 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-indigo-400/30",
         glowBg: "from-indigo-500/15 via-transparent to-transparent",
         iconBg: "border-indigo-400/30 bg-indigo-400/10 text-indigo-300",
+        headerBorder: "border-indigo-500/20",
+        headerGlow: "after:via-indigo-400/50",
+        returnBtn: "border-indigo-400/30 bg-indigo-500/5 text-indigo-200 hover:text-white hover:border-indigo-400/70 hover:bg-indigo-500/15 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]",
+        returnIcon: "text-indigo-400",
+        divider: "text-indigo-500/40",
+        breadcrumbBadge: "border-indigo-400/30 bg-indigo-400/10 text-indigo-300",
+        nodeBox: "border-indigo-500/25 bg-indigo-950/20 shadow-[inset_0_0_12px_rgba(99,102,241,0.06)]",
+        nodeTotal: "text-indigo-400",
+        nodePulse: "bg-indigo-400",
+        navHover: "hover:bg-indigo-400/10 hover:text-indigo-300 hover:border-indigo-400/30",
+        navIcon: "text-indigo-400",
+        selection: "selection:bg-indigo-500/30",
+        cardBorder: "border-indigo-500/25",
+        cardHover: "hover:border-indigo-400/50 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)]",
+        crosshair: "border-indigo-400/60",
+        textAccent: "text-indigo-400",
+        textHover: "group-hover:text-indigo-300",
+        actionBtn: "border-indigo-400/30 bg-indigo-500/10 hover:bg-indigo-500/20 hover:border-indigo-400 text-indigo-200 hover:text-white",
       };
     case "emerald":
       return {
@@ -88,6 +131,24 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-emerald-400/30",
         glowBg: "from-emerald-500/15 via-transparent to-transparent",
         iconBg: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
+        headerBorder: "border-emerald-500/20",
+        headerGlow: "after:via-emerald-400/50",
+        returnBtn: "border-emerald-400/30 bg-emerald-500/5 text-emerald-200 hover:text-white hover:border-emerald-400/70 hover:bg-emerald-500/15 hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]",
+        returnIcon: "text-emerald-400",
+        divider: "text-emerald-500/40",
+        breadcrumbBadge: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
+        nodeBox: "border-emerald-500/25 bg-emerald-950/20 shadow-[inset_0_0_12px_rgba(16,185,129,0.06)]",
+        nodeTotal: "text-emerald-400",
+        nodePulse: "bg-emerald-400",
+        navHover: "hover:bg-emerald-400/10 hover:text-emerald-300 hover:border-emerald-400/30",
+        navIcon: "text-emerald-400",
+        selection: "selection:bg-emerald-500/30",
+        cardBorder: "border-emerald-500/25",
+        cardHover: "hover:border-emerald-400/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]",
+        crosshair: "border-emerald-400/60",
+        textAccent: "text-emerald-400",
+        textHover: "group-hover:text-emerald-300",
+        actionBtn: "border-emerald-400/30 bg-emerald-500/10 hover:bg-emerald-500/20 hover:border-emerald-400 text-emerald-200 hover:text-white",
       };
     case "amber":
       return {
@@ -97,6 +158,24 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-amber-400/30",
         glowBg: "from-amber-500/15 via-transparent to-transparent",
         iconBg: "border-amber-400/30 bg-amber-400/10 text-amber-300",
+        headerBorder: "border-amber-500/20",
+        headerGlow: "after:via-amber-400/50",
+        returnBtn: "border-amber-400/30 bg-amber-500/5 text-amber-200 hover:text-white hover:border-amber-400/70 hover:bg-amber-500/15 hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]",
+        returnIcon: "text-amber-400",
+        divider: "text-amber-500/40",
+        breadcrumbBadge: "border-amber-400/30 bg-amber-400/10 text-amber-300",
+        nodeBox: "border-amber-500/25 bg-amber-950/20 shadow-[inset_0_0_12px_rgba(245,158,11,0.06)]",
+        nodeTotal: "text-amber-400",
+        nodePulse: "bg-amber-400",
+        navHover: "hover:bg-amber-400/10 hover:text-amber-300 hover:border-amber-400/30",
+        navIcon: "text-amber-400",
+        selection: "selection:bg-amber-500/30",
+        cardBorder: "border-amber-500/25",
+        cardHover: "hover:border-amber-400/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]",
+        crosshair: "border-amber-400/60",
+        textAccent: "text-amber-400",
+        textHover: "group-hover:text-amber-300",
+        actionBtn: "border-amber-400/30 bg-amber-500/10 hover:bg-amber-500/20 hover:border-amber-400 text-amber-200 hover:text-white",
       };
     case "fuchsia":
       return {
@@ -106,6 +185,51 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-fuchsia-400/30",
         glowBg: "from-fuchsia-500/15 via-transparent to-transparent",
         iconBg: "border-fuchsia-400/30 bg-fuchsia-400/10 text-fuchsia-300",
+        headerBorder: "border-fuchsia-500/20",
+        headerGlow: "after:via-fuchsia-400/50",
+        returnBtn: "border-fuchsia-400/30 bg-fuchsia-500/5 text-fuchsia-200 hover:text-white hover:border-fuchsia-400/70 hover:bg-fuchsia-500/15 hover:shadow-[0_0_20px_rgba(217,70,239,0.25)]",
+        returnIcon: "text-fuchsia-400",
+        divider: "text-fuchsia-500/40",
+        breadcrumbBadge: "border-fuchsia-400/30 bg-fuchsia-400/10 text-fuchsia-300",
+        nodeBox: "border-fuchsia-500/25 bg-fuchsia-950/20 shadow-[inset_0_0_12px_rgba(217,70,239,0.06)]",
+        nodeTotal: "text-fuchsia-400",
+        nodePulse: "bg-fuchsia-400",
+        navHover: "hover:bg-fuchsia-400/10 hover:text-fuchsia-300 hover:border-fuchsia-400/30",
+        navIcon: "text-fuchsia-400",
+        selection: "selection:bg-fuchsia-500/30",
+        cardBorder: "border-fuchsia-500/25",
+        cardHover: "hover:border-fuchsia-400/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.2)]",
+        crosshair: "border-fuchsia-400/60",
+        textAccent: "text-fuchsia-400",
+        textHover: "group-hover:text-fuchsia-300",
+        actionBtn: "border-fuchsia-400/30 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 hover:border-fuchsia-400 text-fuchsia-200 hover:text-white",
+      };
+    case "orange":
+      return {
+        badge: "border-orange-400/35 bg-orange-500/10 text-orange-300",
+        metricText: "text-orange-400",
+        hoverBorder: "hover:border-orange-400/50",
+        borderAccent: "border-orange-400/30",
+        glowBg: "from-orange-500/15 via-transparent to-transparent",
+        iconBg: "border-orange-400/30 bg-orange-500/10 text-orange-300",
+        headerBorder: "border-orange-500/20",
+        headerGlow: "after:via-orange-400/50",
+        returnBtn: "border-orange-400/30 bg-orange-500/5 text-orange-200 hover:text-white hover:border-orange-400/70 hover:bg-orange-500/15 hover:shadow-[0_0_20px_rgba(249,115,22,0.25)]",
+        returnIcon: "text-orange-400",
+        divider: "text-orange-500/40",
+        breadcrumbBadge: "border-orange-400/30 bg-orange-500/10 text-orange-300",
+        nodeBox: "border-orange-500/25 bg-orange-950/20 shadow-[inset_0_0_12px_rgba(249,115,22,0.06)]",
+        nodeTotal: "text-orange-400",
+        nodePulse: "bg-orange-400",
+        navHover: "hover:bg-orange-400/10 hover:text-orange-300 hover:border-orange-400/30",
+        navIcon: "text-orange-400",
+        selection: "selection:bg-orange-500/30",
+        cardBorder: "border-orange-500/25",
+        cardHover: "hover:border-orange-400/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)]",
+        crosshair: "border-orange-400/60",
+        textAccent: "text-orange-400",
+        textHover: "group-hover:text-orange-300",
+        actionBtn: "border-orange-400/30 bg-orange-500/10 hover:bg-orange-500/20 hover:border-orange-400 text-orange-200 hover:text-white",
       };
     case "teal":
       return {
@@ -115,8 +239,27 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-teal-400/30",
         glowBg: "from-teal-500/15 via-transparent to-transparent",
         iconBg: "border-teal-400/30 bg-teal-400/10 text-teal-300",
+        headerBorder: "border-teal-500/20",
+        headerGlow: "after:via-teal-400/50",
+        returnBtn: "border-teal-400/30 bg-teal-500/5 text-teal-200 hover:text-white hover:border-teal-400/70 hover:bg-teal-500/15 hover:shadow-[0_0_20px_rgba(20,184,166,0.25)]",
+        returnIcon: "text-teal-400",
+        divider: "text-teal-500/40",
+        breadcrumbBadge: "border-teal-400/30 bg-teal-400/10 text-teal-300",
+        nodeBox: "border-teal-500/25 bg-teal-950/20 shadow-[inset_0_0_12px_rgba(20,184,166,0.06)]",
+        nodeTotal: "text-teal-400",
+        nodePulse: "bg-teal-400",
+        navHover: "hover:bg-teal-400/10 hover:text-teal-300 hover:border-teal-400/30",
+        navIcon: "text-teal-400",
+        selection: "selection:bg-teal-500/30",
+        cardBorder: "border-teal-500/25",
+        cardHover: "hover:border-teal-400/50 hover:shadow-[0_0_30px_rgba(20,184,166,0.2)]",
+        crosshair: "border-teal-400/60",
+        textAccent: "text-teal-400",
+        textHover: "group-hover:text-teal-300",
+        actionBtn: "border-teal-400/30 bg-teal-500/10 hover:bg-teal-500/20 hover:border-teal-400 text-teal-200 hover:text-white",
       };
     case "purple":
+    default:
       return {
         badge: "border-purple-400/35 bg-purple-400/10 text-purple-300",
         metricText: "text-purple-400",
@@ -124,6 +267,24 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         borderAccent: "border-purple-400/30",
         glowBg: "from-purple-500/15 via-transparent to-transparent",
         iconBg: "border-purple-400/30 bg-purple-400/10 text-purple-300",
+        headerBorder: "border-purple-500/20",
+        headerGlow: "after:via-purple-400/50",
+        returnBtn: "border-purple-400/30 bg-purple-500/5 text-purple-200 hover:text-white hover:border-purple-400/70 hover:bg-purple-500/15 hover:shadow-[0_0_20px_rgba(168,85,247,0.25)]",
+        returnIcon: "text-purple-400",
+        divider: "text-purple-500/40",
+        breadcrumbBadge: "border-purple-400/30 bg-purple-400/10 text-purple-300",
+        nodeBox: "border-purple-500/25 bg-purple-950/20 shadow-[inset_0_0_12px_rgba(168,85,247,0.06)]",
+        nodeTotal: "text-purple-400",
+        nodePulse: "bg-purple-400",
+        navHover: "hover:bg-purple-400/10 hover:text-purple-300 hover:border-purple-400/30",
+        navIcon: "text-purple-400",
+        selection: "selection:bg-purple-500/30",
+        cardBorder: "border-purple-500/25",
+        cardHover: "hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]",
+        crosshair: "border-purple-400/60",
+        textAccent: "text-purple-400",
+        textHover: "group-hover:text-purple-300",
+        actionBtn: "border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 hover:border-purple-400 text-purple-200 hover:text-white",
       };
   }
 }
@@ -283,7 +444,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
   }, [isLightboxOpen, hasMultipleImages, projectImages.length]);
 
   return (
-    <div className="relative min-h-screen bg-[#06070A] text-slate-100 selection:bg-sky-400/30">
+    <div className={`relative min-h-screen bg-[#06070A] text-slate-100 ${accent.selection}`}>
       {/* Persistent 3D WebGL Point-Cloud & Synaptic Network Canvas */}
       <SynapticParticleCanvas
         formationMode={formationMode}
@@ -297,15 +458,15 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
       <div className="pointer-events-none fixed inset-0 z-[1] bg-grid-pattern bg-[size:64px_64px] opacity-30" />
 
       {/* Top Sticky Navigation Bar: Back Navigation & Project Switcher */}
-      <header className="sticky top-0 z-40 border-b border-sky-500/20 bg-[#06070A]/85 backdrop-blur-2xl relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-sky-400/50 after:to-transparent">
+      <header className={`sticky top-0 z-40 border-b ${accent.headerBorder} bg-[#06070A]/85 backdrop-blur-2xl relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent ${accent.headerGlow} after:to-transparent`}>
         <div className="mx-auto max-w-[1380px] px-3 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
           {/* Left: Back to Projects Button & Breadcrumb */}
           <div className="flex items-center gap-2.5 sm:gap-5 min-w-0">
             <Link
               href="/#projects"
-              className="group relative inline-flex items-center gap-1.5 sm:gap-2 rounded-xl border border-sky-400/30 bg-sky-500/5 px-2.5 sm:px-3.5 py-2 font-mono text-[11px] sm:text-xs font-semibold text-sky-200 hover:text-white hover:border-sky-400/70 hover:bg-sky-500/15 hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-300 shrink-0"
+              className={`group relative inline-flex items-center gap-1.5 sm:gap-2 rounded-xl border ${accent.returnBtn} px-2.5 sm:px-3.5 py-2 font-mono text-[11px] sm:text-xs font-semibold transition-all duration-300 shrink-0`}
             >
-              <ArrowLeft className="h-3.5 w-3.5 text-sky-400 group-hover:-translate-x-1 transition-transform shrink-0" />
+              <ArrowLeft className={`h-3.5 w-3.5 ${accent.returnIcon} group-hover:-translate-x-1 transition-transform shrink-0`} />
               <span className="tracking-wider">
                 RETURN<span className="hidden min-[380px]:inline">_TO_PROJECTS</span>
               </span>
@@ -314,10 +475,10 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
             <div className="hidden md:flex items-center gap-2 font-mono text-xs text-slate-400">
               <span className="text-slate-600">//</span>
               <span className="tracking-wider text-slate-400">ARCHIVES</span>
-              <span className="text-sky-500/40">/</span>
+              <span className={accent.divider}>/</span>
               <span className="text-slate-300 uppercase">{project.categoryLabel}</span>
-              <span className="text-sky-500/40">/</span>
-              <span className="rounded border border-sky-400/30 bg-sky-400/10 px-2 py-0.5 font-bold text-sky-300">
+              <span className={accent.divider}>/</span>
+              <span className={`rounded border ${accent.breadcrumbBadge} px-2 py-0.5 font-bold`}>
                 {project.code}
               </span>
             </div>
@@ -325,35 +486,35 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
           {/* Right: Project Counter & Prev / Next Navigation */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-sky-500/25 bg-sky-950/20 px-2 sm:px-3 py-1.5 font-mono text-[11px] sm:text-xs shadow-[inset_0_0_12px_rgba(56,189,248,0.06)]">
-              <span className="hidden sm:inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className={`flex items-center gap-1.5 sm:gap-2 rounded-xl border ${accent.nodeBox} px-2 sm:px-3 py-1.5 font-mono text-[11px] sm:text-xs`}>
+              <span className={`hidden sm:inline-block h-1.5 w-1.5 rounded-full ${accent.nodePulse} animate-pulse`} />
               <span className="hidden sm:inline text-slate-400">NODE</span>
               <span className="font-bold text-white tracking-widest">
                 {String(projectNodeNumber).padStart(2, "0")}
               </span>
               <span className="text-slate-600">/</span>
-              <span className="font-bold text-sky-400 tracking-widest">
+              <span className={`font-bold ${accent.nodeTotal} tracking-widest`}>
                 {String(totalProjects).padStart(2, "0")}
               </span>
             </div>
 
-            <div className="flex items-center gap-1 rounded-xl border border-white/10 bg-black/60 p-1">
+            <div className={`flex items-center gap-1 rounded-xl border ${accent.borderAccent} bg-black/60 p-1`}>
               <Link
                 href={`/projects/${prevProject.id}`}
                 title={`Previous: ${prevProject.title}`}
-                className="inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 hover:bg-sky-400/10 hover:text-sky-300 hover:border-sky-400/30 transition-all"
+                className={`inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 ${accent.navHover} transition-all`}
               >
-                <ChevronLeft className="h-3.5 w-3.5 text-sky-400" />
+                <ChevronLeft className={`h-3.5 w-3.5 ${accent.navIcon}`} />
                 <span className="hidden lg:inline">PREV</span>
               </Link>
               <div className="h-3.5 w-px bg-white/10" />
               <Link
                 href={`/projects/${nextProject.id}`}
                 title={`Next: ${nextProject.title}`}
-                className="inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 hover:bg-sky-400/10 hover:text-sky-300 hover:border-sky-400/30 transition-all"
+                className={`inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 ${accent.navHover} transition-all`}
               >
                 <span className="hidden lg:inline">NEXT</span>
-                <ChevronRight className="h-3.5 w-3.5 text-sky-400" />
+                <ChevronRight className={`h-3.5 w-3.5 ${accent.navIcon}`} />
               </Link>
             </div>
           </div>
@@ -363,8 +524,45 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
       {/* Main Project Detail Content */}
       <main className="relative z-10 py-8 sm:py-14 px-3.5 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1380px] space-y-6 sm:space-y-8">
-          {/* 1. PROJECT HEADER */}
-          <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          {project.category === "web-development" ? (
+            <WebDevDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : project.category === "data-analysis" ? (
+            <DataAnalyticsDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : project.category === "ai-engineering" ? (
+            <AIEngineeringDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : project.category === "machine-learning" ? (
+            <MachineLearningDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : project.category === "desktop-mobile" ? (
+            <DesktopMobileDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : project.category === "ui-ux" ? (
+            <UIUXDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : project.category === "code-learning" ? (
+            <CodeLearningDetailView
+              project={project}
+              onTriggerPulse={handleTriggerPulse}
+            />
+          ) : (
+            <>
+              {/* 1. PROJECT HEADER */}
+              <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* High-tech Corner HUD Crosshairs */}
             <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
             <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
@@ -1073,16 +1271,18 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               </div>
             </div>
           </section>
+        </>
+      )}
 
           {/* Project Switcher Navigation (Previous Project & Next Project) */}
-          <section className="pt-6 border-t border-sky-500/20 space-y-6">
+          <section className={`pt-6 border-t ${accent.headerBorder} space-y-6`}>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="font-mono text-xs uppercase tracking-widest text-slate-400">
                 // SYSTEM_GATEWAYS // SWITCH PROJECT NODE
               </div>
               <Link
                 href="/#projects"
-                className="inline-flex items-center gap-1.5 font-mono text-xs text-sky-400 hover:text-sky-300 transition-colors"
+                className={`inline-flex items-center gap-1.5 font-mono text-xs ${accent.textAccent} hover:underline transition-colors`}
               >
                 <Grid className="h-3.5 w-3.5" />
                 <span>INDEX_MATRIX // {totalProjects} PROJECTS</span>
@@ -1094,12 +1294,17 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${prevProject.id}`}
                 onClick={handleTriggerPulse}
-                className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all duration-300 flex flex-col justify-between"
+                className={`group relative overflow-hidden rounded-3xl border ${prevAccent.cardBorder} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${prevAccent.cardHover} transition-all duration-300 flex flex-col justify-between`}
               >
-                <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/50" />
+                {/* 4 Optical Corner Crosshairs */}
+                <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${prevAccent.crosshair}`} />
+
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1.5 font-mono text-xs text-sky-400 font-bold group-hover:text-white transition-colors">
+                    <span className={`inline-flex items-center gap-1.5 font-mono text-xs ${prevAccent.textAccent} font-bold group-hover:text-white transition-colors`}>
                       <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1.5 transition-transform" />
                       <span>◄ PREV_PROJECT</span>
                     </span>
@@ -1112,7 +1317,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   <div className="font-mono text-xs font-bold text-slate-400 mb-1">
                     {prevProject.code}
                   </div>
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
+                  <h3 className={`font-display text-lg sm:text-xl font-bold text-white ${prevAccent.textHover} transition-colors`}>
                     {prevProject.title}
                   </h3>
                 </div>
@@ -1125,9 +1330,14 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${nextProject.id}`}
                 onClick={handleTriggerPulse}
-                className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all duration-300 flex flex-col justify-between text-left md:text-right"
+                className={`group relative overflow-hidden rounded-3xl border ${nextAccent.cardBorder} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${nextAccent.cardHover} transition-all duration-300 flex flex-col justify-between text-left md:text-right`}
               >
-                <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t border-r border-sky-400/50" />
+                {/* 4 Optical Corner Crosshairs */}
+                <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${nextAccent.crosshair}`} />
+
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span
@@ -1135,7 +1345,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     >
                       {nextProject.categoryLabel}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 font-mono text-xs text-sky-400 font-bold group-hover:text-white transition-colors">
+                    <span className={`inline-flex items-center gap-1.5 font-mono text-xs ${nextAccent.textAccent} font-bold group-hover:text-white transition-colors`}>
                       <span>NEXT_PROJECT ►</span>
                       <ChevronRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
                     </span>
@@ -1143,7 +1353,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   <div className="font-mono text-xs font-bold text-slate-400 mb-1">
                     {nextProject.code}
                   </div>
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
+                  <h3 className={`font-display text-lg sm:text-xl font-bold text-white ${nextAccent.textHover} transition-colors`}>
                     {nextProject.title}
                   </h3>
                 </div>
@@ -1155,13 +1365,16 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
             {/* Related Projects in the Same Category */}
             {relatedProjects.length > 0 && (
-              <div className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8">
-                <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/50" />
-                <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b border-r border-sky-400/50" />
+              <div className={`relative rounded-3xl border ${accent.cardBorder} bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8`}>
+                {/* 4 Optical Corner Crosshairs */}
+                <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${accent.crosshair}`} />
 
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                   <div>
-                    <div className="font-mono text-xs uppercase tracking-widest text-sky-400">
+                    <div className={`font-mono text-xs uppercase tracking-widest ${accent.textAccent}`}>
                       // RELATED_CLUSTERS // {project.categoryLabel.toUpperCase()}
                     </div>
                     <h3 className="font-display text-lg sm:text-xl font-bold text-white mt-0.5">
@@ -1170,7 +1383,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   </div>
                   <Link
                     href="/#projects"
-                    className="rounded-xl border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-4 py-2 font-mono text-xs text-sky-200 hover:text-white transition-all"
+                    className={`rounded-xl border ${accent.actionBtn} px-4 py-2 font-mono text-xs transition-all`}
                   >
                     VIEW_ALL_PROJECTS
                   </Link>
@@ -1181,18 +1394,24 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     <Link
                       key={rel.id}
                       href={`/projects/${rel.id}`}
-                      className="group rounded-2xl border border-sky-500/20 bg-black/60 p-4 transition-all duration-300 hover:border-sky-400/50 hover:bg-sky-500/5 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] flex flex-col justify-between"
+                      className={`group relative overflow-hidden rounded-2xl border ${accent.cardBorder} bg-black/60 p-4 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
                     >
+                      {/* Corner micro-crosshairs */}
+                      <div className={`pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute top-1.5 right-1.5 h-1.5 w-1.5 border-t border-r ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-1.5 left-1.5 h-1.5 w-1.5 border-b border-l ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r ${accent.crosshair}`} />
+
                       <div>
                         <div className="flex items-center justify-between gap-2 font-mono text-[11px] text-slate-400 mb-1.5">
-                          <span className="font-bold text-sky-400">{rel.code}</span>
+                          <span className={`font-bold ${accent.textAccent}`}>{rel.code}</span>
                           <span>{rel.year}</span>
                         </div>
-                        <div className="font-display text-sm font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2">
+                        <div className={`font-display text-sm font-bold text-white ${accent.textHover} transition-colors line-clamp-2`}>
                           {rel.title}
                         </div>
                       </div>
-                      <div className="mt-3 inline-flex items-center gap-1 font-mono text-[11px] text-slate-400 group-hover:text-sky-300 transition-colors">
+                      <div className={`mt-3 inline-flex items-center gap-1 font-mono text-[11px] text-slate-400 ${accent.textHover} transition-colors`}>
                         <span>INSPECT_NODE</span>
                         <ArrowUpRight className="h-3 w-3" />
                       </div>

@@ -76,9 +76,9 @@ const getProjectFilterActiveStyles = (id: string) => {
       };
     case "code-learning":
       return {
-        btn: "bg-teal-400/20 text-white border-teal-400/70 shadow-[0_0_18px_rgba(45,212,191,0.35),inset_0_0_10px_rgba(45,212,191,0.2)]",
-        dot: "bg-teal-400 shadow-[0_0_8px_#2dd4bf] animate-pulse",
-        pill: "bg-teal-400/30 text-teal-200 border border-teal-400/40",
+        btn: "bg-orange-500/20 text-white border-orange-400/70 shadow-[0_0_18px_rgba(249,115,22,0.35),inset_0_0_10px_rgba(249,115,22,0.2)]",
+        dot: "bg-orange-400 shadow-[0_0_8px_#fb923c] animate-pulse",
+        pill: "bg-orange-500/30 text-orange-200 border border-orange-400/40",
       };
     default:
       return {
@@ -243,7 +243,20 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
           techDot: "bg-teal-400",
           button: "border-teal-400/40 bg-teal-400/10 text-teal-300 hover:bg-teal-400/25 hover:border-teal-400/70 hover:text-white hover:shadow-[0_0_20px_rgba(45,212,191,0.35)]",
         };
+      case "orange":
+        return {
+          badge: "border-orange-400/40 bg-orange-500/10 text-orange-300 shadow-[0_0_12px_rgba(249,115,22,0.15)]",
+          metricText: "text-orange-400",
+          cornerColor: "border-orange-400/80",
+          cardHover: "hover:border-orange-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(249,115,22,0.22)]",
+          glowBg: "from-orange-500/20 via-orange-500/5 to-transparent",
+          beacon: "bg-orange-400 shadow-[0_0_8px_#fb923c]",
+          titleHover: "group-hover:text-orange-300",
+          techDot: "bg-orange-400",
+          button: "border-orange-400/40 bg-orange-500/10 text-orange-300 hover:bg-orange-500/25 hover:border-orange-400/70 hover:text-white hover:shadow-[0_0_20px_rgba(249,115,22,0.35)]",
+        };
       case "purple":
+      default:
         return {
           badge: "border-purple-400/40 bg-purple-400/10 text-purple-300 shadow-[0_0_12px_rgba(192,132,252,0.15)]",
           metricText: "text-purple-400",
@@ -304,10 +317,10 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
         };
       case "code-learning":
         return {
-          crosshair: "border-teal-400/70",
-          beacon: "bg-teal-400 shadow-[0_0_8px_#2dd4bf]",
-          percentColor: "text-teal-300",
-          badge: "border-teal-400/40 bg-teal-950/40 text-teal-200",
+          crosshair: "border-orange-400/70",
+          beacon: "bg-orange-400 shadow-[0_0_8px_#fb923c]",
+          percentColor: "text-orange-300",
+          badge: "border-orange-400/40 bg-orange-950/40 text-orange-200",
         };
       default:
         return {

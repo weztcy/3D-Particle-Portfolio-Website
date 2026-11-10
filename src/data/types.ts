@@ -56,6 +56,16 @@ export type ProjectCategory =
   | "ui-ux"
   | "code-learning";
 
+export interface UniversalTelemetryMatrix {
+  projectType: string;
+  targetPlatform: string;
+  primaryDomain: string;
+  architecturePipeline: string;
+  testingAndAudit?: string;
+  projectStatus: string;
+  projectYear: string;
+}
+
 export interface ProjectCaseStudy {
   id: string;
   code: string;
@@ -76,8 +86,726 @@ export interface ProjectCaseStudy {
   evaluation: string;
   outcomes: string[];
   techStack: string[];
-  accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple";
+  accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple" | "orange";
   repoUrl?: string;
+
+  // Universal System Telemetry Matrix (Standardized across all categories)
+  telemetryMatrix?: UniversalTelemetryMatrix;
+
+  // Extended Web Development Domain Specific Fields
+  projectDescription?: string;
+  projectInfo?: {
+    projectType: string;
+    developmentStatus: string;
+    developmentYear: string;
+    platform: string;
+    projectCategory: string;
+  };
+  projectBackground?: string;
+  problemStatements?: {
+    title: string;
+    description: string;
+    issueCode?: string;
+  }[];
+  projectObjectives?: {
+    title: string;
+    description: string;
+    targetTag?: string;
+  }[];
+  coreFeatures?: {
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  interfaceShowcase?: {
+    imageUrl: string;
+    caption: string;
+    badge?: string;
+  }[];
+  userFlow?: {
+    summary: string;
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      actorOrNode?: string;
+    }[];
+  };
+  techStackCategorized?: {
+    name: string;
+    category:
+      | "Frontend"
+      | "Backend"
+      | "Database"
+      | "Framework & Libraries"
+      | "API & Integration"
+      | "Development Tools"
+      | "Version Control"
+      | "Testing Tools"
+      | "External Services";
+    role?: string;
+  }[];
+  systemArchitecture?: {
+    summary: string;
+    layers?: {
+      name: string;
+      role: string;
+      components: string[];
+    }[];
+  };
+  databaseDataFlow?: {
+    type: "Database Schema / ERD" | "API & Data Flow";
+    summary: string;
+    entitiesOrPipelines?: {
+      name: string;
+      type: string;
+      fields: string[];
+    }[];
+  };
+  technicalImplementation?: {
+    category: string;
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  technicalDocumentation?: {
+    title: string;
+    description: string;
+    status: string;
+    specs: { label: string; value: string }[];
+  };
+  architectureQuality?: {
+    title: string;
+    description: string;
+    status: string;
+    badges: string[];
+  };
+
+  // Extended Data Analytics Domain Specific Fields
+  dataAnalyticsProjectInfo?: {
+    projectType: string;
+    developmentStatus: string;
+    analysisYear: string;
+    dataDomain: string;
+    projectCategory: string;
+  };
+  businessContext?: string;
+  analyticalObjectives?: {
+    title: string;
+    description: string;
+    targetMetric?: string;
+  }[];
+  datasetOverview?: {
+    dataSource: string;
+    dataPeriod: string;
+    recordsCount: string;
+    variablesCount: string;
+    description: string;
+  };
+  dataPreparation?: {
+    step: string;
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  analyticalMethodology?: {
+    summary: string;
+    methods: {
+      name: string;
+      description: string;
+      badge?: string;
+    }[];
+  };
+  analysisWorkflow?: {
+    summary: string;
+    steps: {
+      stepNumber: string;
+      title: string;
+      description: string;
+      phase?: string;
+    }[];
+  };
+  dataTechStack?: {
+    coreTechnologies: {
+      name: string;
+      role?: string;
+    }[];
+    analyticsVizTools: {
+      name: string;
+      role?: string;
+    }[];
+  };
+  presentationSlides?: {
+    slideNumber: number;
+    title: string;
+    imageUrl?: string;
+    caption: string;
+  }[];
+  pdfReportUrl?: string;
+  keyFindings?: {
+    metricValue: string;
+    metricLabel: string;
+    title: string;
+    description: string;
+    impactTag?: string;
+  }[];
+  recommendationsAndConclusion?: {
+    recommendations: {
+      title: string;
+      action: string;
+      priority: "HIGH" | "MEDIUM" | "STRATEGIC";
+    }[];
+    conclusion: string;
+  };
+  supportingFiles?: {
+    name: string;
+    format: string;
+    size?: string;
+    url?: string;
+    description: string;
+  }[];
+
+  // Extended AI Engineering Domain Specific Fields
+  aiEngineeringProjectInfo?: {
+    projectType: string;
+    projectStatus: string;
+    developmentYear: string;
+    aiDomain: string;
+    projectCategory: string;
+  };
+  problemContext?: string;
+  proposedAiSolution?: string;
+  keyCapabilitiesAndUseCases?: {
+    title: string;
+    description: string;
+    useCaseScenario: string;
+    badge?: string;
+  }[];
+  aiSystemArchitecture?: {
+    summary: string;
+    layers: {
+      name: string;
+      role: string;
+      components: string[];
+    }[];
+  };
+  aiWorkflow?: {
+    summary: string;
+    workflowType: string;
+    steps: {
+      stepNumber: string;
+      phase: string;
+      title: string;
+      description: string;
+      actorOrTool?: string;
+    }[];
+  };
+  coreAiComponents?: {
+    name: string;
+    type: string;
+    description: string;
+    badge?: string;
+  }[];
+  aiTechStack?: {
+    aiModelsAndServices?: {
+      name: string;
+      role?: string;
+    }[];
+    frameworksAndLibraries?: {
+      name: string;
+      role?: string;
+    }[];
+    developmentAndInfrastructure?: {
+      name: string;
+      role?: string;
+    }[];
+  };
+  aiOutputShowcase?: {
+    scenarioTitle: string;
+    scenarioBadge: string;
+    userInput: string;
+    aiOutput: string;
+    explanation: string;
+    executionLatency?: string;
+    tokenUsage?: string;
+  }[];
+  aiEvaluationAndPerformance?: {
+    metrics: {
+      label: string;
+      value: string;
+      benchmark?: string;
+      pass: boolean;
+    }[];
+    qualitativeEvaluation: string;
+  };
+  limitationsAndImprovements?: {
+    limitations: {
+      title: string;
+      description: string;
+      severity?: "LOW" | "MEDIUM" | "HIGH";
+    }[];
+    improvementsRoadmap: {
+      title: string;
+      target: string;
+      phase: string;
+    }[];
+    summary: string;
+  };
+  aiTechnicalDocumentation?: {
+    title: string;
+    description: string;
+    status: string;
+    specs: { label: string; value: string }[];
+  };
+  aiArchitectureQuality?: {
+    title: string;
+    description: string;
+    status: string;
+    badges: string[];
+  };
+
+  // Extended Machine Learning Domain Specific Fields
+  mlProjectInfo?: {
+    projectType: string;
+    learningParadigm: string;
+    modelDomain: string;
+    projectStatus: string;
+    developmentYear: string;
+  };
+  mlProblemContext?: string;
+  mlDatasetOverview?: {
+    dataSource: string;
+    dataPeriod: string;
+    recordsCount: string;
+    featuresCount: string;
+    dataTypes: string;
+    description: string;
+  };
+  mlFeaturesAndDataCharacteristics?: {
+    targetVariable: {
+      name: string;
+      type: string;
+      classDistribution: string;
+    };
+    inputFeatures: {
+      name: string;
+      type: string;
+      importanceOrRole?: string;
+      description: string;
+    }[];
+    dataCharacteristicsSummary?: string;
+  };
+  mlLearningApproach?: {
+    paradigm: string;
+    methodologyDescription: string;
+    justification: string;
+  };
+  mlDataPreparation?: {
+    step: string;
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  mlModelArchitectureAndTraining?: {
+    algorithmName: string;
+    architectureSummary: string;
+    hyperparameters: {
+      name: string;
+      value: string;
+      description?: string;
+    }[];
+    lossFunction?: string;
+    optimizer?: string;
+    trainingProcess?: string;
+  };
+  mlTechStack?: {
+    programmingLanguages?: {
+      name: string;
+      role?: string;
+    }[];
+    frameworksAndLibraries?: {
+      name: string;
+      role?: string;
+    }[];
+    experimentationTools?: {
+      name: string;
+      role?: string;
+    }[];
+  };
+  mlEvaluationStrategy?: {
+    validationMethod: string;
+    description: string;
+    metrics: {
+      label: string;
+      value: string;
+      benchmark?: string;
+      pass?: boolean;
+    }[];
+  };
+  mlPerformanceVisualizations?: {
+    title: string;
+    badge: string;
+    imageUrl?: string;
+    caption: string;
+    tableData?: {
+      metric: string;
+      trainingScore: string;
+      validationScore: string;
+    }[];
+  }[];
+  mlModelInterpretationAndLimitations?: {
+    interpretationSummary: string;
+    topPredictors?: {
+      feature: string;
+      impact: string;
+    }[];
+    limitations: {
+      title: string;
+      description: string;
+    }[];
+    futureImprovements: {
+      title: string;
+      target: string;
+    }[];
+  };
+  mlModelArtifacts?: {
+    name: string;
+    format: string;
+    size?: string;
+    description: string;
+  }[];
+  mlTechnicalDocumentation?: {
+    title: string;
+    description: string;
+    status: string;
+    specs: { label: string; value: string }[];
+  };
+
+  // Extended Desktop & Mobile App Domain Specific Fields
+  desktopMobileProjectInfo?: {
+    applicationType: string;
+    targetPlatform: string;
+    developmentStatus: string;
+    developmentYear: string;
+    applicationCategory: string;
+  };
+  desktopMobileBackground?: string;
+  desktopMobileProblemStatements?: {
+    title: string;
+    description: string;
+    issueCode?: string;
+  }[];
+  desktopMobileObjectives?: {
+    title: string;
+    description: string;
+    targetTag?: string;
+  }[];
+  desktopMobileFeatures?: {
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  desktopMobileInterfaceShowcase?: {
+    imageUrl: string;
+    caption: string;
+    badge?: string;
+  }[];
+  desktopMobileUserFlow?: {
+    summary: string;
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      actorOrNode?: string;
+    }[];
+  };
+  desktopMobileTechStack?: {
+    programmingLanguages?: {
+      name: string;
+      role?: string;
+    }[];
+    frameworksAndLibraries?: {
+      name: string;
+      role?: string;
+    }[];
+    databaseToolsAndServices?: {
+      name: string;
+      role?: string;
+    }[];
+  };
+  desktopMobileArchitecture?: {
+    summary: string;
+    layers?: {
+      name: string;
+      role: string;
+      components: string[];
+    }[];
+  };
+  desktopMobileDataManagement?: {
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  desktopMobilePlatformImplementation?: {
+    title: string;
+    description: string;
+    badge?: string;
+  }[];
+  desktopMobileDistribution?: {
+    packageType: string;
+    targetOs: string;
+    version: string;
+    fileSize?: string;
+    downloadUrl?: string;
+    releaseNotes?: string;
+  };
+  desktopMobileDocumentation?: {
+    title: string;
+    description: string;
+    status: string;
+    specs: { label: string; value: string }[];
+    docsUrl?: string;
+  };
+
+  // Extended UI/UX Design Domain Specific Fields
+  uiUxProjectInfo?: {
+    projectType: string;
+    designStatus: string;
+    designYear: string;
+    targetPlatform: string;
+    designCategory: string;
+  };
+  uiUxBackground?: string;
+  uiUxUserResearch?: {
+    method: string;
+    description: string;
+    keyFinding: string;
+    badge?: string;
+  }[];
+  uiUxPersonas?: {
+    name: string;
+    role: string;
+    demographics: string;
+    goals: string[];
+    painPoints: string[];
+    avatarUrl?: string;
+  }[];
+  uiUxInformationArchitecture?: {
+    summary: string;
+    nodes: {
+      section: string;
+      screens: string[];
+    }[];
+  };
+  uiUxUserFlow?: {
+    summary: string;
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      screenOrAction?: string;
+    }[];
+  };
+  uiUxWireframes?: {
+    title: string;
+    imageUrl: string;
+    caption: string;
+    badge?: string;
+  }[];
+  uiUxTechStack?: {
+    designAndPrototypingTools?: {
+      name: string;
+      role?: string;
+    }[];
+    designSystemsAndResources?: {
+      name: string;
+      role?: string;
+    }[];
+    researchAndCollaborationTools?: {
+      name: string;
+      role?: string;
+    }[];
+  };
+  uiUxVisualShowcase?: {
+    title: string;
+    imageUrl: string;
+    caption: string;
+    badge?: string;
+  }[];
+  uiUxDesignSystem?: {
+    colorPalette: {
+      name: string;
+      hex: string;
+      role: string;
+    }[];
+    typography: {
+      name: string;
+      usage: string;
+    }[];
+    componentStates?: {
+      component: string;
+      states: string[];
+      notes: string;
+    }[];
+  };
+  uiUxUsabilityValidation?: {
+    prototypeUrl?: string;
+    susScore?: string;
+    taskSuccessRate?: string;
+    timeOnTask?: string;
+    findingsAndFeedback: {
+      feedback: string;
+      iterationSolution: string;
+      impact: string;
+    }[];
+  };
+  uiUxDesignFile?: {
+    platform: string;
+    url?: string;
+    isPublic: boolean;
+    description: string;
+  };
+  uiUxPrototypeAndHandoff?: {
+    prototypeUrl?: string;
+    handoffStatus: string;
+    specs: { label: string; value: string }[];
+    description: string;
+  };
+  uiUxDocumentation?: {
+    title: string;
+    description: string;
+    deliverables: string[];
+    docsUrl?: string;
+  };
+
+  // Extended Code Learning Domain Specific Fields
+  codeLearningProjectInfo?: {
+    learningCategory: string;
+    difficultyLevel: string;
+    learningFormat: string;
+    totalModules: string;
+    totalSubmodules: string;
+    totalSourceCodeFiles: string;
+    programmingLanguages: string;
+    learningStatus: string;
+  };
+  codeLearningDescription?: string;
+  codeLearningObjectives?: {
+    title: string;
+    description: string;
+    competencyCode?: string;
+  }[];
+  codeLearningPrerequisites?: {
+    category: string;
+    items: string[];
+    description: string;
+  }[];
+  codeLearningCurriculumStructure?: {
+    summary: string;
+    phases: {
+      phaseNumber: string;
+      phaseTitle: string;
+      difficulty: string;
+      moduleRange: string;
+      topics: string[];
+    }[];
+  };
+  codeLearningModules?: {
+    id: string;
+    moduleNumber: string;
+    title: string;
+    description: string;
+    submoduleCount: number;
+    difficulty: "Beginner" | "Intermediate" | "Advanced" | "Expert";
+    keyTopics?: string[];
+    sourceFilesCount?: number;
+    estimatedHours?: string;
+    submodules: {
+      id: string;
+      submoduleNumber: string;
+      title: string;
+      description: string;
+      duration?: string;
+      hasCode: boolean;
+      theoryContent?: {
+        summary: string;
+        keyPoints: string[];
+        conceptualSnippet?: string;
+      };
+      sourceCodeFiles?: {
+        fileName: string;
+        language: string;
+        code: string;
+        output?: string;
+      }[];
+    }[];
+  }[];
+  codeLearningTechStack?: {
+    programmingLanguages?: {
+      name: string;
+      role?: string;
+    }[];
+    frameworksAndLibraries?: {
+      name: string;
+      role?: string;
+    }[];
+    developmentToolsAndEnvironment?: {
+      name: string;
+      role?: string;
+    }[];
+  };
+  codeLearningExercises?: {
+    title: string;
+    moduleRef: string;
+    difficulty: "Easy" | "Medium" | "Hard";
+    taskDescription: string;
+    instructions: string[];
+    solutionSnippet?: string;
+  }[];
+  codeLearningPracticalProjects?: {
+    title: string;
+    description: string;
+    techStack: string[];
+    imageUrl?: string;
+    highlights: string[];
+    tier?: string;
+    difficulty?: string;
+    estimatedTime?: string;
+    scenario?: string;
+    deliverable?: string;
+    architecturalConstraints?: string[];
+    acceptanceCriteria?: string[];
+    keyConcepts?: string[];
+  }[];
+  codeLearningOutcomes?: {
+    pillar: string;
+    skills: {
+      title: string;
+      description: string;
+    }[];
+  }[];
+  codeLearningRepository?: {
+    isPublic: boolean;
+    url?: string;
+    description: string;
+    license?: string;
+  };
+  codeLearningDocumentation?: {
+    title: string;
+    description: string;
+    specs: { label: string; value: string }[];
+    docsUrl?: string;
+  };
+  codeLearningSupplementaryResources?: {
+    title: string;
+    description: string;
+    resources: {
+      name: string;
+      type: "Cheat Sheet" | "Starter Template" | "Dataset" | "Config" | "Guide";
+      format: string;
+      url?: string;
+    }[];
+  };
 }
 
 export interface ExperienceItem {
