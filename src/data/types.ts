@@ -242,7 +242,6 @@ export interface ProjectCaseStudy {
     imageUrl?: string;
     caption?: string;
   }[];
-  pdfReportUrl?: string;
   keyFindings?: {
     metricValue: string;
     metricLabel: string;
@@ -657,13 +656,6 @@ export interface ProjectCaseStudy {
     [key: string]: any;
   };
   uiUxUserFlow?: any;
-  uiUxWireframes?: {
-    [key: string]: any;
-    title?: string;
-    imageUrl?: string;
-    caption?: string;
-    badge?: string;
-  }[];
   uiUxTechStack?: {
     [key: string]: any;
     designAndPrototypingTools?: {
@@ -833,15 +825,6 @@ export interface ProjectCaseStudy {
     frameworksAndLibraries?: { name: string; role?: string }[];
     developmentToolsAndEnvironment?: { name: string; role?: string }[];
   };
-  codeLearningExercises?: {
-    title: string;
-    moduleRef: string;
-    difficulty: string;
-    taskDescription: string;
-    instructions: string[];
-    solutionSnippet?: string;
-    [key: string]: any;
-  }[];
   codeLearningPracticalProjects?: {
     title: string;
     description: string;
