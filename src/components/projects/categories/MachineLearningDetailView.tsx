@@ -75,8 +75,8 @@ export default function MachineLearningDetailView({
     "";
 
   const projectInfo = project.mlProjectInfo || {
-    projectType: "Supervised Learning & Statistical Modeling",
-    learningParadigm: "Deterministic / Statistical Learning",
+    projectType: "Machine Learning & Computational Modeling",
+    learningParadigm: "Statistical & Algorithmic Learning",
     modelDomain: project.categoryLabel || "Machine Learning",
     projectStatus: project.status || "Completed",
     developmentYear: project.year || "2024",
@@ -84,41 +84,73 @@ export default function MachineLearningDetailView({
 
   const telemetry = project.telemetryMatrix || {
     projectType: projectInfo.projectType,
-    targetPlatform: "Python 3.11+ / Scikit-Learn / NumPy",
+    targetPlatform: "Python / Compute Runtime",
     primaryDomain: projectInfo.modelDomain,
-    architecturePipeline: project.architectureSummary || "Supervised Classification + Cross-Validated Tuning",
+    architecturePipeline: project.architectureSummary || "Data Pipeline + Model Training",
     testingAndAudit: "Passed",
     projectStatus: projectInfo.projectStatus,
     projectYear: projectInfo.developmentYear,
   };
 
-  // Section 2: Problem & Dataset
+  const capabilityBadges: string[] = useMemo(() => {
+    const explicit = project.mlProjectInfo?.capabilityBadges;
+    if (explicit && explicit.length > 0) return explicit.slice(0, 3);
+    return [
+      projectInfo.learningParadigm,
+      projectInfo.modelDomain,
+      telemetry.architecturePipeline,
+    ]
+      .filter((v): v is string => Boolean(v && v.trim()))
+      .slice(0, 3);
+  }, [
+    project.mlProjectInfo?.capabilityBadges,
+    projectInfo.learningParadigm,
+    projectInfo.modelDomain,
+    telemetry.architecturePipeline,
+  ]);
+
+  // Section 2: Problem Space & Dataset / Environment Profile
   const problemContext =
     project.mlProblemContext ||
     project.challenge ||
     "";
 
-  const datasetOverview = project.mlDatasetOverview || {
-    dataSource: "",
-    dataPeriod: "",
-    recordsCount: "",
-    featuresCount: "",
-    dataTypes: "",
-    description: "",
+  const rawDataset = project.mlDatasetOverview;
+  const datasetProfile = {
+    profileBadge:
+      rawDataset?.profileBadge ||
+      projectInfo.learningParadigm ||
+      "DATASET / ENV PROFILE",
+    source: rawDataset?.source || rawDataset?.dataSource || "",
+    modality: rawDataset?.modality || rawDataset?.dataPeriod || "",
+    scale: rawDataset?.scale || rawDataset?.recordsCount || "",
+    inputShape: rawDataset?.inputShape || rawDataset?.featuresCount || "",
+    dataFormat: rawDataset?.dataFormat || rawDataset?.dataTypes || "",
+    description: rawDataset?.description || "",
+    provenanceNote: rawDataset?.provenanceNote || "",
   };
 
-  const featuresAndDataCharacteristics =
-    project.mlFeaturesAndDataCharacteristics || {
-      targetVariable: {
-        name: "",
-        type: "",
-        classDistribution: "",
-      },
-      inputFeatures: [],
-      dataCharacteristicsSummary: "",
-    };
+  const rawSpace = project.mlFeaturesAndDataCharacteristics;
+  const rawObjective = rawSpace?.objectiveOutput || rawSpace?.targetVariable;
+  const spaceSpec = {
+    spaceBadge: rawSpace?.spaceBadge || "INPUT & OBJECTIVE",
+    objectiveOutput: rawObjective
+      ? {
+          label: rawObjective.label || "TARGET / OBJECTIVE OUTPUT",
+          name: rawObjective.name || "",
+          type: rawObjective.type || "",
+          distribution:
+            (rawObjective as any).distribution ||
+            (rawObjective as any).classDistribution ||
+            "",
+        }
+      : null,
+    inputSignals: rawSpace?.inputSignals || rawSpace?.inputFeatures || [],
+    dataCharacteristicsSummary: rawSpace?.dataCharacteristicsSummary || "",
+    spaceNote: rawSpace?.spaceNote || "",
+  };
 
-  // Section 3: Model Development & Methodology
+  // Section 3: Algorithmic Methodology & Training Architecture
   const learningApproach = project.mlLearningApproach || {
     paradigm: "",
     methodologyDescription: "",
@@ -126,16 +158,23 @@ export default function MachineLearningDetailView({
   };
 
   const dataPreparation = project.mlDataPreparation || [];
+  const dataPreparationNote = project.mlDataPreparationNote || "";
 
-  const modelArchitectureAndTraining =
-    project.mlModelArchitectureAndTraining || {
-      algorithmName: "",
-      architectureSummary: project.architectureSummary || "",
-      hyperparameters: [],
-      lossFunction: "",
-      optimizer: "",
-      trainingProcess: "",
-    };
+  const rawArch = project.mlModelArchitectureAndTraining;
+  const modelArchitectureAndTraining = {
+    algorithmName: rawArch?.algorithmName || "",
+    architectureSummary: rawArch?.architectureSummary || project.architectureSummary || "",
+    configurationBadge:
+      rawArch?.configurationBadge ||
+      learningApproach.paradigm ||
+      "MODEL_CONFIG",
+    hyperparameters: rawArch?.hyperparameters || [],
+    objectiveCriterion:
+      rawArch?.objectiveCriterion || rawArch?.lossFunction || "",
+    optimizationSolver:
+      rawArch?.optimizationSolver || rawArch?.optimizer || "",
+    trainingProcess: rawArch?.trainingProcess || "",
+  };
 
   // Section 4: Tech Stack (Unified Flat)
   const allMLTechStack = useMemo(() => {
@@ -147,11 +186,7 @@ export default function MachineLearningDetailView({
     ];
   }, [project.mlTechStack, project.techStack]);
 
-  const programmingLanguages = project.mlTechStack?.programmingLanguages || [];
-  const frameworksAndLibraries = project.mlTechStack?.frameworksAndLibraries || [];
-  const experimentationTools = project.mlTechStack?.experimentationTools || [];
-
-  // Section 5: Model Evaluation & Results
+  // Section 5: Model Evaluation, Visual Diagnostics & Interpretation
   const evaluationStrategy = project.mlEvaluationStrategy || {
     validationMethod: "",
     description: "",
@@ -165,22 +200,44 @@ export default function MachineLearningDetailView({
       ? [project.imageUrl]
       : [];
 
-  const performanceVisualizations =
+  const performanceVisualizations: NonNullable<
+    ProjectCaseStudy["mlPerformanceVisualizations"]
+  > =
     project.mlPerformanceVisualizations && project.mlPerformanceVisualizations.length > 0
       ? project.mlPerformanceVisualizations
       : rawProjectImages.map((img, idx) => ({
-          title: `${project.title} — Performance Trajectory 0${idx + 1}`,
-          badge: `METRIC // 0${idx + 1}`,
+          title: `${project.title} — Diagnostic Artifact 0${idx + 1}`,
+          badge: `ARTIFACT // 0${idx + 1}`,
           imageUrl: img,
         }));
 
-  const modelInterpretationAndLimitations =
-    project.mlModelInterpretationAndLimitations || {
-      interpretationSummary: "",
-      topPredictors: [],
-      limitations: [],
-      futureImprovements: [],
-    };
+  const activeVis =
+    performanceVisualizations[activeVisIndex] || performanceVisualizations[0];
+  const visTelemetryNote =
+    activeVis?.telemetryNote || project.mlVisualizationTelemetryNote || "";
+
+  const rawInterp = project.mlModelInterpretationAndLimitations;
+  const normalizedDrivers = useMemo(() => {
+    if (rawInterp?.keyDrivers && rawInterp.keyDrivers.length > 0) {
+      return rawInterp.keyDrivers;
+    }
+    return (rawInterp?.topPredictors || []).map((tp) => ({
+      factor: tp.feature,
+      impact: tp.impact,
+    }));
+  }, [rawInterp?.keyDrivers, rawInterp?.topPredictors]);
+
+  const modelInterpretationAndLimitations = {
+    interpretationSummary: rawInterp?.interpretationSummary || "",
+    interpretabilityBadge:
+      rawInterp?.interpretabilityBadge || "DIAGNOSTIC INSIGHTS",
+    driversTitle:
+      rawInterp?.driversTitle || "KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS",
+    keyDrivers: normalizedDrivers,
+    limitations: rawInterp?.limitations || [],
+    futureImprovements: rawInterp?.futureImprovements || [],
+    discoveryNote: rawInterp?.discoveryNote || "",
+  };
 
   // Section 6: Project Resources
   const hasRepoUrl = Boolean(
@@ -279,21 +336,20 @@ export default function MachineLearningDetailView({
                 </p>
               </div>
 
-              {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-indigo-500/20 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
-                  <Target className="h-3 w-3 text-indigo-400" />
-                  Supervised Classification
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
-                  <Scale className="h-3 w-3 text-indigo-400" />
-                  Feature Normalization
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
-                  <CheckCircle2 className="h-3 w-3 text-indigo-400" />
-                  Cross-Validated p &lt; 0.05
-                </span>
-              </div>
+              {/* Capability Badges Strip (Max 3 - Dynamic) */}
+              {capabilityBadges.length > 0 && (
+                <div className="mt-auto pt-4 border-t border-indigo-500/20 flex flex-wrap gap-2">
+                  {capabilityBadges.map((badgeLabel, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300"
+                    >
+                      <CheckCircle2 className="h-3 w-3 text-indigo-400" />
+                      {badgeLabel}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -437,7 +493,7 @@ export default function MachineLearningDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:scale-[1.01]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -460,8 +516,8 @@ export default function MachineLearningDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 2 — PROBLEM & DATASET
-          Layout: Top Problem Context + Split Dataset Specs & Feature Matrix
+          SECTION 2 — PROBLEM & DATASET / ENVIRONMENT PROFILE
+          Layout: Top Problem Context + Split Dataset/Env Specs & Input/Objective Space
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
         {/* Optical Corner HUD */}
@@ -474,10 +530,10 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 02 // PROBLEM SPACE & DATASET MATRIX ]</span>
+            <span>[ 02 // PROBLEM SPACE &amp; DATASET MATRIX ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            DISTANCE_SENSITIVITY // FEATURE_SPACE
+            PROBLEM_FORMULATION // DATA_TOPOLOGY
           </span>
         </div>
 
@@ -485,7 +541,7 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 rounded-2xl border border-indigo-500/20 bg-black/50 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2 font-mono text-xs text-indigo-400 font-semibold mb-3">
             <AlertTriangle className="h-3.5 w-3.5 text-indigo-400" />
-            <span>PROBLEM CONTEXT // MATHEMATICAL & CLINICAL JUSTIFICATION</span>
+            <span>PROBLEM CONTEXT // DOMAIN &amp; TECHNICAL JUSTIFICATION</span>
           </div>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
             {problemContext.length > 1000
@@ -494,157 +550,171 @@ export default function MachineLearningDetailView({
           </p>
         </div>
 
-        {/* 2-Column Split: Dataset Overview (Left) vs Features & Data Characteristics (Right) */}
+        {/* 2-Column Split: Dataset / Environment Profile (Left) vs Input & Objective Space (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
-          {/* Dataset Overview (6-Parameter Datapad) */}
+          {/* Dataset / Environment Profile (6 Fixed Generic Slots) */}
           <div className="rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
             <div>
-              <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
-                  <Database className="h-4 w-4 text-indigo-400" />
-                  <span>[ DATASET_PROFILE // 6-PARAMETER MATRIX ]</span>
+                  <Database className="h-4 w-4 text-indigo-400 shrink-0" />
+                  <span>[ DATASET / ENV PROFILE // 6-SLOT MATRIX ]</span>
                 </div>
-                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
-                  CLINICAL DATA
+                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold truncate max-w-[160px]">
+                  {datasetProfile.profileBadge}
                 </span>
               </div>
 
               <div className="space-y-3 mb-5">
                 <div className="rounded-xl border border-white/5 bg-black/40 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
-                    1. DATA SOURCE
+                    1. SOURCE / ENVIRONMENT
                   </span>
                   <span className="font-mono text-xs sm:text-sm font-bold text-white">
-                    {datasetOverview.dataSource}
+                    {datasetProfile.source}
                   </span>
                 </div>
 
                 <div className="rounded-xl border border-white/5 bg-black/40 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
-                    2. DATA PERIOD / COHORT
+                    2. MODALITY / DOMAIN TYPE
                   </span>
                   <span className="font-mono text-xs sm:text-sm font-bold text-white">
-                    {datasetOverview.dataPeriod}
+                    {datasetProfile.modality}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="rounded-xl border border-white/5 bg-black/40 p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
-                      3. OBSERVATIONS (ROWS)
+                      3. SCALE / VOLUME
                     </span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-indigo-300">
-                      {datasetOverview.recordsCount}
+                      {datasetProfile.scale}
                     </span>
                   </div>
                   <div className="rounded-xl border border-white/5 bg-black/40 p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
-                      4. FEATURE COUNT (COLS)
+                      4. INPUT SHAPE / DIMENSIONS
                     </span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-indigo-300">
-                      {datasetOverview.featuresCount}
+                      {datasetProfile.inputShape}
                     </span>
                   </div>
                 </div>
 
                 <div className="rounded-xl border border-white/5 bg-black/40 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
-                    5. DATA TYPES & ENCODING
+                    5. DATA TYPE &amp; FORMAT
                   </span>
                   <span className="font-mono text-xs text-slate-200">
-                    {datasetOverview.dataTypes}
+                    {datasetProfile.dataFormat}
                   </span>
                 </div>
 
                 <div className="rounded-xl border border-white/5 bg-black/40 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
-                    6. DATASET DESCRIPTION
+                    6. DATASET / ENV DESCRIPTION
                   </span>
                   <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                    {datasetOverview.description}
+                    {datasetProfile.description}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-indigo-500/15 font-mono text-[10px] text-indigo-400/80">
-              PROVENANCE: Standard clinical benchmark verified for instance-based classification research.
-            </div>
+            {datasetProfile.provenanceNote && (
+              <div className="pt-3 border-t border-indigo-500/15 font-mono text-[10px] text-indigo-400/80">
+                PROVENANCE: {datasetProfile.provenanceNote}
+              </div>
+            )}
           </div>
 
-          {/* Features & Data Characteristics */}
+          {/* Input & Objective Space (Universal across Supervised / Unsupervised / RL / CV / DL) */}
           <div className="rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
             <div>
-              <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
-                  <Binary className="h-4 w-4 text-indigo-400" />
-                  <span>[ FEATURE_SPACE & DATA CHARACTERISTICS ]</span>
+                  <Binary className="h-4 w-4 text-indigo-400 shrink-0" />
+                  <span>[ INPUT &amp; OBJECTIVE SPACE ]</span>
                 </div>
                 <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
-                  TARGET & PREDICTORS
+                  {spaceSpec.spaceBadge}
                 </span>
               </div>
 
-              {/* Target Variable Box */}
-              <div className="rounded-xl border border-indigo-500/30 bg-black/60 p-4 mb-4">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-indigo-400 mb-1 font-bold">
-                  TARGET VARIABLE (Y)
-                </div>
-                <div className="text-sm font-bold text-white mb-1">
-                  {featuresAndDataCharacteristics.targetVariable.name}
-                </div>
-                <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-slate-300">
-                  <span>Type: {featuresAndDataCharacteristics.targetVariable.type}</span>
-                  <span className="rounded bg-indigo-400/10 px-2 py-0.5 text-indigo-300 text-[10px] font-semibold">
-                    {featuresAndDataCharacteristics.targetVariable.classDistribution}
-                  </span>
-                </div>
-              </div>
-
-              {/* Input Features List */}
-              <div className="space-y-2.5 mb-4">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block font-bold">
-                  KEY PREDICTOR FEATURES (X)
-                </span>
-                {featuresAndDataCharacteristics.inputFeatures.map((feat, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-xl border border-white/5 bg-black/40 p-3 transition-colors hover:border-indigo-400/30"
-                  >
-                    <div className="flex items-center justify-between font-mono text-xs mb-1">
-                      <span className="font-bold text-white">{feat.name}</span>
-                      <span className="text-[10px] text-indigo-400 font-semibold">
-                        {feat.importanceOrRole}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
-                      {feat.description}
-                    </p>
+              {/* Target / Objective Output Box (Optional for Unsupervised or supports Action/Reward/Cluster/Label) */}
+              {spaceSpec.objectiveOutput && spaceSpec.objectiveOutput.name && (
+                <div className="rounded-xl border border-indigo-500/30 bg-black/60 p-4 mb-4">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-indigo-400 mb-1 font-bold">
+                    {spaceSpec.objectiveOutput.label}
                   </div>
-                ))}
-              </div>
+                  <div className="text-sm font-bold text-white mb-1">
+                    {spaceSpec.objectiveOutput.name}
+                  </div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-slate-300">
+                    {spaceSpec.objectiveOutput.type && (
+                      <span>Spec: {spaceSpec.objectiveOutput.type}</span>
+                    )}
+                    {spaceSpec.objectiveOutput.distribution && (
+                      <span className="rounded bg-indigo-400/10 px-2 py-0.5 text-indigo-300 text-[10px] font-semibold">
+                        {spaceSpec.objectiveOutput.distribution}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Input Signals & Dimensions List */}
+              {spaceSpec.inputSignals.length > 0 && (
+                <div className="space-y-2.5 mb-4">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block font-bold">
+                    INPUT SIGNALS &amp; DIMENSIONS
+                  </span>
+                  {spaceSpec.inputSignals.map((sig, idx) => (
+                    <div
+                      key={idx}
+                      className="rounded-xl border border-white/5 bg-black/40 p-3 transition-colors hover:border-indigo-400/30"
+                    >
+                      <div className="flex items-center justify-between gap-2 font-mono text-xs mb-1">
+                        <span className="font-bold text-white">{sig.name}</span>
+                        {sig.importanceOrRole && (
+                          <span className="text-[10px] text-indigo-400 font-semibold text-right">
+                            {sig.importanceOrRole}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
+                        {sig.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Characteristics Summary */}
-              {featuresAndDataCharacteristics.dataCharacteristicsSummary && (
-                <div className="rounded-xl border border-white/5 bg-white/5 p-3 text-xs text-slate-300 leading-relaxed">
+              {spaceSpec.dataCharacteristicsSummary && (
+                <div className="rounded-xl border border-white/5 bg-indigo-950/20 p-3 text-xs text-slate-300 leading-relaxed">
                   <span className="font-mono text-[10px] text-indigo-400 font-bold block mb-1">
-                    DATA DISTRIBUTION NOTE:
+                    DATA &amp; SPACE CHARACTERISTICS:
                   </span>
-                  {featuresAndDataCharacteristics.dataCharacteristicsSummary}
+                  {spaceSpec.dataCharacteristicsSummary}
                 </div>
               )}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-indigo-500/15 font-mono text-[10px] text-indigo-400/80">
-              SPACE: Scaled 4D feature manifold optimized via Random Forest Gini impurity pruning.
-            </div>
+            {spaceSpec.spaceNote && (
+              <div className="mt-4 pt-3 border-t border-indigo-500/15 font-mono text-[10px] text-indigo-400/80">
+                SPACE: {spaceSpec.spaceNote}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 3 — MODEL DEVELOPMENT & METHODOLOGY
-          Layout: Top Methodology Banner + Split Data Preparation & Training
+          SECTION 3 — ALGORITHMIC METHODOLOGY & TRAINING ARCHITECTURE
+          Layout: Top Learning Paradigm Banner + Split Data Pipeline & Model Configuration
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
         {/* Optical Corner HUD */}
@@ -657,18 +727,18 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 03 // ALGORITHMIC METHODOLOGY & TRAINING ARCHITECTURE ]</span>
+            <span>[ 03 // ALGORITHMIC METHODOLOGY &amp; TRAINING ARCHITECTURE ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            FEATURE_PIPELINE // HYPERPARAMETERS
+            DATA_PIPELINE // MODEL_CONFIGURATION
           </span>
         </div>
 
         {/* Top: Learning Approach & Methodology Banner */}
         <div className="relative z-10 mb-7 rounded-2xl border border-indigo-500/25 bg-black/50 p-6 sm:p-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
-              <Workflow className="h-4 w-4 text-indigo-400" />
+              <Workflow className="h-4 w-4 text-indigo-400 shrink-0" />
               <span>[ LEARNING_PARADIGM // THEORETICAL FOUNDATION ]</span>
             </div>
             <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
@@ -684,15 +754,15 @@ export default function MachineLearningDetailView({
           </div>
         </div>
 
-        {/* 2-Column Split: Data Preparation (Left) vs Model Architecture & Training (Right) */}
+        {/* 2-Column Split: Preprocessing & Data Pipeline (Left) vs Model Architecture & Configuration (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
-          {/* Data Preparation & Feature Engineering */}
+          {/* Preprocessing & Data Pipeline */}
           <div className="rounded-2xl border border-indigo-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Sliders className="h-4 w-4 text-indigo-400" />
-                  <span>[ DATA_PREPARATION & FEATURE ENGINEERING ]</span>
+                  <span>[ PREPROCESSING &amp; DATA PIPELINE ]</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400">
                   {dataPreparation.length} STAGES
@@ -703,13 +773,15 @@ export default function MachineLearningDetailView({
                 {dataPreparation.map((stage, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-[#140E0A]/70 p-4 transition-all hover:border-indigo-400/40"
+                    className="rounded-xl border border-white/10 bg-[#0B0E1B]/80 p-4 transition-all hover:border-indigo-400/40"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] text-indigo-400 font-bold mb-1.5">
                       <span>{stage.step}</span>
-                      <span className="rounded bg-indigo-400/10 border border-indigo-400/20 px-2 py-0.5 text-indigo-300">
-                        {stage.badge}
-                      </span>
+                      {stage.badge && (
+                        <span className="rounded bg-indigo-400/10 border border-indigo-400/20 px-2 py-0.5 text-indigo-300">
+                          {stage.badge}
+                        </span>
+                      )}
                     </div>
                     <div className="text-xs sm:text-sm font-bold text-white mb-1">
                       {stage.title}
@@ -722,21 +794,23 @@ export default function MachineLearningDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              AUDIT: Zero data leakage between train and test partitions during scaling transforms.
-            </div>
+            {dataPreparationNote && (
+              <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
+                PIPELINE AUDIT: {dataPreparationNote}
+              </div>
+            )}
           </div>
 
-          {/* Model Architecture & Training Configuration */}
+          {/* Model Architecture & Configuration */}
           <div className="rounded-2xl border border-indigo-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
-                  <Settings2 className="h-4 w-4 text-indigo-400" />
-                  <span>[ MODEL_ARCHITECTURE & TRAINING PROCESS ]</span>
+                  <Settings2 className="h-4 w-4 text-indigo-400 shrink-0" />
+                  <span>[ MODEL_ARCHITECTURE &amp; CONFIGURATION ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-indigo-400">
-                  OPTIMAL k=7
+                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded truncate max-w-[150px]">
+                  {modelArchitectureAndTraining.configurationBadge}
                 </span>
               </div>
 
@@ -757,7 +831,7 @@ export default function MachineLearningDetailView({
                 {modelArchitectureAndTraining.hyperparameters.map((hp, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between rounded-lg border border-white/5 bg-[#140E0A]/80 px-3 py-2 font-mono text-xs"
+                    className="flex items-center justify-between rounded-lg border border-white/5 bg-[#0B0E1B]/80 px-3 py-2 font-mono text-xs"
                   >
                     <span className="text-slate-300">{hp.name}</span>
                     <span className="font-bold text-indigo-300">{hp.value}</span>
@@ -765,30 +839,39 @@ export default function MachineLearningDetailView({
                 ))}
               </div>
 
-              {/* Loss & Optimizer */}
-              <div className="grid grid-cols-2 gap-3 mb-3">
-                <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
-                  <span className="font-mono text-[9px] uppercase text-slate-500 block">
-                    LOSS FUNCTION
-                  </span>
-                  <span className="font-mono text-xs font-bold text-slate-200">
-                    {modelArchitectureAndTraining.lossFunction || "0-1 Loss"}
-                  </span>
+              {/* Objective / Loss & Optimizer / Solver */}
+              {(modelArchitectureAndTraining.objectiveCriterion ||
+                modelArchitectureAndTraining.optimizationSolver) && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                  {modelArchitectureAndTraining.objectiveCriterion && (
+                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                      <span className="font-mono text-[9px] uppercase text-slate-400 block mb-0.5">
+                        OBJECTIVE / LOSS
+                      </span>
+                      <span className="font-mono text-xs font-bold text-slate-200 break-words">
+                        {modelArchitectureAndTraining.objectiveCriterion}
+                      </span>
+                    </div>
+                  )}
+                  {modelArchitectureAndTraining.optimizationSolver && (
+                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                      <span className="font-mono text-[9px] uppercase text-slate-400 block mb-0.5">
+                        OPTIMIZER / SOLVER
+                      </span>
+                      <span className="font-mono text-xs font-bold text-slate-200 break-words">
+                        {modelArchitectureAndTraining.optimizationSolver}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
-                  <span className="font-mono text-[9px] uppercase text-slate-500 block">
-                    OPTIMIZER / SWEEP
-                  </span>
-                  <span className="font-mono text-xs font-bold text-slate-200 truncate block">
-                    {modelArchitectureAndTraining.optimizer || "GridSearchCV"}
-                  </span>
-                </div>
-              </div>
+              )}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              TRAINING: Evaluated across neighborhood densities k=1 to 11 to identify variance elbow.
-            </div>
+            {modelArchitectureAndTraining.trainingProcess && (
+              <div className="mt-4 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
+                TRAINING PROTOCOL: {modelArchitectureAndTraining.trainingProcess}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -806,7 +889,7 @@ export default function MachineLearningDetailView({
 
       {/* =========================================================================
           SECTION 5 — MODEL EVALUATION & RESULTS
-          Layout: Top Evaluation Metrics + Split Visualizations (Left) & Interpretation (Right)
+          Layout: Top Evaluation Metrics + Split Visual Diagnostics (Left) & Interpretation (Right)
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
         {/* Optical Corner HUD */}
@@ -819,19 +902,19 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]</span>
+            <span>[ 05 // MODEL EVALUATION &amp; PERFORMANCE BENCHMARKS ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            METRICS_GRID // ROC_AUC // ERROR_ANALYSIS
+            EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS
           </span>
         </div>
 
         {/* Top: Evaluation Strategy & Quantitative Metrics Deck */}
         <div className="relative z-10 mb-8 rounded-2xl border border-indigo-500/25 bg-black/60 p-6 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
             <div className="flex items-center gap-2 text-indigo-300 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
-              <span>EVALUATION STRATEGY // STATISTICAL SIGNIFICANCE</span>
+              <span>EVALUATION STRATEGY // BENCHMARK PROTOCOL</span>
             </div>
             <span className="text-indigo-400 font-semibold">
               {evaluationStrategy.validationMethod}
@@ -848,7 +931,7 @@ export default function MachineLearningDetailView({
               {evaluationStrategy.metrics.map((m, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-white/10 bg-[#0E0B14]/80 p-3.5 transition-all hover:border-indigo-400/40"
+                  className="rounded-xl border border-white/10 bg-[#0B0E1B]/80 p-3.5 transition-all hover:border-indigo-400/40"
                 >
                   <div className="font-mono text-xl sm:text-2xl font-black text-indigo-300 mb-1 truncate">
                     {m.value}
@@ -867,80 +950,169 @@ export default function MachineLearningDetailView({
           )}
         </div>
 
-        {/* 2-Column Split: Model Performance & Visualizations (Left) vs Interpretation & Limitations (Right) */}
+        {/* 2-Column Split: Visual Diagnostics (Left) vs Interpretation & Limitations (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
-          {/* Model Performance & Visualizations Stage */}
-          <div className="rounded-2xl border border-indigo-500/25 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
-                  <BarChart2 className="h-4 w-4 text-indigo-400" />
-                  <span>[ PERFORMANCE_VISUALIZATIONS // ROC & MATRIX ]</span>
-                </div>
-                <span className="font-mono text-[10px] text-slate-400">
-                  {performanceVisualizations.length} CURVES
+          {/* Visual Diagnostics Stage (Aligned with AI Engineering Viewport Design) */}
+          <div className="flex flex-col justify-between rounded-2xl border border-indigo-500/30 bg-[#080B18] p-4 sm:p-5 shadow-2xl h-full">
+            {/* Header Bar */}
+            <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80 inline-block" />
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-400/80 inline-block" />
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-300/80 inline-block" />
+                <span className="ml-2 font-mono text-[11px] text-slate-300 truncate max-w-[200px] sm:max-w-[280px]">
+                  {activeVis?.title || "Diagnostic Interface Viewport"}
                 </span>
               </div>
 
-              {/* Active Visualization Preview */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10 bg-[#070503] mb-4">
-                <Image
-                  src={
-                    performanceVisualizations[activeVisIndex]?.imageUrl ||
-                    "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp"
-                  }
-                  alt={performanceVisualizations[activeVisIndex]?.title}
-                  fill
-                  className="object-cover object-top transition-transform duration-500"
-                />
-                <div className="absolute top-2 left-2 rounded bg-black/80 border border-white/10 px-2 py-0.5 font-mono text-[9px] text-indigo-300 font-bold">
-                  {performanceVisualizations[activeVisIndex]?.badge}
-                </div>
-              </div>
-
-              {/* Thumbnail Selector Ribbon */}
-              {performanceVisualizations.length > 1 && (
-                <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
-                  {performanceVisualizations.map((vis, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveVisIndex(idx)}
-                      className={`relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border transition-all ${
-                        idx === activeVisIndex
-                          ? "border-indigo-400 ring-2 ring-indigo-400/40 scale-105"
-                          : "border-white/10 opacity-60 hover:opacity-100"
-                      }`}
-                    >
-                      <Image
-                        src={
-                          vis.imageUrl ||
-                          "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp"
-                        }
-                        alt={`Thumb ${idx + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </button>
-                  ))}
+              {activeVis?.badge && (
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded">
+                    {activeVis.badge}
+                  </span>
                 </div>
               )}
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              TELEMETRY: Min-Max scaling significantly surpasses Z-Score & raw baselines.
+            {/* Viewport Image Stage */}
+            <div className="relative w-full aspect-[16/10] lg:aspect-auto lg:flex-1 min-h-[250px] sm:min-h-[280px] overflow-hidden rounded-xl border border-indigo-500/20 bg-black flex items-center justify-center group">
+              {activeVis?.imageUrl ? (
+                <Image
+                  src={activeVis.imageUrl}
+                  alt={`${project.title} ML Diagnostic Viewport`}
+                  fill
+                  priority
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
+                  <BarChart2 className="h-10 w-10 text-indigo-500/50 mb-2" />
+                  <p className="font-mono text-xs">NO DIAGNOSTIC SCREEN LINKED</p>
+                </div>
+              )}
+
+              {/* Prev / Next Controls */}
+              {performanceVisualizations.length > 1 && (
+                <>
+                  <button
+                    onClick={() =>
+                      setActiveVisIndex(
+                        (prev) =>
+                          (prev - 1 + performanceVisualizations.length) %
+                          performanceVisualizations.length
+                      )
+                    }
+                    className="absolute left-2.5 top-1/2 -translate-y-1/2 rounded-full border border-indigo-400/40 bg-black/75 p-2 text-indigo-300 hover:bg-indigo-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={() =>
+                      setActiveVisIndex(
+                        (prev) =>
+                          (prev + 1) % performanceVisualizations.length
+                      )
+                    }
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full border border-indigo-400/40 bg-black/75 p-2 text-indigo-300 hover:bg-indigo-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </>
+              )}
             </div>
+
+            {/* Interactive Thumbnail Filmstrip */}
+            {performanceVisualizations.length > 1 && (
+              <div className="mt-3.5 pt-3 border-t border-white/5">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-semibold">
+                    INSPECT VIEWPORTS:
+                  </span>
+                  <span className="font-mono text-[9px] text-indigo-400">
+                    CLICK TO PREVIEW
+                  </span>
+                </div>
+                <div className="grid grid-cols-4 gap-2">
+                  {performanceVisualizations.map((item, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setActiveVisIndex(idx);
+                        onTriggerPulse?.();
+                      }}
+                      className={`group relative aspect-[16/10] overflow-hidden rounded-lg border transition-all ${
+                        idx === activeVisIndex
+                          ? "border-indigo-400 ring-2 ring-indigo-500/50 shadow-[0_0_12px_rgba(99,102,241,0.4)]"
+                          : "border-white/10 opacity-50 hover:opacity-100 hover:border-indigo-400/50"
+                      }`}
+                      title={`Viewport 0${idx + 1}`}
+                    >
+                      {item.imageUrl ? (
+                        <Image
+                          src={item.imageUrl}
+                          alt={`Thumbnail 0${idx + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="120px"
+                        />
+                      ) : (
+                        <div className="h-full w-full bg-slate-900 flex items-center justify-center font-mono text-[9px] text-slate-400">
+                          0{idx + 1}
+                        </div>
+                      )}
+                      <span className="absolute bottom-0.5 right-1 font-mono text-[8px] bg-black/80 px-1 rounded text-indigo-300 border border-white/10">
+                        0{idx + 1}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Bottom Status & Dot Navigator */}
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 flex items-center justify-between">
+              <span className="font-mono text-[10px] text-slate-400">
+                VIEWPORT {activeVisIndex + 1} OF {performanceVisualizations.length}
+              </span>
+              <div className="flex items-center gap-1.5">
+                {performanceVisualizations.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setActiveVisIndex(idx);
+                      onTriggerPulse?.();
+                    }}
+                    className={`h-1.5 rounded-full transition-all ${
+                      idx === activeVisIndex
+                        ? "w-5 bg-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.6)]"
+                        : "w-1.5 bg-white/20 hover:bg-white/40"
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {visTelemetryNote && (
+              <div className="mt-3 pt-2.5 border-t border-white/5 font-mono text-[10px] text-slate-400">
+                TELEMETRY: {visTelemetryNote}
+              </div>
+            )}
           </div>
 
           {/* Model Interpretation & Limitations */}
-          <div className="rounded-2xl border border-indigo-500/25 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-indigo-500/30 bg-[#080B18]/95 p-5 sm:p-6 shadow-2xl flex flex-col justify-between h-full">
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
-                  <PieChart className="h-4 w-4 text-indigo-400" />
-                  <span>[ MODEL_INTERPRETATION & ERROR ANALYSIS ]</span>
+                  <PieChart className="h-4 w-4 text-indigo-400 shrink-0" />
+                  <span>[ MODEL_INTERPRETATION &amp; ERROR ANALYSIS ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-indigo-400">
-                  SHAP / GINI
+                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded truncate max-w-[150px]">
+                  {modelInterpretationAndLimitations.interpretabilityBadge}
                 </span>
               </div>
 
@@ -948,19 +1120,19 @@ export default function MachineLearningDetailView({
                 {modelInterpretationAndLimitations.interpretationSummary}
               </p>
 
-              {/* Top Predictor Bars */}
-              {modelInterpretationAndLimitations.topPredictors && (
+              {/* Key Model Drivers / Behavioral Insights */}
+              {modelInterpretationAndLimitations.keyDrivers.length > 0 && (
                 <div className="space-y-2 mb-5">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-indigo-400 block font-bold">
-                    PREDICTOR GINI IMPORTANCE WEIGHTS
+                    {modelInterpretationAndLimitations.driversTitle}
                   </span>
-                  {modelInterpretationAndLimitations.topPredictors.map((tp, i) => (
+                  {modelInterpretationAndLimitations.keyDrivers.map((drv, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between rounded-lg border border-white/5 bg-[#140E0A]/80 px-3 py-1.5 font-mono text-xs"
+                      className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-[#0B0E1B]/80 px-3 py-1.5 font-mono text-xs"
                     >
-                      <span className="text-slate-300">{tp.feature}</span>
-                      <span className="font-bold text-indigo-300">{tp.impact}</span>
+                      <span className="text-slate-300">{drv.factor}</span>
+                      <span className="font-bold text-indigo-300 text-right">{drv.impact}</span>
                     </div>
                   ))}
                 </div>
@@ -1005,14 +1177,16 @@ export default function MachineLearningDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              DISCOVERY: Gini pruning isolates primary clinical markers without statistical power loss.
-            </div>
+            {modelInterpretationAndLimitations.discoveryNote && (
+              <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
+                DISCOVERY: {modelInterpretationAndLimitations.discoveryNote}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-            {/* =========================================================================
+      {/* =========================================================================
           SECTION 6 — [ 06 // MODEL VAULT & ARTIFACT GATES ]
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
@@ -1026,10 +1200,10 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-indigo-500/20 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 06 // MODEL VAULT & ARTIFACT GATES ]</span>
+            <span>[ 06 // MODEL VAULT &amp; ARTIFACT GATES ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            FINAL_ACCESS // REPOSITORIES, WEIGHTS & RESEARCH SPECIFICATIONS
+            FINAL_ACCESS // REPOSITORIES, ARTIFACTS &amp; RESEARCH SPECIFICATIONS
           </span>
         </div>
 
@@ -1054,7 +1228,7 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
                   <Database className="h-4 w-4 text-indigo-400" />
-                  <span>DATASET & MODEL ARTIFACTS</span>
+                  <span>DATASET &amp; MODEL ARTIFACTS</span>
                 </div>
                 <span className="rounded bg-indigo-400/15 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300">
                   {modelArtifacts.length} ARTIFACTS
@@ -1062,24 +1236,24 @@ export default function MachineLearningDetailView({
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                Serialized Weights & Datasets
+                Model Artifacts &amp; Dataset Profile
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                {datasetOverview.description}
+                {datasetProfile.description}
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">DATASET RECORDS:</span>
-                  <span className="text-slate-200 font-semibold">{datasetOverview.recordsCount}</span>
+                <div className="flex items-center justify-between gap-2 text-slate-400">
+                  <span className="text-[11px] shrink-0">SCALE / VOLUME:</span>
+                  <span className="text-slate-200 font-semibold text-right truncate">{datasetProfile.scale}</span>
                 </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">FEATURE DIMENSIONS:</span>
-                  <span className="text-indigo-300 font-semibold">{datasetOverview.featuresCount}</span>
+                <div className="flex items-center justify-between gap-2 text-slate-400">
+                  <span className="text-[11px] shrink-0">INPUT SHAPE:</span>
+                  <span className="text-indigo-300 font-semibold text-right truncate">{datasetProfile.inputShape}</span>
                 </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">PRIMARY DATA TYPES:</span>
-                  <span className="text-slate-200 font-semibold">{datasetOverview.dataTypes}</span>
+                <div className="flex items-center justify-between gap-2 text-slate-400">
+                  <span className="text-[11px] shrink-0">PRIMARY FORMAT:</span>
+                  <span className="text-slate-200 font-semibold text-right truncate">{datasetProfile.dataFormat}</span>
                 </div>
               </div>
             </div>

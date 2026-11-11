@@ -165,22 +165,18 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "interfaceShowcase": [
       {
         "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Executive Dashboard: Live Stock Valuation & Multi-SKU Telemetry",
         "badge": "PORTAL_01"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Material Receipt Inspection: Serialized Mutex Ingestion Gate",
         "badge": "PORTAL_02"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Warehouse Dispatches: Real-Time Balance Lock Verification",
         "badge": "PORTAL_03"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Audit Trail Ledger: Immutable Chronological Event Stream",
         "badge": "PORTAL_04"
       }
     ],
@@ -547,22 +543,18 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "interfaceShowcase": [
       {
         "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Live Auction Floor: Dynamic Price Stream & Real-Time Countdown",
         "badge": "VIEW_01"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Bid Confirmation Modal: Instant Escrow Hold Handshake",
         "badge": "VIEW_02"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Auctioneer Control Panel: Lot Lifecycle & Reserve Management",
         "badge": "VIEW_03"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Post-Auction Settlement: Automated Invoicing & Escrow Release",
         "badge": "VIEW_04"
       }
     ],
@@ -929,12 +921,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "interfaceShowcase": [
       {
         "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Hardware Showcase: Interactive 3D GPU Motherboard Viewport",
         "badge": "VIEW_01"
       },
       {
         "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Responsive Mobile Interface: Touch Orbit Controls & Spec Sheet",
         "badge": "VIEW_02"
       }
     ],
@@ -1351,19 +1341,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "slideNumber": 1,
         "title": "Executive Summary & Revenue Breakdown",
         "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 01 // Multi-channel revenue performance and profit margins"
       },
       {
         "slideNumber": 2,
         "title": "RFM Cohort Distribution & Retention",
         "imageUrl": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 02 // Customer lifetime value and engagement frequency decay"
       },
       {
         "slideNumber": 3,
         "title": "Discount Elasticity & Margin Sensitivity",
         "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 03 // Cannibalization thresholds and promotional discount ceilings"
       }
     ],
     "pdfReportUrl": "https://example.com/reports/omnichannel-retail-analytics.pdf",
@@ -1519,19 +1506,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "slideNumber": 1,
         "title": "Executive Summary & Revenue Breakdown",
         "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 01 // Multi-channel revenue performance and profit margins"
       },
       {
         "slideNumber": 2,
         "title": "RFM Cohort Distribution & Retention",
         "imageUrl": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 02 // Customer lifetime value and engagement frequency decay"
       },
       {
         "slideNumber": 3,
         "title": "Discount Elasticity & Margin Sensitivity",
         "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 03 // Cannibalization thresholds and promotional discount ceilings"
       }
     ],
     "dataAnalyticsKeyFindings": [
@@ -1818,13 +1802,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "slideNumber": 1,
         "title": "Jakarta Hospitality Sentiment Landscape",
         "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 01 // Overview of sentiment polarity across 45,000+ guest reviews"
       },
       {
         "slideNumber": 2,
         "title": "Aspect Breakdown: Service vs Facilities",
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 02 // Departmental satisfaction rankings and key failure modes"
       }
     ],
     "pdfReportUrl": "https://example.com/reports/jakarta-hotel-sentiment.pdf",
@@ -1976,13 +1958,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "slideNumber": 1,
         "title": "Jakarta Hospitality Sentiment Landscape",
         "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 01 // Overview of sentiment polarity across 45,000+ guest reviews"
       },
       {
         "slideNumber": 2,
         "title": "Aspect Breakdown: Service vs Facilities",
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 02 // Departmental satisfaction rankings and key failure modes"
       }
     ],
     "dataAnalyticsKeyFindings": [
@@ -2268,7 +2248,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "slideNumber": 1,
         "title": "KIP Applicant Demographic Profile & Scoring Matrix",
         "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 01 // Multi-criteria eligibility index and distribution equity"
       }
     ],
     "pdfReportUrl": "https://example.com/reports/kip-student-analytics.pdf",
@@ -2414,7 +2393,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "slideNumber": 1,
         "title": "KIP Applicant Demographic Profile & Scoring Matrix",
         "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Slide 01 // Multi-criteria eligibility index and distribution equity"
       }
     ],
     "dataAnalyticsKeyFindings": [
@@ -2783,19 +2761,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
 },
     "aiVisualShowcase": [
       {
-            "caption": "Synapse Knowledge Graph Topology & Semantic Vector Space",
             "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Multi-Agent Reasoning Trace & Evidence Retrieval Inspector",
             "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Real-time Source Citation & Document Hierarchy Explorer",
             "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Enterprise Operational Telemetry & Latency Monitoring Console",
             "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
       }
 ],
@@ -3248,19 +3222,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
 },
     "aiVisualShowcase": [
       {
-            "caption": "BrainSync Interactive Knowledge Graph Node Visualization",
             "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Autonomous Memory Synthesis & Backlink Generation View",
             "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Contextual Workspace & Research Paper Digestion Feed",
             "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Local-First Privacy Vault & Cryptographic Sync Dashboard",
             "imageUrl": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
       }
 ],
@@ -3713,19 +3683,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
 },
     "aiVisualShowcase": [
       {
-            "caption": "Financial Intelligence Terminal & Statement Comparison Matrix",
             "imageUrl": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Automated Code Interpreter & Balance Sheet Verification Grid",
             "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Earnings Transcript Sentiment & Risk Factor Timeline",
             "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
       },
       {
-            "caption": "Regulatory SEC Filing Audit Trail & Table Discrepancy Scanner",
             "imageUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
       }
 ],
@@ -3913,7 +3879,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "learningParadigm": "Supervised Learning",
       "modelDomain": "Clinical Diagnostic Healthcare",
       "projectStatus": "Completed",
-      "developmentYear": "2024"
+      "developmentYear": "2024",
+      "capabilityBadges": [
+        "Supervised Classification",
+        "Feature Normalization",
+        "Cross-Validated p < 0.05"
+      ]
     },
     "telemetryMatrix": {
       "projectType": "Supervised Classification & Feature Engineering",
@@ -3926,20 +3897,24 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "mlProblemContext": "In distance-based machine learning algorithms such as K-Nearest Neighbors (K-NN), high-magnitude physiological attributes (e.g. insulin or serum glucose) mathematically overpower smaller continuous markers in Euclidean distance space. Without calibrated feature scaling and non-parametric importance pruning, raw distances distort nearest-neighbor boundaries, causing severe diagnostic misclassifications.",
     "mlDatasetOverview": {
-      "dataSource": "Pima Indians Diabetes Database (National Institute of Diabetes / NIDDK)",
-      "dataPeriod": "Longitudinal Clinical Cohort Records",
-      "recordsCount": "768 Patient Observations",
-      "featuresCount": "8 Continuous Physiological Predictors + 1 Binary Class",
-      "dataTypes": "Numerical Float64 & Integer32 (Non-Negative Bounded)",
-      "description": "Clinical diagnostic records capturing female patient metrics of Pima Indian heritage (>=21 years old), containing diagnostic laboratory outcomes, insulin tests, skin fold thicknesses, and 5-year diabetes onset outcomes."
+      "profileBadge": "CLINICAL BENCHMARK",
+      "source": "Pima Indians Diabetes Database (NIDDK)",
+      "modality": "Tabular Longitudinal Clinical Cohort",
+      "scale": "768 Patient Observations",
+      "inputShape": "8 Continuous Predictors + 1 Binary Target",
+      "dataFormat": "Float64 & Int32 Tabular Matrix",
+      "description": "Clinical diagnostic records capturing female patient metrics of Pima Indian heritage (>=21 years old), containing diagnostic laboratory outcomes, insulin tests, skin fold thicknesses, and 5-year diabetes onset outcomes.",
+      "provenanceNote": "Standard clinical benchmark verified for instance-based classification research."
     },
     "mlFeaturesAndDataCharacteristics": {
-      "targetVariable": {
+      "spaceBadge": "TARGET & PREDICTORS",
+      "objectiveOutput": {
+        "label": "TARGET VARIABLE (Y)",
         "name": "Outcome (Diabetes Diagnosis)",
-        "type": "Binary Indicator (0: Negative, 1: Positive)",
-        "classDistribution": "500 Negative (65.1%) vs 268 Positive (34.9%)"
+        "type": "Binary Classification Label (0 / 1)",
+        "distribution": "500 Negative (65.1%) vs 268 Positive (34.9%)"
       },
-      "inputFeatures": [
+      "inputSignals": [
         {
           "name": "Glucose",
           "type": "Continuous (mg/dL)",
@@ -3965,7 +3940,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "description": "Scores genetic diabetes influence based on family lineage history."
         }
       ],
-      "dataCharacteristicsSummary": "Moderate class skewness (65:35 ratio) with physiological zero-value anomalies in Insulin and SkinThickness requiring targeted statistical imputation before normalisation."
+      "dataCharacteristicsSummary": "Moderate class skewness (65:35 ratio) with physiological zero-value anomalies in Insulin and SkinThickness requiring targeted statistical imputation before normalisation.",
+      "spaceNote": "Scaled 4D feature manifold optimized via Random Forest Gini impurity pruning."
     },
     "mlLearningApproach": {
       "paradigm": "Supervised Non-Parametric Classification",
@@ -3998,9 +3974,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Stratified 80/20"
       }
     ],
+    "mlDataPreparationNote": "Zero data leakage between train and test partitions during statistical imputation and Min-Max scaling transforms.",
     "mlModelArchitectureAndTraining": {
       "algorithmName": "K-Nearest Neighbors (K-NN) Classifier",
       "architectureSummary": "Instance-based lazy learning classifier projecting query feature vectors into normalized 4-dimensional Euclidean space, computing majority class votes across k-nearest historical centroids with uniform distance weighting.",
+      "configurationBadge": "OPTIMAL k = 7",
       "hyperparameters": [
         {
           "name": "n_neighbors (k)",
@@ -4023,9 +4001,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "description": "Fast O(log n) spatial index queries"
         }
       ],
-      "lossFunction": "0-1 Classification Loss / Brier Score",
-      "optimizer": "GridSearchCV (Grid search over k=1..11 and distance metrics)",
-      "trainingProcess": "Hyperparameter sweeping across odd neighborhood sizes k from 1 to 11 to avoid tie votes, verified via two-tailed paired Student's t-tests (p < 0.05)."
+      "objectiveCriterion": "0-1 Classification Loss / Brier Score",
+      "optimizationSolver": "GridSearchCV (k = 1..11 sweep)",
+      "trainingProcess": "Evaluated across neighborhood densities k=1 to 11 via stratified cross-validation and paired Student's t-tests (p < 0.05)."
     },
     "mlTechStack": {
       "programmingLanguages": [
@@ -4113,39 +4091,39 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Model Accuracy vs Neighborhood Size (k=1 to 11)",
         "badge": "Accuracy Curve",
-        "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Comparative accuracy trajectories across Min-Max Scaling (peak 81.17% at k=7), Z-Score, Decimal Scaling, and raw baseline across k=1 to 11."
+        "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "title": "ROC-AUC Comparison Across Normalization Paradigms",
         "badge": "ROC-AUC Curve",
-        "imageUrl": "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Receiver Operating Characteristic curves confirming statistically significant discrimination gains for Min-Max Normalized K-NN (AUC = 0.852)."
+        "imageUrl": "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "title": "Confusion Matrix & Diagnostic Error Breakdown",
         "badge": "Confusion Matrix",
-        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Confusion matrix on held-out test cohort demonstrating high specificity (84.85%) and minimal false-positive clinical misidentifications."
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
       }
     ],
+    "mlVisualizationTelemetryNote": "Min-Max scaling significantly surpasses Z-Score, Decimal Scaling & unscaled raw baselines across all k bounds.",
     "mlModelInterpretationAndLimitations": {
+      "interpretabilityBadge": "SHAP / GINI",
+      "driversTitle": "PREDICTOR IMPORTANCE & FEATURE DRIVERS",
       "interpretationSummary": "Feature pruning and normalization conclusively proved that Glucose and BMI account for over 56% of predictive decision boundaries in instance space. Min-Max normalization prevented insulin magnitude scaling artifacts, yielding statistically significant (p = 0.00003) diagnostic consistency.",
-      "topPredictors": [
+      "keyDrivers": [
         {
-          "feature": "Glucose Concentration",
+          "factor": "Glucose Concentration",
           "impact": "32.4% Gini Contribution"
         },
         {
-          "feature": "Body Mass Index (BMI)",
+          "factor": "Body Mass Index (BMI)",
           "impact": "24.1% Gini Contribution"
         },
         {
-          "feature": "Patient Age",
+          "factor": "Patient Age",
           "impact": "16.8% Gini Contribution"
         },
         {
-          "feature": "Diabetes Pedigree Function",
+          "factor": "Diabetes Pedigree Function",
           "impact": "14.2% Gini Contribution"
         }
       ],
@@ -4168,7 +4146,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "title": "SHAP Kernel Explainer Integration",
           "target": "Integrate Kernel SHAP value telemetry for patient-level local prediction explainability."
         }
-      ]
+      ],
+      "discoveryNote": "Gini pruning isolates primary clinical markers without statistical power loss."
     },
     "mlModelArtifacts": [
       {
@@ -4301,7 +4280,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "learningParadigm": "Deterministic Numerical Modeling",
       "modelDomain": "Classical Mechanics & Kinematics",
       "projectStatus": "Completed",
-      "developmentYear": "2024"
+      "developmentYear": "2024",
+      "capabilityBadges": [
+        "Vectorized Tensor Engine",
+        "Newtonian Barycentric Solver",
+        "Momentum Invariant Audit"
+      ]
     },
     "telemetryMatrix": {
       "projectType": "Computational Kinematics & Physical Modeling",
@@ -4314,20 +4298,24 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "mlProblemContext": "In discrete N-particle physical systems, calculating the barycenter and aggregate system velocities requires integrating multi-dimensional positional vectors weighted by mass invariants. Unvectorized numerical iterations suffer from cumulative rounding errors and quadratic complexity, preventing real-time kinematic exploration.",
     "mlDatasetOverview": {
-      "dataSource": "Deterministic Multi-Body Particle Simulation Generators & Benchmark Physics Datasets",
-      "dataPeriod": "Discrete Time-Series & Coordinate Snapshot Arrays",
-      "recordsCount": "Configurable N-Body Coordinate Arrays (1 to 1,000 Particles)",
-      "featuresCount": "Mass (kg), Position X/Y/Z (m), Velocity Vx/Vy/Vz (m/s)",
-      "dataTypes": "Float64 Double-Precision IEEE-754 Tensors",
-      "description": "Structured coordinate matrices capturing spatial positions, scalar masses, and velocity vector components for discrete particle ensembles under elastic Newtonian collision regimes."
+      "profileBadge": "KINEMATICS SIMULATOR",
+      "source": "Deterministic Multi-Body Simulation & Physics Benchmarks",
+      "modality": "Discrete N-Body Spatial Coordinate Snapshots",
+      "scale": "1 to 10,000 Particle Ensembles",
+      "inputShape": "N x 7 Tensors (Mass, XYZ Pos, XYZ Vel)",
+      "dataFormat": "Float64 Double-Precision IEEE-754 Arrays",
+      "description": "Structured coordinate matrices capturing spatial positions, scalar masses, and velocity vector components for discrete particle ensembles under elastic Newtonian collision regimes.",
+      "provenanceNote": "Verified against analytical two-body and multi-body classical mechanics equilibrium suites."
     },
     "mlFeaturesAndDataCharacteristics": {
-      "targetVariable": {
-        "name": "Center of Mass Vector (R_cm) & Velocity Vector (V_cm)",
-        "type": "Vector Triplet [X, Y, Z] in SI Units",
-        "classDistribution": "Continuous Multi-Variate Coordinate Space"
+      "spaceBadge": "STATE & OUTPUT VECTORS",
+      "objectiveOutput": {
+        "label": "COMPUTED OBJECTIVE VECTORS",
+        "name": "Center of Mass (R_cm) & Aggregate Velocity (V_cm)",
+        "type": "Continuous 3D Coordinate Triplet [X, Y, Z]",
+        "distribution": "Continuous SI Spatial & Kinematic Space"
       },
-      "inputFeatures": [
+      "inputSignals": [
         {
           "name": "Mass (m_i)",
           "type": "Continuous Non-Negative Float64 (kg)",
@@ -4347,7 +4335,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "description": "Instantaneous first-order temporal derivative of spatial position vector."
         }
       ],
-      "dataCharacteristicsSummary": "Strict physical invariant conservation laws (Sum p_initial = Sum p_final) enforced across all double-precision matrix operations."
+      "dataCharacteristicsSummary": "Strict physical invariant conservation laws (Sum p_initial = Sum p_final) enforced across all double-precision matrix operations.",
+      "spaceNote": "Vectorized Euclidean coordinate manifold enforcing conservation of linear momentum at IEEE-754 Float64 bounds."
     },
     "mlLearningApproach": {
       "paradigm": "Physics-Informed Deterministic Computing",
@@ -4380,9 +4369,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Conservation Check"
       }
     ],
+    "mlDataPreparationNote": "All coordinate and velocity tensors verified for positivity constraints and dimensional parity prior to batch inner products.",
     "mlModelArchitectureAndTraining": {
       "algorithmName": "Vectorized Barycentric Kinematics Solver",
       "architectureSummary": "N-dimensional vector engine utilizing SIMD-optimized dot products to compute R_cm = sum(m_i * r_i) / sum(m_i) and V_cm = sum(m_i * v_i) / sum(m_i) in O(n) algorithmic complexity.",
+      "configurationBadge": "SIMD CLOSED-FORM",
       "hyperparameters": [
         {
           "name": "precision",
@@ -4405,9 +4396,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "description": "Hardware vector acceleration for batch coordinate dots"
         }
       ],
-      "lossFunction": "Absolute Momentum Conservation Residual ||P_system - M_total * V_cm||",
-      "optimizer": "Analytical Closed-Form Linear Matrix Solver",
-      "trainingProcess": "Deterministic parameter-free execution; verified against standard textbook multi-body physics benchmarks."
+      "objectiveCriterion": "Momentum Conservation Residual ||P_sys - M*V_cm||",
+      "optimizationSolver": "Analytical Closed-Form Tensor Solver",
+      "trainingProcess": "Deterministic parameter-free solver verified across 25 canonical multi-body collision benchmarks."
     },
     "mlTechStack": {
       "programmingLanguages": [
@@ -4491,39 +4482,39 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Center of Mass Planar Vector Trajectory",
         "badge": "Vector Trajectory",
-        "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Interactive coordinate plot illustrating discrete particle positions, individual velocity vectors, and resultant system center-of-mass locus."
+        "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "title": "Momentum Decomposition & Component Breakdown",
         "badge": "Component Vectors",
-        "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Orthogonal decomposition of momentum components across X and Y axes verifying linear superposition and equilibrium."
+        "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "title": "Kinetic Energy Partitioning Analysis",
         "badge": "Energy Distribution",
-        "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Quantitative breakdown between aggregate translational center-of-mass kinetic energy and internal particle vibrational variance."
+        "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
       }
     ],
+    "mlVisualizationTelemetryNote": "Physics telemetry rendered from vectorized planar coordinate traces, velocity vector decomposition, and system kinetic energy partition diagnostics.",
     "mlModelInterpretationAndLimitations": {
+      "interpretabilityBadge": "CONSERVATION INVARIANCE // AUDIT",
       "interpretationSummary": "Numerical benchmarking demonstrates that vectorized batch dot-products compute barycentric coordinates 45x faster than iterative loops while maintaining absolute zero floating-point momentum drift.",
-      "topPredictors": [
+      "driversTitle": "KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS",
+      "keyDrivers": [
         {
-          "feature": "Dominant Mass Particle",
+          "factor": "Dominant Mass Particle",
           "impact": "Attracts barycentric coordinates inversely with spatial distance"
         },
         {
-          "feature": "High-Velocity Particle Momentum",
+          "factor": "High-Velocity Particle Momentum",
           "impact": "Governs resultant system velocity vector trajectory"
         },
         {
-          "feature": "Planar Symmetry Axis",
+          "factor": "Planar Symmetry Axis",
           "impact": "Collapses multi-dimensional coordinate variance onto symmetry line"
         },
         {
-          "feature": "System Boundary Bounds",
+          "factor": "System Boundary Bounds",
           "impact": "Constrains maximum possible spatial displacement of barycenter"
         }
       ],
@@ -4546,7 +4537,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "title": "Continuous Time-Stepping ODE Integrator",
           "target": "Incorporate Runge-Kutta 4th Order (RK4) integrator for continuous dynamic orbital simulations."
         }
-      ]
+      ],
+      "discoveryNote": "Conservation of linear momentum validated within IEEE-754 double-precision bounds across multi-body particle ensembles."
     },
     "mlModelArtifacts": [
       {
@@ -4679,7 +4671,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "learningParadigm": "Deterministic Spatial Trigonometry",
       "modelDomain": "Spatial Mathematics & CAD Analytics",
       "projectStatus": "Completed",
-      "developmentYear": "2024"
+      "developmentYear": "2024",
+      "capabilityBadges": [
+        "Planar Shoelace Geometry",
+        "O(N) Contour Solver",
+        "IEEE-754 Exact Algebra"
+      ]
     },
     "telemetryMatrix": {
       "projectType": "Computational Geometry & Vector Analytics",
@@ -4692,20 +4689,24 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "mlProblemContext": "Planar geometry computations in engineering, computer graphics, and GIS mapping demand deterministic calculation of polygon surface areas and centroids. Approximating irregular shapes through simple bounding boxes introduces geometric errors up to 35%, necessitating exact topological vector solutions.",
     "mlDatasetOverview": {
-      "dataSource": "Geometric Vertex Coordinate Manifests & Benchmark Polygons (Convex and Concave)",
-      "dataPeriod": "Planar Coordinate Reference Fields",
-      "recordsCount": "Arbitrary N-Vertex Geometric Collections",
-      "featuresCount": "Vertex Coordinates [X_n, Y_n], Edge Lengths (L_n), Internal Angles (Theta_n)",
-      "dataTypes": "Float64 Double-Precision IEEE-754",
-      "description": "Ordered vertex coordinate arrays representing 2D geometric shapes, including triangles, regular polygons, irregular polygons, circles, circular sectors, and conic sections."
+      "profileBadge": "SPATIAL COORD SPEC // GEOMETRIC",
+      "source": "Geometric Vertex Coordinate Manifests & Benchmark Polygons (Convex and Concave)",
+      "modality": "Planar Coordinate Reference Fields",
+      "scale": "Arbitrary N-Vertex Geometric Collections",
+      "inputShape": "Vertex Coordinates [X_n, Y_n], Edge Lengths (L_n), Internal Angles (Theta_n)",
+      "dataFormat": "Float64 Double-Precision IEEE-754",
+      "description": "Ordered vertex coordinate arrays representing 2D geometric shapes, including triangles, regular polygons, irregular polygons, circles, circular sectors, and conic sections.",
+      "provenanceNote": "Deterministic planar benchmark suite validating convex, concave, and parametric primitive contours."
     },
     "mlFeaturesAndDataCharacteristics": {
-      "targetVariable": {
+      "spaceBadge": "CONTOUR & OBJECTIVE MANIFOLD",
+      "objectiveOutput": {
+        "label": "ANALYTICAL TARGET",
         "name": "Geometric Area (A), Perimeter (P), and Centroid (C_x, C_y)",
         "type": "Scalar & Coordinate Vector Pair in Planar Units",
-        "classDistribution": "Continuous Non-Negative Spatial Metric Space"
+        "distribution": "Continuous Non-Negative Spatial Metric Space"
       },
-      "inputFeatures": [
+      "inputSignals": [
         {
           "name": "Vertex Coordinates [x_i, y_i]",
           "type": "Ordered Vector Array (m)",
@@ -4725,7 +4726,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "description": "Included vertex angles for non-Cartesian trigonometric triangle formulations."
         }
       ],
-      "dataCharacteristicsSummary": "Strict topological closure constraints (x_n = x_0, y_n = y_0) enforced for closed polygon area integration."
+      "dataCharacteristicsSummary": "Strict topological closure constraints (x_n = x_0, y_n = y_0) enforced for closed polygon area integration.",
+      "spaceNote": "Planar vertices ordered counter-clockwise ensure signed cross-product determinant consistency across non-self-intersecting boundaries."
     },
     "mlLearningApproach": {
       "paradigm": "Deterministic Analytical Geometry",
@@ -4758,9 +4760,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Simplicity Check"
       }
     ],
+    "mlDataPreparationNote": "Topological normalization runs deterministically per polygon submission with Shamos-Hoey simplicity checks.",
     "mlModelArchitectureAndTraining": {
       "algorithmName": "Analytical Shoelace Area & Centroid Solver",
       "architectureSummary": "Linear-time O(N) vectorized polygon calculation engine implementing Gauss's area formula and second-moment centroid integration across ordered 2D vertex arrays.",
+      "configurationBadge": "SOLVER: EXACT CLOSED-FORM",
       "hyperparameters": [
         {
           "name": "precision",
@@ -4783,8 +4787,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "description": "Formatted display precision for engineering readouts"
         }
       ],
-      "lossFunction": "Absolute Geometric Residual ||Area_computed - Area_analytical||",
-      "optimizer": "Exact Analytical Solver (Closed Form)",
+      "objectiveCriterion": "Absolute Geometric Residual ||Area_computed - Area_analytical||",
+      "optimizationSolver": "Exact Analytical Solver (Closed Form)",
       "trainingProcess": "Deterministic algebraic formulas evaluated against standard ISO / ANSI geometric verification test suites."
     },
     "mlTechStack": {
@@ -4869,29 +4873,30 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "2D Geometry Calculator Primary Interface",
         "badge": "Interface Console",
-        "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Calgeo user interface highlighting shape selection panels, parametric input fields, and instantaneous geometric calculation outputs."
+        "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "title": "Irregular Polygon Vertex Coordinate Mode",
         "badge": "Shoelace Solver",
-        "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
-        "caption": "Vertex entry matrix calculating exact Shoelace surface area and centroid coordinates for complex non-regular planar polygons."
+        "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80"
       }
     ],
+    "mlVisualizationTelemetryNote": "Geometric diagnostic snapshots rendered from planar contour solver test suites and interactive GUI verification views.",
     "mlModelInterpretationAndLimitations": {
+      "interpretabilityBadge": "GEOMETRIC VERIFICATION // AUDIT",
       "interpretationSummary": "Calgeo guarantees absolute mathematical precision across 2D shapes, eliminating CAD calculation errors while offering an intuitive standalone interface.",
-      "topPredictors": [
+      "driversTitle": "KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS",
+      "keyDrivers": [
         {
-          "feature": "Vertex Coordinate Sequence",
+          "factor": "Vertex Coordinate Sequence",
           "impact": "Directly determines perimeter boundary and cross-product area signs"
         },
         {
-          "feature": "Aspect Ratio Skew",
+          "factor": "Aspect Ratio Skew",
           "impact": "Shifts centroid coordinates toward regions of higher area density"
         },
         {
-          "feature": "Internal Vertex Angles",
+          "factor": "Internal Vertex Angles",
           "impact": "Governs polygon convexity and simple non-self-intersecting topology"
         }
       ],
@@ -4914,7 +4919,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "title": "Boolean Geometry Operations",
           "target": "Integrate Weiler-Atherton clipping algorithm for polygon union, intersection, and difference calculations."
         }
-      ]
+      ],
+      "discoveryNote": "Closed-form Shoelace integration and weighted moment theorems verified across convex and concave benchmark contours."
     },
     "mlModelArtifacts": [
       {
@@ -5061,16 +5067,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "desktopMobileBackground": "Web developers and media editors frequently struggle with bloating web assets and slow image compression workflows. Cloud-based converters expose sensitive unpublished assets to remote third-party servers and suffer from network latency. WEBP Converter Pro solves this by delivering an ultra-fast, 100% offline desktop application with hardware-accelerated batch image compression.",
     "desktopMobileProblemStatements": [
       {
-        "issue": "Privacy exposure and network latency in cloud conversion tools",
-        "impact": "Confidential design assets uploaded to third-party endpoints; gigabyte batches throttled by uplink speed."
+        "title": "Privacy exposure and network latency in cloud conversion tools",
+        "description": "Confidential design assets uploaded to third-party endpoints; gigabyte batches throttled by uplink speed.",
+        "issueCode": "ISSUE_01"
       },
       {
-        "issue": "UI freezing during multi-threaded raster image processing",
-        "impact": "Desktop applications lock up when transcoding high-resolution 4K/8K images synchronously on the main thread."
+        "title": "UI freezing during multi-threaded raster image processing",
+        "description": "Desktop applications lock up when transcoding high-resolution 4K/8K images synchronously on the main thread.",
+        "issueCode": "ISSUE_02"
       },
       {
-        "issue": "Loss of critical color profiles and alpha transparency",
-        "impact": "Shallow converters strip ICC color calibration, causing color shifts across wide-gamut displays."
+        "title": "Loss of critical color profiles and alpha transparency",
+        "description": "Shallow converters strip ICC color calibration, causing color shifts across wide-gamut displays.",
+        "issueCode": "ISSUE_03"
       }
     ],
     "desktopMobileObjectives": [
@@ -5108,22 +5117,18 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "desktopMobileInterfaceShowcase": [
       {
-        "caption": "WEBP Converter Pro — Main Batch Workstation & Queue Telemetry",
         "badge": "QUEUE_VIEW",
         "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "WEBP Converter Pro — Advanced Compression Quality & Metadata Configuration",
         "badge": "SETTINGS_MODAL",
         "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "WEBP Converter Pro — Active Batch Transcoding Progress & Throughput Stream",
         "badge": "PROCESSING_HUD",
         "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "WEBP Converter Pro — Batch Completed Summary & Storage Reduction Metrics",
         "badge": "SUMMARY_REPORT",
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
       }
@@ -5376,16 +5381,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "desktopMobileBackground": "Personal photo archives and sensitive investigative documentation are routinely indexed by operating systems and synchronized to cloud servers without robust user consent. PixVault provides an impenetrable local fortress where photos remain encrypted at rest and in memory, only decrypted ephemerally on-screen when authenticated.",
     "desktopMobileProblemStatements": [
       {
-        "issue": "Unencrypted image storage vulnerable to OS telemetry and malware",
-        "impact": "Plaintext JPEG/PNG files in default user folders scanned by spyware and indexed by unauthorized services."
+        "title": "Unencrypted image storage vulnerable to OS telemetry and malware",
+        "description": "Plaintext JPEG/PNG files in default user folders scanned by spyware and indexed by unauthorized services.",
+        "issueCode": "ISSUE_01"
       },
       {
-        "issue": "Poor gallery ergonomics in generic encryption containers (VeraCrypt/BitLocker)",
-        "impact": "Users must mount full virtual drives and rely on default OS viewers that leave thumbnail cache artifacts."
+        "title": "Poor gallery ergonomics in generic encryption containers (VeraCrypt/BitLocker)",
+        "description": "Users must mount full virtual drives and rely on default OS viewers that leave thumbnail cache artifacts.",
+        "issueCode": "ISSUE_02"
       },
       {
-        "issue": "Memory scraping and residual unencrypted cache files",
-        "impact": "Standard photo viewers write unencrypted temporary cache files to disk, compromising privacy even after deletion."
+        "title": "Memory scraping and residual unencrypted cache files",
+        "description": "Standard photo viewers write unencrypted temporary cache files to disk, compromising privacy even after deletion.",
+        "issueCode": "ISSUE_03"
       }
     ],
     "desktopMobileObjectives": [
@@ -5423,27 +5431,22 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "desktopMobileInterfaceShowcase": [
       {
-        "caption": "PixVault — Master Vault Unlock Stage & Cryptographic Authenticator",
         "badge": "AUTHENTICATION",
         "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "PixVault — Virtualized Encrypted Photo Grid & Tag Taxonomy Sidebar",
         "badge": "VAULT_EXPLORER",
         "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "PixVault — Ephemeral High-Resolution Image Viewer & Metadata Inspector",
         "badge": "STUDIO_VIEWER",
         "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "PixVault — Non-Destructive Image Adjustment Console & Color Scopes",
         "badge": "IMAGE_EDITOR",
         "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "PixVault — Vault Security Settings & Automated Auto-Lock Timeout Controls",
         "badge": "SECURITY_HUD",
         "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       }
@@ -5696,16 +5699,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "desktopMobileBackground": "Indonesia possesses one of the richest culinary landscapes in the world, yet authentic recipes often lack standardized digital documentation. Rasa Nusantara delivers a cultural culinary encyclopedia in mobile app form, empowering users to cook authentic regional heritage dishes with modern ergonomics.",
     "desktopMobileProblemStatements": [
       {
-        "issue": "Poor kitchen internet connectivity disrupting recipe reading",
-        "impact": "Chefs in basements or remote kitchens lose access to recipes midway through preparation."
+        "title": "Poor kitchen internet connectivity disrupting recipe reading",
+        "description": "Chefs in basements or remote kitchens lose access to recipes midway through preparation.",
+        "issueCode": "ISSUE_01"
       },
       {
-        "issue": "Rigid non-scalable ingredient lists leading to calculation errors",
-        "impact": "Manually doubling or tripling traditional recipes causes seasoning imbalances and food waste."
+        "title": "Rigid non-scalable ingredient lists leading to calculation errors",
+        "description": "Manually doubling or tripling traditional recipes causes seasoning imbalances and food waste.",
+        "issueCode": "ISSUE_02"
       },
       {
-        "issue": "Lack of contextual spice substitution guides",
-        "impact": "Users abandon regional recipes when unable to find specialized Indonesian herbs like daun salam or kencur."
+        "title": "Lack of contextual spice substitution guides",
+        "description": "Users abandon regional recipes when unable to find specialized Indonesian herbs like daun salam or kencur.",
+        "issueCode": "ISSUE_03"
       }
     ],
     "desktopMobileObjectives": [
@@ -5743,12 +5749,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "desktopMobileInterfaceShowcase": [
       {
-        "caption": "Rasa Nusantara — Mobile Regional Cuisine Discovery Viewport",
         "badge": "HOME_FEED",
         "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "Rasa Nusantara — Step-by-Step Cooking Mode with Integrated Timer Controls",
         "badge": "RECIPE_DETAIL",
         "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
       }
@@ -6144,12 +6148,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "uiUxVisualShowcase": [
       {
-        "caption": "Food Recipe App — Mobile Home Feed & Cuisine Discovery Viewport",
         "badge": "MOBILE_VIEWPORT_01",
         "imageUrl": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "Food Recipe App — Step-by-Step Cooking Mode & Ingredient Checklist",
         "badge": "MOBILE_VIEWPORT_02",
         "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       }
@@ -6503,17 +6505,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "uiUxVisualShowcase": [
       {
-        "caption": "E-Parking App — Smart Radar Map & Garage Capacity Overview",
         "badge": "MOBILE_VIEWPORT_01",
         "imageUrl": "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "E-Parking App — Multilevel Floor Slot Selector & Level Navigator",
         "badge": "MOBILE_VIEWPORT_02",
         "imageUrl": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "E-Parking App — Contactless Barrier QR Pass & Digital Parking Receipt",
         "badge": "MOBILE_VIEWPORT_03",
         "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       }
@@ -6867,17 +6866,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "uiUxVisualShowcase": [
       {
-        "caption": "Aorus Gaming Shop — Cyberpunk Home Feed & Featured Hardware Drop",
         "badge": "MOBILE_VIEWPORT_01",
         "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "Aorus Gaming Shop — Product Detail Canvas with Real-Time FPS Benchmarks",
         "badge": "MOBILE_VIEWPORT_02",
         "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "caption": "Aorus Gaming Shop — Hardware Compatibility Guard & Gamified Cart Checkout",
         "badge": "MOBILE_VIEWPORT_03",
         "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80"
       }

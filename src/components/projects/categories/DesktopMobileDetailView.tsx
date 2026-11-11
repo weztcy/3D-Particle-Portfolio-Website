@@ -860,38 +860,45 @@ export default function DesktopMobileDetailView({
               <span className="text-[10px] text-amber-400/80">PIPELINE_FLOW</span>
             </div>
 
-            <div className="rounded-xl border border-amber-500/25 bg-amber-950/15 p-4 mb-2">
+            <div className="rounded-xl border border-amber-500/25 bg-amber-950/15 p-4">
               <p className="text-xs sm:text-sm text-slate-300 font-sans">
                 {userFlow.summary}
               </p>
             </div>
 
             <div className="space-y-3">
-              {userFlow.steps.map((stepItem, idx) => (
-                <div
-                  key={idx}
-                  className="relative flex items-start gap-3 rounded-xl border border-amber-500/20 bg-[#120E08]/90 p-3.5 transition-all hover:border-amber-400/40 hover:bg-[#0E1224]"
-                >
-                  <div className="flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-amber-400/40 bg-amber-500/15 font-mono text-xs font-bold text-amber-300">
-                    {stepItem.step}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <h4 className="font-semibold text-xs sm:text-sm text-slate-100 truncate">
-                        {stepItem.title}
-                      </h4>
-                      {stepItem.actorOrNode && (
-                        <span className="flex-shrink-0 font-mono text-[10px] uppercase text-amber-400 border border-amber-500/30 bg-amber-950/50 px-2 py-0.5 rounded">
-                          {stepItem.actorOrNode}
-                        </span>
-                      )}
+              {userFlow.steps.map((stepItem, idx) => {
+                const digitsMatch = String(stepItem.step || "").match(/\d+/);
+                const stepNum = digitsMatch
+                  ? digitsMatch[0].padStart(2, "0")
+                  : String(idx + 1).padStart(2, "0");
+
+                return (
+                  <div
+                    key={idx}
+                    className="relative flex items-start gap-3.5 rounded-xl border border-amber-500/20 bg-[#120E08]/90 p-4 transition-all hover:border-amber-400/40 hover:bg-amber-950/25"
+                  >
+                    <div className="mt-0.5 flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-amber-400/40 bg-amber-500/15 font-mono text-xs font-bold text-amber-300">
+                      {stepNum}
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                      {stepItem.description}
-                    </p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+                        <h4 className="font-semibold text-xs sm:text-sm text-slate-100">
+                          {stepItem.title}
+                        </h4>
+                        {stepItem.actorOrNode && (
+                          <span className="flex-shrink-0 font-mono text-[10px] uppercase text-amber-300 border border-amber-500/30 bg-amber-950/50 px-2 py-0.5 rounded">
+                            {stepItem.actorOrNode}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                        {stepItem.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

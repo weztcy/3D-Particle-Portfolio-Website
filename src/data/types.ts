@@ -400,23 +400,47 @@ export interface ProjectCaseStudy {
     modelDomain: string;
     projectStatus: string;
     developmentYear: string;
+    capabilityBadges?: string[];
   };
   mlProblemContext?: string;
   mlDatasetOverview?: {
-    dataSource: string;
-    dataPeriod: string;
-    recordsCount: string;
-    featuresCount: string;
-    dataTypes: string;
+    profileBadge?: string;
+    source?: string;
+    modality?: string;
+    scale?: string;
+    inputShape?: string;
+    dataFormat?: string;
+    dataSource?: string;
+    dataPeriod?: string;
+    recordsCount?: string;
+    featuresCount?: string;
+    dataTypes?: string;
     description: string;
+    provenanceNote?: string;
   };
   mlFeaturesAndDataCharacteristics?: {
-    targetVariable: {
+    spaceBadge?: string;
+    spaceNote?: string;
+    objectiveOutput?: {
+      label?: string;
       name: string;
       type: string;
-      classDistribution: string;
+      distribution?: string;
     };
-    inputFeatures: {
+    targetVariable?: {
+      label?: string;
+      name: string;
+      type: string;
+      classDistribution?: string;
+      distribution?: string;
+    };
+    inputSignals?: {
+      name: string;
+      type: string;
+      importanceOrRole?: string;
+      description: string;
+    }[];
+    inputFeatures?: {
       name: string;
       type: string;
       importanceOrRole?: string;
@@ -435,16 +459,20 @@ export interface ProjectCaseStudy {
     description: string;
     badge?: string;
   }[];
+  mlDataPreparationNote?: string;
   mlModelArchitectureAndTraining?: {
     algorithmName: string;
     architectureSummary: string;
+    configurationBadge?: string;
     hyperparameters: {
       name: string;
       value: string;
       description?: string;
     }[];
     lossFunction?: string;
+    objectiveCriterion?: string;
     optimizer?: string;
+    optimizationSolver?: string;
     trainingProcess?: string;
   };
   mlTechStack?: {
@@ -476,14 +504,22 @@ export interface ProjectCaseStudy {
     badge: string;
     imageUrl?: string;
     caption?: string;
+    telemetryNote?: string;
     tableData?: {
       metric: string;
       trainingScore: string;
       validationScore: string;
     }[];
   }[];
+  mlVisualizationTelemetryNote?: string;
   mlModelInterpretationAndLimitations?: {
     interpretationSummary: string;
+    interpretabilityBadge?: string;
+    driversTitle?: string;
+    keyDrivers?: {
+      factor: string;
+      impact: string;
+    }[];
     topPredictors?: {
       feature: string;
       impact: string;
@@ -496,6 +532,7 @@ export interface ProjectCaseStudy {
       title: string;
       target: string;
     }[];
+    discoveryNote?: string;
   };
   mlModelArtifacts?: {
     name: string;
