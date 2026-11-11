@@ -845,7 +845,6 @@ export interface ProjectCaseStudy {
   codeLearningPracticalProjects?: {
     title: string;
     description: string;
-    techStack?: string[];
     imageUrl?: string;
     highlights?: string[];
     coreScope?: string[];
@@ -856,7 +855,6 @@ export interface ProjectCaseStudy {
     scenario?: string;
     architecturalConstraints?: string[];
     acceptanceCriteria?: string[];
-    keyConcepts?: string[];
     [key: string]: any;
   }[];
   codeLearningOutcomes?: {

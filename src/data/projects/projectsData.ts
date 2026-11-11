@@ -7318,12 +7318,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "tier": "BASIC",
         "trackTag": "CORE CONSTRUCTS",
         "description": "A deterministic command-line asset ledger demonstrating stack/heap ownership and leak-free file handle management.",
-        "techStack": [
-          "C++20",
-          "RAII",
-          "std::unique_ptr",
-          "CMake"
-        ],
         "coreScope": [
           "RAII resource wrappers with automatic destructor cleanup",
           "Smart pointer ownership hierarchy without raw new/delete",
@@ -7337,12 +7331,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "tier": "INTERMEDIATE",
         "trackTag": "MEMORY ARCHITECTURE",
         "description": "A deterministic O(1) memory pool allocator for embedded and low-latency engines.",
-        "techStack": [
-          "C++20",
-          "POSIX mmap",
-          "Valgrind",
-          "ASan"
-        ],
         "coreScope": [
           "Pre-allocated contiguous arena blocks via POSIX mmap",
           "64-byte cache-aligned pointer arithmetic and block freelist",
@@ -7356,12 +7344,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "tier": "ADVANCED",
         "trackTag": "LOCK-FREE CONCURRENCY",
         "description": "A single-producer single-consumer circular queue implementing atomic memory fences.",
-        "techStack": [
-          "C++20",
-          "std::atomic",
-          "CMake",
-          "GoogleTest"
-        ],
         "coreScope": [
           "Lock-free SPSC ring buffer using acquire-release barriers",
           "Cache-line padded indices preventing CPU false sharing",
@@ -7826,11 +7808,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "tier": "BASIC",
         "trackTag": "TYPE FUNDAMENTALS",
         "description": "A strongly typed validation engine enforcing strict discriminated union states and compile-time argument schemas.",
-        "techStack": [
-          "TypeScript 5.x",
-          "Discriminated Unions",
-          "Vitest"
-        ],
         "coreScope": [
           "Exhaustive Result<T, E> discriminated union state handling",
           "Generic keyof & indexed access guards against invalid keys",
@@ -7844,11 +7821,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "tier": "INTERMEDIATE",
         "trackTag": "TYPE GYMNASTICS",
         "description": "A type-level string parser extracting route parameters from URL string templates like '/users/:id/posts/:post'.",
-        "techStack": [
-          "TypeScript 5.x",
-          "Template Literals",
-          "expect-type"
-        ],
         "coreScope": [
           "Recursive template literal string splitting across URL paths",
           "Dynamic infer keyword extraction of typed parameter records",
@@ -7862,12 +7834,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "tier": "ADVANCED",
         "trackTag": "ENTERPRISE SYSTEMS",
         "description": "A tRPC-inspired end-to-end type-safe client generator reading backend procedure schemas with zero code generation.",
-        "techStack": [
-          "TypeScript 5.x",
-          "Zod",
-          "Vitest",
-          "Bun"
-        ],
         "coreScope": [
           "Zero-codegen backend router schema inference into frontend client",
           "Full IDE autocomplete across nested procedures & payloads",
