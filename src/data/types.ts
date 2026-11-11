@@ -276,6 +276,10 @@ export interface ProjectCaseStudy {
   };
   problemContext?: string;
   proposedAiSolution?: string;
+  aiProblemBadge?: string;
+  aiProblemAuditNote?: string;
+  aiSolutionBadge?: string;
+  aiSolutionSynthesisNote?: string;
   keyCapabilitiesAndUseCases?: {
     title: string;
     description: string;
@@ -321,23 +325,45 @@ export interface ProjectCaseStudy {
       role?: string;
     }[];
   };
+  aiVisualShowcase?: {
+    caption: string;
+    badge: string;
+    imageUrl: string;
+  }[];
+  aiExecutionTelemetry?: {
+    scenarioTitle: string;
+    scenarioBadge?: string;
+    scenarioDescription?: string;
+    triggerInput: string;
+    processingPipeline: string;
+    executionOutput: string;
+    metrics: { label: string; value: string }[];
+    evaluationNote?: string;
+  };
   aiOutputShowcase?: {
     scenarioTitle: string;
     scenarioBadge: string;
+    inputType?: string;
     userInput: string;
+    outputType?: string;
     aiOutput: string;
     explanation: string;
     executionLatency?: string;
     tokenUsage?: string;
+    inputBadge?: string;
+    outputBadge?: string;
+    confidenceMetric?: string;
   }[];
   aiEvaluationAndPerformance?: {
     metrics: {
       label: string;
       value: string;
       benchmark?: string;
-      pass: boolean;
+      pass?: boolean;
     }[];
     qualitativeEvaluation: string;
+    evalFrameworkBadge?: string;
+    auditNote?: string;
   };
   limitationsAndImprovements?: {
     limitations: {
@@ -347,10 +373,11 @@ export interface ProjectCaseStudy {
     }[];
     improvementsRoadmap: {
       title: string;
-      target: string;
+      target?: string;
       phase: string;
     }[];
-    summary: string;
+    summary?: string;
+    alignmentNote?: string;
   };
   aiTechnicalDocumentation?: {
     title: string;

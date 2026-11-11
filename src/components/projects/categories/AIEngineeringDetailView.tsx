@@ -53,12 +53,38 @@ export default function AIEngineeringDetailView({
   project,
   onTriggerPulse,
 }: AIEngineeringDetailViewProps) {
-  // Scenario Output Showcase State
-  const [activeScenarioIndex, setActiveScenarioIndex] = useState(0);
+  // Visual Showcase Slider State
+  const [activeHiFiIndex, setActiveHiFiIndex] = useState(0);
 
   const heroImage =
     project.imageUrl ||
     (project.images && project.images.length > 0 ? project.images[0] : null);
+
+  const visualImages: string[] =
+    project.images && project.images.length > 0
+      ? project.images
+      : project.imageUrl
+      ? [project.imageUrl]
+      : [];
+
+  const visualShowcase = useMemo(() => {
+    if (project.aiVisualShowcase && project.aiVisualShowcase.length > 0) {
+      return project.aiVisualShowcase;
+    }
+    return visualImages.map((img, idx) => ({
+      imageUrl: img,
+      caption: `${project.title} — System Interface Viewport 0${idx + 1}`,
+      badge: `SYS_VIEWPORT_0${idx + 1}`,
+    }));
+  }, [project.aiVisualShowcase, visualImages, project.title]);
+
+  const activeVisualItem =
+    visualShowcase[activeHiFiIndex] ||
+    visualShowcase[0] || {
+      imageUrl: project.imageUrl || "",
+      caption: `${project.title} — AI System Viewport`,
+      badge: "SYS_VIEWPORT",
+    };
 
   // Section 1: Project Overview & Information
   const projectDescription =
@@ -145,15 +171,20 @@ export default function AIEngineeringDetailView({
   const frameworksAndLibraries = project.aiTechStack?.frameworksAndLibraries || [];
   const developmentAndInfrastructure = project.aiTechStack?.developmentAndInfrastructure || [];
 
-  // Section 6: AI Output Showcase
+  // Section 5: AI Output Showcase & Execution Scenarios
   const aiOutputShowcase: {
     scenarioTitle: string;
     scenarioBadge: string;
+    inputType?: string;
     userInput: string;
+    outputType?: string;
     aiOutput: string;
     explanation: string;
     executionLatency?: string;
     tokenUsage?: string;
+    inputBadge?: string;
+    outputBadge?: string;
+    confidenceMetric?: string;
   }[] =
     project.aiOutputShowcase && project.aiOutputShowcase.length > 0
       ? project.aiOutputShowcase
@@ -161,13 +192,32 @@ export default function AIEngineeringDetailView({
           {
             scenarioTitle: `${project.title} — Primary Scenario`,
             scenarioBadge: "EXECUTION",
+            inputType: "USER_QUERY",
             userInput: "Inquiry input query prompt",
+            outputType: "SYSTEM_RESPONSE",
             aiOutput: "AI execution output response",
-            explanation: "Automated retrieval-augmented inference trace.",
+            explanation: "Automated end-to-end model inference trace.",
             executionLatency: "1.2s",
             tokenUsage: "320 tokens",
+            confidenceMetric: "98.4% CONFIDENCE",
           },
         ];
+
+  // Section 5: Single Representative Execution Telemetry
+  const telemetryData = project.aiExecutionTelemetry || {
+    scenarioTitle: aiOutputShowcase[0]?.scenarioTitle || `${project.title} — Runtime Execution Trace`,
+    scenarioBadge: aiOutputShowcase[0]?.scenarioBadge || "INFERENCE_TRACE",
+    scenarioDescription: project.summary || "High-assurance automated inference pipeline with deterministic validation.",
+    triggerInput: aiOutputShowcase[0]?.userInput || "Inquiry query prompt dispatched to neural runtime gateway.",
+    processingPipeline: project.architectureSummary || "Dynamic Reasoning Pipeline + Guardrail Verification",
+    executionOutput: aiOutputShowcase[0]?.aiOutput || "Synthesized execution output generated with deterministic validation.",
+    metrics: [
+      { label: "Latency", value: aiOutputShowcase[0]?.executionLatency || "1.14s" },
+      { label: "Compute", value: aiOutputShowcase[0]?.tokenUsage || "412 tokens" },
+      { label: "Confidence", value: aiOutputShowcase[0]?.confidenceMetric || "99.4%" },
+    ],
+    evaluationNote: aiOutputShowcase[0]?.explanation || "System validated end-to-end with deterministic guardrails.",
+  };
 
   // Section 7: Evaluation, Performance & Benchmarks
   const aiEvaluationAndPerformance = project.aiEvaluationAndPerformance || {
@@ -464,8 +514,8 @@ export default function AIEngineeringDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 2 — PROBLEM & SOLUTION
-          Layout: Split Problem-to-Solution Matrix (Top) + Capabilities Bento (Bottom)
+          SECTION 2 — PROBLEM & STRATEGIC AI ARCHITECTURE
+          Layout: Universal AI Solution Matrix (Top) + Capabilities Bento (Bottom)
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
         {/* Optical Corner HUD */}
@@ -478,10 +528,10 @@ export default function AIEngineeringDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-purple-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-            <span>[ 02 // PROBLEM SPACE & AI AGENTIC SOLUTION ]</span>
+            <span>[ 02 // PROBLEM SPACE & STRATEGIC AI ARCHITECTURE ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            BOTTLENECKS // AGENTIC_SYNTHESIS
+            OPERATIONAL_BOTTLENECK // STRATEGIC_AI_SOLUTION
           </span>
         </div>
 
@@ -493,10 +543,10 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-purple-400" />
-                  <span>[ PROBLEM_SPACE // ARCHITECTURAL FRICTION ]</span>
+                  <span>[ PROBLEM_SPACE // OPERATIONAL_FRICTION ]</span>
                 </div>
                 <span className="rounded bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-bold">
-                  PRE-AI BOTTLENECK
+                  {project.aiProblemBadge || "PRE-AI BOTTLENECK"}
                 </span>
               </div>
 
@@ -508,7 +558,7 @@ export default function AIEngineeringDetailView({
             </div>
 
             <div className="mt-6 pt-3 border-t border-purple-500/15 font-mono text-[10px] text-purple-400/80">
-              AUDIT: Static LLMs fail on stale data, multi-hop lookups, and hallucinated API formats.
+              {project.aiProblemAuditNote || "AUDIT: Manual processes and static workflows introduce friction, latency, and operational fragility."}
             </div>
           </div>
 
@@ -518,10 +568,10 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300 tracking-wider">
                   <Sparkles className="h-4 w-4 text-purple-400" />
-                  <span>[ PROPOSED_AI_SOLUTION // AGENTIC APPROACH ]</span>
+                  <span>[ PROPOSED_AI_SOLUTION // ARCHITECTURAL_APPROACH ]</span>
                 </div>
                 <span className="rounded bg-purple-400/15 border border-purple-400/35 px-2 py-0.5 font-mono text-[10px] text-purple-200 font-bold">
-                  AUTONOMOUS RAG
+                  {project.aiSolutionBadge || "AI SYSTEM APPROACH"}
                 </span>
               </div>
 
@@ -531,7 +581,7 @@ export default function AIEngineeringDetailView({
             </div>
 
             <div className="mt-6 pt-3 border-t border-purple-500/20 font-mono text-[10px] text-purple-300/80">
-              SYNTHESIS: Self-grounded ReAct loop with Pydantic JSON validation and citation linking.
+              {project.aiSolutionSynthesisNote || "SYNTHESIS: Engineered intelligence pipeline combining optimized model inference, deterministic validation, and automated workflows."}
             </div>
           </div>
         </div>
@@ -753,8 +803,8 @@ export default function AIEngineeringDetailView({
       />
 
       {/* =========================================================================
-          SECTION 5 — TESTING, EVALUATION & RESULTS
-          Layout: Interactive Output Stage (Top) + Split Evaluation & Limitations (Bottom)
+          SECTION 5 — SYSTEM SHOWCASE & PERFORMANCE BENCHMARKS
+          Layout: Dual-Mode Stage (Visual Interface vs Runtime Inspector) + Quantitative Evaluation & Roadmap
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
         {/* Optical Corner HUD */}
@@ -767,109 +817,217 @@ export default function AIEngineeringDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-purple-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-            <span>[ 05 // MODEL EVALUATION & SYNTHETIC TELEMETRY ]</span>
+            <span>[ 05 // SYSTEM SHOWCASE & PERFORMANCE BENCHMARKS ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            SHOWCASE_OUTPUTS // QUANTITATIVE_EVAL
+            RUNTIME_TELEMETRY // QUANTITATIVE_EVAL
           </span>
         </div>
 
-        {/* 1. AI Output Showcase (Interactive Stage) */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-purple-500/30 bg-black/60 p-5 sm:p-6 shadow-[0_0_40px_rgba(168,85,247,0.08)]">
-          <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 mb-5 gap-3">
-            <div className="flex items-center gap-2 font-mono text-xs text-purple-300">
-              <Terminal className="h-4 w-4 text-purple-400" />
-              <span className="font-bold">
-                NEURAL_OUTPUT_STAGE // SCENARIO INSPECTOR
-              </span>
+        {/* Section 5 Top Component: Unified Dual-Pane (Left: Visual Interface Carousel, Right: Single Representative Execution Telemetry) */}
+        <div className="relative z-10 mb-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          
+          {/* SISI KIRI (Col 6/12): Visual Interface Carousel (Independent) */}
+          <div className="lg:col-span-6 flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#080511] p-4 sm:p-5 shadow-2xl">
+            <div>
+              {/* Header bar */}
+              <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-purple-500/80 inline-block" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-purple-400/80 inline-block" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-400/80 inline-block" />
+                  <span className="ml-2 font-mono text-[11px] text-slate-300 truncate max-w-[200px] sm:max-w-[280px]">
+                    {(activeVisualItem as any).title || activeVisualItem.caption || "System Interface Viewport"}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 rounded">
+                    {activeVisualItem.badge || "SYS_VIEWPORT"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Viewport Image Stage */}
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-xl border border-purple-500/20 bg-black flex items-center justify-center group">
+                {activeVisualItem.imageUrl ? (
+                  <Image
+                    src={activeVisualItem.imageUrl}
+                    alt={activeVisualItem.caption || "AI System Viewport"}
+                    fill
+                    priority
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
+                    <Bot className="h-10 w-10 text-purple-500/50 mb-2" />
+                    <p className="font-mono text-xs">NO SYSTEM SCREEN LINKED</p>
+                  </div>
+                )}
+
+                {/* Prev / Next Controls */}
+                {visualShowcase.length > 1 && (
+                  <>
+                    <button
+                      onClick={() =>
+                        setActiveHiFiIndex(
+                          (prev) => (prev - 1 + visualShowcase.length) % visualShowcase.length
+                        )
+                      }
+                      className="absolute left-2.5 top-1/2 -translate-y-1/2 rounded-full border border-purple-400/40 bg-black/75 p-2 text-purple-300 hover:bg-purple-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() =>
+                        setActiveHiFiIndex(
+                          (prev) => (prev + 1) % visualShowcase.length
+                        )
+                      }
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full border border-purple-400/40 bg-black/75 p-2 text-purple-300 hover:bg-purple-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </>
+                )}
+
+                {/* Live Caption Scrim */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-3 sm:p-4 flex items-center justify-between gap-3 z-20">
+                  <div className="text-xs font-mono text-slate-200 truncate">
+                    <span className="text-purple-400 font-bold mr-1.5">
+                      [{activeVisualItem.badge || "SYS_VIEWPORT"}]
+                    </span>
+                    {activeVisualItem.caption}
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* Scenario Switcher Buttons */}
-            <div className="flex items-center gap-1.5 flex-wrap">
-              {aiOutputShowcase.map((sc, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    setActiveScenarioIndex(idx);
-                    onTriggerPulse?.();
-                  }}
-                  className={`rounded-lg px-2.5 py-1 font-mono text-[11px] font-semibold transition-all ${
-                    idx === activeScenarioIndex
-                      ? "bg-purple-500/25 border border-purple-400 text-purple-200 shadow-[0_0_12px_rgba(168,85,247,0.3)]"
-                      : "bg-white/5 border border-white/10 text-slate-400 hover:text-white"
-                  }`}
-                >
-                  0{idx + 1}. {sc.scenarioBadge}
-                </button>
-              ))}
-            </div>
+
+            {/* Thumbnail Navigation / Dot Indicators */}
+            {visualShowcase.length > 1 && (
+              <div className="mt-3.5 pt-3 border-t border-white/5 flex items-center justify-between gap-2">
+                <span className="font-mono text-[10px] text-slate-400">
+                  VIEWPORT {activeHiFiIndex + 1} OF {visualShowcase.length}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  {visualShowcase.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setActiveHiFiIndex(idx);
+                        onTriggerPulse?.();
+                      }}
+                      className={`h-2 rounded-full transition-all ${
+                        idx === activeHiFiIndex
+                          ? "w-6 bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                          : "w-2 bg-white/20 hover:bg-white/40"
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Active Scenario Display */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between font-mono text-xs">
-              <span className="font-bold text-white">
-                {aiOutputShowcase[activeScenarioIndex].scenarioTitle}
-              </span>
-              <div className="flex items-center gap-3 text-[11px] text-slate-400">
-                {aiOutputShowcase[activeScenarioIndex].executionLatency && (
-                  <span className="text-purple-300 font-semibold">
-                    LATENCY: {aiOutputShowcase[activeScenarioIndex].executionLatency}
-                  </span>
-                )}
-                {aiOutputShowcase[activeScenarioIndex].tokenUsage && (
-                  <span className="text-purple-300">
-                    TOKENS: {aiOutputShowcase[activeScenarioIndex].tokenUsage}
+          {/* SISI KANAN (Col 6/12): Single Representative Execution & Telemetry Card (Independent) */}
+          <div className="lg:col-span-6 flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#0C0818]/95 p-5 sm:p-6 shadow-2xl">
+            <div>
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-4">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
+                  <Terminal className="h-4 w-4 text-purple-400" />
+                  <span>RUNTIME EXECUTION & TELEMETRY</span>
+                </div>
+                {telemetryData.scenarioBadge && (
+                  <span className="rounded bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-semibold">
+                    {telemetryData.scenarioBadge}
                   </span>
                 )}
               </div>
-            </div>
 
-            {/* Split Input vs Output Panels */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {/* User Input Prompt */}
-              <div className="rounded-xl border border-white/10 bg-[#0C0816] p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-[10px] text-slate-400 mb-2 border-b border-white/5 pb-2">
-                    <span className="text-purple-400 font-bold">
-                      &gt; USER_INPUT // TRIGGER_PROMPT
-                    </span>
-                    <span>PROMPT_STAGE</span>
+              {/* Title & Description */}
+              <h4 className="font-display text-base sm:text-lg font-bold text-white mb-1.5">
+                {telemetryData.scenarioTitle}
+              </h4>
+              {telemetryData.scenarioDescription && (
+                <p className="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                  {telemetryData.scenarioDescription}
+                </p>
+              )}
+
+              {/* Structured Key-Value Flow (Input, Pipeline, Output) */}
+              <div className="space-y-3 font-sans text-xs mb-4">
+                {/* 1. Trigger Input */}
+                <div className="rounded-xl border border-white/10 bg-[#07040D] p-3 space-y-1">
+                  <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
+                    <span>&gt; USER_INPUT // TRIGGER_EVENT</span>
+                    <span className="text-slate-500">EVENT_IN</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-200 font-mono leading-relaxed whitespace-pre-wrap">
-                    {aiOutputShowcase[activeScenarioIndex].userInput}
+                  <p className="text-slate-200 font-mono text-xs leading-relaxed">
+                    {telemetryData.triggerInput}
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-white/5 font-mono text-[9px] text-slate-500">
-                  SANITIZED // ZERO INJECTION DETECTED
+
+                {/* 2. Processing Pipeline / Model */}
+                <div className="rounded-xl border border-purple-500/20 bg-purple-950/20 p-2.5 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-purple-300 font-mono text-[11px]">
+                    <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="text-slate-400 uppercase text-[10px]">PIPELINE:</span>
+                    <span className="font-semibold text-purple-200 truncate">{telemetryData.processingPipeline}</span>
+                  </div>
+                  <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded bg-purple-400/10 text-purple-300 border border-purple-400/20 shrink-0">
+                    DETERMINISTIC
+                  </span>
+                </div>
+
+                {/* 3. Output Synthesis */}
+                <div className="rounded-xl border border-purple-500/25 bg-[#120822] p-3 space-y-1">
+                  <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 font-bold uppercase tracking-wider">
+                    <span className="flex items-center gap-1.5 text-purple-400">
+                      <Sparkles className="h-3 w-3" />
+                      SYSTEM_RESPONSE // SYNTHESIS
+                    </span>
+                    <span className="text-purple-300 text-[9px]">VERIFIED</span>
+                  </div>
+                  <p className="text-purple-100 font-mono text-xs leading-relaxed whitespace-pre-wrap">
+                    {telemetryData.executionOutput}
+                  </p>
                 </div>
               </div>
 
-              {/* AI Output / Synthesis */}
-              <div className="rounded-xl border border-purple-500/30 bg-[#120822] p-4 flex flex-col justify-between shadow-[inset_0_0_15px_rgba(168,85,247,0.1)]">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 mb-2 border-b border-purple-500/20 pb-2">
-                    <span className="text-purple-400 font-bold flex items-center gap-1.5">
-                      <Sparkles className="h-3 w-3" />
-                      AGENT_SYNTHESIS // TOOL_OUTPUT
-                    </span>
-                    <span className="text-purple-300 font-semibold">VERIFIED</span>
-                  </div>
-                  <pre className="text-xs sm:text-sm text-purple-100 font-mono leading-relaxed whitespace-pre-wrap break-all">
-                    {aiOutputShowcase[activeScenarioIndex].aiOutput}
-                  </pre>
+              {/* Evaluation Note (if present) */}
+              {telemetryData.evaluationNote && (
+                <div className="rounded-lg border border-white/5 bg-[#08050F] p-2.5 font-mono text-[11px] text-slate-300 flex items-start gap-1.5 mb-4">
+                  <span className="text-purple-400 font-bold shrink-0">EVAL:</span>
+                  <span className="leading-relaxed">{telemetryData.evaluationNote}</span>
                 </div>
-                <div className="mt-3 pt-2 border-t border-purple-500/20 font-mono text-[9px] text-purple-300/80">
-                  CONFIDENCE: 98.4% // 100% HALLUCINATION-FREE
-                </div>
-              </div>
+              )}
             </div>
 
-            {/* Evaluation Explanation */}
-            <div className="rounded-xl border border-white/10 bg-[#08050F] p-3.5 font-mono text-xs text-slate-300">
-              <span className="text-purple-400 font-bold mr-2">
-                EVALUATION NOTE:
+            {/* Customizable Metric Chips (Bottom of Right Card) */}
+            <div className="pt-3 border-t border-white/10">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 block mb-2 font-bold">
+                RUNTIME TELEMETRY CHIPS:
               </span>
-              {aiOutputShowcase[activeScenarioIndex].explanation}
+              <div className="flex flex-wrap gap-2">
+                {telemetryData.metrics.map((m: any, mIdx: number) => (
+                  <div
+                    key={mIdx}
+                    className="inline-flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-950/40 px-3 py-1.5 font-mono"
+                  >
+                    <span className="text-[10px] uppercase text-slate-400 font-medium">
+                      {m.label}:
+                    </span>
+                    <span className="text-xs font-bold text-purple-300">
+                      {m.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -882,10 +1040,10 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <TrendingUp className="h-4 w-4 text-purple-400" />
-                  <span>[ QUANTITATIVE_EVALUATION // METRICS ]</span>
+                  <span>[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-purple-300">
-                  RAGAS / TRULENS
+                <span className="font-mono text-[10px] text-purple-300 font-semibold">
+                  {(aiEvaluationAndPerformance as any).evalFrameworkBadge || "EMPIRICAL BENCHMARKS"}
                 </span>
               </div>
 
@@ -917,7 +1075,7 @@ export default function AIEngineeringDetailView({
             </div>
 
             <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              AUDIT: Benchmark evaluated across 1,000 synthetic adversarial stress tests.
+              {(aiEvaluationAndPerformance as any).auditNote || "AUDIT: Benchmark evaluated across end-to-end production test suites and golden sets."}
             </div>
           </div>
 
@@ -927,10 +1085,10 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <ShieldAlert className="h-4 w-4 text-purple-400" />
-                  <span>[ LIMITATIONS & FUTURE IMPROVEMENTS ]</span>
+                  <span>[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]</span>
                 </div>
                 <span className="font-mono text-[10px] text-purple-300 font-semibold">
-                  TRANSPARENCY
+                  GUARDRAILS & TRANSPARENCY
                 </span>
               </div>
 
@@ -982,7 +1140,7 @@ export default function AIEngineeringDetailView({
             </div>
 
             <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              ALIGNMENT: Limitations documented openly in accordance with Responsible AI standards.
+              {(limitationsAndImprovements as any).alignmentNote || "ALIGNMENT: Limitations documented openly in accordance with Responsible AI standards and continuous delivery."}
             </div>
           </div>
         </div>
