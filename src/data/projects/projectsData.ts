@@ -7161,7 +7161,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "phaseNumber": "PHASE 01",
           "phaseTitle": "Foundations & Memory Architecture",
-          "difficulty": "Foundational",
+          "difficulty": "Basic",
           "moduleRange": "MOD 01 - 03",
           "topics": [
             "Stack vs Heap",
@@ -7314,25 +7314,28 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "codeLearningPracticalProjects": [
       {
-        "title": "Thread-Safe Lock-Free Ring Buffer",
-        "tier": "PRODUCTION SYSTEMS",
-        "description": "A single-producer single-consumer circular queue implementing atomic memory fences.",
+        "title": "CLI Inventory & RAII File Logger",
+        "tier": "BASIC",
+        "trackTag": "CORE CONSTRUCTS",
+        "description": "A deterministic command-line asset ledger demonstrating stack/heap ownership and leak-free file handle management.",
         "techStack": [
           "C++20",
-          "std::atomic",
-          "CMake",
-          "GoogleTest"
+          "RAII",
+          "std::unique_ptr",
+          "CMake"
         ],
-        "highlights": [
-          "Sustains 45M messages/sec",
-          "Zero mutex contention",
-          "Cache-line padded nodes"
+        "coreScope": [
+          "RAII resource wrappers with automatic destructor cleanup",
+          "Smart pointer ownership hierarchy without raw new/delete",
+          "Structured binary/text serialization to local storage"
         ],
+        "estimatedTime": "4-6 Hours",
         "repoUrl": "https://github.com/weztcy/CPP-Learning-Modules"
       },
       {
         "title": "Custom Fast-Fixed Arena Memory Allocator",
-        "tier": "EMBEDDED SYSTEMS",
+        "tier": "INTERMEDIATE",
+        "trackTag": "MEMORY ARCHITECTURE",
         "description": "A deterministic O(1) memory pool allocator for embedded and low-latency engines.",
         "techStack": [
           "C++20",
@@ -7340,38 +7343,66 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Valgrind",
           "ASan"
         ],
-        "highlights": [
-          "O(1) allocation & deallocation",
-          "64-byte cache alignment",
-          "Zero memory fragmentation"
+        "coreScope": [
+          "Pre-allocated contiguous arena blocks via POSIX mmap",
+          "64-byte cache-aligned pointer arithmetic and block freelist",
+          "Zero-fragmentation batch reset and AddressSanitizer checks"
         ],
+        "estimatedTime": "6-8 Hours",
+        "repoUrl": "https://github.com/weztcy/CPP-Learning-Modules"
+      },
+      {
+        "title": "Thread-Safe Lock-Free Ring Buffer",
+        "tier": "ADVANCED",
+        "trackTag": "LOCK-FREE CONCURRENCY",
+        "description": "A single-producer single-consumer circular queue implementing atomic memory fences.",
+        "techStack": [
+          "C++20",
+          "std::atomic",
+          "CMake",
+          "GoogleTest"
+        ],
+        "coreScope": [
+          "Lock-free SPSC ring buffer using acquire-release barriers",
+          "Cache-line padded indices preventing CPU false sharing",
+          "High-throughput multi-threaded stress harness (GoogleTest)"
+        ],
+        "estimatedTime": "10-12 Hours",
         "repoUrl": "https://github.com/weztcy/CPP-Learning-Modules"
       }
     ],
     "codeLearningOutcomes": [
       {
-        "pillar": "Systems Programming Mastery",
+        "pillar": "Core Language & Paradigm Mastery",
         "skills": [
           {
-            "title": "Deterministic Memory Safety",
-            "description": "Zero memory leaks or undefined behavior across complex pointers."
+            "title": "Deterministic Memory & RAII Ownership",
+            "description": "Zero memory leaks or undefined behavior across smart pointers, move semantics, and stack/heap bounds."
           },
           {
-            "title": "Zero-Cost Abstractions",
-            "description": "High-level template constructs that compile into optimal machine instructions."
+            "title": "Zero-Cost Generic Abstractions",
+            "description": "C++20 concepts, template specialization, and constexpr evaluation compiled into optimal machine code."
+          },
+          {
+            "title": "Sanitizer & Static Verification",
+            "description": "Proactive leak, bounds, and race-condition detection using ASan, UBSan, and Clang-Tidy."
           }
         ]
       },
       {
-        "pillar": "Engineering Tooling & Verification",
+        "pillar": "Software Architecture & Logic Mastery",
         "skills": [
           {
-            "title": "Sanitizer Instrumentation",
-            "description": "Proactive leak and race-condition detection using ASan and UBSan."
+            "title": "Custom Memory Pool Engineering",
+            "description": "Designing deterministic O(1) allocators and cache-friendly data layouts for low-latency workloads."
           },
           {
-            "title": "Automated Build Matrices",
-            "description": "Modern CMake target modularity and automated continuous integration."
+            "title": "Lock-Free & Concurrent Systems Logic",
+            "description": "Safe multi-threaded synchronization via std::atomic memory ordering without mutex contention."
+          },
+          {
+            "title": "Modular Cross-Platform Build Design",
+            "description": "Clean library boundaries using modern CMake target graphs and reproducible unit test harnesses."
           }
         ]
       }
@@ -7641,7 +7672,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "phaseNumber": "PHASE 01",
           "phaseTitle": "Generics & Utility Fundamentals",
-          "difficulty": "Foundational",
+          "difficulty": "Basic",
           "moduleRange": "MOD 01 - 03",
           "topics": [
             "Generic Constraints",
@@ -7791,8 +7822,45 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "codeLearningPracticalProjects": [
       {
+        "title": "Type-Safe Domain Validator & CLI Parser",
+        "tier": "BASIC",
+        "trackTag": "TYPE FUNDAMENTALS",
+        "description": "A strongly typed validation engine enforcing strict discriminated union states and compile-time argument schemas.",
+        "techStack": [
+          "TypeScript 5.x",
+          "Discriminated Unions",
+          "Vitest"
+        ],
+        "coreScope": [
+          "Exhaustive Result<T, E> discriminated union state handling",
+          "Generic keyof & indexed access guards against invalid keys",
+          "Strict null-safe runtime schema parsing under strict tsconfig"
+        ],
+        "estimatedTime": "4-6 Hours",
+        "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules"
+      },
+      {
+        "title": "Compile-Time URL Route Parameter Parser",
+        "tier": "INTERMEDIATE",
+        "trackTag": "TYPE GYMNASTICS",
+        "description": "A type-level string parser extracting route parameters from URL string templates like '/users/:id/posts/:post'.",
+        "techStack": [
+          "TypeScript 5.x",
+          "Template Literals",
+          "expect-type"
+        ],
+        "coreScope": [
+          "Recursive template literal string splitting across URL paths",
+          "Dynamic infer keyword extraction of typed parameter records",
+          "Automated type-regression assertions verifying missing params"
+        ],
+        "estimatedTime": "6-8 Hours",
+        "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules"
+      },
+      {
         "title": "End-to-End Type-Safe RPC Client",
-        "tier": "ENTERPRISE SYSTEMS",
+        "tier": "ADVANCED",
+        "trackTag": "ENTERPRISE SYSTEMS",
         "description": "A tRPC-inspired end-to-end type-safe client generator reading backend procedure schemas with zero code generation.",
         "techStack": [
           "TypeScript 5.x",
@@ -7800,54 +7868,47 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Vitest",
           "Bun"
         ],
-        "highlights": [
-          "Zero code-generation overhead",
-          "Full IDE method autocomplete",
-          "Compile-time request contract validation"
+        "coreScope": [
+          "Zero-codegen backend router schema inference into frontend client",
+          "Full IDE autocomplete across nested procedures & payloads",
+          "End-to-end request/response contract enforcement via conditional types"
         ],
-        "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules"
-      },
-      {
-        "title": "Compile-Time URL Route Parameter Parser",
-        "tier": "FRAMEWORK TOOLS",
-        "description": "A type-level string parser extracting route parameters from URL string templates like '/users/:id/posts/:post'.",
-        "techStack": [
-          "TypeScript 5.x",
-          "Template Literals",
-          "expect-type"
-        ],
-        "highlights": [
-          "Recursive string literal splitting",
-          "Extracts typed param records",
-          "Catches missing URL parameters at compile-time"
-        ],
+        "estimatedTime": "10-12 Hours",
         "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules"
       }
     ],
     "codeLearningOutcomes": [
       {
-        "pillar": "Type-Level Systems Mastery",
+        "pillar": "Core Language & Paradigm Mastery",
         "skills": [
           {
-            "title": "Defensive API Design",
-            "description": "Design libraries that guide consumers through compile-time type feedback."
+            "title": "Strict Soundness & Zero-Any Discipline",
+            "description": "Enforcing strict type narrowing, generics constraints, and exhaustive unions across complex async flows."
           },
           {
-            "title": "Zero Any Escapes",
-            "description": "Strict typing across asynchronous and complex data structures."
+            "title": "Type-Level & Conditional Inference",
+            "description": "Mastering distributive conditionals, the infer keyword, mapped types, and template literal manipulation."
+          },
+          {
+            "title": "Automated Type-Regression Testing",
+            "description": "Verifying compile-time type contracts continuously via Vitest and expect-type assertion suites."
           }
         ]
       },
       {
-        "pillar": "Enterprise Architecture Patterns",
+        "pillar": "Software Architecture & Logic Mastery",
         "skills": [
           {
-            "title": "Nominal Domain Modeling",
-            "description": "Eradicate primitive obsession using branded nominal types."
+            "title": "Defensive Contract & API Design",
+            "description": "Architecting self-documenting SDKs that catch consumer integration errors cleanly at compile time."
           },
           {
-            "title": "Type-Level Testing",
-            "description": "Automated regression testing of complex types using Vitest expect-type."
+            "title": "Nominal Domain Modeling",
+            "description": "Eliminating primitive obsession across business logic layers through branded nominal types."
+          },
+          {
+            "title": "End-to-End Fullstack Type Propagation",
+            "description": "Synchronizing schema definitions and RPC contracts seamlessly between backend services and client UI."
           }
         ]
       }

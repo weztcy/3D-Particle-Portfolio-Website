@@ -848,11 +848,12 @@ export interface ProjectCaseStudy {
     techStack?: string[];
     imageUrl?: string;
     highlights?: string[];
+    coreScope?: string[];
+    trackTag?: string;
     tier?: string;
     difficulty?: string;
     estimatedTime?: string;
     scenario?: string;
-    deliverable?: string;
     architecturalConstraints?: string[];
     acceptanceCriteria?: string[];
     keyConcepts?: string[];

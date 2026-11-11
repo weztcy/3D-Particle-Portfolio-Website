@@ -587,11 +587,13 @@ export default function UIUXDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-2">
                     {res.description}
                   </p>
-                  <div className="border-t border-white/5 pt-2 flex items-start gap-1.5 text-xs text-rose-300/90 font-sans">
-                    <span className="font-mono text-[10px] font-bold text-rose-400 uppercase">
+                  <div className="border-t border-white/5 pt-2.5 flex flex-col gap-1 text-xs font-sans">
+                    <span className="font-mono text-[10px] font-bold text-rose-400 uppercase tracking-wider">
                       KEY_FINDING:
                     </span>
-                    <span>{res.keyFinding}</span>
+                    <p className="text-xs sm:text-sm text-rose-300/90 leading-relaxed font-sans">
+                      {res.keyFinding}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -748,38 +750,45 @@ export default function UIUXDetailView({
               <span className="text-[10px] text-rose-400/80">INTERACTION_PIPELINE</span>
             </div>
 
-            <div className="rounded-xl border border-rose-500/20 bg-[#0C0610]/95 p-4 mb-2">
+            <div className="rounded-xl border border-rose-500/20 bg-[#0C0610]/95 p-4">
               <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
                 {userFlow.summary}
               </p>
             </div>
 
             <div className="space-y-3">
-              {userFlow.steps.map((stepItem, idx) => (
-                <div
-                  key={idx}
-                  className="relative flex items-start gap-3 rounded-xl border border-rose-500/20 bg-[#0C0610]/90 p-4 transition-all hover:border-rose-400/40 hover:bg-[#180A15]"
-                >
-                  <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-lg border border-rose-400/40 bg-rose-500/15 font-mono text-xs font-bold text-rose-300">
-                    {stepItem.step}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <h4 className="font-semibold text-xs sm:text-sm text-slate-100 truncate">
-                        {stepItem.title}
-                      </h4>
-                      {stepItem.screenOrAction && (
-                        <span className="flex-shrink-0 font-mono text-[10px] uppercase text-rose-300 border border-rose-500/30 bg-rose-950/50 px-2 py-0.5 rounded">
-                          {stepItem.screenOrAction}
-                        </span>
-                      )}
+              {userFlow.steps.map((stepItem, idx) => {
+                const digitsMatch = String(stepItem.step || "").match(/\d+/);
+                const stepNum = digitsMatch
+                  ? digitsMatch[0].padStart(2, "0")
+                  : String(idx + 1).padStart(2, "0");
+
+                return (
+                  <div
+                    key={idx}
+                    className="relative flex items-start gap-3.5 rounded-xl border border-rose-500/20 bg-[#0C0610]/90 p-4 transition-all hover:border-rose-400/40 hover:bg-[#180A15]"
+                  >
+                    <div className="mt-0.5 flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-rose-400/40 bg-rose-500/15 font-mono text-xs font-bold text-rose-300">
+                      {stepNum}
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                      {stepItem.description}
-                    </p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+                        <h4 className="font-semibold text-xs sm:text-sm text-slate-100">
+                          {stepItem.title}
+                        </h4>
+                        {stepItem.screenOrAction && (
+                          <span className="flex-shrink-0 font-mono text-[10px] uppercase text-rose-300 border border-rose-500/30 bg-rose-950/50 px-2 py-0.5 rounded">
+                            {stepItem.screenOrAction}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                        {stepItem.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

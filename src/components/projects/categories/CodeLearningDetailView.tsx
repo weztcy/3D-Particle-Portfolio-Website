@@ -578,35 +578,46 @@ export default function CodeLearningDetailView({
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {curriculumStructure.phases.map((ph, phIdx) => (
-              <div
-                key={phIdx}
-                className="rounded-xl border border-orange-500/25 bg-orange-950/20 p-4 transition-all hover:border-orange-400/50 hover:bg-orange-950/30"
-              >
-                <div className="flex items-center justify-between border-b border-orange-500/20 pb-2 mb-2.5">
-                  <span className="font-mono text-[10px] font-bold uppercase text-orange-400">
-                    {ph.phaseNumber}
-                  </span>
-                  <span className="font-mono text-[10px] text-orange-400 bg-orange-950/50 border border-orange-500/30 px-2 py-0.5 rounded">
-                    {ph.moduleRange}
-                  </span>
+            {curriculumStructure.phases.slice(0, 3).map((ph, phIdx) => {
+              const tierLabels = ["Basic", "Intermediate", "Advanced"];
+              const rawDifficulty = (ph.difficulty || "").trim();
+              const normalizedDifficulty =
+                rawDifficulty.toLowerCase() === "foundational"
+                  ? "Basic"
+                  : tierLabels.includes(rawDifficulty)
+                  ? rawDifficulty
+                  : tierLabels[phIdx] || "Basic";
+
+              return (
+                <div
+                  key={phIdx}
+                  className="rounded-xl border border-orange-500/25 bg-orange-950/20 p-4 transition-all hover:border-orange-400/50 hover:bg-orange-950/30"
+                >
+                  <div className="flex items-center justify-between border-b border-orange-500/20 pb-2 mb-2.5">
+                    <span className="font-mono text-[10px] font-bold uppercase text-orange-400">
+                      {ph.phaseNumber}
+                    </span>
+                    <span className="font-mono text-[10px] text-orange-400 bg-orange-950/50 border border-orange-500/30 px-2 py-0.5 rounded">
+                      {ph.moduleRange}
+                    </span>
+                  </div>
+                  <h4 className="font-semibold text-sm text-slate-100 mb-1">
+                    {ph.phaseTitle}
+                  </h4>
+                  <p className="font-mono text-[11px] text-orange-300/80 mb-3">
+                    Difficulty: {normalizedDifficulty}
+                  </p>
+                  <ul className="space-y-1.5 border-t border-white/5 pt-2.5 text-xs text-slate-300 font-sans">
+                    {ph.topics.map((top, tIdx) => (
+                      <li key={tIdx} className="flex items-start gap-1.5">
+                        <ArrowRight className="h-3 w-3 text-orange-400 flex-shrink-0 mt-0.5" />
+                        <span className="truncate">{top}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h4 className="font-semibold text-sm text-slate-100 mb-1">
-                  {ph.phaseTitle}
-                </h4>
-                <p className="font-mono text-[11px] text-orange-300/80 mb-3">
-                  Difficulty: {ph.difficulty}
-                </p>
-                <ul className="space-y-1.5 border-t border-white/5 pt-2.5 text-xs text-slate-300 font-sans">
-                  {ph.topics.map((top, tIdx) => (
-                    <li key={tIdx} className="flex items-start gap-1.5">
-                      <ArrowRight className="h-3 w-3 text-orange-400 flex-shrink-0 mt-0.5" />
-                      <span className="truncate">{top}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -941,110 +952,76 @@ export default function CodeLearningDetailView({
           </div>
         </div>
 
-        {/* 3 Tiered Practice Project Cards */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
-          {practicalProjects.map((proj, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl border border-orange-500/25 bg-[#1A0F08]/90 p-5 sm:p-6 transition-all hover:border-orange-400/50 hover:bg-[#0A1A20] hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] flex flex-col justify-between group"
-            >
-              <div>
-                {/* Card Topbar */}
-                <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-4">
-                  <span className="font-mono text-[10px] font-bold text-orange-300 bg-orange-950/60 border border-orange-500/30 px-2 py-0.5 rounded">
-                    {proj.tier || `TIER 0${idx + 1}`}
-                  </span>
-                  <span className="font-mono text-[10px] text-orange-400 font-semibold">
-                    {proj.difficulty || "Systems Grade"}
-                  </span>
-                </div>
+        {/* 3 Tiered Practice Project Cards (Basic, Intermediate, Advanced) */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10 items-stretch">
+          {practicalProjects.slice(0, 3).map((proj, idx) => {
+            const defaultTiers = ["BASIC", "INTERMEDIATE", "ADVANCED"];
+            const defaultEfforts = ["4-6 Hours", "6-8 Hours", "10-12 Hours"];
+            const levelBadge = proj.tier || defaultTiers[idx] || `TIER 0${idx + 1}`;
+            const trackLabel = proj.trackTag || proj.difficulty || "CAPSTONE TRACK";
+            const scopeItems: string[] =
+              proj.coreScope || proj.architecturalConstraints || proj.highlights || [];
 
-                {/* Title */}
-                <h4 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-orange-200 transition-colors mb-2">
-                  {proj.title}
-                </h4>
-
-                {/* Scenario Description */}
-                <p className="text-xs text-slate-300 leading-relaxed font-sans mb-4">
-                  {proj.description}
-                </p>
-
-                {/* Problem Context */}
-                {proj.scenario && (
-                  <div className="mb-4 rounded-xl border border-orange-500/20 bg-black/40 p-3">
-                    <span className="font-mono text-[9px] uppercase font-bold text-orange-400 block mb-1">
-                      Target Enterprise Problem:
+            return (
+              <div
+                key={idx}
+                className="rounded-2xl border border-orange-500/25 bg-[#1A0F08]/90 p-5 sm:p-6 transition-all hover:border-orange-400/50 hover:bg-orange-950/30 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Card Topbar */}
+                  <div className="flex items-center justify-between gap-2 border-b border-orange-500/20 pb-3 mb-4">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-orange-300 bg-orange-950/60 border border-orange-500/30 px-2.5 py-0.5 rounded">
+                      {levelBadge}
                     </span>
-                    <p className="text-[11px] text-slate-300 leading-relaxed font-sans italic">
-                      &quot;{proj.scenario}&quot;
-                    </p>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-orange-400 font-semibold truncate">
+                      {trackLabel}
+                    </span>
                   </div>
-                )}
 
-                {/* Architectural Requirements & Constraints */}
-                <div className="mb-4">
-                  <span className="font-mono text-[10px] uppercase font-bold text-orange-300 block mb-2">
-                    Architectural Constraints (NFR):
-                  </span>
-                  <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
-                    {(proj.architecturalConstraints || proj.highlights || []).map((con: any, cIdx: number) => (
-                      <li key={cIdx} className="flex items-start gap-1.5">
-                        <span className="text-orange-400 font-bold">›</span>
-                        <span className="text-[11px] leading-relaxed">{con}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  {/* Title */}
+                  <h4 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-orange-200 transition-colors mb-2">
+                    {proj.title}
+                  </h4>
 
-                {/* Acceptance Criteria */}
-                {proj.acceptanceCriteria && (
-                  <div className="mb-4 border-t border-white/5 pt-3">
-                    <span className="font-mono text-[10px] uppercase font-bold text-orange-400 block mb-2">
-                      Acceptance Criteria (100% Pass):
-                    </span>
-                    <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
-                      {proj.acceptanceCriteria.map((crit, crIdx) => (
-                        <li key={crIdx} className="flex items-start gap-1.5">
-                          <Check className="h-3.5 w-3.5 text-orange-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-[11px] leading-relaxed">{crit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                  {/* Short Description */}
+                  <p className="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                    {proj.description}
+                  </p>
 
-                {/* Key Concepts Pills */}
-                {proj.keyConcepts && (
-                  <div className="mb-4">
-                    <span className="font-mono text-[9px] uppercase text-slate-400 block mb-1.5">
-                      Concepts Exercised:
-                    </span>
-                    <div className="flex flex-wrap gap-1">
-                      {proj.keyConcepts.map((kc, kIdx) => (
-                        <span
-                          key={kIdx}
-                          className="font-mono text-[9px] px-2 py-0.5 rounded border border-orange-500/25 bg-orange-950/40 text-orange-300"
-                        >
-                          {kc}
-                        </span>
-                      ))}
+                  {/* Core Implementation Scope */}
+                  {scopeItems.length > 0 && (
+                    <div className="mb-4 border-t border-white/5 pt-3">
+                      <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-orange-300 block mb-2">
+                        Core Implementation Scope:
+                      </span>
+                      <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
+                        {scopeItems.map((item, sIdx) => (
+                          <li key={sIdx} className="flex items-start gap-1.5">
+                            <span className="text-orange-400 font-bold leading-4">›</span>
+                            <span className="text-[11px] leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
 
-              {/* Card Footer: Deliverable + Estimated Effort */}
-              <div className="mt-4 pt-3 border-t border-orange-500/15 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                <span className="text-orange-400 font-medium">
-                  {proj.deliverable || "Standalone Binary"}
-                </span>
-                <span>{proj.estimatedTime || "8-10 Hours"}</span>
+                {/* Card Footer: Static Estimated Time Label + Dynamic Time */}
+                <div className="mt-4 pt-3 border-t border-orange-500/15 flex items-center justify-between gap-2 text-[10px] font-mono text-slate-400">
+                  <span className="text-orange-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                    <Clock className="h-3 w-3 text-orange-400 shrink-0" />
+                    <span>ESTIMATED TIME</span>
+                  </span>
+                  <span className="text-slate-300 font-semibold shrink-0">
+                    {proj.estimatedTime || defaultEfforts[idx] || "6-8 Hours"}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Bottom: Learning Outcomes & Mastery Matrix */}
+        {/* Bottom: Learning Outcomes & Mastery Matrix (2 Universal Pillars) */}
         <div className="relative z-10 rounded-2xl border border-orange-500/30 bg-[#1A0F08]/95 p-5 sm:p-7 shadow-inner">
           <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-5">
             <div className="flex items-center gap-2 text-xs font-mono text-orange-300">
@@ -1056,17 +1033,17 @@ export default function CodeLearningDetailView({
             <span className="font-mono text-[10px] text-orange-400/80">CERTIFIED_MASTERY</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {learningOutcomes.map((pillar, pIdx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {learningOutcomes.slice(0, 2).map((pillar, pIdx) => (
               <div key={pIdx} className="space-y-3">
-                <span className="font-mono text-xs uppercase font-bold text-orange-300 block border-b border-orange-500/20 pb-1">
+                <span className="font-mono text-xs uppercase font-bold text-orange-300 block border-b border-orange-500/20 pb-1.5">
                   {pillar.pillar}
                 </span>
                 <div className="space-y-2.5">
                   {pillar.skills.map((sk, sIdx) => (
                     <div
                       key={sIdx}
-                      className="rounded-lg border border-white/5 bg-black/30 p-3 hover:border-orange-500/30 transition-colors"
+                      className="rounded-lg border border-white/5 bg-black/30 p-3.5 hover:border-orange-500/30 transition-colors"
                     >
                       <h5 className="font-semibold text-xs text-slate-100 mb-1">
                         {sk.title}
