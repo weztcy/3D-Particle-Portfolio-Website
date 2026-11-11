@@ -61,9 +61,6 @@ export default function UIUXDetailView({
 }: UIUXDetailViewProps) {
   // State for Hi-Fi Visual Showcase
   const [activeHiFiIndex, setActiveHiFiIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState("");
-  const [lightboxCaption, setLightboxCaption] = useState("");
 
   // State for Wireframe Showcase
   const [activeWireframeIndex, setActiveWireframeIndex] = useState(0);
@@ -89,18 +86,6 @@ export default function UIUXDetailView({
   const heroImage =
     project.imageUrl ||
     (project.images && project.images.length > 0 ? project.images[0] : null);
-
-  // Keyboard navigation for lightbox & hero modal
-  useEffect(() => {
-    if (!isLightboxOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsLightboxOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isLightboxOpen]);
 
   // =========================================================================
   // Section 1: Overview & Information
@@ -507,12 +492,6 @@ export default function UIUXDetailView({
     }
   };
 
-  const openLightbox = (imgUrl: string, caption: string) => {
-    setLightboxImage(imgUrl);
-    setLightboxCaption(caption);
-    setIsLightboxOpen(true);
-  };
-
   return (
     <div className="space-y-10 sm:space-y-14">
       {/* =========================================================================
@@ -556,10 +535,10 @@ export default function UIUXDetailView({
         {/* Dual-Pane Studio Console */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col h-full">
-            <div className="flex flex-col h-full flex-1">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="flex flex-col flex-1 h-full">
               {/* Studio Header Bar */}
-              <div className="flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-950/40 px-4 py-2 text-xs font-mono text-rose-300">
+              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-950/40 px-4 py-2 text-xs font-mono text-rose-300">
                 <span className="flex items-center gap-2 text-rose-200">
                   <Terminal className="h-3.5 w-3.5 text-rose-400" />
                   &gt; DESIGN_RUNTIME // SYS.VIEWPORT
@@ -568,7 +547,7 @@ export default function UIUXDetailView({
               </div>
 
               {/* Studio Body */}
-              <div className="rounded-b-xl border-x border-b border-rose-500/25 bg-[#0D0B1B]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex flex-col flex-1 justify-between">
+              <div className="rounded-b-xl border-x border-b border-rose-500/25 bg-[#0D0B1B]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-rose-500/30 bg-black/60 shadow-lg">
@@ -599,7 +578,7 @@ export default function UIUXDetailView({
                 </p>
 
                 {/* Capability Badges Strip (Max 3) */}
-                <div className="pt-4 border-t border-rose-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-rose-500/20 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
                     <UserCheck className="h-3 w-3 text-rose-400" />
                     Human-Centered Design (HCD)
@@ -618,7 +597,7 @@ export default function UIUXDetailView({
           </div>
 
           {/* Right Pane (35%): Design Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-rose-500/30 bg-[#0D0B1B]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-rose-500/30 bg-[#0D0B1B]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-rose-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-rose-400" />
@@ -1053,15 +1032,6 @@ export default function UIUXDetailView({
               <span className="font-mono text-[10px] tracking-wider uppercase text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2 py-0.5 rounded">
                 {activeWireframeItem.badge}
               </span>
-              <button
-                onClick={() =>
-                  openLightbox(activeWireframeItem.imageUrl, activeWireframeItem.caption)
-                }
-                className="p-1.5 rounded-lg border border-fuchsia-500/30 bg-fuchsia-950/40 text-rose-300 hover:text-white hover:border-rose-400 transition-colors"
-                title="Expand Wireframe"
-              >
-                <Maximize2 className="h-3.5 w-3.5" />
-              </button>
             </div>
           </div>
 
@@ -1238,13 +1208,7 @@ export default function UIUXDetailView({
               <span className="font-mono text-[10px] tracking-wider uppercase text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2 py-0.5 rounded">
                 {activeHiFiItem.badge || "HI-FI_UI"}
               </span>
-              <button
-                onClick={() => openLightbox(activeHiFiItem.imageUrl, activeHiFiItem.caption)}
-                className="p-1.5 rounded-lg border border-fuchsia-500/30 bg-fuchsia-950/40 text-rose-300 hover:text-white hover:border-rose-400 transition-colors"
-                title="Expand Fullscreen"
-              >
-                <Maximize2 className="h-3.5 w-3.5" />
-              </button>
+              
             </div>
           </div>
 
@@ -1275,7 +1239,7 @@ export default function UIUXDetailView({
                       (prev) => (prev - 1 + visualShowcase.length) % visualShowcase.length
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full border border-rose-500/40 bg-slate-950/70 text-rose-300 backdrop-blur-md opacity-80 hover:opacity-100 hover:scale-110 transition-all"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-rose-400/40 bg-black/70 p-2.5 text-rose-300 hover:bg-rose-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -1286,48 +1250,51 @@ export default function UIUXDetailView({
                       (prev) => (prev + 1) % visualShowcase.length
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full border border-rose-500/40 bg-slate-950/70 text-rose-300 backdrop-blur-md opacity-80 hover:opacity-100 hover:scale-110 transition-all"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-rose-400/40 bg-black/70 p-2.5 text-rose-300 hover:bg-rose-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Next image"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </>
             )}
-          </div>
 
-          {/* Caption & Thumbnail Strip */}
-          <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-xs sm:text-sm text-slate-300 font-sans">
-              <span className="font-mono text-rose-400 font-semibold mr-2">
-                [VISUAL_SPEC]:
-              </span>
-              {activeHiFiItem.caption}
-            </p>
-
-            {visualShowcase.length > 1 && (
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
-                {visualShowcase.map((item, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveHiFiIndex(idx)}
-                    className={`relative h-12 w-20 flex-shrink-0 overflow-hidden rounded-md border transition-all ${
-                      activeHiFiIndex === idx
-                        ? "border-rose-400 ring-2 ring-rose-500/50 scale-105"
-                        : "border-fuchsia-500/30 opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.caption}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  </button>
-                ))}
+            {/* Live Caption Scrim */}
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4 z-20">
+              <div className="text-xs sm:text-sm font-mono text-slate-200 truncate">
+                <span className="text-rose-400 font-bold mr-2">
+                  [ {activeHiFiItem.badge || "HI-FI_UI"} ]
+                </span>
+                {activeHiFiItem.caption}
               </div>
-            )}
+            </div>
           </div>
+
+          {/* Thumbnail Carousel Bar */}
+          {visualShowcase.length > 1 && (
+            <div className="mt-4 flex items-center gap-3 overflow-x-auto pb-1 scrollbar-thin">
+              {visualShowcase.map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveHiFiIndex(idx)}
+                  className={`relative h-14 sm:h-16 w-24 sm:w-28 shrink-0 overflow-hidden rounded-lg border transition-all ${
+                    activeHiFiIndex === idx
+                      ? "border-rose-400 ring-2 ring-rose-400/40 scale-105"
+                      : "border-white/10 opacity-60 hover:opacity-100"
+                  }`}
+                >
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.caption}
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute bottom-1 right-1 rounded bg-black/80 px-1 py-0.2 font-mono text-[9px] text-rose-300">
+                    0{idx + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Bottom Split Matrix: Design System & Components vs Interactive Usability Validation */}
@@ -1483,32 +1450,6 @@ export default function UIUXDetailView({
             </div>
           </div>
         </div>
-
-        {/* Lightbox Modal */}
-        {isLightboxOpen && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-md"
-            onClick={() => setIsLightboxOpen(false)}
-          >
-            <button
-              onClick={() => setIsLightboxOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-slate-800"
-            >
-              <X className="h-6 w-6" />
-            </button>
-            <div
-              className="relative max-w-6xl w-full max-h-[85vh] aspect-[16/10] overflow-hidden rounded-2xl border border-rose-500/40"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={lightboxImage}
-                alt={lightboxCaption}
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        )}
       </section>
 
             {/* =========================================================================

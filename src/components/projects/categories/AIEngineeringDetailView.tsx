@@ -517,10 +517,10 @@ export default function AIEngineeringDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col h-full">
-            <div className="flex flex-col h-full flex-1">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="flex flex-col flex-1 h-full">
               {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between rounded-t-xl border border-purple-500/30 bg-purple-950/40 px-4 py-2 text-xs font-mono text-purple-300">
+              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-purple-500/30 bg-purple-950/40 px-4 py-2 text-xs font-mono text-purple-300">
                 <span className="flex items-center gap-2 text-purple-200">
                   <Terminal className="h-3.5 w-3.5 text-purple-400" />
                   &gt; AI_RUNTIME // SYS.VIEWPORT
@@ -529,7 +529,7 @@ export default function AIEngineeringDetailView({
               </div>
 
               {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-purple-500/25 bg-[#0A0713]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex flex-col flex-1 justify-between">
+              <div className="rounded-b-xl border-x border-b border-purple-500/25 bg-[#0A0713]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-purple-500/30 bg-black/60 shadow-lg">
@@ -560,7 +560,7 @@ export default function AIEngineeringDetailView({
                 </p>
 
                 {/* Capability Badges Strip (Max 3) */}
-                <div className="pt-4 border-t border-purple-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-purple-500/20 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-purple-400/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[11px] text-purple-300">
                     <Brain className="h-3 w-3 text-purple-400" />
                     Autonomous Reasoning
@@ -579,7 +579,7 @@ export default function AIEngineeringDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-purple-500/30 bg-[#0A0713]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-purple-500/30 bg-[#0A0713]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-purple-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-purple-400" />

@@ -4,8 +4,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FileCode2,
-  Check,
   ArrowLeft,
   ArrowUpRight,
   CheckCircle2,
@@ -36,7 +34,7 @@ import {
   Zap,
   HardDrive,
   Activity,
-  Info,
+  Check,
 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data";
 
@@ -72,43 +70,16 @@ export default function WebDevDetailView({
       ? [project.imageUrl]
       : ["/images/projects/SiLelo - Online Auction 1.webp"];
 
+  const heroImage = rawImages[0] || project.imageUrl;
+
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [selectedTechCategory, setSelectedTechCategory] =
     useState<TechCategoryFilter>("All");
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
 
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
-
   const handleImgError = useCallback((src: string) => {
     setImgErrors((prev) => ({ ...prev, [src]: true }));
   }, []);
-
-  // Keyboard navigation for lightbox & hero modal
-  useEffect(() => {
-    if (!isLightboxOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsLightboxOpen(false);
-      }
-      if (isLightboxOpen) {
-        if (e.key === "ArrowLeft") {
-          setActiveImageIndex((prev) =>
-            prev === 0 ? rawImages.length - 1 : prev - 1
-          );
-        }
-        if (e.key === "ArrowRight") {
-          setActiveImageIndex((prev) =>
-            prev === rawImages.length - 1 ? 0 : prev + 1
-          );
-        }
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isLightboxOpen, rawImages.length]);
 
   // Section 1 Data: Project Description & Project Information
   const projectDescription =
@@ -488,7 +459,7 @@ export default function WebDevDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // SYSTEM CONSOLE & FULLSTACK ARCHITECTURE ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(56,189,248,0.15)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
         <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/70" />
         <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/70" />
@@ -526,10 +497,10 @@ export default function WebDevDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col h-full">
-            <div className="flex flex-col h-full flex-1">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="flex flex-col flex-1 h-full">
               {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
+              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
                 <span className="flex items-center gap-2 text-sky-200">
                   <Terminal className="h-3.5 w-3.5 text-sky-400" />
                   &gt; WEB_RUNTIME // SYS.VIEWPORT
@@ -538,38 +509,37 @@ export default function WebDevDetailView({
               </div>
 
               {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-sky-500/25 bg-[#0A0D1A]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex flex-col flex-1 justify-between">
-                {/* 16:9 Hero Viewport Container */}
-                {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-sky-500/30 bg-black/60 shadow-lg">
+              <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-sky-500/25 bg-[#080B14]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
+                <div>
+                  {/* 16:9 Hero Viewport Container — Pure static display */}
+                  {heroImage && (
+                    <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-sky-500/30 bg-black/60 shadow-lg">
+                      {/* Optical HUD Crosshairs */}
+                      <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/80" />
+                      <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/80" />
+                      <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/80" />
+                      <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/80" />
 
-                    {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/80" />
+                      {/* Hero Image */}
+                      <Image
+                        src={heroImage}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top"
+                        priority
+                      />
+                    </div>
+                  )}
 
-                    {/* Hero Image with smooth hover scale */}
-                    
-                    {/* Hero Image */}
-                    <Image
-                      src={heroImage}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top"
-                      priority
-                    />
-                  </div>
-                )}
-
-                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
-                  {projectDescription.length > 500
-                    ? `${projectDescription.slice(0, 500).trim()}...`
-                    : projectDescription}
-                </p>
+                  <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
+                    {projectDescription.length > 500
+                      ? `${projectDescription.slice(0, 500).trim()}...`
+                      : projectDescription}
+                  </p>
+                </div>
 
                 {/* Capability Badges Strip (Max 3) */}
-                <div className="pt-4 border-t border-sky-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-sky-500/20 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
                     <Workflow className="h-3 w-3 text-sky-400" />
                     Modular Architecture
@@ -588,7 +558,7 @@ export default function WebDevDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-sky-500/30 bg-[#0A0D1A]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-sky-500/30 bg-[#080B14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-sky-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-sky-400" />
@@ -628,13 +598,13 @@ export default function WebDevDetailView({
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
                   <dt className="text-[10px] uppercase text-sky-400/80">Engineering Pipeline</dt>
-                  <dd className="text-sky-300 font-semibold flex items-center gap-1.5">
-                    <Workflow className="h-3.5 w-3.5 text-sky-400" />
+                  <dd className="text-slate-300 text-[11px] truncate flex items-center gap-1.5">
+                    <Workflow className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{telemetry.architecturePipeline}</span>
                   </dd>
                 </div>
 
-                {/* 5. Testing & Audit */}
+                {/* 5. Testing & Audit — Clean Icon + Text */}
                 <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
                   <dt className="text-[10px] uppercase text-sky-400/80">Testing & Audit</dt>
                   <dd className="text-sky-300 font-semibold flex items-center gap-1.5">
@@ -646,24 +616,24 @@ export default function WebDevDetailView({
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
                   <dt className="text-[10px] uppercase text-sky-400/80">Project Status</dt>
-                  <dd className="text-sky-300 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-                    {telemetry.projectStatus}
+                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-sky-400" />
+                    <span>{telemetry.projectStatus}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-1">
                   <dt className="text-[10px] uppercase text-sky-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{telemetry.projectYear}</dd>
+                  <dd className="text-slate-200 font-semibold">{project.year || "2026"}</dd>
                 </div>
               </dl>
 
-              {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
+              {/* VCS Repository Access Sub-Card */}
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   hasRepoUrl
-                    ? "border-sky-500/35 bg-[#071018]/90 hover:border-sky-400/60 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)]"
+                    ? "border-sky-500/35 bg-[#0C101D]/90 hover:border-sky-400/60 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)]"
                     : "border-white/10 bg-black/60 hover:border-white/20"
                 }`}
               >
@@ -688,7 +658,7 @@ export default function WebDevDetailView({
                       </span>
                     </div>
                     {hasRepoUrl ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-sky-400/40 bg-sky-950/60 px-2 py-0.5 font-mono text-[9px] text-sky-300 font-semibold shadow-[0_0_10px_rgba(56,189,248,0.2)]">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-sky-400/40 bg-sky-950/60 px-2 py-0.5 font-mono text-[9px] text-sky-300 font-semibold shadow-[0_0_10px_rgba(255,255,255,0.05)]">
                         <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />PUBLIC
                       </span>
                     ) : (
@@ -724,7 +694,7 @@ export default function WebDevDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(56,189,248,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-[1.01]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -747,107 +717,120 @@ export default function WebDevDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 2 — [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
+          SECTION 2 — BACKGROUND & OBJECTIVES
+          Layout: Top Background Terminal + 2-Column Split Matrix (Problem vs Objective)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
-        {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-sky-400/70" />
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/25 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+        {/* Optical Corner HUD */}
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex items-center justify-between border-b border-sky-500/20 pb-4 mb-6">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500" />
-            </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-sky-300">
-              [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
-            </span>
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
+          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
+            <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
+            <span>[ 02 // CONTEXT ORIGIN & STRATEGIC OBJECTIVES ]</span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-sky-400/80">
-            ROOT_CAUSE // SPECIFICATION_MATRIX
+          <span className="font-mono text-[11px] text-slate-400">
+            PROBLEM_MATRIX // MILESTONES
           </span>
         </div>
 
-        {/* Top: Project Background Terminal */}
-        <div className="relative z-10 mb-8 rounded-xl border border-sky-500/25 bg-[#0C101D]/95 p-5 sm:p-6 shadow-inner">
-          <div className="flex items-center gap-2 text-xs font-mono text-sky-300 mb-3">
-            <Info className="h-4 w-4 text-sky-400" />
-            <span className="font-bold uppercase tracking-wider">
-              Project Context & Background Genesis
-            </span>
+        {/* Top: Project Background (Full-Width Narrative Card) */}
+        <div className="relative z-10 rounded-2xl border border-sky-500/20 bg-black/40 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
+          <div className="flex items-center gap-2 font-mono text-xs text-sky-400 font-semibold mb-3">
+            <Activity className="h-3.5 w-3.5 text-sky-400" />
+            <span>ORIGIN CONTEXT // PROJECT BACKGROUND</span>
           </div>
-          <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
             {projectBackground}
           </p>
         </div>
 
-        {/* Bottom Split Matrix: Problem Statements vs Objectives */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          {/* Left Column: Problem Statements */}
-          <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-rose-500/25 pb-2.5 text-rose-400 font-mono text-xs uppercase tracking-wider">
-              <AlertTriangle className="h-4 w-4 text-rose-400" />
-              <span>Target Constraints & Bottlenecks</span>
+        {/* 2-Column Split Matrix: Problem Statement vs Project Objectives */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
+          {/* Column 1: Problem Statement (Warning / Amber Accent) */}
+          <div className="rounded-2xl border border-amber-500/30 bg-[#120E08]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(245,158,11,0.05)]">
+            <div>
+              <div className="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-amber-300 tracking-wider">
+                  <AlertTriangle className="h-4 w-4 text-amber-400" />
+                  <span>[ ISSUE_DETECTED // PROBLEM STATEMENT ]</span>
+                </div>
+                <span className="rounded bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 font-mono text-[10px] text-amber-300 font-bold">
+                  {problemStatements.length} BOTTLENECKS
+                </span>
+              </div>
+
+              <div className="space-y-4">
+                {problemStatements.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-amber-500/15 bg-black/50 p-4 transition-all hover:border-amber-400/40"
+                  >
+                    <div className="flex items-center justify-between font-mono text-[11px] text-amber-400 font-bold mb-1.5">
+                      <span>{item.issueCode || `ISSUE_0${idx + 1}`}</span>
+                      <span className="text-[10px] text-amber-500/70 uppercase">
+                        CRITICAL
+                      </span>
+                    </div>
+                    <div className="text-xs sm:text-sm font-semibold text-white mb-1.5">
+                      {item.title}
+                    </div>
+                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-3.5">
-              {problemStatements.map((prob, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl border border-rose-500/25 bg-rose-950/15 p-4 transition-all hover:border-rose-400/45 hover:bg-rose-950/25"
-                >
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-                      {prob.title}
-                    </h4>
-                    {prob.issueCode && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-500/30 bg-rose-950/60 px-2 py-0.5 rounded">
-                        {prob.issueCode}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    {prob.description}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-5 pt-3 border-t border-amber-500/15 font-mono text-[10px] text-amber-400/80">
+              TELEMETRY: Architectural constraints identified during initial audit.
             </div>
           </div>
 
-          {/* Right Column: Project Objectives */}
-          <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-sky-500/25 pb-2.5 text-sky-300 font-mono text-xs uppercase tracking-wider">
-              <Sparkles className="h-4 w-4 text-sky-400" />
-              <span>Architectural Objectives & Targets</span>
+          {/* Column 2: Project Objectives (Target / Emerald Accent) */}
+          <div className="rounded-2xl border border-emerald-500/30 bg-[#07130F]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+            <div>
+              <div className="flex items-center justify-between border-b border-emerald-500/20 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300 tracking-wider">
+                  <Target className="h-4 w-4 text-emerald-400" />
+                  <span>[ TARGET_SOLVED // STRATEGIC OBJECTIVES ]</span>
+                </div>
+                <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                  {projectObjectives.length} TARGETS
+                </span>
+              </div>
+
+              <div className="space-y-4">
+                {projectObjectives.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-emerald-500/15 bg-black/50 p-4 transition-all hover:border-emerald-400/40"
+                  >
+                    <div className="flex items-center justify-between font-mono text-[11px] text-emerald-400 font-bold mb-1.5">
+                      <span>{item.targetTag || `TARGET_0${idx + 1}`}</span>
+                      <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-medium">
+                        <Check className="h-3 w-3" />
+                        DELIVERED
+                      </span>
+                    </div>
+                    <div className="text-xs sm:text-sm font-semibold text-white mb-1.5">
+                      {item.title}
+                    </div>
+                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-3.5">
-              {projectObjectives.map((obj, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl border border-sky-500/25 bg-sky-950/15 p-4 transition-all hover:border-sky-500/45 hover:bg-sky-950/25"
-                >
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-sky-400 flex-shrink-0" />
-                      {obj.title}
-                    </h4>
-                    {obj.targetTag && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-sky-300 border border-sky-500/30 bg-sky-950/50 px-2 py-0.5 rounded">
-                        {obj.targetTag}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    {obj.description}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-5 pt-3 border-t border-emerald-500/15 font-mono text-[10px] text-emerald-400/80">
+              TELEMETRY: All core objectives validated in production deployment.
             </div>
           </div>
         </div>
@@ -889,14 +872,7 @@ export default function WebDevDetailView({
                 FRAME {String(activeImageIndex + 1).padStart(2, "0")} /{" "}
                 {String(interfaceShowcase.length).padStart(2, "0")}
               </span>
-              <button
-                onClick={() => setIsLightboxOpen(true)}
-                className="inline-flex items-center gap-1 rounded border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 text-[11px] font-mono text-sky-300 hover:bg-sky-400/20 transition-all"
-                title="Fullscreen Optical HUD"
-              >
-                <Maximize2 className="h-3 w-3" />
-                <span className="hidden sm:inline">OPTICAL_HUD // ENLARGE</span>
-              </button>
+              
             </div>
           </div>
 
@@ -1036,7 +1012,7 @@ export default function WebDevDetailView({
                   <Workflow className="h-4 w-4 text-sky-400" />
                   <span>[ USER_FLOW // INTERACTION PIPELINE ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-sky-300 font-semibold">
+                <span className="font-mono text-[10px] text-emerald-400">
                   DETERMINISTIC
                 </span>
               </div>
@@ -1046,7 +1022,7 @@ export default function WebDevDetailView({
               </p>
 
               {/* Step by Step Circuit Pipeline */}
-              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sky-400 before:via-sky-500 before:to-sky-600/30">
+              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sky-400 before:via-indigo-400 before:to-emerald-400">
                 {userFlow.steps.map((st, i) => (
                   <div
                     key={i}
@@ -1136,19 +1112,38 @@ export default function WebDevDetailView({
           })}
         </div>
 
-        {/* Categorized Tech Grid */}
-        <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        {/* Spec Micro-Chip Cards Grid */}
+        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredTechStack.map((tech, idx) => (
             <div
               key={idx}
-              className="group relative flex items-center gap-2.5 rounded-xl border border-sky-500/20 bg-[#0C101D]/80 p-3 transition-all hover:border-sky-400/50 hover:bg-sky-500/10 hover:-translate-y-0.5"
+              className="group relative rounded-2xl border border-white/10 bg-[#0C101D]/70 p-4 transition-all duration-300 hover:border-sky-400/50 hover:bg-[#0E1528] hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
             >
-              <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-sky-400/30 bg-sky-500/15 text-sky-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                {tech.name.substring(0, 2).toUpperCase()}
+              {/* Corner HUD Tick */}
+              <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-sky-400/40 group-hover:bg-sky-400 group-hover:scale-125 transition-all" />
+
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-sky-400/30 bg-sky-400/10 text-sky-300 shadow-[0_0_12px_rgba(0,240,255,0.15)] group-hover:scale-105 transition-transform">
+                  <Code2 className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="font-mono text-xs sm:text-sm font-bold text-white truncate">
+                    {tech.name}
+                  </div>
+                  <span className="font-mono text-[10px] text-sky-400 uppercase tracking-wider">
+                    {tech.category}
+                  </span>
+                </div>
               </div>
-              <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-sky-200 truncate">
-                {tech.name}
-              </span>
+
+              <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-slate-500 block mb-0.5">
+                  ARCHITECTURAL ROLE
+                </span>
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                  {tech.role}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -1251,11 +1246,11 @@ export default function WebDevDetailView({
                 {databaseDataFlow.entitiesOrPipelines?.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-sky-400/40"
+                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-emerald-400/40"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-emerald-300 mb-1">
                       <span>{item.name}</span>
-                      <span className="rounded bg-sky-400/10 px-1.5 py-0.2 font-mono text-[9px] text-sky-400">
+                      <span className="rounded bg-emerald-400/10 px-1.5 py-0.2 font-mono text-[9px] text-emerald-400">
                         {item.type}
                       </span>
                     </div>
@@ -1263,7 +1258,7 @@ export default function WebDevDetailView({
                       {item.fields.map((field, fIdx) => (
                         <span
                           key={fIdx}
-                          className="rounded border border-sky-400/20 bg-sky-400/5 px-2 py-0.5 font-mono text-[10px] text-sky-200"
+                          className="rounded border border-emerald-400/20 bg-emerald-400/5 px-2 py-0.5 font-mono text-[10px] text-emerald-200"
                         >
                           {field}
                         </span>
@@ -1316,18 +1311,22 @@ export default function WebDevDetailView({
         </div>
       </section>
 
-            {/* =========================================================================
-          SECTION 6 — [ 06 // SOURCE VAULT & TECHNICAL SPECIFICATION GATES ]
+      {/* =========================================================================
+          SECTION 6 — PROJECT RESOURCES (SECTION TERAKHIR)
+          Layout: 3-Card Bento Grid
+          Card 1: GitHub / Private Repository (Adaptive)
+          Card 2: Technical Documentation & Specs
+          Card 3: Architecture & Quality Standards
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-sky-400/70" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-sky-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <span>[ 06 // SOURCE VAULT & TECHNICAL SPECIFICATION GATES ]</span>
@@ -1339,27 +1338,26 @@ export default function WebDevDetailView({
 
         {/* 3-Card Bento Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-          {/* Card 1: Repository Gate (Adaptive Universal Standard) */}
+          {/* Card 1: Repository Gate (Adaptive: Public GitHub vs Private Repository) */}
           <div
-            className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 ${
+            className={`flex flex-col justify-between rounded-2xl border p-6 sm:p-7 shadow-lg transition-all duration-300 ${
               hasRepoUrl
-                ? "border-sky-500/35 bg-[#071018]/80 hover:border-sky-400/60 hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]"
-                : "border-white/10 bg-black/60 hover:border-white/20"
+                ? "border-emerald-500/30 bg-[#07130F]/70 hover:border-emerald-400/60"
+                : "border-amber-500/30 bg-[#140E0A]/70 hover:border-amber-400/50"
             }`}
           >
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-sky-400/60" />
-
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
+              {/* Card Status Indicator */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div
+                  className={`flex items-center gap-2 font-mono text-xs font-bold ${
+                    hasRepoUrl ? "text-emerald-300" : "text-amber-300"
+                  }`}
+                >
                   {hasRepoUrl ? (
-                    <FolderGit2 className="h-4 w-4 text-sky-400" />
+                    <FolderGit2 className="h-4 w-4 text-emerald-400" />
                   ) : (
-                    <Lock className="h-4 w-4 text-slate-400" />
+                    <Lock className="h-4 w-4 text-amber-400" />
                   )}
                   <span>
                     {hasRepoUrl
@@ -1367,73 +1365,73 @@ export default function WebDevDetailView({
                       : "RESTRICTED PRIVATE REPOSITORY"}
                   </span>
                 </div>
-                {hasRepoUrl ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/40 bg-sky-950/60 px-2.5 py-0.5 font-mono text-[10px] text-sky-300 font-semibold shadow-[0_0_10px_rgba(56,189,248,0.2)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />PUBLIC</span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 font-mono text-[10px] text-slate-400 font-semibold">
-                    <Lock className="h-3 w-3" />PRIVATE</span>
-                )}
+                <span
+                  className={`h-2 w-2 rounded-full ${
+                    hasRepoUrl
+                      ? "bg-emerald-400 animate-pulse"
+                      : "bg-amber-400"
+                  }`}
+                />
               </div>
 
+              {/* Title & Description */}
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {hasRepoUrl ? "GitHub Repository" : "Private Commercial Repository"}
+                {hasRepoUrl ? "GitHub Repository" : "Private Repository"}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
                 {hasRepoUrl
-                  ? "Explore the complete project repository on GitHub, including production source code, commit history, architectural assets, and technical documentation."
-                  : "Source code access is restricted under non-disclosure agreements (NDA) or proprietary commercial rights. No public repository is published."}
+                  ? "Open-access repository containing production source code, commit history, build scripts, and modular directory structures for inspection."
+                  : "Source code is private and protected by proprietary enterprise licensing or client NDA agreement. No public mirror is available for this project."}
               </p>
 
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">ACCESS CLEARANCE:</span>
-                  <span className={hasRepoUrl ? "text-sky-300 font-semibold" : "text-slate-400 font-semibold"}>
-                    {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">VCS GATEWAY:</span>
-                  <span className="text-slate-200">GitHub Cloud VCS</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">SECURITY AUDIT:</span>
-                  <span className={hasRepoUrl ? "text-emerald-400 font-semibold" : "text-amber-400 font-semibold"}>
-                    {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
-                  </span>
-                </div>
+              {/* Badges */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {hasRepoUrl ? (
+                  <>
+                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
+                      BRANCH // MAIN
+                    </span>
+                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
+                      STATUS // VERIFIED
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
+                      CLEARANCE // INTERNAL
+                    </span>
+                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
+                      PROPRIETARY // NDA
+                    </span>
+                  </>
+                )}
               </div>
             </div>
 
+            {/* Action / Status Button */}
             {hasRepoUrl && project.repoUrl ? (
               <a
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => onTriggerPulse?.()}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-500 px-5 py-3 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(56,189,248,0.35)] hover:scale-[1.01]"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-5 py-3 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:scale-[1.02]"
               >
                 <span>ACCESS REPOSITORY</span>
                 <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             ) : (
-              <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                <Lock className="h-3.5 w-3.5 text-slate-600" />
+              <div className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed">
+                <Lock className="h-4 w-4 text-amber-400/80" />
                 <span>RESTRICTED ACCESS</span>
               </div>
             )}
           </div>
 
           {/* Card 2: Technical Documentation & Specs Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#070D18]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60 hover:shadow-[0_8px_32px_rgba(56,189,248,0.2)]">
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-sky-400/60" />
-
+          <div className="flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#0C101D]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60">
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
                   <FileText className="h-4 w-4 text-sky-400" />
                   <span>TECHNICAL DOCUMENTATION</span>
@@ -1446,168 +1444,70 @@ export default function WebDevDetailView({
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
                 {technicalDocumentation.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
                 {technicalDocumentation.description}
               </p>
 
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
+              {/* Specs List */}
+              <div className="space-y-2 mb-6">
                 {technicalDocumentation.specs.map((sp, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-slate-400">
-                    <span className="text-[11px] uppercase">{sp.label}:</span>
-                    <span className="text-slate-200 font-semibold">{sp.value}</span>
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 px-3 py-1.5 font-mono text-[11px]"
+                  >
+                    <span className="text-slate-400">{sp.label}</span>
+                    <span className="font-bold text-sky-300">{sp.value}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {hasRepoUrl && project.repoUrl ? (
-              <a
-                href={`${project.repoUrl}#readme`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-3 font-mono text-xs font-semibold text-sky-300 hover:bg-sky-500/20 hover:text-white transition-all"
-              >
-                <FileCode2 className="h-4 w-4 text-sky-400" />
-                <span>INSPECT TECHNICAL SPECS</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            ) : (
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-3 font-mono text-xs font-semibold text-sky-300 hover:bg-sky-500/20 hover:text-white transition-all"
-              >
-                <FileText className="h-4 w-4 text-sky-400" />
-                <span>INSPECT TECHNICAL SPECS</span>
-              </button>
-            )}
+            <div className="rounded-xl border border-sky-400/20 bg-sky-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-sky-300">
+              STATUS: ARCHIVED & READY FOR AUDIT
+            </div>
           </div>
 
-          {/* Card 3: Quality Engineering & Architecture Invariants */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#070D18]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60 hover:shadow-[0_8px_32px_rgba(56,189,248,0.2)]">
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-sky-400/60" />
-
+          {/* Card 3: Architecture & Quality Card */}
+          <div className="flex flex-col justify-between rounded-2xl border border-indigo-500/30 bg-[#0B0D1B]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-indigo-400/60">
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
-                  <ShieldCheck className="h-4 w-4 text-sky-400" />
-                  <span>ARCHITECTURE & QUALITY PROTOCOL</span>
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
+                  <ShieldCheck className="h-4 w-4 text-indigo-400" />
+                  <span>QUALITY & VALIDATION</span>
                 </div>
-                <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300">
-                  100% TYPE-SAFE
+                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300">
+                  {architectureQuality.status}
                 </span>
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                Production Integrity Gates
+                {architectureQuality.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                Rigorous static verification ensuring end-to-end type safety, runtime fault-isolation, zero-downtime rollback safety, and sub-second deterministic render performance.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
+                {architectureQuality.description}
               </p>
 
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">STATIC TYPING:</span>
-                  <span className="text-emerald-400 font-semibold">Strict TypeScript / ESLint</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">CONTAINER SPEC:</span>
-                  <span className="text-slate-200 font-semibold">OCI Multi-Stage Docker</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">LIGHTHOUSE TARGET:</span>
-                  <span className="text-sky-300 font-semibold">&gt; 95 Performance Score</span>
-                </div>
+              {/* Quality Badges */}
+              <div className="grid grid-cols-2 gap-2 mb-6">
+                {architectureQuality.badges.map((bg, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-1.5 rounded-lg border border-indigo-400/20 bg-indigo-400/10 p-2 font-mono text-[10px] text-indigo-200 font-semibold"
+                  >
+                    <CheckCircle2 className="h-3 w-3 text-emerald-400 shrink-0" />
+                    <span className="truncate">{bg}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-sky-500/30 bg-sky-500/10 px-4 py-3 font-mono text-xs font-semibold text-sky-300">
-              <Check className="h-4 w-4 text-sky-400" />
-              <span>QUALITY_GATES_VERIFIED</span>
+            <div className="rounded-xl border border-indigo-400/20 bg-indigo-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-indigo-300">
+              SECURITY: HARDENED AGAINST VULNERABILITIES
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-          FULLSCREEN LIGHTBOX MODAL FOR INTERFACE SHOWCASE
-          ========================================================================= */}
-      {isLightboxOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8"
-        >
-          {/* Top HUD Lightbox Control Bar */}
-          <div className="absolute top-4 inset-x-4 sm:inset-x-8 flex items-center justify-between z-10 border-b border-white/10 pb-3">
-            <div className="flex items-center gap-2 font-mono text-xs text-sky-400">
-              <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-              <span>OPTICAL_HUD // FULLSCREEN SHOWCASE VIEWPORT</span>
-            </div>
-            <button
-              onClick={() => setIsLightboxOpen(false)}
-              className="rounded-full border border-white/20 bg-white/10 p-2 text-white hover:bg-rose-500 hover:border-rose-400 transition-colors"
-              aria-label="Close Lightbox"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Fullscreen Image Container */}
-          <div className="relative h-[80vh] w-full max-w-6xl overflow-hidden rounded-2xl border border-sky-400/40 bg-black/80">
-            <Image
-              src={
-                imgErrors[interfaceShowcase[activeImageIndex]?.imageUrl]
-                  ? "/images/projects/SiLelo - Online Auction 1.webp"
-                  : interfaceShowcase[activeImageIndex]?.imageUrl ||
-                    "/images/projects/SiLelo - Online Auction 1.webp"
-              }
-              alt={interfaceShowcase[activeImageIndex]?.caption || project.title}
-              fill
-              className="object-contain"
-            />
-
-            {/* Lightbox Prev / Next */}
-            {interfaceShowcase.length > 1 && (
-              <>
-                <button
-                  onClick={() =>
-                    setActiveImageIndex((prev) =>
-                      prev === 0 ? interfaceShowcase.length - 1 : prev - 1
-                    )
-                  }
-                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-sky-400/40 bg-black/70 p-3 text-sky-300 hover:bg-sky-400 hover:text-black backdrop-blur-md transition-all"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <button
-                  onClick={() =>
-                    setActiveImageIndex((prev) =>
-                      prev === interfaceShowcase.length - 1 ? 0 : prev + 1
-                    )
-                  }
-                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-sky-400/40 bg-black/70 p-3 text-sky-300 hover:bg-sky-400 hover:text-black backdrop-blur-md transition-all"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </>
-            )}
-
-            {/* Caption on Lightbox Bottom */}
-            <div className="absolute bottom-0 inset-x-0 bg-black/90 p-4 font-mono text-xs text-slate-300 border-t border-white/10 text-center">
-              {interfaceShowcase[activeImageIndex]?.caption}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
   );
 }

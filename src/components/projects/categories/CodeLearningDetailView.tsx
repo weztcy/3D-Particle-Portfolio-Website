@@ -778,10 +778,10 @@ export default function CodeLearningDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col h-full">
-            <div className="flex flex-col h-full flex-1">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="flex flex-col flex-1 h-full">
               {/* Header Bar */}
-              <div className="flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-950/40 px-4 py-2 text-xs font-mono text-orange-300">
+              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-950/40 px-4 py-2 text-xs font-mono text-orange-300">
                 <span className="flex items-center gap-2 text-orange-200">
                   <Terminal className="h-3.5 w-3.5 text-orange-400" />
                   &gt; CURRICULUM_RUNTIME // SYS.VIEWPORT
@@ -790,7 +790,7 @@ export default function CodeLearningDetailView({
               </div>
 
               {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-orange-500/25 bg-[#1A0F08]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex flex-col flex-1 justify-between">
+              <div className="rounded-b-xl border-x border-b border-orange-500/25 bg-[#1A0F08]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-orange-500/30 bg-black/60 shadow-lg">
@@ -821,7 +821,7 @@ export default function CodeLearningDetailView({
                 </p>
 
                 {/* Capability Badges Strip (Max 3) */}
-                <div className="pt-4 border-t border-orange-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-orange-500/20 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
                     <CheckCircle2 className="h-3 w-3 text-orange-400" />
                     Hands-On Compilation Units
@@ -840,7 +840,7 @@ export default function CodeLearningDetailView({
           </div>
 
           {/* Right Pane (35%): Learning Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-orange-500/30 bg-[#1A0F08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-orange-500/30 bg-[#1A0F08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-orange-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-orange-400" />

@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import {
+  Activity,
   ArrowLeft,
   ArrowUpRight,
   BarChart2,
@@ -49,15 +50,10 @@ export default function DataAnalyticsDetailView({
 }: DataAnalyticsDetailViewProps) {
   // Presentation Slide State
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [isSlideFullscreen, setIsSlideFullscreen] = useState(false);
   const [selectedToolFilter, setSelectedToolFilter] = useState<
     "All" | "Core Technologies" | "Analytics & Viz Tools"
   >("All");
   const [slideErrors, setSlideErrors] = useState<Record<string, boolean>>({});
-
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
 
   const handleSlideImgError = useCallback((src: string) => {
     setSlideErrors((prev) => ({ ...prev, [src]: true }));
@@ -80,11 +76,11 @@ export default function DataAnalyticsDetailView({
 
   const telemetry = project.telemetryMatrix || {
     projectType: projectInfo.projectType,
-    targetPlatform: "SQL Server / Python / Tableau BI",
-    primaryDomain: projectInfo.dataDomain,
-    architecturePipeline: project.architectureSummary || "Vectorized Data Extraction + Diagnostic Modeling",
-    projectStatus: projectInfo.developmentStatus,
-    projectYear: projectInfo.analysisYear,
+    targetPlatform: (projectInfo as any).platform || (project as any).platform || "Cloud Analytics / Bi-Platform",
+    primaryDomain: projectInfo.dataDomain || "Enterprise Business Intelligence",
+    architecturePipeline: (project as any).methodologySummary || project.architectureSummary || "Automated ETL Ingestion + Retention Modeling",
+    projectStatus: projectInfo.developmentStatus || project.status || "Completed",
+    projectYear: projectInfo.analysisYear || project.year || "2026",
   };
 
   // Section 2: Business Context, Objectives & Dataset Overview
@@ -286,30 +282,6 @@ export default function DataAnalyticsDetailView({
       caption: `Telemetry slide ${i + 1} delivering synthesized analytical conclusions, cohort segmentation breakdown, and financial impact trajectories.`,
     }));
 
-  // Keyboard navigation for fullscreen presentation & hero modal
-  useEffect(() => {
-    if (!isSlideFullscreen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsSlideFullscreen(false);
-      }
-      if (isSlideFullscreen) {
-        if (e.key === "ArrowLeft") {
-          setActiveSlideIndex((prev) =>
-            prev === 0 ? presentationSlides.length - 1 : prev - 1
-          );
-        }
-        if (e.key === "ArrowRight") {
-          setActiveSlideIndex((prev) =>
-            prev === presentationSlides.length - 1 ? 0 : prev + 1
-          );
-        }
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isSlideFullscreen, presentationSlides.length]);
-
   const keyFindings = project.keyFindings || [
     {
       metricValue: "+24.8%",
@@ -344,6 +316,8 @@ export default function DataAnalyticsDetailView({
       impactTag: "GROWTH LTV",
     },
   ];
+
+  const heroImage = project.imageUrl || (presentationSlides[0]?.imageUrl) || "/images/projects/SiLelo - Online Auction 1.webp";
 
   const recommendationsAndConclusion =
     project.recommendationsAndConclusion || {
@@ -402,14 +376,14 @@ export default function DataAnalyticsDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // ANALYTICAL CONSOLE & BUSINESS CONTEXT ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-[#070D0E]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(16,185,129,0.15)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-[#070D0E]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
         <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-emerald-400/70" />
         <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-emerald-400/70" />
         <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-emerald-400/70" />
         <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-emerald-400/70" />
 
-        {/* Ambient Emerald Glow */}
+        {/* Ambient Glow */}
         <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-emerald-600/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
 
@@ -440,10 +414,10 @@ export default function DataAnalyticsDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col h-full">
-            <div className="flex flex-col h-full flex-1">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="flex flex-col flex-1 h-full">
               {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
+              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
                 <span className="flex items-center gap-2 text-emerald-200">
                   <Terminal className="h-3.5 w-3.5 text-emerald-400" />
                   &gt; ANALYTICS_RUNTIME // SYS.VIEWPORT
@@ -452,49 +426,48 @@ export default function DataAnalyticsDetailView({
               </div>
 
               {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-emerald-500/25 bg-[#070D0E]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex flex-col flex-1 justify-between">
-                {/* 16:9 Hero Viewport Container */}
-                {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-emerald-500/30 bg-black/60 shadow-lg">
+              <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-emerald-500/25 bg-[#070D0E]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
+                <div>
+                  {/* 16:9 Hero Viewport Container — Pure static display */}
+                  {heroImage && (
+                    <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-emerald-500/30 bg-black/60 shadow-lg">
+                      {/* Optical HUD Crosshairs */}
+                      <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-emerald-400/80" />
+                      <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-emerald-400/80" />
+                      <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-emerald-400/80" />
+                      <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-emerald-400/80" />
 
-                    {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-emerald-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-emerald-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-emerald-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-emerald-400/80" />
+                      {/* Hero Image */}
+                      <Image
+                        src={heroImage}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top"
+                        priority
+                      />
+                    </div>
+                  )}
 
-                    {/* Hero Image with smooth hover scale */}
-                    
-                    {/* Hero Image */}
-                    <Image
-                      src={heroImage}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top"
-                      priority
-                    />
-                  </div>
-                )}
-
-                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
-                  {projectDescription.length > 500
-                    ? `${projectDescription.slice(0, 500).trim()}...`
-                    : projectDescription}
-                </p>
+                  <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
+                    {projectDescription.length > 500
+                      ? `${projectDescription.slice(0, 500).trim()}...`
+                      : projectDescription}
+                  </p>
+                </div>
 
                 {/* Capability Badges Strip (Max 3) */}
-                <div className="pt-4 border-t border-emerald-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-emerald-500/20 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
-                    <BarChart2 className="h-3 w-3 text-emerald-400" />
-                    Quantitative EDA
+                    <Database className="h-3 w-3 text-emerald-400" />
+                    Automated ETL Ingestion
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+                    <Activity className="h-3 w-3 text-emerald-400" />
+                    Predictive Retention Modeling
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
                     <PieChart className="h-3 w-3 text-emerald-400" />
-                    Diagnostic Modeling
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
-                    <TrendingUp className="h-3 w-3 text-emerald-400" />
-                    Actionable ROI
+                    CLV Cohort Segmentation
                   </span>
                 </div>
               </div>
@@ -502,7 +475,7 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-emerald-500/30 bg-[#070D0E]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-emerald-500/30 bg-[#070D0E]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-emerald-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-emerald-400" />
@@ -542,13 +515,13 @@ export default function DataAnalyticsDetailView({
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
                   <dt className="text-[10px] uppercase text-emerald-400/80">Engineering Pipeline</dt>
-                  <dd className="text-emerald-300 font-semibold flex items-center gap-1.5">
-                    <Workflow className="h-3.5 w-3.5 text-emerald-400" />
+                  <dd className="text-slate-300 text-[11px] truncate flex items-center gap-1.5">
+                    <Workflow className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{telemetry.architecturePipeline}</span>
                   </dd>
                 </div>
 
-                {/* 5. Testing & Audit */}
+                {/* 5. Testing & Audit — Clean Icon + Text */}
                 <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
                   <dt className="text-[10px] uppercase text-emerald-400/80">Testing & Audit</dt>
                   <dd className="text-emerald-300 font-semibold flex items-center gap-1.5">
@@ -560,24 +533,24 @@ export default function DataAnalyticsDetailView({
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
                   <dt className="text-[10px] uppercase text-emerald-400/80">Project Status</dt>
-                  <dd className="text-emerald-300 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                    {telemetry.projectStatus}
+                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    <span>{telemetry.projectStatus}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-1">
                   <dt className="text-[10px] uppercase text-emerald-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{telemetry.projectYear}</dd>
+                  <dd className="text-slate-200 font-semibold">{project.year || "2026"}</dd>
                 </div>
               </dl>
 
-              {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
+              {/* VCS Repository Access Sub-Card */}
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   hasRepoUrl
-                    ? "border-emerald-500/35 bg-[#061210]/90 hover:border-emerald-400/60 hover:shadow-[0_0_25px_rgba(16,185,129,0.2)]"
+                    ? "border-emerald-500/35 bg-[#0C1210]/90 hover:border-emerald-400/60 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)]"
                     : "border-white/10 bg-black/60 hover:border-white/20"
                 }`}
               >
@@ -602,7 +575,7 @@ export default function DataAnalyticsDetailView({
                       </span>
                     </div>
                     {hasRepoUrl ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-2 py-0.5 font-mono text-[9px] text-emerald-300 font-semibold shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-2 py-0.5 font-mono text-[9px] text-emerald-300 font-semibold shadow-[0_0_10px_rgba(255,255,255,0.05)]">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />PUBLIC
                       </span>
                     ) : (
@@ -638,7 +611,7 @@ export default function DataAnalyticsDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-[1.01]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -716,7 +689,7 @@ export default function DataAnalyticsDetailView({
                   >
                     <div className="flex items-center justify-between font-mono text-[11px] text-emerald-400 font-bold mb-1.5">
                       <span>{obj.targetMetric || `TARGET_0${idx + 1}`}</span>
-                      <span className="text-[10px] text-emerald-300 font-medium">
+                      <span className="text-[10px] text-cyan-400 font-medium">
                         ANSWERED
                       </span>
                     </div>
@@ -737,14 +710,14 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Dataset Overview (5-Parameter Specs) */}
-          <div className="rounded-2xl border border-emerald-500/30 bg-[#071410]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+          <div className="rounded-2xl border border-cyan-500/30 bg-[#071318]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.05)]">
             <div>
-              <div className="flex items-center justify-between border-b border-emerald-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300 tracking-wider">
-                  <Database className="h-4 w-4 text-emerald-400" />
+              <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-300 tracking-wider">
+                  <Database className="h-4 w-4 text-cyan-400" />
                   <span>[ DATASET_PROFILE // METADATA SPECS ]</span>
                 </div>
-                <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="rounded bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 font-mono text-[10px] text-cyan-300 font-bold">
                   LONGITUDINAL
                 </span>
               </div>
@@ -781,7 +754,7 @@ export default function DataAnalyticsDetailView({
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. VARIABLES (COLS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-300">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-cyan-300">
                       {datasetOverview.variablesCount}
                     </span>
                   </div>
@@ -798,7 +771,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="pt-3 border-t border-emerald-500/15 font-mono text-[10px] text-emerald-400/80">
+            <div className="pt-3 border-t border-cyan-500/15 font-mono text-[10px] text-cyan-400/80">
               INTEGRITY: Zero synthetic distortion; 100% verified enterprise ledger schema.
             </div>
           </div>
@@ -918,7 +891,7 @@ export default function DataAnalyticsDetailView({
                   <LineChart className="h-4 w-4 text-emerald-400" />
                   <span>[ METHODOLOGY // STATISTICAL APPROACH ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-400 font-semibold">
+                <span className="font-mono text-[10px] text-cyan-400">
                   RIGOROUS
                 </span>
               </div>
@@ -931,11 +904,11 @@ export default function DataAnalyticsDetailView({
                 {analyticalMethodology.methods.map((met, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#081410]/80 p-3.5 transition-all hover:border-emerald-400/40"
+                    className="rounded-xl border border-white/10 bg-[#081216]/80 p-3.5 transition-all hover:border-cyan-400/40"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-cyan-300 mb-1">
                       <span>{met.name}</span>
-                      <span className="rounded bg-emerald-400/10 px-1.5 py-0.2 font-mono text-[9px] text-emerald-400">
+                      <span className="rounded bg-cyan-400/10 px-1.5 py-0.2 font-mono text-[9px] text-cyan-400">
                         {met.badge}
                       </span>
                     </div>
@@ -1017,31 +990,46 @@ export default function DataAnalyticsDetailView({
           )}
         </div>
 
-        {/* Categorized Tech Grid */}
-        <div className="relative z-10 space-y-6">
+        {/* Spec Micro-Chip Grid */}
+        <div className="relative z-10 space-y-8">
           {/* Group 1: Core Technologies */}
           {(selectedToolFilter === "All" ||
             selectedToolFilter === "Core Technologies") && (
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-emerald-300 uppercase tracking-wider border-b border-emerald-500/15 pb-1.5">
-                <Terminal className="h-3.5 w-3.5 text-emerald-400" />
-                <span>Core Programming & Databases</span>
-                <span className="text-[10px] text-emerald-400/70">
-                  ({coreTechnologies.length} TECHNOLOGIES)
-                </span>
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 mb-4">
+                <Terminal className="h-3.5 w-3.5" />
+                <span>DOMAIN 01 // CORE PROGRAMMING, DATABASES & LIBRARIES</span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {coreTechnologies.map((tech, idx) => (
                   <div
                     key={idx}
-                    className="group relative flex items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-[#070D0E]/90 p-3 transition-all hover:border-emerald-400/50 hover:bg-emerald-500/10 hover:-translate-y-0.5"
+                    className="group relative rounded-2xl border border-white/10 bg-[#0A1412]/70 p-4 transition-all duration-300 hover:border-emerald-400/50 hover:bg-[#0C1B18] hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
                   >
-                    <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-400/30 bg-emerald-500/15 text-emerald-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                      {tech.name.substring(0, 2).toUpperCase()}
+                    <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-emerald-400/40 group-hover:bg-emerald-400 group-hover:scale-125 transition-all" />
+
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.15)] group-hover:scale-105 transition-transform">
+                        <Terminal className="h-4 w-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-mono text-xs sm:text-sm font-bold text-white truncate">
+                          {tech.name}
+                        </div>
+                        <span className="font-mono text-[10px] text-emerald-400 uppercase tracking-wider">
+                          CORE ENGINE
+                        </span>
+                      </div>
                     </div>
-                    <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-emerald-200 truncate">
-                      {tech.name}
-                    </span>
+
+                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-500 block mb-0.5">
+                        ANALYTICAL ROLE
+                      </span>
+                      <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                        {tech.role}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1051,26 +1039,41 @@ export default function DataAnalyticsDetailView({
           {/* Group 2: Analytics & Visualization Tools */}
           {(selectedToolFilter === "All" ||
             selectedToolFilter === "Analytics & Viz Tools") && (
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-emerald-300 uppercase tracking-wider border-b border-emerald-500/15 pb-1.5">
-                <BarChart2 className="h-3.5 w-3.5 text-emerald-400" />
-                <span>Analytics & Visualization Platforms</span>
-                <span className="text-[10px] text-emerald-400/70">
-                  ({analyticsVizTools.length} TECHNOLOGIES)
-                </span>
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-400 mb-4">
+                <BarChart2 className="h-3.5 w-3.5" />
+                <span>DOMAIN 02 // ANALYTICS, BI WORKSPACES & VISUALIZATION TOOLS</span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {analyticsVizTools.map((tool, idx) => (
                   <div
                     key={idx}
-                    className="group relative flex items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-[#070D0E]/90 p-3 transition-all hover:border-emerald-400/50 hover:bg-emerald-500/10 hover:-translate-y-0.5"
+                    className="group relative rounded-2xl border border-white/10 bg-[#071318]/70 p-4 transition-all duration-300 hover:border-cyan-400/50 hover:bg-[#0B1E24] hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
                   >
-                    <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-400/30 bg-emerald-500/15 text-emerald-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                      {tool.name.substring(0, 2).toUpperCase()}
+                    <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-cyan-400/40 group-hover:bg-cyan-400 group-hover:scale-125 transition-all" />
+
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.15)] group-hover:scale-105 transition-transform">
+                        <BarChart2 className="h-4 w-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-mono text-xs sm:text-sm font-bold text-white truncate">
+                          {tool.name}
+                        </div>
+                        <span className="font-mono text-[10px] text-cyan-400 uppercase tracking-wider">
+                          BI & REPORTING
+                        </span>
+                      </div>
                     </div>
-                    <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-emerald-200 truncate">
-                      {tool.name}
-                    </span>
+
+                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-500 block mb-0.5">
+                        WORKBENCH FUNCTION
+                      </span>
+                      <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                        {tool.role}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1115,14 +1118,7 @@ export default function DataAnalyticsDetailView({
                 SLIDE {String(activeSlideIndex + 1).padStart(2, "0")} /{" "}
                 {String(presentationSlides.length).padStart(2, "0")}
               </span>
-              <button
-                onClick={() => setIsSlideFullscreen(true)}
-                className="inline-flex items-center gap-1 rounded border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-mono text-emerald-300 hover:bg-emerald-400/20 transition-all"
-                title="Fullscreen Slide View"
-              >
-                <Maximize2 className="h-3 w-3" />
-                <span className="hidden sm:inline">FULLSCREEN_DECK</span>
-              </button>
+              
             </div>
           </div>
 
@@ -1282,15 +1278,15 @@ export default function DataAnalyticsDetailView({
                 {recommendationsAndConclusion.recommendations.map((rec, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#071410]/80 p-3.5 transition-all hover:border-emerald-400/30"
+                    className="rounded-xl border border-white/10 bg-[#071318]/80 p-3.5 transition-all hover:border-cyan-400/30"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] mb-1">
-                      <span className="font-bold text-emerald-300">{rec.title}</span>
+                      <span className="font-bold text-cyan-300">{rec.title}</span>
                       <span
                         className={`rounded px-1.5 py-0.2 font-bold ${
                           rec.priority === "HIGH"
-                            ? "bg-emerald-950/60 text-emerald-300 border border-emerald-400/40"
-                            : "bg-emerald-950/30 text-emerald-400/80 border border-emerald-500/20"
+                            ? "bg-rose-500/15 text-rose-300 border border-rose-500/30"
+                            : "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
                         }`}
                       >
                         {rec.priority} PRIORITY
@@ -1321,18 +1317,22 @@ export default function DataAnalyticsDetailView({
         </div>
       </section>
 
-            {/* =========================================================================
-          SECTION 6 — [ 06 // ANALYTICAL ARTIFACTS & DATA DELIVERABLES ]
+      {/* =========================================================================
+          SECTION 6 — PROJECT RESOURCES (SECTION TERAKHIR)
+          Layout: 3-Card Bento Grid Simetris
+          Card 1: Analysis Repository Card (Adaptive GitHub vs Private Repo)
+          Card 2: Presentation & Report Card
+          Card 3: Dataset & Supporting Files Card
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-[#06120D]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-[#070D0E]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-emerald-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-emerald-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-emerald-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-emerald-400/70" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-emerald-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>[ 06 // ANALYTICAL ARTIFACTS & DATA DELIVERABLES ]</span>
@@ -1344,69 +1344,70 @@ export default function DataAnalyticsDetailView({
 
         {/* 3-Card Bento Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-          {/* Card 1: Repository Gate (Adaptive Universal Standard) */}
+          {/* Card 1: Analysis Repository Gate (Adaptive) */}
           <div
-            className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 ${
+            className={`flex flex-col justify-between rounded-2xl border p-6 sm:p-7 shadow-lg transition-all duration-300 ${
               hasRepoUrl
-                ? "border-emerald-500/35 bg-[#07130F]/80 hover:border-emerald-400/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]"
-                : "border-white/10 bg-black/60 hover:border-white/20"
+                ? "border-emerald-500/30 bg-[#07130F]/70 hover:border-emerald-400/60"
+                : "border-amber-500/30 bg-[#140E0A]/70 hover:border-amber-400/50"
             }`}
           >
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-emerald-400/60" />
-
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div
+                  className={`flex items-center gap-2 font-mono text-xs font-bold ${
+                    hasRepoUrl ? "text-emerald-300" : "text-amber-300"
+                  }`}
+                >
                   {hasRepoUrl ? (
                     <FolderGit2 className="h-4 w-4 text-emerald-400" />
                   ) : (
-                    <Lock className="h-4 w-4 text-slate-400" />
+                    <Lock className="h-4 w-4 text-amber-400" />
                   )}
                   <span>
                     {hasRepoUrl
-                      ? "PUBLIC GITHUB REPOSITORY"
+                      ? "PUBLIC CODE REPOSITORY"
                       : "RESTRICTED PRIVATE REPOSITORY"}
                   </span>
                 </div>
-                {hasRepoUrl ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-2.5 py-0.5 font-mono text-[10px] text-emerald-300 font-semibold shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />PUBLIC</span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 font-mono text-[10px] text-slate-400 font-semibold">
-                    <Lock className="h-3 w-3" />PRIVATE</span>
-                )}
+                <span
+                  className={`h-2 w-2 rounded-full ${
+                    hasRepoUrl
+                      ? "bg-emerald-400 animate-pulse"
+                      : "bg-amber-400"
+                  }`}
+                />
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {hasRepoUrl ? "GitHub Repository" : "Private Commercial Repository"}
+                {hasRepoUrl ? "GitHub Repository" : "Private Repository"}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
                 {hasRepoUrl
-                  ? "Explore the complete project repository on GitHub, including production source code, commit history, architectural assets, and technical documentation."
-                  : "Source code access is restricted under non-disclosure agreements (NDA) or proprietary commercial rights. No public repository is published."}
+                  ? "Open-access data analytics codebase housing Jupyter notebooks, automated SQL transformations, ETL pipeline scripts, and environment definitions."
+                  : "Analytics scripts and proprietary models are restricted under enterprise client NDA and confidential trade-secret governance. Public mirror disabled."}
               </p>
 
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">ACCESS CLEARANCE:</span>
-                  <span className={hasRepoUrl ? "text-emerald-300 font-semibold" : "text-slate-400 font-semibold"}>
-                    {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">VCS GATEWAY:</span>
-                  <span className="text-slate-200">GitHub Cloud VCS</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">SECURITY AUDIT:</span>
-                  <span className={hasRepoUrl ? "text-emerald-400 font-semibold" : "text-amber-400 font-semibold"}>
-                    {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
-                  </span>
-                </div>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {hasRepoUrl ? (
+                  <>
+                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
+                      SCRIPTS // PYTHON & SQL
+                    </span>
+                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
+                      STATUS // VERIFIED
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
+                      CLEARANCE // CONFIDENTIAL
+                    </span>
+                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
+                      ENTERPRISE // NDA
+                    </span>
+                  </>
+                )}
               </div>
             </div>
 
@@ -1416,98 +1417,85 @@ export default function DataAnalyticsDetailView({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => onTriggerPulse?.()}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 px-5 py-3 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:scale-[1.01]"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-5 py-3 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:scale-[1.02]"
               >
                 <span>ACCESS REPOSITORY</span>
                 <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             ) : (
-              <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                <Lock className="h-3.5 w-3.5 text-slate-600" />
+              <div className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed">
+                <Lock className="h-4 w-4 text-amber-400/80" />
                 <span>RESTRICTED ACCESS</span>
               </div>
             )}
           </div>
 
           {/* Card 2: Presentation & Report Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-[#0A1412]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/60 hover:shadow-[0_8px_32px_rgba(16,185,129,0.2)]">
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-emerald-400/60" />
-
+          <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-[#0A1412]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/60">
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300">
                   <FileText className="h-4 w-4 text-emerald-400" />
-                  <span>EXECUTIVE DECK & REPORT</span>
+                  <span>PRESENTATION & REPORT</span>
                 </div>
                 <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300">
-                  SYNTHESIS_v1.0
+                  PDF / PPTX READY
                 </span>
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                Executive Synthesis Report
+                Executive Report & Slide Deck
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                Synthesized boardroom deliverables translating econometric models into concrete operational optimizations and revenue projections.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
+                Comprehensive executive dossier containing the 25-slide presentation, methodology appendix, statistical significance tables, and quarterly ROI forecast.
               </p>
 
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">TOTAL SLIDES:</span>
-                  <span className="text-emerald-300 font-semibold">{presentationSlides.length} Synthesis Slides</span>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 px-3 py-1.5 font-mono text-[11px]">
+                  <span className="text-slate-400">DOCUMENT FORMAT</span>
+                  <span className="font-bold text-emerald-300">PDF & PPTX SLIDES</span>
                 </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">KEY FINDINGS:</span>
-                  <span className="text-slate-200 font-semibold">{keyFindings.length} Validated Metrics</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">REPORT FORMAT:</span>
-                  <span className="text-slate-200 font-semibold">Structured Technical Brief</span>
+                <div className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 px-3 py-1.5 font-mono text-[11px]">
+                  <span className="text-slate-400">DECK LENGTH</span>
+                  <span className="font-bold text-white">25 SLIDES // COMPLETE</span>
                 </div>
               </div>
             </div>
 
-            <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 font-mono text-xs font-semibold text-emerald-300">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span>REPORT_SYNTHESIS_VERIFIED</span>
-            </div>
+            
           </div>
 
-          {/* Card 3: Supporting Files & Data Artifacts */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-[#0A1412]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/60 hover:shadow-[0_8px_32px_rgba(16,185,129,0.2)]">
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-emerald-400/60" />
-
+          {/* Card 3: Dataset & Supporting Files Card */}
+          <div className="flex flex-col justify-between rounded-2xl border border-cyan-500/30 bg-[#071318]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-cyan-400/60">
             <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300">
-                  <Database className="h-4 w-4 text-emerald-400" />
-                  <span>DATASET & SCHEMA MANIFEST</span>
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-300">
+                  <HardDrive className="h-4 w-4 text-cyan-400" />
+                  <span>DATASET & ARTIFACTS</span>
                 </div>
-                <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300">
+                <span className="rounded bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 font-mono text-[10px] text-cyan-300">
                   {supportingFiles.length} FILES
                 </span>
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                Analytical Data Artifacts
+                Processed Datasets & Workbooks
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                Cleaned dataset schemas, ETL pipeline manifests, and verified transformation scripts enabling deterministic replication.
+                Processed transaction extracts, metadata schemas, and interactive Power BI workbooks available for reproducible research.
               </p>
 
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {supportingFiles.map((file, fIdx) => (
-                  <div key={fIdx} className="flex items-center justify-between text-slate-300">
-                    <span className="truncate pr-2 text-[11px]">{file.name}</span>
-                    <span className="font-mono text-[10px] text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded">
+              <div className="space-y-2 mb-6">
+                {supportingFiles.map((file, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 p-2 font-mono text-[10px]"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <FileSpreadsheet className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                      <span className="text-slate-200 truncate">{file.name}</span>
+                    </div>
+                    <span className="text-cyan-300 font-bold ml-2 shrink-0">
                       {file.format}
                     </span>
                   </div>
@@ -1515,87 +1503,13 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 font-mono text-xs font-semibold text-emerald-300">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span>SCHEMA_MANIFEST_VERIFIED</span>
+            <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-cyan-300">
+              STATUS: ARTIFACTS PACKAGED & AUDITED
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-          FULLSCREEN MODAL FOR PRESENTATION SLIDES
-          ========================================================================= */}
-      {isSlideFullscreen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8"
-        >
-          {/* Top Control Bar */}
-          <div className="absolute top-4 inset-x-4 sm:inset-x-8 flex items-center justify-between z-10 border-b border-white/10 pb-3">
-            <div className="flex items-center gap-2 font-mono text-xs text-emerald-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>OPTICAL_DECK // FULLSCREEN PRESENTATION VIEWER</span>
-            </div>
-            <button
-              onClick={() => setIsSlideFullscreen(false)}
-              className="rounded-full border border-white/20 bg-white/10 p-2 text-white hover:bg-rose-500 hover:border-rose-400 transition-colors"
-              aria-label="Close Presentation"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Fullscreen Stage */}
-          <div className="relative h-[80vh] w-full max-w-6xl overflow-hidden rounded-2xl border border-emerald-400/40 bg-black/80">
-            <Image
-              src={
-                slideErrors[presentationSlides[activeSlideIndex]?.imageUrl || ""]
-                  ? "/images/projects/SiLelo - Online Auction 1.webp"
-                  : presentationSlides[activeSlideIndex]?.imageUrl ||
-                    "/images/projects/SiLelo - Online Auction 1.webp"
-              }
-              alt={presentationSlides[activeSlideIndex]?.title || project.title}
-              fill
-              className="object-contain"
-            />
-
-            {/* Prev / Next Buttons */}
-            {presentationSlides.length > 1 && (
-              <>
-                <button
-                  onClick={() =>
-                    setActiveSlideIndex((prev) =>
-                      prev === 0 ? presentationSlides.length - 1 : prev - 1
-                    )
-                  }
-                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-emerald-400/40 bg-black/70 p-3 text-emerald-300 hover:bg-emerald-400 hover:text-black backdrop-blur-md transition-all"
-                  aria-label="Previous Slide"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <button
-                  onClick={() =>
-                    setActiveSlideIndex((prev) =>
-                      prev === presentationSlides.length - 1 ? 0 : prev + 1
-                    )
-                  }
-                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-emerald-400/40 bg-black/70 p-3 text-emerald-300 hover:bg-emerald-400 hover:text-black backdrop-blur-md transition-all"
-                  aria-label="Next Slide"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </>
-            )}
-
-            {/* Bottom Caption Bar */}
-            <div className="absolute bottom-0 inset-x-0 bg-black/90 p-4 font-mono text-xs text-slate-300 border-t border-white/10 text-center">
-              {presentationSlides[activeSlideIndex]?.caption}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
   );
 }

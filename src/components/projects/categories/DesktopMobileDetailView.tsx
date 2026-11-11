@@ -56,7 +56,6 @@ export default function DesktopMobileDetailView({
 }: DesktopMobileDetailViewProps) {
   // Image Showcase State
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Tech Stack HUD Filter State
@@ -80,30 +79,6 @@ export default function DesktopMobileDetailView({
     (project.images && project.images.length > 0 ? project.images[0] : null);
 
   const currentActiveImage = projectImages[activeImageIndex] || project.imageUrl || "";
-
-  // Keyboard navigation for lightbox & hero modal
-  useEffect(() => {
-    if (!isLightboxOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsLightboxOpen(false);
-      }
-      if (isLightboxOpen && projectImages.length > 0) {
-        if (e.key === "ArrowLeft") {
-          setActiveImageIndex((prev) =>
-            prev === 0 ? projectImages.length - 1 : prev - 1
-          );
-        }
-        if (e.key === "ArrowRight") {
-          setActiveImageIndex((prev) =>
-            prev === projectImages.length - 1 ? 0 : prev + 1
-          );
-        }
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isLightboxOpen, projectImages.length]);
 
   // Section 1: Overview & Information
   const projectDescription =
@@ -573,10 +548,10 @@ export default function DesktopMobileDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col h-full">
-            <div className="flex flex-col h-full flex-1">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="flex flex-col flex-1 h-full">
               {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-950/40 px-4 py-2 text-xs font-mono text-amber-300">
+              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-950/40 px-4 py-2 text-xs font-mono text-amber-300">
                 <span className="flex items-center gap-2 text-amber-200">
                   <Terminal className="h-3.5 w-3.5 text-amber-400" />
                   &gt; CLIENT_RUNTIME // SYS.VIEWPORT
@@ -585,7 +560,7 @@ export default function DesktopMobileDetailView({
               </div>
 
               {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-amber-500/25 bg-[#120E08]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex flex-col flex-1 justify-between">
+              <div className="rounded-b-xl border-x border-b border-amber-500/25 bg-[#120E08]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-amber-500/30 bg-black/60 shadow-lg">
@@ -616,7 +591,7 @@ export default function DesktopMobileDetailView({
                 </p>
 
                 {/* Capability Badges Strip (Max 3) */}
-                <div className="pt-4 border-t border-amber-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-amber-500/20 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
                     <Zap className="h-3 w-3 text-amber-400" />
                     Decoupled Async Concurrency
@@ -635,7 +610,7 @@ export default function DesktopMobileDetailView({
           </div>
 
           {/* Right Pane (35%): Native Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-amber-500/30 bg-[#120E08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-amber-500/30 bg-[#120E08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-amber-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-amber-400" />
@@ -930,34 +905,28 @@ export default function DesktopMobileDetailView({
         </div>
 
         {/* Top: Device Viewport Stage */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-amber-500/30 bg-[#070913] p-3 sm:p-5 shadow-2xl">
-          {/* Simulated OS Window Frame / Status Bar */}
-          <div className="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-4">
+        <div className="relative z-10 mb-8 rounded-2xl border border-amber-500/30 bg-black/60 p-4 sm:p-6 shadow-[0_0_40px_rgba(245,158,11,0.08)]">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
             <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-rose-500/80 inline-block" />
-              <span className="h-3 w-3 rounded-full bg-amber-500/80 inline-block" />
-              <span className="h-3 w-3 rounded-full bg-emerald-500/80 inline-block" />
-              <span className="ml-3 font-mono text-[11px] text-slate-400 hidden sm:inline-block">
-                {activeShowcaseItem.caption}
+              <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="font-bold text-amber-300">
+                CLIENT_VIEWPORT // INTERFACE_STAGE
               </span>
             </div>
-
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] tracking-wider uppercase text-amber-400 bg-amber-950/60 border border-amber-500/30 px-2 py-0.5 rounded">
-                {activeShowcaseItem.badge || "DEVICE_VIEWPORT"}
+              <span className="text-[11px] text-slate-400">
+                FRAME {String(activeImageIndex + 1).padStart(2, "0")} / {String(interfaceShowcase.length).padStart(2, "0")}
               </span>
-              <button
-                onClick={() => setIsLightboxOpen(true)}
-                className="p-1.5 rounded-lg border border-amber-500/30 bg-amber-950/40 text-amber-300 hover:text-white hover:border-amber-400 transition-colors"
-                title="Expand Fullscreen"
-              >
-                <Maximize2 className="h-3.5 w-3.5" />
-              </button>
             </div>
           </div>
 
           {/* Active Viewport Image Container */}
-          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/8] overflow-hidden rounded-xl border border-amber-500/20 bg-slate-950 flex items-center justify-center group">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#070913] flex items-center justify-center group">
+            {/* Optical HUD Crosshairs */}
+            <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/80" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/80" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/80" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/80" />
             {currentActiveImage ? (
               <Image
                 src={currentActiveImage}
@@ -985,7 +954,7 @@ export default function DesktopMobileDetailView({
                         interfaceShowcase.length
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full border border-amber-500/40 bg-slate-950/70 text-amber-300 backdrop-blur-md opacity-80 hover:opacity-100 hover:scale-110 transition-all"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-amber-400/40 bg-black/70 p-2.5 text-amber-300 hover:bg-amber-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -996,48 +965,51 @@ export default function DesktopMobileDetailView({
                       (prev) => (prev + 1) % interfaceShowcase.length
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full border border-amber-500/40 bg-slate-950/70 text-amber-300 backdrop-blur-md opacity-80 hover:opacity-100 hover:scale-110 transition-all"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-amber-400/40 bg-black/70 p-2.5 text-amber-300 hover:bg-amber-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Next image"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </>
             )}
-          </div>
 
-          {/* Caption & Thumbnail Selector Strip */}
-          <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-xs sm:text-sm text-slate-300 font-sans">
-              <span className="font-mono text-amber-400 font-semibold mr-2">
-                [INSPECTOR_NOTE]:
-              </span>
-              {activeShowcaseItem.caption}
-            </p>
-
-            {interfaceShowcase.length > 1 && (
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
-                {interfaceShowcase.map((item, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveImageIndex(idx)}
-                    className={`relative h-12 w-20 flex-shrink-0 overflow-hidden rounded-md border transition-all ${
-                      activeImageIndex === idx
-                        ? "border-amber-400 ring-2 ring-amber-500/50 scale-105"
-                        : "border-amber-500/30 opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.caption}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  </button>
-                ))}
+            {/* Live Caption Scrim */}
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4 z-20">
+              <div className="text-xs sm:text-sm font-mono text-slate-200 truncate">
+                <span className="text-amber-400 font-bold mr-2">
+                  [ {activeShowcaseItem.badge || "VIEWPORT"} ]
+                </span>
+                {activeShowcaseItem.caption}
               </div>
-            )}
+            </div>
           </div>
+
+          {/* Thumbnail Carousel Bar */}
+          {interfaceShowcase.length > 1 && (
+            <div className="mt-4 flex items-center gap-3 overflow-x-auto pb-1 scrollbar-thin">
+              {interfaceShowcase.map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImageIndex(idx)}
+                  className={`relative h-14 sm:h-16 w-24 sm:w-28 shrink-0 overflow-hidden rounded-lg border transition-all ${
+                    activeImageIndex === idx
+                      ? "border-amber-400 ring-2 ring-amber-400/40 scale-105"
+                      : "border-white/10 opacity-60 hover:opacity-100"
+                  }`}
+                >
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.caption}
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute bottom-1 right-1 rounded bg-black/80 px-1 py-0.2 font-mono text-[9px] text-amber-300">
+                    0{idx + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Bottom Split: Core Features (Left) vs User Flow & Interaction (Right) */}
@@ -1119,32 +1091,6 @@ export default function DesktopMobileDetailView({
             </div>
           </div>
         </div>
-
-        {/* Lightbox Modal */}
-        {isLightboxOpen && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-md"
-            onClick={() => setIsLightboxOpen(false)}
-          >
-            <button
-              onClick={() => setIsLightboxOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-slate-800"
-            >
-              <X className="h-6 w-6" />
-            </button>
-            <div
-              className="relative max-w-6xl w-full max-h-[85vh] aspect-[16/10] overflow-hidden rounded-2xl border border-amber-500/40"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={currentActiveImage}
-                alt={activeShowcaseItem.caption}
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        )}
       </section>
 
       {/* =========================================================================
