@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Clock,
   ExternalLink,
   FileText,
   FolderGit2,
@@ -36,26 +37,13 @@ import {
   Check,
 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data";
+import CyberTechStackSection from "../CyberTechStackSection";
+import CyberRepoCard from "../CyberRepoCard";
 
 interface WebDevDetailViewProps {
   project: ProjectCaseStudy;
   onTriggerPulse?: () => void;
 }
-
-const TECH_CATEGORIES = [
-  "All",
-  "Frontend",
-  "Backend",
-  "Database",
-  "Framework & Libraries",
-  "API & Integration",
-  "Development Tools",
-  "Version Control",
-  "Testing Tools",
-  "External Services",
-] as const;
-
-type TechCategoryFilter = (typeof TECH_CATEGORIES)[number];
 
 export default function WebDevDetailView({
   project,
@@ -72,8 +60,6 @@ export default function WebDevDetailView({
   const heroImage = rawImages[0] || project.imageUrl;
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [selectedTechCategory, setSelectedTechCategory] =
-    useState<TechCategoryFilter>("All");
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
 
   const handleImgError = useCallback((src: string) => {
@@ -151,13 +137,13 @@ export default function WebDevDetailView({
     steps: [],
   };
 
-  // Section 4 Data: Tech Stack & Architecture
-  const techStackCategorized = project.techStackCategorized || [];
-
-  const filteredTechStack = techStackCategorized.filter((tech) => {
-    if (selectedTechCategory === "All") return true;
-    return tech.category === selectedTechCategory;
-  });
+  // Section 4 Data: Flat Unified Tech Stack
+  const allWebDevTechStack = useMemo(() => {
+    return [
+      ...(project.techStackCategorized || []).map((t) => t.name),
+      ...(project.techStack || []),
+    ];
+  }, [project.techStackCategorized, project.techStack]);
 
   const systemArchitecture = project.systemArchitecture || {
     summary: project.architectureSummary || "",
@@ -230,7 +216,7 @@ export default function WebDevDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col">
+          <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
               <span className="flex items-center gap-2 text-sky-200">
@@ -289,7 +275,7 @@ export default function WebDevDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-sky-500/30 bg-[#080B14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-sky-500/30 bg-[#080B14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-sky-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-sky-400" />
@@ -298,65 +284,68 @@ export default function WebDevDetailView({
                 </h3>
               </div>
 
-              <dl className="space-y-3.5 font-mono text-xs">
+              <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80">System Classification</dt>
-                  <dd className="text-slate-100 font-semibold flex items-center gap-1.5">
-                    <Box className="h-3.5 w-3.5 text-sky-400" />
-                    {telemetry.projectType}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">System Classification</dt>
+                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                    <Box className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 2. Operating Environment */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80">Operating Environment</dt>
-                  <dd className="text-sky-300 font-semibold flex items-center gap-1.5">
-                    <Globe className="h-3.5 w-3.5 text-sky-400" />
-                    {telemetry.targetPlatform}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Operating Environment</dt>
+                  <dd className="text-xs font-semibold text-sky-300 flex items-center gap-1.5 truncate">
+                    <Globe className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 3. Domain Focus */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80">Domain Focus</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <Layers className="h-3.5 w-3.5 text-sky-400" />
-                    {telemetry.primaryDomain}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Domain Focus</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Layers className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 4. Engineering Pipeline */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80">Engineering Pipeline</dt>
-                  <dd className="text-slate-300 text-[11px] truncate flex items-center gap-1.5">
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dd className="text-xs font-semibold text-sky-300 flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-                    <span className="truncate">{telemetry.architecturePipeline}</span>
+                    <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
-                {/* 5. Testing & Audit — Clean Icon + Text */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80">Testing & Audit</dt>
-                  <dd className="text-sky-300 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="h-3.5 w-3.5 text-sky-400" />
-                    <span>Passed</span>
+                {/* 5. Testing & Audit */}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Testing & Audit</dt>
+                  <dd className="text-xs font-semibold text-sky-300 flex items-center gap-1.5 truncate">
+                    <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 6. Project Status */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80">Project Status</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-sky-400" />
-                    <span>{telemetry.projectStatus}</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Project Status</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <span className="h-2 w-2 rounded-full bg-sky-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
-                <div className="flex flex-col gap-1">
-                  <dt className="text-[10px] uppercase text-sky-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{project.year || "2026"}</dd>
+                <div className="flex flex-col gap-0.5">
+                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Project Year</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Clock className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                    <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
+                  </dd>
                 </div>
               </dl>
 
@@ -412,7 +401,7 @@ export default function WebDevDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
-                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-amber-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-sky-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
                       </span>
                     </div>
@@ -475,22 +464,24 @@ export default function WebDevDetailView({
             <Activity className="h-3.5 w-3.5 text-sky-400" />
             <span>ORIGIN CONTEXT // PROJECT BACKGROUND</span>
           </div>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-            {projectBackground}
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+            {projectBackground.length > 1000
+              ? `${projectBackground.slice(0, 1000).trim()}...`
+              : projectBackground}
           </p>
         </div>
 
         {/* 2-Column Split Matrix: Problem Statement vs Project Objectives */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
-          {/* Column 1: Problem Statement (Warning / Amber Accent) */}
-          <div className="rounded-2xl border border-amber-500/30 bg-[#120E08]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(245,158,11,0.05)]">
+          {/* Column 1: Problem Statement (Sky Theme) */}
+          <div className="rounded-2xl border border-sky-500/30 bg-[#080B14]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(56,189,248,0.05)]">
             <div>
-              <div className="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-amber-300 tracking-wider">
-                  <AlertTriangle className="h-4 w-4 text-amber-400" />
+              <div className="flex items-center justify-between border-b border-sky-500/20 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300 tracking-wider">
+                  <AlertTriangle className="h-4 w-4 text-sky-400" />
                   <span>[ ISSUE_DETECTED // PROBLEM STATEMENT ]</span>
                 </div>
-                <span className="rounded bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 font-mono text-[10px] text-amber-300 font-bold">
+                <span className="rounded bg-sky-400/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {problemStatements.length} BOTTLENECKS
                 </span>
               </div>
@@ -499,11 +490,11 @@ export default function WebDevDetailView({
                 {problemStatements.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-amber-500/15 bg-black/50 p-4 transition-all hover:border-amber-400/40"
+                    className="rounded-xl border border-sky-500/15 bg-black/50 p-4 transition-all hover:border-sky-400/40"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] text-amber-400 font-bold mb-1.5">
+                    <div className="flex items-center justify-between font-mono text-[11px] text-sky-400 font-bold mb-1.5">
                       <span>{item.issueCode || `ISSUE_0${idx + 1}`}</span>
-                      <span className="text-[10px] text-amber-500/70 uppercase">
+                      <span className="text-[10px] text-sky-400/70 uppercase">
                         CRITICAL
                       </span>
                     </div>
@@ -518,20 +509,20 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-amber-500/15 font-mono text-[10px] text-amber-400/80">
+            <div className="mt-5 pt-3 border-t border-sky-500/15 font-mono text-[10px] text-sky-400/80">
               TELEMETRY: Architectural constraints identified during initial audit.
             </div>
           </div>
 
-          {/* Column 2: Project Objectives (Target / Emerald Accent) */}
-          <div className="rounded-2xl border border-emerald-500/30 bg-[#07130F]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+          {/* Column 2: Project Objectives (Cyan Theme) */}
+          <div className="rounded-2xl border border-cyan-500/30 bg-[#070D12]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.05)]">
             <div>
-              <div className="flex items-center justify-between border-b border-emerald-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300 tracking-wider">
-                  <Target className="h-4 w-4 text-emerald-400" />
+              <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-300 tracking-wider">
+                  <Target className="h-4 w-4 text-cyan-400" />
                   <span>[ TARGET_SOLVED // STRATEGIC OBJECTIVES ]</span>
                 </div>
-                <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="rounded bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 font-mono text-[10px] text-cyan-300 font-bold">
                   {projectObjectives.length} TARGETS
                 </span>
               </div>
@@ -540,11 +531,11 @@ export default function WebDevDetailView({
                 {projectObjectives.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-emerald-500/15 bg-black/50 p-4 transition-all hover:border-emerald-400/40"
+                    className="rounded-xl border border-cyan-500/15 bg-black/50 p-4 transition-all hover:border-cyan-400/40"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] text-emerald-400 font-bold mb-1.5">
+                    <div className="flex items-center justify-between font-mono text-[11px] text-cyan-400 font-bold mb-1.5">
                       <span>{item.targetTag || `TARGET_0${idx + 1}`}</span>
-                      <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-medium">
+                      <span className="inline-flex items-center gap-1 text-[10px] text-cyan-400 font-medium">
                         <Check className="h-3 w-3" />
                         DELIVERED
                       </span>
@@ -560,7 +551,7 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-emerald-500/15 font-mono text-[10px] text-emerald-400/80">
+            <div className="mt-5 pt-3 border-t border-cyan-500/15 font-mono text-[10px] text-cyan-400/80">
               TELEMETRY: All core objectives validated in production deployment.
             </div>
           </div>
@@ -743,7 +734,7 @@ export default function WebDevDetailView({
                   <Workflow className="h-4 w-4 text-sky-400" />
                   <span>[ USER_FLOW // INTERACTION PIPELINE ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-400">
+                <span className="font-mono text-[10px] text-sky-400">
                   DETERMINISTIC
                 </span>
               </div>
@@ -753,7 +744,7 @@ export default function WebDevDetailView({
               </p>
 
               {/* Step by Step Circuit Pipeline */}
-              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sky-400 before:via-indigo-400 before:to-emerald-400">
+              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sky-400 before:via-cyan-400 before:to-sky-500">
                 {userFlow.steps.map((st, i) => (
                   <div
                     key={i}
@@ -785,100 +776,15 @@ export default function WebDevDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 4 — TECH STACK
-          Layout: Cybernetic Category Switcher + Spec Grid (9 Categories)
+          SECTION 4 — TECH STACK & RUNTIME ARCHITECTURE
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/25 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
-        {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
-
-        {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
-            <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            <span>[ 04 // FULL-STACK RUNTIME & TOOLING ECOSYSTEM ]</span>
-          </div>
-          <span className="font-mono text-[11px] text-slate-400">
-            SPEC_GRID // 9 DOMAINS
-          </span>
-        </div>
-
-        {/* HUD Category Filter Tabs */}
-        <div className="relative z-10 mb-7 flex flex-wrap items-center gap-1.5 sm:gap-2">
-          {TECH_CATEGORIES.map((cat) => {
-            const isSelected = selectedTechCategory === cat;
-            const count =
-              cat === "All"
-                ? techStackCategorized.length
-                : techStackCategorized.filter((t) => t.category === cat).length;
-
-            return (
-              <button
-                key={cat}
-                onClick={() => {
-                  setSelectedTechCategory(cat);
-                  onTriggerPulse?.();
-                }}
-                className={`group relative rounded-xl border px-3 py-1.5 font-mono text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 ${
-                  isSelected
-                    ? "border-sky-400 bg-sky-400/15 text-sky-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]"
-                    : "border-white/10 bg-black/40 text-slate-400 hover:border-white/20 hover:text-white"
-                }`}
-              >
-                <span>{cat}</span>
-                <span
-                  className={`rounded px-1.5 py-0.2 text-[10px] font-bold ${
-                    isSelected
-                      ? "bg-sky-400/20 text-sky-200"
-                      : "bg-white/5 text-slate-500"
-                  }`}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Spec Micro-Chip Cards Grid */}
-        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filteredTechStack.map((tech, idx) => (
-            <div
-              key={idx}
-              className="group relative rounded-2xl border border-white/10 bg-[#0C101D]/70 p-4 transition-all duration-300 hover:border-sky-400/50 hover:bg-[#0E1528] hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
-            >
-              {/* Corner HUD Tick */}
-              <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-sky-400/40 group-hover:bg-sky-400 group-hover:scale-125 transition-all" />
-
-              <div className="flex items-center gap-3 mb-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-sky-400/30 bg-sky-400/10 text-sky-300 shadow-[0_0_12px_rgba(0,240,255,0.15)] group-hover:scale-105 transition-transform">
-                  <Code2 className="h-4 w-4" />
-                </div>
-                <div className="min-w-0">
-                  <div className="font-mono text-xs sm:text-sm font-bold text-white truncate">
-                    {tech.name}
-                  </div>
-                  <span className="font-mono text-[10px] text-sky-400 uppercase tracking-wider">
-                    {tech.category}
-                  </span>
-                </div>
-              </div>
-
-              <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-slate-500 block mb-0.5">
-                  ARCHITECTURAL ROLE
-                </span>
-                <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                  {tech.role}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <CyberTechStackSection
+        sectionNumber="04"
+        sectionTitle="[ 04 // FULL-STACK RUNTIME & TOOLING ECOSYSTEM ]"
+        techStack={allWebDevTechStack}
+        accentColor="sky"
+        onTriggerPulse={onTriggerPulse}
+      />
 
       {/* =========================================================================
           SECTION 5 — ARCHITECTURE & IMPLEMENTATION
@@ -977,11 +883,11 @@ export default function WebDevDetailView({
                 {databaseDataFlow.entitiesOrPipelines?.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-emerald-400/40"
+                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-sky-400/40"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-emerald-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-300 mb-1">
                       <span>{item.name}</span>
-                      <span className="rounded bg-emerald-400/10 px-1.5 py-0.2 font-mono text-[9px] text-emerald-400">
+                      <span className="rounded bg-sky-400/10 px-1.5 py-0.2 font-mono text-[9px] text-sky-400">
                         {item.type}
                       </span>
                     </div>
@@ -989,7 +895,7 @@ export default function WebDevDetailView({
                       {item.fields.map((field, fIdx) => (
                         <span
                           key={fIdx}
-                          className="rounded border border-emerald-400/20 bg-emerald-400/5 px-2 py-0.5 font-mono text-[10px] text-emerald-200"
+                          className="rounded border border-sky-400/20 bg-sky-400/5 px-2 py-0.5 font-mono text-[10px] text-sky-200"
                         >
                           {field}
                         </span>
@@ -1069,95 +975,12 @@ export default function WebDevDetailView({
 
         {/* 3-Card Bento Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-          {/* Card 1: Repository Gate (Adaptive: Public GitHub vs Private Repository) */}
-          <div
-            className={`flex flex-col justify-between rounded-2xl border p-6 sm:p-7 shadow-lg transition-all duration-300 ${
-              hasRepoUrl
-                ? "border-emerald-500/30 bg-[#07130F]/70 hover:border-emerald-400/60"
-                : "border-amber-500/30 bg-[#140E0A]/70 hover:border-amber-400/50"
-            }`}
-          >
-            <div>
-              {/* Card Status Indicator */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div
-                  className={`flex items-center gap-2 font-mono text-xs font-bold ${
-                    hasRepoUrl ? "text-emerald-300" : "text-amber-300"
-                  }`}
-                >
-                  {hasRepoUrl ? (
-                    <FolderGit2 className="h-4 w-4 text-emerald-400" />
-                  ) : (
-                    <Lock className="h-4 w-4 text-amber-400" />
-                  )}
-                  <span>
-                    {hasRepoUrl
-                      ? "PUBLIC GITHUB REPOSITORY"
-                      : "RESTRICTED PRIVATE REPOSITORY"}
-                  </span>
-                </div>
-                <span
-                  className={`h-2 w-2 rounded-full ${
-                    hasRepoUrl
-                      ? "bg-emerald-400 animate-pulse"
-                      : "bg-amber-400"
-                  }`}
-                />
-              </div>
-
-              {/* Title & Description */}
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {hasRepoUrl ? "GitHub Repository" : "Private Repository"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
-                {hasRepoUrl
-                  ? "Open-access repository containing production source code, commit history, build scripts, and modular directory structures for inspection."
-                  : "Source code is private and protected by proprietary enterprise licensing or client NDA agreement. No public mirror is available for this project."}
-              </p>
-
-              {/* Badges */}
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {hasRepoUrl ? (
-                  <>
-                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
-                      BRANCH // MAIN
-                    </span>
-                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
-                      STATUS // VERIFIED
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
-                      CLEARANCE // INTERNAL
-                    </span>
-                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
-                      PROPRIETARY // NDA
-                    </span>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Action / Status Button */}
-            {hasRepoUrl && project.repoUrl ? (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-5 py-3 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:scale-[1.02]"
-              >
-                <span>ACCESS REPOSITORY</span>
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ) : (
-              <div className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed">
-                <Lock className="h-4 w-4 text-amber-400/80" />
-                <span>RESTRICTED ACCESS</span>
-              </div>
-            )}
-          </div>
+          {/* Card 1: Repository Gate (Adaptive Universal Standard) */}
+          <CyberRepoCard
+            repoUrl={project.repoUrl}
+            accentColor="sky"
+            onTriggerPulse={onTriggerPulse}
+          />
 
           {/* Card 2: Technical Documentation & Specs Card */}
           <div className="flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#0C101D]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60">
@@ -1198,15 +1021,15 @@ export default function WebDevDetailView({
             </div>
           </div>
 
-          {/* Card 3: Architecture & Quality Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-indigo-500/30 bg-[#0B0D1B]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-indigo-400/60">
+          {/* Card 3: Architecture & Quality Card (Sky Theme) */}
+          <div className="flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#080B14]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
-                  <ShieldCheck className="h-4 w-4 text-indigo-400" />
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
+                  <ShieldCheck className="h-4 w-4 text-sky-400" />
                   <span>QUALITY & VALIDATION</span>
                 </div>
-                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300">
+                <span className="rounded bg-sky-400/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   {architectureQuality.status}
                 </span>
               </div>
@@ -1223,16 +1046,16 @@ export default function WebDevDetailView({
                 {architectureQuality.badges.map((bg, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-1.5 rounded-lg border border-indigo-400/20 bg-indigo-400/10 p-2 font-mono text-[10px] text-indigo-200 font-semibold"
+                    className="flex items-center gap-1.5 rounded-lg border border-sky-400/20 bg-sky-400/10 p-2 font-mono text-[10px] text-sky-200 font-semibold"
                   >
-                    <CheckCircle2 className="h-3 w-3 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="h-3 w-3 text-sky-400 shrink-0" />
                     <span className="truncate">{bg}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-xl border border-indigo-400/20 bg-indigo-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-indigo-300">
+            <div className="rounded-xl border border-sky-400/20 bg-sky-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-sky-300">
               SECURITY: HARDENED AGAINST VULNERABILITIES
             </div>
           </div>

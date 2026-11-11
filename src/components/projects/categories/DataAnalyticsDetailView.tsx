@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import Image from "next/image";
 import {
   Activity,
@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Clock,
   Database,
   Download,
   ExternalLink,
@@ -37,6 +38,8 @@ import {
   Zap,
 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data";
+import CyberTechStackSection from "../CyberTechStackSection";
+import CyberRepoCard from "../CyberRepoCard";
 
 interface DataAnalyticsDetailViewProps {
   project: ProjectCaseStudy;
@@ -49,9 +52,6 @@ export default function DataAnalyticsDetailView({
 }: DataAnalyticsDetailViewProps) {
   // Presentation Slide State
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [selectedToolFilter, setSelectedToolFilter] = useState<
-    "All" | "Core Technologies" | "Analytics & Viz Tools"
-  >("All");
   const [slideErrors, setSlideErrors] = useState<Record<string, boolean>>({});
 
   const handleSlideImgError = useCallback((src: string) => {
@@ -107,7 +107,7 @@ export default function DataAnalyticsDetailView({
       : []);
 
   // Section 3: Data Inspection & Preparation
-  const datasetOverview = project.dataAnalyticsDatasetOverview || {
+  const datasetOverview = project.dataAnalyticsDatasetOverview || (project as any).datasetOverview || {
     dataSource: "Primary Database / Analytical Warehouse",
     dataPeriod: "Historical Transactional Data",
     recordsCount: (projectInfo as any).recordsCount || "Normalized Records",
@@ -121,7 +121,7 @@ export default function DataAnalyticsDetailView({
     title: string;
     description: string;
     badge?: string;
-  }[] = project.dataAnalyticsDataPreparation || [];
+  }[] = project.dataAnalyticsDataPreparation || (project as any).dataPreparation || [];
 
   // Section 4: Analytical Methodology & Workflow
   const analyticalMethodology: {
@@ -159,7 +159,17 @@ export default function DataAnalyticsDetailView({
     steps: [],
   };
 
-  // Section 5: Tech Stack & Tools
+  // Section 4: Tech Stack (Unified Flat)
+  const allDataAnalyticsTechStack = useMemo(() => {
+    return [
+      ...(project.dataAnalyticsTechStack?.coreTechnologies || []).map((t: any) => t.name),
+      ...(project.dataAnalyticsTechStack?.analyticsVizTools || []).map((t: any) => t.name),
+      ...((project as any).dataTechStack?.coreTechnologies || []).map((t: any) => t.name),
+      ...((project as any).dataTechStack?.analyticsVizTools || []).map((t: any) => t.name),
+      ...(project.techStack || []),
+    ];
+  }, [project.dataAnalyticsTechStack, (project as any).dataTechStack, project.techStack]);
+
   const coreTechnologies: {
     name: string;
     role?: string;
@@ -193,7 +203,7 @@ export default function DataAnalyticsDetailView({
     title: string;
     description: string;
     impactTag?: string;
-  }[] = project.dataAnalyticsKeyFindings || [];
+  }[] = project.dataAnalyticsKeyFindings || (project as any).keyFindings || [];
 
   // Section 8: Recommendations & Strategic Action
   const heroImage =
@@ -279,7 +289,7 @@ export default function DataAnalyticsDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col">
+          <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
               <span className="flex items-center gap-2 text-emerald-200">
@@ -338,7 +348,7 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-emerald-500/30 bg-[#070D0E]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-emerald-500/30 bg-[#070D0E]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-emerald-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-emerald-400" />
@@ -347,65 +357,68 @@ export default function DataAnalyticsDetailView({
                 </h3>
               </div>
 
-              <dl className="space-y-3.5 font-mono text-xs">
+              <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">System Classification</dt>
-                  <dd className="text-slate-100 font-semibold flex items-center gap-1.5">
-                    <Box className="h-3.5 w-3.5 text-emerald-400" />
-                    {telemetry.projectType}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">System Classification</dt>
+                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                    <Box className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 2. Operating Environment */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">Operating Environment</dt>
-                  <dd className="text-emerald-300 font-semibold flex items-center gap-1.5">
-                    <Globe className="h-3.5 w-3.5 text-emerald-400" />
-                    {telemetry.targetPlatform}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Operating Environment</dt>
+                  <dd className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5 truncate">
+                    <Globe className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 3. Domain Focus */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">Domain Focus</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <Layers className="h-3.5 w-3.5 text-emerald-400" />
-                    {telemetry.primaryDomain}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Domain Focus</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Layers className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 4. Engineering Pipeline */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">Engineering Pipeline</dt>
-                  <dd className="text-slate-300 text-[11px] truncate flex items-center gap-1.5">
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dd className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                    <span className="truncate">{telemetry.architecturePipeline}</span>
+                    <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
-                {/* 5. Testing & Audit — Clean Icon + Text */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">Testing & Audit</dt>
-                  <dd className="text-emerald-300 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-                    <span>Passed</span>
+                {/* 5. Testing & Audit */}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Testing & Audit</dt>
+                  <dd className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5 truncate">
+                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 6. Project Status */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">Project Status</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                    <span>{telemetry.projectStatus}</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Project Status</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
-                <div className="flex flex-col gap-1">
-                  <dt className="text-[10px] uppercase text-emerald-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{project.year || "2026"}</dd>
+                <div className="flex flex-col gap-0.5">
+                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Project Year</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Clock className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
+                  </dd>
                 </div>
               </dl>
 
@@ -461,7 +474,7 @@ export default function DataAnalyticsDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
-                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-amber-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-emerald-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
                       </span>
                     </div>
@@ -524,8 +537,10 @@ export default function DataAnalyticsDetailView({
             <Target className="h-3.5 w-3.5 text-emerald-400" />
             <span>EXECUTIVE CONTEXT // PROBLEM BACKGROUND & RATIONALE</span>
           </div>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            {businessContext}
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+            {businessContext.length > 1000
+              ? `${businessContext.slice(0, 1000).trim()}...`
+              : businessContext}
           </p>
         </div>
 
@@ -552,7 +567,7 @@ export default function DataAnalyticsDetailView({
                   >
                     <div className="flex items-center justify-between font-mono text-[11px] text-emerald-400 font-bold mb-1.5">
                       <span>{obj.targetMetric || `TARGET_0${idx + 1}`}</span>
-                      <span className="text-[10px] text-cyan-400 font-medium">
+                      <span className="text-[10px] text-emerald- font-medium">
                         ANSWERED
                       </span>
                     </div>
@@ -573,14 +588,14 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Dataset Overview (5-Parameter Specs) */}
-          <div className="rounded-2xl border border-cyan-500/30 bg-[#071318]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.05)]">
+          <div className="rounded-2xl border border-emerald-/30 bg-[#071318]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
             <div>
-              <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-300 tracking-wider">
-                  <Database className="h-4 w-4 text-cyan-400" />
+              <div className="flex items-center justify-between border-b border-emerald-/20 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald- tracking-wider">
+                  <Database className="h-4 w-4 text-emerald-" />
                   <span>[ DATASET_PROFILE // METADATA SPECS ]</span>
                 </div>
-                <span className="rounded bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 font-mono text-[10px] text-cyan-300 font-bold">
+                <span className="rounded bg-emerald-/10 border border-emerald-/30 px-2 py-0.5 font-mono text-[10px] text-emerald- font-bold">
                   LONGITUDINAL
                 </span>
               </div>
@@ -617,7 +632,7 @@ export default function DataAnalyticsDetailView({
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. VARIABLES (COLS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-cyan-300">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-">
                       {datasetOverview.variablesCount}
                     </span>
                   </div>
@@ -634,7 +649,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="pt-3 border-t border-cyan-500/15 font-mono text-[10px] text-cyan-400/80">
+            <div className="pt-3 border-t border-emerald-/15 font-mono text-[10px] text-emerald-/80">
               INTEGRITY: Zero synthetic distortion; 100% verified enterprise ledger schema.
             </div>
           </div>
@@ -754,7 +769,7 @@ export default function DataAnalyticsDetailView({
                   <LineChart className="h-4 w-4 text-emerald-400" />
                   <span>[ METHODOLOGY // STATISTICAL APPROACH ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-cyan-400">
+                <span className="font-mono text-[10px] text-emerald-">
                   RIGOROUS
                 </span>
               </div>
@@ -767,11 +782,11 @@ export default function DataAnalyticsDetailView({
                 {analyticalMethodology.methods.map((met, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#081216]/80 p-3.5 transition-all hover:border-cyan-400/40"
+                    className="rounded-xl border border-white/10 bg-[#081216]/80 p-3.5 transition-all hover:border-emerald-/40"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-cyan-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald- mb-1">
                       <span>{met.name}</span>
-                      <span className="rounded bg-cyan-400/10 px-1.5 py-0.2 font-mono text-[9px] text-cyan-400">
+                      <span className="rounded bg-emerald-/10 px-1.5 py-0.2 font-mono text-[9px] text-emerald-">
                         {met.badge}
                       </span>
                     </div>
@@ -791,159 +806,15 @@ export default function DataAnalyticsDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 4 — TECH STACK
-          Layout: Dual-Category Spec Grid (Core Tech + Analytics & Viz Tools)
+          SECTION 4 — TECH STACK & RUNTIME ARCHITECTURE
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/25 bg-[#070D0E]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
-        {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400" />
-
-        {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>[ 04 // ANALYTIC RUNTIME & TOOLING ECOSYSTEM ]</span>
-          </div>
-          <span className="font-mono text-[11px] text-slate-400">
-            SPEC_GRID // 2 DOMAINS
-          </span>
-        </div>
-
-        {/* HUD Category Filter Tabs */}
-        <div className="relative z-10 mb-7 flex flex-wrap items-center gap-2">
-          {(["All", "Core Technologies", "Analytics & Viz Tools"] as const).map(
-            (tab) => {
-              const isSelected = selectedToolFilter === tab;
-              const count =
-                tab === "All"
-                  ? coreTechnologies.length + analyticsVizTools.length
-                  : tab === "Core Technologies"
-                  ? coreTechnologies.length
-                  : analyticsVizTools.length;
-
-              return (
-                <button
-                  key={tab}
-                  onClick={() => {
-                    setSelectedToolFilter(tab);
-                    onTriggerPulse?.();
-                  }}
-                  className={`group relative rounded-xl border px-3.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
-                    isSelected
-                      ? "border-emerald-400 bg-emerald-400/15 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.25)]"
-                      : "border-white/10 bg-black/40 text-slate-400 hover:border-white/20 hover:text-white"
-                  }`}
-                >
-                  <span>{tab}</span>
-                  <span
-                    className={`rounded px-1.5 py-0.2 text-[10px] font-bold ${
-                      isSelected
-                        ? "bg-emerald-400/20 text-emerald-200"
-                        : "bg-white/5 text-slate-500"
-                    }`}
-                  >
-                    {count}
-                  </span>
-                </button>
-              );
-            }
-          )}
-        </div>
-
-        {/* Spec Micro-Chip Grid */}
-        <div className="relative z-10 space-y-8">
-          {/* Group 1: Core Technologies */}
-          {(selectedToolFilter === "All" ||
-            selectedToolFilter === "Core Technologies") && (
-            <div>
-              <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 mb-4">
-                <Terminal className="h-3.5 w-3.5" />
-                <span>DOMAIN 01 // CORE PROGRAMMING, DATABASES & LIBRARIES</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {coreTechnologies.map((tech, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative rounded-2xl border border-white/10 bg-[#0A1412]/70 p-4 transition-all duration-300 hover:border-emerald-400/50 hover:bg-[#0C1B18] hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
-                  >
-                    <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-emerald-400/40 group-hover:bg-emerald-400 group-hover:scale-125 transition-all" />
-
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.15)] group-hover:scale-105 transition-transform">
-                        <Terminal className="h-4 w-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-mono text-xs sm:text-sm font-bold text-white truncate">
-                          {tech.name}
-                        </div>
-                        <span className="font-mono text-[10px] text-emerald-400 uppercase tracking-wider">
-                          CORE ENGINE
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-500 block mb-0.5">
-                        ANALYTICAL ROLE
-                      </span>
-                      <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                        {tech.role}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Group 2: Analytics & Visualization Tools */}
-          {(selectedToolFilter === "All" ||
-            selectedToolFilter === "Analytics & Viz Tools") && (
-            <div>
-              <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-400 mb-4">
-                <BarChart2 className="h-3.5 w-3.5" />
-                <span>DOMAIN 02 // ANALYTICS, BI WORKSPACES & VISUALIZATION TOOLS</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {analyticsVizTools.map((tool, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative rounded-2xl border border-white/10 bg-[#071318]/70 p-4 transition-all duration-300 hover:border-cyan-400/50 hover:bg-[#0B1E24] hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
-                  >
-                    <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-cyan-400/40 group-hover:bg-cyan-400 group-hover:scale-125 transition-all" />
-
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.15)] group-hover:scale-105 transition-transform">
-                        <BarChart2 className="h-4 w-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-mono text-xs sm:text-sm font-bold text-white truncate">
-                          {tool.name}
-                        </div>
-                        <span className="font-mono text-[10px] text-cyan-400 uppercase tracking-wider">
-                          BI & REPORTING
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-500 block mb-0.5">
-                        WORKBENCH FUNCTION
-                      </span>
-                      <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                        {tool.role}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+      <CyberTechStackSection
+        sectionNumber="04"
+        sectionTitle="[ 04 // ANALYTIC RUNTIME & TOOLING ECOSYSTEM ]"
+        techStack={allDataAnalyticsTechStack}
+        accentColor="emerald"
+        onTriggerPulse={onTriggerPulse}
+      />
 
       {/* =========================================================================
           SECTION 5 — ANALYSIS & FINDINGS
@@ -1141,21 +1012,17 @@ export default function DataAnalyticsDetailView({
                 {recommendationsAndConclusion.recommendations.map((rec, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#071318]/80 p-3.5 transition-all hover:border-cyan-400/30"
+                    className="rounded-xl border border-white/10 bg-[#07130F]/80 p-3.5 transition-all hover:border-emerald-400/30"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] mb-1">
-                      <span className="font-bold text-cyan-300">{rec.title}</span>
+                      <span className="font-bold text-emerald-300">{rec.title}</span>
                       <span
-                        className={`rounded px-1.5 py-0.2 font-bold ${
-                          rec.priority === "HIGH"
-                            ? "bg-rose-500/15 text-rose-300 border border-rose-500/30"
-                            : "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
-                        }`}
+                        className="rounded px-1.5 py-0.2 font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
                       >
                         {rec.priority} PRIORITY
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-300 leading-relaxed font-sans">
                       {rec.action}
                     </p>
                   </div>
@@ -1207,91 +1074,14 @@ export default function DataAnalyticsDetailView({
 
         {/* 3-Card Bento Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-          {/* Card 1: Analysis Repository Gate (Adaptive) */}
-          <div
-            className={`flex flex-col justify-between rounded-2xl border p-6 sm:p-7 shadow-lg transition-all duration-300 ${
-              hasRepoUrl
-                ? "border-emerald-500/30 bg-[#07130F]/70 hover:border-emerald-400/60"
-                : "border-amber-500/30 bg-[#140E0A]/70 hover:border-amber-400/50"
-            }`}
-          >
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div
-                  className={`flex items-center gap-2 font-mono text-xs font-bold ${
-                    hasRepoUrl ? "text-emerald-300" : "text-amber-300"
-                  }`}
-                >
-                  {hasRepoUrl ? (
-                    <FolderGit2 className="h-4 w-4 text-emerald-400" />
-                  ) : (
-                    <Lock className="h-4 w-4 text-amber-400" />
-                  )}
-                  <span>
-                    {hasRepoUrl
-                      ? "PUBLIC CODE REPOSITORY"
-                      : "RESTRICTED PRIVATE REPOSITORY"}
-                  </span>
-                </div>
-                <span
-                  className={`h-2 w-2 rounded-full ${
-                    hasRepoUrl
-                      ? "bg-emerald-400 animate-pulse"
-                      : "bg-amber-400"
-                  }`}
-                />
-              </div>
-
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {hasRepoUrl ? "GitHub Repository" : "Private Repository"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
-                {hasRepoUrl
-                  ? "Open-access data analytics codebase housing Jupyter notebooks, automated SQL transformations, ETL pipeline scripts, and environment definitions."
-                  : "Analytics scripts and proprietary models are restricted under enterprise client NDA and confidential trade-secret governance. Public mirror disabled."}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {hasRepoUrl ? (
-                  <>
-                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
-                      SCRIPTS // PYTHON & SQL
-                    </span>
-                    <span className="rounded border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 font-mono text-[10px] text-emerald-300">
-                      STATUS // VERIFIED
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
-                      CLEARANCE // CONFIDENTIAL
-                    </span>
-                    <span className="rounded border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] text-amber-300">
-                      ENTERPRISE // NDA
-                    </span>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {hasRepoUrl && project.repoUrl ? (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-5 py-3 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:scale-[1.02]"
-              >
-                <span>ACCESS REPOSITORY</span>
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ) : (
-              <div className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed">
-                <Lock className="h-4 w-4 text-amber-400/80" />
-                <span>RESTRICTED ACCESS</span>
-              </div>
-            )}
-          </div>
+          {/* Card 1: Analysis Repository Gate (Adaptive Universal Standard) */}
+          <CyberRepoCard
+            repoUrl={project.repoUrl}
+            accentColor="emerald"
+            onTriggerPulse={onTriggerPulse}
+            branchName="ANALYTICS"
+            verifiedLabel="DATA_VERIFIED"
+          />
 
           {/* Card 2: Presentation & Report Card */}
           <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-[#0A1412]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/60">
@@ -1329,14 +1119,14 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Card 3: Dataset & Supporting Files Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-cyan-500/30 bg-[#071318]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-cyan-400/60">
+          <div className="flex flex-col justify-between rounded-2xl border border-emerald-/30 bg-[#071318]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-/60">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-300">
-                  <HardDrive className="h-4 w-4 text-cyan-400" />
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-">
+                  <HardDrive className="h-4 w-4 text-emerald-" />
                   <span>DATASET & ARTIFACTS</span>
                 </div>
-                <span className="rounded bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 font-mono text-[10px] text-cyan-300">
+                <span className="rounded bg-emerald-/10 border border-emerald-/30 px-2 py-0.5 font-mono text-[10px] text-emerald-">
                   {supportingFiles.length} FILES
                 </span>
               </div>
@@ -1355,10 +1145,10 @@ export default function DataAnalyticsDetailView({
                     className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 p-2 font-mono text-[10px]"
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <FileSpreadsheet className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                      <FileSpreadsheet className="h-3.5 w-3.5 text-emerald- shrink-0" />
                       <span className="text-slate-200 truncate">{file.name}</span>
                     </div>
-                    <span className="text-cyan-300 font-bold ml-2 shrink-0">
+                    <span className="text-emerald- font-bold ml-2 shrink-0">
                       {file.format}
                     </span>
                   </div>
@@ -1366,7 +1156,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-cyan-300">
+            <div className="rounded-xl border border-emerald-/20 bg-emerald-/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-emerald-">
               STATUS: ARTIFACTS PACKAGED & AUDITED
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import {
   Activity,
@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Clock,
   Code2,
   Cpu,
   Database,
@@ -43,6 +44,8 @@ import {
   Zap,
 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data";
+import CyberTechStackSection from "../CyberTechStackSection";
+import CyberRepoCard from "../CyberRepoCard";
 
 interface DesktopMobileDetailViewProps {
   project: ProjectCaseStudy;
@@ -56,14 +59,6 @@ export default function DesktopMobileDetailView({
   // Image Showcase State
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [copiedLink, setCopiedLink] = useState(false);
-
-  // Tech Stack HUD Filter State
-  const [selectedTechFilter, setSelectedTechFilter] = useState<
-    | "All"
-    | "Programming Languages"
-    | "Frameworks & Libraries"
-    | "Database, Tools & Services"
-  >("All");
 
   // Project Images resolution
   const projectImages: string[] =
@@ -218,21 +213,16 @@ export default function DesktopMobileDetailView({
   const explicitTech = project.desktopMobileTechStack;
   const rawTech = project.techStack || [];
 
-  const programmingLanguages = explicitTech?.programmingLanguages || [];
-  const frameworksAndLibraries = explicitTech?.frameworksAndLibraries || [];
-  const databaseToolsAndServices = [
-    ...(explicitTech?.databaseAndStorage || []),
-    ...(explicitTech?.testingAndBuildTools || []),
-  ];
-
-  const filteredTechGroups = [
-    { label: "Programming Languages", items: programmingLanguages },
-    { label: "Frameworks & Libraries", items: frameworksAndLibraries },
-    { label: "Database, Tools & Services", items: databaseToolsAndServices },
-  ].filter((grp) => {
-    if (selectedTechFilter === "All") return grp.items.length > 0;
-    return grp.label === selectedTechFilter && grp.items.length > 0;
-  });
+  // Section 4: Tech Stack (Unified Flat)
+  const allDesktopMobileTechStack = useMemo(() => {
+    return [
+      ...(explicitTech?.programmingLanguages || []).map((t: any) => t.name),
+      ...(explicitTech?.frameworksAndLibraries || []).map((t: any) => t.name),
+      ...(explicitTech?.databaseAndStorage || []).map((t: any) => t.name),
+      ...(explicitTech?.testingAndBuildTools || []).map((t: any) => t.name),
+      ...(project.techStack || []),
+    ];
+  }, [explicitTech, project.techStack]);
 
   const systemArchitecture =
     project.desktopMobileArchitecture ||
@@ -298,12 +288,18 @@ export default function DesktopMobileDetailView({
   const repoUrl = project.repoUrl || "";
   const isPublicRepo = Boolean(repoUrl && repoUrl.trim().length > 0);
 
-  const distribution = project.desktopMobileDistribution || {
+  const distribution = {
+    version: "v1.0.0-RELEASE",
+    releaseNotes: "Production release binary compiled with ahead-of-time optimizations and native OS bindings.",
+    targetOs: isMobile ? "Android 14+ / iOS 17+" : "Windows 11 / 10 & macOS",
+    packageType: isMobile ? "APK / iOS App Bundle" : "Standalone Binary (.exe)",
+    fileSize: isMobile ? "32 MB" : "68 MB",
     packagingFormat: isMobile ? "APK / iOS App Bundle" : "Standalone Binary (.exe)",
-    binarySize: "Optimized Production Build",
-    distributionChannel: "Direct Release / App Stores",
+    binarySize: isMobile ? "32 MB" : "68 MB",
+    distributionChannel: "GitHub Releases & Direct Binary Download",
     targetArchitecture: "Universal Cross-Platform",
     updateMechanism: "Zero-telemetry manual updates",
+    ...project.desktopMobileDistribution,
   };
 
   const documentation = project.desktopMobileDocumentation || {
@@ -333,7 +329,7 @@ export default function DesktopMobileDetailView({
         <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
         <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
 
-        {/* Ambient Indigo Glow */}
+        {/* Ambient Amber Glow */}
         <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-600/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl" />
 
@@ -368,7 +364,7 @@ export default function DesktopMobileDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col">
+          <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-950/40 px-4 py-2 text-xs font-mono text-amber-300">
               <span className="flex items-center gap-2 text-amber-200">
@@ -427,7 +423,7 @@ export default function DesktopMobileDetailView({
           </div>
 
           {/* Right Pane (35%): Native Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-amber-500/30 bg-[#120E08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-amber-500/30 bg-[#120E08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-amber-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-amber-400" />
@@ -436,65 +432,68 @@ export default function DesktopMobileDetailView({
                 </h3>
               </div>
 
-              <dl className="space-y-3.5 font-mono text-xs">
+              <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80">System Classification</dt>
-                  <dd className="text-slate-100 font-semibold flex items-center gap-1.5">
-                    <Box className="h-3.5 w-3.5 text-amber-400" />
-                    {telemetry.projectType}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">System Classification</dt>
+                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                    <Box className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 2. Operating Environment */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80">Operating Environment</dt>
-                  <dd className="text-amber-300 font-semibold flex items-center gap-1.5">
-                    <Globe className="h-3.5 w-3.5 text-amber-400" />
-                    {telemetry.targetPlatform}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Operating Environment</dt>
+                  <dd className="text-xs font-semibold text-amber-300 flex items-center gap-1.5 truncate">
+                    <Globe className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 3. Domain Focus */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80">Domain Focus</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <Layers className="h-3.5 w-3.5 text-amber-400" />
-                    {telemetry.primaryDomain}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Domain Focus</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Layers className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 4. Engineering Pipeline */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80">Engineering Pipeline</dt>
-                  <dd className="text-amber-300 font-semibold flex items-center gap-1.5">
-                    <Workflow className="h-3.5 w-3.5 text-amber-400" />
-                    <span className="truncate">{telemetry.architecturePipeline}</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dd className="text-xs font-semibold text-amber-300 flex items-center gap-1.5 truncate">
+                    <Workflow className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 5. Testing & Audit */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80">Testing & Audit</dt>
-                  <dd className="text-amber-300 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="h-3.5 w-3.5 text-amber-400" />
-                    <span>Passed</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Testing & Audit</dt>
+                  <dd className="text-xs font-semibold text-amber-300 flex items-center gap-1.5 truncate">
+                    <ShieldCheck className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 6. Project Status */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80">Project Status</dt>
-                  <dd className="text-amber-300 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
-                    {telemetry.projectStatus}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Project Status</dt>
+                  <dd className="text-xs font-semibold text-amber-300 flex items-center gap-1.5 truncate">
+                    <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+                    <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
-                <div className="flex flex-col gap-1">
-                  <dt className="text-[10px] uppercase text-amber-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{telemetry.projectYear}</dd>
+                <div className="flex flex-col gap-0.5">
+                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Project Year</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Clock className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                    <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
+                  </dd>
                 </div>
               </dl>
 
@@ -550,7 +549,7 @@ export default function DesktopMobileDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
-                      <span className={isPublicRepo ? "text-emerald-400 font-semibold text-[11px]" : "text-amber-400 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-amber-400 font-semibold text-[11px]" : "text-amber-400/80 font-semibold text-[11px]"}>
                         {isPublicRepo ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
                       </span>
                     </div>
@@ -620,7 +619,9 @@ export default function DesktopMobileDetailView({
             </span>
           </div>
           <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
-            {projectBackground}
+            {projectBackground.length > 1000
+              ? `${projectBackground.slice(0, 1000).trim()}...`
+              : projectBackground}
           </p>
         </div>
 
@@ -628,8 +629,8 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: Problem Statements */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-rose-500/25 pb-2.5 text-rose-400 font-mono text-xs uppercase tracking-wider">
-              <AlertTriangle className="h-4 w-4 text-rose-400" />
+            <div className="flex items-center gap-2 border-b border-amber-500/25 pb-2.5 text-amber-400 font-mono text-xs uppercase tracking-wider">
+              <AlertTriangle className="h-4 w-4 text-amber-400" />
               <span>Target Constraints & Bottlenecks</span>
             </div>
 
@@ -637,15 +638,15 @@ export default function DesktopMobileDetailView({
               {problemStatements.map((prob, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-rose-500/25 bg-rose-950/15 p-4 transition-all hover:border-rose-400/45 hover:bg-rose-950/25"
+                  className="rounded-xl border border-amber-500/25 bg-amber-950/15 p-4 transition-all hover:border-amber-400/45 hover:bg-amber-950/25"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                       {prob.title}
                     </h4>
                     {prob.issueCode && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-500/30 bg-rose-950/60 px-2 py-0.5 rounded">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-500/30 bg-amber-950/60 px-2 py-0.5 rounded">
                         {prob.issueCode}
                       </span>
                     )}
@@ -913,81 +914,13 @@ export default function DesktopMobileDetailView({
       {/* =========================================================================
           SECTION 4 — [ 04 // DESKTOP & MOBILE RUNTIME ECOSYSTEM ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-amber-500/30 bg-[#0E0B07]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
-        {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
-
-        {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4 mb-6">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
-            </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-300">
-              [ 04 // DESKTOP & MOBILE RUNTIME ECOSYSTEM ]
-            </span>
-          </div>
-
-          {/* HUD Filter Switcher */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl border border-amber-500/30 bg-[#120E08]">
-            {(
-              [
-                "All",
-                "Programming Languages",
-                "Frameworks & Libraries",
-                "Database, Tools & Services",
-              ] as const
-            ).map((filterOption) => (
-              <button
-                key={filterOption}
-                onClick={() => setSelectedTechFilter(filterOption)}
-                className={`px-3 py-1 rounded-lg font-mono text-[10px] sm:text-xs transition-all ${
-                  selectedTechFilter === filterOption
-                    ? "bg-amber-600 text-white font-bold shadow-[0_0_12px_rgba(245,158,11,0.5)]"
-                    : "text-slate-400 hover:text-amber-200"
-                }`}
-              >
-                {filterOption}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Dynamic Tech Grid */}
-        <div className="relative z-10 space-y-6">
-          {filteredTechGroups.map((groupItem, gIdx) => (
-            <div key={gIdx} className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-amber-300 uppercase tracking-wider border-b border-amber-500/15 pb-1.5">
-                <Code2 className="h-3.5 w-3.5 text-amber-400" />
-                <span>{groupItem.label}</span>
-                <span className="text-[10px] text-amber-400/70">
-                  ({groupItem.items.length} TECHNOLOGIES)
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                {groupItem.items.map((tech, tIdx) => (
-                  <div
-                    key={tIdx}
-                    className="group relative flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-[#120E08]/90 p-3 transition-all hover:border-amber-400/50 hover:bg-amber-500/10 hover:-translate-y-0.5"
-                  >
-                    <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-amber-400/30 bg-amber-500/15 text-amber-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                      {tech.name.substring(0, 2).toUpperCase()}
-                    </div>
-                    <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-amber-200 truncate">
-                      {tech.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <CyberTechStackSection
+        sectionNumber="04"
+        sectionTitle="[ 04 // DESKTOP & MOBILE RUNTIME ECOSYSTEM ]"
+        techStack={allDesktopMobileTechStack}
+        accentColor="amber"
+        onTriggerPulse={onTriggerPulse}
+      />
 
       {/* =========================================================================
           SECTION 5 — [ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]
@@ -1162,90 +1095,11 @@ export default function DesktopMobileDetailView({
         {/* Symmetrical 3-Card Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
           {/* CARD 1 — Adaptive Repository Card (Universal Standard) */}
-          <div
-            className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 ${
-              isPublicRepo
-                ? "border-amber-500/35 bg-[#140E07]/80 hover:border-amber-400/60 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
-                : "border-white/10 bg-black/60 hover:border-white/20"
-            }`}
-          >
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-amber-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-amber-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-amber-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-amber-400/60" />
-
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-amber-300">
-                  {isPublicRepo ? (
-                    <FolderGit2 className="h-4 w-4 text-amber-400" />
-                  ) : (
-                    <Lock className="h-4 w-4 text-slate-400" />
-                  )}
-                  <span>
-                    {isPublicRepo
-                      ? "PUBLIC GITHUB REPOSITORY"
-                      : "RESTRICTED PRIVATE REPOSITORY"}
-                  </span>
-                </div>
-                {isPublicRepo ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-950/60 px-2.5 py-0.5 font-mono text-[10px] text-amber-300 font-semibold shadow-[0_0_10px_rgba(245,158,11,0.2)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />PUBLIC</span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 font-mono text-[10px] text-slate-400 font-semibold">
-                    <Lock className="h-3 w-3" />PRIVATE</span>
-                )}
-              </div>
-
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {isPublicRepo ? "GitHub Repository" : "Private Commercial Repository"}
-              </h3>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                {isPublicRepo
-                  ? "Explore the complete project repository on GitHub, including production source code, commit history, architectural assets, and technical documentation."
-                  : "Source code access is restricted under non-disclosure agreements (NDA) or proprietary commercial rights. No public repository is published."}
-              </p>
-
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">ACCESS CLEARANCE:</span>
-                  <span className={isPublicRepo ? "text-amber-300 font-semibold" : "text-slate-400 font-semibold"}>
-                    {isPublicRepo ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">VCS GATEWAY:</span>
-                  <span className="text-slate-200">GitHub Cloud VCS</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">SECURITY AUDIT:</span>
-                  <span className={isPublicRepo ? "text-emerald-400 font-semibold" : "text-amber-400 font-semibold"}>
-                    {isPublicRepo ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {isPublicRepo && repoUrl ? (
-              <a
-                href={repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 px-5 py-3 font-mono text-xs font-bold text-slate-950 transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.35)] hover:scale-[1.01]"
-              >
-                <span>ACCESS REPOSITORY</span>
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ) : (
-              <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                <Lock className="h-3.5 w-3.5 text-slate-600" />
-                <span>RESTRICTED ACCESS</span>
-              </div>
-            )}
-          </div>
+          <CyberRepoCard
+            repoUrl={repoUrl}
+            accentColor="amber"
+            onTriggerPulse={onTriggerPulse}
+          />
 
           {/* CARD 2 — Application Runtime & Target Specifications Card */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-amber-500/30 bg-[#120E08]/95 p-5 sm:p-7 shadow-lg transition-all hover:border-amber-400/50 hover:shadow-[0_8px_32px_rgba(245,158,11,0.2)]">
@@ -1291,7 +1145,7 @@ export default function DesktopMobileDetailView({
                 )}
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">NETWORK EXPOSURE:</span>
-                  <span className="text-emerald-400 font-semibold">AIR-GAPPED OFFLINE</span>
+                  <span className="text-amber-400 font-semibold">AIR-GAPPED OFFLINE</span>
                 </div>
               </div>
             </div>

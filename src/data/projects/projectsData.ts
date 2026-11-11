@@ -9,12 +9,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/Smart Inventory & Operations System 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Smart Inventory & Operations System 1.webp",
-      "/images/projects/Smart Inventory & Operations System 2.webp",
-      "/images/projects/Smart Inventory & Operations System 3.webp",
-      "/images/projects/Smart Inventory & Operations System 4.webp"
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Enterprise-grade multi-tenant ERP platform engineered to eradicate negative stock drift, untracked workshop material scrap, and distorted inventory valuations in manufacturing operations.",
     "overview": "Smart Inventory & Operations System is an enterprise-grade multi-tenant ERP platform engineered to eradicate negative stock drift, untracked workshop material scrap, and distorted inventory valuations in manufacturing operations. Built on Next.js 16 App Router, React 19, TypeScript, and Prisma ORM with SQLite and PostgreSQL compatibility, the architecture handles high-concurrency inventory mutations through a dedicated ACID Inventory Engine. The engine serializes execution via process-level mutex locks and Prisma interactive transactions with ROW-level locking (SELECT FOR UPDATE) to prevent race conditions during simultaneous material receipts and dispatches.",
@@ -77,8 +77,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Maintained sub-35ms p95 response time across high-frequency manufacturing shift handovers."
     ],
     "techStack": [
-      "Next.js 16",
-      "React 19",
+      "Next.js",
+      "React",
       "TypeScript",
       "Prisma ORM",
       "SQLite",
@@ -92,7 +92,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Enterprise Inventory ERP",
       "targetPlatform": "Cloud-Native Web (Responsive)",
       "primaryDomain": "Fullstack Architecture & Enterprise Platform",
-      "architecturePipeline": "Serialized ACID inventory engine with promise-chain mutex locks",
+      "architecturePipeline": "Serialized ACID engine + promise mutex locks",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -164,22 +164,22 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "interfaceShowcase": [
       {
-        "imageUrl": "/images/projects/Smart Inventory & Operations System 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
         "caption": "Executive Dashboard: Live Stock Valuation & Multi-SKU Telemetry",
         "badge": "PORTAL_01"
       },
       {
-        "imageUrl": "/images/projects/Smart Inventory & Operations System 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
         "caption": "Material Receipt Inspection: Serialized Mutex Ingestion Gate",
         "badge": "PORTAL_02"
       },
       {
-        "imageUrl": "/images/projects/Smart Inventory & Operations System 3.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80",
         "caption": "Warehouse Dispatches: Real-Time Balance Lock Verification",
         "badge": "PORTAL_03"
       },
       {
-        "imageUrl": "/images/projects/Smart Inventory & Operations System 4.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
         "caption": "Audit Trail Ledger: Immutable Chronological Event Stream",
         "badge": "PORTAL_04"
       }
@@ -380,7 +380,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "CI/CD Green",
         "A11y Compliant"
       ]
-    }
+    },
+    "demoUrl": "https://smart-inventory-operations-system.vercel.app"
   },
   {
     "id": "silelo-online-auction-platform",
@@ -390,12 +391,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/SiLelo - Online Auction 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/SiLelo - Online Auction 1.webp",
-      "/images/projects/SiLelo - Online Auction 2.webp",
-      "/images/projects/SiLelo - Online Auction 3.webp",
-      "/images/projects/SiLelo - Online Auction 4.webp"
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Real-time web auction engine featuring sub-20ms WebSocket bid synchronization, Redis countdown timers, and automated anti-sniping bid extensions.",
     "overview": "SiLelo is a high-concurrency real-time online auction platform designed to eliminate bid latency and race condition vulnerabilities during final-second bidding wars. Developed with Next.js, Node.js, Socket.io, and Redis pub/sub channels, the system handles thousands of concurrent bidders per auction lot with millisecond synchronization. An intelligent anti-sniping algorithm dynamically extends auction timers when bids land in the final 30 seconds, ensuring fair market value discovery.",
@@ -473,7 +474,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Real-Time Auction Platform",
       "targetPlatform": "Cloud Web / Multi-Device",
       "primaryDomain": "High-Concurrency WebSocket Architecture",
-      "architecturePipeline": "Socket.io full-duplex streaming + Redis pub/sub cluster",
+      "architecturePipeline": "Socket.io duplex streaming + Redis pub/sub",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -545,22 +546,22 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "interfaceShowcase": [
       {
-        "imageUrl": "/images/projects/SiLelo - Online Auction 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
         "caption": "Live Auction Floor: Dynamic Price Stream & Real-Time Countdown",
         "badge": "VIEW_01"
       },
       {
-        "imageUrl": "/images/projects/SiLelo - Online Auction 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
         "caption": "Bid Confirmation Modal: Instant Escrow Hold Handshake",
         "badge": "VIEW_02"
       },
       {
-        "imageUrl": "/images/projects/SiLelo - Online Auction 3.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
         "caption": "Auctioneer Control Panel: Lot Lifecycle & Reserve Management",
         "badge": "VIEW_03"
       },
       {
-        "imageUrl": "/images/projects/SiLelo - Online Auction 4.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
         "caption": "Post-Auction Settlement: Automated Invoicing & Escrow Release",
         "badge": "VIEW_04"
       }
@@ -762,7 +763,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "TypeScript Clean",
         "Stress Tested"
       ]
-    }
+    },
+    "demoUrl": "https://silelo-online-auction-platform.vercel.app"
   },
   {
     "id": "aorus-gaming-showcase",
@@ -772,10 +774,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Web Development",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/Aorus Gaming Showcase 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Aorus Gaming Showcase 1.webp",
-      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp"
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "High-performance interactive 3D web showcase for gaming hardware featuring Three.js product shaders, headless CMS integration, and sub-40ms edge caching.",
     "overview": "Aorus Gaming Showcase is an interactive, GPU-accelerated web platform presenting high-end computer hardware through interactive 3D model viewports and fluid component animations. Built using Next.js 16, React Three Fiber (Three.js), and Tailwind CSS, the platform delivers 60fps holographic hardware exploration on desktop and mobile web viewports. Asset pipelines compress 3D meshes and 4K textures into ultra-light glTF/Draco formats, enabling sub-second initial load times across global CDNs.",
@@ -838,8 +842,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Achieved a 98/100 Google Lighthouse performance score on desktop viewport."
     ],
     "techStack": [
-      "Next.js 16",
-      "React 19",
+      "Next.js",
+      "React",
       "Three.js",
       "React Three Fiber",
       "Tailwind CSS",
@@ -924,12 +928,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "interfaceShowcase": [
       {
-        "imageUrl": "/images/projects/Aorus Gaming Showcase 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
         "caption": "Hardware Showcase: Interactive 3D GPU Motherboard Viewport",
         "badge": "VIEW_01"
       },
       {
-        "imageUrl": "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
         "caption": "Responsive Mobile Interface: Touch Orbit Controls & Spec Sheet",
         "badge": "VIEW_02"
       }
@@ -1101,7 +1105,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "Draco Compressed",
         "WCAG Compliant"
       ]
-    }
+    },
+    "demoUrl": "https://aorus-gaming-showcase.vercel.app"
   },
   {
     "id": "omnichannel-retail-sales-and-customer-lifetime-value-analytics",
@@ -1111,11 +1116,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Data Analytics",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/Grosir Sembako Jaya Makmur POS 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Grosir Sembako Jaya Makmur POS 1.webp",
-      "/images/projects/Grosir Sembako Jaya Makmur POS 2.webp",
-      "/images/projects/Grosir Sembako Jaya Makmur POS 3.webp"
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Enterprise-grade quantitative business intelligence investigation analyzing multi-channel retail transaction streams to resolve margin cannibalization and customer churn.",
     "overview": "OmniChannel Retail Sales Analytics is an enterprise-grade quantitative business intelligence investigation engineered to resolve severe margin cannibalization, escalating customer churn, and fulfillment latency across hybrid online and brick-and-mortar storefronts. Combining automated ETL pipelines, RFM segmentation, and predictive survival modeling across 840,000+ transaction rows, the project isolates discount inefficiencies and identifies high-value customer retention cohorts.",
@@ -1193,7 +1199,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Quantitative BI Investigation",
       "targetPlatform": "Cloud Analytics / BI-Platform",
       "primaryDomain": "Retail & E-Commerce Transactions",
-      "architecturePipeline": "Automated ETL ingestion + Retention modeling + RFM clustering",
+      "architecturePipeline": "Automated ETL pipeline + RFM customer clustering",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -1309,15 +1315,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "dataTechStack": {
       "coreTechnologies": [
         {
-          "name": "Python 3.12",
+          "name": "Python",
           "role": "Primary computational and exploratory data analysis runtime"
         },
         {
-          "name": "PostgreSQL 16",
+          "name": "PostgreSQL",
           "role": "High-performance relational data warehouse and analytical query engine"
         },
         {
-          "name": "SQL (ANSI / Window Functions)",
+          "name": "SQL",
           "role": "Complex aggregations, windowing, and transactional ETL queries"
         },
         {
@@ -1344,19 +1350,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "slideNumber": 1,
         "title": "Executive Summary & Revenue Breakdown",
-        "imageUrl": "/images/projects/Grosir Sembako Jaya Makmur POS 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
         "caption": "Slide 01 // Multi-channel revenue performance and profit margins"
       },
       {
         "slideNumber": 2,
         "title": "RFM Cohort Distribution & Retention",
-        "imageUrl": "/images/projects/Grosir Sembako Jaya Makmur POS 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1200&q=80",
         "caption": "Slide 02 // Customer lifetime value and engagement frequency decay"
       },
       {
         "slideNumber": 3,
         "title": "Discount Elasticity & Margin Sensitivity",
-        "imageUrl": "/images/projects/Grosir Sembako Jaya Makmur POS 3.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
         "caption": "Slide 03 // Cannibalization thresholds and promotional discount ceilings"
       }
     ],
@@ -1423,7 +1429,155 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "size": "14.8 MB",
         "description": "Interactive Power BI template with dynamic parameters and DAX measures."
       }
-    ]
+    ],
+    "dataAnalyticsTechStack": {
+      "coreTechnologies": [
+        {
+          "name": "Python",
+          "role": "Primary computational and exploratory data analysis runtime"
+        },
+        {
+          "name": "PostgreSQL",
+          "role": "High-performance relational data warehouse and analytical query engine"
+        },
+        {
+          "name": "SQL",
+          "role": "Complex aggregations, windowing, and transactional ETL queries"
+        },
+        {
+          "name": "Pandas & NumPy",
+          "role": "Vectorized array calculations and dataframe manipulations"
+        }
+      ],
+      "analyticsVizTools": [
+        {
+          "name": "Power BI Desktop",
+          "role": "Interactive executive KPI dashboards and drill-through matrices"
+        },
+        {
+          "name": "Tableau Public",
+          "role": "Exploratory geospatial heatmaps and store dispersion visualizations"
+        },
+        {
+          "name": "Matplotlib & Seaborn",
+          "role": "Statistical publication plots and distribution density graphs"
+        }
+      ]
+    },
+    "dataAnalyticsAnalyticalObjectives": [
+      {
+        "title": "Margin Cannibalization Thresholds",
+        "description": "Quantify the point where promotional discounts erode gross profitability without boosting customer volume.",
+        "targetMetric": "MARGIN_FLOOR"
+      },
+      {
+        "title": "Customer Lifetime Value (CLV)",
+        "description": "Estimate long-term financial yield per customer tier to prioritize retention capital expenditure.",
+        "targetMetric": "CLV_TIER"
+      },
+      {
+        "title": "Channel Fulfillment Optimization",
+        "description": "Contrast order lead times between store fulfillment and central distribution warehouses.",
+        "targetMetric": "LEAD_TIME_P90"
+      }
+    ],
+    "dataAnalyticsDatasetOverview": {
+      "dataSource": "Enterprise Multi-Store POS Ledger & E-Commerce Event Stream",
+      "dataPeriod": "January 2024 - December 2025 (24 Months)",
+      "recordsCount": "842,510 Orders",
+      "variablesCount": "38 Telemetry Dimensions",
+      "description": "Comprehensive transactional dataset capturing customer demographic IDs, order timestamps, line-item quantities, discounts applied, payment channels, and fulfillment latencies."
+    },
+    "dataAnalyticsDataPreparation": [
+      {
+        "step": "01",
+        "title": "Missing Value Imputation",
+        "description": "Imputed missing delivery timestamps using median branch transit velocities.",
+        "badge": "Cleanse"
+      },
+      {
+        "step": "02",
+        "title": "Outlier & Anomaly Removal",
+        "description": "Filtered return transaction reversals and wholesale bulk distributor test orders.",
+        "badge": "Filter"
+      },
+      {
+        "step": "03",
+        "title": "Customer Entity Resolution",
+        "description": "Unified cross-platform guest and registered accounts using fuzzy contact matching.",
+        "badge": "Resolve"
+      },
+      {
+        "step": "04",
+        "title": "Currency & Inflation Normalization",
+        "description": "Standardized all historical line amounts to Q4-2025 constant currency benchmarks.",
+        "badge": "Transform"
+      }
+    ],
+    "dataAnalyticsPresentationSlides": [
+      {
+        "slideNumber": 1,
+        "title": "Executive Summary & Revenue Breakdown",
+        "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Slide 01 // Multi-channel revenue performance and profit margins"
+      },
+      {
+        "slideNumber": 2,
+        "title": "RFM Cohort Distribution & Retention",
+        "imageUrl": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Slide 02 // Customer lifetime value and engagement frequency decay"
+      },
+      {
+        "slideNumber": 3,
+        "title": "Discount Elasticity & Margin Sensitivity",
+        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Slide 03 // Cannibalization thresholds and promotional discount ceilings"
+      }
+    ],
+    "dataAnalyticsKeyFindings": [
+      {
+        "metricValue": "+24.8%",
+        "metricLabel": "MARGIN RECOVERY",
+        "title": "Discount Cannibalization Threshold Identified",
+        "description": "Orders discounted above 18% caused a statistically significant drop in net margin without driving repeat purchase retention (p = 0.004).",
+        "impactTag": "PROFITABILITY"
+      },
+      {
+        "metricValue": "68.2%",
+        "metricLabel": "CHAMPION CONCENTRATION",
+        "title": "Top Quintile Drives Vast Majority of Profits",
+        "description": "The top 20% of customers generated 68.2% of cumulative cumulative revenue, underscoring high reliance on core patrons.",
+        "impactTag": "RETENTION"
+      },
+      {
+        "metricValue": "3.2x",
+        "metricLabel": "CHURN ACCELERATION",
+        "title": "Critical 45-Day Re-engagement Window",
+        "description": "Customers without a secondary purchase within 45 days exhibited a 3.2x higher likelihood of permanent platform lapse.",
+        "impactTag": "CHURN_RISK"
+      }
+    ],
+    "dataAnalyticsSupportingFiles": [
+      {
+        "name": "omnichannel_transactions_cleaned_v2.csv",
+        "format": "CSV // GZIP",
+        "size": "48.2 MB",
+        "description": "De-duplicated transaction records with RFM and CLV segment tags."
+      },
+      {
+        "name": "retail_executive_kpi_deck.pbix",
+        "format": "Power BI Desktop",
+        "size": "12.4 MB",
+        "description": "Interactive multi-screen dashboard with dynamic cohort filters."
+      },
+      {
+        "name": "clv_cohort_survival_model.ipynb",
+        "format": "Jupyter Notebook",
+        "size": "3.8 MB",
+        "description": "BG/NBD and Gamma-Gamma statistical model fitting pipeline."
+      }
+    ],
+    "demoUrl": "https://omnichannel-retail-sales-and-customer-lifetime-value-analytics.vercel.app"
   },
   {
     "id": "jakarta-hotel-review-sentiment-analysis",
@@ -1433,10 +1587,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Data Analytics",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/Jakarta Hotel Review Sentiment Analysis 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Jakarta Hotel Review Sentiment Analysis 1.webp",
-      "/images/projects/Jakarta Hotel Review Sentiment Analysis 2.webp"
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517840901100-8179e982acb7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Large-scale NLP text mining and diagnostic customer experience analysis evaluating 45,000+ guest reviews across Jakarta luxury and boutique hospitality properties.",
     "overview": "Jakarta Hotel Review Sentiment Analysis is a diagnostic data analytics study combining Natural Language Processing (NLP), aspect-based sentiment scoring, and exploratory correlation modeling across 45,000+ guest reviews. The project deconstructs guest satisfaction drivers across cleanliness, front-desk service latency, room amenities, and breakfast quality, equipping hotel operators with prioritized operational action roadmaps.",
@@ -1514,7 +1670,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Diagnostic NLP Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
       "primaryDomain": "Hospitality Text Mining & Experience Analytics",
-      "architecturePipeline": "NLP Text mining + Aspect sentiment scoring + Regression analytics",
+      "architecturePipeline": "NLP text mining + aspect sentiment + regression",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -1630,7 +1786,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "dataTechStack": {
       "coreTechnologies": [
         {
-          "name": "Python 3.12",
+          "name": "Python",
           "role": "Text processing and statistical NLP analysis"
         },
         {
@@ -1661,13 +1817,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "slideNumber": 1,
         "title": "Jakarta Hospitality Sentiment Landscape",
-        "imageUrl": "/images/projects/Jakarta Hotel Review Sentiment Analysis 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
         "caption": "Slide 01 // Overview of sentiment polarity across 45,000+ guest reviews"
       },
       {
         "slideNumber": 2,
         "title": "Aspect Breakdown: Service vs Facilities",
-        "imageUrl": "/images/projects/Jakarta Hotel Review Sentiment Analysis 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
         "caption": "Slide 02 // Departmental satisfaction rankings and key failure modes"
       }
     ],
@@ -1734,7 +1890,145 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "size": "4.8 MB",
         "description": "High-level summary deck formatted for executive leadership."
       }
-    ]
+    ],
+    "dataAnalyticsTechStack": {
+      "coreTechnologies": [
+        {
+          "name": "Python",
+          "role": "Text processing and statistical NLP analysis"
+        },
+        {
+          "name": "NLTK & VADER",
+          "role": "Lexicon-based sentiment scoring and tokenization"
+        },
+        {
+          "name": "Scikit-Learn",
+          "role": "Regression modeling and TF-IDF matrix transformations"
+        },
+        {
+          "name": "PostgreSQL",
+          "role": "Relational storage for normalized reviews and aspect scores"
+        }
+      ],
+      "analyticsVizTools": [
+        {
+          "name": "Tableau Public",
+          "role": "Interactive property comparison and aspect ranking dashboards"
+        },
+        {
+          "name": "Seaborn / Matplotlib",
+          "role": "Aspect correlation matrices and sentiment density distributions"
+        }
+      ]
+    },
+    "dataAnalyticsAnalyticalObjectives": [
+      {
+        "title": "Aspect Sentiment Isolation",
+        "description": "Deconstruct multi-sentence reviews into departmental responsibility buckets.",
+        "targetMetric": "ASPECT_SCORE"
+      },
+      {
+        "title": "Severe Detractor Diagnosis",
+        "description": "Identify specific physical or service defects that systematically generate 1-star ratings.",
+        "targetMetric": "DETRACTOR_RATIO"
+      },
+      {
+        "title": "Benchmarking Across Property Tiers",
+        "description": "Compare guest satisfaction profiles between 4-star boutique and 5-star international hotel chains.",
+        "targetMetric": "NPS_BENCHMARK"
+      }
+    ],
+    "dataAnalyticsDatasetOverview": {
+      "dataSource": "Aggregated Public OTA Review Repositories (TripAdvisor, Agoda, Booking.com)",
+      "dataPeriod": "2023 - 2025 (3 Calendar Years)",
+      "recordsCount": "45,210 Verified Reviews",
+      "variablesCount": "16 Attributes",
+      "description": "Textual reviews, numerical ratings (1-5 stars), stay date, reviewer traveler type (business, family, solo), room type, and hotel property location."
+    },
+    "dataAnalyticsDataPreparation": [
+      {
+        "step": "01",
+        "title": "Language Separation",
+        "description": "Bilingual detection separating Indonesian (Bahasa) and English reviews for specialized tokenizers.",
+        "badge": "Language"
+      },
+      {
+        "step": "02",
+        "title": "Slang & Typo Normalization",
+        "description": "Mapped colloquial Indonesian acronyms (e.g. 'bgt', 'bintang 5', 'ga bgt') to standard lexical tokens.",
+        "badge": "Normalization"
+      },
+      {
+        "step": "03",
+        "title": "Aspect Lexicon Construction",
+        "description": "Constructed verified domain dictionaries for Room, F&B, Service, Cleanliness, and Value.",
+        "badge": "Lexicon"
+      },
+      {
+        "step": "04",
+        "title": "Negation Handling",
+        "description": "Engineered bi-gram windows to prevent incorrect positive tagging of negated praise.",
+        "badge": "Syntactic"
+      }
+    ],
+    "dataAnalyticsPresentationSlides": [
+      {
+        "slideNumber": 1,
+        "title": "Jakarta Hospitality Sentiment Landscape",
+        "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Slide 01 // Overview of sentiment polarity across 45,000+ guest reviews"
+      },
+      {
+        "slideNumber": 2,
+        "title": "Aspect Breakdown: Service vs Facilities",
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Slide 02 // Departmental satisfaction rankings and key failure modes"
+      }
+    ],
+    "dataAnalyticsKeyFindings": [
+      {
+        "metricValue": "44.6%",
+        "metricLabel": "COMPLAINT DOMINANCE",
+        "title": "Front Desk & Check-in Is Leading Detractor",
+        "description": "Check-in wait times accounted for 44.6% of negative review text volume, surpassing room cleanliness issues.",
+        "impactTag": "SERVICE"
+      },
+      {
+        "metricValue": "-1.8 Stars",
+        "metricLabel": "RATING IMPACT",
+        "title": "Unclean Bathrooms Severely Penalize Scores",
+        "description": "Reviews citing bathroom hygiene failures suffered an average 1.8-star penalty on final review ratings.",
+        "impactTag": "HYGIENE"
+      },
+      {
+        "metricValue": "91.2%",
+        "metricLabel": "LOYALTY CORRELATION",
+        "title": "Staff Courtesy Drives Repeat Intent",
+        "description": "Mentions of helpful concierge or front-desk staff correlated with 91.2% positive overall recommendation intent.",
+        "impactTag": "HOSPITALITY"
+      }
+    ],
+    "dataAnalyticsSupportingFiles": [
+      {
+        "name": "jakarta_hotel_sentiment_corpus.csv",
+        "format": "CSV Dataset",
+        "size": "24.6 MB",
+        "description": "Pre-processed customer reviews with VADER and aspect polarity scores."
+      },
+      {
+        "name": "hospitality_experience_matrix.twbx",
+        "format": "Tableau Packaged",
+        "size": "18.1 MB",
+        "description": "Visual hotel category ranking and guest sentiment radar charts."
+      },
+      {
+        "name": "aspect_extraction_lda_pipeline.ipynb",
+        "format": "Jupyter Notebook",
+        "size": "5.2 MB",
+        "description": "Topic modeling and negative review root-cause analysis."
+      }
+    ],
+    "demoUrl": "https://jakarta-hotel-review-sentiment-analysis.vercel.app"
   },
   {
     "id": "kip-student-eligibility-prediction-analytics",
@@ -1744,9 +2038,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "Data Analytics",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/KIP Student Eligibility Prediction 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/KIP Student Eligibility Prediction 1.webp"
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Quantitative socioeconomic demographic analysis and predictive scoring audit evaluating scholarship allocation equity across 18,000+ university applicants.",
     "overview": "KIP Student Eligibility Analytics is an educational equity and quantitative demographic investigation designed to ensure fair, transparent, and audited distribution of university government scholarships (KIP Kuliah). By auditing 18,000+ student applications across parental income, housing characteristics, utility expenditure, and academic achievements, the study builds an automated demographic scoring model that reduces human review bias and flags fraudulent applications.",
@@ -1823,7 +2120,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Socioeconomic Equity Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
       "primaryDomain": "Educational Policy & Demographic Mining",
-      "architecturePipeline": "TOPSIS multi-criteria analysis + Anomaly detection + Power BI HUD",
+      "architecturePipeline": "TOPSIS MCDM analysis + anomaly detection engine",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -1939,7 +2236,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "dataTechStack": {
       "coreTechnologies": [
         {
-          "name": "Python 3.12",
+          "name": "Python",
           "role": "Algorithmic decision modeling and statistical processing"
         },
         {
@@ -1970,7 +2267,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "slideNumber": 1,
         "title": "KIP Applicant Demographic Profile & Scoring Matrix",
-        "imageUrl": "/images/projects/KIP Student Eligibility Prediction 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
         "caption": "Slide 01 // Multi-criteria eligibility index and distribution equity"
       }
     ],
@@ -2031,7 +2328,139 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "size": "3.2 MB",
         "description": "Comprehensive audit documentation and methodology whitepaper."
       }
-    ]
+    ],
+    "dataAnalyticsTechStack": {
+      "coreTechnologies": [
+        {
+          "name": "Python",
+          "role": "Algorithmic decision modeling and statistical processing"
+        },
+        {
+          "name": "Pandas & Scipy",
+          "role": "Matrix operations, normalization, and Euclidean distance formulas"
+        },
+        {
+          "name": "PostgreSQL",
+          "role": "Applicant database repository and audit logs"
+        },
+        {
+          "name": "SQL",
+          "role": "Staging and cohort stratification queries"
+        }
+      ],
+      "analyticsVizTools": [
+        {
+          "name": "Power BI Desktop",
+          "role": "Administrative review dashboard with dynamic weighting sliders"
+        },
+        {
+          "name": "Matplotlib & Seaborn",
+          "role": "Applicant demographic distribution charts and poverty histograms"
+        }
+      ]
+    },
+    "dataAnalyticsAnalyticalObjectives": [
+      {
+        "title": "Standardized Poverty Index",
+        "description": "Create an objective mathematical formula balancing income per capita against fixed household burdens.",
+        "targetMetric": "SVI_FORMULA"
+      },
+      {
+        "title": "Fraud & Anomaly Detection",
+        "description": "Deploy rule-based and clustering algorithms to detect falsified income declarations.",
+        "targetMetric": "ANOMALY_PRECISION"
+      },
+      {
+        "title": "Regional Equity Allocation",
+        "description": "Ensure students from underdeveloped outermost regions (3T) receive calibrated affirmative weighting.",
+        "targetMetric": "3T_AFFIRMATIVE"
+      }
+    ],
+    "dataAnalyticsDatasetOverview": {
+      "dataSource": "University Student Admission & Scholarship Management System",
+      "dataPeriod": "Academic Year 2024/2025 Admissions",
+      "recordsCount": "18,400 Applicants",
+      "variablesCount": "24 Variables",
+      "description": "Parental income, parent occupations, number of school-age siblings, home electricity capacity (VA), house ownership status, water source, and high school GPA."
+    },
+    "dataAnalyticsDataPreparation": [
+      {
+        "step": "01",
+        "title": "Income per Capita Calculation",
+        "description": "Divided gross combined parental income by total resident household members.",
+        "badge": "Feature"
+      },
+      {
+        "step": "02",
+        "title": "Categorical Encoding",
+        "description": "Ordinal encoding of parental education levels and housing structural durability types.",
+        "badge": "Encode"
+      },
+      {
+        "step": "03",
+        "title": "Outlier Bounds Checking",
+        "description": "Identified impossible negative values and extreme reporting typos in utility metrics.",
+        "badge": "Sanitize"
+      },
+      {
+        "step": "04",
+        "title": "Affirmative Action Weighting",
+        "description": "Calibrated regional socioeconomic difficulty multipliers based on national development index data.",
+        "badge": "Weighting"
+      }
+    ],
+    "dataAnalyticsPresentationSlides": [
+      {
+        "slideNumber": 1,
+        "title": "KIP Applicant Demographic Profile & Scoring Matrix",
+        "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Slide 01 // Multi-criteria eligibility index and distribution equity"
+      }
+    ],
+    "dataAnalyticsKeyFindings": [
+      {
+        "metricValue": "96.8%",
+        "metricLabel": "AUDIT ACCURACY",
+        "title": "High Alignment with Human Field Inspections",
+        "description": "The automated index correctly predicted 96.8% of scholarship allocations verified by home visit field teams.",
+        "impactTag": "RELIABILITY"
+      },
+      {
+        "metricValue": "420 Cases",
+        "metricLabel": "ANOMALIES FLAGGED",
+        "title": "Income Discrepancies Successfully Isolated",
+        "description": "The anomaly detector flagged 420 applications claiming extreme poverty while possessing high utility consumption profiles.",
+        "impactTag": "INTEGRITY"
+      },
+      {
+        "metricValue": "-88% Time",
+        "metricLabel": "EFFICIENCY GAIN",
+        "title": "Evaluation Turnaround Reduced Drastically",
+        "description": "Committee review time was cut from 6 weeks down to under 4 business days.",
+        "impactTag": "EFFICIENCY"
+      }
+    ],
+    "dataAnalyticsSupportingFiles": [
+      {
+        "name": "kip_student_demographics_anonymized.csv",
+        "format": "CSV Dataset",
+        "size": "14.8 MB",
+        "description": "Anonymized socioeconomic metrics, family income, and academic GPA records."
+      },
+      {
+        "name": "topsis_mcda_eligibility_report.xlsx",
+        "format": "Excel Workbook",
+        "size": "8.5 MB",
+        "description": "TOPSIS normalized scoring matrices, criterion weights, and ranking cutoffs."
+      },
+      {
+        "name": "equity_statistical_distribution.ipynb",
+        "format": "Jupyter Notebook",
+        "size": "4.1 MB",
+        "description": "Distribution disparity analysis and policy impact simulation."
+      }
+    ],
+    "demoUrl": "https://kip-student-eligibility-prediction-analytics.vercel.app"
   },
   {
     "id": "synapse-agentic-rag-knowledge-engine",
@@ -2041,11 +2470,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI Engineering",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/BrainSync - Personal Knowledge Management 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/BrainSync - Personal Knowledge Management 1.webp",
-      "/images/projects/BrainSync - Personal Knowledge Management 2.webp",
-      "/images/projects/BrainSync - Personal Knowledge Management 3.webp"
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Autonomous multi-agent cognitive architecture with cyclic LangGraph orchestration, hybrid dense/sparse vector search, and deterministic tool execution.",
     "overview": "Synapse is an enterprise-grade agentic knowledge platform designed to overcome hallucination and context fragmentation in unstructured enterprise documentation. Leveraging LangGraph for cyclic state management, Qdrant for hybrid sparse/dense vector retrieval, and automated query rewriting, Synapse decomposes multi-hop research queries into deterministic tool-calling sub-tasks. The system executes self-reflective verification loops to validate groundedness against ingested source documents before streaming answers.",
@@ -2123,7 +2553,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Agentic AI & RAG System",
       "targetPlatform": "LLM APIs / Vector Database / Cloud Edge",
       "primaryDomain": "Autonomous Tool Calling & Hybrid RAG",
-      "architecturePipeline": "FastAPI streaming gateway + LangGraph cyclic state machine + Qdrant hybrid RRF",
+      "architecturePipeline": "FastAPI + LangGraph agent + Qdrant hybrid RRF",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -2269,11 +2699,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "aiTechStack": {
       "aiModelsAndServices": [
         {
-          "name": "Claude 3.5 Sonnet",
+          "name": "Claude Sonnet",
           "role": "Primary complex reasoning, code generation, and multi-hop synthesis"
         },
         {
-          "name": "Llama 3 70B (Groq / vLLM)",
+          "name": "Llama",
           "role": "High-speed query planning and contextual document grading"
         },
         {
@@ -2410,7 +2840,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "RAGAS Verified",
         "OWASP LLM Compliant"
       ]
-    }
+    },
+    "demoUrl": "https://synapse-agentic-rag-knowledge-engine.vercel.app"
   },
   {
     "id": "brainsync-autonomous-pkm-ai-agent",
@@ -2420,10 +2851,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI Engineering",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/BrainSync - Personal Knowledge Management 2.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/BrainSync - Personal Knowledge Management 2.webp",
-      "/images/projects/BrainSync - Personal Knowledge Management 4.webp"
+      "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Personal knowledge management copilot executing autonomous semantic linking, bi-directional Markdown graph synthesis, and transactional note synchronization.",
     "overview": "BrainSync is an autonomous knowledge agent and bi-directional graph copilot designed to eliminate cognitive friction in personal knowledge management. Built on Fastify, PostgreSQL 16 with pgvector, and Three.js 3D graph visualization, BrainSync continuously scans user Markdown notes, detects conceptual analogies, and automatically synthesizes [[wikilinks]] without user intervention. The agent supports natural-language semantic queries across extensive thought archives with real-time graph physics re-balancing.",
@@ -2501,7 +2934,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Autonomous Knowledge Agent",
       "targetPlatform": "Local-First Desktop & Web",
       "primaryDomain": "Personal Knowledge Graph & Semantic AI",
-      "architecturePipeline": "Fastify REST + PostgreSQL pgvector + Three.js 3D galaxy canvas",
+      "architecturePipeline": "Fastify REST + pgvector + Three.js 3D canvas",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -2618,11 +3051,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "aiTechStack": {
       "aiModelsAndServices": [
         {
-          "name": "Nomic Embed Text v1.5",
+          "name": "Nomic Embed Text",
           "role": "High-accuracy open-weights embedding model optimized for long-context notes"
         },
         {
-          "name": "Llama 3 8B Instruct",
+          "name": "Llama Instruct",
           "role": "Local inference agent summarizing note clusters and generating connection insights"
         }
       ],
@@ -2642,7 +3075,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "developmentAndInfrastructure": [
         {
-          "name": "PostgreSQL 16 with pgvector",
+          "name": "PostgreSQL",
           "role": "Relational database with native vector similarity operations"
         },
         {
@@ -2741,7 +3174,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "Sub-5ms Query",
         "Zero Data Loss"
       ]
-    }
+    },
+    "demoUrl": "https://brainsync-autonomous-pkm-ai-agent.vercel.app"
   },
   {
     "id": "enterprise-rag-financial-knowledge-agent",
@@ -2751,10 +3185,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "categoryLabel": "AI Engineering",
     "year": "2026",
     "status": "Completed",
-    "imageUrl": "/images/projects/Aksaraya - Digital Library Management 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Aksaraya - Digital Library Management 1.webp",
-      "/images/projects/Aksaraya - Digital Library Management 2.webp"
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Audit-ready financial RAG agent featuring automated regulatory compliance checks, XBRL financial table extraction, and zero-leakage multi-tenant encryption.",
     "overview": "FinGuard is an enterprise financial intelligence agent built to automate the auditing of balance sheets, regulatory filing circulars, and quarterly financial statements. Powered by hybrid OCR-Vision pipelines and LangChain agentic chains, FinGuard executes deterministic cross-referencing between statutory disclosures and internal accounting ledgers. All processing is governed by zero-retention enterprise LLM privacy guarantees and air-gapped tenant encryption.",
@@ -2831,7 +3267,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Financial Compliance AI Agent",
       "targetPlatform": "Enterprise Private Cloud / Hybrid",
       "primaryDomain": "Regulatory Compliance & Financial NLP",
-      "architecturePipeline": "Vision OCR table parsing + LangChain compliance rule chains",
+      "architecturePipeline": "Vision OCR parsing + LangChain compliance rules",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -2946,11 +3382,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "aiTechStack": {
       "aiModelsAndServices": [
         {
-          "name": "Claude 3.5 Sonnet",
+          "name": "Claude Sonnet",
           "role": "Complex financial footnote comprehension and regulatory interpretation"
         },
         {
-          "name": "Table Transformer (TATR)",
+          "name": "Table Transformer",
           "role": "Deep learning table detection and cell structure recognition"
         }
       ],
@@ -3059,7 +3495,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "Encrypted Tenant Vaults",
         "OJK Compliant"
       ]
-    }
+    },
+    "demoUrl": "https://enterprise-rag-financial-knowledge-agent.vercel.app"
   },
   {
     "id": "diabetes-classification-using-knn-with-data-normalization",
@@ -3070,16 +3507,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2024",
     "status": "Completed",
     "accentColor": "indigo",
-    "imageUrl": "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",
-      "/images/projects/Diabetes Classification Using KNN with Data Normalization 2.webp",
-      "/images/projects/Diabetes Classification Using KNN with Data Normalization 3.webp",
-      "/images/projects/Diabetes Classification Using KNN with Data Normalization 4.webp",
-      "/images/projects/Diabetes Classification Using KNN with Data Normalization 5.webp"
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Empirical machine learning research project engineered to resolve distance metric sensitivity and magnitude distortions in non-parametric clinical diagnostic systems, deploying feature importance pruning and paired statistical significance testing.",
-    "overview": "In distance-based machine learning algorithms such as K-Nearest Neighbors (K-NN), high-magnitude physiological attributes mathematically overpower smaller continuous markers in Euclidean distance space. Without calibrated feature scaling and non-parametric importance pruning, raw distances distort nearest-neighbor boundaries, causing severe diagnostic misclassifications. This project designs a rigorous experimental pipeline evaluating Min-Max Scaling, Z-Score Standardization, and Decimal Scaling across odd neighborhood values (k=1..11), demonstrating statistically significant diagnostic accuracy improvements verified via paired two-tailed Student's t-tests.",
+    "overview": "In distance-based machine learning such as K-NN, high-magnitude features mathematically overpower smaller markers in Euclidean space. Without calibrated scaling, nearest-neighbor boundaries distort, causing severe diagnostic misclassifications. This project evaluates Min-Max Scaling, Z-Score Standardization, and Decimal Scaling across k=1..11, demonstrating statistically significant accuracy gains verified via paired t-tests.",
     "challenge": "In distance-based machine learning algorithms such as K-Nearest Neighbors (K-NN), high-magnitude physiological attributes (e.g. insulin or serum glucose) mathematically overpower smaller continuous markers in Euclidean distance space. Without calibrated feature scaling and non-parametric importance pruning, raw distances distort nearest-neighbor boundaries, causing severe diagnostic misclassifications.",
     "architectureSummary": "Supervised Classification + Multi-Paradigm Normalization + Cross-Validated Hyperparameter Grid",
     "objectives": [
@@ -3234,7 +3670,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "mlTechStack": {
       "programmingLanguages": [
         {
-          "name": "Python 3.10+",
+          "name": "Python",
           "role": "Core mathematical scripting, matrix manipulation, and statistical hypothesis tests"
         }
       ],
@@ -3317,19 +3753,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Model Accuracy vs Neighborhood Size (k=1 to 11)",
         "badge": "Accuracy Curve",
-        "imageUrl": "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
         "caption": "Comparative accuracy trajectories across Min-Max Scaling (peak 81.17% at k=7), Z-Score, Decimal Scaling, and raw baseline across k=1 to 11."
       },
       {
         "title": "ROC-AUC Comparison Across Normalization Paradigms",
         "badge": "ROC-AUC Curve",
-        "imageUrl": "/images/projects/Diabetes Classification Using KNN with Data Normalization 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1200&q=80",
         "caption": "Receiver Operating Characteristic curves confirming statistically significant discrimination gains for Min-Max Normalized K-NN (AUC = 0.852)."
       },
       {
         "title": "Confusion Matrix & Diagnostic Error Breakdown",
         "badge": "Confusion Matrix",
-        "imageUrl": "/images/projects/Diabetes Classification Using KNN with Data Normalization 3.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
         "caption": "Confusion matrix on held-out test cohort demonstrating high specificity (84.85%) and minimal false-positive clinical misidentifications."
       }
     ],
@@ -3447,7 +3883,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "demoUrl": "https://diabetes-classification-using-knn-with-data-normalization.vercel.app"
   },
   {
     "id": "center-of-mass-and-velocity-calculator",
@@ -3458,11 +3895,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2024",
     "status": "Completed",
     "accentColor": "indigo",
-    "imageUrl": "/images/projects/Center of Mass and Velocity Calculator 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Center of Mass and Velocity Calculator 1.webp",
-      "/images/projects/Center of Mass and Velocity Calculator 2.webp",
-      "/images/projects/Center of Mass and Velocity Calculator 3.webp"
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Physics-informed mathematical computing engine modeling multi-particle kinematics, momentum conservation vectors, and center-of-mass trajectory dynamics in discrete Newtonian particle systems.",
     "overview": "Computational physical modeling engine designed to simulate multi-particle collision dynamics, continuous barycentric trajectory vectors, and discrete center-of-mass kinematics. Leveraging vectorized NumPy tensor transformations and deterministic Newtonian equations of motion, the application computes instantaneous position coordinates, aggregate momentum fluxes, and kinetic energy distributions across arbitrary N-body coordinate spaces with microsecond execution latency.",
@@ -3509,7 +3947,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Computational Kinematics & Physical Modeling",
       "targetPlatform": "Python 3.11+ / NumPy / Matplotlib",
       "primaryDomain": "Classical Mechanics & Kinematics",
-      "architecturePipeline": "Vectorized Newtonian Dynamics + Coordinate Tensor Solvers",
+      "architecturePipeline": "Vectorized Newtonian dynamics + tensor solvers",
       "projectStatus": "Completed",
       "projectYear": "2024",
       "testingAndAudit": "Passed"
@@ -3614,7 +4052,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "mlTechStack": {
       "programmingLanguages": [
         {
-          "name": "Python 3.11+",
+          "name": "Python",
           "role": "High-level scientific computing, matrix manipulation, and kinematics orchestration"
         }
       ],
@@ -3693,19 +4131,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Center of Mass Planar Vector Trajectory",
         "badge": "Vector Trajectory",
-        "imageUrl": "/images/projects/Center of Mass and Velocity Calculator 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
         "caption": "Interactive coordinate plot illustrating discrete particle positions, individual velocity vectors, and resultant system center-of-mass locus."
       },
       {
         "title": "Momentum Decomposition & Component Breakdown",
         "badge": "Component Vectors",
-        "imageUrl": "/images/projects/Center of Mass and Velocity Calculator 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
         "caption": "Orthogonal decomposition of momentum components across X and Y axes verifying linear superposition and equilibrium."
       },
       {
         "title": "Kinetic Energy Partitioning Analysis",
         "badge": "Energy Distribution",
-        "imageUrl": "/images/projects/Center of Mass and Velocity Calculator 3.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
         "caption": "Quantitative breakdown between aggregate translational center-of-mass kinetic energy and internal particle vibrational variance."
       }
     ],
@@ -3823,7 +4261,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "demoUrl": "https://center-of-mass-and-velocity-calculator.vercel.app"
   },
   {
     "id": "calgeo-2d-geometry-calculator",
@@ -3834,10 +4273,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2024",
     "status": "Completed",
     "accentColor": "indigo",
-    "imageUrl": "/images/projects/Calgeo - 2D Geometry Calculator 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Calgeo - 2D Geometry Calculator 1.webp",
-      "/images/projects/Calgeo - 2D Geometry Calculator 2.webp"
+      "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Planar geometric analytics and spatial trigonometry engine computing polygon centroids, circumferences, surface integrals, and Euclidean vector metrics with mathematical rigor.",
     "overview": "Calgeo is an analytical spatial trigonometry and planar computational geometry software suite designed to resolve multi-vertex Euclidean polygon metrics. Built on deterministic algebraic formulas and spatial vector algorithms, Calgeo computes perimeter bounds, Shoelace formula polygon surface areas, centroid coordinates, and chordal trigonometry for regular and irregular planar polygons with zero numerical approximations.",
@@ -3884,7 +4325,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Computational Geometry & Vector Analytics",
       "targetPlatform": "Python 3.11+ / NumPy / Tkinter",
       "primaryDomain": "Spatial Mathematics & CAD Analytics",
-      "architecturePipeline": "Planar Shoelace Integration + Geometric Centroid Matrix",
+      "architecturePipeline": "Planar shoelace integration + centroid matrix",
       "projectStatus": "Completed",
       "projectYear": "2024",
       "testingAndAudit": "Passed"
@@ -3989,7 +4430,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "mlTechStack": {
       "programmingLanguages": [
         {
-          "name": "Python 3.10+",
+          "name": "Python",
           "role": "Core algebraic logic, trigonometric calculations, and GUI architecture"
         }
       ],
@@ -4003,7 +4444,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "role": "Modern desktop interface with high-contrast scientific calculator theme"
         },
         {
-          "name": "Math (Standard Library)",
+          "name": "Math",
           "role": "Trigonometric functions, square roots, and high-precision pi constants"
         }
       ],
@@ -4068,13 +4509,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "2D Geometry Calculator Primary Interface",
         "badge": "Interface Console",
-        "imageUrl": "/images/projects/Calgeo - 2D Geometry Calculator 1.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
         "caption": "Calgeo user interface highlighting shape selection panels, parametric input fields, and instantaneous geometric calculation outputs."
       },
       {
         "title": "Irregular Polygon Vertex Coordinate Mode",
         "badge": "Shoelace Solver",
-        "imageUrl": "/images/projects/Calgeo - 2D Geometry Calculator 2.webp",
+        "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
         "caption": "Vertex entry matrix calculating exact Shoelace surface area and centroid coordinates for complex non-regular planar polygons."
       }
     ],
@@ -4188,7 +4629,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "demoUrl": "https://calgeo-2d-geometry-calculator.vercel.app"
   },
   {
     "id": "webp-converter-pro",
@@ -4199,15 +4641,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2026",
     "status": "Production Ready",
     "accentColor": "amber",
-    "imageUrl": "/images/projects/WEBP Converter Pro 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/WEBP Converter Pro 1.webp",
-      "/images/projects/WEBP Converter Pro 2.webp",
-      "/images/projects/WEBP Converter Pro 3.webp",
-      "/images/projects/WEBP Converter Pro 4.webp"
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "High-throughput desktop batch image transcoding workstation engineered with multithreaded libwebp bindings, lossless metadata preservation, and asynchronous drag-and-drop ingestion queues.",
-    "overview": "WEBP Converter Pro is a dedicated high-performance desktop utility engineered to transcode massive raster image libraries (PNG, JPG, TIFF, BMP) into optimized modern WebP formats. Designed for web developers, media production houses, and digital archivists, the application deploys worker threads matching CPU hardware concurrency, eliminating UI freezes during multi-gigabyte transcoding batches. Featuring fine-grained compression quality sliders, lossless alpha channel preservation, and configurable directory recursion, the application reduces average media payload size by 68% while strictly preserving critical ICC color profiles and EXIF metadata.",
+    "overview": "WEBP Converter Pro is a high-performance desktop utility engineered to transcode massive raster image libraries into optimized WebP formats. Deploys multi-threaded worker pools matching CPU concurrency to eliminate UI freezes during multi-gigabyte batch processing. Features compression quality tuning, lossless alpha preservation, and directory recursion, reducing payload size by 68% while preserving ICC profiles.",
     "challenge": "Traditional web-based image conversion tools pose severe privacy risks, enforce restrictive upload size limits, and throttle batch throughput over network bottlenecks. Meanwhile, command-line cwebp scripts lack visual feedback, requiring tedious manual argument construction for complex directory trees.",
     "architectureSummary": "Multithreaded Worker Pool + Libwebp Native Bindings + Asynchronous File Stream Queue + Dark Glassmorphic UI",
     "objectives": [
@@ -4308,22 +4750,22 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "caption": "WEBP Converter Pro — Main Batch Workstation & Queue Telemetry",
         "badge": "QUEUE_VIEW",
-        "imageUrl": "/images/projects/WEBP Converter Pro 1.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "WEBP Converter Pro — Advanced Compression Quality & Metadata Configuration",
         "badge": "SETTINGS_MODAL",
-        "imageUrl": "/images/projects/WEBP Converter Pro 2.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "WEBP Converter Pro — Active Batch Transcoding Progress & Throughput Stream",
         "badge": "PROCESSING_HUD",
-        "imageUrl": "/images/projects/WEBP Converter Pro 3.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "WEBP Converter Pro — Batch Completed Summary & Storage Reduction Metrics",
         "badge": "SUMMARY_REPORT",
-        "imageUrl": "/images/projects/WEBP Converter Pro 4.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "desktopMobileUserFlow": [
@@ -4393,17 +4835,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "desktopMobileTechStack": {
       "programmingLanguages": [
         {
-          "name": "TypeScript 5.x",
+          "name": "TypeScript",
           "role": "Type-safe application orchestration and state logic"
         },
         {
-          "name": "C++ 20",
+          "name": "C++",
           "role": "Native libwebp bindings and memory-efficient image buffers"
         }
       ],
       "frameworksAndLibraries": [
         {
-          "name": "Electron 30",
+          "name": "Electron",
           "role": "Cross-platform desktop application container"
         },
         {
@@ -4437,6 +4879,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "desktopMobileDistribution": {
+      "version": "v1.4.0-STABLE",
+      "releaseNotes": "Multi-threaded libwebp C++ native bindings with zero-telemetry offline batch conversion.",
+      "targetOs": "Windows 11 / 10 & macOS",
+      "packageType": "Standalone Executable (.exe) & NSIS Installer",
+      "fileSize": "68 MB",
+      "downloadUrl": "https://github.com/weztcy/webp-converter-pro/releases",
       "packagingFormat": "Portable Executable (.exe) & NSIS Installer",
       "binarySize": "68 MB (Bundled Runtime)",
       "distributionChannel": "GitHub Releases & Direct Binary Download",
@@ -4496,7 +4944,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "demoUrl": "https://webp-converter-pro.vercel.app"
   },
   {
     "id": "pixvault-private-image-studio",
@@ -4507,16 +4956,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2026",
     "status": "Production Ready",
     "accentColor": "amber",
-    "imageUrl": "/images/projects/PixVault - Private Image Studio 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/PixVault - Private Image Studio 1.webp",
-      "/images/projects/PixVault - Private Image Studio 2.webp",
-      "/images/projects/PixVault - Private Image Studio 3.webp",
-      "/images/projects/PixVault - Private Image Studio 4.webp",
-      "/images/projects/PixVault - Private Image Studio 5.webp"
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Zero-knowledge encrypted local media vault and private image studio engineered with AES-256 GCM hardware encryption, biometric unlocking, and client-side neural tag classification.",
-    "overview": "PixVault is an air-gapped private desktop image studio and encrypted digital vault built for photographers, investigative journalists, and privacy-focused professionals. Utilizing authenticated AES-256 GCM envelope encryption with Argon2id key derivation, PixVault protects sensitive visual archives from unauthorized OS scanning and cloud scraping. The interface features hardware-accelerated gallery virtual scrolling, non-destructive client-side editing filters, cryptographic checksum auditing, and offline on-device neural tag recognition without a single external byte leaving the local workstation.",
+    "overview": "PixVault is an air-gapped private desktop image studio and encrypted digital vault built for privacy-focused professionals. Utilizing AES-256 GCM envelope encryption with Argon2id key derivation, PixVault protects sensitive visual archives from OS scanning and scraping. Features virtual scrolling, non-destructive editing filters, cryptographic checksums, and offline neural tagging with zero data exfiltration.",
     "challenge": "Operating system photo viewers and cloud-synced galleries index private images without encryption, exposing sensitive personal and professional media to background telemetry, ransomware scraping, and unintended cloud uploads. Existing encryption containers are clunky and lack modern image browsing ergonomics.",
     "architectureSummary": "Argon2id Key Derivation + AES-256 GCM Envelope Vault + Virtualized Canvas Grid + Sandboxed Media Worker",
     "objectives": [
@@ -4560,7 +5008,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Native Desktop Application (x64)",
       "targetPlatform": "Windows 11 / 10 & macOS",
       "primaryDomain": "Cryptographic Media Vault",
-      "architecturePipeline": "Argon2id + AES-256 GCM Envelope Vault + SIMD Decrypt",
+      "architecturePipeline": "Argon2id + AES-256 GCM vault + SIMD decrypt",
       "projectStatus": "Production Ready",
       "projectYear": "2026",
       "testingAndAudit": "Passed"
@@ -4617,27 +5065,27 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "caption": "PixVault — Master Vault Unlock Stage & Cryptographic Authenticator",
         "badge": "AUTHENTICATION",
-        "imageUrl": "/images/projects/PixVault - Private Image Studio 1.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "PixVault — Virtualized Encrypted Photo Grid & Tag Taxonomy Sidebar",
         "badge": "VAULT_EXPLORER",
-        "imageUrl": "/images/projects/PixVault - Private Image Studio 2.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "PixVault — Ephemeral High-Resolution Image Viewer & Metadata Inspector",
         "badge": "STUDIO_VIEWER",
-        "imageUrl": "/images/projects/PixVault - Private Image Studio 3.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "PixVault — Non-Destructive Image Adjustment Console & Color Scopes",
         "badge": "IMAGE_EDITOR",
-        "imageUrl": "/images/projects/PixVault - Private Image Studio 4.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "PixVault — Vault Security Settings & Automated Auto-Lock Timeout Controls",
         "badge": "SECURITY_HUD",
-        "imageUrl": "/images/projects/PixVault - Private Image Studio 5.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "desktopMobileUserFlow": [
@@ -4707,7 +5155,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "desktopMobileTechStack": {
       "programmingLanguages": [
         {
-          "name": "TypeScript 5.x",
+          "name": "TypeScript",
           "role": "UI state machines, gallery virtualization, and component rendering"
         },
         {
@@ -4717,7 +5165,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "frameworksAndLibraries": [
         {
-          "name": "Electron 31",
+          "name": "Electron",
           "role": "Secure desktop runtime with sandboxing and context isolation"
         },
         {
@@ -4751,11 +5199,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "desktopMobileDistribution": {
-      "packagingFormat": "Portable Executable (.exe) & macOS DMG",
-      "binarySize": "84 MB (Hardened Sandbox)",
-      "distributionChannel": "GitHub Signed Releases",
-      "targetArchitecture": "x86_64 / Apple Silicon Universal",
-      "updateMechanism": "Air-gapped manual cryptographic signature verification"
+      "version": "v2.1.0-PRODUCTION",
+      "releaseNotes": "Hardware-accelerated AES-256 encrypted local vault with zero cloud sync.",
+      "targetOs": "Windows 11 / 10 & Linux x64",
+      "packageType": "Standalone Executable (.exe) & AppImage",
+      "fileSize": "84 MB",
+      "downloadUrl": "https://github.com/weztcy/pixvault-private-image-studio/releases",
+      "packagingFormat": "Portable Executable (.exe) & AppImage",
+      "binarySize": "84 MB (Encrypted Runtime)",
+      "distributionChannel": "GitHub Releases & Direct Binary Download",
+      "targetArchitecture": "x86_64 Native",
+      "updateMechanism": "Air-gapped manual checksum verification"
     },
     "desktopMobileDocumentation": {
       "title": "PixVault Cryptographic Architecture Whitepaper",
@@ -4810,7 +5264,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "demoUrl": "https://pixvault-private-image-studio.vercel.app"
   },
   {
     "id": "rasa-nusantara-indonesian-food-recipe",
@@ -4821,13 +5276,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2025",
     "status": "Production Ready",
     "accentColor": "amber",
-    "imageUrl": "/images/projects/Rasa Nusantara - Indonesian Food Recipe 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Rasa Nusantara - Indonesian Food Recipe 1.webp",
-      "/images/projects/Rasa Nusantara - Indonesian Food Recipe 2.webp"
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Cross-platform mobile culinary application celebrating authentic Indonesian regional recipes, featuring offline recipe indexing, dynamic ingredient portion scaling, and kitchen timer synchronization.",
-    "overview": "Rasa Nusantara is a cross-platform mobile culinary assistant designed to preserve and celebrate Indonesian traditional cuisine across 38 provinces. Built with an offline-first architecture, the app allows home chefs and culinary enthusiasts to access over 1,200 regional recipes with zero internet dependency. Key capabilities include smart ingredient portion scaling based on guest counts, interactive multi-step kitchen timers synchronized with cooking steps, spice substitution guides for diaspora cooks, and high-fidelity regional culinary photography.",
+    "overview": "Rasa Nusantara is a cross-platform mobile culinary assistant designed to preserve Indonesian traditional cuisine across 38 provinces. Built with an offline-first architecture, the app provides access to over 1,200 regional recipes with zero internet dependency. Features smart ingredient scaling based on guest counts, multi-step kitchen timers synchronized with cooking steps, and spice substitution guides.",
     "challenge": "Traditional Indonesian recipes often rely on inexact vernacular measurements (jempol, genggam, sejumput) and obscure regional herbs that are unavailable in global markets. Standard cooking apps fail to provide dynamic portion scaling and require continuous internet connectivity in low-signal home kitchens.",
     "architectureSummary": "Offline-First SQLite Cache + Reactive State Manager + Responsive Mobile Glassmorphic Design",
     "objectives": [
@@ -4928,12 +5385,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "caption": "Rasa Nusantara — Mobile Regional Cuisine Discovery Viewport",
         "badge": "HOME_FEED",
-        "imageUrl": "/images/projects/Rasa Nusantara - Indonesian Food Recipe 1.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "Rasa Nusantara — Step-by-Step Cooking Mode with Integrated Timer Controls",
         "badge": "RECIPE_DETAIL",
-        "imageUrl": "/images/projects/Rasa Nusantara - Indonesian Food Recipe 2.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "desktopMobileUserFlow": [
@@ -5003,7 +5460,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "desktopMobileTechStack": {
       "programmingLanguages": [
         {
-          "name": "TypeScript 5.x",
+          "name": "TypeScript",
           "role": "Complete mobile UI, state store, and business logic typing"
         }
       ],
@@ -5013,7 +5470,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "role": "Cross-platform mobile client compilation"
         },
         {
-          "name": "Tailwind CSS (NativeWind)",
+          "name": "Tailwind CSS",
           "role": "Ergonomic mobile component styling"
         },
         {
@@ -5033,7 +5490,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "testingAndBuildTools": [
         {
-          "name": "EAS Build (Expo)",
+          "name": "EAS Build",
           "role": "Cloud compilation for APK and iOS IPA production builds"
         },
         {
@@ -5043,11 +5500,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "desktopMobileDistribution": {
-      "packagingFormat": "Android APK / Google Play & iOS App Store (TestFlight)",
-      "binarySize": "28 MB (Pre-bundled database)",
-      "distributionChannel": "Mobile App Stores & GitHub Releases",
-      "targetArchitecture": "ARM64-v8a / Universal Mobile",
-      "updateMechanism": "OTA (Over-the-Air) Delta Asset Updates via Expo EAS"
+      "version": "v1.0.2-PRODUCTION",
+      "releaseNotes": "Offline-first Indonesian culinary recipe vault with native biometric bookmarking.",
+      "targetOs": "Android 14+ / iOS 17+",
+      "packageType": "Production APK / iOS App Bundle",
+      "fileSize": "32 MB",
+      "downloadUrl": "https://github.com/weztcy/rasa-nusantara-indonesian-food-recipe/releases",
+      "packagingFormat": "Production APK / iOS App Bundle",
+      "binarySize": "32 MB (Optimized Bundle)",
+      "distributionChannel": "Google Play Internal Track / Direct APK",
+      "targetArchitecture": "ARM64-v8a / Universal",
+      "updateMechanism": "OTA delta updates via Expo EAS"
     },
     "desktopMobileDocumentation": {
       "title": "Rasa Nusantara Mobile App Specification",
@@ -5102,7 +5565,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "demoUrl": "https://rasa-nusantara-indonesian-food-recipe.vercel.app"
   },
   {
     "id": "food-recipe-mobile-app-uiux-design",
@@ -5113,13 +5577,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2026",
     "status": "Figma Prototype Ready",
     "accentColor": "rose",
-    "imageUrl": "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp",
-      "/images/projects/Food Recipe Mobile App UI_UX Design 2.webp"
+      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Mobile culinary discovery and cooking assistant interface engineered with high-contrast food photography hierarchy, thumb-zone navigation ergonomics, and streamlined step-by-step preparation cards.",
-    "overview": "Food Recipe App is a human-centered mobile interface designed for home cooks navigating multi-tasking and divided attention in active kitchen environments. Built around an appetite-stimulating visual hierarchy, the system structures culinary exploration into three streamlined viewports: high-level regional cuisine categorization, two-column visual recipe grids with high-legibility scrim overlays, and a focused cooking preparation modal. The interface architecture deploys a warm apricot accent palette paired with deep slate typography to establish optimal contrast against culinary photography. By organizing instructions into concise, sequential directives and anchoring navigation to an ergonomic bottom bar within the primary thumb zone, the design eliminates narrative clutter, reduces kitchen distractions, and ensures effortless one-handed readability while cooking.",
+    "overview": "Food Recipe App is a human-centered mobile interface designed for home cooks navigating multi-tasking in active kitchen environments. Built around an appetite-stimulating visual hierarchy, the system structures culinary exploration into regional cuisine categorization, two-column visual recipe grids with high-legibility scrim overlays, and an ergonomic bottom bar within the primary thumb zone to ensure effortless one-handed readability.",
     "challenge": "Conventional culinary apps bury actionable cooking steps under dense promotional articles, intrusive advertisements, and complex multi-tiered menus. This causes severe cognitive friction and screen interaction fatigue for home cooks whose hands are preoccupied with utensils and raw food ingredients, leading to missed recipe steps, touchscreen smudging, and elevated preparation drop-off rates.",
     "architectureSummary": "Ergonomic thumb-zone bottom navigation + dual-column food photography grid + dark gradient scrim overlay + modular bottom-sheet cooking card",
     "objectives": [
@@ -5163,7 +5629,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Mobile UI/UX Product Design",
       "targetPlatform": "iOS 17+ / Android 14+ (Figma)",
       "primaryDomain": "Culinary Lifestyle & Kitchen Ergonomics",
-      "architecturePipeline": "Design Thinking + 8pt Grid System + Atomic Design Tokens",
+      "architecturePipeline": "Design Thinking + 8pt grid + atomic tokens",
       "projectStatus": "Prototype Ready",
       "projectYear": "2026",
       "testingAndAudit": "Passed"
@@ -5241,13 +5707,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "stage": "LOW-FI SCHEMATICS",
         "title": "Low-Fidelity Paper Sketches & Wireframes",
         "description": "Explored dual-column vs single-column card grids and tested thumb-zone reachability on mobile displays.",
-        "badge": "WIREFRAMING"
+        "badge": "WIREFRAMING",
+        "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "stage": "MID-FI PROTOTYPE",
         "title": "Mid-Fidelity Interaction Wireframes",
         "description": "Mapped layout grids, tap targets (48x48px min), and typographic hierarchy in grayscale.",
-        "badge": "INTERACTION_FLOW"
+        "badge": "INTERACTION_FLOW",
+        "imageUrl": "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "uiUxDesignSystem": {
@@ -5318,12 +5786,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "caption": "Food Recipe App — Mobile Home Feed & Cuisine Discovery Viewport",
         "badge": "MOBILE_VIEWPORT_01",
-        "imageUrl": "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "Food Recipe App — Step-by-Step Cooking Mode & Ingredient Checklist",
         "badge": "MOBILE_VIEWPORT_02",
-        "imageUrl": "/images/projects/Food Recipe Mobile App UI_UX Design 2.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "uiUxUsabilityValidation": {
@@ -5404,7 +5872,60 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "uiUxTechStack": {
+      "designAndPrototypingTools": [
+        {
+          "name": "Figma",
+          "role": "Component system, auto-layout screens, and micro-interaction prototypes"
+        },
+        {
+          "name": "FigJam",
+          "role": "Affinity diagramming, user journey maps, and empathy synthesis"
+        }
+      ],
+      "designSystemsAndResources": [
+        {
+          "name": "Material Design",
+          "role": "Adaptive color palettes and dynamic contrast ratios"
+        },
+        {
+          "name": "Lucide Icons",
+          "role": "Vector iconography and micro-action indicators"
+        }
+      ],
+      "researchAndCollaborationTools": [
+        {
+          "name": "Maze",
+          "role": "Remote usability testing and task-completion analytics"
+        },
+        {
+          "name": "Miro",
+          "role": "Information architecture card sorting and tree testing"
+        }
+      ],
+      "designAndPrototyping": [
+        {
+          "name": "Figma",
+          "role": "Component system, auto-layout screens, and micro-interaction prototypes"
+        },
+        {
+          "name": "FigJam",
+          "role": "Affinity diagramming, user journey maps, and empathy synthesis"
+        }
+      ],
+      "researchAndCollaboration": [
+        {
+          "name": "Maze",
+          "role": "Remote usability testing and task-completion analytics"
+        },
+        {
+          "name": "Miro",
+          "role": "Information architecture card sorting and tree testing"
+        }
+      ]
+    },
+    "demoUrl": "https://food-recipe-mobile-app-uiux-design.vercel.app"
   },
   {
     "id": "e-parking-mobile-app-uiux-design",
@@ -5415,14 +5936,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2026",
     "status": "Figma Prototype Ready",
     "accentColor": "rose",
-    "imageUrl": "/images/projects/E-Parking Mobile App UI_UX Design 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/E-Parking Mobile App UI_UX Design 1.webp",
-      "/images/projects/E-Parking Mobile App UI_UX Design 2.webp",
-      "/images/projects/E-Parking Mobile App UI_UX Design 3.webp"
+      "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Urban smart parking reservation and frictionless contactless barrier ingress interface engineered with real-time floor occupancy heatmaps, license-plate recognition linking, and digital receipt wallets.",
-    "overview": "E-Parking Mobile App is an end-to-end smart parking reservation system designed to eradicate urban traffic congestion caused by drivers circling for vacant parking spaces. Anchored by a dark-mode GPS radar navigation interface, the app allows drivers to find nearby parking garages, verify live slot availability across basement levels, reserve spots in advance, and open automated boom barriers via encrypted QR codes or NFC vehicle passes. The visual system pairs deep asphalt backgrounds with cybernetic electric cyan and amber accents to ensure effortless readability inside dimly lit parking garages.",
+    "overview": "E-Parking Mobile App is an end-to-end smart parking reservation system designed to eliminate urban traffic congestion from circling drivers. Anchored by a dark-mode GPS radar navigation interface, the app enables finding nearby garages, verifying real-time slot availability, reserving spots in advance, and barrier clearance via encrypted QR or NFC passes with high-contrast electric amber accents for dim environments.",
     "challenge": "Urban drivers waste an average of 14 minutes searching for parking in commercial districts, causing traffic gridlocks and driver stress. Traditional parking facilities use outdated paper tickets that get lost, and bottleneck payment queues at physical ticket booths.",
     "architectureSummary": "GPS Map Overlay + Real-time Floor Slot Matrix + Encrypted QR Ingress Card + Digital Wallet Gateway",
     "objectives": [
@@ -5466,7 +5988,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Mobile UI/UX Product Design",
       "targetPlatform": "iOS 17+ / Android 14+ (Figma)",
       "primaryDomain": "Smart Urban Mobility & Ingress Ergonomics",
-      "architecturePipeline": "Design Thinking + Material 3 Tokens + Dark Mode Garage Palette",
+      "architecturePipeline": "Design Thinking + Material 3 + dark garage UI",
       "projectStatus": "Prototype Ready",
       "projectYear": "2026",
       "testingAndAudit": "Passed"
@@ -5542,13 +6064,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "stage": "CONCEPT SCHEMATICS",
         "title": "Floor Matrix Layout Ideation",
         "description": "Drafted horizontal and vertical parking garage schematics to find the most glanceable mobile representation.",
-        "badge": "SCHEMATICS"
+        "badge": "SCHEMATICS",
+        "imageUrl": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "stage": "INTERACTIVE WIREFRAMES",
         "title": "Ingress QR Auto-Brightness Flow",
         "description": "Tested one-tap access to active parking passes directly from lockscreen push notifications.",
-        "badge": "UX_WORKFLOW"
+        "badge": "UX_WORKFLOW",
+        "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "uiUxDesignSystem": {
@@ -5621,17 +6145,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "caption": "E-Parking App — Smart Radar Map & Garage Capacity Overview",
         "badge": "MOBILE_VIEWPORT_01",
-        "imageUrl": "/images/projects/E-Parking Mobile App UI_UX Design 1.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "E-Parking App — Multilevel Floor Slot Selector & Level Navigator",
         "badge": "MOBILE_VIEWPORT_02",
-        "imageUrl": "/images/projects/E-Parking Mobile App UI_UX Design 2.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "E-Parking App — Contactless Barrier QR Pass & Digital Parking Receipt",
         "badge": "MOBILE_VIEWPORT_03",
-        "imageUrl": "/images/projects/E-Parking Mobile App UI_UX Design 3.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "uiUxUsabilityValidation": {
@@ -5712,7 +6236,60 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "uiUxTechStack": {
+      "designAndPrototypingTools": [
+        {
+          "name": "Figma",
+          "role": "Real-time vector wireframing, high-contrast HUD components, interactive prototypes"
+        },
+        {
+          "name": "ProtoPie",
+          "role": "High-fidelity micro-interactions and NFC gate trigger animations"
+        }
+      ],
+      "designSystemsAndResources": [
+        {
+          "name": "Cyber Automotive UI Tokens",
+          "role": "High-contrast dark-mode tokens for high glare conditions"
+        },
+        {
+          "name": "SF Pro & JetBrains Mono",
+          "role": "Telemetry typographic hierarchy for parking slot codes"
+        }
+      ],
+      "researchAndCollaborationTools": [
+        {
+          "name": "Useberry",
+          "role": "In-vehicle usability simulation and driver glance test analysis"
+        },
+        {
+          "name": "Notion",
+          "role": "Design spec matrix, edge case catalog, and developer handoff documentation"
+        }
+      ],
+      "designAndPrototyping": [
+        {
+          "name": "Figma",
+          "role": "Real-time vector wireframing, high-contrast HUD components, interactive prototypes"
+        },
+        {
+          "name": "ProtoPie",
+          "role": "High-fidelity micro-interactions and NFC gate trigger animations"
+        }
+      ],
+      "researchAndCollaboration": [
+        {
+          "name": "Useberry",
+          "role": "In-vehicle usability simulation and driver glance test analysis"
+        },
+        {
+          "name": "Notion",
+          "role": "Design spec matrix, edge case catalog, and developer handoff documentation"
+        }
+      ]
+    },
+    "demoUrl": "https://e-parking-mobile-app-uiux-design.vercel.app"
   },
   {
     "id": "aorus-gaming-shop-mobile-app-uiux-design",
@@ -5723,14 +6300,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2026",
     "status": "Figma Prototype Ready",
     "accentColor": "rose",
-    "imageUrl": "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp",
-      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 2.webp",
-      "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 3.webp"
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Cyberpunk-themed high-performance PC hardware and esports gear commerce interface engineered with 3D component configurators, benchmark performance telemetry, and streamlined checkout.",
-    "overview": "Aorus Gaming Shop Mobile App is a specialized e-commerce interface crafted for PC builders, competitive esports athletes, and enthusiast gamers. Moving away from generic retail marketplaces, the app embraces a bold mecha-cyberpunk design aesthetic featuring angular faceted cards, neon orange laser accents, and deep obsidian carbon surfaces. The UX is optimized around technical hardware specifications, allowing users to verify component compatibility (GPU dimensions, PSU wattage, CPU socket match), compare real-world game FPS benchmark graphs, and purchase limited-edition gaming hardware through a gamified reward checkout flow.",
+    "overview": "Aorus Gaming Shop Mobile App is a specialized e-commerce interface crafted for PC builders and competitive esports athletes. Featuring a bold mecha-cyberpunk design aesthetic with angular faceted cards and neon orange laser accents, the UX is optimized around hardware specifications, component compatibility verification (GPU size, PSU wattage, CPU sockets), real-world FPS benchmark comparisons, and gamified checkout.",
     "challenge": "Mainstream e-commerce apps treat complex computer hardware like general consumer commodities, failing to display crucial technical specs like PCIe lane bandwidth, clock speeds, and thermal TDP. Gamers struggle to confirm hardware compatibility, leading to frustrating return cycles and buyer hesitation.",
     "architectureSummary": "Mecha-Themed E-Commerce UI + Component Compatibility Engine + FPS Benchmark Matrix + Gamified Cart HUD",
     "objectives": [
@@ -5774,7 +6352,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Mobile UI/UX Product Design",
       "targetPlatform": "iOS 17+ / Android 14+ (Figma)",
       "primaryDomain": "High-Performance Gaming E-Commerce",
-      "architecturePipeline": "Design Thinking + Cyberpunk Component Tokens + Auto-Layout",
+      "architecturePipeline": "Design Thinking + cyberpunk tokens + auto-layout",
       "projectStatus": "Prototype Ready",
       "projectYear": "2026",
       "testingAndAudit": "Passed"
@@ -5851,13 +6429,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "stage": "ANGULAR WIREFRAMES",
         "title": "Faceted Mecha Card Layouts",
         "description": "Iterated chamfered edge geometry and HUD telemetry badges to establish unique sci-fi brand identity.",
-        "badge": "MECHA_WIREFRAME"
+        "badge": "MECHA_WIREFRAME",
+        "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "stage": "BENCHMARK UI TESTING",
         "title": "Interactive FPS Graph Schematics",
         "description": "Prototyped horizontal bar graphs and game title selector pills for optimal mobile legibility.",
-        "badge": "BENCHMARK_PROTOTYPE"
+        "badge": "BENCHMARK_PROTOTYPE",
+        "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "uiUxDesignSystem": {
@@ -5929,17 +6509,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "caption": "Aorus Gaming Shop — Cyberpunk Home Feed & Featured Hardware Drop",
         "badge": "MOBILE_VIEWPORT_01",
-        "imageUrl": "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 1.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "Aorus Gaming Shop — Product Detail Canvas with Real-Time FPS Benchmarks",
         "badge": "MOBILE_VIEWPORT_02",
-        "imageUrl": "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 2.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "caption": "Aorus Gaming Shop — Hardware Compatibility Guard & Gamified Cart Checkout",
         "badge": "MOBILE_VIEWPORT_03",
-        "imageUrl": "/images/projects/Aorus Gaming Shop Mobile App UI_UX Design 3.webp"
+        "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80"
       }
     ],
     "uiUxUsabilityValidation": {
@@ -6020,7 +6600,60 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Next.js",
       "Tailwind CSS",
       "Architecture Engine"
-    ]
+    ],
+    "uiUxTechStack": {
+      "designAndPrototypingTools": [
+        {
+          "name": "Figma",
+          "role": "Faceted cyber-mecha UI components, variants, variables, and interaction state engines"
+        },
+        {
+          "name": "Adobe After Effects",
+          "role": "Cyberpunk particle glow transitions and unboxing 3D render mockups"
+        }
+      ],
+      "designSystemsAndResources": [
+        {
+          "name": "Aorus Falcon Design Tokens",
+          "role": "Neon orange neon telemetry, obsidian carbon facets, 6px angular cuts"
+        },
+        {
+          "name": "Phosphor Gaming Icons",
+          "role": "Hardware GPU/CPU vector glyphs and benchmark indicators"
+        }
+      ],
+      "researchAndCollaborationTools": [
+        {
+          "name": "Lyssna",
+          "role": "Esports gamer preference testing and hardware compatibility visual clarity tests"
+        },
+        {
+          "name": "Figma Dev Mode",
+          "role": "Design token export, CSS variable mapping, and React Native handoff"
+        }
+      ],
+      "designAndPrototyping": [
+        {
+          "name": "Figma",
+          "role": "Faceted cyber-mecha UI components, variants, variables, and interaction state engines"
+        },
+        {
+          "name": "Adobe After Effects",
+          "role": "Cyberpunk particle glow transitions and unboxing 3D render mockups"
+        }
+      ],
+      "researchAndCollaboration": [
+        {
+          "name": "Lyssna",
+          "role": "Esports gamer preference testing and hardware compatibility visual clarity tests"
+        },
+        {
+          "name": "Figma Dev Mode",
+          "role": "Design token export, CSS variable mapping, and React Native handoff"
+        }
+      ]
+    },
+    "demoUrl": "https://aorus-gaming-shop-mobile-app-uiux-design.vercel.app"
   },
   {
     "id": "cpp-learning-modules",
@@ -6031,12 +6664,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2024",
     "status": "Completed",
     "accentColor": "orange",
-    "imageUrl": "/images/projects/CPP Learning Modules 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/CPP Learning Modules 1.webp"
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Systematic low-level systems programming curriculum covering modern C++20 memory models, RAII resource lifecycles, template metaprogramming, and lock-free concurrency.",
-    "overview": "CPP Learning Modules is a hands-on, rigorous pedagogical repository architected to guide software engineers from fundamental syntax to low-level systems mastery. Deconstructing modern C++ (C++17 and C++20 standards), the curriculum explores deterministic memory lifecycles (stack vs heap allocations, pointer arithmetic, custom arena allocators), compile-time metaprogramming (SFINAE, concepts, constexpr execution), and thread-safe systems programming. Each module features executable code units, automated CMake build scripts, and unit-tested challenge exercises designed to instill zero-cost abstraction paradigms.",
+    "overview": "CPP Learning Modules is a hands-on pedagogical repository architected to guide software engineers to low-level systems mastery. Deconstructing modern C++ (C++17 and C++20), the curriculum explores deterministic memory lifecycles (stack vs heap, pointer arithmetic, custom arena allocators), compile-time metaprogramming (SFINAE, concepts, constexpr), and thread-safe systems programming with automated CMake suites.",
     "challenge": "C++ presents a notoriously steep learning curve due to manual pointer management, undefined behavior hazards, complex compiler diagnostic messages, and the historical accumulation of legacy syntax across thirty years of language evolution.",
     "architectureSummary": "Modular CMake Build Matrix + Executable Code Units + GoogleTest Verification Harness",
     "objectives": [
@@ -6097,8 +6733,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Capability to architect high-performance multithreaded systems with predictable sub-millisecond latencies."
     ],
     "techStack": [
-      "C++20",
-      "C++17",
+      "C++",
       "CMake",
       "GoogleTest",
       "Clang",
@@ -6111,7 +6746,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Systems Programming Curriculum",
       "targetPlatform": "C++17/20 / Clang / GCC / CMake",
       "primaryDomain": "Systems & Memory Architecture",
-      "architecturePipeline": "RAII + Manual Memory Management + Zero-Cost Templates",
+      "architecturePipeline": "RAII + manual memory mgmt + zero-cost templates",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2024"
@@ -6406,17 +7041,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "codeLearningTechStack": {
       "programmingLanguages": [
         {
-          "name": "C++ (Modern C++17 / C++20 Standards)",
+          "name": "C++",
           "role": "Core language standard for systems modules"
         }
       ],
       "frameworksAndLibraries": [
         {
-          "name": "GoogleTest (GTest)",
+          "name": "GoogleTest",
           "role": "Automated unit test assertion framework"
         },
         {
-          "name": "CMake 3.20+",
+          "name": "CMake",
           "role": "Target-based cross-platform build orchestrator"
         }
       ],
@@ -6426,7 +7061,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "role": "Compilers with strict -Wall -Wextra -Wpedantic flags"
         },
         {
-          "name": "AddressSanitizer (ASan)",
+          "name": "AddressSanitizer",
           "role": "Runtime memory safety and leak instrumentation"
         },
         {
@@ -6457,7 +7092,48 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "value": "AddressSanitizer & UB-Sanitizer"
         }
       ]
-    }
+    },
+    "codeLearningExercises": [
+      {
+        "moduleRef": "MOD-01",
+        "title": "RAII Smart Pointer & Resource Lifetime Enforcement",
+        "difficulty": "Intermediate",
+        "taskDescription": "Implement a custom scoped resource management wrapper using std::unique_ptr and custom deleters to prevent socket descriptor leaks.",
+        "instructions": [
+          "Declare a SocketHandle class that wraps a POSIX socket descriptor.",
+          "Disable copy constructor and copy assignment operators to guarantee single ownership.",
+          "Implement move semantics with noexcept move constructor and assignment.",
+          "Verify zero resource leak using AddressSanitizer."
+        ],
+        "solutionSnippet": "template <typename Resource, typename Deleter>\nclass ScopedHandle {\n  Resource handle_;\n  Deleter deleter_;\npublic:\n  explicit ScopedHandle(Resource h, Deleter d) : handle_(h), deleter_(d) {}\n  ~ScopedHandle() { if (handle_ != -1) deleter_(handle_); }\n  ScopedHandle(const ScopedHandle&) = delete;\n  ScopedHandle& operator=(const ScopedHandle&) = delete;\n  ScopedHandle(ScopedHandle&& other) noexcept : handle_(std::exchange(other.handle_, -1)), deleter_(std::move(other.deleter_)) {}\n};"
+      },
+      {
+        "moduleRef": "MOD-02",
+        "title": "Compile-Time Constrained Templates via C++ Concepts",
+        "difficulty": "Advanced",
+        "taskDescription": "Define a concept NumericBuffer that requires contiguous memory layout, arithmetic value type, and size query at compile time.",
+        "instructions": [
+          "Write a template concept requires expression validating std::is_arithmetic_v<typename T::value_type>.",
+          "Constrain a vectorized summation function using the NumericBuffer concept.",
+          "Demonstrate that passing an invalid type triggers an immediate, human-readable compiler error."
+        ],
+        "solutionSnippet": "template <typename T>\nconcept NumericBuffer = requires(T a) {\n  typename T::value_type;\n  requires std::is_arithmetic_v<typename T::value_type>;\n  { a.data() } -> std::contiguous_iterator;\n  { a.size() } -> std::convertible_to<std::size_t>;\n};\n\ntemplate <NumericBuffer Buffer>\nauto computeSum(const Buffer& buf) {\n  return std::accumulate(buf.begin(), buf.end(), typename Buffer::value_type{0});\n}"
+      },
+      {
+        "moduleRef": "MOD-03",
+        "title": "Lock-Free Single-Producer Single-Consumer (SPSC) Ring Buffer",
+        "difficulty": "Mastery",
+        "taskDescription": "Construct a concurrent circular queue leveraging atomic memory orders without mutex locks.",
+        "instructions": [
+          "Allocate cache-line aligned head and tail atomic size_t indices to prevent false sharing.",
+          "Implement try_push with release memory semantics to publish new data.",
+          "Implement try_pop with acquire memory semantics to safely consume published slots.",
+          "Benchmark throughput under multi-threaded stress testing."
+        ],
+        "solutionSnippet": "template <typename T, std::size_t Capacity>\nclass SPSCRingBuffer {\n  static_assert((Capacity & (Capacity - 1)) == 0, \"Capacity must be power of 2\");\n  std::array<T, Capacity> buffer_;\n  alignas(64) std::atomic<std::size_t> head_{0};\n  alignas(64) std::atomic<std::size_t> tail_{0};\npublic:\n  bool push(const T& item) {\n    const auto current_tail = tail_.load(std::memory_order_relaxed);\n    if (current_tail - head_.load(std::memory_order_acquire) == Capacity) return false;\n    buffer_[current_tail & (Capacity - 1)] = item;\n    tail_.store(current_tail + 1, std::memory_order_release);\n    return true;\n  }\n};"
+      }
+    ],
+    "demoUrl": "https://cpp-learning-modules.vercel.app"
   },
   {
     "id": "typescript-learning-modules",
@@ -6468,13 +7144,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2024",
     "status": "Completed",
     "accentColor": "orange",
-    "imageUrl": "/images/projects/TypeScript Learning Modules 1.webp",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/projects/TypeScript Learning Modules 1.webp",
-      "/images/projects/JavaScript Learning Modules 1.webp"
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Comprehensive type-level programming curriculum mastering TypeScript 5 generics, template literal types, distributed conditional types, and enterprise architecture patterns.",
-    "overview": "TypeScript Learning Modules is an enterprise-oriented pedagogical curriculum engineered to transform standard JavaScript developers into type-level architectural masters. Moving far beyond basic primitive annotations, the repository dives deep into the TypeScript type compiler as a Turing-complete functional system. Topics cover mapped types, key remapping, template literal string validation, distributive conditional types, recursive inference with infer, branded nominal typing, and type-safe API client design.",
+    "overview": "TypeScript Learning Modules is an enterprise-oriented curriculum engineered to transform JavaScript developers into type-level architectural masters. Moving far beyond basic annotations, the repository explores the TypeScript compiler as a Turing-complete system. Topics cover mapped types, key remapping, template literal string validation, distributive conditionals, recursive inference, and branded nominal contracts.",
     "challenge": "Many web developers use TypeScript merely as 'JavaScript with any', failing to harness the type system's ability to eradicate entire classes of runtime defects. Overly permissive types lead to fragile architectures and broken refactorings in large codebases.",
     "architectureSummary": "Interactive Type-Challenge Matrix + Vitest Type-Testing (expect-type) + Strict ESLint Pipeline",
     "objectives": [
@@ -6535,7 +7213,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Elimination of all usage of 'any' across production codebases in favor of unknown and generic constraints."
     ],
     "techStack": [
-      "TypeScript 5.x",
+      "TypeScript",
       "Vitest",
       "expect-type",
       "Zod",
@@ -6548,7 +7226,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Type-Level Architecture Curriculum",
       "targetPlatform": "TypeScript 5.x / Node.js 20+ / Bun",
       "primaryDomain": "Type-Level Programming & Static Verification",
-      "architecturePipeline": "Type-Level Gymnastics + Branded Typing + Zero-Cost Contracts",
+      "architecturePipeline": "Type-level gymnastics + branded typing contracts",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2024"
@@ -6839,7 +7517,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "codeLearningTechStack": {
       "programmingLanguages": [
         {
-          "name": "TypeScript 5.x (Strict Mode)",
+          "name": "TypeScript",
           "role": "Type system under analysis with strict compiler flags"
         }
       ],
@@ -6855,11 +7533,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "developmentToolsAndEnvironment": [
         {
-          "name": "tsc (TypeScript Compiler)",
+          "name": "tsc",
           "role": "Static analysis and verification via tsc --noEmit"
         },
         {
-          "name": "ESLint (typescript-eslint)",
+          "name": "ESLint",
           "role": "Enforces strict type safety and bans any escapes"
         },
         {
@@ -6890,7 +7568,46 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "value": "Node.js 20+ / Bun Compatible"
         }
       ]
-    }
+    },
+    "codeLearningExercises": [
+      {
+        "moduleRef": "MOD-01",
+        "title": "Exhaustive Pattern Matching with Discriminated Unions",
+        "difficulty": "Intermediate",
+        "taskDescription": "Construct a strict type-safe state machine for financial transactions with guaranteed compile-time exhaustiveness checks.",
+        "instructions": [
+          "Define tagged union types for Pending, Settled, and Failed transaction states.",
+          "Create an assertNever helper that accepts never and throws at runtime if reached.",
+          "Write a dispatch function where omitting any state causes TypeScript compile failure."
+        ],
+        "solutionSnippet": "type TxState =\n  | { status: 'PENDING'; initiatedAt: number }\n  | { status: 'SETTLED'; settledAt: number; txHash: string }\n  | { status: 'FAILED'; reason: string; code: number };\n\nfunction assertNever(x: never): never {\n  throw new Error(`Unhandled union variant: ${JSON.stringify(x)}`);\n}\n\nfunction renderTx(state: TxState): string {\n  switch (state.status) {\n    case 'PENDING': return `Awaiting confirmation since ${state.initiatedAt}`;\n    case 'SETTLED': return `Confirmed on-chain: ${state.txHash}`;\n    case 'FAILED': return `Error [${state.code}]: ${state.reason}`;\n    default: return assertNever(state);\n  }\n}"
+      },
+      {
+        "moduleRef": "MOD-02",
+        "title": "Deep Immutable Path-Getter Type with Template Literals",
+        "difficulty": "Advanced",
+        "taskDescription": "Build a TypeScript generic type DeepProperty<T, Path> that evaluates dot-notated nested property paths with auto-completion.",
+        "instructions": [
+          "Use recursive conditional types with template literal split 'Head.Tail'.",
+          "Support optional chaining for nullable and undefined intermediate keys.",
+          "Verify type inference on deeply nested configuration schemas."
+        ],
+        "solutionSnippet": "type NestedKeyOf<T> = T extends object\n  ? { [K in keyof T & (string | number)]: `${K}` | (NestedKeyOf<T[K]> extends infer R ? `${K}.${R & string}` : never) }[keyof T & (string | number)]\n  : never;\n\ntype DeepGet<T, P extends string> = P extends `${infer Head}.${infer Rest}`\n  ? Head extends keyof T ? DeepGet<T[Head], Rest> : never\n  : P extends keyof T ? T[P] : never;\n\nfunction getPath<T extends object, P extends NestedKeyOf<T>>(obj: T, path: P): DeepGet<T, P> {\n  return path.split('.').reduce((acc: any, key) => acc?.[key], obj);\n}"
+      },
+      {
+        "moduleRef": "MOD-03",
+        "title": "Nominal Branded Types for Domain Invariants",
+        "difficulty": "Advanced",
+        "taskDescription": "Create a zero-overhead compile-time branding system for UserIds, EmailAddresses, and MonetaryAmounts to prevent primitive obsession.",
+        "instructions": [
+          "Define a unique symbol brand carrier type Brand<T, B>.",
+          "Implement type guard validation functions that narrow string to EmailAddress.",
+          "Demonstrate that a valid UserId cannot be inadvertently passed to an EmailAddress parameter."
+        ],
+        "solutionSnippet": "declare const __brand: unique symbol;\ntype Brand<B> = { readonly [__brand]: B };\nexport type Branded<T, B> = T & Brand<B>;\n\nexport type Email = Branded<string, 'Email'>;\nexport type UserId = Branded<string, 'UserId'>;\n\nexport function makeEmail(input: string): Email {\n  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(input)) {\n    throw new TypeError(`Invalid email format: ${input}`);\n  }\n  return input as Email;\n}"
+      }
+    ],
+    "demoUrl": "https://typescript-learning-modules.vercel.app"
   }
 ];
 

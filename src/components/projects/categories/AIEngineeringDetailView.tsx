@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import {
   AlertTriangle,
@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Clock,
   Code2,
   Cpu,
   Database,
@@ -40,6 +41,8 @@ import {
   Zap,
 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data";
+import CyberTechStackSection from "../CyberTechStackSection";
+import CyberRepoCard from "../CyberRepoCard";
 
 interface AIEngineeringDetailViewProps {
   project: ProjectCaseStudy;
@@ -52,12 +55,6 @@ export default function AIEngineeringDetailView({
 }: AIEngineeringDetailViewProps) {
   // Scenario Output Showcase State
   const [activeScenarioIndex, setActiveScenarioIndex] = useState(0);
-  const [selectedTechFilter, setSelectedTechFilter] = useState<
-    | "All"
-    | "AI Models & Services"
-    | "Frameworks & Libraries"
-    | "Development & Infrastructure"
-  >("All");
 
   const heroImage =
     project.imageUrl ||
@@ -133,6 +130,16 @@ export default function AIEngineeringDetailView({
     description: string;
     badge?: string;
   }[] = project.coreAiComponents || [];
+
+  // Section 4: Tech Stack (Unified Flat)
+  const allAIEngineeringTechStack = useMemo(() => {
+    return [
+      ...(project.aiTechStack?.aiModelsAndServices || []).map((t: any) => t.name),
+      ...(project.aiTechStack?.frameworksAndLibraries || []).map((t: any) => t.name),
+      ...(project.aiTechStack?.developmentAndInfrastructure || []).map((t: any) => t.name),
+      ...(project.techStack || []),
+    ];
+  }, [project.aiTechStack, project.techStack]);
 
   const aiModelsAndServices = project.aiTechStack?.aiModelsAndServices || [];
   const frameworksAndLibraries = project.aiTechStack?.frameworksAndLibraries || [];
@@ -236,7 +243,7 @@ export default function AIEngineeringDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col">
+          <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-purple-500/30 bg-purple-950/40 px-4 py-2 text-xs font-mono text-purple-300">
               <span className="flex items-center gap-2 text-purple-200">
@@ -295,7 +302,7 @@ export default function AIEngineeringDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-purple-500/30 bg-[#0A0713]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-purple-500/30 bg-[#0A0713]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-purple-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-purple-400" />
@@ -304,65 +311,68 @@ export default function AIEngineeringDetailView({
                 </h3>
               </div>
 
-              <dl className="space-y-3.5 font-mono text-xs">
+              <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80">System Classification</dt>
-                  <dd className="text-slate-100 font-semibold flex items-center gap-1.5">
-                    <Box className="h-3.5 w-3.5 text-purple-400" />
-                    {telemetry.projectType}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">System Classification</dt>
+                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                    <Box className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 2. Operating Environment */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80">Operating Environment</dt>
-                  <dd className="text-purple-300 font-semibold flex items-center gap-1.5">
-                    <Globe className="h-3.5 w-3.5 text-purple-400" />
-                    {telemetry.targetPlatform}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Operating Environment</dt>
+                  <dd className="text-xs font-semibold text-purple-300 flex items-center gap-1.5 truncate">
+                    <Globe className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 3. Domain Focus */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80">Domain Focus</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <Layers className="h-3.5 w-3.5 text-purple-400" />
-                    {telemetry.primaryDomain}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Domain Focus</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Layers className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 4. Engineering Pipeline */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80">Engineering Pipeline</dt>
-                  <dd className="text-purple-300 font-semibold flex items-center gap-1.5">
-                    <Workflow className="h-3.5 w-3.5 text-purple-400" />
-                    <span className="truncate">{telemetry.architecturePipeline}</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dd className="text-xs font-semibold text-purple-300 flex items-center gap-1.5 truncate">
+                    <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 5. Testing & Audit */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80">Testing & Audit</dt>
-                  <dd className="text-purple-300 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="h-3.5 w-3.5 text-purple-400" />
-                    <span>Passed</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Testing & Audit</dt>
+                  <dd className="text-xs font-semibold text-purple-300 flex items-center gap-1.5 truncate">
+                    <ShieldCheck className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 6. Project Status */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80">Project Status</dt>
-                  <dd className="text-purple-300 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-                    {telemetry.projectStatus}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Project Status</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <span className="h-2 w-2 rounded-full bg-purple-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
-                <div className="flex flex-col gap-1">
-                  <dt className="text-[10px] uppercase text-purple-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{telemetry.projectYear}</dd>
+                <div className="flex flex-col gap-0.5">
+                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Project Year</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Clock className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
+                  </dd>
                 </div>
               </dl>
 
@@ -418,7 +428,7 @@ export default function AIEngineeringDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
-                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-amber-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-purple-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
                       </span>
                     </div>
@@ -431,7 +441,7 @@ export default function AIEngineeringDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:scale-[1.01]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -491,7 +501,9 @@ export default function AIEngineeringDetailView({
               </div>
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-                {problemContext}
+                {problemContext.length > 1000
+                  ? `${problemContext.slice(0, 1000).trim()}...`
+                  : problemContext}
               </p>
             </div>
 
@@ -730,175 +742,15 @@ export default function AIEngineeringDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 4 — TECH STACK
-          Layout: Dynamic Multi-Domain Spec Board + HUD Domain Filter
+          SECTION 4 — TECH STACK & RUNTIME ARCHITECTURE
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
-        {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400" />
-
-        {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-purple-400 tracking-wider">
-            <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-            <span>[ 04 // AI STACK & RUNTIME ECOSYSTEM ]</span>
-          </div>
-          <span className="font-mono text-[11px] text-slate-400">
-            DYNAMIC_SPECS // MULTI-PROVIDER
-          </span>
-        </div>
-
-        {/* HUD Filter Switcher */}
-        <div className="relative z-10 mb-7 flex flex-wrap items-center gap-2">
-          {(
-            [
-              "All",
-              "AI Models & Services",
-              "Frameworks & Libraries",
-              "Development & Infrastructure",
-            ] as const
-          ).map((tab) => {
-            const isSelected = selectedTechFilter === tab;
-            let count = 0;
-            if (tab === "All") {
-              count =
-                aiModelsAndServices.length +
-                frameworksAndLibraries.length +
-                developmentAndInfrastructure.length;
-            } else if (tab === "AI Models & Services") {
-              count = aiModelsAndServices.length;
-            } else if (tab === "Frameworks & Libraries") {
-              count = frameworksAndLibraries.length;
-            } else {
-              count = developmentAndInfrastructure.length;
-            }
-
-            if (count === 0) return null; // Dynamic rule: do not show empty domains
-
-            return (
-              <button
-                key={tab}
-                onClick={() => {
-                  setSelectedTechFilter(tab);
-                  onTriggerPulse?.();
-                }}
-                className={`group relative rounded-xl border px-3.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
-                  isSelected
-                    ? "border-purple-400 bg-purple-500/20 text-purple-200 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-                    : "border-white/10 bg-black/40 text-slate-400 hover:border-white/20 hover:text-white"
-                }`}
-              >
-                <span>{tab}</span>
-                <span
-                  className={`rounded px-1.5 py-0.2 text-[10px] font-bold ${
-                    isSelected
-                      ? "bg-purple-400/30 text-purple-100"
-                      : "bg-white/5 text-slate-500"
-                  }`}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Categorized Tech Grid */}
-        <div className="relative z-10 space-y-6">
-          {/* Group 1: AI Models & Services */}
-          {(selectedTechFilter === "All" ||
-            selectedTechFilter === "AI Models & Services") &&
-            aiModelsAndServices.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-purple-300 uppercase tracking-wider border-b border-purple-500/15 pb-1.5">
-                  <Brain className="h-3.5 w-3.5 text-purple-400" />
-                  <span>AI Models & Services</span>
-                  <span className="text-[10px] text-purple-400/70">
-                    ({aiModelsAndServices.length} TECHNOLOGIES)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {aiModelsAndServices.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center gap-2.5 rounded-xl border border-purple-500/20 bg-[#0A0713]/90 p-3 transition-all hover:border-purple-400/50 hover:bg-purple-500/10 hover:-translate-y-0.5"
-                    >
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-purple-400/30 bg-purple-500/15 text-purple-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                        {tech.name.substring(0, 2).toUpperCase()}
-                      </div>
-                      <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-purple-200 truncate">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-          {/* Group 2: Frameworks & Libraries */}
-          {(selectedTechFilter === "All" ||
-            selectedTechFilter === "Frameworks & Libraries") &&
-            frameworksAndLibraries.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-purple-300 uppercase tracking-wider border-b border-purple-500/15 pb-1.5">
-                  <Workflow className="h-3.5 w-3.5 text-purple-400" />
-                  <span>Frameworks & Libraries</span>
-                  <span className="text-[10px] text-purple-400/70">
-                    ({frameworksAndLibraries.length} TECHNOLOGIES)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {frameworksAndLibraries.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center gap-2.5 rounded-xl border border-purple-500/20 bg-[#0A0713]/90 p-3 transition-all hover:border-purple-400/50 hover:bg-purple-500/10 hover:-translate-y-0.5"
-                    >
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-purple-400/30 bg-purple-500/15 text-purple-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                        {tech.name.substring(0, 2).toUpperCase()}
-                      </div>
-                      <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-purple-200 truncate">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-          {/* Group 3: Development & Infrastructure */}
-          {(selectedTechFilter === "All" ||
-            selectedTechFilter === "Development & Infrastructure") &&
-            developmentAndInfrastructure.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-purple-300 uppercase tracking-wider border-b border-purple-500/15 pb-1.5">
-                  <Server className="h-3.5 w-3.5 text-purple-400" />
-                  <span>Development & Infrastructure</span>
-                  <span className="text-[10px] text-purple-400/70">
-                    ({developmentAndInfrastructure.length} TECHNOLOGIES)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {developmentAndInfrastructure.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center gap-2.5 rounded-xl border border-purple-500/20 bg-[#0A0713]/90 p-3 transition-all hover:border-purple-400/50 hover:bg-purple-500/10 hover:-translate-y-0.5"
-                    >
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-purple-400/30 bg-purple-500/15 text-purple-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                        {tech.name.substring(0, 2).toUpperCase()}
-                      </div>
-                      <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-purple-200 truncate">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-        </div>
-      </section>
+      <CyberTechStackSection
+        sectionNumber="04"
+        sectionTitle="[ 04 // AI STACK & RUNTIME ECOSYSTEM ]"
+        techStack={allAIEngineeringTechStack}
+        accentColor="purple"
+        onTriggerPulse={onTriggerPulse}
+      />
 
       {/* =========================================================================
           SECTION 5 — TESTING, EVALUATION & RESULTS
@@ -1160,89 +1012,11 @@ export default function AIEngineeringDetailView({
         {/* 3-Card Bento Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
           {/* Card 1: Repository Gate (Adaptive Universal Standard) */}
-          <div
-            className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 ${
-              hasRepoUrl
-                ? "border-purple-500/35 bg-[#120A22]/80 hover:border-purple-400/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]"
-                : "border-white/10 bg-black/60 hover:border-white/20"
-            }`}
-          >
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-purple-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-purple-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-purple-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-purple-400/60" />
-
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
-                  {hasRepoUrl ? (
-                    <FolderGit2 className="h-4 w-4 text-purple-400" />
-                  ) : (
-                    <Lock className="h-4 w-4 text-slate-400" />
-                  )}
-                  <span>
-                    {hasRepoUrl
-                      ? "PUBLIC GITHUB REPOSITORY"
-                      : "RESTRICTED PRIVATE REPOSITORY"}
-                  </span>
-                </div>
-                {hasRepoUrl ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-purple-400/40 bg-purple-950/60 px-2.5 py-0.5 font-mono text-[10px] text-purple-300 font-semibold shadow-[0_0_10px_rgba(168,85,247,0.2)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />PUBLIC</span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 font-mono text-[10px] text-slate-400 font-semibold">
-                    <Lock className="h-3 w-3" />PRIVATE</span>
-                )}
-              </div>
-
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {hasRepoUrl ? "GitHub Repository" : "Private Commercial Repository"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                {hasRepoUrl
-                  ? "Explore the complete project repository on GitHub, including production source code, commit history, architectural assets, and technical documentation."
-                  : "Source code access is restricted under non-disclosure agreements (NDA) or proprietary commercial rights. No public repository is published."}
-              </p>
-
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">ACCESS CLEARANCE:</span>
-                  <span className={hasRepoUrl ? "text-purple-300 font-semibold" : "text-slate-400 font-semibold"}>
-                    {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">VCS GATEWAY:</span>
-                  <span className="text-slate-200">GitHub Cloud VCS</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">SECURITY AUDIT:</span>
-                  <span className={hasRepoUrl ? "text-emerald-400 font-semibold" : "text-amber-400 font-semibold"}>
-                    {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {hasRepoUrl && project.repoUrl ? (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-5 py-3 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:scale-[1.01]"
-              >
-                <span>ACCESS REPOSITORY</span>
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ) : (
-              <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                <Lock className="h-3.5 w-3.5 text-slate-600" />
-                <span>RESTRICTED ACCESS</span>
-              </div>
-            )}
-          </div>
+          <CyberRepoCard
+            repoUrl={project.repoUrl}
+            accentColor="purple"
+            onTriggerPulse={onTriggerPulse}
+          />
 
           {/* Card 2: Technical Documentation & Model Specs Card */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#10081E]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-purple-400/60 hover:shadow-[0_8px_32px_rgba(168,85,247,0.2)]">
@@ -1319,7 +1093,7 @@ export default function AIEngineeringDetailView({
                   <ShieldCheck className="h-4 w-4 text-purple-400" />
                   <span>SAFETY & GOVERNANCE MANIFEST</span>
                 </div>
-                <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300">
+                <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
                   GOVERNANCE_PASSED
                 </span>
               </div>
@@ -1338,7 +1112,7 @@ export default function AIEngineeringDetailView({
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">PROMPT DEFENSE:</span>
-                  <span className="text-emerald-400 font-semibold">Self-Correction LLM Judge</span>
+                  <span className="text-purple-400 font-semibold">Self-Correction LLM Judge</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">PII REDACTION:</span>

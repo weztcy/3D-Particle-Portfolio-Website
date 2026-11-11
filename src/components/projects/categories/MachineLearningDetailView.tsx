@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import {
   Activity,
@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Clock,
   Code2,
   Cpu,
   Database,
@@ -47,6 +48,8 @@ import {
   Zap,
 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data";
+import CyberTechStackSection from "../CyberTechStackSection";
+import CyberRepoCard from "../CyberRepoCard";
 
 interface MachineLearningDetailViewProps {
   project: ProjectCaseStudy;
@@ -59,12 +62,6 @@ export default function MachineLearningDetailView({
 }: MachineLearningDetailViewProps) {
   // Visualization Stage State
   const [activeVisIndex, setActiveVisIndex] = useState(0);
-  const [selectedTechFilter, setSelectedTechFilter] = useState<
-    | "All"
-    | "Programming Languages"
-    | "ML/DL Frameworks & Libraries"
-    | "Development & Experimentation Tools"
-  >("All");
 
   const heroImage =
     project.imageUrl ||
@@ -140,7 +137,16 @@ export default function MachineLearningDetailView({
       trainingProcess: "",
     };
 
-  // Section 4: Tech Stack
+  // Section 4: Tech Stack (Unified Flat)
+  const allMLTechStack = useMemo(() => {
+    return [
+      ...(project.mlTechStack?.programmingLanguages || []).map((t: any) => t.name),
+      ...(project.mlTechStack?.frameworksAndLibraries || []).map((t: any) => t.name),
+      ...(project.mlTechStack?.experimentationTools || []).map((t: any) => t.name),
+      ...(project.techStack || []),
+    ];
+  }, [project.mlTechStack, project.techStack]);
+
   const programmingLanguages = project.mlTechStack?.programmingLanguages || [];
   const frameworksAndLibraries = project.mlTechStack?.frameworksAndLibraries || [];
   const experimentationTools = project.mlTechStack?.experimentationTools || [];
@@ -203,7 +209,7 @@ export default function MachineLearningDetailView({
         <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-indigo-400/70" />
         <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-indigo-400/70" />
 
-        {/* Ambient Amber Glow */}
+        {/* Ambient Indigo Glow */}
         <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-indigo-600/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
 
@@ -234,7 +240,7 @@ export default function MachineLearningDetailView({
         {/* Dual-Pane Console Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
-          <div className="lg:col-span-8 flex flex-col">
+          <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-indigo-500/30 bg-indigo-950/40 px-4 py-2 text-xs font-mono text-indigo-300">
               <span className="flex items-center gap-2 text-indigo-200">
@@ -293,7 +299,7 @@ export default function MachineLearningDetailView({
           </div>
 
           {/* Right Pane (35%): Model Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between rounded-xl border border-indigo-500/30 bg-[#080A14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-indigo-500/30 bg-[#080A14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center gap-2 border-b border-indigo-500/20 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-indigo-400" />
@@ -302,65 +308,68 @@ export default function MachineLearningDetailView({
                 </h3>
               </div>
 
-              <dl className="space-y-3.5 font-mono text-xs">
+              <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">System Classification</dt>
-                  <dd className="text-slate-100 font-semibold flex items-center gap-1.5">
-                    <Box className="h-3.5 w-3.5 text-indigo-400" />
-                    {telemetry.projectType}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">System Classification</dt>
+                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                    <Box className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 2. Operating Environment */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">Operating Environment</dt>
-                  <dd className="text-indigo-300 font-semibold flex items-center gap-1.5">
-                    <Globe className="h-3.5 w-3.5 text-indigo-400" />
-                    {telemetry.targetPlatform}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Operating Environment</dt>
+                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                    <Globe className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 3. Domain Focus */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">Domain Focus</dt>
-                  <dd className="text-slate-200 font-semibold flex items-center gap-1.5">
-                    <Layers className="h-3.5 w-3.5 text-indigo-400" />
-                    {telemetry.primaryDomain}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Domain Focus</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Layers className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 4. Engineering Pipeline */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">Engineering Pipeline</dt>
-                  <dd className="text-indigo-300 font-semibold flex items-center gap-1.5">
-                    <Workflow className="h-3.5 w-3.5 text-indigo-400" />
-                    <span className="truncate">{telemetry.architecturePipeline}</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                    <Workflow className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 5. Testing & Audit */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">Testing & Audit</dt>
-                  <dd className="text-indigo-300 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="h-3.5 w-3.5 text-indigo-400" />
-                    <span>Passed</span>
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Testing & Audit</dt>
+                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                    <ShieldCheck className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                    <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 6. Project Status */}
-                <div className="flex flex-col gap-1 border-b border-white/5 pb-2.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">Project Status</dt>
-                  <dd className="text-indigo-300 font-semibold flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-                    {telemetry.projectStatus}
+                <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Project Status</dt>
+                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                    <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse shrink-0" />
+                    <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
                 </div>
 
                 {/* 7. Project Year */}
-                <div className="flex flex-col gap-1">
-                  <dt className="text-[10px] uppercase text-indigo-400/80">Project Year</dt>
-                  <dd className="text-slate-200 font-semibold">{telemetry.projectYear}</dd>
+                <div className="flex flex-col gap-0.5">
+                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Project Year</dt>
+                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                    <Clock className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                    <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
+                  </dd>
                 </div>
               </dl>
 
@@ -416,7 +425,7 @@ export default function MachineLearningDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
-                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-amber-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-indigo-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
                       </span>
                     </div>
@@ -429,7 +438,7 @@ export default function MachineLearningDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:scale-[1.01]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -480,14 +489,16 @@ export default function MachineLearningDetailView({
             <span>PROBLEM CONTEXT // MATHEMATICAL & CLINICAL JUSTIFICATION</span>
           </div>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            {problemContext}
+            {problemContext.length > 1000
+              ? `${problemContext.slice(0, 1000).trim()}...`
+              : problemContext}
           </p>
         </div>
 
         {/* 2-Column Split: Dataset Overview (Left) vs Features & Data Characteristics (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
           {/* Dataset Overview (6-Parameter Datapad) */}
-          <div className="rounded-2xl border border-indigo-500/30 bg-[#140E0A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
+          <div className="rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
             <div>
               <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
@@ -531,7 +542,7 @@ export default function MachineLearningDetailView({
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. FEATURE COUNT (COLS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-orange-300">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-indigo-300">
                       {datasetOverview.featuresCount}
                     </span>
                   </div>
@@ -563,14 +574,14 @@ export default function MachineLearningDetailView({
           </div>
 
           {/* Features & Data Characteristics */}
-          <div className="rounded-2xl border border-indigo-500/30 bg-[#140E0A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
+          <div className="rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
             <div>
               <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
                   <Binary className="h-4 w-4 text-indigo-400" />
                   <span>[ FEATURE_SPACE & DATA CHARACTERISTICS ]</span>
                 </div>
-                <span className="rounded bg-orange-400/10 border border-orange-400/30 px-2 py-0.5 font-mono text-[10px] text-orange-300 font-bold">
+                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
                   TARGET & PREDICTORS
                 </span>
               </div>
@@ -784,175 +795,15 @@ export default function MachineLearningDetailView({
       </section>
 
       {/* =========================================================================
-          SECTION 4 — TECH STACK
-          Layout: Dynamic Multi-Domain Spec Board + HUD Domain Filter
+          SECTION 4 — TECH STACK & RUNTIME ARCHITECTURE
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
-        {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400" />
-
-        {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
-            <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 04 // MACHINE LEARNING RUNTIME & EXPERIMENT STACK ]</span>
-          </div>
-          <span className="font-mono text-[11px] text-slate-400">
-            DYNAMIC_SPECS // 3 DOMAINS
-          </span>
-        </div>
-
-        {/* HUD Domain Filter Switcher */}
-        <div className="relative z-10 mb-7 flex flex-wrap items-center gap-2">
-          {(
-            [
-              "All",
-              "Programming Languages",
-              "ML/DL Frameworks & Libraries",
-              "Development & Experimentation Tools",
-            ] as const
-          ).map((tab) => {
-            const isSelected = selectedTechFilter === tab;
-            let count = 0;
-            if (tab === "All") {
-              count =
-                programmingLanguages.length +
-                frameworksAndLibraries.length +
-                experimentationTools.length;
-            } else if (tab === "Programming Languages") {
-              count = programmingLanguages.length;
-            } else if (tab === "ML/DL Frameworks & Libraries") {
-              count = frameworksAndLibraries.length;
-            } else {
-              count = experimentationTools.length;
-            }
-
-            if (count === 0) return null; // Dynamic rule: only show non-empty domains
-
-            return (
-              <button
-                key={tab}
-                onClick={() => {
-                  setSelectedTechFilter(tab);
-                  onTriggerPulse?.();
-                }}
-                className={`group relative rounded-xl border px-3.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 flex items-center gap-2 ${
-                  isSelected
-                    ? "border-indigo-400 bg-indigo-500/20 text-indigo-200 shadow-[0_0_15px_rgba(99,102,241,0.25)]"
-                    : "border-white/10 bg-black/40 text-slate-400 hover:border-white/20 hover:text-white"
-                }`}
-              >
-                <span>{tab}</span>
-                <span
-                  className={`rounded px-1.5 py-0.2 text-[10px] font-bold ${
-                    isSelected
-                      ? "bg-indigo-400/30 text-indigo-100"
-                      : "bg-white/5 text-slate-500"
-                  }`}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Categorized Tech Grid */}
-        <div className="relative z-10 space-y-6">
-          {/* Domain 1: Programming Languages */}
-          {(selectedTechFilter === "All" ||
-            selectedTechFilter === "Programming Languages") &&
-            programmingLanguages.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-indigo-300 uppercase tracking-wider border-b border-indigo-500/15 pb-1.5">
-                  <Terminal className="h-3.5 w-3.5 text-indigo-400" />
-                  <span>Programming Languages</span>
-                  <span className="text-[10px] text-indigo-400/70">
-                    ({programmingLanguages.length} TECHNOLOGIES)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {programmingLanguages.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center gap-2.5 rounded-xl border border-indigo-500/20 bg-[#080A14]/90 p-3 transition-all hover:border-indigo-400/50 hover:bg-indigo-500/10 hover:-translate-y-0.5"
-                    >
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-indigo-400/30 bg-indigo-500/15 text-indigo-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                        {tech.name.substring(0, 2).toUpperCase()}
-                      </div>
-                      <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-indigo-200 truncate">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-          {/* Domain 2: ML/DL Frameworks & Libraries */}
-          {(selectedTechFilter === "All" ||
-            selectedTechFilter === "ML/DL Frameworks & Libraries") &&
-            frameworksAndLibraries.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-orange-400 uppercase tracking-wider border-b border-orange-500/15 pb-1.5">
-                  <Workflow className="h-3.5 w-3.5 text-orange-400" />
-                  <span>Frameworks & Libraries</span>
-                  <span className="text-[10px] text-orange-400/70">
-                    ({frameworksAndLibraries.length} TECHNOLOGIES)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {frameworksAndLibraries.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center gap-2.5 rounded-xl border border-orange-500/20 bg-[#080A14]/90 p-3 transition-all hover:border-orange-400/50 hover:bg-orange-500/10 hover:-translate-y-0.5"
-                    >
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-orange-400/30 bg-orange-500/15 text-orange-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                        {tech.name.substring(0, 2).toUpperCase()}
-                      </div>
-                      <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-orange-200 truncate">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-          {/* Domain 3: Development & Experimentation Tools */}
-          {(selectedTechFilter === "All" ||
-            selectedTechFilter === "Development & Experimentation Tools") &&
-            experimentationTools.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-indigo-300 uppercase tracking-wider border-b border-indigo-500/15 pb-1.5">
-                  <Sliders className="h-3.5 w-3.5 text-indigo-400" />
-                  <span>Experimentation & Scientific Tools</span>
-                  <span className="text-[10px] text-indigo-400/70">
-                    ({experimentationTools.length} TECHNOLOGIES)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {experimentationTools.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center gap-2.5 rounded-xl border border-indigo-500/20 bg-[#080A14]/90 p-3 transition-all hover:border-indigo-400/50 hover:bg-indigo-500/10 hover:-translate-y-0.5"
-                    >
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-indigo-400/30 bg-indigo-500/15 text-indigo-300 font-mono font-bold text-[11px] group-hover:scale-105 transition-transform">
-                        {tech.name.substring(0, 2).toUpperCase()}
-                      </div>
-                      <span className="font-mono text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-indigo-200 truncate">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-        </div>
-      </section>
+      <CyberTechStackSection
+        sectionNumber="04"
+        sectionTitle="[ 04 // ML RUNTIME & COMPUTATION ECOSYSTEM ]"
+        techStack={allMLTechStack}
+        accentColor="indigo"
+        onTriggerPulse={onTriggerPulse}
+      />
 
       {/* =========================================================================
           SECTION 5 — MODEL EVALUATION & RESULTS
@@ -992,24 +843,10 @@ export default function MachineLearningDetailView({
             {evaluationStrategy.description}
           </p>
 
-          {/* Quantitative Metrics Grid - Custom dynamic metrics (Max 6) */}
+          {/* Quantitative Metrics Grid - Dynamic list, no limit */}
           {evaluationStrategy.metrics && evaluationStrategy.metrics.length > 0 && (
-            <div
-              className={`grid gap-3.5 ${
-                evaluationStrategy.metrics.length === 1
-                  ? "grid-cols-1 max-w-xs"
-                  : evaluationStrategy.metrics.length === 2
-                  ? "grid-cols-1 sm:grid-cols-2"
-                  : evaluationStrategy.metrics.length === 3
-                  ? "grid-cols-1 sm:grid-cols-3"
-                  : evaluationStrategy.metrics.length === 4
-                  ? "grid-cols-2 sm:grid-cols-4"
-                  : evaluationStrategy.metrics.length === 5
-                  ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
-                  : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
-              }`}
-            >
-              {evaluationStrategy.metrics.slice(0, 6).map((m, idx) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+              {evaluationStrategy.metrics.map((m, idx) => (
                 <div
                   key={idx}
                   className="rounded-xl border border-white/10 bg-[#0E0B14]/80 p-3.5 transition-all hover:border-indigo-400/40"
@@ -1205,89 +1042,11 @@ export default function MachineLearningDetailView({
         {/* 3-Card Bento Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
           {/* Card 1: Repository Gate (Adaptive Universal Standard) */}
-          <div
-            className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 ${
-              hasRepoUrl
-                ? "border-indigo-500/35 bg-[#0C1022]/80 hover:border-indigo-400/60 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)]"
-                : "border-white/10 bg-black/60 hover:border-white/20"
-            }`}
-          >
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-indigo-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-indigo-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-indigo-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-indigo-400/60" />
-
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
-                  {hasRepoUrl ? (
-                    <FolderGit2 className="h-4 w-4 text-indigo-400" />
-                  ) : (
-                    <Lock className="h-4 w-4 text-slate-400" />
-                  )}
-                  <span>
-                    {hasRepoUrl
-                      ? "PUBLIC MODEL REPOSITORY"
-                      : "RESTRICTED PRIVATE REPOSITORY"}
-                  </span>
-                </div>
-                {hasRepoUrl ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/40 bg-indigo-950/60 px-2.5 py-0.5 font-mono text-[10px] text-indigo-300 font-semibold shadow-[0_0_10px_rgba(99,102,241,0.2)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse" />PUBLIC</span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 font-mono text-[10px] text-slate-400 font-semibold">
-                    <Lock className="h-3 w-3" />PRIVATE</span>
-                )}
-              </div>
-
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {hasRepoUrl ? "GitHub Repository" : "Private Commercial Repository"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                {hasRepoUrl
-                  ? "Explore the complete project repository on GitHub, including production source code, commit history, architectural assets, and technical documentation."
-                  : "Source code access is restricted under non-disclosure agreements (NDA) or proprietary commercial rights. No public repository is published."}
-              </p>
-
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">ACCESS CLEARANCE:</span>
-                  <span className={hasRepoUrl ? "text-indigo-300 font-semibold" : "text-slate-400 font-semibold"}>
-                    {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">VCS GATEWAY:</span>
-                  <span className="text-slate-200">GitHub Cloud VCS</span>
-                </div>
-                <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">SECURITY AUDIT:</span>
-                  <span className={hasRepoUrl ? "text-emerald-400 font-semibold" : "text-amber-400 font-semibold"}>
-                    {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {hasRepoUrl && project.repoUrl ? (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 px-5 py-3 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:scale-[1.01]"
-              >
-                <span>ACCESS REPOSITORY</span>
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ) : (
-              <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                <Lock className="h-3.5 w-3.5 text-slate-600" />
-                <span>RESTRICTED ACCESS</span>
-              </div>
-            )}
-          </div>
+          <CyberRepoCard
+            repoUrl={project.repoUrl}
+            accentColor="indigo"
+            onTriggerPulse={onTriggerPulse}
+          />
 
           {/* Card 2: Dataset & Model Artifacts Card */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-indigo-400/60 hover:shadow-[0_8px_32px_rgba(99,102,241,0.2)]">
