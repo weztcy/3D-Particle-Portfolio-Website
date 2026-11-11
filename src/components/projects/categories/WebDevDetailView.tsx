@@ -126,10 +126,8 @@ export default function WebDevDetailView({
   const interfaceShowcase =
     project.interfaceShowcase && project.interfaceShowcase.length > 0
       ? project.interfaceShowcase
-      : rawImages.map((img, i) => ({
+      : rawImages.map((img) => ({
           imageUrl: img,
-          caption: `${project.title} — Interface Viewport 0${i + 1}`,
-          badge: `VIEWPORT // 0${i + 1}`,
         }));
 
   const userFlow = project.userFlow || {
@@ -607,7 +605,7 @@ export default function WebDevDetailView({
                   : interfaceShowcase[activeImageIndex]?.imageUrl ||
                     "/images/projects/SiLelo - Online Auction 1.webp"
               }
-              alt={interfaceShowcase[activeImageIndex]?.caption || project.title}
+              alt={`${project.title} Interface Viewport`}
               fill
               className="object-cover object-top transition-transform duration-500 hover:scale-[1.01]"
               priority
@@ -643,16 +641,6 @@ export default function WebDevDetailView({
                 </button>
               </>
             )}
-
-            {/* Live Caption Scrim */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4">
-              <div className="text-xs sm:text-sm font-mono text-slate-200 truncate">
-                <span className="text-sky-400 font-bold mr-2">
-                  [ {interfaceShowcase[activeImageIndex]?.badge || "VIEWPORT"} ]
-                </span>
-                {interfaceShowcase[activeImageIndex]?.caption}
-              </div>
-            </div>
           </div>
 
           {/* Thumbnail Carousel Bar */}

@@ -159,9 +159,7 @@ export default function DesktopMobileDetailView({
   const interfaceShowcase =
     project.desktopMobileInterfaceShowcase ||
     (projectImages.length > 0
-      ? projectImages.map((img, i) => ({
-          caption: `${project.title} — Interface Viewport 0${i + 1}`,
-          badge: `VIEWPORT_0${i + 1}`,
+      ? projectImages.map((img) => ({
           imageUrl: img,
         }))
       : []);
@@ -169,8 +167,6 @@ export default function DesktopMobileDetailView({
   const activeShowcaseItem =
     interfaceShowcase[activeImageIndex] ||
     interfaceShowcase[0] || {
-      caption: `${project.title} — Primary Client Viewport`,
-      badge: "PRIMARY_VIEWPORT",
       imageUrl: project.imageUrl || "",
     };
 
@@ -748,7 +744,7 @@ export default function DesktopMobileDetailView({
             {currentActiveImage ? (
               <Image
                 src={currentActiveImage}
-                alt={activeShowcaseItem.caption}
+                alt={`${project.title} Interface Viewport`}
                 fill
                 priority
                 className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
@@ -790,16 +786,6 @@ export default function DesktopMobileDetailView({
                 </button>
               </>
             )}
-
-            {/* Live Caption Scrim */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4 z-20">
-              <div className="text-xs sm:text-sm font-mono text-slate-200 truncate">
-                <span className="text-amber-400 font-bold mr-2">
-                  [ {activeShowcaseItem.badge || "VIEWPORT"} ]
-                </span>
-                {activeShowcaseItem.caption}
-              </div>
-            </div>
           </div>
 
           {/* Thumbnail Carousel Bar */}
@@ -817,7 +803,7 @@ export default function DesktopMobileDetailView({
                 >
                   <Image
                     src={item.imageUrl}
-                    alt={item.caption}
+                    alt={`Interface Viewport 0${idx + 1}`}
                     fill
                     className="object-cover"
                   />

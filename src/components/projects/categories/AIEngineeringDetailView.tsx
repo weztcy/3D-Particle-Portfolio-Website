@@ -69,36 +69,17 @@ export default function AIEngineeringDetailView({
 
   const visualShowcase = useMemo(() => {
     if (project.aiVisualShowcase && project.aiVisualShowcase.length > 0) {
-      return project.aiVisualShowcase.map((item, idx) => ({
-        ...item,
-        highlights: item.highlights && item.highlights.length > 0
-          ? item.highlights
-          : [
-              project.features?.[idx % (project.features?.length || 1)]?.badge || "Active Viewport",
-              "Production Runtime",
-              "Hardware Accelerated",
-            ],
-      }));
+      return project.aiVisualShowcase;
     }
-    return visualImages.map((img, idx) => ({
+    return visualImages.map((img) => ({
       imageUrl: img,
-      caption: `${project.title} — System Interface Viewport 0${idx + 1}`,
-      badge: `SYS_VIEWPORT_0${idx + 1}`,
-      highlights: [
-        project.features?.[idx % (project.features?.length || 1)]?.badge || "Active Viewport",
-        "Interactive Display",
-        "Real-Time Telemetry",
-      ],
     }));
-  }, [project.aiVisualShowcase, visualImages, project.title, project.features]);
+  }, [project.aiVisualShowcase, visualImages]);
 
   const activeVisualItem =
     visualShowcase[activeHiFiIndex] ||
     visualShowcase[0] || {
       imageUrl: project.imageUrl || "",
-      caption: `${project.title} — AI System Viewport`,
-      badge: "SYS_VIEWPORT",
-      highlights: ["Active Viewport", "Production Runtime", "Hardware Accelerated"],
     };
 
   // Section 1: Project Overview & Information
@@ -852,14 +833,14 @@ export default function AIEngineeringDetailView({
                   <span className="h-2.5 w-2.5 rounded-full bg-purple-400/80 inline-block" />
                   <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-400/80 inline-block" />
                   <span className="ml-2 font-mono text-[11px] text-slate-300 truncate max-w-[200px] sm:max-w-[280px]">
-                    {(activeVisualItem as any).title || activeVisualItem.caption || "System Interface Viewport"}
+                    {(activeVisualItem as any).title || "System Interface Viewport"}
                   </span>
                 </div>
 
-                {activeVisualItem.badge && (
+                {(activeVisualItem as any).badge && (
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 rounded">
-                      {activeVisualItem.badge}
+                      {(activeVisualItem as any).badge}
                     </span>
                   </div>
                 )}
@@ -870,7 +851,7 @@ export default function AIEngineeringDetailView({
                 {activeVisualItem.imageUrl ? (
                   <Image
                     src={activeVisualItem.imageUrl}
-                    alt={activeVisualItem.caption || "AI System Viewport"}
+                    alt={`${project.title} AI System Viewport`}
                     fill
                     priority
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
@@ -936,12 +917,12 @@ export default function AIEngineeringDetailView({
                             ? "border-purple-400 ring-2 ring-purple-500/50 shadow-[0_0_12px_rgba(168,85,247,0.4)]"
                             : "border-white/10 opacity-50 hover:opacity-100 hover:border-purple-400/50"
                         }`}
-                        title={item.caption}
+                        title={`Viewport 0${idx + 1}`}
                       >
                         {item.imageUrl ? (
                           <Image
                             src={item.imageUrl}
-                            alt={item.caption || `Thumbnail 0${idx + 1}`}
+                            alt={`Thumbnail 0${idx + 1}`}
                             fill
                             className="object-cover"
                             sizes="120px"
@@ -1184,9 +1165,11 @@ export default function AIEngineeringDetailView({
                     <span className="text-slate-200 truncate mr-2">
                       {imp.title}
                     </span>
-                    <span className="text-purple-300 font-bold shrink-0">
-                      {imp.phase}
-                    </span>
+                    {imp.phase && (
+                      <span className="text-purple-300 font-bold shrink-0">
+                        {imp.phase}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>

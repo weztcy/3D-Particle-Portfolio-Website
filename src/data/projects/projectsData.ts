@@ -2884,12 +2884,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "improvementsRoadmap": [
       {
-        "title": "Multimodal Vision-Language Chunking (ColPali)",
-        "phase": "Q2 2026"
+        "title": "Multimodal Vision-Language Chunking (ColPali)"
       },
       {
-        "title": "On-Device Small Language Model Distillation",
-        "phase": "Q3 2026"
+        "title": "On-Device Small Language Model Distillation"
       }
     ],
     "summary": "Limitations documented in compliance with enterprise Responsible AI standards and continuous delivery guidelines.",
@@ -3351,12 +3349,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "improvementsRoadmap": [
       {
-        "title": "Apple Silicon NPU CoreML Acceleration",
-        "phase": "Q2 2026"
+        "title": "Apple Silicon NPU CoreML Acceleration"
       },
       {
-        "title": "Hierarchical Temporal Memory Clustering",
-        "phase": "Q3 2026"
+        "title": "Hierarchical Temporal Memory Clustering"
       }
     ],
     "summary": "100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints.",
@@ -3818,12 +3814,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "improvementsRoadmap": [
       {
-        "title": "Monte Carlo Scenario Simulation Engine",
-        "phase": "Q2 2026"
+        "title": "Monte Carlo Scenario Simulation Engine"
       },
       {
-        "title": "Real-time SEC EDGAR WebSocket Stream Ingestion",
-        "phase": "Q3 2026"
+        "title": "Real-time SEC EDGAR WebSocket Stream Ingestion"
       }
     ],
     "summary": "SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution.",

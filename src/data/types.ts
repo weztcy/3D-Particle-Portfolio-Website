@@ -120,7 +120,7 @@ export interface ProjectCaseStudy {
   }[];
   interfaceShowcase?: {
     imageUrl: string;
-    caption: string;
+    caption?: string;
     badge?: string;
   }[];
   userFlow?: {
@@ -240,7 +240,7 @@ export interface ProjectCaseStudy {
     slideNumber: number;
     title: string;
     imageUrl?: string;
-    caption: string;
+    caption?: string;
   }[];
   pdfReportUrl?: string;
   keyFindings?: {
@@ -326,7 +326,7 @@ export interface ProjectCaseStudy {
     }[];
   };
   aiVisualShowcase?: {
-    caption: string;
+    caption?: string;
     badge?: string;
     imageUrl: string;
     highlights?: string[];
@@ -375,7 +375,7 @@ export interface ProjectCaseStudy {
     improvementsRoadmap: {
       title: string;
       target?: string;
-      phase: string;
+      phase?: string;
     }[];
     summary?: string;
     alignmentNote?: string;
@@ -475,7 +475,7 @@ export interface ProjectCaseStudy {
     title: string;
     badge: string;
     imageUrl?: string;
-    caption: string;
+    caption?: string;
     tableData?: {
       metric: string;
       trainingScore: string;
@@ -547,7 +547,7 @@ export interface ProjectCaseStudy {
   desktopMobileInterfaceShowcase?: {
     [key: string]: any;
     imageUrl: string;
-    caption: string;
+    caption?: string;
     badge?: string;
   }[];
   desktopMobileUserFlow?: any;

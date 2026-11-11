@@ -195,9 +195,7 @@ export default function UIUXDetailView({
   const visualShowcase =
     project.uiUxVisualShowcase ||
     (projectImages.length > 0
-      ? projectImages.map((img, i) => ({
-          caption: `${project.title} — Hi-Fi UI Mockup Viewport 0${i + 1}`,
-          badge: `VIEWPORT_0${i + 1}`,
+      ? projectImages.map((img) => ({
           imageUrl: img,
         }))
       : []);
@@ -205,8 +203,6 @@ export default function UIUXDetailView({
   const activeHiFiItem =
     visualShowcase[activeHiFiIndex] ||
     visualShowcase[0] || {
-      caption: `${project.title} — Hi-Fi Product Mockup`,
-      badge: "HI-FI_MOCKUP",
       imageUrl: project.imageUrl || "",
     };
 
@@ -838,15 +834,14 @@ export default function UIUXDetailView({
               <span className="h-3 w-3 rounded-full bg-rose-400/80 inline-block" />
               <span className="h-3 w-3 rounded-full bg-pink-500/80 inline-block" />
               <span className="ml-3 font-mono text-[11px] text-slate-400 hidden sm:inline-block">
-                {(activeHiFiItem as any).title || activeHiFiItem.caption || "Hi-Fi Interface Viewport"}
+                {(activeHiFiItem as any).title || "Hi-Fi Interface Viewport"}
               </span>
             </div>
 
             <div className="flex items-center gap-2">
               <span className="font-mono text-[10px] tracking-wider uppercase text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2 py-0.5 rounded">
-                {activeHiFiItem.badge || "HI-FI_UI"}
+                VIEWPORT 0{activeHiFiIndex + 1}
               </span>
-              
             </div>
           </div>
 
@@ -855,7 +850,7 @@ export default function UIUXDetailView({
             {activeHiFiItem.imageUrl ? (
               <Image
                 src={activeHiFiItem.imageUrl}
-                alt={activeHiFiItem.caption || (activeHiFiItem as any).title || "Hi-Fi Interface Viewport"}
+                alt={`${project.title} Hi-Fi Interface Viewport`}
                 fill
                 priority
                 className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
@@ -895,16 +890,6 @@ export default function UIUXDetailView({
                 </button>
               </>
             )}
-
-            {/* Live Caption Scrim */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4 z-20">
-              <div className="text-xs sm:text-sm font-mono text-slate-200 truncate">
-                <span className="text-rose-400 font-bold mr-2">
-                  [ {activeHiFiItem.badge || "HI-FI_UI"} ]
-                </span>
-                {activeHiFiItem.caption}
-              </div>
-            </div>
           </div>
 
           {/* Thumbnail Carousel Bar */}
@@ -922,7 +907,7 @@ export default function UIUXDetailView({
                 >
                   <Image
                     src={item.imageUrl || ""}
-                    alt={item.caption || (item as any).title || "Hi-Fi Screen Thumbnail"}
+                    alt={`Hi-Fi Screen Thumbnail 0${idx + 1}`}
                     fill
                     className="object-cover"
                   />

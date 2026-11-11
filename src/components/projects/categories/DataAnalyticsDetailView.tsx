@@ -904,13 +904,12 @@ export default function DataAnalyticsDetailView({
               </>
             )}
 
-            {/* Live Slide Caption Scrim */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4">
+            {/* Live Slide Number Tag Scrim */}
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:p-5 flex items-center justify-between gap-4">
               <div className="text-xs sm:text-sm font-mono text-slate-200 truncate">
-                <span className="text-emerald-400 font-bold mr-2">
-                  [ SLIDE 0{activeSlideIndex + 1} ]
+                <span className="text-emerald-400 font-bold">
+                  [ Slide {String(activeSlideIndex + 1).padStart(2, "0")} ]
                 </span>
-                {presentationSlides[activeSlideIndex]?.caption}
               </div>
             </div>
           </div>

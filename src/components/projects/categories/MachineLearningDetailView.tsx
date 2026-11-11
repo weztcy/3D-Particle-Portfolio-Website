@@ -172,7 +172,6 @@ export default function MachineLearningDetailView({
           title: `${project.title} — Performance Trajectory 0${idx + 1}`,
           badge: `METRIC // 0${idx + 1}`,
           imageUrl: img,
-          caption: "Empirical performance curve across evaluation trials.",
         }));
 
   const modelInterpretationAndLimitations =
@@ -898,11 +897,6 @@ export default function MachineLearningDetailView({
                   {performanceVisualizations[activeVisIndex]?.badge}
                 </div>
               </div>
-
-              {/* Caption */}
-              <p className="text-xs text-slate-300 leading-relaxed font-normal mb-4">
-                {performanceVisualizations[activeVisIndex]?.caption}
-              </p>
 
               {/* Thumbnail Selector Ribbon */}
               {performanceVisualizations.length > 1 && (
