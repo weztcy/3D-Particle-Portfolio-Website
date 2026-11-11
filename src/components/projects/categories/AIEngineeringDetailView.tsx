@@ -69,14 +69,28 @@ export default function AIEngineeringDetailView({
 
   const visualShowcase = useMemo(() => {
     if (project.aiVisualShowcase && project.aiVisualShowcase.length > 0) {
-      return project.aiVisualShowcase;
+      return project.aiVisualShowcase.map((item, idx) => ({
+        ...item,
+        highlights: item.highlights && item.highlights.length > 0
+          ? item.highlights
+          : [
+              project.features?.[idx % (project.features?.length || 1)]?.badge || "Active Viewport",
+              "Production Runtime",
+              "Hardware Accelerated",
+            ],
+      }));
     }
     return visualImages.map((img, idx) => ({
       imageUrl: img,
       caption: `${project.title} — System Interface Viewport 0${idx + 1}`,
       badge: `SYS_VIEWPORT_0${idx + 1}`,
+      highlights: [
+        project.features?.[idx % (project.features?.length || 1)]?.badge || "Active Viewport",
+        "Interactive Display",
+        "Real-Time Telemetry",
+      ],
     }));
-  }, [project.aiVisualShowcase, visualImages, project.title]);
+  }, [project.aiVisualShowcase, visualImages, project.title, project.features]);
 
   const activeVisualItem =
     visualShowcase[activeHiFiIndex] ||
@@ -84,6 +98,7 @@ export default function AIEngineeringDetailView({
       imageUrl: project.imageUrl || "",
       caption: `${project.title} — AI System Viewport`,
       badge: "SYS_VIEWPORT",
+      highlights: ["Active Viewport", "Production Runtime", "Hardware Accelerated"],
     };
 
   // Section 1: Project Overview & Information
@@ -300,7 +315,7 @@ export default function AIEngineeringDetailView({
                 <Terminal className="h-3.5 w-3.5 text-purple-400" />
                 &gt; AI_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-purple-400/80">ONLINE // LLM_INFERENCE</span>
+              <span className="text-[10px] text-purple-400/80">ONLINE</span>
             </div>
 
             {/* Terminal Body */}
@@ -841,11 +856,13 @@ export default function AIEngineeringDetailView({
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 rounded">
-                    {activeVisualItem.badge || "SYS_VIEWPORT"}
-                  </span>
-                </div>
+                {activeVisualItem.badge && (
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 rounded">
+                      {activeVisualItem.badge}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Viewport Image Stage */}
@@ -893,44 +910,80 @@ export default function AIEngineeringDetailView({
                     </button>
                   </>
                 )}
+              </div>
 
-                {/* Live Caption Scrim */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-3 sm:p-4 flex items-center justify-between gap-3 z-20">
-                  <div className="text-xs font-mono text-slate-200 truncate">
-                    <span className="text-purple-400 font-bold mr-1.5">
-                      [{activeVisualItem.badge || "SYS_VIEWPORT"}]
+              {/* Interactive Thumbnail Filmstrip */}
+              {visualShowcase.length > 1 && (
+                <div className="mt-3.5 pt-3 border-t border-white/5">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-semibold">
+                      INSPECT VIEWPORTS:
                     </span>
-                    {activeVisualItem.caption}
+                    <span className="font-mono text-[9px] text-purple-400">
+                      CLICK TO PREVIEW
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2">
+                    {visualShowcase.map((item, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          setActiveHiFiIndex(idx);
+                          onTriggerPulse?.();
+                        }}
+                        className={`group relative aspect-[16/10] overflow-hidden rounded-lg border transition-all ${
+                          idx === activeHiFiIndex
+                            ? "border-purple-400 ring-2 ring-purple-500/50 shadow-[0_0_12px_rgba(168,85,247,0.4)]"
+                            : "border-white/10 opacity-50 hover:opacity-100 hover:border-purple-400/50"
+                        }`}
+                        title={item.caption}
+                      >
+                        {item.imageUrl ? (
+                          <Image
+                            src={item.imageUrl}
+                            alt={item.caption || `Thumbnail 0${idx + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="120px"
+                          />
+                        ) : (
+                          <div className="h-full w-full bg-slate-900 flex items-center justify-center font-mono text-[9px] text-slate-400">
+                            0{idx + 1}
+                          </div>
+                        )}
+                        <span className="absolute bottom-0.5 right-1 font-mono text-[8px] bg-black/80 px-1 rounded text-purple-300 border border-white/10">
+                          0{idx + 1}
+                        </span>
+                      </button>
+                    ))}
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            {/* Thumbnail Navigation / Dot Indicators */}
-            {visualShowcase.length > 1 && (
-              <div className="mt-3.5 pt-3 border-t border-white/5 flex items-center justify-between gap-2">
-                <span className="font-mono text-[10px] text-slate-400">
-                  VIEWPORT {activeHiFiIndex + 1} OF {visualShowcase.length}
-                </span>
-                <div className="flex items-center gap-1.5">
-                  {visualShowcase.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setActiveHiFiIndex(idx);
-                        onTriggerPulse?.();
-                      }}
-                      className={`h-2 rounded-full transition-all ${
-                        idx === activeHiFiIndex
-                          ? "w-6 bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.6)]"
-                          : "w-2 bg-white/20 hover:bg-white/40"
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
+            {/* Bottom Status & Dot Navigator */}
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 flex items-center justify-between">
+              <span className="font-mono text-[10px] text-slate-400">
+                VIEWPORT {activeHiFiIndex + 1} OF {visualShowcase.length}
+              </span>
+              <div className="flex items-center gap-1.5">
+                {visualShowcase.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setActiveHiFiIndex(idx);
+                      onTriggerPulse?.();
+                    }}
+                    className={`h-1.5 rounded-full transition-all ${
+                      idx === activeHiFiIndex
+                        ? "w-5 bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                        : "w-1.5 bg-white/20 hover:bg-white/40"
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
               </div>
-            )}
+            </div>
           </div>
 
           {/* SISI KANAN (Col 6/12): Single Representative Execution & Telemetry Card (Independent) */}
@@ -1008,13 +1061,13 @@ export default function AIEngineeringDetailView({
               )}
             </div>
 
-            {/* Customizable Metric Chips (Bottom of Right Card) */}
+            {/* Customizable Metric Chips (Bottom of Right Card - Max 3 Badges) */}
             <div className="pt-3 border-t border-white/10">
               <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 block mb-2 font-bold">
                 RUNTIME TELEMETRY CHIPS:
               </span>
               <div className="flex flex-wrap gap-2">
-                {telemetryData.metrics.map((m: any, mIdx: number) => (
+                {(telemetryData.metrics || []).slice(0, 3).map((m: any, mIdx: number) => (
                   <div
                     key={mIdx}
                     className="inline-flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-950/40 px-3 py-1.5 font-mono"

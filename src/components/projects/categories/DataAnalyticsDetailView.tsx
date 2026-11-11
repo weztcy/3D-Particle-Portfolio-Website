@@ -296,7 +296,7 @@ export default function DataAnalyticsDetailView({
                 <Terminal className="h-3.5 w-3.5 text-emerald-400" />
                 &gt; ANALYTICS_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-emerald-400/80">ONLINE // SQL_QUERY</span>
+              <span className="text-[10px] text-emerald-400/80">ONLINE</span>
             </div>
 
             {/* Terminal Body */}

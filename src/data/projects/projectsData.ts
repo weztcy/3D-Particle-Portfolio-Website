@@ -2777,36 +2777,29 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
             {
                   "label": "Grounding",
                   "value": "99.4%"
-            },
-            {
-                  "label": "Status",
-                  "value": "200 OK"
             }
       ],
       "evaluationNote": "Multi-hop cross-referencing completed with zero ungrounded hallucinations."
 },
     "aiVisualShowcase": [
-    {
-      "caption": "Synapse Knowledge Graph Topology & Semantic Vector Space",
-      "badge": "SYS_VIEWPORT_01",
-      "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Multi-Agent Reasoning Trace & Evidence Retrieval Inspector",
-      "badge": "SYS_VIEWPORT_02",
-      "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Real-time Source Citation & Document Hierarchy Explorer",
-      "badge": "SYS_VIEWPORT_03",
-      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Enterprise Operational Telemetry & Latency Monitoring Console",
-      "badge": "SYS_VIEWPORT_04",
-      "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-    }
-  ],
+      {
+            "caption": "Synapse Knowledge Graph Topology & Semantic Vector Space",
+            "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Multi-Agent Reasoning Trace & Evidence Retrieval Inspector",
+            "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Real-time Source Citation & Document Hierarchy Explorer",
+            "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Enterprise Operational Telemetry & Latency Monitoring Console",
+            "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+      }
+],
+
   "aiOutputShowcase": [
     {
       "scenarioTitle": "Cross-Border Regulatory Compliance Audit",
@@ -3245,10 +3238,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
                   "value": "260ms"
             },
             {
-                  "label": "Engine",
-                  "value": "Local Ollama"
-            },
-            {
                   "label": "Affinity",
                   "value": "98.8%"
             },
@@ -3260,27 +3249,24 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "evaluationNote": "Air-gapped local execution completed with zero external network telemetry."
 },
     "aiVisualShowcase": [
-    {
-      "caption": "BrainSync Interactive Knowledge Graph Node Visualization",
-      "badge": "SYS_VIEWPORT_01",
-      "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Autonomous Memory Synthesis & Backlink Generation View",
-      "badge": "SYS_VIEWPORT_02",
-      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Contextual Workspace & Research Paper Digestion Feed",
-      "badge": "SYS_VIEWPORT_03",
-      "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Local-First Privacy Vault & Cryptographic Sync Dashboard",
-      "badge": "SYS_VIEWPORT_04",
-      "imageUrl": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
-    }
-  ],
+      {
+            "caption": "BrainSync Interactive Knowledge Graph Node Visualization",
+            "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Autonomous Memory Synthesis & Backlink Generation View",
+            "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Contextual Workspace & Research Paper Digestion Feed",
+            "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Local-First Privacy Vault & Cryptographic Sync Dashboard",
+            "imageUrl": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
+      }
+],
+
   "aiOutputShowcase": [
     {
       "scenarioTitle": "Research Paper Associative Linking",
@@ -3725,36 +3711,29 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
             {
                   "label": "Compute",
                   "value": "520 tokens"
-            },
-            {
-                  "label": "Compliance",
-                  "value": "SOX 404"
             }
       ],
       "evaluationNote": "Deterministic arithmetic verification executed in isolated Docker sandbox."
 },
     "aiVisualShowcase": [
-    {
-      "caption": "Financial Intelligence Terminal & Statement Comparison Matrix",
-      "badge": "SYS_VIEWPORT_01",
-      "imageUrl": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Automated Code Interpreter & Balance Sheet Verification Grid",
-      "badge": "SYS_VIEWPORT_02",
-      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Earnings Transcript Sentiment & Risk Factor Timeline",
-      "badge": "SYS_VIEWPORT_03",
-      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "caption": "Regulatory SEC Filing Audit Trail & Table Discrepancy Scanner",
-      "badge": "SYS_VIEWPORT_04",
-      "imageUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
-    }
-  ],
+      {
+            "caption": "Financial Intelligence Terminal & Statement Comparison Matrix",
+            "imageUrl": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Automated Code Interpreter & Balance Sheet Verification Grid",
+            "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Earnings Transcript Sentiment & Risk Factor Timeline",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+            "caption": "Regulatory SEC Filing Audit Trail & Table Discrepancy Scanner",
+            "imageUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
+      }
+],
+
   "aiOutputShowcase": [
     {
       "scenarioTitle": "10-K Free Cash Flow & Debt Maturity Reconciliation",

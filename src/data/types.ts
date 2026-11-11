@@ -327,8 +327,9 @@ export interface ProjectCaseStudy {
   };
   aiVisualShowcase?: {
     caption: string;
-    badge: string;
+    badge?: string;
     imageUrl: string;
+    highlights?: string[];
   }[];
   aiExecutionTelemetry?: {
     scenarioTitle: string;

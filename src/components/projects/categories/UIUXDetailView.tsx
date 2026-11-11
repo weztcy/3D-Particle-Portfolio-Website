@@ -308,7 +308,7 @@ export default function UIUXDetailView({
                 <Terminal className="h-3.5 w-3.5 text-rose-400" />
                 &gt; DESIGN_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-rose-400/80">ONLINE // PIXEL_PERFECT</span>
+              <span className="text-[10px] text-rose-400/80">ONLINE</span>
             </div>
 
             {/* Studio Body */}

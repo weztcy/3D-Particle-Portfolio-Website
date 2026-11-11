@@ -371,7 +371,7 @@ export default function DesktopMobileDetailView({
                 <Terminal className="h-3.5 w-3.5 text-amber-400" />
                 &gt; CLIENT_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-amber-400/80">ONLINE // NATIVE_IPC</span>
+              <span className="text-[10px] text-amber-400/80">ONLINE</span>
             </div>
 
             {/* Terminal Body */}

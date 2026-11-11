@@ -252,7 +252,7 @@ export default function CodeLearningDetailView({
                 <Terminal className="h-3.5 w-3.5 text-orange-400" />
                 &gt; CURRICULUM_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-orange-400/80">ONLINE // VERIFIED_PEDAGOGY</span>
+              <span className="text-[10px] text-orange-400/80">ONLINE</span>
             </div>
 
             {/* Terminal Body */}

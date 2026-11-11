@@ -223,7 +223,7 @@ export default function WebDevDetailView({
                 <Terminal className="h-3.5 w-3.5 text-sky-400" />
                 &gt; WEB_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-sky-400/80">ONLINE // HTTP_EDGE</span>
+              <span className="text-[10px] text-sky-400/80">ONLINE</span>
             </div>
 
             {/* Terminal Body */}

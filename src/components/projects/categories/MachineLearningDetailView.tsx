@@ -247,7 +247,7 @@ export default function MachineLearningDetailView({
                 <Terminal className="h-3.5 w-3.5 text-indigo-400" />
                 &gt; ML_RUNTIME // SYS.VIEWPORT
               </span>
-              <span className="text-[10px] text-indigo-400/80">ONLINE // BENCHMARK_TRAINED</span>
+              <span className="text-[10px] text-indigo-400/80">ONLINE</span>
             </div>
 
             {/* Terminal Body */}
