@@ -29,7 +29,6 @@ import {
   Layout,
   LineChart,
   Lock,
-  Maximize2,
   Network,
   PieChart,
   Scale,
@@ -76,12 +75,12 @@ export default function MachineLearningDetailView({
     project.projectDescription ||
     project.overview ||
     project.summary ||
-    "Empirical machine learning research project engineered to resolve distance metric sensitivity and magnitude distortions in non-parametric clinical diagnostic systems, deploying feature importance pruning and paired statistical significance testing.";
+    "";
 
   const projectInfo = project.mlProjectInfo || {
-    projectType: "Supervised Classification & Feature Engineering",
-    learningParadigm: "Supervised Learning",
-    modelDomain: "Clinical Diagnostic Healthcare",
+    projectType: "Supervised Learning & Statistical Modeling",
+    learningParadigm: "Deterministic / Statistical Learning",
+    modelDomain: project.categoryLabel || "Machine Learning",
     projectStatus: project.status || "Completed",
     developmentYear: project.year || "2024",
   };
@@ -91,6 +90,7 @@ export default function MachineLearningDetailView({
     targetPlatform: "Python 3.11+ / Scikit-Learn / NumPy",
     primaryDomain: projectInfo.modelDomain,
     architecturePipeline: project.architectureSummary || "Supervised Classification + Cross-Validated Tuning",
+    testingAndAudit: "Passed",
     projectStatus: projectInfo.projectStatus,
     projectYear: projectInfo.developmentYear,
   };
@@ -99,199 +99,57 @@ export default function MachineLearningDetailView({
   const problemContext =
     project.mlProblemContext ||
     project.challenge ||
-    "In distance-based machine learning algorithms such as K-Nearest Neighbors (K-NN), high-magnitude physiological attributes (e.g. insulin or serum glucose) mathematically overpower smaller continuous markers in Euclidean distance space. Without calibrated feature scaling and non-parametric importance pruning, raw distances distort nearest-neighbor boundaries, causing severe diagnostic misclassifications.";
+    "";
 
   const datasetOverview = project.mlDatasetOverview || {
-    dataSource: "Pima Indians Diabetes Database (National Institute of Diabetes / NIDDK)",
-    dataPeriod: "Longitudinal Clinical Cohort Records",
-    recordsCount: "768 Patient Observations",
-    featuresCount: "8 Continuous Physiological Predictors + 1 Binary Class",
-    dataTypes: "Numerical Float64 & Integer32 (Non-Negative Bounded)",
-    description:
-      "Clinical diagnostic records capturing female patient metrics of Pima Indian heritage (>=21 years old), containing diagnostic laboratory outcomes, insulin tests, skin fold thicknesses, and 5-year diabetes onset outcomes.",
+    dataSource: "",
+    dataPeriod: "",
+    recordsCount: "",
+    featuresCount: "",
+    dataTypes: "",
+    description: "",
   };
 
   const featuresAndDataCharacteristics =
     project.mlFeaturesAndDataCharacteristics || {
       targetVariable: {
-        name: "Outcome (Diabetes Diagnosis)",
-        type: "Binary Indicator (0: Negative, 1: Positive)",
-        classDistribution: "500 Negative (65.1%) vs 268 Positive (34.9%)",
+        name: "",
+        type: "",
+        classDistribution: "",
       },
-      inputFeatures: [
-        {
-          name: "Glucose",
-          type: "Continuous (mg/dL)",
-          importanceOrRole: "Primary Predictor (Gini: 0.32)",
-          description: "2-hour plasma glucose concentration in oral glucose tolerance test.",
-        },
-        {
-          name: "BMI (Body Mass Index)",
-          type: "Continuous (kg/m²)",
-          importanceOrRole: "Core Predictor (Gini: 0.24)",
-          description: "Weight in kilograms divided by height in meters squared.",
-        },
-        {
-          name: "Age",
-          type: "Discrete (Years)",
-          importanceOrRole: "Significant Factor (Gini: 0.16)",
-          description: "Patient chronological age ranging from 21 to 81 years.",
-        },
-        {
-          name: "DiabetesPedigreeFunction",
-          type: "Continuous (Ratio)",
-          importanceOrRole: "Genetic Risk Factor (Gini: 0.14)",
-          description: "Scores genetic diabetes influence based on family lineage history.",
-        },
-      ],
-      dataCharacteristicsSummary:
-        "Moderate class skewness (65:35 ratio) with physiological zero-value anomalies in Insulin and SkinThickness requiring targeted statistical imputation before normalisation.",
+      inputFeatures: [],
+      dataCharacteristicsSummary: "",
     };
 
   // Section 3: Model Development & Methodology
   const learningApproach = project.mlLearningApproach || {
-    paradigm: "Supervised Non-Parametric Classification",
-    methodologyDescription:
-      "A rigorous comparative empirical research methodology pairing Gini impurity feature pruning (Random Forest with 100 estimators) with 4 distinct normalization transformations (Min-Max Scaling, Z-Score Standardization, Decimal Scaling, and Raw Baseline) across neighborhood parameters k = 1 to 11.",
-    justification:
-      "Non-parametric instance-based classifiers make zero prior assumptions regarding underlying Gaussian probability distributions, making them ideal for complex, multi-modal clinical biomarker boundaries when feature scales are correctly normalized.",
+    paradigm: "",
+    methodologyDescription: "",
+    justification: "",
   };
 
-  const dataPreparation = project.mlDataPreparation || [
-    {
-      step: "STAGE 01",
-      title: "Physiological Zero Imputation",
-      description:
-        "Replaced biologically impossible zero values in BloodPressure, BMI, and Glucose with median measures segregated by outcome class.",
-      badge: "Targeted Median",
-    },
-    {
-      step: "STAGE 02",
-      title: "Random Forest Feature Selection",
-      description:
-        "Trained a 100-estimator ensemble to compute Gini feature importances, pruning the 4 weakest noise predictors to reduce dimensionality.",
-      badge: "Gini Pruning",
-    },
-    {
-      step: "STAGE 03",
-      title: "Multi-Paradigm Scaling Transformation",
-      description:
-        "Standardized feature vectors into bounded [0, 1] range via Min-Max Scaling to eliminate Euclidean distance magnitude bias.",
-      badge: "Min-Max Scaling",
-    },
-    {
-      step: "STAGE 04",
-      title: "Stratified Cross-Validation Splitting",
-      description:
-        "Divided data into 80/20 train-test partitions with stratified sampling to preserve positive-negative class proportions.",
-      badge: "Stratified 80/20",
-    },
-  ];
+  const dataPreparation = project.mlDataPreparation || [];
 
   const modelArchitectureAndTraining =
     project.mlModelArchitectureAndTraining || {
-      algorithmName: "K-Nearest Neighbors (K-NN) Classifier",
-      architectureSummary:
-        "Instance-based lazy learning classifier projecting query feature vectors into normalized 4-dimensional Euclidean space, computing majority class votes across k-nearest historical centroids with uniform distance weighting.",
-      hyperparameters: [
-        { name: "n_neighbors (k)", value: "k = 7", description: "Optimal neighborhood density balance" },
-        { name: "weights", value: "'uniform'", description: "All points in neighborhood vote equally" },
-        { name: "metric", value: "'euclidean' (p=2)", description: "Standard L2 Euclidean distance function" },
-        { name: "algorithm", value: "'auto' (kd_tree)", description: "Fast O(log n) spatial index queries" },
-      ],
-      lossFunction: "0-1 Classification Loss / Brier Score",
-      optimizer: "GridSearchCV (Grid search over k=1..11 and distance metrics)",
-      trainingProcess:
-        "Hyperparameter sweeping across odd neighborhood sizes k from 1 to 11 to avoid tie votes, verified via two-tailed paired Student's t-tests (p < 0.05).",
+      algorithmName: "",
+      architectureSummary: project.architectureSummary || "",
+      hyperparameters: [],
+      lossFunction: "",
+      optimizer: "",
+      trainingProcess: "",
     };
 
   // Section 4: Tech Stack
-  const programmingLanguages = project.mlTechStack?.programmingLanguages || [
-    {
-      name: "Python 3.10+",
-      role: "Core mathematical scripting, matrix manipulation, and statistical hypothesis tests",
-    },
-  ];
-
-  const frameworksAndLibraries = project.mlTechStack
-    ?.frameworksAndLibraries || [
-    {
-      name: "Scikit-learn",
-      role: "K-NN classifier, Random Forest feature importance, and preprocessing scalers",
-    },
-    {
-      name: "NumPy & SciPy",
-      role: "Vectorized distance computations, array broadcasting, and paired t-tests",
-    },
-    {
-      name: "Pandas",
-      role: "DataFrame ETL, missing value imputation, and descriptive statistics",
-    },
-    {
-      name: "Matplotlib & Seaborn",
-      role: "ROC curve generation, confusion matrix heatmaps, and metric boxplots",
-    },
-  ];
-
-  const experimentationTools = project.mlTechStack
-    ?.experimentationTools || [
-    {
-      name: "Jupyter Notebook",
-      role: "Literate scientific computing scratchpad, experiment logs, and visual documentation",
-    },
-    {
-      name: "Google Colab",
-      role: "Cloud-hosted execution environment for reproducible statistical benchmarking",
-    },
-    {
-      name: "Git & GitHub",
-      role: "Version control for experiment scripts, dataset manifests, and research notebooks",
-    },
-  ];
+  const programmingLanguages = project.mlTechStack?.programmingLanguages || [];
+  const frameworksAndLibraries = project.mlTechStack?.frameworksAndLibraries || [];
+  const experimentationTools = project.mlTechStack?.experimentationTools || [];
 
   // Section 5: Model Evaluation & Results
   const evaluationStrategy = project.mlEvaluationStrategy || {
-    validationMethod: "Stratified Holdout Validation + 5-Fold Cross-Validation",
-    description:
-      "Comprehensive evaluation assessing Sensitivity (Recall), Specificity, Accuracy, and Area Under the ROC Curve (ROC-AUC). Statistical significance verified via two-tailed paired Student's t-test comparing normalized vs baseline models.",
-    metrics: [
-      {
-        label: "TEST ACCURACY",
-        value: "81.17%",
-        benchmark: "Baseline: 74.03%",
-        pass: true,
-      },
-      {
-        label: "SPECIFICITY",
-        value: "84.85%",
-        benchmark: "Baseline: 78.12%",
-        pass: true,
-      },
-      {
-        label: "ROC-AUC SCORE",
-        value: "0.852",
-        benchmark: "Paired t-test: p = 0.00003",
-        pass: true,
-      },
-      {
-        label: "OPTIMAL K-VALUE",
-        value: "k = 7",
-        benchmark: "Peak Stability (k=1..11)",
-        pass: true,
-      },
-      {
-        label: "PRECISION",
-        value: "78.4%",
-        benchmark: "Threshold > 70%",
-        pass: true,
-      },
-      {
-        label: "F1-SCORE",
-        value: "76.2%",
-        benchmark: "Harmonic Mean Balanced",
-        pass: true,
-      },
-    ],
+    validationMethod: "",
+    description: "",
+    metrics: [],
   };
 
   const rawProjectImages: string[] =
@@ -299,64 +157,24 @@ export default function MachineLearningDetailView({
       ? project.images
       : project.imageUrl
       ? [project.imageUrl]
-      : ["/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp"];
+      : [];
 
-  const performanceVisualizations = project.mlPerformanceVisualizations || [
-    {
-      title: "Model Accuracy vs Neighborhood Size (k=1 to 11)",
-      badge: "Accuracy Curve",
-      imageUrl: rawProjectImages[0] || "/images/projects/Diabetes Classification Using KNN with Data Normalization 1.webp",
-      caption:
-        "Comparative accuracy trajectories across Min-Max Scaling (peak 81.17% at k=7), Z-Score, Decimal Scaling, and raw baseline across k=1 to 11.",
-    },
-    {
-      title: "ROC-AUC Comparison Across Normalization Paradigms",
-      badge: "ROC-AUC Curve",
-      imageUrl: rawProjectImages[1] || rawProjectImages[0],
-      caption:
-        "Receiver Operating Characteristic curves confirming statistically significant discrimination gains for Min-Max Normalized K-NN (AUC = 0.852).",
-    },
-    {
-      title: "Confusion Matrix & Diagnostic Error Breakdown",
-      badge: "Confusion Matrix",
-      imageUrl: rawProjectImages[2] || rawProjectImages[0],
-      caption:
-        "Confusion matrix on held-out test cohort demonstrating high specificity (84.85%) and minimal false-positive clinical misidentifications.",
-    },
-  ];
+  const performanceVisualizations =
+    project.mlPerformanceVisualizations && project.mlPerformanceVisualizations.length > 0
+      ? project.mlPerformanceVisualizations
+      : rawProjectImages.map((img, idx) => ({
+          title: `${project.title} — Performance Trajectory 0${idx + 1}`,
+          badge: `METRIC // 0${idx + 1}`,
+          imageUrl: img,
+          caption: "Empirical performance curve across evaluation trials.",
+        }));
 
   const modelInterpretationAndLimitations =
     project.mlModelInterpretationAndLimitations || {
-      interpretationSummary:
-        "Feature pruning and normalization conclusively proved that Glucose and BMI account for over 56% of predictive decision boundaries in instance space. Min-Max normalization prevented insulin magnitude scaling artifacts, yielding statistically significant (p = 0.00003) diagnostic consistency.",
-      topPredictors: [
-        { feature: "Glucose Concentration", impact: "32.4% Gini Contribution" },
-        { feature: "Body Mass Index (BMI)", impact: "24.1% Gini Contribution" },
-        { feature: "Patient Age", impact: "16.8% Gini Contribution" },
-        { feature: "Diabetes Pedigree Function", impact: "14.2% Gini Contribution" },
-      ],
-      limitations: [
-        {
-          title: "Inference Latency at O(n) Scale",
-          description:
-            "As an instance-based lazy learner, query latency scales linearly with training set size unless partitioned via KD-Tree spatial indices.",
-        },
-        {
-          title: "Sensitivity to Missing Clinical Markers",
-          description:
-            "Missing physiological laboratory inputs require imputation, which can introduce mild synthetic variance on rare edge-case patients.",
-        },
-      ],
-      futureImprovements: [
-        {
-          title: "XGBoost & LightGBM Gradient Boosting Comparison",
-          target: "Evaluate tree-based gradient boosting models with native missing-value routing.",
-        },
-        {
-          title: "SHAP Kernel Explainer Integration",
-          target: "Integrate Kernel SHAP value telemetry for patient-level local prediction explainability.",
-        },
-      ],
+      interpretationSummary: "",
+      topPredictors: [],
+      limitations: [],
+      futureImprovements: [],
     };
 
   // Section 6: Project Resources
@@ -364,38 +182,13 @@ export default function MachineLearningDetailView({
     project.repoUrl && project.repoUrl.trim().length > 0
   );
 
-  const modelArtifacts = project.mlModelArtifacts || [
-    {
-      name: "knn_diabetes_minmax_model.pkl",
-      format: "PICKLE / BINARY",
-      size: "240 KB",
-      description: "Serialized Scikit-learn K-NN model fitted on normalized 4-feature clinical training space.",
-    },
-    {
-      name: "minmax_scaler_pipeline.pkl",
-      format: "PREPROCESSOR",
-      size: "48 KB",
-      description: "Fitted MinMaxScaler object encapsulating feature minimums and maximums for real-time inference.",
-    },
-    {
-      name: "pima_diabetes_imputed_clean.csv",
-      format: "DATASET / CSV",
-      size: "38 KB",
-      description: "Preprocessed 768-row clinical dataset with median-imputed physiological biomarkers.",
-    },
-  ];
+  const modelArtifacts = project.mlModelArtifacts || [];
 
   const technicalDocumentation = project.mlTechnicalDocumentation || {
     title: "Machine Learning Experiment Documentation",
-    description:
-      "Comprehensive research dossier covering mathematical formulations of normalization paradigms, Random Forest feature importance derivations, and Student's t-test statistical proofs.",
-    status: "DOCS // VERIFIED RESEARCH",
-    specs: [
-      { label: "ALGORITHM", value: "K-NN (k=7, Uniform Euclidean)" },
-      { label: "BEST SCALER", value: "Min-Max Normalization" },
-      { label: "STAT SIGNIFICANCE", value: "p = 0.00003 (Paired t-test)" },
-      { label: "FEATURE COUNT", value: "4 Pruned Predictors" },
-    ],
+    description: "",
+    status: "DOCS // VERIFIED",
+    specs: [],
   };
 
   return (
@@ -442,30 +235,27 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col">
-            <div className="flex flex-col flex-1 h-full">
-              {/* Terminal Title Bar */}
-              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-indigo-500/30 bg-indigo-950/40 px-4 py-2 text-xs font-mono text-indigo-300">
-                <span className="flex items-center gap-2 text-indigo-200">
-                  <Terminal className="h-3.5 w-3.5 text-indigo-400" />
-                  &gt; ML_RUNTIME // SYS.VIEWPORT
-                </span>
-                <span className="text-[10px] text-indigo-400/80">ONLINE // BENCHMARK_TRAINED</span>
-              </div>
+            {/* Terminal Title Bar */}
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-indigo-500/30 bg-indigo-950/40 px-4 py-2 text-xs font-mono text-indigo-300">
+              <span className="flex items-center gap-2 text-indigo-200">
+                <Terminal className="h-3.5 w-3.5 text-indigo-400" />
+                &gt; ML_RUNTIME // SYS.VIEWPORT
+              </span>
+              <span className="text-[10px] text-indigo-400/80">ONLINE // BENCHMARK_TRAINED</span>
+            </div>
 
-              {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-indigo-500/25 bg-[#080A14]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
+            {/* Terminal Body */}
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-indigo-500/25 bg-[#080A14]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+              <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-indigo-500/30 bg-black/60 shadow-lg">
-
                     {/* Optical HUD Crosshairs */}
                     <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-indigo-400/80" />
                     <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-indigo-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-indigo-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-indigo-400/80" />
 
-                    {/* Hero Image with smooth hover scale */}
-                    
                     {/* Hero Image */}
                     <Image
                       src={heroImage}
@@ -482,22 +272,22 @@ export default function MachineLearningDetailView({
                     ? `${projectDescription.slice(0, 500).trim()}...`
                     : projectDescription}
                 </p>
+              </div>
 
-                {/* Capability Badges Strip (Max 3) */}
-                <div className="mt-auto pt-4 border-t border-indigo-500/20 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
-                    <Target className="h-3 w-3 text-indigo-400" />
-                    Supervised Classification
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
-                    <Scale className="h-3 w-3 text-indigo-400" />
-                    Feature Normalization
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
-                    <CheckCircle2 className="h-3 w-3 text-indigo-400" />
-                    Cross-Validated p &lt; 0.05
-                  </span>
-                </div>
+              {/* Capability Badges Strip (Max 3) */}
+              <div className="mt-auto pt-4 border-t border-indigo-500/20 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
+                  <Target className="h-3 w-3 text-indigo-400" />
+                  Supervised Classification
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
+                  <Scale className="h-3 w-3 text-indigo-400" />
+                  Feature Normalization
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-[11px] text-indigo-300">
+                  <CheckCircle2 className="h-3 w-3 text-indigo-400" />
+                  Cross-Validated p &lt; 0.05
+                </span>
               </div>
             </div>
           </div>

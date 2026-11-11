@@ -24,7 +24,6 @@ import {
   Layout,
   LineChart,
   Lock,
-  Maximize2,
   PieChart,
   Presentation,
   ShieldCheck,
@@ -59,317 +58,183 @@ export default function DataAnalyticsDetailView({
     setSlideErrors((prev) => ({ ...prev, [src]: true }));
   }, []);
 
-  // Section 1: Overview & Information
+  // Section 1 Data: Overview & Information
   const projectDescription =
+    project.dataAnalyticsExecutiveSummary ||
     project.projectDescription ||
     project.overview ||
     project.summary ||
-    "Comprehensive enterprise data analytics study providing exploratory data discovery, diagnostic correlation analysis, and predictive trend modeling to extract actionable business intelligence across large-scale historical transaction datasets.";
+    "";
 
   const projectInfo = project.dataAnalyticsProjectInfo || {
-    projectType: "Business & Financial Analytics",
-    developmentStatus: project.status || "Completed",
+    projectType: "Business Intelligence & Data Analytics",
+    projectStatus: project.status || "Completed",
     analysisYear: project.year || "2026",
-    dataDomain: "Retail & E-Commerce Transactions",
-    projectCategory: "Data Analytics",
+    dataDomain: project.categoryLabel || "Data Analytics",
+    projectCategory: project.categoryLabel || "Data Analytics",
   };
 
   const telemetry = project.telemetryMatrix || {
     projectType: projectInfo.projectType,
-    targetPlatform: (projectInfo as any).platform || (project as any).platform || "Cloud Analytics / Bi-Platform",
-    primaryDomain: projectInfo.dataDomain || "Enterprise Business Intelligence",
-    architecturePipeline: (project as any).methodologySummary || project.architectureSummary || "Automated ETL Ingestion + Retention Modeling",
-    projectStatus: projectInfo.developmentStatus || project.status || "Completed",
-    projectYear: projectInfo.analysisYear || project.year || "2026",
+    targetPlatform: "Python / SQL / BI Engine",
+    primaryDomain: (projectInfo as any).dataDomain || project.categoryLabel || "Data Analytics",
+    architecturePipeline: project.architectureSummary || "Automated ETL Ingestion + Analytical SQL Engine",
+    testingAndAudit: "Passed",
+    projectStatus: (projectInfo as any).projectStatus || (projectInfo as any).developmentStatus || project.status || "Completed",
+    projectYear: (projectInfo as any).analysisYear || project.year || "2026",
   };
 
-  // Section 2: Business Context, Objectives & Dataset Overview
+  // Section 2: Business Understanding & Objectives
   const businessContext =
-    project.businessContext ||
+    project.dataAnalyticsBusinessContext ||
     project.challenge ||
-    "Modern retail decision-making suffered from fragmented operational silos, delayed monthly cohort reporting, and unstructured customer churn telemetry. The absence of automated diagnostic analytics prevented executive leadership from isolating high-margin product categories and optimizing inventory turnover cycles.";
+    project.summary ||
+    "";
 
-  const analyticalObjectives = project.analyticalObjectives || [
-    {
-      title: "Revenue Concentration & Pareto Analysis",
-      description:
-        "Determine the distribution of gross merchandise value across product segments to validate the 80/20 revenue dependency rule.",
-      targetMetric: "TARGET_01 // PARETO",
-    },
-    {
-      title: "Customer Churn & Retention Cohorts",
-      description:
-        "Analyze monthly repurchase intervals and churn propensity scores across first-time vs recurring customer tiers.",
-      targetMetric: "TARGET_02 // RETENTION",
-    },
-    {
-      title: "Regional Sales & Profit Margin Elasticity",
-      description:
-        "Isolate geographical territories displaying negative operating margin drift and compute discounting sensitivity thresholds.",
-      targetMetric: "TARGET_03 // ELASTICITY",
-    },
-  ];
+  const analyticalObjectives: {
+    title: string;
+    description: string;
+    targetTag?: string;
+    targetMetric?: string;
+  }[] =
+    project.dataAnalyticsAnalyticalObjectives ||
+    (project.objectives && project.objectives.length > 0
+      ? project.objectives.map((obj, idx) => ({
+          title: `Objective ${String(idx + 1).padStart(2, "0")}`,
+          description: obj,
+          targetTag: `OBJECTIVE_0${idx + 1}`,
+        }))
+      : []);
 
-  const datasetOverview = project.datasetOverview || {
-    dataSource: "Enterprise ERP & Multi-Channel POS Database",
-    dataPeriod: "FY 2023 - FY 2025 (36-Month Longitudinal Ledger)",
-    recordsCount: "1,248,500 Rows",
-    variablesCount: "28 Columns (Numerical, Categorical, Datetime)",
-    description:
-      "Granular row-level transactional records detailing line-item SKU sales, unit discounts, localized shipping durations, customer demographic tokens, and regional fulfillment hubs.",
+  // Section 3: Data Inspection & Preparation
+  const datasetOverview = project.dataAnalyticsDatasetOverview || {
+    dataSource: "Primary Database / Analytical Warehouse",
+    dataPeriod: "Historical Transactional Data",
+    recordsCount: (projectInfo as any).recordsCount || "Normalized Records",
+    featuresCount: "Multiple Attribute Dimensions",
+    dataTypes: "Numerical, Categorical, Datetime",
+    description: project.summary || "",
   };
 
-  // Section 3: Data Processing & Methodology
-  const dataPreparation = project.dataPreparation || [
-    {
-      step: "STAGE 01",
-      title: "Data Cleaning & Schema Harmonization",
-      description:
-        "Standardized inconsistent ISO datetime formats, normalized uppercase localized SKU identifiers, and purged orphaned transaction keys.",
-      badge: "Standardization",
-    },
-    {
-      step: "STAGE 02",
-      title: "Missing Value Imputation & Outlier Filtering",
-      description:
-        "Applied Median Imputation for skewed numerical freight charges and leveraged IQR Tukey fences to isolate anomaly transactions.",
-      badge: "IQR Outlier Gate",
-    },
-    {
-      step: "STAGE 03",
-      title: "Feature Engineering & Metric Synthesis",
-      description:
-        "Derived Customer Lifetime Value (CLV), Net Profit Margin percentage, RFM (Recency, Frequency, Monetary) scores, and Order Lead Time latencies.",
-      badge: "RFM Modeling",
-    },
-    {
-      step: "STAGE 04",
-      title: "Data Integrity & Schema Validation",
-      description:
-        "Executed Great Expectations assertion suites verifying non-null constraints, unique invoice numbers, and positive price bounds.",
-      badge: "100% Validated",
-    },
-  ];
+  const dataPreparation: {
+    step: string;
+    title: string;
+    description: string;
+    badge?: string;
+  }[] = project.dataAnalyticsDataPreparation || [];
 
-  const analyticalMethodology = project.analyticalMethodology || {
-    summary:
-      "The analytical framework deploys a rigorous multi-tiered quantitative approach combining Exploratory Data Analysis (EDA), parametric hypothesis testing, RFM behavioral clustering, and time-series moving average decomposition to translate raw relational tables into strategic executive decisions.",
-    methods: [
-      {
-        name: "Descriptive Analytics",
-        description:
-          "Summary statistics (Mean, Median, Skewness, Kurtosis) tracking Central Tendencies and Dispersion across revenue lines.",
-        badge: "Baseline Profiling",
-      },
-      {
-        name: "Diagnostic Correlation Matrix",
-        description:
-          "Pearson & Spearman rank correlation matrices identifying co-linear relationships between discount depth and net profit erosion.",
-        badge: "Root-Cause Analysis",
-      },
-      {
-        name: "RFM Segmentation & Clustering",
-        description:
-          "Quantile-based behavioral customer scoring categorizing buyers into Champions, Loyal Patrons, At-Risk, and Inactive cohorts.",
-        badge: "Cohort Intelligence",
-      },
-      {
-        name: "Trend & Seasonality Decomposition",
-        description:
-          "Additive STL decomposition breaking monthly volume into cyclical seasonal patterns and macro baseline growth vectors.",
-        badge: "Time-Series STL",
-      },
-    ],
+  // Section 4: Analytical Methodology & Workflow
+  const analyticalMethodology: {
+    summary: string;
+    methods: { name: string; description: string; badge?: string }[];
+  } = (project.analyticalMethodology || (project as any).dataAnalyticsAnalyticalMethodology) ? (
+    (project.analyticalMethodology || (project as any).dataAnalyticsAnalyticalMethodology).methods
+      ? (project.analyticalMethodology || (project as any).dataAnalyticsAnalyticalMethodology)
+      : {
+          summary: (project as any).dataAnalyticsAnalyticalMethodology?.methodologyDescription || project.architectureSummary || "Quantitative Diagnostic & Predictive Analytics methodology pipeline.",
+          methods: [],
+        }
+  ) : {
+    summary: project.architectureSummary || "Quantitative Diagnostic & Predictive Analytics methodology pipeline.",
+    methods: [],
   };
 
-  const analysisWorkflow = project.analysisWorkflow || {
-    summary:
-      "Deterministic 5-phase data intelligence pipeline ensuring end-to-end traceability from raw ingestion to strategic business recommendation.",
-    steps: [
-      {
-        stepNumber: "01",
-        title: "Ingestion & Extraction",
-        description: "Automated SQL query extraction from transactional replicas into Apache Parquet columnar storage buffers.",
-        phase: "Ingestion",
-      },
-      {
-        stepNumber: "02",
-        title: "Wrangling & Validation",
-        description: "Pandas vectorized transformations, missing data handling, and schema validation pipelines.",
-        phase: "Preprocessing",
-      },
-      {
-        stepNumber: "03",
-        title: "Exploratory Profiling",
-        description: "Distribution analysis, bivariate scatter distributions, and outlier boundary validation.",
-        phase: "EDA",
-      },
-      {
-        stepNumber: "04",
-        title: "Statistical & BI Modeling",
-        description: "DAX aggregations in Power BI and SciPy hypothesis testing verifying statistical significance (p < 0.01).",
-        phase: "Analysis",
-      },
-      {
-        stepNumber: "05",
-        title: "Synthesis & Delivery",
-        description: "Executive deck generation, interactive dashboard publication, and action-item KPI roadmap delivery.",
-        phase: "Deliverable",
-      },
-    ],
+  const analysisWorkflow: {
+    summary: string;
+    steps: {
+      stepNumber: string;
+      title: string;
+      description: string;
+      phase?: string;
+    }[];
+  } = (project.analysisWorkflow || (project as any).dataAnalyticsAnalysisWorkflow) ? (
+    Array.isArray(project.analysisWorkflow || (project as any).dataAnalyticsAnalysisWorkflow)
+      ? {
+          summary: "Quantitative analysis and multi-phase statistical validation pipeline.",
+          steps: (project.analysisWorkflow || (project as any).dataAnalyticsAnalysisWorkflow) as any[],
+        }
+      : (project.analysisWorkflow || (project as any).dataAnalyticsAnalysisWorkflow) as any
+  ) : {
+    summary: "Rigorous quantitative investigation workflow executed across specialized stages.",
+    steps: [],
   };
 
-  // Section 4: Tech Stack (Core Technologies + Analytics/Viz Tools)
-  const coreTechnologies = project.dataTechStack?.coreTechnologies || [
-    {
-      name: "Python 3.11",
-      role: "Vectorized data manipulation, statistical scripting, and transformation pipelines",
-    },
-    {
-      name: "SQL (PostgreSQL / BigQuery)",
-      role: "Complex multi-table joins, window functions, and CTE aggregations",
-    },
-    {
-      name: "Pandas & NumPy",
-      role: "In-memory dataframe wrangling, matrix mathematics, and column operations",
-    },
-    {
-      name: "SciPy & Statsmodels",
-      role: "Hypothesis testing (T-Test, ANOVA), regression models, and p-value validation",
-    },
-    {
-      name: "R / Tidyverse",
-      role: "Exploratory statistical modeling and reproducible data wrangling scripts",
-    },
-  ];
+  // Section 5: Tech Stack & Tools
+  const coreTechnologies: {
+    name: string;
+    role?: string;
+  }[] = project.dataAnalyticsTechStack?.coreTechnologies || [];
 
-  const analyticsVizTools = project.dataTechStack?.analyticsVizTools || [
-    {
-      name: "Microsoft Power BI",
-      role: "Interactive executive BI dashboards, Star-Schema data modeling, and DAX measures",
-    },
-    {
-      name: "Tableau Desktop",
-      role: "Visual storytelling, geospatial geographic mapping, and parameter forecasting",
-    },
-    {
-      name: "Microsoft Excel (Advanced)",
-      role: "Power Query ETL, dynamic array formulas (XLOOKUP, LET), and financial PivotTables",
-    },
-    {
-      name: "Jupyter Notebook & Google Colab",
-      role: "Interactive literate programming, data exploration scratchpads, and markdown logs",
-    },
-    {
-      name: "Looker Studio",
-      role: "Cloud-native real-time KPI dashboards connected directly to BigQuery sources",
-    },
-  ];
+  const analyticsVizTools: {
+    name: string;
+    role?: string;
+  }[] = project.dataAnalyticsTechStack?.analyticsVizTools || [];
 
-  // Section 5: Analysis Presentation, Key Findings & Recommendations
-  const rawProjectImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : ["/images/projects/SiLelo - Online Auction 1.webp"];
+  // Section 6: Presentation Slides & Dashboards
+  const presentationSlides: {
+    imageUrl?: string;
+    caption: string;
+    badge?: string;
+    title?: string;
+    slideNumber?: number;
+  }[] =
+    project.dataAnalyticsPresentationSlides && project.dataAnalyticsPresentationSlides.length > 0
+      ? project.dataAnalyticsPresentationSlides
+      : (project.images || [project.imageUrl || ""]).map((img, idx) => ({
+          imageUrl: img,
+          caption: `${project.title} — Slide Deck 0${idx + 1}`,
+          badge: `SLIDE // 0${idx + 1}`,
+        }));
 
-  const presentationSlides = project.presentationSlides ||
-    rawProjectImages.map((img, i) => ({
-      slideNumber: i + 1,
-      title: `Executive Presentation Slide 0${i + 1} // Statistical Findings & Visual Intelligence`,
-      imageUrl: img,
-      caption: `Telemetry slide ${i + 1} delivering synthesized analytical conclusions, cohort segmentation breakdown, and financial impact trajectories.`,
-    }));
+  // Section 7: Key Findings & Business Insights
+  const keyFindings: {
+    metricValue: string;
+    metricLabel: string;
+    title: string;
+    description: string;
+    impactTag?: string;
+  }[] = project.dataAnalyticsKeyFindings || [];
 
-  const keyFindings = project.keyFindings || [
-    {
-      metricValue: "+24.8%",
-      metricLabel: "MARGIN RECOVERY",
-      title: "Discount Cannibalization Threshold Identified",
-      description:
-        "Orders discounted above 18% caused a statistically significant drop in net margin without driving repeat purchase retention (p = 0.004).",
-      impactTag: "PROFITABILITY",
-    },
-    {
-      metricValue: "68.2%",
-      metricLabel: "CHAMPION CONCENTRATION",
-      title: "Top 20% Customer Cohort Drives Bulk Revenue",
-      description:
-        "RFM segmentation revealed that the top two deciles generated 68.2% of annual operating profit, yet received identical marketing touchpoints to one-time buyers.",
-      impactTag: "PARETO SEGMENT",
-    },
-    {
-      metricValue: "-31.4%",
-      metricLabel: "FULFILLMENT DRAG",
-      title: "Regional Logistics Latency Correlation",
-      description:
-        "Cross-zone shipping delays exceeding 4 business days correlated with a 31.4% decline in 90-day repurchase probability.",
-      impactTag: "OPERATIONS",
-    },
-    {
-      metricValue: "4.2x",
-      metricLabel: "CLV MULTIPLIER",
-      title: "Multi-Category Cross-Sell Advantage",
-      description:
-        "Customers purchasing across at least two distinct product categories exhibited 4.2x higher 24-month Lifetime Value compared to single-category shoppers.",
-      impactTag: "GROWTH LTV",
-    },
-  ];
+  // Section 8: Recommendations & Strategic Action
+  const heroImage =
+    project.imageUrl ||
+    (project.images && project.images.length > 0 ? project.images[0] : null);
 
-  const heroImage = project.imageUrl || (presentationSlides[0]?.imageUrl) || "/images/projects/SiLelo - Online Auction 1.webp";
+  const recommendationsAndConclusion: {
+    recommendations: {
+      title: string;
+      action: string;
+      priority: "HIGH" | "MEDIUM" | "STRATEGIC";
+    }[];
+    conclusion: string;
+  } = (project.recommendationsAndConclusion || (project as any).dataAnalyticsRecommendations) ? (
+    (project.recommendationsAndConclusion || (project as any).dataAnalyticsRecommendations).recommendations
+      ? (project.recommendationsAndConclusion || (project as any).dataAnalyticsRecommendations)
+      : {
+          recommendations: ((project as any).dataAnalyticsRecommendations?.strategicRecommendations || []).map((r: any) => ({
+            title: r.title || r.action || "Strategic Action",
+            action: r.description || r.action || "",
+            priority: r.priority || "HIGH",
+          })),
+          conclusion: (project as any).dataAnalyticsRecommendations?.conclusionSummary || project.evaluation || project.summary || "",
+        }
+  ) : {
+    recommendations: [],
+    conclusion: project.evaluation || project.summary || "",
+  };
 
-  const recommendationsAndConclusion =
-    project.recommendationsAndConclusion || {
-      recommendations: [
-        {
-          title: "Implement Capped Discount Threshold Policy",
-          action:
-            "Restructure promotional discounting rules to cap maximum automated checkout discounts at 15%, preserving high-margin baseline profitability.",
-          priority: "HIGH" as const,
-        },
-        {
-          title: "VIP Tier Retention Automation",
-          action:
-            "Allocate dedicated CRM workflows and priority customer service routing specifically targeting RFM Champion & Loyal Patron cohorts.",
-          priority: "HIGH" as const,
-        },
-        {
-          title: "Decentralized Regional Fulfillment Buffers",
-          action:
-            "Reposition fast-moving SKU inventories into localized regional fulfillment hubs to compress cross-zone delivery times below 72 hours.",
-          priority: "STRATEGIC" as const,
-        },
-      ],
-      conclusion:
-        "The empirical findings conclusively confirm that sustainable margin growth hinges on disciplined discounting governance and prioritized VIP retention over generic customer acquisition. By implementing these algorithmic recommendations, the business is projected to reclaim 3.8% in baseline net margins while elevating customer retention by 14% year-over-year.",
-    };
-
-  // Section 6: Project Resources
+  // Section 9: Project Resources
   const hasRepoUrl = Boolean(
     project.repoUrl && project.repoUrl.trim().length > 0
   );
 
-  const supportingFiles = project.supportingFiles || [
-    {
-      name: "clean_transaction_dataset.parquet",
-      format: "PARQUET",
-      size: "42.8 MB",
-      description: "Cleaned, standardized, and validated 1.2M row transactional dataset with engineered RFM features.",
-    },
-    {
-      name: "data_dictionary_and_schema.xlsx",
-      format: "EXCEL / XLSX",
-      size: "1.4 MB",
-      description: "Complete variable definitions, data types, value constraints, and foreign key entity relationships.",
-    },
-    {
-      name: "executive_analytics_dashboard.pbix",
-      format: "POWER BI",
-      size: "18.6 MB",
-      description: "Interactive Power BI workbook with compiled DAX measures, Star-Schema data models, and KPI cards.",
-    },
-  ];
+  const supportingFiles: {
+    name: string;
+    format: string;
+    size?: string;
+    url?: string;
+    description: string;
+  }[] = project.dataAnalyticsSupportingFiles || [];
 
   return (
     <div className="space-y-12 sm:space-y-16">
@@ -406,7 +271,7 @@ export default function DataAnalyticsDetailView({
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-emerald-300">
               <Database className="h-3 w-3 text-emerald-400" />
-              {projectInfo.dataDomain}
+              {projectInfo.dataDomain || projectInfo.projectCategory}
             </span>
           </div>
         </div>
@@ -415,61 +280,59 @@ export default function DataAnalyticsDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col">
-            <div className="flex flex-col flex-1 h-full">
-              {/* Terminal Title Bar */}
-              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
-                <span className="flex items-center gap-2 text-emerald-200">
-                  <Terminal className="h-3.5 w-3.5 text-emerald-400" />
-                  &gt; ANALYTICS_RUNTIME // SYS.VIEWPORT
-                </span>
-                <span className="text-[10px] text-emerald-400/80">ONLINE // SQL_QUERY</span>
+            {/* Terminal Title Bar */}
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
+              <span className="flex items-center gap-2 text-emerald-200">
+                <Terminal className="h-3.5 w-3.5 text-emerald-400" />
+                &gt; ANALYTICS_RUNTIME // SYS.VIEWPORT
+              </span>
+              <span className="text-[10px] text-emerald-400/80">ONLINE // SQL_QUERY</span>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-emerald-500/25 bg-[#070D0E]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+              <div>
+                {/* 16:9 Hero Viewport Container — Pure static display */}
+                {heroImage && (
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-emerald-500/30 bg-black/60 shadow-lg">
+                    {/* Optical HUD Crosshairs */}
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-emerald-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-emerald-400/80" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-emerald-400/80" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-emerald-400/80" />
+
+                    {/* Hero Image */}
+                    <Image
+                      src={heroImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top"
+                      priority
+                    />
+                  </div>
+                )}
+
+                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
+                  {projectDescription.length > 500
+                    ? `${projectDescription.slice(0, 500).trim()}...`
+                    : projectDescription}
+                </p>
               </div>
 
-              {/* Terminal Body */}
-              <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-emerald-500/25 bg-[#070D0E]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
-                <div>
-                  {/* 16:9 Hero Viewport Container — Pure static display */}
-                  {heroImage && (
-                    <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-emerald-500/30 bg-black/60 shadow-lg">
-                      {/* Optical HUD Crosshairs */}
-                      <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-emerald-400/80" />
-                      <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-emerald-400/80" />
-                      <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-emerald-400/80" />
-                      <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-emerald-400/80" />
-
-                      {/* Hero Image */}
-                      <Image
-                        src={heroImage}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top"
-                        priority
-                      />
-                    </div>
-                  )}
-
-                  <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
-                    {projectDescription.length > 500
-                      ? `${projectDescription.slice(0, 500).trim()}...`
-                      : projectDescription}
-                  </p>
-                </div>
-
-                {/* Capability Badges Strip (Max 3) */}
-                <div className="mt-auto pt-4 border-t border-emerald-500/20 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
-                    <Database className="h-3 w-3 text-emerald-400" />
-                    Automated ETL Ingestion
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
-                    <Activity className="h-3 w-3 text-emerald-400" />
-                    Predictive Retention Modeling
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
-                    <PieChart className="h-3 w-3 text-emerald-400" />
-                    CLV Cohort Segmentation
-                  </span>
-                </div>
+              {/* Capability Badges Strip (Max 3) */}
+              <div className="mt-auto pt-4 border-t border-emerald-500/20 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+                  <Database className="h-3 w-3 text-emerald-400" />
+                  Automated ETL Ingestion
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+                  <Activity className="h-3 w-3 text-emerald-400" />
+                  Predictive Retention Modeling
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+                  <PieChart className="h-3 w-3 text-emerald-400" />
+                  CLV Cohort Segmentation
+                </span>
               </div>
             </div>
           </div>

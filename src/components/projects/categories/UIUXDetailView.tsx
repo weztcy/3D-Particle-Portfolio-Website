@@ -29,7 +29,6 @@ import {
   Layout,
   LayoutGrid,
   Lock,
-  Maximize2,
   MousePointer,
   Palette,
   Play,
@@ -89,399 +88,189 @@ export default function UIUXDetailView({
 
   // =========================================================================
   // Section 1: Overview & Information
-  // =========================================================================
   const projectDescription =
+    project.uiUxBackground ||
     project.projectDescription ||
     project.overview ||
     project.summary ||
-    "Human-centered digital product experience engineered with high-contrast visual ergonomics, streamlined user journeys, and micro-interactions designed to minimize cognitive load and maximize workflow engagement.";
+    "";
 
   const isMobile =
-    project.categoryLabel?.toLowerCase().includes("mobile") ||
     project.title.toLowerCase().includes("mobile") ||
     project.summary.toLowerCase().includes("mobile") ||
-    project.summary.toLowerCase().includes("ios") ||
-    project.summary.toLowerCase().includes("android");
+    project.summary.toLowerCase().includes("app");
 
   const projectInfo = project.uiUxProjectInfo || {
-    projectType: isMobile
-      ? "Mobile App UI/UX Design"
-      : project.title.toLowerCase().includes("website")
-      ? "Responsive Website UI/UX Design"
-      : "Digital Product & Design System",
-    designStatus: project.status || "Completed / Production Ready",
+    platformType: isMobile ? "iOS & Android Mobile App" : "Desktop & Responsive Web",
+    designRole: "Lead UI/UX & Product Designer",
+    targetIndustry: project.categoryLabel || "Digital Product Design",
     designYear: project.year || "2026",
-    targetPlatform: isMobile
-      ? "iOS & Android (Universal Ergonomics)"
-      : "Modern Web Browsers & Responsive Desktops",
-    designCategory: "Human-Centered Design (HCD) & UX Architecture",
+    designStatus: project.status || "Figma Prototype Ready",
   };
 
   const telemetry = project.telemetryMatrix || {
-    projectType: projectInfo.projectType,
-    targetPlatform: projectInfo.targetPlatform,
-    primaryDomain: projectInfo.designCategory,
-    architecturePipeline: project.architectureSummary || "Ergonomic Layout + Thumb-Zone Touch Targets",
+    projectType: "Mobile UI/UX Product Design",
+    targetPlatform: projectInfo.platformType,
+    primaryDomain: projectInfo.targetIndustry,
+    architecturePipeline: project.architectureSummary || "Human-Centered Design + Design System Tokens",
+    testingAndAudit: "Passed",
     projectStatus: projectInfo.designStatus,
     projectYear: projectInfo.designYear,
   };
 
-  // =========================================================================
-  // Section 2: Research & Discovery
-  // =========================================================================
+  // Section 2: Research & Background
   const projectBackground =
     project.uiUxBackground ||
     project.projectBackground ||
     project.challenge ||
-    project.summary;
+    project.summary ||
+    "";
 
-  const userResearch = project.uiUxUserResearch || [
-    {
-      method: "Contextual Inquiries & User Observations",
-      description:
-        "Observed 16 target users navigating primary workflow activities to identify attention division and touchscreen ergonomics.",
-      keyFinding:
-        "Users experience severe cognitive fatigue when essential action triggers require multi-level menu navigation.",
-      badge: "OBSERVATION",
-    },
-    {
-      method: "Competitive Usability Benchmarking",
-      description:
-        "Audited 5 prominent industry competitor solutions across visual hierarchy, touch target sizing, and task completion latency.",
-      keyFinding:
-        "Competitors suffer from dense advertising and poor text contrast against dynamic visual photography.",
-      badge: "COMPETITIVE_AUDIT",
-    },
-    {
-      method: "Qualitative User Interviews",
-      description:
-        "Conducted 12 in-depth one-on-one structured interviews to uncover emotional frustrations and decision hesitation points.",
-      keyFinding:
-        "Instant clarity, glanceable step instructions, and trustworthy creator verification drive 80%+ of positive retention.",
-      badge: "USER_INTERVIEWS",
-    },
-  ];
+  const userResearch: any = project.uiUxUserResearch || {
+    targetAudience: "",
+    researchMethodology: "",
+    keyFindings: [],
+  };
 
-  const userPersonas = project.uiUxPersonas || [
-    {
-      name: "Alex Pratama (28)",
-      role: "Active Daily User / Busy Professional",
-      demographics: "Urban dweller, high smartphone usage, values speed & minimalism",
-      goals: [
-        "Complete tasks in under 2 minutes without visual distraction",
-        "Easily glance at key instructions with one hand while on the move",
-        "Save and organize preferred items into personalized collections",
-      ],
-      painPoints: [
-        "Frustrated by complex nested menus and tiny touch targets",
-        "Overwhelmed by excessive text clutter and intrusive popups",
-        "Loses place in workflow when switching between screens",
-      ],
-    },
-    {
-      name: "Maya Santoso (35)",
-      role: "Explorer / Detail-Oriented Consumer",
-      demographics: "Focuses on quality, community ratings, and curated collections",
-      goals: [
-        "Discover trending items and verified recommendations quickly",
-        "Inspect high-resolution visual previews before committing",
-        "Receive clear confirmation feedback upon completing an action",
-      ],
-      painPoints: [
-        "Distrusts unverified reviews or ambiguous rating indicators",
-        "Struggles with illegible low-contrast text on bright backgrounds",
-        "Dislikes cumbersome checkout or multi-step booking funnels",
-      ],
-    },
-  ];
+  const userResearchList: {
+    method: string;
+    description: string;
+    keyFinding: string;
+    badge?: string;
+  }[] = Array.isArray(project.uiUxUserResearch)
+    ? (project.uiUxUserResearch as any[]).map((r: any, idx: number) => ({
+        method: r.method || `Method 0${idx + 1}`,
+        description: r.description || "",
+        keyFinding: r.keyFinding || "",
+        badge: r.badge || `FINDING_0${idx + 1}`,
+      }))
+    : project.uiUxUserResearch && (project.uiUxUserResearch as any).keyFindings
+    ? ((project.uiUxUserResearch as any).keyFindings as any[]).map((kf: any, idx: number) => ({
+        method: typeof kf === "string" ? `Research Synthesis 0${idx + 1}` : (kf.method || `Method 0${idx + 1}`),
+        description: typeof kf === "string" ? kf : (kf.description || ""),
+        keyFinding: typeof kf === "string" ? kf : (kf.keyFinding || kf.finding || ""),
+        badge: `FINDING_0${idx + 1}`,
+      }))
+    : [];
 
-  // =========================================================================
-  // Section 3: UX Strategy & Structure
-  // =========================================================================
+  const userPersonas = project.uiUxPersonas || [];
+
+  // Section 3: Information Architecture & Flows
   const informationArchitecture = project.uiUxInformationArchitecture || {
-    summary:
-      "Hierarchical sitemap and navigation topology engineered around the primary thumb zone, prioritizing top-level discovery, instant search filtering, and focused modal detail sheets.",
-    nodes: [
-      {
-        section: "Primary Navigation Layer",
-        screens: ["Home Feed", "Explore / Collections", "Search / Filter", "User Profile"],
-      },
-      {
-        section: "Catalog & Discovery Node",
-        screens: ["Category Grid View", "Featured Curator Carousel", "Live Availability Status"],
-      },
-      {
-        section: "Action & Detail Workflow",
-        screens: ["Interactive Detail Sheet", "Step-by-Step Execution Mode", "Instant Review Modal"],
-      },
-      {
-        section: "System Feedback & Confirmation",
-        screens: ["Success Dialog Screen", "Telemetry Status Toast", "Offline Cache Banner"],
-      },
-    ],
+    summary: project.architectureSummary || "",
+    nodes: [],
   };
 
-  const userFlow = project.uiUxUserFlow || {
-    summary:
-      "Streamlined end-to-end user journey mapping friction-free movement from initial browse discovery to definitive task completion.",
-    steps:
-      project.pipelineSteps && project.pipelineSteps.length > 0
-        ? project.pipelineSteps.map((p, i) => ({
-            step: p.step.includes(".") ? p.step.split(".")[0] : `0${i + 1}`,
-            title: p.step.includes(". ") ? p.step.split(". ")[1] : p.step,
-            description: p.detail,
-            screenOrAction: p.latencyOrMetric || "UI Action",
-          }))
-        : [
-            {
-              step: "01",
-              title: "Discovery & Intent Ingestion",
-              description:
-                "User enters app and filters items via bottom search pill or top category badges in under 500ms.",
-              screenOrAction: "Home Viewport",
-            },
-            {
-              step: "02",
-              title: "Visual Card Selection & Scrim Inspection",
-              description:
-                "User inspects high-contrast cards with calibrated scrims, scanning social ratings and metadata badges.",
-              screenOrAction: "Catalog Grid",
-            },
-            {
-              step: "03",
-              title: "Focused Action Initiation",
-              description:
-                "Taps selected card, expanding a bottom-sheet modal anchored within natural one-handed thumb reach.",
-              screenOrAction: "Detail Modal",
-            },
-            {
-              step: "04",
-              title: "Sequential Execution & Confirmation",
-              description:
-                "Completes step-by-step task instructions with continuous progress indicators and haptic feedback confirmation.",
-              screenOrAction: "Task Complete",
-            },
-          ],
+  const userFlow: {
+    summary: string;
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      screenOrAction?: string;
+    }[];
+  } = (project.uiUxUserFlow || project.userFlow) ? (
+    Array.isArray(project.uiUxUserFlow || project.userFlow)
+      ? {
+          summary: "User Journey & Interaction Flow",
+          steps: ((project.uiUxUserFlow || project.userFlow) as any[]).map((st: any, idx: number) => ({
+            step: st.step || `STEP 0${idx + 1}`,
+            title: st.title || st.step || `Action 0${idx + 1}`,
+            description: st.description || st.detail || "",
+            screenOrAction: st.screenOrAction || st.action || "",
+          })),
+        }
+      : (project.uiUxUserFlow || project.userFlow) as any
+  ) : {
+    summary: "User journey flow.",
+    steps: [],
   };
 
-  const wireframes = project.uiUxWireframes || [
-    {
-      title: "Lo-Fi Wireframe — Screen Layout Architecture",
-      imageUrl: projectImages[0] || "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp",
-      caption:
-        "Initial structural wireframe defining 8pt grid distribution, thumb-zone tap target zones, and typography boundaries.",
-      badge: "LO-FI_WIREFRAME",
-    },
-    {
-      title: "Mid-Fi Wireframe — Navigation & Action Flow",
-      imageUrl: projectImages[1] || projectImages[0] || "/images/projects/Food Recipe Mobile App UI_UX Design 2.webp",
-      caption:
-        "Mid-fidelity schematic verifying information chunking, modal sheet interactions, and button hierarchy before final styling.",
-      badge: "MID-FI_WIREFRAME",
-    },
-  ];
-
+  // Section 4: Wireframes & Ideation
+  const wireframes = project.uiUxWireframes || [];
   const activeWireframeItem =
-    wireframes[activeWireframeIndex] || wireframes[0];
+    wireframes[activeWireframeIndex] ||
+    wireframes[0] || {
+      stage: "WIREFRAMING",
+      title: "Interactive Wireframe",
+      description: "",
+      badge: "LOW-FI",
+    };
 
-  // =========================================================================
-  // Section 4: Tech Stack (Categorized & Dynamic)
-  // =========================================================================
-  const defaultDesignTools = ["Figma", "Adobe XD", "Sketch", "Framer", "Illustrator", "Photoshop"];
-  const defaultDesignSystems = [
-    "Material Design",
-    "Apple Human Interface Guidelines",
-    "iOS HIG",
-    "Tailwind CSS",
-    "Design Tokens",
-    "Lucide Icons",
-    "FontAwesome",
-    "Design Systems",
-    "Color Theory",
-  ];
-  const defaultResearchTools = [
-    "FigJam",
-    "Miro",
-    "Maze",
-    "Notion",
-    "Useberry",
-    "Google Forms",
-    "User Research",
-    "Wireframing",
-    "Prototyping",
-    "Ergonomics",
-    "WCAG AA",
-  ];
-
+  // Section 5: Design System & Tech Stack
   const explicitTech = project.uiUxTechStack;
   const rawTech = project.techStack || [];
 
-  const designAndPrototyping =
-    explicitTech?.designAndPrototypingTools ||
-    rawTech
-      .filter((t) => defaultDesignTools.some((dt) => t.toLowerCase().includes(dt.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "Primary interface design, vector layout, and interactive prototyping tool",
-      }));
-
-  const designSystemsAndResources =
-    explicitTech?.designSystemsAndResources ||
-    rawTech
-      .filter((t) => defaultDesignSystems.some((ds) => t.toLowerCase().includes(ds.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "Design token specification, typographic scales, and UI component foundations",
-      }));
-
-  const researchAndCollaboration =
-    explicitTech?.researchAndCollaborationTools ||
-    rawTech
-      .filter((t) => defaultResearchTools.some((rt) => t.toLowerCase().includes(rt.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "User research synthesis, empathy mapping, and stakeholder collaboration",
-      }));
+  const designAndPrototyping = explicitTech?.designAndPrototyping || [];
+  const designSystemsAndResources = explicitTech?.designSystemsAndResources || [];
+  const researchAndCollaboration = explicitTech?.researchAndCollaboration || [];
 
   const filteredTechGroups = [
-    {
-      group: "Design & Prototyping Tools",
-      items: designAndPrototyping,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Design & Prototyping Tools",
-    },
-    {
-      group: "Design Systems & UI Resources",
-      items: designSystemsAndResources,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Design Systems & UI Resources",
-    },
-    {
-      group: "Research & Collaboration Tools",
-      items: researchAndCollaboration,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Research & Collaboration Tools",
-    },
-  ].filter((g) => g.items.length > 0 && g.visible);
+    { label: "Design & Prototyping", items: designAndPrototyping },
+    { label: "Design Systems & Tokens", items: designSystemsAndResources },
+    { label: "Research & Collaboration", items: researchAndCollaboration },
+  ].filter((grp) => {
+    if (selectedTechFilter === "All") return grp.items.length > 0;
+    return grp.label === selectedTechFilter && grp.items.length > 0;
+  });
 
-  // =========================================================================
-  // Section 5: UI Design & Validation
-  // =========================================================================
+  // Section 6: High-Fidelity Showcase
   const visualShowcase =
     project.uiUxVisualShowcase ||
     (projectImages.length > 0
       ? projectImages.map((img, i) => ({
-          title: `${project.title} — High-Fidelity Screen 0${i + 1}`,
-          imageUrl: img,
           caption: `${project.title} — Hi-Fi UI Mockup Viewport 0${i + 1}`,
-          badge: `HI-FI_SCREEN_0${i + 1}`,
+          badge: `VIEWPORT_0${i + 1}`,
+          imageUrl: img,
         }))
-      : [
-          {
-            title: `${project.title} — Primary Screen Showcase`,
-            imageUrl: project.imageUrl || "/images/projects/Food Recipe Mobile App UI_UX Design 1.webp",
-            caption: `${project.title} — Primary High-Fidelity UI Interface`,
-            badge: "PRIMARY_HI_FI",
-          },
-        ]);
+      : []);
 
-  const activeHiFiItem = visualShowcase[activeHiFiIndex] || visualShowcase[0];
+  const activeHiFiItem =
+    visualShowcase[activeHiFiIndex] ||
+    visualShowcase[0] || {
+      caption: `${project.title} — Hi-Fi Product Mockup`,
+      badge: "HI-FI_MOCKUP",
+      imageUrl: project.imageUrl || "",
+    };
 
   const designSystem = project.uiUxDesignSystem || {
-    colorPalette: [
-      { name: "Neon Rose Primary", hex: "#F43F5E", role: "Primary CTA & interactive emphasis" },
-      { name: "Electric Fuchsia", hex: "#EC4899", role: "Accent highlights & status badges" },
-      { name: "Deep Obsidian Slate", hex: "#0A0D17", role: "Deep background surface & scrim" },
-      { name: "Pure White Lumina", hex: "#FFFFFF", role: "High-contrast headings (WCAG AA)" },
-    ],
-    typography: [
-      { name: "Plus Jakarta Sans / Inter", usage: "Display Titles & Clean UI Headings" },
-      { name: "JetBrains Mono", usage: "Technical Telemetry & Data Badges" },
-      { name: "Inter / System Sans", usage: "Body Copy & Micro-copy Directives" },
-    ],
-    componentStates: [
-      {
-        component: "Primary Action Button",
-        states: ["Default: Gradient Glow", "Hover: Scale 1.02", "Active: Inset Shadow", "Disabled: 40% Opacity"],
-        notes: "Strict 48px minimum touch target size for one-handed thumb ergonomics.",
-      },
-      {
-        component: "Content Card Surface",
-        states: ["Default: 1px Border", "Hover: Border Glow", "Pressed: Modal Expand"],
-        notes: "Dual-layer scrim overlay guaranteeing 4.5:1 text contrast on photography.",
-      },
-    ],
+    colorPalette: [],
+    typography: [],
+    components: [],
   };
 
+  // Section 7: Usability Testing & Iteration
   const usabilityValidation = project.uiUxUsabilityValidation || {
-    prototypeUrl: project.repoUrl || undefined,
-    susScore: "88 / 100",
-    taskSuccessRate: "96.4%",
-    timeOnTask: "-34% Reduction",
-    findingsAndFeedback: [
-      {
-        feedback: "Users initially struggled to identify active tabs in low-light environments.",
-        iterationSolution:
-          "Implemented a glowing active indicator bar and raised text contrast to 6.2:1 ratio.",
-        impact: "Zero navigation confusion reported in post-test usability trials.",
-      },
-      {
-        feedback: "Long cooking preparation lists caused finger smudging on touchscreen surfaces.",
-        iterationSolution:
-          "Introduced a glanceable step modal with large numeric tags and one-tap auto-scroll.",
-        impact: "Increased step completion velocity by 34% across 18 live participant tests.",
-      },
-      {
-        feedback: "Users wanted reassurance regarding chef credentials before attempting complex dishes.",
-        iterationSolution:
-          "Added verified creator badge, star rating micro-summary, and follow trigger.",
-        impact: "Recipe bookmarking increased by 42% in prototype simulation runs.",
-      },
-    ],
+    testingMethod: "",
+    participantsCount: 0,
+    taskSuccessRate: "100%",
+    feedbackSynthesis: "",
+    iterations: [],
   };
 
-  // =========================================================================
-  // Section 6: Project Resources
-  // =========================================================================
+  // Section 8: Deliverables & Handoff
   const repoUrl = project.repoUrl || "";
   const isPublicRepo = Boolean(repoUrl && repoUrl.trim().length > 0);
 
   const designFile = project.uiUxDesignFile || {
-    platform: "Figma Cloud Canvas",
-    url: repoUrl || undefined,
-    isPublic: isPublicRepo,
-    description: isPublicRepo
-      ? "Direct access to the public design repository, component library, and vector mockups."
-      : "Design assets and Figma files are protected under private client ownership or NDA clearance.",
+    figmaUrl: "https://www.figma.com",
+    fileStatus: "Production Design Tokens Ready",
+    totalFrames: 24,
+    componentsCount: 48,
+    handoffSpecs: "Auto-Layout, Variables, WCAG AA Compliant",
   };
 
   const prototypeHandoff = project.uiUxPrototypeAndHandoff || {
-    prototypeUrl: repoUrl || undefined,
-    handoffStatus: "DEV_HANDOFF_READY",
-    specs: [
-      { label: "Design Tool", value: "Figma Professional" },
-      { label: "Design System", value: "Atomic Components" },
-      { label: "Grid Standard", value: "8pt Soft Grid" },
-      { label: "Contrast Standard", value: "WCAG 2.1 AA Compliant" },
-    ],
-    description:
-      "Interactive high-fidelity clickable prototype, design token variables, and detailed handoff annotations for frontend engineers.",
+    previewUrl: "https://www.figma.com",
+    embedType: "Interactive Prototype",
+    specs: [],
   };
 
   const documentation = project.uiUxDocumentation || {
-    title: "UX Research Whitepaper & Design Specifications",
-    description:
-      "Comprehensive research synthesis documenting user interviews, empathy maps, task flows, usability trial metrics, and design tokens.",
-    deliverables: [
-      "User Research & Discovery Synthesis",
-      "Interactive Clickable Prototype",
-      "Design System Component Tokens",
-      "Usability Benchmark Report (SUS 88)",
-    ],
-    docsUrl: repoUrl ? `${repoUrl}#readme` : undefined,
+    title: "UI/UX Product Design Specification",
+    description: "",
+    status: "DOCS // VERIFIED FIGMA SPECS",
+    specs: [],
   };
 
   const handleCopyLink = () => {
@@ -536,30 +325,27 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col">
-            <div className="flex flex-col flex-1 h-full">
-              {/* Studio Header Bar */}
-              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-950/40 px-4 py-2 text-xs font-mono text-rose-300">
-                <span className="flex items-center gap-2 text-rose-200">
-                  <Terminal className="h-3.5 w-3.5 text-rose-400" />
-                  &gt; DESIGN_RUNTIME // SYS.VIEWPORT
-                </span>
-                <span className="text-[10px] text-rose-400/80">ONLINE // PIXEL_PERFECT</span>
-              </div>
+            {/* Studio Header Bar */}
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-950/40 px-4 py-2 text-xs font-mono text-rose-300">
+              <span className="flex items-center gap-2 text-rose-200">
+                <Terminal className="h-3.5 w-3.5 text-rose-400" />
+                &gt; DESIGN_RUNTIME // SYS.VIEWPORT
+              </span>
+              <span className="text-[10px] text-rose-400/80">ONLINE // PIXEL_PERFECT</span>
+            </div>
 
-              {/* Studio Body */}
-              <div className="rounded-b-xl border-x border-b border-rose-500/25 bg-[#0D0B1B]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
+            {/* Studio Body */}
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-rose-500/25 bg-[#0D0B1B]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+              <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-rose-500/30 bg-black/60 shadow-lg">
-
                     {/* Optical HUD Crosshairs */}
                     <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-rose-400/80" />
                     <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-rose-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-rose-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-rose-400/80" />
 
-                    {/* Hero Image with smooth hover scale */}
-                    
                     {/* Hero Image */}
                     <Image
                       src={heroImage}
@@ -576,22 +362,22 @@ export default function UIUXDetailView({
                     ? `${projectDescription.slice(0, 500).trim()}...`
                     : projectDescription}
                 </p>
+              </div>
 
-                {/* Capability Badges Strip (Max 3) */}
-                <div className="mt-auto pt-4 border-t border-rose-500/20 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
-                    <UserCheck className="h-3 w-3 text-rose-400" />
-                    Human-Centered Design (HCD)
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
-                    <Sparkles className="h-3 w-3 text-rose-400" />
-                    Fluid Micro-Interactions
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
-                    <Layers className="h-3 w-3 text-rose-400" />
-                    Design System Powered
-                  </span>
-                </div>
+              {/* Capability Badges Strip (Max 3) */}
+              <div className="mt-auto pt-4 border-t border-rose-500/20 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
+                  <UserCheck className="h-3 w-3 text-rose-400" />
+                  Human-Centered Design (HCD)
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
+                  <Sparkles className="h-3 w-3 text-rose-400" />
+                  Fluid Micro-Interactions
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
+                  <Layers className="h-3 w-3 text-rose-400" />
+                  Design System Powered
+                </span>
               </div>
             </div>
           </div>
@@ -804,7 +590,7 @@ export default function UIUXDetailView({
             </div>
 
             <div className="space-y-3.5">
-              {userResearch.map((res, idx) => (
+              {userResearchList.map((res: any, idx: number) => (
                 <div
                   key={idx}
                   className="rounded-xl border border-fuchsia-500/20 bg-fuchsia-950/15 p-4 transition-all hover:border-rose-400/40 hover:bg-fuchsia-950/25"
@@ -842,7 +628,7 @@ export default function UIUXDetailView({
             </div>
 
             <div className="space-y-4">
-              {userPersonas.map((persona, idx) => (
+              {(userPersonas || []).map((persona: any, idx: number) => (
                 <div
                   key={idx}
                   className="rounded-xl border border-rose-500/25 bg-rose-950/15 p-4 transition-all hover:border-rose-400/45 hover:bg-rose-950/25"
@@ -871,7 +657,7 @@ export default function UIUXDetailView({
                         Core Goals:
                       </span>
                       <ul className="space-y-1 text-slate-300">
-                        {persona.goals.map((g, gIdx) => (
+                        {(Array.isArray(persona.goals) ? persona.goals : (persona.goals ? [persona.goals] : [])).map((g: any, gIdx: number) => (
                           <li key={gIdx} className="flex items-start gap-1">
                             <span className="text-rose-400">✓</span>
                             <span>{g}</span>
@@ -885,7 +671,7 @@ export default function UIUXDetailView({
                         Frustrations & Pain Points:
                       </span>
                       <ul className="space-y-1 text-slate-300">
-                        {persona.painPoints.map((p, pIdx) => (
+                        {(Array.isArray(persona.painPoints) ? persona.painPoints : (persona.painPoints ? [persona.painPoints] : [])).map((p: any, pIdx: number) => (
                           <li key={pIdx} className="flex items-start gap-1">
                             <span className="text-rose-400">✕</span>
                             <span>{p}</span>
@@ -946,7 +732,7 @@ export default function UIUXDetailView({
             </div>
 
             <div className="space-y-3">
-              {informationArchitecture.nodes.map((node, idx) => (
+              {(informationArchitecture.nodes || []).map((node: any, idx: number) => (
                 <div
                   key={idx}
                   className="rounded-xl border border-fuchsia-500/20 bg-fuchsia-950/15 p-3.5 transition-all hover:border-rose-400/40 hover:bg-fuchsia-950/25"
@@ -957,7 +743,7 @@ export default function UIUXDetailView({
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    {node.screens.map((scr, sIdx) => (
+                    {(node.screens || []).map((scr: any, sIdx: number) => (
                       <span
                         key={sIdx}
                         className="inline-flex items-center gap-1 rounded border border-rose-500/25 bg-rose-950/40 px-2.5 py-1 text-xs text-slate-200 font-sans"
@@ -1040,7 +826,7 @@ export default function UIUXDetailView({
             {activeWireframeItem.imageUrl ? (
               <Image
                 src={activeWireframeItem.imageUrl}
-                alt={activeWireframeItem.caption}
+                alt={activeWireframeItem.caption || (activeWireframeItem as any).title || "Wireframe Viewport"}
                 fill
                 priority
                 className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
@@ -1136,14 +922,14 @@ export default function UIUXDetailView({
             <div key={gIdx} className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs text-rose-300 uppercase tracking-wider border-b border-fuchsia-500/15 pb-1.5">
                 <Palette className="h-3.5 w-3.5 text-rose-400" />
-                <span>{groupItem.group}</span>
+                <span>{groupItem.label}</span>
                 <span className="text-[10px] text-rose-400/70">
                   ({groupItem.items.length} TOOLS)
                 </span>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                {groupItem.items.map((tech, tIdx) => (
+                {(groupItem.items || []).map((tech: any, tIdx: number) => (
                   <div
                     key={tIdx}
                     className="group relative flex items-center gap-2.5 rounded-xl border border-rose-500/20 bg-[#0D0B1B]/90 p-3 transition-all hover:border-rose-400/50 hover:bg-rose-500/10 hover:-translate-y-0.5"
@@ -1200,7 +986,7 @@ export default function UIUXDetailView({
               <span className="h-3 w-3 rounded-full bg-fuchsia-500/80 inline-block" />
               <span className="h-3 w-3 rounded-full bg-pink-500/80 inline-block" />
               <span className="ml-3 font-mono text-[11px] text-slate-400 hidden sm:inline-block">
-                {activeHiFiItem.title}
+                {(activeHiFiItem as any).title || activeHiFiItem.caption || "Hi-Fi Interface Viewport"}
               </span>
             </div>
 
@@ -1217,7 +1003,7 @@ export default function UIUXDetailView({
             {activeHiFiItem.imageUrl ? (
               <Image
                 src={activeHiFiItem.imageUrl}
-                alt={activeHiFiItem.caption}
+                alt={activeHiFiItem.caption || (activeHiFiItem as any).title || "Hi-Fi Interface Viewport"}
                 fill
                 priority
                 className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
@@ -1283,8 +1069,8 @@ export default function UIUXDetailView({
                   }`}
                 >
                   <Image
-                    src={item.imageUrl}
-                    alt={item.caption}
+                    src={item.imageUrl || ""}
+                    alt={item.caption || (item as any).title || "Hi-Fi Screen Thumbnail"}
                     fill
                     className="object-cover"
                   />
@@ -1312,7 +1098,7 @@ export default function UIUXDetailView({
                 Calibrated Color Tokens (WCAG AA Compliant):
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {designSystem.colorPalette.map((col, cIdx) => (
+                {(designSystem.colorPalette || []).map((col: any, cIdx: number) => (
                   <div
                     key={cIdx}
                     className="rounded-lg border border-white/10 bg-black/40 p-2.5 flex flex-col justify-between"
@@ -1339,7 +1125,7 @@ export default function UIUXDetailView({
                 <span>Typography Hierarchy & Scale:</span>
               </div>
               <div className="space-y-1.5 text-xs text-slate-300 font-sans">
-                {designSystem.typography.map((ty, tIdx) => (
+                {(designSystem.typography || []).map((ty: any, tIdx: number) => (
                   <div
                     key={tIdx}
                     className="flex items-center justify-between border-b border-white/5 pb-1"
@@ -1423,7 +1209,7 @@ export default function UIUXDetailView({
 
             {/* Findings & Feedback Iterations */}
             <div className="space-y-3">
-              {usabilityValidation.findingsAndFeedback.map((ff, ffIdx) => (
+              {((usabilityValidation.findingsAndFeedback || (usabilityValidation as any).iterations) || []).map((ff: any, ffIdx: number) => (
                 <div
                   key={ffIdx}
                   className="rounded-xl border border-rose-500/20 bg-[#0C0610]/95 p-3.5 space-y-1.5"
@@ -1594,7 +1380,7 @@ export default function UIUXDetailView({
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {prototypeHandoff.specs.map((spec, sIdx) => (
+                {(prototypeHandoff.specs || []).map((spec: any, sIdx: number) => (
                   <div key={sIdx} className="flex items-center justify-between text-slate-400">
                     <span className="uppercase text-[11px]">{spec.label}:</span>
                     <span className="text-rose-300 font-semibold">{spec.value}</span>
@@ -1637,10 +1423,10 @@ export default function UIUXDetailView({
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {documentation.deliverables.map((del, dIdx) => (
+                {((documentation.deliverables || (documentation as any).specs) || []).map((del: any, dIdx: number) => (
                   <div key={dIdx} className="flex items-center gap-2 text-slate-300">
                     <CheckCircle2 className="h-3.5 w-3.5 text-rose-400 shrink-0" />
-                    <span className="text-[11px] truncate">{del}</span>
+                    <span className="text-[11px] truncate">{typeof del === "string" ? del : (del.label ? `${del.label}: ${del.value}` : del.title || "")}</span>
                   </div>
                 ))}
               </div>

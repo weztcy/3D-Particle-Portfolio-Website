@@ -32,7 +32,6 @@ import {
   Layout,
   ListOrdered,
   Lock,
-  Maximize2,
   Play,
   Search,
   Share2,
@@ -61,6 +60,7 @@ export default function CodeLearningDetailView({
     "All" | "Beginner" | "Intermediate" | "Advanced" | "Expert"
   >("All");
   const [copiedPortalLink, setCopiedPortalLink] = useState(false);
+  const [copiedSnippetId, setCopiedSnippetId] = useState<string | null>(null);
 
   // Tech Stack HUD Filter State
   const [selectedTechFilter, setSelectedTechFilter] = useState<
@@ -84,655 +84,130 @@ export default function CodeLearningDetailView({
 
   // =========================================================================
   // Section 1: Overview & Information
-  // =========================================================================
   const learningDescription =
     project.codeLearningDescription ||
+    project.projectDescription ||
     project.overview ||
     project.summary ||
-    "Rigorous computer science educational curriculum designed with modular progression, standalone compilable translation units, and deterministic terminal execution output telemetry.";
+    "";
 
   const learningInfo = project.codeLearningProjectInfo || {
-    learningCategory: "Computer Science & Systems Programming",
-    difficultyLevel: "Intermediate to Advanced (Industry-Grade)",
-    learningFormat: "Self-Paced Modular Curriculum & Compilation Units",
-    totalModules: "17 Pedagogical Stages",
-    totalSubmodules: "85 Structured Submodules",
-    totalSourceCodeFiles: "250 Standalone Programs",
-    programmingLanguages: project.title.includes("C++")
-      ? "C++20 (MSVC, GCC, Clang)"
-      : project.title.includes("Python")
-      ? "Python 3.11+"
-      : project.title.includes("Java")
-      ? "Java 21 (LTS)"
-      : project.title.includes("JavaScript")
-      ? "JavaScript (ES2024 / Node.js)"
-      : project.title.includes("TypeScript")
-      ? "TypeScript 5.x"
-      : project.title.includes("SQL")
-      ? "SQL (PostgreSQL / MySQL)"
-      : "Multi-Language Programming",
-    learningStatus: project.status || "Complete / Verified Modules",
+    learningCategory: "Systems Programming & Type Theory",
+    difficultyLevel: "Intermediate to Advanced",
+    learningFormat: "Compilable Code Units",
+    totalModules: "8 Deep-Dive Modules",
+    totalSubmodules: "24 Code Units",
+    totalSourceCodeFiles: "32 Files",
+    programmingLanguages: "Modern Systems Programming",
+    learningStatus: "Completed",
   };
 
   const telemetry = project.telemetryMatrix || {
-    projectType: "Interactive CS Curriculum",
-    targetPlatform: learningInfo.programmingLanguages || "C++20 / MSVC / GCC / Clang",
-    primaryDomain: learningInfo.learningCategory || "Computer Science & Systems Programming",
-    architecturePipeline: project.architectureSummary || "Modular Pedagogical Roadmap + Compilable Units",
-    projectStatus: learningInfo.learningStatus || project.status || "Completed",
-    projectYear: project.year || "2026",
+    projectType: "Computer Science & Programming Curriculum",
+    targetPlatform: learningInfo.programmingLanguages || "Cross-Platform",
+    primaryDomain: "Computer Science Education",
+    architecturePipeline: project.architectureSummary || "Modular Code Units + Automated Unit Verification",
+    testingAndAudit: "Passed",
+    projectStatus: project.status || "Completed",
+    projectYear: project.year || "2024",
   };
 
-  // =========================================================================
-  // Section 2: Learning Roadmap & Curriculum Blueprint
-  // =========================================================================
-  const learningObjectives = project.codeLearningObjectives || [
-    {
-      title: "Syntactic Precision & Translation Unit Discipline",
-      description:
-        "Master language grammar, strict static typing, stream I/O formatting, and zero-warning compilation under modern standards.",
-      competencyCode: "SYNTAX-01",
-    },
-    {
-      title: "Memory Architecture & RAII Resource Management",
-      description:
-        "Eliminate memory leaks and undefined behaviors through deep understanding of stack vs heap, pointer arithmetic, and smart pointers.",
-      competencyCode: "MEMORY-02",
-    },
-    {
-      title: "Generic Metaprogramming & Standard Library STL",
-      description:
-        "Architect reusable algorithms, generic containers, type constraints, and modern range pipelines with algorithmic Big-O optimization.",
-      competencyCode: "STL-GENERIC-03",
-    },
-    {
-      title: "Real-World Systems Engineering & Capstone Builds",
-      description:
-        "Synthesize learned concepts into 10 full-scale terminal applications simulating financial POS, banking ledgers, and database engines.",
-      competencyCode: "CAPSTONE-04",
-    },
-  ];
+  // Section 2: Objectives & Prerequisites
+  const learningObjectives =
+    project.codeLearningObjectives ||
+    (project.objectives && project.objectives.length > 0
+      ? project.objectives.map((obj, i) => ({
+          title: `Objective ${String(i + 1).padStart(2, "0")}`,
+          description: obj,
+          competencyCode: `COMP-${String(i + 1).padStart(2, "0")}`,
+        }))
+      : []);
 
-  const prerequisites = project.codeLearningPrerequisites || [
-    {
-      category: "Conceptual Foundations",
-      items: [
-        "Fundamental procedural logic (variables, loops, conditionals)",
-        "Basic understanding of binary data, memory addresses, and data types",
-        "Familiarity with algorithm complexity concepts (Big-O notation)",
-      ],
-      description:
-        "Recommended prior exposure to foundational computing principles before tackling low-level memory mechanics.",
-    },
-    {
-      category: "Development Toolchains & Environment",
-      items: [
-        "Modern C++20 compiler: GCC 11+, Clang 13+, or MSVC v19.30+",
-        "Visual Studio Code, CLion, or terminal shell (PowerShell / Bash)",
-        "Git version control for cloning translation units and running diff tests",
-      ],
-      description:
-        "All code units are 100% dependency-free and compile cleanly across Windows, macOS, and Linux toolchains.",
-    },
-  ];
+  const prerequisites =
+    project.codeLearningPrerequisites ||
+    [];
 
+  // Section 3: Curriculum Structure
   const curriculumStructure = project.codeLearningCurriculumStructure || {
-    summary:
-      "A systematic 3-phase pedagogical flight path structured to take developers from raw syntax fundamentals through memory mastery and production-grade terminal systems.",
-    phases: [
-      {
-        phaseNumber: "PHASE 01",
-        phaseTitle: "Foundations & Memory Architecture",
-        difficulty: "Beginner — Intermediate",
-        moduleRange: "Modules 01 — 06",
-        topics: [
-          "Syntax, Streams & Compilation Models",
-          "Primitive Data Types & Numeric Boundaries",
-          "Control Flow & Algorithmic Conditionals",
-          "Pointers, References & Stack/Heap Mechanics",
-          "Dynamic Memory Allocation & Manual Deallocation",
-          "Strings, Arrays & Vector Primitives",
-        ],
-      },
-      {
-        phaseNumber: "PHASE 02",
-        phaseTitle: "Object Polymorphism & STL Mastery",
-        difficulty: "Intermediate — Advanced",
-        moduleRange: "Modules 07 — 12",
-        topics: [
-          "Object-Oriented Encapsulation & Constructors",
-          "Inheritance, Virtual Tables & Polymorphism",
-          "Operator Overloading & Custom Types",
-          "Templates & Compile-Time Metaprogramming",
-          "STL Sequential & Associative Containers",
-          "STL Algorithms & Lambda Expressions",
-        ],
-      },
-      {
-        phaseNumber: "PHASE 03",
-        phaseTitle: "Modern C++20 & Capstone Systems",
-        difficulty: "Advanced — Industry Grade",
-        moduleRange: "Modules 13 — 17",
-        topics: [
-          "RAII Smart Pointers (unique_ptr, shared_ptr)",
-          "Exception Safety & Defensive Invariants",
-          "C++20 Concepts, Ranges & Structured Bindings",
-          "Multithreading, Mutexes & Atomic Primitives",
-          "10 Production Terminal Capstone Applications",
-        ],
-      },
-    ],
+    summary: project.architectureSummary || "",
+    phases: [],
   };
 
-  // =========================================================================
-  // Section 3: Learning Modules & Materials (Curriculum Modules Catalog)
-  // =========================================================================
-  const defaultModules: NonNullable<ProjectCaseStudy["codeLearningModules"]> = useMemo(
-    () => [
-      {
-        id: "mod-01",
-        moduleNumber: "01",
-        title: "Language Fundamentals & Stream I/O",
-        description:
-          "Program entry points, namespace scoping, formatted terminal output, and standard streams.",
-        submoduleCount: 15,
-        sourceFilesCount: 22,
-        estimatedHours: "10 Hours",
-        difficulty: "Beginner" as const,
-        keyTopics: [
-          "Stream I/O Architecture",
-          "Namespace Scoping",
-          "Formatted Manipulators (<iomanip>)",
-          "Process Return Codes",
-          "Fundamental Data Types",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-02",
-        moduleNumber: "02",
-        title: "Pointers, Memory Addresses & The Stack",
-        description:
-          "Memory layouts, address-of operator (&), pointer dereferencing (*), and pointer arithmetic.",
-        submoduleCount: 18,
-        sourceFilesCount: 26,
-        estimatedHours: "14 Hours",
-        difficulty: "Intermediate" as const,
-        keyTopics: [
-          "Stack Frame Layouts",
-          "Address-Of & Dereferencing",
-          "Pointer Arithmetic Invariants",
-          "Nullptr Defensive Guards",
-          "Raw Memory Hex Dumps",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-03",
-        moduleNumber: "03",
-        title: "Dynamic Heap Allocation & Memory Pools",
-        description:
-          "Manual dynamic allocation, memory leak prevention, Valgrind telemetry, and contiguous buffers.",
-        submoduleCount: 16,
-        sourceFilesCount: 24,
-        estimatedHours: "16 Hours",
-        difficulty: "Advanced" as const,
-        keyTopics: [
-          "new / delete Operator Mechanics",
-          "Heap Fragmentation & Leaks",
-          "Contiguous Dynamic Arrays",
-          "Alignment & Memory Padding",
-          "Deterministic Arena Allocator",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-04",
-        moduleNumber: "04",
-        title: "RAII Idiom & Modern Smart Pointers",
-        description:
-          "Deterministic resource acquisition, std::unique_ptr, std::shared_ptr, and std::weak_ptr.",
-        submoduleCount: 16,
-        sourceFilesCount: 25,
-        estimatedHours: "15 Hours",
-        difficulty: "Advanced" as const,
-        keyTopics: [
-          "RAII Deterministic Lifecycles",
-          "std::unique_ptr Move Semantics",
-          "std::shared_ptr Reference Counts",
-          "std::weak_ptr Cycle Breaking",
-          "Custom Smart Deleters",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-05",
-        moduleNumber: "05",
-        title: "Standard Template Library (STL) Algorithms",
-        description:
-          "Iterators, std::sort, std::find_if, std::transform, and lambda expression predicates.",
-        submoduleCount: 20,
-        sourceFilesCount: 30,
-        estimatedHours: "18 Hours",
-        difficulty: "Intermediate" as const,
-        keyTopics: [
-          "Bidirectional & Random Iterators",
-          "std::transform Pipeline Mapping",
-          "Lambda Context Captures",
-          "Sort Invariants O(N log N)",
-          "Predicate Filter Functors",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-06",
-        moduleNumber: "06",
-        title: "Object-Oriented Architecture & Polymorphism",
-        description:
-          "Encapsulation, virtual method dispatch tables (vtable), Rule of Five, and abstract interfaces.",
-        submoduleCount: 18,
-        sourceFilesCount: 28,
-        estimatedHours: "16 Hours",
-        difficulty: "Intermediate" as const,
-        keyTopics: [
-          "Virtual Function Dispatch (vtable)",
-          "Rule of Three / Five Invariants",
-          "Pure Virtual Abstract Interfaces",
-          "Deep vs Shallow Copy Semantics",
-          "Const-Correct Object APIs",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-07",
-        moduleNumber: "07",
-        title: "Modern Template Metaprogramming & Concepts",
-        description:
-          "Compile-time code generation, variadic templates, constexpr evaluations, and C++20 concepts.",
-        submoduleCount: 14,
-        sourceFilesCount: 20,
-        estimatedHours: "20 Hours",
-        difficulty: "Expert" as const,
-        keyTopics: [
-          "C++20 Type Concepts & Requires",
-          "SFINAE Pattern Elimination",
-          "Variadic Parameter Unpacking",
-          "Compile-Time Constexpr Logic",
-          "Template Type Specialization",
-        ],
-        submodules: [],
-      },
-      {
-        id: "mod-08",
-        moduleNumber: "08",
-        title: "Concurrent Systems & Thread Synchronization",
-        description:
-          "std::jthread lifecycles, mutual exclusion primitives, atomic memory barriers, and lock guards.",
-        submoduleCount: 16,
-        sourceFilesCount: 25,
-        estimatedHours: "18 Hours",
-        difficulty: "Expert" as const,
-        keyTopics: [
-          "std::jthread & RAII Joining",
-          "std::mutex & std::lock_guard",
-          "Atomic Flags & Memory Fences",
-          "Condition Variable Notifications",
-          "Deadlock Elimination Protocols",
-        ],
-        submodules: [],
-      },
-    ],
-    []
-  );
+  // Section 4: Learning Modules & Code Challenges
+  const modules = project.codeLearningModules || [];
 
-  const modules = project.codeLearningModules || defaultModules;
+  const filteredModules = modules.filter((m) => {
+    const q = moduleSearchQuery.toLowerCase().trim();
+    const matchesSearch =
+      q === "" ||
+      m.title.toLowerCase().includes(q) ||
+      m.description.toLowerCase().includes(q) ||
+      (m.keyTopics && m.keyTopics.some((c) => c.toLowerCase().includes(q)));
 
-  // Filtered Modules with Instant Search & Difficulty Filtering
-  const filteredModules = useMemo(() => {
-    return modules.filter((m) => {
-      const q = moduleSearchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !q ||
-        m.title.toLowerCase().includes(q) ||
-        m.moduleNumber.toLowerCase().includes(q) ||
-        m.description.toLowerCase().includes(q) ||
-        (m.keyTopics && m.keyTopics.some((t) => t.toLowerCase().includes(q)));
+    const matchesDifficulty =
+      selectedDifficultyFilter === "All" ||
+      m.difficulty === selectedDifficultyFilter;
 
-      const matchesDifficulty =
-        selectedDifficultyFilter === "All" || m.difficulty === selectedDifficultyFilter;
+    return matchesSearch && matchesDifficulty;
+  });
 
-      return matchesSearch && matchesDifficulty;
-    });
-  }, [modules, moduleSearchQuery, selectedDifficultyFilter]);
-
-  // Aggregated Telemetry Stats for Section 3
   const totalModulesCount = modules.length;
-  const totalSubmodulesCount = useMemo(() => {
-    return modules.reduce(
-      (acc, m) => acc + (m.submoduleCount || (m.submodules ? m.submodules.length : 0)),
-      0
-    );
-  }, [modules]);
+  const totalSubmodulesCount = modules.reduce(
+    (acc, m) => acc + (m.submoduleCount || (m.submodules ? m.submodules.length : 0)),
+    0
+  );
+  const totalSourceFilesCount = modules.length * 4;
 
-  const totalSourceFilesCount = useMemo(() => {
-    return modules.reduce((acc, m) => {
-      if (m.sourceFilesCount) return acc + m.sourceFilesCount;
-      const subCodeCount = m.submodules
-        ? m.submodules.reduce((sAcc, s) => sAcc + (s.sourceCodeFiles ? s.sourceCodeFiles.length : (s.hasCode ? 1 : 0)), 0)
-        : 0;
-      return acc + (subCodeCount || Math.round((m.submoduleCount || 12) * 1.3));
-    }, 0);
-  }, [modules]);
+  const totalEstimatedHours =
+    (curriculumStructure as any).totalEstimatedHours || "60 Hours of Hands-On Labs";
 
-  const totalEstimatedHours = useMemo(() => {
-    return modules.reduce((acc, m) => {
-      if (m.estimatedHours) {
-        const parsed = parseInt(m.estimatedHours, 10);
-        return acc + (isNaN(parsed) ? 14 : parsed);
-      }
-      return acc + Math.round((m.submoduleCount || 12) * 0.9);
-    }, 0);
-  }, [modules]);
-
-  const handleCopyPortal = () => {
+  const handleCopyPortal = (code: string, id: string) => {
     if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
-      setCopiedPortalLink(true);
-      setTimeout(() => setCopiedPortalLink(false), 2000);
+      navigator.clipboard.writeText(code);
+      setCopiedSnippetId(id);
+      setTimeout(() => setCopiedSnippetId(null), 2000);
     }
   };
 
-  // =========================================================================
-  // Section 4: Tech Stack (Categorized & Dynamic)
-  // =========================================================================
-  const defaultLanguages = [
-    "C++20",
-    "C++",
-    "Python",
-    "Java",
-    "JavaScript",
-    "TypeScript",
-    "SQL",
-    "PHP",
-    "C",
-    "C#",
-    "Go",
-    "Rust",
-  ];
-  const defaultFrameworks = [
-    "C++ Standard Library",
-    "STL Containers",
-    "STL Algorithms",
-    "Smart Pointers",
-    "Multithreading",
-    "C++20 Concepts",
-    "C++20 Ranges",
-    "AddressSanitizer",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Django",
-    "Flask",
-    "Spring",
-  ];
-  const defaultTools = [
-    "MSVC",
-    "GCC",
-    "Clang",
-    "VS Code",
-    "Git",
-    "GitHub",
-    "Docker",
-    "CMake",
-    "Jupyter Notebook",
-    "GDB",
-    "Valgrind",
-  ];
-
+  // Section 5: Tech Stack & Dev Environment
   const explicitTech = project.codeLearningTechStack;
   const rawTech = project.techStack || [];
 
-  const programmingLanguages =
-    explicitTech?.programmingLanguages ||
-    rawTech
-      .filter((t) => defaultLanguages.some((dl) => t.toLowerCase().includes(dl.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "Primary language dialect for curriculum source translation units and compilable programs",
-      }));
-
-  const frameworksAndLibraries =
-    explicitTech?.frameworksAndLibraries ||
-    rawTech
-      .filter((t) => defaultFrameworks.some((df) => t.toLowerCase().includes(df.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "Runtime libraries, algorithmic containers, and language specification paradigms",
-      }));
-
-  const developmentToolsAndEnvironment =
-    explicitTech?.developmentToolsAndEnvironment ||
-    rawTech
-      .filter(
-        (t) =>
-          !defaultLanguages.some((dl) => t.toLowerCase().includes(dl.toLowerCase())) &&
-          !defaultFrameworks.some((df) => t.toLowerCase().includes(df.toLowerCase()))
-      )
-      .map((t) => ({
-        name: t,
-        role: "Compiler toolchain, diagnostic probers, or execution environment",
-      }));
+  const programmingLanguages = explicitTech?.programmingLanguages || [];
+  const frameworksAndLibraries = explicitTech?.frameworksAndLibraries || [];
+  const developmentToolsAndEnvironment = explicitTech?.developmentToolsAndEnvironment || [];
 
   const filteredTechGroups = [
-    {
-      group: "Programming Languages",
-      items: programmingLanguages,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Programming Languages",
-    },
-    {
-      group: "Frameworks & Libraries",
-      items: frameworksAndLibraries,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Frameworks & Libraries",
-    },
-    {
-      group: "Development Tools & Environment",
-      items: developmentToolsAndEnvironment,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Development Tools & Environment",
-    },
-  ].filter((g) => g.items.length > 0 && g.visible);
+    { label: "Programming Languages", items: programmingLanguages },
+    { label: "Frameworks & Testing Libraries", items: frameworksAndLibraries },
+    { label: "Development Tools & Environment", items: developmentToolsAndEnvironment },
+  ].filter((grp) => {
+    if (selectedTechFilter === "All") return grp.items.length > 0;
+    return grp.label === selectedTechFilter && grp.items.length > 0;
+  });
 
-  // =========================================================================
-  // Section 5: Recommended Practice Projects & Applied Capstones
-  // =========================================================================
-  const defaultPracticeProjects = useMemo(
-    () => [
-      {
-        title: "Deterministic CLI Telemetry & POS Ledger Engine",
-        tier: "TIER 01 // FOUNDATIONAL",
-        difficulty: "Foundational — Core Systems",
-        estimatedTime: "6 — 8 Study Hours",
-        description:
-          "Production-grade terminal cash register and transactional ledger system incorporating receipt stream formatting, memory-safe data structures, and inventory reconciliation.",
-        scenario:
-          "Enterprise point-of-sale clients require rock-solid terminal interfaces with zero crashes, reproducible receipt logging, and graceful disk recovery under sudden process termination.",
-        architecturalConstraints: [
-          "Zero global state; all transaction context strictly encapsulated in RAII classes.",
-          "Deterministic tabular alignment using <iomanip> manipulators (setw, setfill).",
-          "Atomic disk persistence protocol preventing corrupted state during writes.",
-        ],
-        acceptanceCriteria: [
-          "100% byte-for-byte formatted tabular receipt output match across MSVC, GCC, and Clang.",
-          "Full test harness coverage validating inventory deducts, taxes, and discounts.",
-          "Clean compilation under -Wall -Wextra -Wpedantic with zero diagnostic warnings.",
-        ],
-        keyConcepts: ["Encapsulation", "Stream I/O (<iomanip>)", "File Persistence", "Error Handling"],
-        techStack: ["C++20", "File Streams (<fstream>)", "std::chrono", "Modern STL"],
-        deliverable: "Self-Contained Standalone CLI Binary",
-        highlights: [
-          "Handles multi-item cart management with atomic disk persistence.",
-          "Generates formatted ASCII receipts via strict <iomanip> manipulation.",
-          "Zero external dependencies, compiles to single standalone binary.",
-        ],
-      },
-      {
-        title: "High-Performance Ring Buffer & Custom Allocator",
-        tier: "TIER 02 // INTERMEDIATE",
-        difficulty: "Intermediate — Memory Discipline",
-        estimatedTime: "10 — 12 Study Hours",
-        description:
-          "Fixed-capacity circular queue and custom arena allocator engineered with explicit pointer arithmetic, cache-friendly contiguous layout, and zero dynamic heap reallocations.",
-        scenario:
-          "High-frequency processing loops degrade in latency when relying on standard heap allocators due to memory fragmentation and lock contention. This challenge requires building a deterministic ring buffer.",
-        architecturalConstraints: [
-          "Exclusive ownership managed via std::unique_ptr<T[]> with zero raw delete calls.",
-          "O(1) amortized enqueue and dequeue operations with zero dynamic heap reallocations.",
-          "Total AddressSanitizer and LeakSanitizer clean pass under 1,000,000 stress cycles.",
-        ],
-        acceptanceCriteria: [
-          "Ring buffer maintains strict FIFO ordering across boundary wraparound scenarios.",
-          "Custom move constructors transfer buffer ownership with zero deep memory copies.",
-          "Exception-safe strong guarantee when handling element push/pop errors.",
-        ],
-        keyConcepts: ["RAII Smart Pointers", "Pointer Arithmetic", "Move Semantics", "Cache Locality"],
-        techStack: ["C++20", "std::unique_ptr", "AddressSanitizer", "Memory Invariants"],
-        deliverable: "Header-Only Memory Utility Library",
-        highlights: [
-          "O(1) push and pop operations with zero continuous heap allocations.",
-          "Custom move constructors eliminating unnecessary memory duplications.",
-          "100% leak-free verification under AddressSanitizer stress conditions.",
-        ],
-      },
-      {
-        title: "Multi-Threaded In-Memory Key-Value Store & Distributed Cache",
-        tier: "TIER 03 // SYSTEMS CAPSTONE",
-        difficulty: "Advanced — Industry Capstone",
-        estimatedTime: "16 — 20 Study Hours",
-        description:
-          "High-throughput concurrent in-memory key-value cache engine utilizing shared_mutex read/write locks, LRU eviction policies, atomic flags, and background TTL expiration workers.",
-        scenario:
-          "Distributed microservice architectures demand ultra-low latency caching tiers capable of parallel lookups while background processes evict stale items without locking user queries.",
-        architecturalConstraints: [
-          "Fine-grained reader-writer lock synchronization via std::shared_mutex.",
-          "Asynchronous background worker runner managed via modern std::jthread.",
-          "Zero data races verified under ThreadSanitizer (TSan) at 16 concurrent threads.",
-        ],
-        acceptanceCriteria: [
-          "Achieves >450,000 operations/sec throughput under simulated multi-core stress.",
-          "LRU eviction policy reliably frees least-frequently accessed keys at capacity.",
-          "Deterministic graceful shutdown with zero thread leaks or orphaned locks.",
-        ],
-        keyConcepts: ["Concurrency", "std::shared_mutex", "Atomic Primitives", "std::jthread", "LRU Eviction"],
-        techStack: ["C++20", "std::shared_mutex", "std::jthread", "ThreadSanitizer", "Atomic"],
-        deliverable: "Multi-Threaded Embedded Cache Engine",
-        highlights: [
-          "Concurrent reader-writer lock synchronization with zero data races.",
-          "Asynchronous TTL expiration background thread runner.",
-          "Benchmarked at 450,000+ operations/sec under 16 concurrent threads.",
-        ],
-      },
-    ],
-    []
-  );
+  // Section 6: Practical Projects & Exercises
+  const practicalProjects = project.codeLearningPracticalProjects || [];
 
-  const practicalProjects = project.codeLearningPracticalProjects || defaultPracticeProjects;
+  // Section 7: Learning Outcomes & Supplementary Resources
+  const learningOutcomes =
+    project.codeLearningOutcomes ||
+    [];
 
-  const learningOutcomes = project.codeLearningOutcomes || [
-    {
-      pillar: "Memory Architecture & Safety Mastery",
-      skills: [
-        {
-          title: "Deterministic Resource Acquisition (RAII)",
-          description:
-            "Architect zero-leak software systems utilizing modern smart pointers and explicit ownership semantics.",
-        },
-        {
-          title: "Pointer Arithmetic & Cache Locality",
-          description:
-            "Navigate raw heap/stack allocations, memory alignments, and CPU cache-conscious contiguous data buffers.",
-        },
-      ],
-    },
-    {
-      pillar: "Modern Language Standards & Metaprogramming",
-      skills: [
-        {
-          title: "Generic Templates & Concept Constraints",
-          description:
-            "Author compile-time verified generic abstractions with expressive compiler diagnostics.",
-        },
-        {
-          title: "Standard Library STL Vectorization",
-          description:
-            "Harness high-performance standard containers and functional algorithm pipelines for algorithmic efficiency.",
-        },
-      ],
-    },
-    {
-      pillar: "Systems Software & Production Discipline",
-      skills: [
-        {
-          title: "Concurrent Multi-Threaded Execution",
-          description:
-            "Synchronize parallel execution threads using mutexes, lock guards, and atomic telemetry flags without race conditions.",
-        },
-        {
-          title: "Cross-Platform Native Toolchains",
-          description:
-            "Compile and link multi-file translation units cleanly across MSVC, GCC, and Clang compilers with zero external dependencies.",
-        },
-      ],
-    },
-  ];
-
-  // =========================================================================
-  // Section 6: Project Resources
-  // =========================================================================
   const repoUrl = project.repoUrl || "";
   const isPublicRepo = Boolean(repoUrl && repoUrl.trim().length > 0);
 
   const documentation = project.codeLearningDocumentation || {
-    title: "Curriculum Specification & Compilation Guide",
-    description:
-      "Comprehensive pedagogical syllabus detailing compiler flags, translation unit compilation commands, and memory safety invariants.",
-    specs: [
-      { label: "Target Dialect", value: "C++20 (ISO/IEC 14882:2020)" },
-      { label: "Supported Compilers", value: "MSVC 19+, GCC 11+, Clang 13+" },
-      { label: "Pedagogical Modules", value: "17 Comprehensive Tiers" },
-      { label: "Verified Outputs", value: "250 Deterministic Captures" },
-    ],
-    docsUrl: repoUrl ? `${repoUrl}#readme` : undefined,
+    title: "Educational Specification",
+    description: "",
+    status: "DOCS // VERIFIED",
+    specs: [],
   };
 
   const supplementaryResources = project.codeLearningSupplementaryResources || {
-    title: "Supplementary Learning Artifacts & Starter Bundles",
-    description:
-      "Essential supplementary downloads designed to accelerate lab practice and compiler troubleshooting.",
-    resources: [
-      {
-        name: "C++20 Memory & Syntax Quick Reference Sheet",
-        type: "Cheat Sheet" as const,
-        format: "MARKDOWN / PDF",
-        url: repoUrl || undefined,
-      },
-      {
-        name: "Standard Makefile & CMakeLists.txt Multi-Compiler Preset",
-        type: "Config" as const,
-        format: "BUILD_CONFIG",
-        url: repoUrl || undefined,
-      },
-      {
-        name: "250 Verified Terminal Stdout Output Captures Directory",
-        type: "Dataset" as const,
-        format: "RAW_TEXT / LOG",
-        url: repoUrl || undefined,
-      },
-    ],
+    title: "Recommended Deep-Dive Resources & References",
+    description: "",
+    resources: [],
   };
 
   return (
@@ -779,30 +254,27 @@ export default function CodeLearningDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col">
-            <div className="flex flex-col flex-1 h-full">
-              {/* Header Bar */}
-              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-950/40 px-4 py-2 text-xs font-mono text-orange-300">
-                <span className="flex items-center gap-2 text-orange-200">
-                  <Terminal className="h-3.5 w-3.5 text-orange-400" />
-                  &gt; CURRICULUM_RUNTIME // SYS.VIEWPORT
-                </span>
-                <span className="text-[10px] text-orange-400/80">ONLINE // VERIFIED_PEDAGOGY</span>
-              </div>
+            {/* Header Bar */}
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-950/40 px-4 py-2 text-xs font-mono text-orange-300">
+              <span className="flex items-center gap-2 text-orange-200">
+                <Terminal className="h-3.5 w-3.5 text-orange-400" />
+                &gt; CURRICULUM_RUNTIME // SYS.VIEWPORT
+              </span>
+              <span className="text-[10px] text-orange-400/80">ONLINE // VERIFIED_PEDAGOGY</span>
+            </div>
 
-              {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-orange-500/25 bg-[#1A0F08]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
+            {/* Terminal Body */}
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-orange-500/25 bg-[#1A0F08]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+              <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-orange-500/30 bg-black/60 shadow-lg">
-
                     {/* Optical HUD Crosshairs */}
                     <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-orange-400/80" />
                     <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-orange-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-orange-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-orange-400/80" />
 
-                    {/* Hero Image with smooth hover scale */}
-                    
                     {/* Hero Image */}
                     <Image
                       src={heroImage}
@@ -819,22 +291,22 @@ export default function CodeLearningDetailView({
                     ? `${learningDescription.slice(0, 500).trim()}...`
                     : learningDescription}
                 </p>
+              </div>
 
-                {/* Capability Badges Strip (Max 3) */}
-                <div className="mt-auto pt-4 border-t border-orange-500/20 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
-                    <CheckCircle2 className="h-3 w-3 text-orange-400" />
-                    Hands-On Compilation Units
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
-                    <Cpu className="h-3 w-3 text-orange-400" />
-                    Memory & Architecture Focused
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
-                    <Activity className="h-3 w-3 text-orange-400" />
-                    Verified Output Telemetry
-                  </span>
-                </div>
+              {/* Capability Badges Strip (Max 3) */}
+              <div className="mt-auto pt-4 border-t border-orange-500/20 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
+                  <CheckCircle2 className="h-3 w-3 text-orange-400" />
+                  Hands-On Compilation Units
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
+                  <Cpu className="h-3 w-3 text-orange-400" />
+                  Memory & Architecture Focused
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
+                  <Activity className="h-3 w-3 text-orange-400" />
+                  Verified Output Telemetry
+                </span>
               </div>
             </div>
           </div>
@@ -1476,7 +948,7 @@ export default function CodeLearningDetailView({
             <div key={gIdx} className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs text-orange-300 uppercase tracking-wider border-b border-orange-500/15 pb-1.5">
                 <Code2 className="h-3.5 w-3.5 text-orange-400" />
-                <span>{groupItem.group}</span>
+                <span>{groupItem.label}</span>
                 <span className="text-[10px] text-orange-400/70">
                   ({groupItem.items.length} TECHNOLOGIES)
                 </span>
@@ -1586,7 +1058,7 @@ export default function CodeLearningDetailView({
                     Architectural Constraints (NFR):
                   </span>
                   <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
-                    {(proj.architecturalConstraints || proj.highlights).map((con, cIdx) => (
+                    {(proj.architecturalConstraints || proj.highlights || []).map((con: any, cIdx: number) => (
                       <li key={cIdx} className="flex items-start gap-1.5">
                         <span className="text-orange-400 font-bold">›</span>
                         <span className="text-[11px] leading-relaxed">{con}</span>
@@ -1822,7 +1294,7 @@ export default function CodeLearningDetailView({
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {documentation.specs.map((sp, spIdx) => (
+                {(documentation.specs || []).map((sp: any, spIdx: number) => (
                   <div key={spIdx} className="flex items-center justify-between text-slate-400">
                     <span className="uppercase text-[11px]">{sp.label}:</span>
                     <span className="text-slate-200 font-semibold">{sp.value}</span>
@@ -1831,9 +1303,9 @@ export default function CodeLearningDetailView({
               </div>
             </div>
 
-            {documentation.docsUrl ? (
+            {(documentation as any).docsUrl ? (
               <a
-                href={documentation.docsUrl}
+                href={(documentation as any).docsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => onTriggerPulse?.()}
@@ -1884,7 +1356,7 @@ export default function CodeLearningDetailView({
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {supplementaryResources.resources.map((res, rIdx) => (
+                {(supplementaryResources.resources || []).map((res: any, rIdx: number) => (
                   <div key={rIdx} className="flex items-center justify-between text-slate-300">
                     <span className="truncate pr-2 text-[11px]">{res.name}</span>
                     <span className="font-mono text-[10px] text-orange-300 border border-orange-500/30 bg-orange-950/40 px-1.5 py-0.5 rounded">

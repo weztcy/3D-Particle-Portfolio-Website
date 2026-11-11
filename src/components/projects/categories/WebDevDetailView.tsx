@@ -16,7 +16,6 @@ import {
   Layers,
   Layout,
   Lock,
-  Maximize2,
   ShieldCheck,
   Sparkles,
   Terminal,
@@ -81,12 +80,16 @@ export default function WebDevDetailView({
     setImgErrors((prev) => ({ ...prev, [src]: true }));
   }, []);
 
+  const hasRepoUrl = Boolean(
+    project.repoUrl && project.repoUrl.trim().length > 0
+  );
+
   // Section 1 Data: Project Description & Project Information
   const projectDescription =
     project.projectDescription ||
     project.overview ||
     project.summary ||
-    "Enterprise web architecture designed with modular frontend components, high-throughput backend APIs, and ACID-compliant transactional persistence to guarantee sub-50ms latency across high-concurrency client sessions.";
+    "";
 
   const projectInfo = project.projectInfo || {
     projectType: "Full-Stack Web Application",
@@ -100,7 +103,8 @@ export default function WebDevDetailView({
     projectType: projectInfo.projectType,
     targetPlatform: projectInfo.platform,
     primaryDomain: projectInfo.projectCategory,
-    architecturePipeline: project.architectureSummary || "Modular Component Hierarchy + Reactive State Store",
+    architecturePipeline: project.architectureSummary || "Modular Component Architecture",
+    testingAndAudit: "Passed",
     projectStatus: projectInfo.developmentStatus,
     projectYear: projectInfo.developmentYear,
   };
@@ -109,28 +113,9 @@ export default function WebDevDetailView({
   const projectBackground =
     project.projectBackground ||
     project.challenge ||
-    "Developed to solve architectural bottlenecks in legacy web monolithic workflows. Fragmented state management, unoptimized query pipelines, and high-latency asset rendering hindered interactive user productivity and elevated server infrastructure overhead.";
+    "";
 
-  const problemStatements = project.problemStatements || [
-    {
-      title: "High Client-Server Synchronization Latency",
-      description:
-        "Legacy synchronous polling architectures overloaded the web server, inducing race conditions during high-frequency concurrent state mutations.",
-      issueCode: "ISSUE_01",
-    },
-    {
-      title: "Monolithic Data Coupling & Slow Queries",
-      description:
-        "Unindexed database queries and complex multi-join schemas degraded page response times above acceptable sub-second SLAs.",
-      issueCode: "ISSUE_02",
-    },
-    {
-      title: "Fragile Security Gates & Token Vulnerabilities",
-      description:
-        "Inadequate role-based access controls and missing transactional escrow validations exposed critical business logic to perimeter exploits.",
-      issueCode: "ISSUE_03",
-    },
-  ];
+  const problemStatements = project.problemStatements || [];
 
   const projectObjectives = project.projectObjectives ||
     (project.objectives && project.objectives.length > 0
@@ -139,26 +124,7 @@ export default function WebDevDetailView({
           description: obj,
           targetTag: `TARGET_0${idx + 1}`,
         }))
-      : [
-          {
-            title: "Zero-Downtime Microservice Decoupling",
-            description:
-              "Isolate domain boundaries into decoupled services with asynchronous messaging for seamless continuous deployments.",
-            targetTag: "TARGET_01",
-          },
-          {
-            title: "Sub-50ms API Latency Guarantee",
-            description:
-              "Engineer high-performance indexing, Redis cache layers, and edge asset distribution for instantaneous user interactions.",
-            targetTag: "TARGET_02",
-          },
-          {
-            title: "Enterprise Multi-Role RBAC Authorization",
-            description:
-              "Deploy cryptographically secure token validation, strict session isolation, and audit logging across all endpoints.",
-            targetTag: "TARGET_03",
-          },
-        ]);
+      : []);
 
   // Section 3 Data: Features & Interface
   const coreFeatures = project.coreFeatures ||
@@ -167,291 +133,58 @@ export default function WebDevDetailView({
           title: f.title,
           description: f.description,
           badge: f.badge || `MODULE_0${i + 1}`,
+          metric: f.metric || "",
         }))
-      : [
-          {
-            title: "Dynamic Real-Time Data Pipeline",
-            description:
-              "Bi-directional WebSocket streaming architecture providing zero-latency telemetry and reactive state updates across all connected clients.",
-            badge: "Core Engine",
-          },
-          {
-            title: "Multi-Role RBAC Portal System",
-            description:
-              "Hierarchical permission matrices separating public visitors, authorized operators, and root administrators with encrypted session cookies.",
-            badge: "Security Core",
-          },
-          {
-            title: "Automated Transaction Settlement",
-            description:
-              "ACID-compliant relational database ledger guaranteeing idempotency and preventing race conditions during concurrent user operations.",
-            badge: "Transactional",
-          },
-          {
-            title: "Telemetry & Operational Dashboard",
-            description:
-              "Interactive telemetry charts rendering live resource consumption, API latency percentiles, and business performance metrics.",
-            badge: "Analytics HUD",
-          },
-        ]);
+      : []);
 
   const interfaceShowcase =
     project.interfaceShowcase && project.interfaceShowcase.length > 0
       ? project.interfaceShowcase
       : rawImages.map((img, i) => ({
           imageUrl: img,
-          caption: `Holographic Viewport ${i + 1} // Primary Interface & Responsive Workspace Overview`,
+          caption: `${project.title} — Interface Viewport 0${i + 1}`,
           badge: `VIEWPORT // 0${i + 1}`,
         }));
 
   const userFlow = project.userFlow || {
-    summary:
-      "The client interaction pipeline is structured as an intuitive, deterministic multi-stage journey—guiding users seamlessly from initial entry authentication, through interactive catalog discovery and stateful interaction, down to automated transactional checkout and verification.",
-    steps: [
-      {
-        step: "NODE 01",
-        title: "Perimeter Handshake & Authentication",
-        description:
-          "User connects via HTTPS edge gateway; credentials or OAuth tokens are validated via cryptographic session cookies with RBAC scope assignment.",
-        actorOrNode: "Client / Gateway",
-      },
-      {
-        step: "NODE 02",
-        title: "Dynamic Catalog & Filter Query",
-        description:
-          "User navigates catalog views; client initiates debounced REST queries with edge caching for instant sub-30ms retrieval.",
-        actorOrNode: "Presentation Tier",
-      },
-      {
-        step: "NODE 03",
-        title: "Interactive State Mutation",
-        description:
-          "Action triggers optimistic UI updates while asynchronous payload dispatches to backend endpoints with rollback safeguards.",
-        actorOrNode: "State Controller",
-      },
-      {
-        step: "NODE 04",
-        title: "Atomic Ledger Settlement & Receipt",
-        description:
-          "Backend processes transaction within an isolated database transaction, issues an audit receipt, and streams live confirmation to client.",
-        actorOrNode: "Database Engine",
-      },
-    ],
+    summary: "",
+    steps: [],
   };
 
-  // Section 4 Data: Tech Stack Categorized
-  const techStackCategorized =
-    project.techStackCategorized && project.techStackCategorized.length > 0
-      ? project.techStackCategorized
-      : [
-          {
-            name: "React 19 / Next.js",
-            category: "Frontend" as const,
-            role: "Server-side rendering, client hydration, and routing orchestration",
-          },
-          {
-            name: "Tailwind CSS & Radix UI",
-            category: "Frontend" as const,
-            role: "Accessible design token framework and responsive HUD UI styling",
-          },
-          {
-            name: "Node.js / Express",
-            category: "Backend" as const,
-            role: "High-throughput asynchronous REST API routing and middleware pipeline",
-          },
-          {
-            name: "PHP 8.x / CodeIgniter",
-            category: "Backend" as const,
-            role: "Lightweight MVC application core and server controller dispatch",
-          },
-          {
-            name: "PostgreSQL / MySQL",
-            category: "Database" as const,
-            role: "Relational persistence with InnoDB ACID-compliant transaction safety",
-          },
-          {
-            name: "Redis Cache Engine",
-            category: "Database" as const,
-            role: "In-memory key-value caching, rate-limiting, and ephemeral session storage",
-          },
-          {
-            name: "TanStack Query",
-            category: "Framework & Libraries" as const,
-            role: "Declarative asynchronous state caching, optimistic updates, and garbage collection",
-          },
-          {
-            name: "Lucide Cyber Icons",
-            category: "Framework & Libraries" as const,
-            role: "Scalable vectorized iconography optimized for tactile HUD interfaces",
-          },
-          {
-            name: "RESTful JSON APIs",
-            category: "API & Integration" as const,
-            role: "Strictly typed endpoint contracts with OpenAPI schema validation",
-          },
-          {
-            name: "WebSocket Protocol",
-            category: "API & Integration" as const,
-            role: "Full-duplex real-time event distribution and bi-directional telemetry stream",
-          },
-          {
-            name: "Vite & SWC Compiler",
-            category: "Development Tools" as const,
-            role: "Lightning-fast hot module replacement and bundle minification pipeline",
-          },
-          {
-            name: "Postman / Thunder Client",
-            category: "Development Tools" as const,
-            role: "Automated API contract testing and endpoint simulation environment",
-          },
-          {
-            name: "Git & GitHub CLI",
-            category: "Version Control" as const,
-            role: "Trunk-based branch isolation, semantic commits, and pull-request auditing",
-          },
-          {
-            name: "Jest & Playwright",
-            category: "Testing Tools" as const,
-            role: "End-to-end integration test suites and automated UI regression testing",
-          },
-          {
-            name: "Vercel Edge Network",
-            category: "External Services" as const,
-            role: "Global CDN asset distribution with edge compute middleware execution",
-          },
-          {
-            name: "Cloudinary CDN",
-            category: "External Services" as const,
-            role: "Automated responsive image transformations and lossy WebP compression",
-          },
-        ];
+  // Section 4 Data: Tech Stack & Architecture
+  const techStackCategorized = project.techStackCategorized || [];
 
-  const filteredTechStack =
-    selectedTechCategory === "All"
-      ? techStackCategorized
-      : techStackCategorized.filter((t) => t.category === selectedTechCategory);
+  const filteredTechStack = techStackCategorized.filter((tech) => {
+    if (selectedTechCategory === "All") return true;
+    return tech.category === selectedTechCategory;
+  });
 
-  // Section 5 Data: Architecture & Implementation
   const systemArchitecture = project.systemArchitecture || {
-    summary:
-      "The web system architecture adopts a layered, decoupled Tier topology designed for high availability and maintainability. Incoming HTTPS client traffic hits an Edge Proxy Gateway with SSL termination, distributing requests to stateless Web Application controllers. State persistence is isolated within an ACID relational database cluster bolstered by an in-memory Redis caching tier.",
-    layers: [
-      {
-        name: "Tier 1 // Presentation Client",
-        role: "Responsive Web Viewports, Client-Side Hydration, State Stores",
-        components: ["React 19 DOM", "Tailwind HUD Theme", "Zustand Cache"],
-      },
-      {
-        name: "Tier 2 // Edge & Security Gateway",
-        role: "Reverse Proxy, SSL Termination, CSRF & Rate-Limiting Barrier",
-        components: ["Edge Middleware", "JWT / Session Auth", "CORS Guard"],
-      },
-      {
-        name: "Tier 3 // Application Core Engine",
-        role: "RESTful Controllers, Business Logic Domain, Event Dispatcher",
-        components: ["MVC Routers", "Data Sanitizer", "Event Emitter"],
-      },
-      {
-        name: "Tier 4 // Persistence & Cache Vault",
-        role: "Relational Tables, Foreign-Key Integrity, Memory Ingestion",
-        components: ["MySQL / PostgreSQL", "Redis Key-Store", "S3 Storage"],
-      },
-    ],
+    summary: project.architectureSummary || "",
+    layers: [],
   };
 
   const databaseDataFlow = project.databaseDataFlow || {
-    type: "Database Schema / ERD",
-    summary:
-      "Data transactions adhere to strict Third Normal Form (3NF) relational design to eradicate data redundancy while preserving referential integrity via cascading foreign keys. Read-heavy operations exploit compound indexing to keep execution latency under 15ms.",
-    entitiesOrPipelines: [
-      {
-        name: "USERS & AUTH",
-        type: "Entity Table",
-        fields: ["user_id (PK)", "email", "password_hash", "role_enum", "created_at"],
-      },
-      {
-        name: "CATALOG ITEMS",
-        type: "Entity Table",
-        fields: ["item_id (PK)", "title", "category_id (FK)", "price", "status"],
-      },
-      {
-        name: "TRANSACTIONS & AUDIT",
-        type: "Ledger Table",
-        fields: ["tx_id (PK)", "user_id (FK)", "amount", "checksum", "timestamp"],
-      },
-      {
-        name: "TELEMETRY LOGS",
-        type: "Timeseries Buffer",
-        fields: ["log_id (PK)", "endpoint", "status_code", "latency_ms", "ip_hash"],
-      },
-    ],
+    type: "Data Flow Pipeline",
+    summary: "",
+    entitiesOrPipelines: [],
   };
 
-  const technicalImplementation = project.technicalImplementation || [
-    {
-      category: "Authentication",
-      title: "Multi-Role RBAC & Secure Session Handshake",
-      description:
-        "Engineered role-based access gates separating public visitors, authorized operators, and administrators. Sessions are signed with HMAC-SHA256 tokens stored strictly in HTTP-only, SameSite=Strict cookies to eliminate cross-site scripting exposure.",
-      badge: "Zero-Trust Auth",
-    },
-    {
-      category: "API Integration",
-      title: "RESTful Endpoints & Asynchronous Event Streaming",
-      description:
-        "Standardized REST API contract with automated input parameter validation. Real-time updates utilize Server-Sent Events (SSE) / WebSockets to push state mutations instantly without client polling overhead.",
-      badge: "High Concurrency",
-    },
-    {
-      category: "Data Processing",
-      title: "Atomic Transactions & Escrow Reconciliation",
-      description:
-        "State mutations leverage database transaction isolation (READ COMMITTED) with row-level locks, guaranteeing zero double-spending and deterministic order processing under peak traffic surges.",
-      badge: "ACID Compliant",
-    },
-    {
-      category: "Security Implementation",
-      title: "Defense-in-Depth Sanitization & CSRF Shield",
-      description:
-        "Every incoming payload is sanitized against SQL injection and XSS exploits. Strict Content Security Policies (CSP) and automated rate limiting mitigate DDoS and brute-force penetration attempts.",
-      badge: "OWASP Top 10",
-    },
-    {
-      category: "Performance Optimization",
-      title: "Edge Caching & Dynamic Asset Minification",
-      description:
-        "Static bundles are pre-rendered and distributed across global edge nodes. Database queries utilize multi-column B-tree indexing combined with Redis cache invalidation, maintaining p95 response times below 40ms.",
-      badge: "Sub-40ms p95",
-    },
-  ];
-
-  // Section 6 Data: Project Resources (Repository, Documentation, Quality)
-  const hasRepoUrl = Boolean(project.repoUrl && project.repoUrl.trim().length > 0);
+  // Section 5 Data: Technical Implementation & Documentation
+  const technicalImplementation = project.technicalImplementation || [];
 
   const technicalDocumentation = project.technicalDocumentation || {
-    title: "Technical Documentation & System Specs",
-    description:
-      "Comprehensive engineering manuals covering framework architectures, component APIs, database migration runbooks, and zero-downtime deployment workflows.",
-    status: "DOCS // VERIFIED v2.4",
-    specs: [
-      { label: "ARCH STYLE", value: "Decoupled MVC / Tiered" },
-      { label: "API STANDARD", value: "RESTful JSON / OpenAPI" },
-      { label: "PERSISTENCE", value: "Relational 3NF + Redis" },
-      { label: "SECURITY AUDIT", value: "OWASP Level-2 Pass" },
-    ],
+    title: "Technical Documentation",
+    description: "",
+    status: "DOCS // VERIFIED",
+    specs: [],
   };
 
   const architectureQuality = project.architectureQuality || {
     title: "Architecture & Quality Standards",
-    description:
-      "Rigorous quality assurance benchmark ensuring complete code linting compliance, continuous integration automated testing, and verified fault recovery.",
-    status: "QA AUDIT // 99.8% PASS",
-    badges: [
-      "100% TypeScript Strict",
-      "CI/CD Pipeline Green",
-      "A11y WCAG 2.1 AA",
-      "Lighthouse 95+ Score",
-    ],
+    description: "",
+    status: "QA AUDIT // VERIFIED",
+    badges: [],
   };
 
   return (
@@ -498,61 +231,59 @@ export default function WebDevDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col">
-            <div className="flex flex-col flex-1 h-full">
-              {/* Terminal Title Bar */}
-              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
-                <span className="flex items-center gap-2 text-sky-200">
-                  <Terminal className="h-3.5 w-3.5 text-sky-400" />
-                  &gt; WEB_RUNTIME // SYS.VIEWPORT
-                </span>
-                <span className="text-[10px] text-sky-400/80">ONLINE // HTTP_EDGE</span>
+            {/* Terminal Title Bar */}
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
+              <span className="flex items-center gap-2 text-sky-200">
+                <Terminal className="h-3.5 w-3.5 text-sky-400" />
+                &gt; WEB_RUNTIME // SYS.VIEWPORT
+              </span>
+              <span className="text-[10px] text-sky-400/80">ONLINE // HTTP_EDGE</span>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-sky-500/25 bg-[#080B14]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+              <div>
+                {/* 16:9 Hero Viewport Container — Pure static display */}
+                {heroImage && (
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-sky-500/30 bg-black/60 shadow-lg">
+                    {/* Optical HUD Crosshairs */}
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/80" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/80" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/80" />
+
+                    {/* Hero Image */}
+                    <Image
+                      src={heroImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top"
+                      priority
+                    />
+                  </div>
+                )}
+
+                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
+                  {projectDescription.length > 500
+                    ? `${projectDescription.slice(0, 500).trim()}...`
+                    : projectDescription}
+                </p>
               </div>
 
-              {/* Terminal Body */}
-              <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-sky-500/25 bg-[#080B14]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
-                <div>
-                  {/* 16:9 Hero Viewport Container — Pure static display */}
-                  {heroImage && (
-                    <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-sky-500/30 bg-black/60 shadow-lg">
-                      {/* Optical HUD Crosshairs */}
-                      <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/80" />
-                      <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/80" />
-                      <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/80" />
-                      <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/80" />
-
-                      {/* Hero Image */}
-                      <Image
-                        src={heroImage}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top"
-                        priority
-                      />
-                    </div>
-                  )}
-
-                  <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
-                    {projectDescription.length > 500
-                      ? `${projectDescription.slice(0, 500).trim()}...`
-                      : projectDescription}
-                  </p>
-                </div>
-
-                {/* Capability Badges Strip (Max 3) */}
-                <div className="mt-auto pt-4 border-t border-sky-500/20 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
-                    <Workflow className="h-3 w-3 text-sky-400" />
-                    Modular Architecture
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
-                    <Zap className="h-3 w-3 text-sky-400" />
-                    High-Throughput Runtime
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
-                    <ShieldCheck className="h-3 w-3 text-sky-400" />
-                    Zero-Trust Security
-                  </span>
-                </div>
+              {/* Capability Badges Strip (Max 3) */}
+              <div className="mt-auto pt-4 border-t border-sky-500/20 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
+                  <Workflow className="h-3 w-3 text-sky-400" />
+                  Modular Architecture
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
+                  <Zap className="h-3 w-3 text-sky-400" />
+                  High-Throughput Runtime
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
+                  <ShieldCheck className="h-3 w-3 text-sky-400" />
+                  Zero-Trust Security
+                </span>
               </div>
             </div>
           </div>

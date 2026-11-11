@@ -27,7 +27,6 @@ import {
   Layers,
   Layout,
   Lock,
-  Maximize2,
   Monitor,
   Package,
   Radio,
@@ -86,7 +85,7 @@ export default function DesktopMobileDetailView({
     project.projectDescription ||
     project.overview ||
     project.summary ||
-    "High-performance native client application engineered with offline-first architecture, decoupled concurrency pipelines, and granular platform hardware integration.";
+    "";
 
   const isMobile =
     project.categoryLabel?.toLowerCase().includes("mobile") ||
@@ -101,9 +100,7 @@ export default function DesktopMobileDetailView({
       : "Native Desktop Application (x64 Architecture)",
     targetPlatform: isMobile
       ? "Android 14+ / iOS 17+"
-      : project.summary.toLowerCase().includes("windows")
-      ? "Windows 11 / 10 (x64)"
-      : "Cross-Platform (Windows / macOS / Linux)",
+      : "Windows 11 / 10 (x64 Native)",
     developmentStatus: project.status || "Production Ready",
     developmentYear: project.year || "2026",
     applicationCategory: isMobile
@@ -116,6 +113,7 @@ export default function DesktopMobileDetailView({
     targetPlatform: projectInfo.targetPlatform,
     primaryDomain: projectInfo.applicationCategory,
     architecturePipeline: project.architectureSummary || "Decoupled Process Execution + Async Event Loop",
+    testingAndAudit: "Passed",
     projectStatus: projectInfo.developmentStatus,
     projectYear: projectInfo.developmentYear,
   };
@@ -125,372 +123,194 @@ export default function DesktopMobileDetailView({
     project.desktopMobileBackground ||
     project.projectBackground ||
     project.challenge ||
-    project.summary;
+    project.summary ||
+    "";
 
   const problemStatements =
     project.desktopMobileProblemStatements ||
-    project.problemStatements || [
-      {
-        title: "Latency & Thread Freezing Constraints",
-        description:
-          project.challenge ||
-          "Intensive synchronous operations on the main execution thread degrade UI response and cause frame dropping.",
-        issueCode: "PERF-LATENCY",
-      },
-      {
-        title: "Resource Contention & Memory Saturation",
-        description:
-          "Heavy file processing without proper allocation bounds risks system thrashing and unhandled process teardowns.",
-        issueCode: "MEM-LEAK-RISK",
-      },
-      {
-        title: "Data Sovereignty & Privacy Concerns",
-        description:
-          "Reliance on cloud endpoints introduces network latency, recurring server overhead, and telemetry exposure for sensitive client files.",
-        issueCode: "PRIVACY-GATEWAY",
-      },
-    ];
+    project.problemStatements ||
+    [];
 
-  const projectObjectives =
-    project.desktopMobileObjectives ||
-    project.projectObjectives ||
-    (project.objectives && project.objectives.length > 0
-      ? project.objectives.slice(0, 4).map((obj, i) => ({
-          title: `Core Engineering Objective 0${i + 1}`,
+  const projectObjectives: {
+    title: string;
+    description: string;
+    targetTag?: string;
+  }[] = (project.desktopMobileObjectives && project.desktopMobileObjectives.length > 0)
+    ? (project.desktopMobileObjectives as any[]).map((obj: any, idx: number) =>
+        typeof obj === "string"
+          ? { title: `Objective 0${idx + 1}`, description: obj, targetTag: `OBJ_0${idx + 1}` }
+          : { title: obj.title || `Objective 0${idx + 1}`, description: obj.description || "", targetTag: obj.targetTag || `OBJ_0${idx + 1}` }
+      )
+    : (project.objectives && project.objectives.length > 0
+      ? project.objectives.map((obj, idx) => ({
+          title: `Objective 0${idx + 1}`,
           description: obj,
-          targetTag: `OBJECTIVE-0${i + 1}`,
+          targetTag: `OBJ_0${idx + 1}`,
         }))
-      : [
-          {
-            title: "Zero-Latency UI Thread Decoupling",
-            description:
-              "Offload computation and heavy I/O to background worker threads or isolated subprocesses.",
-            targetTag: "60_FPS_STABILITY",
-          },
-          {
-            title: "Offline-First Operational Security",
-            description:
-              "Operate completely air-gapped without external network dependencies or telemetry leaks.",
-            targetTag: "ZERO_TELEMETRY",
-          },
-          {
-            title: "Native Platform Hardware Saturation",
-            description:
-              "Leverage host CPU topology and memory bandwidth for optimal throughput during batch jobs.",
-            targetTag: "HARDWARE_ACCEL",
-          },
-          {
-            title: "Self-Contained Single-Package Binary",
-            description:
-              "Deliver an optimized, standalone distribution package requiring zero external runtime setup.",
-            targetTag: "PORTABLE_DIST",
-          },
-        ]);
+      : []);
 
-  // Section 3: Features & Interface
+  // Section 3: Features & Showcase
   const coreFeatures =
     project.desktopMobileFeatures ||
-    project.coreFeatures ||
     (project.features && project.features.length > 0
-      ? project.features
-      : [
-          {
-            title: "Decoupled Asynchronous Engine",
-            description:
-              "Isolates heavy processing into worker instances to guarantee buttery-smooth 60fps UI responsiveness.",
-            badge: "Thread Decoupling",
-          },
-          {
-            title: "High-Throughput Batch Processing",
-            description:
-              "Processes multiple payloads concurrently with intelligent scheduling and dynamic memory pooling.",
-            badge: "Multi-Worker Pool",
-          },
-          {
-            title: "Real-Time Telemetry & Hardware Observability",
-            description:
-              "Visualizes dynamic resource utilization curves for CPU and RAM consumption during active execution.",
-            badge: "Live Telemetry",
-          },
-          {
-            title: "Air-Gapped Local-First Architecture",
-            description:
-              "Operates completely on local storage with zero cloud dependencies, eliminating data leakage risks.",
-            badge: "100% Offline",
-          },
-        ]);
+      ? project.features.map((f, i) => ({
+          title: f.title,
+          description: f.description,
+          badge: f.badge || `FEATURE_0${i + 1}`,
+          metric: (f as any).metric || "",
+        }))
+      : []);
 
   const interfaceShowcase =
     project.desktopMobileInterfaceShowcase ||
-    project.interfaceShowcase ||
     (projectImages.length > 0
       ? projectImages.map((img, i) => ({
-          imageUrl: img,
           caption: `${project.title} — Interface Viewport 0${i + 1}`,
           badge: `VIEWPORT_0${i + 1}`,
+          imageUrl: img,
         }))
-      : [
-          {
-            imageUrl: project.imageUrl || "/images/projects/WEBP Converter Pro 1.webp",
-            caption: `${project.title} — Primary Client Viewport`,
-            badge: "PRIMARY_STAGE",
-          },
-        ]);
+      : []);
 
   const activeShowcaseItem =
-    interfaceShowcase[activeImageIndex] || interfaceShowcase[0];
-
-  const userFlow = project.desktopMobileUserFlow ||
-    project.userFlow || {
-      summary:
-        "Sequential interaction pipeline illustrating user-driven initiation, asynchronous worker dispatch, and atomic persistence.",
-      steps:
-        project.pipelineSteps && project.pipelineSteps.length > 0
-          ? project.pipelineSteps.map((p, i) => ({
-              step: p.step.includes(".") ? p.step.split(".")[0] : `0${i + 1}`,
-              title: p.step.includes(". ") ? p.step.split(". ")[1] : p.step,
-              description: p.detail,
-              actorOrNode: p.latencyOrMetric || "Native Node",
-            }))
-          : [
-              {
-                step: "01",
-                title: "File Ingestion & Path Verification",
-                description:
-                  "Ingests target files via drag-and-drop or file dialog, validating integrity and metadata on background thread.",
-                actorOrNode: "<2ms Validation",
-              },
-              {
-                step: "02",
-                title: "Resource Allocation & Scheduling",
-                description:
-                  "Evaluates host CPU topology to configure optimal worker pool limits and memory caching quotas.",
-                actorOrNode: "Auto-Tuning",
-              },
-              {
-                step: "03",
-                title: "Concurrent Asynchronous Execution",
-                description:
-                  "Dispatches payloads across worker processes with streaming telemetry signals to the UI dispatcher.",
-                actorOrNode: "Multi-Process",
-              },
-              {
-                step: "04",
-                title: "Atomic Commit & Disk Verification",
-                description:
-                  "Writes finalized assets to output directory, verifies checksums, and unlocks system file handles.",
-                actorOrNode: "Atomic Write",
-              },
-            ],
+    interfaceShowcase[activeImageIndex] ||
+    interfaceShowcase[0] || {
+      caption: `${project.title} — Primary Client Viewport`,
+      badge: "PRIMARY_VIEWPORT",
+      imageUrl: project.imageUrl || "",
     };
 
-  // Section 4: Tech Stack (Categorized & Filterable)
-  const defaultLanguages = [
-    "Python 3",
-    "Java",
-    "Kotlin",
-    "Swift",
-    "Dart",
-    "TypeScript",
-    "JavaScript",
-    "C#",
-    "C++",
-    "Rust",
-    "SQL",
-  ];
-  const defaultFrameworks = [
-    "PySide6",
-    "Qt 6",
-    "Flutter",
-    "React Native",
-    "Electron",
-    "Tauri",
-    ".NET MAUI",
-    "SwiftUI",
-    "Jetpack Compose",
-    "Pillow",
-    "LibWebP",
-    "pyqtgraph",
-    "qt-material",
-    "JavaFX",
-    "WPF",
-    "WinUI 3",
-  ];
+  const userFlow: {
+    summary: string;
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      actorOrNode?: string;
+    }[];
+  } = (project.desktopMobileUserFlow || project.userFlow) ? (
+    Array.isArray(project.desktopMobileUserFlow || project.userFlow)
+      ? {
+          summary: "End-to-End Application Execution Flow",
+          steps: ((project.desktopMobileUserFlow || project.userFlow) as any[]).map((step: any, idx: number) => ({
+            step: step.step || `STEP 0${idx + 1}`,
+            title: step.title || step.step || "",
+            description: step.description || step.detail || "",
+            actorOrNode: step.actorOrNode || step.screenOrAction || `NODE_0${idx + 1}`,
+          })),
+        }
+      : (project.desktopMobileUserFlow || project.userFlow) as any
+  ) : (project.pipelineSteps && project.pipelineSteps.length > 0
+      ? {
+          summary: "Pipeline Execution Flow",
+          steps: project.pipelineSteps.map((step, idx) => ({
+            step: `STEP 0${idx + 1}`,
+            title: step.step,
+            description: step.detail,
+            actorOrNode: step.latencyOrMetric || `ACTION_0${idx + 1}`,
+          })),
+        }
+      : {
+          summary: "End-to-end user navigation and asynchronous client runtime flow.",
+          steps: [],
+        });
 
+  // Section 4: Architecture & Tech Stack
   const explicitTech = project.desktopMobileTechStack;
-
   const rawTech = project.techStack || [];
 
-  const programmingLanguages =
-    explicitTech?.programmingLanguages ||
-    rawTech
-      .filter((t) => defaultLanguages.some((dl) => t.toLowerCase().includes(dl.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "Core runtime, system interface, and logic execution",
-      }));
+  const programmingLanguages = explicitTech?.programmingLanguages || [];
+  const frameworksAndLibraries = explicitTech?.frameworksAndLibraries || [];
+  const databaseToolsAndServices = [
+    ...(explicitTech?.databaseAndStorage || []),
+    ...(explicitTech?.testingAndBuildTools || []),
+  ];
 
-  const frameworksAndLibraries =
-    explicitTech?.frameworksAndLibraries ||
-    rawTech
-      .filter((t) => defaultFrameworks.some((df) => t.toLowerCase().includes(df.toLowerCase())))
-      .map((t) => ({
-        name: t,
-        role: "Native UI components, event dispatch, and graphics rendering",
-      }));
-
-  const databaseToolsAndServices =
-    explicitTech?.databaseToolsAndServices ||
-    rawTech
-      .filter(
-        (t) =>
-          !defaultLanguages.some((dl) => t.toLowerCase().includes(dl.toLowerCase())) &&
-          !defaultFrameworks.some((df) => t.toLowerCase().includes(df.toLowerCase()))
-      )
-      .map((t) => ({
-        name: t,
-        role: "Process orchestration, packaging, or local data persistence",
-      }));
-
-  // Filter logic
   const filteredTechGroups = [
-    {
-      group: "Programming Languages",
-      items: programmingLanguages,
-      visible:
-        selectedTechFilter === "All" || selectedTechFilter === "Programming Languages",
-    },
-    {
-      group: "Frameworks & Libraries",
-      items: frameworksAndLibraries,
-      visible:
-        selectedTechFilter === "All" || selectedTechFilter === "Frameworks & Libraries",
-    },
-    {
-      group: "Database, Tools & Services",
-      items: databaseToolsAndServices,
-      visible:
-        selectedTechFilter === "All" ||
-        selectedTechFilter === "Database, Tools & Services",
-    },
-  ].filter((g) => g.items.length > 0 && g.visible);
+    { label: "Programming Languages", items: programmingLanguages },
+    { label: "Frameworks & Libraries", items: frameworksAndLibraries },
+    { label: "Database, Tools & Services", items: databaseToolsAndServices },
+  ].filter((grp) => {
+    if (selectedTechFilter === "All") return grp.items.length > 0;
+    return grp.label === selectedTechFilter && grp.items.length > 0;
+  });
 
-  // Section 5: Architecture & Implementation
-  const systemArchitecture = project.desktopMobileArchitecture ||
-    project.systemArchitecture || {
-      summary:
-        project.architectureSummary ||
-        "Layered desktop architecture separating user presentation and live telemetry from background worker processes via asynchronous signals and IPC message passing.",
-      layers: [
+  const systemArchitecture =
+    project.desktopMobileArchitecture ||
+    (project.systemArchitecture
+      ? {
+          summary: project.systemArchitecture.summary,
+          layers: (project.systemArchitecture.layers || []).map((l) => ({
+            name: l.name,
+            tech: l.components ? l.components.join(" + ") : l.name,
+            role: l.role,
+            components: l.components || [],
+          })),
+        }
+      : {
+          summary: project.architectureSummary || "",
+          layers: [],
+        });
+
+  const dataManagementList: {
+    title: string;
+    description: string;
+    badge?: string;
+  }[] = Array.isArray(project.desktopMobileDataManagement)
+    ? project.desktopMobileDataManagement
+    : project.desktopMobileDataManagement
+    ? [
         {
-          name: "Presentation & Viewport Layer",
-          role: "Native UI & Telemetry",
-          components: [
-            isMobile ? "Flutter / SwiftUI UI Engine" : "PySide6 / Qt 6 Widgets",
-            "Obsidian Dark Theme (QSS)",
-            "Hardware Vector Telemetry (pyqtgraph)",
-          ],
+          title: "Storage Engine & Persistence",
+          description: (project.desktopMobileDataManagement as any).storageType || "Local In-Memory Cache",
+          badge: "STORAGE",
         },
         {
-          name: "Concurrency & Orchestration Layer",
-          role: "Asynchronous Worker Dispatcher",
-          components: [
-            "QThread Event Scanner",
-            "ProcessPoolExecutor (GIL-Bypass)",
-            "Thread-Safe Signal / Slot IPC",
-          ],
+          title: "State Management Architecture",
+          description: (project.desktopMobileDataManagement as any).stateEngine || "Reactive State Machine",
+          badge: "STATE",
         },
         {
-          name: "Core Processing Engine",
-          role: "Media & Data Transcoding",
-          components: [
-            "LibWebP Codec Engine",
-            "Pillow Image Transformations",
-            "Dual-Tier MD5 Thumbnail Cache",
-          ],
+          title: "Offline & Synchronization Strategy",
+          description: (project.desktopMobileDataManagement as any).offlineSyncStrategy || "Offline-First Execution",
+          badge: "OFFLINE",
         },
         {
-          name: "Platform & Host OS Interface",
-          role: "Native Hardware & Storage",
-          components: [
-            "Win32 / POSIX Filesystem Access",
-            "psutil CPU / RAM Hardware Prober",
-            "PyInstaller Portable PE Binary",
-          ],
+          title: "In-Memory Caching Mechanism",
+          description: (project.desktopMobileDataManagement as any).cachingMechanism || "In-memory circular buffer",
+          badge: "CACHE",
         },
-      ],
-    };
+      ]
+    : [];
 
-  const dataManagement = project.desktopMobileDataManagement || [
-    {
-      title: "Two-Tier MD5 Keyed Disk & Memory Cache",
-      description:
-        "Computes unique MD5 hashes from file path, byte size, and modification timestamp to cache generated thumbnails (~/.app_cache) and keep UI navigation instant.",
-      badge: "MD5 Sub-5ms Cache",
-    },
-    {
-      title: "Air-Gapped In-Memory Stream Buffering",
-      description:
-        "Buffers raw image payloads in memory without temporary unencrypted disk writes, preventing sensitive thumbnail remnants from persisting in host temporary directories.",
-      badge: "In-Memory Privacy",
-    },
-    {
-      title: "Atomic Result Finalization & Integrity Verification",
-      description:
-        "Verifies file checksums in the output directory before committing, ensuring no partial or corrupted binaries are retained upon unexpected task cancellation.",
-      badge: "Atomic Commit",
-    },
-  ];
+  const platformImplementationList: {
+    title: string;
+    description: string;
+    badge?: string;
+  }[] = Array.isArray(project.desktopMobilePlatformImplementation)
+    ? (project.desktopMobilePlatformImplementation as any[]).map((pi: any, idx: number) => ({
+        title: pi.title || pi.platform || `Platform Target 0${idx + 1}`,
+        description: pi.description || pi.integrationRole || pi.nativeTech || "",
+        badge: pi.badge || (pi.platform ? pi.platform.split(" ")[0].toUpperCase() : `TARGET_0${idx + 1}`),
+      }))
+    : [];
 
-  const platformImplementation = project.desktopMobilePlatformImplementation || [
-    {
-      title: "Multi-Core CPU Saturation (Bypassing GIL)",
-      description:
-        "Dynamically probes host CPU topology via psutil, spawning isolated subprocesses to utilize up to 16 logical cores concurrently without GIL thread freezing.",
-      badge: "Multi-Core GIL Bypass",
-    },
-    {
-      title: "Asynchronous QThread Filesystem Scanner",
-      description:
-        "Scans nested disk directories recursively on background QThread workers, streaming validated file paths into the UI without interrupting smooth 60fps animations.",
-      badge: "Non-Blocking I/O",
-    },
-    {
-      title: "High-DPI Scaling & Native Windows Shell Integration",
-      description:
-        "Implements Qt High-DPI per-monitor scaling, native Windows file drag-and-drop protocols, and taskbar progress indicators for seamless desktop ergonomics.",
-      badge: "Native Win32 Shell",
-    },
-  ];
-
-  // Section 6: Project Resources
+  // Section 5: Distribution & Project Resources
   const repoUrl = project.repoUrl || "";
   const isPublicRepo = Boolean(repoUrl && repoUrl.trim().length > 0);
 
   const distribution = project.desktopMobileDistribution || {
-    packageType: isMobile
-      ? "Android APK Package (.apk)"
-      : "Standalone Portable Executable (.exe)",
-    targetOs: isMobile ? "Android 14+ (ARM64 / x86_64)" : "Windows 11 / 10 (64-bit Architecture)",
-    version: "v1.4.2-STABLE",
-    fileSize: "71.2 MB",
-    downloadUrl: repoUrl ? `${repoUrl}/releases` : undefined,
-    releaseNotes:
-      "Fully self-contained, air-gapped executable compiled with PyInstaller and UPX compression. Requires zero client Python or library installation.",
+    packagingFormat: isMobile ? "APK / iOS App Bundle" : "Standalone Binary (.exe)",
+    binarySize: "Optimized Production Build",
+    distributionChannel: "Direct Release / App Stores",
+    targetArchitecture: "Universal Cross-Platform",
+    updateMechanism: "Zero-telemetry manual updates",
   };
 
   const documentation = project.desktopMobileDocumentation || {
-    title: "Client Manual & Architecture Specification",
-    description:
-      "Comprehensive engineering manual covering process concurrency, LibWebP profile heuristics, hardware telemetry integration, and standalone packaging procedures.",
-    status: "VERIFIED_DOC_v1.4",
-    specs: [
-      { label: "Target Architecture", value: isMobile ? "ARM64 / Universal" : "x86_64 (64-bit)" },
-      { label: "GUI Framework", value: isMobile ? "Flutter / React Native" : "PySide6 (Qt 6.6)" },
-      { label: "Concurrency Model", value: "QThread + Multi-Process" },
-      { label: "Distribution Footprint", value: distribution.fileSize || "71.2 MB" },
-    ],
-    docsUrl: repoUrl ? `${repoUrl}#readme` : undefined,
+    title: "Application Technical Specification",
+    description: "",
+    status: "DOCS // VERIFIED",
+    specs: [],
   };
 
   const handleCopyLink = () => {
@@ -549,30 +369,27 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col">
-            <div className="flex flex-col flex-1 h-full">
-              {/* Terminal Title Bar */}
-              <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-950/40 px-4 py-2 text-xs font-mono text-amber-300">
-                <span className="flex items-center gap-2 text-amber-200">
-                  <Terminal className="h-3.5 w-3.5 text-amber-400" />
-                  &gt; CLIENT_RUNTIME // SYS.VIEWPORT
-                </span>
-                <span className="text-[10px] text-amber-400/80">ONLINE // NATIVE_IPC</span>
-              </div>
+            {/* Terminal Title Bar */}
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-950/40 px-4 py-2 text-xs font-mono text-amber-300">
+              <span className="flex items-center gap-2 text-amber-200">
+                <Terminal className="h-3.5 w-3.5 text-amber-400" />
+                &gt; CLIENT_RUNTIME // SYS.VIEWPORT
+              </span>
+              <span className="text-[10px] text-amber-400/80">ONLINE // NATIVE_IPC</span>
+            </div>
 
-              {/* Terminal Body */}
-              <div className="rounded-b-xl border-x border-b border-amber-500/25 bg-[#120E08]/95 p-5 sm:p-6 text-slate-300 shadow-inner flex-1 flex flex-col justify-between">
+            {/* Terminal Body */}
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-amber-500/25 bg-[#120E08]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+              <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-amber-500/30 bg-black/60 shadow-lg">
-
                     {/* Optical HUD Crosshairs */}
                     <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/80" />
                     <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/80" />
                     <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/80" />
 
-                    {/* Hero Image with smooth hover scale */}
-                    
                     {/* Hero Image */}
                     <Image
                       src={heroImage}
@@ -589,22 +406,22 @@ export default function DesktopMobileDetailView({
                     ? `${projectDescription.slice(0, 500).trim()}...`
                     : projectDescription}
                 </p>
+              </div>
 
-                {/* Capability Badges Strip (Max 3) */}
-                <div className="mt-auto pt-4 border-t border-amber-500/20 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
-                    <Zap className="h-3 w-3 text-amber-400" />
-                    Decoupled Async Concurrency
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
-                    <ShieldCheck className="h-3 w-3 text-amber-400" />
-                    Zero-Telemetry Air-Gapped
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
-                    <Cpu className="h-3 w-3 text-amber-400" />
-                    Multi-Core Hardware Saturation
-                  </span>
-                </div>
+              {/* Capability Badges Strip (Max 3) */}
+              <div className="mt-auto pt-4 border-t border-amber-500/20 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
+                  <Zap className="h-3 w-3 text-amber-400" />
+                  Decoupled Async Concurrency
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
+                  <ShieldCheck className="h-3 w-3 text-amber-400" />
+                  Zero-Telemetry Air-Gapped
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-300">
+                  <Cpu className="h-3 w-3 text-amber-400" />
+                  Multi-Core Hardware Saturation
+                </span>
               </div>
             </div>
           </div>
@@ -1146,7 +963,7 @@ export default function DesktopMobileDetailView({
             <div key={gIdx} className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs text-amber-300 uppercase tracking-wider border-b border-amber-500/15 pb-1.5">
                 <Code2 className="h-3.5 w-3.5 text-amber-400" />
-                <span>{groupItem.group}</span>
+                <span>{groupItem.label}</span>
                 <span className="text-[10px] text-amber-400/70">
                   ({groupItem.items.length} TECHNOLOGIES)
                 </span>
@@ -1232,7 +1049,7 @@ export default function DesktopMobileDetailView({
                     {layer.role}
                   </p>
                   <div className="space-y-1.5 border-t border-white/5 pt-2.5">
-                    {layer.components.map((comp, cIdx) => (
+                    {(layer.components || []).map((comp, cIdx) => (
                       <div
                         key={cIdx}
                         className="flex items-center gap-1.5 text-xs text-slate-300 font-sans"
@@ -1258,7 +1075,7 @@ export default function DesktopMobileDetailView({
             </div>
 
             <div className="space-y-3.5">
-              {dataManagement.map((dm, idx) => (
+              {dataManagementList.map((dm: any, idx: number) => (
                 <div
                   key={idx}
                   className="rounded-xl border border-amber-500/25 bg-amber-950/15 p-4 transition-all hover:border-amber-400/40 hover:bg-amber-950/25"
@@ -1290,7 +1107,7 @@ export default function DesktopMobileDetailView({
             </div>
 
             <div className="space-y-3.5">
-              {platformImplementation.map((pi, idx) => (
+              {platformImplementationList.map((pi: any, idx: number) => (
                 <div
                   key={idx}
                   className="rounded-xl border border-amber-500/25 bg-amber-950/15 p-4 transition-all hover:border-amber-400/40 hover:bg-amber-950/25"

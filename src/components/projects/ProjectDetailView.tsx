@@ -17,7 +17,6 @@ import {
   Globe,
   Grid,
   Layers,
-  Maximize2,
   ShieldCheck,
   Sparkles,
   Target,
@@ -301,7 +300,6 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
   const [pulseTrigger, setPulseTrigger] = useState<number>(0);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({});
-  const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
 
   const [telemetry, setTelemetry] = useState<TelemetryData>({
     fps: 60,
@@ -325,7 +323,6 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
   useEffect(() => {
     setCurrentImageIndex(0);
     setImgErrors({});
-    setIsLightboxOpen(false);
     setPulseTrigger((prev) => prev + 1);
   }, [projectId]);
 
@@ -396,14 +393,14 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
   // Auto-play slideshow when there are multiple images (pauses on hover or when lightbox is open)
   useEffect(() => {
-    if (!hasMultipleImages || isPaused || isLightboxOpen) return;
+    if (!hasMultipleImages || isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
     }, 3600);
 
     return () => clearInterval(interval);
-  }, [hasMultipleImages, isPaused, isLightboxOpen, projectImages.length]);
+  }, [hasMultipleImages, isPaused, projectImages.length]);
 
   const handlePrevImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -421,27 +418,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
     handleTriggerPulse();
   };
 
-  // Keyboard navigation for fullscreen lightbox modal
-  useEffect(() => {
-    if (!isLightboxOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsLightboxOpen(false);
-      } else if (e.key === "ArrowLeft") {
-        if (hasMultipleImages) {
-          setCurrentImageIndex(
-            (prev) => (prev - 1 + projectImages.length) % projectImages.length
-          );
-        }
-      } else if (e.key === "ArrowRight") {
-        if (hasMultipleImages) {
-          setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
-        }
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isLightboxOpen, hasMultipleImages, projectImages.length]);
+
 
   return (
     <div className={`relative min-h-screen bg-[#06070A] text-slate-100 ${accent.selection}`}>
@@ -610,17 +587,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     <div
                       onMouseEnter={() => setIsPaused(true)}
                       onMouseLeave={() => setIsPaused(false)}
-                      onClick={() => {
-                        if (currentImage && !hasCurrentImageError) {
-                          setIsLightboxOpen(true);
-                          handleTriggerPulse();
-                        }
-                      }}
-                      className={`relative aspect-video w-full overflow-hidden bg-slate-950/90 group select-none ${
-                        currentImage && !hasCurrentImageError
-                          ? "cursor-pointer"
-                          : ""
-                      }`}
+                      className="relative aspect-video w-full overflow-hidden bg-slate-950/90 group select-none"
                     >
                       {currentImage && !hasCurrentImageError ? (
                         <img
@@ -647,13 +614,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                         </div>
                       )}
 
-                      {/* Click to Zoom Hint Overlay */}
-                      {currentImage && !hasCurrentImageError && (
-                        <div className="pointer-events-none absolute top-3 right-3 rounded-lg border border-sky-400/40 bg-black/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-sky-200 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-[0_0_12px_rgba(56,189,248,0.25)] z-20">
-                          <Maximize2 className="h-3 w-3 text-sky-400" />
-                          <span>OPTICAL_HUD // ENLARGE</span>
-                        </div>
-                      )}
+
 
                       {/* Multiple Images Navigation Controls */}
                       {hasMultipleImages && (
@@ -759,17 +720,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   <div
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
-                    onClick={() => {
-                      if (currentImage && !hasCurrentImageError) {
-                        setIsLightboxOpen(true);
-                        handleTriggerPulse();
-                      }
-                    }}
-                    className={`relative aspect-video w-full overflow-hidden bg-slate-950/90 group select-none ${
-                      currentImage && !hasCurrentImageError
-                        ? "cursor-pointer"
-                        : ""
-                    }`}
+                    className="relative aspect-video w-full overflow-hidden bg-slate-950/90 group select-none"
                   >
                     {currentImage && !hasCurrentImageError ? (
                       <img
@@ -796,13 +747,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                       </div>
                     )}
 
-                    {/* Click to Zoom Hint Overlay (Consistent with Certificate) */}
-                    {currentImage && !hasCurrentImageError && (
-                      <div className="pointer-events-none absolute top-3 right-3 rounded-lg border border-sky-400/40 bg-black/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-sky-200 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-[0_0_12px_rgba(56,189,248,0.25)] z-20">
-                        <Maximize2 className="h-3 w-3 text-sky-400" />
-                        <span>OPTICAL_HUD // ENLARGE</span>
-                      </div>
-                    )}
+
 
                     {/* Multiple Images Navigation Controls */}
                     {hasMultipleImages && (
@@ -1437,103 +1382,6 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
         telemetry={telemetry}
       />
 
-      {/* Fullscreen / Large Image Lightbox Modal (Consistent with Certificate Modal) */}
-      {isLightboxOpen && currentImage && !hasCurrentImageError && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8"
-          onClick={() => setIsLightboxOpen(false)}
-        >
-          <div
-            className="relative max-w-5xl w-full overflow-hidden rounded-3xl border border-sky-400/40 bg-[#080B14] shadow-[0_24px_100px_rgba(0,0,0,0.95),0_0_50px_rgba(56,189,248,0.2)]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Optical HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 z-20 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-            <div className="pointer-events-none absolute top-3 right-3 z-20 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-            <div className="pointer-events-none absolute bottom-3 left-3 z-20 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-            <div className="pointer-events-none absolute bottom-3 right-3 z-20 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
-
-            {/* Header: Code, Title & Close Button */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-sky-500/20 bg-black/80">
-              <div className="flex items-center gap-3 font-mono text-xs text-slate-200 truncate pr-3">
-                <span className="inline-flex items-center gap-1.5 rounded border border-sky-400/40 bg-sky-500/10 px-2 py-0.5 font-bold text-sky-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  {project.code}
-                </span>
-                <span className="text-slate-400 truncate">// {project.title}</span>
-                {hasMultipleImages && (
-                  <span className="ml-2 text-sky-400 font-mono text-[11px]">
-                    [{currentImageIndex + 1}/{projectImages.length}]
-                  </span>
-                )}
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsLightboxOpen(false)}
-                className="flex items-center gap-1.5 rounded-xl border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shrink-0 cursor-pointer"
-                aria-label="Close preview"
-              >
-                <span className="hidden sm:inline text-[11px] text-slate-400">ESC</span>
-                <X className="h-4 w-4 text-sky-400" />
-              </button>
-            </div>
-
-            {/* Modal Body: Image & Controls */}
-            <div className="relative bg-black/90 flex items-center justify-center max-h-[80vh] overflow-hidden p-4">
-              <img
-                key={currentImage}
-                src={currentImage}
-                alt={`${project.title} - View ${currentImageIndex + 1}`}
-                className="w-full h-auto max-h-[76vh] object-contain rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.8)]"
-              />
-
-              {/* Lightbox Navigation Arrows for Multiple Images */}
-              {hasMultipleImages && (
-                <>
-                  <button
-                    type="button"
-                    onClick={handlePrevImage}
-                    aria-label="Previous Image"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 items-center justify-center rounded-xl border border-sky-400/40 bg-black/80 backdrop-blur-md text-sky-300 hover:bg-sky-500/20 hover:border-sky-400 hover:text-white transition-all shadow-[0_0_15px_rgba(56,189,248,0.4)] cursor-pointer"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleNextImage}
-                    aria-label="Next Image"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 items-center justify-center rounded-xl border border-sky-400/40 bg-black/80 backdrop-blur-md text-sky-300 hover:bg-sky-500/20 hover:border-sky-400 hover:text-white transition-all shadow-[0_0_15px_rgba(56,189,248,0.4)] cursor-pointer"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-
-                  {/* Bottom Indicator Dots inside Modal */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-1.5 rounded-full border border-sky-400/30 bg-black/80 px-2.5 py-1 backdrop-blur-md shadow-[0_0_12px_rgba(0,0,0,0.8)]">
-                    {projectImages.map((_, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setCurrentImageIndex(idx);
-                          handleTriggerPulse();
-                        }}
-                        aria-label={`Jump to image ${idx + 1}`}
-                        className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                          currentImageIndex === idx
-                            ? "w-4 bg-sky-400 shadow-[0_0_10px_#38bdf8]"
-                            : "w-1.5 bg-white/40 hover:bg-white/80"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

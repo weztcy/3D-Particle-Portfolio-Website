@@ -81,12 +81,12 @@ export interface ProjectCaseStudy {
   challenge: string;
   architectureSummary: string;
   objectives: string[];
-  features: { title: string; description: string; badge?: string }[];
-  pipelineSteps: { step: string; detail: string; latencyOrMetric: string }[];
+  features: { title: string; description: string; badge?: string; [key: string]: any }[];
+  pipelineSteps: { step: string; detail: string; latencyOrMetric?: string; [key: string]: any }[];
   evaluation: string;
   outcomes: string[];
   techStack: string[];
-  accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple" | "orange";
+  accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple" | "orange" | "rose";
   repoUrl?: string;
 
   // Universal System Telemetry Matrix (Standardized across all categories)
@@ -116,6 +116,7 @@ export interface ProjectCaseStudy {
     title: string;
     description: string;
     badge?: string;
+    [key: string]: any;
   }[];
   interfaceShowcase?: {
     imageUrl: string;
@@ -475,6 +476,7 @@ export interface ProjectCaseStudy {
     description: string;
   }[];
   mlTechnicalDocumentation?: {
+    [key: string]: any;
     title: string;
     description: string;
     status: string;
@@ -483,43 +485,46 @@ export interface ProjectCaseStudy {
 
   // Extended Desktop & Mobile App Domain Specific Fields
   desktopMobileProjectInfo?: {
-    applicationType: string;
-    targetPlatform: string;
-    developmentStatus: string;
-    developmentYear: string;
-    applicationCategory: string;
+    [key: string]: any;
+    applicationType?: string;
+    targetPlatform?: string;
+    developmentStatus?: string;
+    developmentYear?: string;
+    applicationCategory?: string;
   };
   desktopMobileBackground?: string;
   desktopMobileProblemStatements?: {
-    title: string;
-    description: string;
+    [key: string]: any;
+    title?: string;
+    issue?: string;
+    description?: string;
     issueCode?: string;
   }[];
-  desktopMobileObjectives?: {
-    title: string;
-    description: string;
-    targetTag?: string;
-  }[];
+  desktopMobileObjectives?: (
+    | string
+    | {
+        [key: string]: any;
+        title: string;
+        description: string;
+        targetTag?: string;
+      }
+  )[];
   desktopMobileFeatures?: {
+    [key: string]: any;
     title: string;
     description: string;
     badge?: string;
+    metric?: string;
   }[];
   desktopMobileInterfaceShowcase?: {
+    [key: string]: any;
     imageUrl: string;
     caption: string;
     badge?: string;
   }[];
-  desktopMobileUserFlow?: {
-    summary: string;
-    steps: {
-      step: string;
-      title: string;
-      description: string;
-      actorOrNode?: string;
-    }[];
-  };
+  desktopMobileUserFlow?: any;
   desktopMobileTechStack?: {
+    [key: string]: any;
     programmingLanguages?: {
       name: string;
       role?: string;
@@ -534,32 +539,30 @@ export interface ProjectCaseStudy {
     }[];
   };
   desktopMobileArchitecture?: {
-    summary: string;
+    [key: string]: any;
+    summary?: string;
     layers?: {
+      [key: string]: any;
       name: string;
       role: string;
-      components: string[];
+      components?: string[];
+      tech?: string;
     }[];
   };
-  desktopMobileDataManagement?: {
-    title: string;
-    description: string;
-    badge?: string;
-  }[];
-  desktopMobilePlatformImplementation?: {
-    title: string;
-    description: string;
-    badge?: string;
-  }[];
+  desktopMobileDataManagement?: any;
+  desktopMobilePlatformImplementation?: any;
   desktopMobileDistribution?: {
-    packageType: string;
-    targetOs: string;
-    version: string;
+    [key: string]: any;
+    packageType?: string;
+    targetOs?: string;
+    version?: string;
     fileSize?: string;
     downloadUrl?: string;
     releaseNotes?: string;
+    packagingFormat?: string;
   };
   desktopMobileDocumentation?: {
+    [key: string]: any;
     title: string;
     description: string;
     status: string;
@@ -569,50 +572,35 @@ export interface ProjectCaseStudy {
 
   // Extended UI/UX Design Domain Specific Fields
   uiUxProjectInfo?: {
-    projectType: string;
-    designStatus: string;
-    designYear: string;
-    targetPlatform: string;
-    designCategory: string;
+    [key: string]: any;
+    projectType?: string;
+    designStatus?: string;
+    designYear?: string;
+    targetPlatform?: string;
+    designCategory?: string;
+    platformType?: string;
   };
   uiUxBackground?: string;
-  uiUxUserResearch?: {
-    method: string;
-    description: string;
-    keyFinding: string;
-    badge?: string;
-  }[];
-  uiUxPersonas?: {
-    name: string;
-    role: string;
-    demographics: string;
-    goals: string[];
-    painPoints: string[];
-    avatarUrl?: string;
-  }[];
+  uiUxUserResearch?: any;
+  uiUxPersonas?: any;
   uiUxInformationArchitecture?: {
-    summary: string;
-    nodes: {
+    summary?: string;
+    nodes?: {
       section: string;
       screens: string[];
     }[];
+    [key: string]: any;
   };
-  uiUxUserFlow?: {
-    summary: string;
-    steps: {
-      step: string;
-      title: string;
-      description: string;
-      screenOrAction?: string;
-    }[];
-  };
+  uiUxUserFlow?: any;
   uiUxWireframes?: {
-    title: string;
-    imageUrl: string;
-    caption: string;
+    [key: string]: any;
+    title?: string;
+    imageUrl?: string;
+    caption?: string;
     badge?: string;
   }[];
   uiUxTechStack?: {
+    [key: string]: any;
     designAndPrototypingTools?: {
       name: string;
       role?: string;
@@ -627,20 +615,29 @@ export interface ProjectCaseStudy {
     }[];
   };
   uiUxVisualShowcase?: {
-    title: string;
-    imageUrl: string;
-    caption: string;
+    [key: string]: any;
+    title?: string;
+    imageUrl?: string;
+    caption?: string;
     badge?: string;
+    stage?: string;
   }[];
   uiUxDesignSystem?: {
-    colorPalette: {
-      name: string;
-      hex: string;
-      role: string;
+    [key: string]: any;
+    colorPalette?: {
+      name?: string;
+      hex?: string;
+      role?: string;
+      usage?: string;
+      [key: string]: any;
     }[];
-    typography: {
-      name: string;
-      usage: string;
+    typography?: {
+      name?: string;
+      usage?: string;
+      role?: string;
+      font?: string;
+      sizeWeight?: string;
+      [key: string]: any;
     }[];
     componentStates?: {
       component: string;
@@ -649,56 +646,77 @@ export interface ProjectCaseStudy {
     }[];
   };
   uiUxUsabilityValidation?: {
+    [key: string]: any;
     prototypeUrl?: string;
     susScore?: string;
     taskSuccessRate?: string;
     timeOnTask?: string;
-    findingsAndFeedback: {
-      feedback: string;
-      iterationSolution: string;
-      impact: string;
+    findingsAndFeedback?: {
+      feedback?: string;
+      iterationSolution?: string;
+      impact?: string;
+      [key: string]: any;
+    }[];
+    iterations?: {
+      usabilityIssue?: string;
+      iterationSolution?: string;
+      impact?: string;
+      [key: string]: any;
     }[];
   };
   uiUxDesignFile?: {
-    platform: string;
+    [key: string]: any;
+    platform?: string;
     url?: string;
-    isPublic: boolean;
-    description: string;
+    isPublic?: boolean;
+    description?: string;
+    figmaUrl?: string;
+    fileStatus?: string;
+    totalFrames?: number;
+    componentsCount?: number;
+    handoffSpecs?: string;
   };
   uiUxPrototypeAndHandoff?: {
+    [key: string]: any;
     prototypeUrl?: string;
-    handoffStatus: string;
-    specs: { label: string; value: string }[];
-    description: string;
+    handoffStatus?: string;
+    specs?: { label: string; value: string }[];
+    description?: string;
   };
   uiUxDocumentation?: {
-    title: string;
-    description: string;
-    deliverables: string[];
+    [key: string]: any;
+    title?: string;
+    description?: string;
+    deliverables?: string[];
     docsUrl?: string;
+    status?: string;
+    specs?: { label: string; value: string }[];
   };
 
   // Extended Code Learning Domain Specific Fields
   codeLearningProjectInfo?: {
-    learningCategory: string;
-    difficultyLevel: string;
-    learningFormat: string;
-    totalModules: string;
-    totalSubmodules: string;
-    totalSourceCodeFiles: string;
-    programmingLanguages: string;
-    learningStatus: string;
+    [key: string]: any;
+    learningCategory?: string;
+    difficultyLevel?: string;
+    learningFormat?: string;
+    totalModules?: string;
+    totalSubmodules?: string;
+    totalSourceCodeFiles?: string;
+    programmingLanguages?: string;
+    learningStatus?: string;
   };
   codeLearningDescription?: string;
   codeLearningObjectives?: {
     title: string;
     description: string;
     competencyCode?: string;
+    [key: string]: any;
   }[];
   codeLearningPrerequisites?: {
     category: string;
     items: string[];
     description: string;
+    [key: string]: any;
   }[];
   codeLearningCurriculumStructure?: {
     summary: string;
@@ -708,25 +726,27 @@ export interface ProjectCaseStudy {
       difficulty: string;
       moduleRange: string;
       topics: string[];
+      [key: string]: any;
     }[];
+    [key: string]: any;
   };
   codeLearningModules?: {
     id: string;
     moduleNumber: string;
     title: string;
     description: string;
-    submoduleCount: number;
-    difficulty: "Beginner" | "Intermediate" | "Advanced" | "Expert";
+    submoduleCount?: number;
+    difficulty: string;
     keyTopics?: string[];
     sourceFilesCount?: number;
     estimatedHours?: string;
-    submodules: {
+    submodules?: {
       id: string;
       submoduleNumber: string;
       title: string;
       description: string;
       duration?: string;
-      hasCode: boolean;
+      hasCode?: boolean;
       theoryContent?: {
         summary: string;
         keyPoints: string[];
@@ -738,36 +758,31 @@ export interface ProjectCaseStudy {
         code: string;
         output?: string;
       }[];
+      [key: string]: any;
     }[];
+    [key: string]: any;
   }[];
   codeLearningTechStack?: {
-    programmingLanguages?: {
-      name: string;
-      role?: string;
-    }[];
-    frameworksAndLibraries?: {
-      name: string;
-      role?: string;
-    }[];
-    developmentToolsAndEnvironment?: {
-      name: string;
-      role?: string;
-    }[];
+    [key: string]: any;
+    programmingLanguages?: { name: string; role?: string }[];
+    frameworksAndLibraries?: { name: string; role?: string }[];
+    developmentToolsAndEnvironment?: { name: string; role?: string }[];
   };
   codeLearningExercises?: {
     title: string;
     moduleRef: string;
-    difficulty: "Easy" | "Medium" | "Hard";
+    difficulty: string;
     taskDescription: string;
     instructions: string[];
     solutionSnippet?: string;
+    [key: string]: any;
   }[];
   codeLearningPracticalProjects?: {
     title: string;
     description: string;
-    techStack: string[];
+    techStack?: string[];
     imageUrl?: string;
-    highlights: string[];
+    highlights?: string[];
     tier?: string;
     difficulty?: string;
     estimatedTime?: string;
@@ -776,6 +791,7 @@ export interface ProjectCaseStudy {
     architecturalConstraints?: string[];
     acceptanceCriteria?: string[];
     keyConcepts?: string[];
+    [key: string]: any;
   }[];
   codeLearningOutcomes?: {
     pillar: string;
@@ -783,29 +799,14 @@ export interface ProjectCaseStudy {
       title: string;
       description: string;
     }[];
+    [key: string]: any;
   }[];
-  codeLearningRepository?: {
-    isPublic: boolean;
-    url?: string;
-    description: string;
-    license?: string;
-  };
-  codeLearningDocumentation?: {
-    title: string;
-    description: string;
-    specs: { label: string; value: string }[];
-    docsUrl?: string;
-  };
-  codeLearningSupplementaryResources?: {
-    title: string;
-    description: string;
-    resources: {
-      name: string;
-      type: "Cheat Sheet" | "Starter Template" | "Dataset" | "Config" | "Guide";
-      format: string;
-      url?: string;
-    }[];
-  };
+  codeLearningRepository?: any;
+  codeLearningDocumentation?: any;
+  codeLearningSupplementaryResources?: any;
+
+  // Flexible domain extensions
+  [key: string]: any;
 }
 
 export interface ExperienceItem {
