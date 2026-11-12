@@ -478,8 +478,8 @@ export default function UIUXDetailView({
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-[10px]">VCS GATEWAY:</span>
-                      <span className="text-slate-200 text-[11px]">GitHub Cloud VCS</span>
+                      <span className="text-[10px]">SOURCE GATEWAY:</span>
+                      <span className="text-slate-200 text-[11px]">{isPublicRepo ? "Main Branch" : "Personal Archive"}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
@@ -1112,7 +1112,7 @@ export default function UIUXDetailView({
             </span>
           </div>
           <span className="font-mono text-[10px] uppercase text-rose-400/80">
-            GITHUB_VCS // FIGMA_SPECIFICATION_GATES
+            GITHUB_SOURCE // FIGMA_SPECIFICATION_GATES
           </span>
         </div>
 

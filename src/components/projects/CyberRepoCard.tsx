@@ -258,7 +258,7 @@ export default function CyberRepoCard({
               <Lock className="h-4 w-4 text-slate-400 shrink-0" />
             )}
             <span>
-              {hasRepoUrl ? "GITHUB_VCS_GATEWAY" : "RESTRICTED_ACCESS_GATEWAY"}
+              {hasRepoUrl ? "GITHUB_SOURCE_GATEWAY" : "RESTRICTED_ACCESS_GATEWAY"}
             </span>
           </div>
 
@@ -326,8 +326,8 @@ export default function CyberRepoCard({
           {hasRepoUrl ? (
             <>
               <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">VCS HOSTING:</span>
-                <span className="text-slate-200 font-semibold">GitHub Enterprise / Cloud</span>
+                <span className="uppercase text-[11px]">SOURCE GATEWAY:</span>
+                <span className="text-slate-200 font-semibold">{hasRepoUrl ? "Main Branch" : "Personal Archive"}</span>
               </div>
               <div className="flex items-center justify-between text-slate-400">
                 <span className="uppercase text-[11px]">REPO SLUG:</span>
@@ -335,7 +335,7 @@ export default function CyberRepoCard({
                   className={`${theme.textAccent} font-semibold truncate max-w-[170px] sm:max-w-[210px]`}
                   title={repoSlug || ""}
                 >
-                  {repoSlug || "public-vcs"}
+                  {repoSlug || "public-source"}
                 </span>
               </div>
               <div className="flex items-center justify-between text-slate-400">

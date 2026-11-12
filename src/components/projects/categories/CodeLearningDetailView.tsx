@@ -252,9 +252,9 @@ export default function CodeLearningDetailView({
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-950/40 px-4 py-2 text-xs font-mono text-orange-300">
               <span className="flex items-center gap-2 text-orange-200">
                 <Terminal className="h-3.5 w-3.5 text-orange-400" />
-                &gt; CURRICULUM_RUNTIME // SYS.VIEWPORT
+                {project.title}
               </span>
-              <span className="text-[10px] text-orange-400/80">ONLINE</span>
+              <span className="text-[10px] text-orange-400/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -427,8 +427,8 @@ export default function CodeLearningDetailView({
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-[10px]">VCS GATEWAY:</span>
-                      <span className="text-slate-200 text-[11px]">GitHub Cloud VCS</span>
+                      <span className="text-[10px]">SOURCE GATEWAY:</span>
+                      <span className="text-slate-200 text-[11px]">{isPublicRepo ? "Main Branch" : "Personal Archive"}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
@@ -1087,7 +1087,7 @@ export default function CodeLearningDetailView({
             </span>
           </div>
           <span className="font-mono text-[10px] uppercase text-orange-400/80">
-            GITHUB_VCS // SYLLABUS_GATEWAYS
+            GITHUB_SOURCE // SYLLABUS_GATEWAYS
           </span>
         </div>
 

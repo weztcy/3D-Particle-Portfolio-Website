@@ -476,8 +476,8 @@ export default function MachineLearningDetailView({
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-[10px]">VCS GATEWAY:</span>
-                      <span className="text-slate-200 text-[11px]">GitHub Cloud VCS</span>
+                      <span className="text-[10px]">SOURCE GATEWAY:</span>
+                      <span className="text-slate-200 text-[11px]">{hasRepoUrl ? "Main Branch" : "Personal Archive"}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">SECURITY AUDIT:</span>
