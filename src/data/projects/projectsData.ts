@@ -4050,6 +4050,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "mlEvaluationStrategy": {
+      "sectionTitle": "[ 05 // NUMERICAL VERIFICATION & INVARIANT DIAGNOSTICS ]",
+      "sectionTag": "CONSERVATION LAWS // PRECISION AUDIT // VECTOR STABILITY",
+      "strategyLabel": "NUMERICAL VERIFICATION // INVARIANT CONSERVATION",
       "validationMethod": "Analytical Benchmark Validation & Conservation Invariant Tests",
       "description": "Validation suite comparing numerical outputs against known analytical physics problems (two-body inelastic collisions, symmetrical planetary arrays, and chaotic n-body centers).",
       "metrics": [
@@ -4072,8 +4075,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "pass": true
         },
         {
-          "label": "SCALABILITY BOUND",
-          "value": "10,000 Particles",
+          "label": "PARTICLE SCALE",
+          "value": "10,000",
           "benchmark": "Linear O(N) Complexity",
           "pass": true
         },
@@ -4085,8 +4088,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         },
         {
           "label": "FP64 PRECISION",
-          "value": "53-bit Significand",
-          "benchmark": "IEEE 754 Standard",
+          "value": "53-bit",
+          "benchmark": "IEEE 754 Significand",
           "pass": true
         }
       ]
@@ -4424,6 +4427,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "mlEvaluationStrategy": {
+      "sectionTitle": "[ 05 // GEOMETRIC VERIFICATION & ANALYTICAL DIAGNOSTICS ]",
+      "sectionTag": "EUCLIDEAN PROOFS // SPATIAL STABILITY // BOUNDARY CHECKS",
+      "strategyLabel": "GEOMETRIC VERIFICATION // ANALYTICAL PROOF SUITE",
       "validationMethod": "Analytical Geometry Benchmark Suite",
       "description": "Validation comparing calculated areas, perimeters, and centroids against exact mathematical proofs across regular n-gons (n=3..100) and concave star polygons.",
       "metrics": [
@@ -4446,9 +4452,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "pass": true
         },
         {
-          "label": "SHAPE COVERAGE",
-          "value": "14 Primitives",
-          "benchmark": "Full 2D Geometry Scope",
+          "label": "2D PRIMITIVES",
+          "value": "14 Shapes",
+          "benchmark": "Full Geometry Scope",
           "pass": true
         },
         {

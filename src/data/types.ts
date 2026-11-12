@@ -332,14 +332,24 @@ export interface ProjectCaseStudy {
     scenarioTitle: string;
     scenarioBadge?: string;
     scenarioDescription?: string;
+    inputLabel?: string;
+    inputTag?: string;
     triggerInput: string;
+    pipelineLabel?: string;
+    pipelineTag?: string;
     processingPipeline: string;
+    outputLabel?: string;
+    outputTag?: string;
     executionOutput: string;
-    metrics: { label: string; value: string }[];
+    telemetryChipsLabel?: string;
+    metrics?: { label: string; value: string }[];
     evaluationNote?: string;
   };
   aiEvaluationAndPerformance?: {
-    metrics: {
+    sectionTitle?: string;
+    sectionTag?: string;
+    evaluationLabel?: string;
+    metrics?: {
       label: string;
       value: string;
       benchmark?: string;
@@ -350,6 +360,8 @@ export interface ProjectCaseStudy {
     auditNote?: string;
   };
   limitationsAndImprovements?: {
+    constraintsLabel?: string;
+    guardrailsBadge?: string;
     limitations: {
       title: string;
       description: string;
@@ -466,9 +478,12 @@ export interface ProjectCaseStudy {
     }[];
   };
   mlEvaluationStrategy?: {
+    sectionTitle?: string;
+    sectionTag?: string;
+    strategyLabel?: string;
     validationMethod: string;
     description: string;
-    metrics: {
+    metrics?: {
       label: string;
       value: string;
       benchmark?: string;

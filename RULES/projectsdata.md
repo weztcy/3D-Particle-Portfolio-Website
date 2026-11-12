@@ -4,7 +4,7 @@ Dokumen ini merupakan panduan resmi dan aturan baku untuk pengisian, pembaruan, 
 
 > **Ruang Lingkup & Bahasa:**
 > - File aturan ini fokus murni pada struktur data, format nilai, penamaan aset lokal, serta batasan panjang teks agar selaras dengan seluruh tampilan UI (`Section 1`–`Section 6`).
-> - Seluruh isi teks konten di dalam `projectsData.ts` **wajib menggunakan Bahasa Inggris profesional dan teknis**.
+> - **Aturan Wajib Bahasa Output:** Seluruh data yang dihasilkan (output data project) baik pada file Markdown hasil analisis (`.md`) maupun saat diintegrasikan ke dalam [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts) **WAJIB 100% menggunakan Bahasa Inggris profesional dan teknis (Professional Technical English)**. Mulai dari `summary`, `overview`, `challenge`, `features`, `objectives`, `pipelineSteps`, `outcomes`, penjelasan arsitektur, metodologi, temuan, hingga rekomendasi dan catatan teknis. Dilarang mencampurkan bahasa Indonesia di dalam nilai/properti data output.
 
 ---
 
@@ -28,15 +28,15 @@ Setiap objek `ProjectCaseStudy` di dalam `PROJECT_CASE_STUDIES` wajib memiliki p
 
 ### Tabel Pemetaan Wajib 7 Kategori
 
-| `category` | `categoryLabel` | `accentColor` | Prefix `code` |
-| :--- | :--- | :--- | :--- |
-| `"web-development"` | `"Web Development"` | `"cyan"` | `WEB-XX` |
-| `"data-analysis"` | `"Data Analytics"` | `"emerald"` | `DA-XX` |
-| `"ai-engineering"` | `"AI Engineering"` | `"purple"` | `AI-XX` |
-| `"machine-learning"` | `"Machine Learning"` | `"indigo"` | `ML-XX` |
-| `"desktop-mobile"` | `"Desktop & Mobile"` | `"amber"` | `APP-XX` |
-| `"ui-ux"` | `"UI/UX Design"` | `"rose"` | `UX-XX` |
-| `"code-learning"` | `"Code Learning"` | `"orange"` | `CL-XX` |
+| `category` | `categoryLabel` | `accentColor` | Prefix `code` | Catatan Khusus |
+| :--- | :--- | :--- | :--- | :--- |
+| `"web-development"` | `"Web Development"` | `"cyan"` | `WEB-XX` | — |
+| `"data-analysis"` | `"Data Analytics"` | `"emerald"` | `DA-XX` | — |
+| `"ai-engineering"` | `"AI Engineering"` | `"purple"` | `AI-XX` | — |
+| `"machine-learning"` | `"Machine Learning"` | `"indigo"` | `ML-XX` | — |
+| `"desktop-mobile"` | `"Desktop & Mobile"` / `"Desktop App"` / `"Mobile App"` | `"amber"` | `APP-XX` | Nilai `category` tetap `"desktop-mobile"`. `categoryLabel` dinamis mendeteksi platform target: `"Mobile App"` jika aplikasi mobile (Android/iOS/Flutter mobile/React Native), `"Desktop App"` jika aplikasi desktop murni (Electron/Tauri/Qt/WPF/.NET), atau `"Desktop & Mobile"` jika cross-platform desktop sekaligus mobile. |
+| `"ui-ux"` | `"UI/UX Design"` | `"rose"` | `UX-XX` | — |
+| `"code-learning"` | `"Code Learning"` | `"orange"` | `CL-XX` | — |
 
 ### Aturan Status Repository (`repoUrl`)
 - **Public Repository (`repoUrl` terisi):** UI otomatis menampilkan status `GITHUB REPOSITORY`, clearance `UNRESTRICTED`, dan tombol Section 6 Card 2 mengarah ke `${repoUrl}#readme`.
@@ -159,6 +159,16 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `recommendationsAndConclusion`: `{ recommendations: { title, action, priority: "HIGH" | "MEDIUM" | "STRATEGIC" }[], conclusion: string }` — nilai `priority` **wajib** salah satu dari `"HIGH"`, `"MEDIUM"`, atau `"STRATEGIC"`.
 
 ### 3. AI Engineering (`ai-engineering`)
+- **Cakupan Universal Multi-Domain AI Engineering:**
+  - Wajib mendukung **seluruh jenis dan variasi project AI Engineering secara universal**, tidak terbatas pada satu bentuk implementasi saja.
+  - Termasuk namun tidak terbatas pada:
+    - **Conversational & Support AI**: AI Chatbot, Customer Support Bot, Context-Aware Assistants.
+    - **Retrieval & Knowledge Systems**: Retrieval-Augmented Generation (RAG), Graph RAG, Hybrid Search & Vector Pipelines.
+    - **Autonomous & Collaborative Systems**: Agentic AI, Multi-Agent Collaboration, Autonomous Planning & Execution Loops.
+    - **Tooling & Platform Capabilities**: AI Skills, MCP (Model Context Protocol) Servers & Tools, AI Tool Calling.
+    - **Process & Workflow Engineering**: AI Workflow Automation, Enterprise Task Orchestration, Event-Driven AI Pipelines.
+    - **Integrated Applications**: AI-Powered Web Applications, AI-Powered Mobile/Desktop Apps, Local AI/On-Device Inference Apps.
+    - **Foundation Model Engineering**: LLM Applications, Prompt Engineering Harnesses, Small Language Model (SLM) Fine-Tuning & Distillation, Multimodal AI Systems (Vision, Voice, Audio, Code).
 - **Section 2 (Problem & Strategic AI Architecture):**
   - `problemContext`: `string` (+ opsional `aiProblemBadge`, `aiProblemAuditNote`)
   - `proposedAiSolution`: `string` (+ opsional `aiSolutionBadge`, `aiSolutionSynthesisNote`)
@@ -169,12 +179,23 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `coreAiComponents`: `{ name, type, description, badge? }[]`
 - **Section 5 (System Showcase & Performance Benchmarks):**
   - `aiVisualShowcase`: `{ title?, badge?, imageUrl, caption?, highlights?: string[] }[]` — UI merender `title`, `badge`, dan `imageUrl` (`/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`).
-  - `aiExecutionTelemetry`: objek tunggal representatif: `{ scenarioTitle, scenarioBadge?, scenarioDescription?, triggerInput, processingPipeline, executionOutput, metrics: { label, value }[], evaluationNote? }` — UI menampilkan maksimal **3 chip** pertama dari `metrics`.
-  - `aiEvaluationAndPerformance`: **wajib diisi** — `{ metrics: { label, value, benchmark?, pass?: boolean }[], qualitativeEvaluation, evalFrameworkBadge?, auditNote? }`.
-  - `limitationsAndImprovements`: **wajib diisi** — `{ limitations: { title, description, severity?: "LOW" | "MEDIUM" | "HIGH" }[], improvementsRoadmap: { title, phase?, target? }[], summary?, alignmentNote? }` — UI merender `title` dan `phase` pada roadmap; nilai `severity` **wajib** `"LOW"`, `"MEDIUM"`, atau `"HIGH"`.
+  - `aiExecutionTelemetry`: `{ scenarioTitle, scenarioBadge?, scenarioDescription?, inputLabel?, inputTag?, triggerInput, pipelineLabel?, pipelineTag?, processingPipeline, outputLabel?, outputTag?, executionOutput, telemetryChipsLabel?, metrics?: { label, value }[], evaluationNote? }` — UI menampilkan maksimal **3 chip** pertama dari `metrics`; label blok (`inputLabel`, `inputTag`, `pipelineLabel`, `pipelineTag`, `outputLabel`, `outputTag`, `telemetryChipsLabel`) dapat dikustomisasi sesuai jenis sistem AI (misal `"SYSTEM_CAPABILITIES:"` atau `"AUTOMATION_SIGNALS:"` jika bukan telemetri latency).
+  - `aiEvaluationAndPerformance`: **wajib diisi** — `{ sectionTitle?, sectionTag?, evaluationLabel?, metrics?: { label, value, benchmark?, pass?: boolean }[], qualitativeEvaluation, evalFrameworkBadge?, auditNote? }`:
+    - **Aturan Label Kustom Penuh (*Fully Customizable Labels*):** Karena tidak semua project AI Engineering memiliki metrik evaluasi benchmark numerik (misal AI Skills, AI Workflow Automation, Chatbot asisten, atau AI-Powered Web/App), `sectionTitle`, `sectionTag`, `evaluationLabel`, dan `evalFrameworkBadge` wajib disesuaikan dengan jenis project (misal `"[ BEHAVIORAL_VALIDATION // SYSTEM_CAPABILITIES ]"`, `"[ AUTOMATION_RELIABILITY // QUALITY_AUDIT ]"`, atau `"[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]"`). `metrics` boleh dikosongkan (`[]`) atau diisi indikator keandalan/perilaku terverifikasi.
+  - `limitationsAndImprovements`: **wajib diisi** — `{ constraintsLabel?, guardrailsBadge?, limitations: { title, description, severity?: "LOW" | "MEDIUM" | "HIGH" }[], improvementsRoadmap: { title, phase?, target? }[], summary?, alignmentNote? }` — UI merender `title` dan `phase` pada roadmap; nilai `severity` **wajib** `"LOW"`, `"MEDIUM"`, atau `"HIGH"`; `constraintsLabel` dan `guardrailsBadge` juga dapat dikustomisasi.
 
 ### 4. Machine Learning (`machine-learning`)
-Wajib memakai skema canonical universal (mendukung ML tabular maupun komputasi/simulasi numerik; hindari field legacy seperti `targetVariable`, `inputFeatures`, `lossFunction`, `optimizer`, `topPredictors`):
+- **Cakupan Universal Multi-Domain Machine Learning:**
+  - Wajib mendukung **seluruh paradigma, modalitas, dan jenis project Machine Learning secara universal**, tidak terbatas pada satu bentuk data atau algoritma saja.
+  - Termasuk namun tidak terbatas pada:
+    - **Supervised & Unsupervised Learning**: Tabular Regression & Classification, Clustering, Anomaly Detection, Dimensionality Reduction, Time Series Forecasting, Ensemble Methods (Gradient Boosting, Random Forest).
+    - **Reinforcement Learning (RL)**: Policy Gradient, Q-Learning, PPO, Deep Q-Networks (DQN), Multi-Agent RL, Simulation-based Decision Agents, Physics & Kinematics Control Environments.
+    - **Deep Learning**: Multi-Layer Perceptrons (MLP), Convolutional Neural Networks (CNN), Recurrent & Sequential Networks (LSTM, GRU), Transformer Encoders/Decoders, Autoencoders, GANs, Diffusion Models.
+    - **Computer Vision (CV)**: Image Classification, Object Detection, Semantic/Instance Segmentation, Feature Extraction, Video Tracking, Optical Character Recognition (OCR), 3D Reconstruction.
+    - **Natural Language Processing & Speech**: Text Classification, Sentiment Analysis, Named Entity Recognition (NER), Word/Sentence Embeddings, Speech Recognition, Audio Signal Classification.
+    - **Scientific & Numerical Simulations**: Physics-Informed Neural Networks (PINN), Numerical Optimization, Computational Mechanics & Particle Systems, Biomolecular / Chemical Modeling.
+- **Skema Canonical Universal (Tanpa Field Legacy):**
+  - Wajib memakai skema canonical universal berikut (hindari field legacy seperti `targetVariable`, `inputFeatures`, `lossFunction`, `optimizer`, `topPredictors`):
 - **Section 2 (Problem & Dataset / Environment Profile):**
   - `mlProblemContext`: `string`
   - `mlDatasetOverview`: `{ profileBadge?, source, modality, scale, inputShape, dataFormat, description, provenanceNote? }`
@@ -184,12 +205,23 @@ Wajib memakai skema canonical universal (mendukung ML tabular maupun komputasi/s
   - `mlDataPreparation`: `{ step, title, description, badge? }[]` (+ opsional `mlDataPreparationNote`)
   - `mlModelArchitectureAndTraining`: `{ algorithmName, architectureSummary, configurationBadge?, hyperparameters: { name, value, description? }[], objectiveCriterion, optimizationSolver, trainingProcess }`
 - **Section 5 (Model Evaluation, Visual Diagnostics & Interpretation):**
-  - `mlEvaluationStrategy`: `{ validationMethod, description, metrics: { label, value, benchmark?, pass?: boolean }[] }`
+  - `mlEvaluationStrategy`: `{ sectionTitle?, sectionTag?, strategyLabel?, validationMethod, description, metrics?: { label, value, benchmark?, pass?: boolean }[] }`
+    - **Aturan Label Kustom Penuh (*Fully Customizable Labels*):** Karena tidak semua project Machine Learning memiliki metrik evaluasi prediktif konvensional (misal Unsupervised Clustering, Reinforcement Learning, Generative AI/Diffusion, atau Physics/Numerical Simulation), seluruh label header bagian ini wajib disesuaikan secara dinamis dengan jenis project:
+      - `sectionTitle` (opsional): Judul utama Section 5 (default: `"[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]"`), bisa diubah misal `"[ 05 // POLICY CONVERGENCE & BEHAVIORAL ANALYSIS ]"` atau `"[ 05 // NUMERICAL VERIFICATION & INVARIANT DIAGNOSTICS ]"`.
+      - `sectionTag` (opsional): Tag monospace kanan atas Section 5 (hindari underscore jika dikustomisasi, misal `"CLUSTER COHESION // STRUCTURE // QUALITATIVE REVIEW"`).
+      - `strategyLabel` (opsional): Label kiri card `mlEvaluationStrategy` (default: `"EVALUATION STRATEGY // BENCHMARK PROTOCOL"`), wajib disesuaikan apabila project bukan benchmark evaluasi metrik standar (misal `"POLICY VALIDATION // REWARD & CONVERGENCE"`, `"UNSUPERVISED COHESION // CLUSTER STRUCTURE"`, `"BEHAVIORAL VALIDATION // SYSTEM OBSERVATIONS"`, atau `"NUMERICAL VERIFICATION // INVARIANT CONSERVATION"`).
+      - `metrics` (opsional): Boleh dikosongkan (`[]` atau tidak diisi) jika project tidak menghasilkan metrik evaluasi kuantitatif, **atau** diisi indikator observasi/perilaku terverifikasi (`value` ringkas agar tidak terpotong `.truncate`, maks ~10–12 karakter).
   - `mlPerformanceVisualizations`: `{ title, badge, imageUrl?, caption?, telemetryNote?, tableData?: { metric, trainingScore, validationScore }[] }[]` — jika menggunakan gambar, `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
   - `mlModelInterpretationAndLimitations`: `{ interpretationSummary, interpretabilityBadge?, driversTitle?, keyDrivers: { factor, impact }[], limitations: { title, description }[], futureImprovements: { title, target }[], discoveryNote? }`
 
 ### 5. Desktop & Mobile App (`desktop-mobile`)
-Wajib menggunakan format objek terstruktur dengan prefiks `desktopMobile*` (hindari format campuran `string[]` polos pada objectives/userFlow):
+- **Deteksi Platform Otomatis (`categoryLabel`):**
+  - Nilai `category` **wajib selalu `"desktop-mobile"`**.
+  - Nilai `categoryLabel` **wajib ditentukan secara dinamis** berdasarkan hasil inspeksi direktori project:
+    - Gunakan **`"Mobile App"`** jika project murni aplikasi mobile (Android, iOS, Flutter Mobile, React Native Mobile, Kotlin, Swift, dsb.).
+    - Gunakan **`"Desktop App"`** jika project murni aplikasi desktop (Electron, Tauri, C#/.NET WPF/WinForms, Qt/C++, Python Desktop, dsb.).
+    - Gunakan **`"Desktop & Mobile"`** jika project mendukung kedua platform sekaligus (*cross-platform* desktop dan mobile).
+- **Format Objek Terstruktur:** Wajib menggunakan format objek terstruktur dengan prefiks `desktopMobile*` (hindari format campuran `string[]` polos pada objectives/userFlow):
 - **Section 2 (Background & Objectives):**
   - `desktopMobileBackground`: `string`
   - `desktopMobileProblemStatements`: `{ title, description, issueCode? }[]`
@@ -237,13 +269,14 @@ Wajib menggunakan format objek terstruktur dengan prefiks `desktopMobile*` (hind
 Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan seluruh poin berikut lolos pemeriksaan:
 
 1. **Identitas & Pemetaan Kategori:** `id` unik, `code` urut (`PRO-XX // PREFIX-YY`), serta `category`, `categoryLabel`, dan `accentColor` cocok dengan tabel pemetaan.
-2. **Aset Lokal `.webp`:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; terdapat `banner.webp`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`).
-3. **Batas Karakter Section 1:** Narasi `overview` / `projectDescription` / `codeLearningDescription` sepanjang **400–490 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
-4. **Tech Stack Section 4:** Seluruh elemen `techStack[]` (dan `*TechStack`) murni nama teknologi **tanpa nomor versi atau tanda kurung**.
-5. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
-6. **Enum & Format Ketat:**
+2. **Kepatuhan Penuh Bahasa Inggris:** Seluruh teks output data project (`summary`, `overview`, deskripsi fitur, alur arsitektur, metrik, catatan audit, rekomendasi, dll.) **WAJIB 100% menggunakan Bahasa Inggris profesional & teknis**.
+3. **Aset Lokal `.webp`:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; terdapat `banner.webp`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`).
+4. **Batas Karakter Section 1:** Narasi `overview` / `projectDescription` / `codeLearningDescription` sepanjang **400–490 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
+5. **Tech Stack Section 4:** Seluruh elemen `techStack[]` (dan `*TechStack`) murni nama teknologi **tanpa nomor versi atau tanda kurung**.
+6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
+7. **Enum & Format Ketat:**
    - Data Analytics `priority`: `"HIGH" | "MEDIUM" | "STRATEGIC"`
    - AI Engineering `severity`: `"LOW" | "MEDIUM" | "HIGH"`
    - UI/UX Design `hex`: format `#RRGGBB`
    - Code Learning `difficulty`: `"Beginner" | "Intermediate" | "Advanced"`
-7. **Verifikasi TypeScript:** Jalankan `npx tsc --noEmit` dan pastikan exit code `0` tanpa error tipe data.
+8. **Verifikasi TypeScript:** Jalankan `npx tsc --noEmit` dan pastikan exit code `0` tanpa error tipe data.

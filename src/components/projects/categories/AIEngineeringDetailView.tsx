@@ -772,10 +772,14 @@ export default function AIEngineeringDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-purple-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-            <span>[ 05 // SYSTEM SHOWCASE & PERFORMANCE BENCHMARKS ]</span>
+            <span>
+              {aiEvaluationAndPerformance.sectionTitle ||
+                "[ 05 // SYSTEM SHOWCASE & PERFORMANCE BENCHMARKS ]"}
+            </span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            RUNTIME_TELEMETRY // QUANTITATIVE_EVAL
+            {aiEvaluationAndPerformance.sectionTag ||
+              "RUNTIME_TELEMETRY // QUANTITATIVE_EVAL"}
           </span>
         </div>
 
@@ -957,8 +961,8 @@ export default function AIEngineeringDetailView({
                 {/* 1. Trigger Input */}
                 <div className="rounded-xl border border-white/10 bg-[#07040D] p-3 space-y-1">
                   <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
-                    <span>&gt; USER_INPUT // TRIGGER_EVENT</span>
-                    <span className="text-slate-500">EVENT_IN</span>
+                    <span>{telemetryData.inputLabel || "> USER_INPUT // TRIGGER_EVENT"}</span>
+                    <span className="text-slate-500">{telemetryData.inputTag || "EVENT_IN"}</span>
                   </div>
                   <p className="text-slate-200 font-mono text-xs leading-relaxed">
                     {telemetryData.triggerInput}
@@ -969,11 +973,13 @@ export default function AIEngineeringDetailView({
                 <div className="rounded-xl border border-purple-500/20 bg-purple-950/20 p-2.5 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2 text-purple-300 font-mono text-[11px]">
                     <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
-                    <span className="text-slate-400 uppercase text-[10px]">PIPELINE:</span>
+                    <span className="text-slate-400 uppercase text-[10px]">
+                      {telemetryData.pipelineLabel || "PIPELINE:"}
+                    </span>
                     <span className="font-semibold text-purple-200 truncate">{telemetryData.processingPipeline}</span>
                   </div>
                   <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded bg-purple-400/10 text-purple-300 border border-purple-400/20 shrink-0">
-                    DETERMINISTIC
+                    {telemetryData.pipelineTag || "DETERMINISTIC"}
                   </span>
                 </div>
 
@@ -982,9 +988,11 @@ export default function AIEngineeringDetailView({
                   <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 font-bold uppercase tracking-wider">
                     <span className="flex items-center gap-1.5 text-purple-400">
                       <Sparkles className="h-3 w-3" />
-                      SYSTEM_RESPONSE // SYNTHESIS
+                      {telemetryData.outputLabel || "SYSTEM_RESPONSE // SYNTHESIS"}
                     </span>
-                    <span className="text-purple-300 text-[9px]">VERIFIED</span>
+                    <span className="text-purple-300 text-[9px]">
+                      {telemetryData.outputTag || "VERIFIED"}
+                    </span>
                   </div>
                   <p className="text-purple-100 font-mono text-xs leading-relaxed whitespace-pre-wrap">
                     {telemetryData.executionOutput}
@@ -1002,26 +1010,28 @@ export default function AIEngineeringDetailView({
             </div>
 
             {/* Customizable Metric Chips (Bottom of Right Card - Max 3 Badges) */}
-            <div className="pt-3 border-t border-white/10">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 block mb-2 font-bold">
-                RUNTIME TELEMETRY CHIPS:
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {(telemetryData.metrics || []).slice(0, 3).map((m: any, mIdx: number) => (
-                  <div
-                    key={mIdx}
-                    className="inline-flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-950/40 px-3 py-1.5 font-mono"
-                  >
-                    <span className="text-[10px] uppercase text-slate-400 font-medium">
-                      {m.label}:
-                    </span>
-                    <span className="text-xs font-bold text-purple-300">
-                      {m.value}
-                    </span>
-                  </div>
-                ))}
+            {telemetryData.metrics && telemetryData.metrics.length > 0 && (
+              <div className="pt-3 border-t border-white/10">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 block mb-2 font-bold">
+                  {telemetryData.telemetryChipsLabel || "RUNTIME TELEMETRY CHIPS:"}
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {telemetryData.metrics.slice(0, 3).map((m: any, mIdx: number) => (
+                    <div
+                      key={mIdx}
+                      className="inline-flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-950/40 px-3 py-1.5 font-mono"
+                    >
+                      <span className="text-[10px] uppercase text-slate-400 font-medium">
+                        {m.label}:
+                      </span>
+                      <span className="text-xs font-bold text-purple-300">
+                        {m.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -1033,7 +1043,10 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <TrendingUp className="h-4 w-4 text-purple-400" />
-                  <span>[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]</span>
+                  <span>
+                    {aiEvaluationAndPerformance.evaluationLabel ||
+                      "[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]"}
+                  </span>
                 </div>
                 <span className="font-mono text-[10px] text-purple-300 font-semibold">
                   {aiEvaluationAndPerformance.evalFrameworkBadge || "EMPIRICAL BENCHMARKS"}
@@ -1041,26 +1054,29 @@ export default function AIEngineeringDetailView({
               </div>
 
               {/* Metrics Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-                {aiEvaluationAndPerformance.metrics.map((m, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-xl border border-white/10 bg-[#10091E]/70 p-3 transition-all hover:border-purple-400/40"
-                  >
-                    <div className="font-mono text-lg sm:text-xl font-black text-purple-300 mb-1">
-                      {m.value}
-                    </div>
-                    <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mb-1 leading-tight">
-                      {m.label}
-                    </div>
-                    {m.benchmark && (
-                      <span className="font-mono text-[8px] text-purple-300 block truncate">
-                        {m.benchmark}
-                      </span>
-                    )}
+              {aiEvaluationAndPerformance.metrics &&
+                aiEvaluationAndPerformance.metrics.length > 0 && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+                    {aiEvaluationAndPerformance.metrics.map((m, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-xl border border-white/10 bg-[#10091E]/70 p-3 transition-all hover:border-purple-400/40"
+                      >
+                        <div className="font-mono text-lg sm:text-xl font-black text-purple-300 mb-1">
+                          {m.value}
+                        </div>
+                        <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mb-1 leading-tight">
+                          {m.label}
+                        </div>
+                        {m.benchmark && (
+                          <span className="font-mono text-[8px] text-purple-300 block truncate">
+                            {m.benchmark}
+                          </span>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
 
               <p className="text-xs text-slate-300 leading-relaxed font-normal">
                 {aiEvaluationAndPerformance.qualitativeEvaluation}
@@ -1078,10 +1094,14 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <ShieldAlert className="h-4 w-4 text-purple-400" />
-                  <span>[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]</span>
+                  <span>
+                    {limitationsAndImprovements.constraintsLabel ||
+                      "[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]"}
+                  </span>
                 </div>
                 <span className="font-mono text-[10px] text-purple-300 font-semibold">
-                  GUARDRAILS & TRANSPARENCY
+                  {limitationsAndImprovements.guardrailsBadge ||
+                    "GUARDRAILS & TRANSPARENCY"}
                 </span>
               </div>
 

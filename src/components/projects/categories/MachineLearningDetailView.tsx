@@ -189,6 +189,9 @@ export default function MachineLearningDetailView({
 
   // Section 5: Model Evaluation, Visual Diagnostics & Interpretation
   const evaluationStrategy = project.mlEvaluationStrategy || {
+    sectionTitle: "[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]",
+    sectionTag: "EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS",
+    strategyLabel: "EVALUATION STRATEGY // BENCHMARK PROTOCOL",
     validationMethod: "",
     description: "",
     metrics: [],
@@ -888,10 +891,14 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 05 // MODEL EVALUATION &amp; PERFORMANCE BENCHMARKS ]</span>
+            <span>
+              {evaluationStrategy.sectionTitle ||
+                "[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]"}
+            </span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS
+            {evaluationStrategy.sectionTag ||
+              "EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS"}
           </span>
         </div>
 
@@ -900,14 +907,23 @@ export default function MachineLearningDetailView({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
             <div className="flex items-center gap-2 text-indigo-300 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
-              <span>EVALUATION STRATEGY // BENCHMARK PROTOCOL</span>
+              <span>
+                {evaluationStrategy.strategyLabel ||
+                  "EVALUATION STRATEGY // BENCHMARK PROTOCOL"}
+              </span>
             </div>
             <span className="text-indigo-400 font-semibold">
               {evaluationStrategy.validationMethod}
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
+          <p
+            className={`text-xs sm:text-sm text-slate-300 leading-relaxed font-normal ${
+              evaluationStrategy.metrics && evaluationStrategy.metrics.length > 0
+                ? "mb-6"
+                : "mb-0"
+            }`}
+          >
             {evaluationStrategy.description}
           </p>
 
