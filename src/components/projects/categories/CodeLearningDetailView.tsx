@@ -209,19 +209,15 @@ export default function CodeLearningDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // CURRICULUM CONSOLE & LEARNING PATH ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-orange-500/30 bg-[#110905]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(249,115,22,0.15)]">
+      <section className="relative overflow-hidden rounded-3xl border border-orange-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/70" />
-
-        {/* Ambient Teal / Mint Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-orange-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/60" />
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-orange-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -233,11 +229,11 @@ export default function CodeLearningDetailView({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-orange-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-orange-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <GraduationCap className="h-3 w-3 text-orange-400" />
               {learningInfo.learningCategory}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/30 bg-orange-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-orange-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Code2 className="h-3 w-3 text-orange-400" />
               {learningInfo.difficultyLevel}
             </span>
@@ -249,20 +245,20 @@ export default function CodeLearningDetailView({
           {/* Left Pane (65%): Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Header Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-950/40 px-4 py-2 text-xs font-mono text-orange-300">
-              <span className="flex items-center gap-2 text-orange-200">
-                <Terminal className="h-3.5 w-3.5 text-orange-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-orange-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-orange-500/25 bg-[#1A0F08]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-[#080B14] p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-orange-500/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
                     <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-orange-400/80" />
                     <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-orange-400/80" />
@@ -288,16 +284,16 @@ export default function CodeLearningDetailView({
               </div>
 
               {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-orange-500/20 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
+              <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <CheckCircle2 className="h-3 w-3 text-orange-400" />
                   Hands-On Compilation Units
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Cpu className="h-3 w-3 text-orange-400" />
                   Memory & Architecture Focused
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-400/30 bg-orange-500/10 px-2.5 py-1 font-mono text-[11px] text-orange-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Activity className="h-3 w-3 text-orange-400" />
                   Verified Output Telemetry
                 </span>
@@ -306,9 +302,9 @@ export default function CodeLearningDetailView({
           </div>
 
           {/* Right Pane (35%): Learning Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-orange-500/30 bg-[#1A0F08]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-[#080B14] p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-orange-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-orange-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -318,7 +314,7 @@ export default function CodeLearningDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -327,7 +323,7 @@ export default function CodeLearningDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -336,7 +332,7 @@ export default function CodeLearningDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -345,7 +341,7 @@ export default function CodeLearningDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -354,7 +350,7 @@ export default function CodeLearningDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -363,7 +359,7 @@ export default function CodeLearningDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -372,7 +368,7 @@ export default function CodeLearningDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-orange-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
@@ -384,7 +380,7 @@ export default function CodeLearningDetailView({
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   isPublicRepo
-                    ? "border-orange-500/35 bg-[#1A0F08]/90 hover:border-orange-400/60 hover:shadow-[0_0_25px_rgba(249,115,22,0.2)]"
+                    ? "border-white/10 bg-black/50 hover:border-orange-400/50 hover:shadow-[0_0_25px_rgba(249,115,22,0.12)]"
                     : "border-white/10 bg-black/60 hover:border-white/20"
                 }`}
               >
@@ -417,7 +413,7 @@ export default function CodeLearningDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-orange-400 font-semibold text-[11px]" : "text-orange-400/80 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-orange-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? (project.license || "MIT / Educational") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -430,7 +426,7 @@ export default function CodeLearningDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-orange-400/40 bg-orange-500/15 hover:bg-orange-500/25 hover:border-orange-400 px-4 py-2.5 font-mono text-xs font-bold text-orange-200 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -444,7 +440,7 @@ export default function CodeLearningDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-orange-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-orange-400 font-bold">READY // v1.0</span>
             </div>
@@ -455,15 +451,15 @@ export default function CodeLearningDetailView({
       {/* =========================================================================
           SECTION 2 — [ 02 // LEARNING ROADMAP & CURRICULUM BLUEPRINT ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-orange-500/30 bg-[#110905]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-orange-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex items-center justify-between border-b border-orange-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -473,7 +469,7 @@ export default function CodeLearningDetailView({
               [ 02 // LEARNING ROADMAP & CURRICULUM BLUEPRINT ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-orange-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             PEDAGOGICAL_ROADMAP // COMPETENCY_TREE
           </span>
         </div>
@@ -482,7 +478,7 @@ export default function CodeLearningDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {/* Left Column: Prerequisites */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-orange-500/25 pb-2.5 text-orange-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-300 font-mono text-xs uppercase tracking-wider">
               <ShieldCheck className="h-4 w-4 text-orange-400" />
               <span>Prerequisites & Foundation Gates</span>
             </div>
@@ -491,7 +487,7 @@ export default function CodeLearningDetailView({
               {prerequisites.map((prereq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-orange-500/20 bg-orange-950/15 p-4 transition-all hover:border-orange-400/40 hover:bg-orange-950/25"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-orange-400/50 hover:bg-white/[0.02]"
                 >
                   <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2 mb-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
@@ -515,7 +511,7 @@ export default function CodeLearningDetailView({
 
           {/* Right Column: Learning Objectives */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-orange-500/25 pb-2.5 text-orange-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-300 font-mono text-xs uppercase tracking-wider">
               <Sparkles className="h-4 w-4 text-orange-400" />
               <span>Learning Objectives & Competencies</span>
             </div>
@@ -524,7 +520,7 @@ export default function CodeLearningDetailView({
               {learningObjectives.map((obj, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-orange-500/25 bg-orange-950/15 p-4 transition-all hover:border-orange-400/45 hover:bg-orange-950/25"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-orange-400/50 hover:bg-white/[0.02]"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
@@ -532,7 +528,7 @@ export default function CodeLearningDetailView({
                       {obj.title}
                     </h4>
                     {obj.competencyCode && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-orange-300 border border-orange-500/30 bg-orange-950/50 px-2 py-0.5 rounded">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-orange-300 border border-orange-400/30 bg-orange-500/10 px-2 py-0.5 rounded">
                         {obj.competencyCode}
                       </span>
                     )}
@@ -547,15 +543,15 @@ export default function CodeLearningDetailView({
         </div>
 
         {/* Bottom: Visual Curriculum Structure Roadmap */}
-        <div className="relative z-10 rounded-2xl border border-orange-500/30 bg-[#1A0F08]/95 p-5 sm:p-7 shadow-inner">
-          <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-4">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-7 shadow-inner">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
             <div className="flex items-center gap-2 text-xs font-mono text-orange-300">
               <Workflow className="h-4 w-4 text-orange-400" />
               <span className="font-bold uppercase tracking-wider">
                 Visual Curriculum Structure Roadmap (Phase Progression)
               </span>
             </div>
-            <span className="font-mono text-[10px] text-orange-400/80">3_TIER_PIPELINE</span>
+            <span className="font-mono text-[10px] text-slate-400">3_TIER_PIPELINE</span>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-300 font-sans mb-6">
@@ -578,20 +574,20 @@ export default function CodeLearningDetailView({
               return (
                 <div
                   key={phIdx}
-                  className="rounded-xl border border-orange-500/25 bg-orange-950/20 p-4 transition-all hover:border-orange-400/50 hover:bg-orange-950/30"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-orange-400/50"
                 >
-                  <div className="flex items-center justify-between border-b border-orange-500/20 pb-2 mb-2.5">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2.5">
                     <span className="font-mono text-[10px] font-bold uppercase text-orange-400">
                       {ph.phaseNumber}
                     </span>
-                    <span className="font-mono text-[10px] text-orange-400 bg-orange-950/50 border border-orange-500/30 px-2 py-0.5 rounded">
+                    <span className="font-mono text-[10px] text-orange-300 bg-orange-500/10 border border-orange-400/30 px-2 py-0.5 rounded">
                       {ph.moduleRange}
                     </span>
                   </div>
                   <h4 className="font-semibold text-sm text-slate-100 mb-1">
                     {ph.phaseTitle}
                   </h4>
-                  <p className="font-mono text-[11px] text-orange-300/80 mb-3">
+                  <p className="font-mono text-[11px] text-slate-300 mb-3">
                     Difficulty: {normalizedDifficulty}
                   </p>
                   <ul className="space-y-1.5 border-t border-white/5 pt-2.5 text-xs text-slate-300 font-sans">
@@ -612,19 +608,15 @@ export default function CodeLearningDetailView({
       {/* =========================================================================
           SECTION 3 — [ 03 // CURRICULUM MODULES & TOPIC ARCHITECTURE ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-orange-500/30 bg-[#110905]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-orange-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/70" />
-
-        {/* Ambient Teal Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-orange-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-orange-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -636,11 +628,11 @@ export default function CodeLearningDetailView({
           </div>
 
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-orange-950/40 px-3 py-0.5 text-orange-300 text-[10px] uppercase">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 text-slate-300 text-[10px] uppercase">
               <BookOpen className="h-3 w-3 text-orange-400" />
               {totalModulesCount} MODULE TIERS
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/30 bg-orange-950/40 px-3 py-0.5 text-orange-300 text-[10px] uppercase">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 text-slate-300 text-[10px] uppercase">
               <ShieldCheck className="h-3 w-3 text-orange-400" />
               100% VERIFIED SYLLABUS
             </span>
@@ -648,10 +640,10 @@ export default function CodeLearningDetailView({
         </div>
 
         {/* Top Telemetry Aggregator Bar */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-orange-500/25 bg-[#1A0F08]/95 p-4 sm:p-5 shadow-lg">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-orange-400/80 block mb-1">
+              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                 Pedagogical Modules
               </span>
               <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
@@ -664,7 +656,7 @@ export default function CodeLearningDetailView({
             </div>
 
             <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-orange-400/80 block mb-1">
+              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                 Aggregated Topics
               </span>
               <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
@@ -677,7 +669,7 @@ export default function CodeLearningDetailView({
             </div>
 
             <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-orange-400/80 block mb-1">
+              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                 Source Code
               </span>
               <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
@@ -690,7 +682,7 @@ export default function CodeLearningDetailView({
             </div>
 
             <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-orange-400/80 block mb-1">
+              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                 Curriculum Rigor
               </span>
               <div className="text-xl sm:text-2xl font-bold font-mono text-orange-300 flex items-baseline gap-1.5">
@@ -714,7 +706,7 @@ export default function CodeLearningDetailView({
               placeholder="Search module title, concept topics, or stage..."
               value={moduleSearchQuery}
               onChange={(e) => setModuleSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-orange-500/30 bg-[#1A0F08] pl-10 pr-4 py-2 text-xs font-mono text-slate-200 placeholder-slate-500 focus:border-orange-400 focus:outline-none transition-colors"
+              className="w-full rounded-xl border border-white/10 bg-[#080B14] pl-10 pr-4 py-2 text-xs font-mono text-slate-200 placeholder-slate-500 focus:border-orange-400 focus:outline-none transition-colors"
             />
             {moduleSearchQuery && (
               <button
@@ -740,8 +732,8 @@ export default function CodeLearningDetailView({
                   onClick={() => setSelectedDifficultyFilter(diff)}
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs transition-all ${
                     selectedDifficultyFilter === diff
-                      ? "border border-orange-400/60 bg-orange-500/20 text-orange-200 font-semibold shadow-[0_0_12px_rgba(249,115,22,0.25)]"
-                      : "border border-white/5 bg-black/30 text-slate-400 hover:text-slate-200 hover:border-orange-500/30"
+                      ? "border border-orange-400/50 bg-orange-500/15 text-orange-200 font-semibold shadow-[0_0_12px_rgba(249,115,22,0.2)]"
+                      : "border border-white/10 bg-black/50 text-slate-400 hover:text-slate-200 hover:border-orange-400/40"
                   }`}
                 >
                   <span>{diff}</span>
@@ -758,7 +750,7 @@ export default function CodeLearningDetailView({
             SHOWING <span className="text-orange-300 font-semibold">{filteredModules.length}</span> OF{" "}
             {modules.length} CURRICULUM MODULES
           </span>
-          <span className="text-[10px] text-orange-400/80">SYSTEM_MODULE_CATALOG</span>
+          <span className="text-[10px] text-slate-400">SYSTEM_MODULE_CATALOG</span>
         </div>
 
         {/* Bento Grid Showcase Mandiri */}
@@ -767,13 +759,13 @@ export default function CodeLearningDetailView({
             {filteredModules.map((mod) => (
               <div
                 key={mod.id}
-                className="rounded-2xl border border-orange-500/25 bg-[#1A0F08]/90 p-5 sm:p-6 transition-all hover:border-orange-400/50 hover:bg-[#0A1A20] hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] flex flex-col justify-between group"
+                className="rounded-2xl border border-white/10 bg-[#080B14] p-5 sm:p-6 transition-all hover:border-orange-400/50 hover:shadow-[0_12px_40px_rgba(249,115,22,0.12)] flex flex-col justify-between group"
               >
                 <div>
                   {/* Card Header */}
-                  <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-4">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-orange-300 bg-orange-950/60 border border-orange-500/30 px-2.5 py-1 rounded">
+                      <span className="font-mono text-xs font-bold text-orange-300 bg-orange-500/10 border border-orange-400/30 px-2.5 py-1 rounded">
                         MOD // {mod.moduleNumber}
                       </span>
                       <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
@@ -782,12 +774,12 @@ export default function CodeLearningDetailView({
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded font-mono text-[10px] uppercase font-semibold ${
                         mod.difficulty === "Beginner"
-                          ? "border border-orange-400/30 bg-orange-950/40 text-orange-300"
+                          ? "border border-orange-400/30 bg-orange-500/10 text-orange-300"
                           : mod.difficulty === "Intermediate"
-                          ? "border border-orange-400/40 bg-orange-950/50 text-orange-200"
+                          ? "border border-orange-400/35 bg-orange-500/15 text-orange-200"
                           : mod.difficulty === "Advanced"
-                          ? "border border-orange-400/50 bg-orange-950/60 text-orange-200"
-                          : "border border-orange-300/40 bg-orange-900/40 text-orange-100"
+                          ? "border border-orange-400/40 bg-orange-500/15 text-orange-200"
+                          : "border border-orange-400/40 bg-orange-500/20 text-orange-100"
                       }`}
                     >
                       {mod.difficulty}
@@ -805,28 +797,28 @@ export default function CodeLearningDetailView({
                   {/* Micro-Datapad Matrix (4 items) */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-4 border-y border-white/5 py-3">
                     <div className="flex flex-col">
-                      <span className="font-mono text-[9px] uppercase text-orange-400/80">Lessons</span>
+                      <span className="font-mono text-[9px] uppercase text-slate-400">Lessons</span>
                       <span className="font-mono text-xs font-bold text-slate-100">
                         {mod.submoduleCount || (mod.submodules ? mod.submodules.length : 12)} Units
                       </span>
                     </div>
 
                     <div className="flex flex-col">
-                      <span className="font-mono text-[9px] uppercase text-orange-400/80">Programs</span>
+                      <span className="font-mono text-[9px] uppercase text-slate-400">Programs</span>
                       <span className="font-mono text-xs font-bold text-orange-300">
                         {mod.sourceFilesCount || Math.round((mod.submoduleCount || 12) * 1.3)} Files
                       </span>
                     </div>
 
                     <div className="flex flex-col">
-                      <span className="font-mono text-[9px] uppercase text-orange-400/80">Est. Effort</span>
+                      <span className="font-mono text-[9px] uppercase text-slate-400">Est. Effort</span>
                       <span className="font-mono text-xs font-bold text-slate-200">
                         {mod.estimatedHours || `${Math.round((mod.submoduleCount || 12) * 0.9)} Hours`}
                       </span>
                     </div>
 
                     <div className="flex flex-col">
-                      <span className="font-mono text-[9px] uppercase text-orange-400/80">Status</span>
+                      <span className="font-mono text-[9px] uppercase text-slate-400">Status</span>
                       <span className="font-mono text-xs font-bold text-orange-300 flex items-center gap-1">
                         <Check className="h-3 w-3 text-orange-400" />
                         100% OK
@@ -844,7 +836,7 @@ export default function CodeLearningDetailView({
                         {mod.keyTopics.map((topic, tIdx) => (
                           <span
                             key={tIdx}
-                            className="inline-flex items-center gap-1 font-mono text-[10px] px-2 py-0.5 rounded border border-orange-500/25 bg-orange-950/40 text-orange-300"
+                            className="inline-flex items-center gap-1 font-mono text-[10px] px-2 py-0.5 rounded border border-white/10 bg-black/50 text-slate-200"
                           >
                             <span className="text-orange-400">›</span>
                             <span>{topic}</span>
@@ -856,9 +848,9 @@ export default function CodeLearningDetailView({
                 </div>
 
                 {/* Card Footer: Progress Bar + Spec Identifier */}
-                <div className="mt-4 pt-3 border-t border-orange-500/15">
-                  <div className="h-1 w-full rounded-full bg-orange-950 overflow-hidden mb-2">
-                    <div className="h-full w-full rounded-full bg-gradient-to-r from-orange-500 via-amber-400 to-orange-400 shadow-[0_0_8px_rgba(249,115,22,0.5)]" />
+                <div className="mt-4 pt-3 border-t border-white/10">
+                  <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden mb-2">
+                    <div className="h-full w-full rounded-full bg-orange-400 shadow-[0_0_8px_rgba(249,115,22,0.35)]" />
                   </div>
                   <div className="flex items-center justify-between text-[10px] font-mono text-slate-400">
                     <span>UNIT_SPEC // M{mod.moduleNumber}_STABLE</span>
@@ -869,7 +861,7 @@ export default function CodeLearningDetailView({
             ))}
           </div>
         ) : (
-          <div className="relative z-10 flex flex-col items-center justify-center p-12 text-center rounded-2xl border border-orange-500/20 bg-black/40">
+          <div className="relative z-10 flex flex-col items-center justify-center p-12 text-center rounded-2xl border border-white/10 bg-[#080B14]">
             <BookOpen className="h-10 w-10 text-orange-400/40 mb-3" />
             <h5 className="font-mono text-sm font-bold text-white mb-1">
               NO MODULES MATCH QUERY
@@ -882,7 +874,7 @@ export default function CodeLearningDetailView({
                 setModuleSearchQuery("");
                 setSelectedDifficultyFilter("All");
               }}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-orange-500/30 bg-orange-950/40 text-orange-300 text-xs font-mono hover:bg-orange-950/60 transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-orange-400/40 bg-orange-500/15 text-orange-200 text-xs font-mono hover:bg-orange-500/25 hover:border-orange-400 hover:text-white transition-all"
             >
               Reset Filters
             </button>
@@ -904,19 +896,15 @@ export default function CodeLearningDetailView({
       {/* =========================================================================
           SECTION 5 — [ 05 // RECOMMENDED PRACTICE PROJECTS & APPLIED CAPSTONES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-orange-500/30 bg-[#110905]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-orange-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/70" />
-
-        {/* Ambient Teal Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-orange-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-orange-500/20 pb-4 mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-8">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -928,11 +916,11 @@ export default function CodeLearningDetailView({
           </div>
 
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-orange-950/40 px-3 py-0.5 text-orange-300 text-[10px] uppercase">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 text-slate-300 text-[10px] uppercase">
               <Terminal className="h-3 w-3 text-orange-400" />
               3 TIERED TRACKS
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/30 bg-orange-950/40 px-3 py-0.5 text-orange-300 text-[10px] uppercase">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 text-slate-300 text-[10px] uppercase">
               <ShieldCheck className="h-3 w-3 text-orange-400" />
               INDUSTRY SPECIFICATIONS
             </span>
@@ -952,12 +940,12 @@ export default function CodeLearningDetailView({
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-orange-500/25 bg-[#1A0F08]/90 p-5 sm:p-6 transition-all hover:border-orange-400/50 hover:bg-orange-950/30 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] flex flex-col justify-between group"
+                className="rounded-2xl border border-white/10 bg-[#080B14] p-5 sm:p-6 transition-all hover:border-orange-400/50 hover:shadow-[0_12px_40px_rgba(249,115,22,0.12)] flex flex-col justify-between group"
               >
                 <div>
                   {/* Card Topbar */}
-                  <div className="flex items-center justify-between gap-2 border-b border-orange-500/20 pb-3 mb-4">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-orange-300 bg-orange-950/60 border border-orange-500/30 px-2.5 py-0.5 rounded">
+                  <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-orange-300 bg-orange-500/10 border border-orange-400/30 px-2.5 py-0.5 rounded">
                       {levelBadge}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-wider text-orange-400 font-semibold truncate">
@@ -994,7 +982,7 @@ export default function CodeLearningDetailView({
                 </div>
 
                 {/* Card Footer: Static Estimated Time Label + Dynamic Time */}
-                <div className="mt-4 pt-3 border-t border-orange-500/15 flex items-center justify-between gap-2 text-[10px] font-mono text-slate-400">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between gap-2 text-[10px] font-mono text-slate-400">
                   <span className="text-orange-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
                     <Clock className="h-3 w-3 text-orange-400 shrink-0" />
                     <span>ESTIMATED TIME</span>
@@ -1009,28 +997,28 @@ export default function CodeLearningDetailView({
         </div>
 
         {/* Bottom: Learning Outcomes & Mastery Matrix (2 Universal Pillars) */}
-        <div className="relative z-10 rounded-2xl border border-orange-500/30 bg-[#1A0F08]/95 p-5 sm:p-7 shadow-inner">
-          <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-5">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-7 shadow-inner">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
             <div className="flex items-center gap-2 text-xs font-mono text-orange-300">
               <GraduationCap className="h-4 w-4 text-orange-400" />
               <span className="font-bold uppercase tracking-wider">
                 Demonstrated Engineering Competencies & Outcomes
               </span>
             </div>
-            <span className="font-mono text-[10px] text-orange-400/80">CERTIFIED_MASTERY</span>
+            <span className="font-mono text-[10px] text-slate-400">CERTIFIED_MASTERY</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {learningOutcomes.slice(0, 2).map((pillar, pIdx) => (
               <div key={pIdx} className="space-y-3">
-                <span className="font-mono text-xs uppercase font-bold text-orange-300 block border-b border-orange-500/20 pb-1.5">
+                <span className="font-mono text-xs uppercase font-bold text-orange-300 block border-b border-white/10 pb-1.5">
                   {pillar.pillar}
                 </span>
                 <div className="space-y-2.5">
                   {pillar.skills.map((sk, sIdx) => (
                     <div
                       key={sIdx}
-                      className="rounded-lg border border-white/5 bg-black/30 p-3.5 hover:border-orange-500/30 transition-colors flex items-start gap-3"
+                      className="rounded-lg border border-white/10 bg-[#080B14] p-3.5 hover:border-orange-400/50 transition-colors flex items-start gap-3"
                     >
                       <GoChecklist className="h-4 w-4 text-orange-400 shrink-0 mt-0.5" />
                       <div className="flex-1 min-w-0">
@@ -1053,15 +1041,15 @@ export default function CodeLearningDetailView({
             {/* =========================================================================
           SECTION 6 — [ 06 // CURRICULUM VAULT & SYLLABUS GATES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-orange-500/30 bg-[#110905]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-orange-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-orange-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-orange-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-orange-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -1071,7 +1059,7 @@ export default function CodeLearningDetailView({
               [ 06 // CURRICULUM VAULT & SYLLABUS GATES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-orange-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             GITHUB_SOURCE // SYLLABUS_GATEWAYS
           </span>
         </div>
@@ -1113,15 +1101,15 @@ export default function CodeLearningDetailView({
           />
 
           {/* CARD 3 — Course Artifacts & Competencies Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-orange-500/30 bg-[#1A0F08]/95 p-5 sm:p-7 shadow-lg transition-all hover:border-orange-400/50 hover:shadow-[0_8px_32px_rgba(249,115,22,0.2)]">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-[#080B14] p-5 sm:p-7 shadow-lg transition-all hover:border-orange-400/50 hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)]">
             {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-orange-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-orange-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-orange-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-orange-400/60" />
+            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-orange-400/50" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-orange-400/50" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-orange-400/50" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-orange-400/50" />
 
             <div>
-              <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-4 sm:mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
                 <div className="flex items-center gap-2 text-orange-300 font-mono text-xs font-bold uppercase tracking-wider">
                   <FileCode2 className="h-4 w-4 text-orange-400" />
                   <span>Verified Competencies</span>
@@ -1140,7 +1128,7 @@ export default function CodeLearningDetailView({
                 {(supplementaryResources.resources || []).map((res: any, rIdx: number) => (
                   <div key={rIdx} className="flex items-center justify-between text-slate-300">
                     <span className="truncate pr-2 text-[11px]">{res.name}</span>
-                    <span className="font-mono text-[10px] text-orange-300 border border-orange-500/30 bg-orange-950/40 px-1.5 py-0.5 rounded">
+                    <span className="font-mono text-[10px] text-orange-300 border border-orange-400/30 bg-orange-500/10 px-1.5 py-0.5 rounded">
                       {res.format}
                     </span>
                   </div>
@@ -1148,7 +1136,7 @@ export default function CodeLearningDetailView({
               </div>
             </div>
 
-            <div className="w-full flex items-center justify-center rounded-xl border border-orange-500/30 bg-orange-500/10 px-4 py-3 font-mono text-xs font-semibold text-orange-300">
+            <div className="w-full flex items-center justify-center rounded-xl border border-orange-400/30 bg-orange-500/15 px-4 py-3 font-mono text-xs font-semibold text-orange-200">
               CURRICULUM AUDIT PASSED
             </div>
           </div>

@@ -172,35 +172,31 @@ export default function WebDevDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // SYSTEM CONSOLE & FULLSTACK ARCHITECTURE ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-sky-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-sky-400/70" />
-
-        {/* Ambient Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-sky-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-sky-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-sky-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-sky-400">
               [ 01 // SYSTEM CONSOLE & FULLSTACK ARCHITECTURE ]
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-500/30 bg-sky-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-sky-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Box className="h-3 w-3 text-sky-400" />
               {projectInfo.projectType}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-500/30 bg-sky-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-sky-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Globe className="h-3 w-3 text-sky-400" />
               {projectInfo.platform}
             </span>
@@ -212,25 +208,25 @@ export default function WebDevDetailView({
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
-              <span className="flex items-center gap-2 text-sky-200">
-                <Terminal className="h-3.5 w-3.5 text-sky-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-sky-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-sky-500/25 bg-[#080B14]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-[#080B14] p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container — Pure static display */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-sky-500/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/60" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/60" />
 
                     {/* Hero Image */}
                     <Image
@@ -251,16 +247,16 @@ export default function WebDevDetailView({
               </div>
 
               {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-sky-500/20 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
+              <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Workflow className="h-3 w-3 text-sky-400" />
                   Modular Architecture
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Zap className="h-3 w-3 text-sky-400" />
                   High-Throughput Runtime
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 font-mono text-[11px] text-sky-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <ShieldCheck className="h-3 w-3 text-sky-400" />
                   Zero-Trust Security
                 </span>
@@ -269,9 +265,9 @@ export default function WebDevDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-sky-500/30 bg-[#080B14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-black/50 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-sky-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-sky-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -281,7 +277,7 @@ export default function WebDevDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -290,7 +286,7 @@ export default function WebDevDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -299,7 +295,7 @@ export default function WebDevDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -308,7 +304,7 @@ export default function WebDevDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -317,7 +313,7 @@ export default function WebDevDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -326,7 +322,7 @@ export default function WebDevDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-sky-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -335,7 +331,7 @@ export default function WebDevDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-sky-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                     <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
@@ -347,8 +343,8 @@ export default function WebDevDetailView({
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   hasRepoUrl
-                    ? "border-sky-500/35 bg-[#0C101D]/90 hover:border-sky-400/60 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
+                    ? "border-white/10 bg-[#080B14] hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
+                    : "border-white/10 bg-[#080B14] hover:border-white/20"
                 }`}
               >
                 {/* 4 Optical Corner Crosshairs */}
@@ -359,7 +355,7 @@ export default function WebDevDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-sky-300">
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
                       <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-sky-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -393,7 +389,7 @@ export default function WebDevDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-sky-400/40 bg-sky-500/15 hover:bg-sky-500/25 hover:border-sky-400 px-4 py-2.5 font-mono text-xs font-bold text-sky-200 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.12)] hover:shadow-[0_0_25px_rgba(56,189,248,0.28)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -407,7 +403,7 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-sky-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-sky-400 font-bold">READY // v1.0</span>
             </div>
@@ -419,12 +415,12 @@ export default function WebDevDetailView({
           SECTION 2 — BACKGROUND & OBJECTIVES
           Layout: Top Background Terminal + 2-Column Split Matrix (Problem vs Objective)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/25 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -438,7 +434,7 @@ export default function WebDevDetailView({
         </div>
 
         {/* Top: Project Background (Full-Width Narrative Card) */}
-        <div className="relative z-10 rounded-2xl border border-sky-500/20 bg-black/40 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2 font-mono text-xs text-sky-400 font-semibold mb-3">
             <Activity className="h-3.5 w-3.5 text-sky-400" />
             <span>ORIGIN CONTEXT // PROJECT BACKGROUND</span>
@@ -452,15 +448,15 @@ export default function WebDevDetailView({
 
         {/* 2-Column Split Matrix: Problem Statement vs Project Objectives */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
-          {/* Column 1: Problem Statement (Sky Theme) */}
-          <div className="rounded-2xl border border-sky-500/30 bg-[#080B14]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(56,189,248,0.05)]">
+          {/* Column 1: Problem Statement */}
+          <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-sky-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300 tracking-wider">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-sky-400" />
                   <span>[ ISSUE_DETECTED // PROBLEM STATEMENT ]</span>
                 </div>
-                <span className="rounded bg-sky-400/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
+                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {problemStatements.length} BOTTLENECKS
                 </span>
               </div>
@@ -469,11 +465,11 @@ export default function WebDevDetailView({
                 {problemStatements.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-sky-500/15 bg-black/50 p-4 transition-all hover:border-sky-400/40"
+                    className="rounded-xl border border-white/10 bg-black/50 p-4 transition-all hover:border-sky-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-[11px] text-sky-400 font-bold mb-1.5">
                       <span>{item.issueCode || `ISSUE_0${idx + 1}`}</span>
-                      <span className="text-[10px] text-sky-400/70 uppercase">
+                      <span className="text-[10px] text-slate-400 uppercase">
                         CRITICAL
                       </span>
                     </div>
@@ -488,20 +484,20 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-sky-500/15 font-mono text-[10px] text-sky-400/80">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               TELEMETRY: Architectural constraints identified during initial audit.
             </div>
           </div>
 
-          {/* Column 2: Project Objectives (Cyan Theme) */}
-          <div className="rounded-2xl border border-cyan-500/30 bg-[#070D12]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.05)]">
+          {/* Column 2: Project Objectives */}
+          <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-cyan-300 tracking-wider">
-                  <Target className="h-4 w-4 text-cyan-400" />
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                  <Target className="h-4 w-4 text-sky-400" />
                   <span>[ TARGET_SOLVED // STRATEGIC OBJECTIVES ]</span>
                 </div>
-                <span className="rounded bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 font-mono text-[10px] text-cyan-300 font-bold">
+                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {projectObjectives.length} TARGETS
                 </span>
               </div>
@@ -510,11 +506,11 @@ export default function WebDevDetailView({
                 {projectObjectives.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-cyan-500/15 bg-black/50 p-4 transition-all hover:border-cyan-400/40"
+                    className="rounded-xl border border-white/10 bg-black/50 p-4 transition-all hover:border-sky-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] text-cyan-400 font-bold mb-1.5">
+                    <div className="flex items-center justify-between font-mono text-[11px] text-sky-400 font-bold mb-1.5">
                       <span>{item.targetTag || `TARGET_0${idx + 1}`}</span>
-                      <span className="inline-flex items-center gap-1 text-[10px] text-cyan-400 font-medium">
+                      <span className="inline-flex items-center gap-1 text-[10px] text-sky-300 font-medium">
                         <Check className="h-3 w-3" />
                         DELIVERED
                       </span>
@@ -530,7 +526,7 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-cyan-500/15 font-mono text-[10px] text-cyan-400/80">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               TELEMETRY: All core objectives validated in production deployment.
             </div>
           </div>
@@ -541,12 +537,12 @@ export default function WebDevDetailView({
           SECTION 3 — FEATURES & INTERFACE
           Layout: Hero Viewport Showcase + Split Sub-Bento (Features & User Flow)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/25 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -560,11 +556,11 @@ export default function WebDevDetailView({
         </div>
 
         {/* 1. Interface Showcase (Hero Holographic Viewport) */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-sky-500/30 bg-black/60 p-4 sm:p-6 shadow-[0_0_40px_rgba(0,240,255,0.08)]">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-              <span className="font-bold text-sky-300">
+              <span className="font-bold text-white">
                 HOLOGRAPHIC_VIEWPORT // INTERFACE_STAGE
               </span>
             </div>
@@ -578,7 +574,7 @@ export default function WebDevDetailView({
           </div>
 
           {/* Image Stage Container */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#04060A]">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14]">
             <Image
               src={
                 imgErrors[interfaceShowcase[activeImageIndex]?.imageUrl]
@@ -604,7 +600,7 @@ export default function WebDevDetailView({
                       prev === 0 ? interfaceShowcase.length - 1 : prev - 1
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-sky-400/40 bg-black/70 p-2.5 text-sky-300 hover:bg-sky-400 hover:text-black backdrop-blur-md transition-all shadow-lg"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-sky-400/40 bg-black/75 p-2.5 text-sky-200 hover:bg-sky-500/25 hover:border-sky-400 hover:text-white backdrop-blur-md transition-all shadow-lg"
                   aria-label="Previous Showcase Viewport"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -615,7 +611,7 @@ export default function WebDevDetailView({
                       prev === interfaceShowcase.length - 1 ? 0 : prev + 1
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-sky-400/40 bg-black/70 p-2.5 text-sky-300 hover:bg-sky-400 hover:text-black backdrop-blur-md transition-all shadow-lg"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-sky-400/40 bg-black/75 p-2.5 text-sky-200 hover:bg-sky-500/25 hover:border-sky-400 hover:text-white backdrop-blur-md transition-all shadow-lg"
                   aria-label="Next Showcase Viewport"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -655,10 +651,10 @@ export default function WebDevDetailView({
         {/* 2-Column Split: Core Features (Left) vs User Flow (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
           {/* Core Features */}
-          <div className="rounded-2xl border border-sky-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <Sparkles className="h-4 w-4 text-sky-400" />
                   <span>[ CORE_FEATURES // CAPABILITY MATRIX ]</span>
                 </div>
@@ -671,10 +667,10 @@ export default function WebDevDetailView({
                 {coreFeatures.map((feat, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#0C101D]/70 p-4 transition-all hover:border-sky-400/40 hover:-translate-y-0.5"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-sky-400/50 hover:-translate-y-0.5"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] text-sky-400 font-bold mb-2">
-                      <span className="rounded bg-sky-400/10 border border-sky-400/25 px-2 py-0.5">
+                      <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5">
                         {feat.badge || `MOD_0${i + 1}`}
                       </span>
                       <Workflow className="h-3 w-3 text-slate-500" />
@@ -690,16 +686,16 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               SPEC: All modules engineered to operate under decoupled event boundaries.
             </div>
           </div>
 
           {/* User Flow */}
-          <div className="rounded-2xl border border-sky-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <Workflow className="h-4 w-4 text-sky-400" />
                   <span>[ USER_FLOW // INTERACTION PIPELINE ]</span>
                 </div>
@@ -713,11 +709,11 @@ export default function WebDevDetailView({
               </p>
 
               {/* Step by Step Circuit Pipeline */}
-              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sky-400 before:via-cyan-400 before:to-sky-500">
+              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-sky-500/40">
                 {userFlow.steps.map((st, i) => (
                   <div
                     key={i}
-                    className="relative pl-8 rounded-xl border border-white/5 bg-[#0A0E1A]/80 p-3.5 transition-all hover:border-sky-400/30"
+                    className="relative pl-8 rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-sky-400/50"
                   >
                     <span className="absolute left-2 top-4 h-2.5 w-2.5 rounded-full bg-sky-400 ring-4 ring-[#080B14]" />
                     <div className="flex items-center justify-between font-mono text-[10px] text-sky-400 font-bold mb-1">
@@ -737,7 +733,7 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               AUDIT: End-to-end friction tested across touch and keyboard inputs.
             </div>
           </div>
@@ -759,12 +755,12 @@ export default function WebDevDetailView({
           SECTION 5 — ARCHITECTURE & IMPLEMENTATION
           Layout: Dual Diagram Blueprint (2-Column Grid) + Implementation Deck Below
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/25 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -780,14 +776,14 @@ export default function WebDevDetailView({
         {/* Dual Diagram Blueprint (2-Column Grid) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 mb-8 items-stretch">
           {/* Blueprint 1: System Architecture */}
-          <div className="rounded-2xl border border-sky-500/30 bg-[#0A0E1A]/80 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(0,240,255,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white">
                   <Network className="h-4 w-4 text-sky-400" />
                   <span>[ SYSTEM_ARCHITECTURE // TOPOLOGY ]</span>
                 </div>
-                <span className="rounded bg-sky-400/10 border border-sky-400/25 px-2 py-0.5 font-mono text-[10px] text-sky-300">
+                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   TIERED MVC
                 </span>
               </div>
@@ -801,7 +797,7 @@ export default function WebDevDetailView({
                 {systemArchitecture.layers?.map((layer, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-sky-400/40"
+                    className="rounded-xl border border-white/10 bg-black/50 p-3.5 transition-all hover:border-sky-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-300 mb-1">
                       <span>{layer.name}</span>
@@ -825,20 +821,20 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               TOPOLOGY: Edge-routed reverse proxy with decoupled downstream microservices.
             </div>
           </div>
 
           {/* Blueprint 2: Database & Data Flow */}
-          <div className="rounded-2xl border border-sky-500/30 bg-[#0A0E1A]/80 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(0,240,255,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white">
                   <Database className="h-4 w-4 text-sky-400" />
                   <span>[ DATABASE_SCHEMA // DATA_FLOW ]</span>
                 </div>
-                <span className="rounded bg-sky-400/10 border border-sky-400/25 px-2 py-0.5 font-mono text-[10px] text-sky-300">
+                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   {databaseDataFlow.type}
                 </span>
               </div>
@@ -852,11 +848,11 @@ export default function WebDevDetailView({
                 {databaseDataFlow.entitiesOrPipelines?.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-sky-400/40"
+                    className="rounded-xl border border-white/10 bg-black/50 p-3.5 transition-all hover:border-sky-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-300 mb-1">
                       <span>{item.name}</span>
-                      <span className="rounded bg-sky-400/10 px-1.5 py-0.2 font-mono text-[9px] text-sky-400">
+                      <span className="rounded bg-sky-500/10 border border-sky-400/20 px-1.5 py-0.2 font-mono text-[9px] text-sky-400">
                         {item.type}
                       </span>
                     </div>
@@ -864,7 +860,7 @@ export default function WebDevDetailView({
                       {item.fields.map((field, fIdx) => (
                         <span
                           key={fIdx}
-                          className="rounded border border-sky-400/20 bg-sky-400/5 px-2 py-0.5 font-mono text-[10px] text-sky-200"
+                          className="rounded border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[10px] text-slate-200"
                         >
                           {field}
                         </span>
@@ -875,16 +871,16 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               INTEGRITY: Foreign-key constrained with transactional isolation.
             </div>
           </div>
         </div>
 
         {/* Technical Implementation Deck (Modular List/Cards Below) */}
-        <div className="relative z-10 rounded-2xl border border-sky-500/20 bg-black/50 p-6 sm:p-7">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-sky-300">
+            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-white">
               <Zap className="h-4 w-4 text-sky-400" />
               <span>[ TECHNICAL_IMPLEMENTATION // REAL-WORLD PROTOCOLS ]</span>
             </div>
@@ -897,11 +893,11 @@ export default function WebDevDetailView({
             {technicalImplementation.map((impl, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-white/10 bg-[#0C101D]/70 p-5 transition-all duration-300 hover:border-sky-400/40 hover:-translate-y-1"
+                className="rounded-xl border border-white/10 bg-[#080B14] p-5 transition-all duration-300 hover:border-sky-400/50 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between font-mono text-[10px] text-sky-400 font-bold mb-2">
                   <span className="uppercase tracking-wider">{impl.category}</span>
-                  <span className="rounded bg-sky-400/10 border border-sky-400/25 px-2 py-0.5">
+                  <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 text-sky-300">
                     {impl.badge}
                   </span>
                 </div>
@@ -924,12 +920,12 @@ export default function WebDevDetailView({
           Card 2: Technical Documentation & Specs
           Card 3: Architecture & Quality Standards
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-sky-500/30 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -974,10 +970,10 @@ export default function WebDevDetailView({
           />
 
           {/* Card 3: Architecture & Quality Card (Sky Theme) */}
-          <div className="flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#080B14]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60">
+          <div className="flex flex-col justify-between rounded-2xl border border-sky-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/50">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-slate-200">
                   <ShieldCheck className="h-4 w-4 text-sky-400" />
                   <span>QUALITY & VALIDATION</span>
                 </div>
@@ -995,7 +991,7 @@ export default function WebDevDetailView({
                 {qualityBadges.map((bg, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-1.5 rounded-lg border border-sky-400/20 bg-sky-400/10 p-2 font-mono text-[10px] text-sky-200 font-semibold"
+                    className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/50 p-2 font-mono text-[10px] text-slate-200 font-semibold"
                   >
                     <CheckCircle2 className="h-3 w-3 text-sky-400 shrink-0" />
                     <span className="truncate">{bg}</span>
@@ -1004,7 +1000,7 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="w-full flex items-center justify-center rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-sky-300">
+            <div className="w-full flex items-center justify-center rounded-xl border border-sky-400/30 bg-sky-500/15 px-4 py-3 text-center font-mono text-xs font-semibold text-sky-300">
               QA AUDIT: 100% PASSED
             </div>
           </div>

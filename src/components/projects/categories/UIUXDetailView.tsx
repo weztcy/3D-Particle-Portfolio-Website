@@ -260,35 +260,31 @@ export default function UIUXDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // DESIGN CONSOLE & PRODUCT ARCHITECTURE ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-rose-500/30 bg-[#0C0610]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(244,63,94,0.15)]">
+      <section className="relative overflow-hidden rounded-3xl border border-rose-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/70" />
-
-        {/* Ambient Neon Rose Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-rose-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-rose-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/60" />
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-rose-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
               [ 01 // DESIGN CONSOLE & PRODUCT ARCHITECTURE ]
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-rose-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Palette className="h-3 w-3 text-rose-400" />
               {telemetry.projectType}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-rose-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Sparkles className="h-3 w-3 text-rose-400" />
               {telemetry.targetPlatform}
             </span>
@@ -300,25 +296,25 @@ export default function UIUXDetailView({
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Studio Header Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-950/40 px-4 py-2 text-xs font-mono text-rose-300">
-              <span className="flex items-center gap-2 text-rose-200">
-                <Terminal className="h-3.5 w-3.5 text-rose-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-rose-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Studio Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-rose-500/25 bg-[#0D0B1B]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-[#080B14] p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-rose-500/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-rose-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-rose-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-rose-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-rose-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-rose-400/60" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-rose-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-rose-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-rose-400/60" />
 
                     {/* Hero Image */}
                     <Image
@@ -339,16 +335,16 @@ export default function UIUXDetailView({
               </div>
 
               {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-rose-500/20 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
+              <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <UserCheck className="h-3 w-3 text-rose-400" />
                   Human-Centered Design (HCD)
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Sparkles className="h-3 w-3 text-rose-400" />
                   Fluid Micro-Interactions
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-400/30 bg-rose-500/10 px-2.5 py-1 font-mono text-[11px] text-rose-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Layers className="h-3 w-3 text-rose-400" />
                   Design System Powered
                 </span>
@@ -357,9 +353,9 @@ export default function UIUXDetailView({
           </div>
 
           {/* Right Pane (35%): Design Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-rose-500/30 bg-[#0D0B1B]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-black/50 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-rose-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-rose-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -369,7 +365,7 @@ export default function UIUXDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -378,7 +374,7 @@ export default function UIUXDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -387,7 +383,7 @@ export default function UIUXDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -396,7 +392,7 @@ export default function UIUXDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -405,7 +401,7 @@ export default function UIUXDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -414,7 +410,7 @@ export default function UIUXDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-rose-400 animate-pulse shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -423,7 +419,7 @@ export default function UIUXDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
@@ -435,8 +431,8 @@ export default function UIUXDetailView({
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   isPublicRepo
-                    ? "border-rose-500/35 bg-[#170E20]/90 hover:border-rose-400/60 hover:shadow-[0_0_25px_rgba(244,63,94,0.2)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
+                    ? "border-white/10 bg-[#080B14] hover:border-rose-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
+                    : "border-white/10 bg-[#080B14] hover:border-white/20"
                 }`}
               >
                 {/* 4 Optical Corner Crosshairs */}
@@ -447,7 +443,7 @@ export default function UIUXDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-rose-300">
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
                       <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-rose-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -481,7 +477,7 @@ export default function UIUXDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(244,63,94,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-rose-400/40 bg-rose-500/15 hover:bg-rose-500/25 hover:border-rose-400 px-4 py-2.5 font-mono text-xs font-bold text-rose-200 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(244,63,94,0.12)] hover:shadow-[0_0_25px_rgba(244,63,94,0.28)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -495,7 +491,7 @@ export default function UIUXDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-rose-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-rose-400 font-bold">READY // v1.0</span>
             </div>
@@ -506,32 +502,32 @@ export default function UIUXDetailView({
       {/* =========================================================================
           SECTION 2 — [ 02 // RESEARCH DISCOVERY & USER PERSONAS ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-rose-500/30 bg-[#090814]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-rose-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex items-center justify-between border-b border-rose-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
               [ 02 // RESEARCH DISCOVERY & USER PERSONAS ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-rose-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             EMPATHY // PROBLEM_SPACE
           </span>
         </div>
 
         {/* Top: Project Background Genesis */}
-        <div className="relative z-10 mb-8 rounded-xl border border-rose-500/25 bg-[#0D0B1B]/95 p-5 sm:p-6 shadow-inner">
-          <div className="flex items-center gap-2 text-xs font-mono text-rose-300 mb-3">
+        <div className="relative z-10 mb-8 rounded-xl border border-white/10 bg-black/50 p-5 sm:p-6 shadow-inner">
+          <div className="flex items-center gap-2 text-xs font-mono text-rose-400 mb-3">
             <Info className="h-4 w-4 text-rose-400" />
             <span className="font-bold uppercase tracking-wider">
               Project Context & Research Genesis
@@ -548,7 +544,7 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: User Research Methods & Findings */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-rose-500/25 pb-2.5 text-rose-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <Users className="h-4 w-4 text-rose-400" />
               <span>User Research Methodologies & Findings</span>
             </div>
@@ -557,15 +553,15 @@ export default function UIUXDetailView({
               {userResearchList.map((res: any, idx: number) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-rose-500/20 bg-rose-950/15 p-4 transition-all hover:border-rose-400/40 hover:bg-rose-950/25"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-rose-400/50"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-sm text-white flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
                       {res.method}
                     </h4>
                     {res.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-500/30 bg-rose-950/50 px-2 py-0.5 rounded">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-400/30 bg-rose-500/10 px-2 py-0.5 rounded">
                         {res.badge}
                       </span>
                     )}
@@ -577,7 +573,7 @@ export default function UIUXDetailView({
                     <span className="font-mono text-[10px] font-bold text-rose-400 uppercase tracking-wider">
                       KEY_FINDING:
                     </span>
-                    <p className="text-xs sm:text-sm text-rose-300/90 leading-relaxed font-sans">
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
                       {res.keyFinding}
                     </p>
                   </div>
@@ -588,7 +584,7 @@ export default function UIUXDetailView({
 
           {/* Right Column: User Personas & Pain Points */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-rose-500/25 pb-2.5 text-rose-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <UserCheck className="h-4 w-4 text-rose-400" />
               <span>Target Personas & Critical Pain Points</span>
             </div>
@@ -597,18 +593,18 @@ export default function UIUXDetailView({
               {(userPersonas || []).map((persona: any, idx: number) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-rose-500/25 bg-rose-950/15 p-4 transition-all hover:border-rose-400/45 hover:bg-rose-950/25"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-rose-400/50"
                 >
-                  <div className="flex items-center justify-between gap-2 border-b border-rose-500/20 pb-2 mb-2.5">
+                  <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2 mb-2.5">
                     <div>
-                      <h4 className="font-semibold text-sm text-slate-100">
+                      <h4 className="font-semibold text-sm text-white">
                         {persona.name}
                       </h4>
                       <p className="font-mono text-[11px] text-rose-400">
                         {persona.role}
                       </p>
                     </div>
-                    <span className="font-mono text-[10px] uppercase text-slate-400 border border-white/10 px-2 py-0.5 rounded">
+                    <span className="font-mono text-[10px] uppercase text-slate-400 border border-white/10 bg-black/50 px-2 py-0.5 rounded">
                       PERSONA 0{idx + 1}
                     </span>
                   </div>
@@ -658,25 +654,25 @@ export default function UIUXDetailView({
       {/* =========================================================================
           SECTION 3 — [ 03 // INFORMATION ARCHITECTURE & USER INTERACTION FLOW ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-rose-500/30 bg-[#090814]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-rose-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-rose-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-rose-300">
+            <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-rose-400">
               [ 03 // INFORMATION ARCHITECTURE & USER INTERACTION FLOW ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-rose-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             SITEMAP // NAVIGATION_TREE // INTERACTION_FLOW
           </span>
         </div>
@@ -685,15 +681,15 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column (6/12): Information Architecture */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-rose-500/25 pb-2.5 text-rose-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Compass className="h-4 w-4 text-rose-400" />
                 <span>Information Architecture & Sitemap</span>
               </div>
-              <span className="text-[10px] text-rose-400/80">NAVIGATION_TREE</span>
+              <span className="text-[10px] text-slate-400">NAVIGATION_TREE</span>
             </div>
 
-            <div className="rounded-xl border border-rose-500/20 bg-[#0D0B1B]/95 p-4 mb-2">
+            <div className="rounded-xl border border-white/10 bg-black/50 p-4 mb-2">
               <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
                 {informationArchitecture.summary}
               </p>
@@ -703,9 +699,9 @@ export default function UIUXDetailView({
               {(informationArchitecture.nodes || []).map((node: any, idx: number) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-rose-500/20 bg-rose-950/15 p-4 transition-all hover:border-rose-400/40 hover:bg-rose-950/25"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-rose-400/50"
                 >
-                  <div className="flex items-center justify-between border-b border-rose-500/20 pb-1.5 mb-2.5">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-1.5 mb-2.5">
                     <span className="font-mono text-[10px] font-bold uppercase text-rose-400">
                       NODE 0{idx + 1} // {node.section}
                     </span>
@@ -714,7 +710,7 @@ export default function UIUXDetailView({
                     {(node.screens || []).map((scr: any, sIdx: number) => (
                       <span
                         key={sIdx}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-rose-500/25 bg-rose-950/40 px-3 py-1 text-xs text-slate-200 font-sans"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-3 py-1 text-xs text-slate-200 font-sans"
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
                         {scr}
@@ -728,15 +724,15 @@ export default function UIUXDetailView({
 
           {/* Right Column (6/12): User Flow */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-rose-500/25 pb-2.5 text-rose-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Workflow className="h-4 w-4 text-rose-400" />
                 <span>User Journey & Task Interaction Flow</span>
               </div>
-              <span className="text-[10px] text-rose-400/80">INTERACTION_PIPELINE</span>
+              <span className="text-[10px] text-slate-400">INTERACTION_PIPELINE</span>
             </div>
 
-            <div className="rounded-xl border border-rose-500/20 bg-[#0C0610]/95 p-4">
+            <div className="rounded-xl border border-white/10 bg-black/50 p-4">
               <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
                 {userFlow.summary}
               </p>
@@ -752,18 +748,18 @@ export default function UIUXDetailView({
                 return (
                   <div
                     key={idx}
-                    className="relative flex items-start gap-3.5 rounded-xl border border-rose-500/20 bg-[#0C0610]/90 p-4 transition-all hover:border-rose-400/40 hover:bg-[#180A15]"
+                    className="relative flex items-start gap-3.5 rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-rose-400/50"
                   >
-                    <div className="mt-0.5 flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-rose-400/40 bg-rose-500/15 font-mono text-xs font-bold text-rose-300">
+                    <div className="mt-0.5 flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-rose-400/30 bg-rose-500/10 font-mono text-xs font-bold text-rose-300">
                       {stepNum}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                        <h4 className="font-semibold text-xs sm:text-sm text-slate-100">
+                        <h4 className="font-semibold text-xs sm:text-sm text-white">
                           {stepItem.title}
                         </h4>
                         {stepItem.screenOrAction && (
-                          <span className="flex-shrink-0 font-mono text-[10px] uppercase text-rose-300 border border-rose-500/30 bg-rose-950/50 px-2 py-0.5 rounded">
+                          <span className="flex-shrink-0 font-mono text-[10px] uppercase text-rose-300 border border-rose-400/30 bg-rose-500/10 px-2 py-0.5 rounded">
                             {stepItem.screenOrAction}
                           </span>
                         )}
@@ -794,26 +790,26 @@ export default function UIUXDetailView({
       {/* =========================================================================
           SECTION 5 — [ 05 // HI-FI INTERFACE & USABILITY VALIDATION ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-rose-500/30 bg-[#090814]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-rose-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-rose-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
               [ 05 // HI-FI INTERFACE & USABILITY VALIDATION ]
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-xs text-rose-300">
+          <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
             <span>
               SHOWCASE {activeHiFiIndex + 1} OF {visualShowcase.length}
             </span>
@@ -821,27 +817,27 @@ export default function UIUXDetailView({
         </div>
 
         {/* Top: Hi-Fi Visual Design Showcase Stage */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-rose-500/30 bg-[#070611] p-3 sm:p-5 shadow-2xl">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-[#080B14] p-3 sm:p-5 shadow-2xl">
           {/* Simulated Device Frame Header */}
-          <div className="flex items-center justify-between border-b border-rose-500/20 pb-3 mb-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
             <div className="flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-rose-500/80 inline-block" />
               <span className="h-3 w-3 rounded-full bg-rose-400/80 inline-block" />
-              <span className="h-3 w-3 rounded-full bg-pink-500/80 inline-block" />
+              <span className="h-3 w-3 rounded-full bg-rose-300/80 inline-block" />
               <span className="ml-3 font-mono text-[11px] text-slate-400 hidden sm:inline-block">
                 {(activeHiFiItem as any).title || "Hi-Fi Interface Viewport"}
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] tracking-wider uppercase text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2 py-0.5 rounded">
+              <span className="font-mono text-[10px] tracking-wider uppercase text-rose-300 bg-rose-500/10 border border-rose-400/30 px-2 py-0.5 rounded">
                 VIEWPORT 0{activeHiFiIndex + 1}
               </span>
             </div>
           </div>
 
           {/* Active Viewport Image */}
-          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/8] overflow-hidden rounded-xl border border-rose-500/20 bg-slate-950 flex items-center justify-center group">
+          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/8] overflow-hidden rounded-xl border border-white/10 bg-[#080B14] flex items-center justify-center group">
             {activeHiFiItem.imageUrl ? (
               <Image
                 src={activeHiFiItem.imageUrl}
@@ -853,7 +849,7 @@ export default function UIUXDetailView({
               />
             ) : (
               <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
-                <Palette className="h-12 w-12 text-rose-500/50 mb-2" />
+                <Palette className="h-12 w-12 text-rose-400/50 mb-2" />
                 <p className="font-mono text-xs">NO HI-FI SCREEN LINKED</p>
               </div>
             )}
@@ -867,7 +863,7 @@ export default function UIUXDetailView({
                       (prev) => (prev - 1 + visualShowcase.length) % visualShowcase.length
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-rose-400/40 bg-black/70 p-2.5 text-rose-300 hover:bg-rose-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-rose-400/40 bg-black/75 p-2.5 text-rose-200 hover:bg-rose-500/25 hover:border-rose-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -878,7 +874,7 @@ export default function UIUXDetailView({
                       (prev) => (prev + 1) % visualShowcase.length
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-rose-400/40 bg-black/70 p-2.5 text-rose-300 hover:bg-rose-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-rose-400/40 bg-black/75 p-2.5 text-rose-200 hover:bg-rose-500/25 hover:border-rose-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Next image"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -919,13 +915,13 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column (6/12): Design System & Components */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-rose-500/25 pb-2.5 text-rose-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <Layers className="h-4 w-4 text-rose-400" />
               <span>Design System Foundations & Tokens</span>
             </div>
 
             {/* Color Palette Swatches */}
-            <div className="rounded-xl border border-rose-500/25 bg-[#0D0B1B]/95 p-4 space-y-3">
+            <div className="rounded-xl border border-white/10 bg-[#080B14] p-4 space-y-3">
               <span className="font-mono text-[10px] uppercase font-bold text-rose-400 block">
                 Calibrated Color Tokens (WCAG AA Compliant):
               </span>
@@ -933,7 +929,7 @@ export default function UIUXDetailView({
                 {(designSystem.colorPalette || []).map((col: any, cIdx: number) => (
                   <div
                     key={cIdx}
-                    className="rounded-lg border border-white/10 bg-black/40 p-2.5 flex flex-col justify-between"
+                    className="rounded-lg border border-white/10 bg-black/50 p-2.5 flex flex-col justify-between"
                   >
                     <div
                       className="h-7 w-full rounded mb-2 border border-white/20"
@@ -951,8 +947,8 @@ export default function UIUXDetailView({
             </div>
 
             {/* Typography & Component States */}
-            <div className="rounded-xl border border-rose-500/25 bg-[#0D0B1B]/95 p-4 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase font-bold text-rose-300">
+            <div className="rounded-xl border border-white/10 bg-[#080B14] p-4 space-y-3">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase font-bold text-rose-400">
                 <Type className="h-3.5 w-3.5 text-rose-400" />
                 <span>Typography Hierarchy & Scale:</span>
               </div>
@@ -962,7 +958,7 @@ export default function UIUXDetailView({
                     key={tIdx}
                     className="flex items-center justify-between border-b border-white/5 pb-1.5"
                   >
-                    <span className="font-semibold text-slate-100">{ty.role || ty.name}</span>
+                    <span className="font-semibold text-white">{ty.role || ty.name}</span>
                     <div className="text-right">
                       <span className="text-rose-300 font-mono text-[11px] block">{ty.font || ty.usage}</span>
                       {ty.sizeWeight && (
@@ -975,19 +971,19 @@ export default function UIUXDetailView({
             </div>
 
             {(designSystem.componentStates || designSystem.components) && (
-              <div className="rounded-xl border border-rose-500/25 bg-[#0D0B1B]/95 p-4 space-y-3">
+              <div className="rounded-xl border border-white/10 bg-[#080B14] p-4 space-y-3">
                 <span className="font-mono text-[10px] uppercase font-bold text-rose-400 block">
                   Component States & Ergonomics:
                 </span>
                 <div className="space-y-2">
                   {((designSystem.componentStates || designSystem.components) || []).map((cs: any, csIdx: number) => (
-                    <div key={csIdx} className="rounded-lg border border-white/5 bg-black/30 p-2.5 text-xs">
-                      <div className="font-semibold text-slate-100 mb-1">{cs.component}</div>
+                    <div key={csIdx} className="rounded-lg border border-white/10 bg-black/50 p-2.5 text-xs">
+                      <div className="font-semibold text-white mb-1">{cs.component}</div>
                       <div className="flex flex-wrap gap-1 mb-1.5">
                         {(cs.states || []).map((st: string, stIdx: number) => (
                           <span
                             key={stIdx}
-                            className="font-mono text-[10px] border border-rose-500/30 bg-rose-950/40 text-rose-300 px-2 py-0.5 rounded"
+                            className="font-mono text-[10px] border border-white/10 bg-black/50 text-rose-300 px-2 py-0.5 rounded"
                           >
                             {st}
                           </span>
@@ -1003,44 +999,44 @@ export default function UIUXDetailView({
 
           {/* Right Column (6/12): Usability Validation & Feedback Iterations */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-rose-500/25 pb-2.5 text-rose-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Target className="h-4 w-4 text-rose-400" />
                 <span>Usability Validation & Iterations</span>
               </div>
-              <span className="text-[10px] text-rose-400/80">SUS_BENCHMARK</span>
+              <span className="text-[10px] text-slate-400">SUS_BENCHMARK</span>
             </div>
 
             {/* Usability Benchmark Metrics Grid */}
             <div className="grid grid-cols-3 gap-3">
-              <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-3.5 text-center">
-                <span className="font-mono text-[10px] uppercase text-rose-400 block mb-1">
+              <div className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 text-center transition-all hover:border-rose-400/50">
+                <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                   SUS Score
                 </span>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100">
+                <div className="text-xl sm:text-2xl font-bold font-mono text-white">
                   {usabilityValidation.susScore || "88 / 100"}
                 </div>
                 <span className="text-[10px] text-rose-400 font-mono">Grade A+ (Top 10%)</span>
               </div>
 
-              <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-3.5 text-center">
-                <span className="font-mono text-[10px] uppercase text-rose-400 block mb-1">
+              <div className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 text-center transition-all hover:border-rose-400/50">
+                <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                   Task Success
                 </span>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100">
+                <div className="text-xl sm:text-2xl font-bold font-mono text-white">
                   {usabilityValidation.taskSuccessRate || "96.4%"}
                 </div>
                 <span className="text-[10px] text-rose-400 font-mono">High Confidence</span>
               </div>
 
-              <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-3.5 text-center">
-                <span className="font-mono text-[10px] uppercase text-rose-400 block mb-1">
+              <div className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 text-center transition-all hover:border-rose-400/50">
+                <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                   Task Latency
                 </span>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100">
+                <div className="text-xl sm:text-2xl font-bold font-mono text-white">
                   {usabilityValidation.timeOnTask || "-34%"}
                 </div>
-                <span className="text-[10px] text-rose-300 font-mono">Faster Scanning</span>
+                <span className="text-[10px] text-rose-400 font-mono">Faster Scanning</span>
               </div>
             </div>
 
@@ -1049,7 +1045,7 @@ export default function UIUXDetailView({
               {((usabilityValidation.findingsAndFeedback || (usabilityValidation as any).iterations) || []).map((ff: any, ffIdx: number) => (
                 <div
                   key={ffIdx}
-                  className="rounded-xl border border-rose-500/20 bg-[#0C0610]/95 p-3.5 space-y-1.5"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 space-y-1.5 transition-all hover:border-rose-400/50"
                 >
                   <div className="flex items-center gap-2 font-mono text-[10px] text-rose-400 uppercase font-bold">
                     <AlertTriangle className="h-3.5 w-3.5" />
@@ -1064,7 +1060,7 @@ export default function UIUXDetailView({
                     </span>
                     <span>{ff.iterationSolution}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-rose-300 font-mono">
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-mono">
                     <span>IMPACT:</span>
                     <span className="font-semibold text-white">{ff.impact}</span>
                   </div>
@@ -1078,25 +1074,25 @@ export default function UIUXDetailView({
             {/* =========================================================================
           SECTION 6 — [ 06 // DESIGN VAULT & HANDOFF GATES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-rose-500/30 bg-[#0D0B1B]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-rose-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-rose-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-rose-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-rose-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
               [ 06 // DESIGN VAULT & HANDOFF GATES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-rose-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             GITHUB_SOURCE // FIGMA_SPECIFICATION_GATES
           </span>
         </div>
@@ -1139,7 +1135,7 @@ export default function UIUXDetailView({
           />
 
           {/* CARD 3 — Documentation & UX Research Deliverables Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-rose-500/30 bg-[#0D0B1B]/95 p-5 sm:p-7 shadow-lg transition-all hover:border-rose-400/50 hover:shadow-[0_8px_32px_rgba(244,63,94,0.2)]">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-rose-500/20 bg-[#0A0D17]/85 p-5 sm:p-7 shadow-lg transition-all hover:border-rose-400/50">
             {/* 4 Optical Corner Crosshairs */}
             <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-rose-400/60" />
             <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-rose-400/60" />
@@ -1147,8 +1143,8 @@ export default function UIUXDetailView({
             <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-rose-400/60" />
 
             <div>
-              <div className="flex items-center justify-between border-b border-rose-500/20 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 text-rose-300 font-mono text-xs font-bold uppercase tracking-wider">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
+                <div className="flex items-center gap-2 text-slate-200 font-mono text-xs font-bold uppercase tracking-wider">
                   <FileText className="h-4 w-4 text-rose-400" />
                   <span>DESIGN SYSTEM & STANDARDS</span>
                 </div>
@@ -1182,7 +1178,7 @@ export default function UIUXDetailView({
               </div>
             </div>
 
-            <div className="w-full flex items-center justify-center rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-rose-300">
+            <div className="w-full flex items-center justify-center rounded-xl border border-rose-400/30 bg-rose-500/15 px-4 py-3 text-center font-mono text-xs font-semibold text-rose-300">
               ACCESSIBILITY: WCAG AA PASSED
             </div>
           </div>

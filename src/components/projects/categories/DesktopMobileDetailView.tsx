@@ -311,31 +311,29 @@ export default function DesktopMobileDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // CLIENT CONSOLE & NATIVE OVERVIEW ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <section className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/60" />
 
-        {/* Ambient Sci-Fi Amber/Yellow Glow */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/15 via-yellow-500/5 to-transparent opacity-60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent" />
+        {/* Ambient Glow removed for clean Obsidian surface */}
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
               [ 01 // CLIENT CONSOLE & NATIVE OVERVIEW ]
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-500/15 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-amber-200 shadow-[0_0_12px_rgba(245,158,11,0.15)]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               {isMobile ? (
                 <Smartphone className="h-3 w-3 text-amber-400" />
               ) : (
@@ -343,7 +341,7 @@ export default function DesktopMobileDetailView({
               )}
               {projectInfo.applicationType}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-500/15 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-amber-200 shadow-[0_0_12px_rgba(245,158,11,0.15)]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <HardDrive className="h-3 w-3 text-amber-400" />
               {projectInfo.targetPlatform}
             </span>
@@ -355,25 +353,25 @@ export default function DesktopMobileDetailView({
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-xs font-mono text-amber-300">
-              <span className="flex items-center gap-2 text-amber-200">
-                <Terminal className="h-3.5 w-3.5 text-amber-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-amber-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-amber-400/25 bg-[#080B14]/85 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-[#080B14] p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-amber-400/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/60" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/60" />
 
                     {/* Hero Image */}
                     <Image
@@ -394,16 +392,16 @@ export default function DesktopMobileDetailView({
               </div>
 
               {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-amber-500/20 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-200">
+              <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Zap className="h-3 w-3 text-amber-400" />
                   Decoupled Async Concurrency
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-200">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <ShieldCheck className="h-3 w-3 text-amber-400" />
                   Zero-Telemetry Air-Gapped
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 font-mono text-[11px] text-amber-200">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Cpu className="h-3 w-3 text-amber-400" />
                   Multi-Core Hardware Saturation
                 </span>
@@ -412,9 +410,9 @@ export default function DesktopMobileDetailView({
           </div>
 
           {/* Right Pane (35%): Native Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-amber-400/30 bg-[#080B14]/85 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-black/50 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-amber-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-amber-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -424,7 +422,7 @@ export default function DesktopMobileDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -433,7 +431,7 @@ export default function DesktopMobileDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -442,7 +440,7 @@ export default function DesktopMobileDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -451,7 +449,7 @@ export default function DesktopMobileDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -460,7 +458,7 @@ export default function DesktopMobileDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -469,7 +467,7 @@ export default function DesktopMobileDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -478,7 +476,7 @@ export default function DesktopMobileDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-amber-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                     <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
@@ -490,8 +488,8 @@ export default function DesktopMobileDetailView({
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   isPublicRepo
-                    ? "border-amber-400/35 bg-[#080B14]/90 hover:border-amber-400/60 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
+                    ? "border-white/10 bg-[#080B14] hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
+                    : "border-white/10 bg-[#080B14] hover:border-white/20"
                 }`}
               >
                 {/* 4 Optical Corner Crosshairs */}
@@ -502,7 +500,7 @@ export default function DesktopMobileDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-amber-300">
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
                       <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-amber-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -523,7 +521,7 @@ export default function DesktopMobileDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-amber-400 font-semibold text-[11px]" : "text-amber-400/80 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-amber-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -536,7 +534,7 @@ export default function DesktopMobileDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-amber-300/50 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 px-4 py-2.5 font-mono text-xs font-bold text-slate-950 transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-amber-400/40 bg-amber-500/15 hover:bg-amber-500/25 hover:border-amber-400 px-4 py-2.5 font-mono text-xs font-bold text-amber-200 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.12)] hover:shadow-[0_0_25px_rgba(245,158,11,0.28)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -550,7 +548,7 @@ export default function DesktopMobileDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-amber-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-amber-400 font-bold">READY // v1.0</span>
             </div>
@@ -561,36 +559,34 @@ export default function DesktopMobileDetailView({
       {/* =========================================================================
           SECTION 2 — [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <section className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/60" />
 
-        {/* Ambient Sci-Fi Amber/Yellow Glow */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/15 via-yellow-500/5 to-transparent opacity-60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent" />
+        {/* Ambient Glow removed for clean Obsidian surface */}
 
         {/* Section Header */}
-        <div className="relative z-10 flex items-center justify-between border-b border-amber-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
               [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-amber-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             ROOT_CAUSE // SPECIFICATION_MATRIX
           </span>
         </div>
 
         {/* Top: Project Background Terminal */}
-        <div className="relative z-10 mb-8 rounded-xl border border-amber-400/25 bg-[#080B14]/85 p-5 sm:p-6 shadow-inner">
-          <div className="flex items-center gap-2 text-xs font-mono text-amber-300 mb-3">
+        <div className="relative z-10 mb-8 rounded-xl border border-white/10 bg-black/50 p-5 sm:p-6 shadow-inner">
+          <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-3">
             <Info className="h-4 w-4 text-amber-400" />
             <span className="font-bold uppercase tracking-wider">
               Project Context & Background Genesis
@@ -607,7 +603,7 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: Problem Statements */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-amber-500/25 pb-2.5 text-amber-400 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <AlertTriangle className="h-4 w-4 text-amber-400" />
               <span>Target Constraints & Bottlenecks</span>
             </div>
@@ -616,15 +612,15 @@ export default function DesktopMobileDetailView({
               {problemStatements.map((prob, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 transition-all hover:border-amber-400/50 hover:bg-amber-400/10"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-sm text-white flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                       {prob.title}
                     </h4>
                     {prob.issueCode && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/40 bg-amber-400/15 px-2 py-0.5 rounded shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {prob.issueCode}
                       </span>
                     )}
@@ -639,7 +635,7 @@ export default function DesktopMobileDetailView({
 
           {/* Right Column: Project Objectives */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-amber-500/25 pb-2.5 text-amber-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <Sparkles className="h-4 w-4 text-amber-400" />
               <span>Architectural Objectives & Targets</span>
             </div>
@@ -648,15 +644,15 @@ export default function DesktopMobileDetailView({
               {projectObjectives.map((obj, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 transition-all hover:border-amber-400/50 hover:bg-amber-400/10"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-sm text-white flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-amber-400 flex-shrink-0" />
                       {obj.title}
                     </h4>
                     {obj.targetTag && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/40 bg-amber-400/15 px-2 py-0.5 rounded shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {obj.targetTag}
                       </span>
                     )}
@@ -674,30 +670,28 @@ export default function DesktopMobileDetailView({
       {/* =========================================================================
           SECTION 3 — [ 03 // CORE CAPABILITIES & INTERACTION FLOW ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <section className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/60" />
 
-        {/* Ambient Sci-Fi Amber/Yellow Glow */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/15 via-yellow-500/5 to-transparent opacity-60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent" />
+        {/* Ambient Glow removed for clean Obsidian surface */}
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
               [ 03 // CORE CAPABILITIES & INTERACTION FLOW ]
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-xs text-amber-300">
+          <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
             <span>
               STAGE {activeImageIndex + 1} OF {interfaceShowcase.length}
             </span>
@@ -705,11 +699,11 @@ export default function DesktopMobileDetailView({
         </div>
 
         {/* Top: Device Viewport Stage */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-amber-400/30 bg-black/60 p-4 sm:p-6 shadow-[0_0_40px_rgba(245,158,11,0.12)]">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
-              <span className="font-bold text-amber-300">
+              <span className="font-bold text-white">
                 CLIENT_VIEWPORT // INTERFACE_STAGE
               </span>
             </div>
@@ -721,12 +715,12 @@ export default function DesktopMobileDetailView({
           </div>
 
           {/* Active Viewport Image Container */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#070913] flex items-center justify-center group">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] flex items-center justify-center group">
             {/* Optical HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/80" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/80" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/80" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/80" />
+            <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/60" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/60" />
             {currentActiveImage ? (
               <Image
                 src={currentActiveImage}
@@ -738,7 +732,7 @@ export default function DesktopMobileDetailView({
               />
             ) : (
               <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
-                <Monitor className="h-12 w-12 text-amber-500/50 mb-2" />
+                <Monitor className="h-12 w-12 text-amber-400/50 mb-2" />
                 <p className="font-mono text-xs">NO VIEWPORT ARTIFACT LINKED</p>
               </div>
             )}
@@ -754,7 +748,7 @@ export default function DesktopMobileDetailView({
                         interfaceShowcase.length
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-amber-400/40 bg-black/70 p-2.5 text-amber-300 hover:bg-amber-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-amber-400/40 bg-black/75 p-2.5 text-amber-200 hover:bg-amber-500/25 hover:border-amber-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -765,7 +759,7 @@ export default function DesktopMobileDetailView({
                       (prev) => (prev + 1) % interfaceShowcase.length
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-amber-400/40 bg-black/70 p-2.5 text-amber-300 hover:bg-amber-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-amber-400/40 bg-black/75 p-2.5 text-amber-200 hover:bg-amber-500/25 hover:border-amber-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                   aria-label="Next image"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -806,7 +800,7 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column (6/12): Core Features */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-amber-500/25 pb-2.5 text-amber-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <Zap className="h-4 w-4 text-amber-400" />
               <span>Core Application Capabilities</span>
             </div>
@@ -815,15 +809,15 @@ export default function DesktopMobileDetailView({
               {coreFeatures.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 transition-all hover:border-amber-400/50 hover:bg-amber-400/10"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-sm text-white flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                       {feat.title}
                     </h4>
                     {feat.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/40 bg-amber-400/15 px-2 py-0.5 rounded shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {feat.badge}
                       </span>
                     )}
@@ -838,15 +832,15 @@ export default function DesktopMobileDetailView({
 
           {/* Right Column (6/12): User Flow & Interaction Pipeline */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-amber-500/25 pb-2.5 text-amber-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Workflow className="h-4 w-4 text-amber-400" />
                 <span>User Interaction & Execution Flow</span>
               </div>
-              <span className="text-[10px] text-amber-400/80">PIPELINE_FLOW</span>
+              <span className="text-[10px] text-slate-400">PIPELINE_FLOW</span>
             </div>
 
-            <div className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4">
+            <div className="rounded-xl border border-white/10 bg-black/50 p-4">
               <p className="text-xs sm:text-sm text-slate-300 font-sans">
                 {userFlow.summary}
               </p>
@@ -862,18 +856,18 @@ export default function DesktopMobileDetailView({
                 return (
                   <div
                     key={idx}
-                    className="relative flex items-start gap-3.5 rounded-xl border border-amber-400/25 bg-[#080B14]/85 p-4 transition-all hover:border-amber-400/50 hover:bg-amber-400/10"
+                    className="relative flex items-start gap-3.5 rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                   >
-                    <div className="mt-0.5 flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-amber-400/40 bg-amber-500/15 font-mono text-xs font-bold text-amber-200 shadow-[0_0_12px_rgba(245,158,11,0.2)]">
+                    <div className="mt-0.5 flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-lg border border-amber-400/30 bg-amber-500/10 font-mono text-xs font-bold text-amber-300">
                       {stepNum}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                        <h4 className="font-semibold text-xs sm:text-sm text-slate-100">
+                        <h4 className="font-semibold text-xs sm:text-sm text-white">
                           {stepItem.title}
                         </h4>
                         {stepItem.actorOrNode && (
-                          <span className="flex-shrink-0 font-mono text-[10px] uppercase text-amber-300 border border-amber-400/40 bg-amber-400/15 px-2 py-0.5 rounded shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                          <span className="flex-shrink-0 font-mono text-[10px] uppercase text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                             {stepItem.actorOrNode}
                           </span>
                         )}
@@ -904,36 +898,34 @@ export default function DesktopMobileDetailView({
       {/* =========================================================================
           SECTION 5 — [ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <section className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/60" />
 
-        {/* Ambient Sci-Fi Amber/Yellow Glow */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/15 via-yellow-500/5 to-transparent opacity-60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent" />
+        {/* Ambient Glow removed for clean Obsidian surface */}
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
               [ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-amber-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             BLUEPRINT // SYSTEM_TOPOLOGY
           </span>
         </div>
 
         {/* Top Tier: Application Architecture Blueprint & Layers */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-amber-400/25 bg-[#080B14]/85 p-5 sm:p-7 shadow-inner">
-          <div className="flex items-center gap-2 text-xs font-mono text-amber-300 mb-3">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-7 shadow-inner">
+          <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-3">
             <Layers className="h-4 w-4 text-amber-400" />
             <span className="font-bold uppercase tracking-wider">
               Application Architecture Blueprint
@@ -950,18 +942,18 @@ export default function DesktopMobileDetailView({
               {systemArchitecture.layers.map((layer, lIdx) => (
                 <div
                   key={lIdx}
-                  className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 transition-all hover:border-amber-400/50 hover:bg-amber-400/10"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                 >
-                  <div className="flex items-center justify-between border-b border-amber-500/20 pb-2 mb-2.5">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2.5">
                     <span className="font-mono text-[10px] font-bold uppercase text-amber-400">
                       LAYER 0{lIdx + 1}
                     </span>
                     <span className="h-2 w-2 rounded-full bg-amber-400" />
                   </div>
-                  <h4 className="font-semibold text-sm text-slate-100 mb-1">
+                  <h4 className="font-semibold text-sm text-white mb-1">
                     {layer.name}
                   </h4>
-                  <p className="font-mono text-[11px] text-amber-300/80 mb-3">
+                  <p className="font-mono text-[11px] text-slate-400 mb-3">
                     {layer.role}
                   </p>
                   <div className="space-y-1.5 border-t border-white/5 pt-2.5">
@@ -985,7 +977,7 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: Data Management & Integration */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-amber-500/25 pb-2.5 text-amber-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <Database className="h-4 w-4 text-amber-400" />
               <span>Data Management & Storage Pipeline</span>
             </div>
@@ -994,15 +986,15 @@ export default function DesktopMobileDetailView({
               {dataManagementList.map((dm: any, idx: number) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 transition-all hover:border-amber-400/40 hover:bg-amber-400/10"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-sm text-white flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                       {dm.title}
                     </h4>
                     {dm.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/40 bg-amber-400/15 px-2 py-0.5 rounded shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {dm.badge}
                       </span>
                     )}
@@ -1017,7 +1009,7 @@ export default function DesktopMobileDetailView({
 
           {/* Right Column: Platform Implementation */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-amber-500/25 pb-2.5 text-amber-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
               <Monitor className="h-4 w-4 text-amber-400" />
               <span>Native Platform Implementation</span>
             </div>
@@ -1026,15 +1018,15 @@ export default function DesktopMobileDetailView({
               {platformImplementationList.map((pi: any, idx: number) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 transition-all hover:border-amber-400/40 hover:bg-amber-400/10"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-amber-400/50"
                 >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h4 className="font-semibold text-sm text-slate-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-sm text-white flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                       {pi.title}
                     </h4>
                     {pi.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/40 bg-amber-400/15 px-2 py-0.5 rounded shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {pi.badge}
                       </span>
                     )}
@@ -1052,29 +1044,27 @@ export default function DesktopMobileDetailView({
             {/* =========================================================================
           SECTION 6 — [ 06 // BINARY DISTRIBUTION & PROJECT RESOURCES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <section className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/60" />
 
-        {/* Ambient Sci-Fi Amber/Yellow Glow */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/15 via-yellow-500/5 to-transparent opacity-60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent" />
+        {/* Ambient Glow removed for clean Obsidian surface */}
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
               [ 06 // SOURCE VAULT & RUNTIME SPECIFICATION GATES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-amber-400/80">
+          <span className="font-mono text-[10px] uppercase text-slate-400">
             FINAL_ACCESS // REPOSITORIES & RUNTIME SPECS
           </span>
         </div>
@@ -1116,16 +1106,16 @@ export default function DesktopMobileDetailView({
           />
 
           {/* CARD 3 — Platform & Delivery Standards Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-amber-400/30 bg-[#080B14]/85 p-5 sm:p-7 shadow-lg transition-all hover:border-amber-400/50 hover:shadow-[0_8px_32px_rgba(245,158,11,0.25)]">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-amber-500/20 bg-[#0A0D17]/85 p-5 sm:p-7 shadow-lg transition-all hover:border-amber-400/50">
             {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-amber-400/60" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-amber-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-amber-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-amber-400/60" />
 
             <div>
-              <div className="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 text-amber-300 font-mono text-xs font-bold uppercase tracking-wider">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
+                <div className="flex items-center gap-2 text-slate-200 font-mono text-xs font-bold uppercase tracking-wider">
                   <FileText className="h-4 w-4 text-amber-400" />
                   <span>TECHNICAL DOCUMENTATION</span>
                 </div>
@@ -1159,7 +1149,7 @@ export default function DesktopMobileDetailView({
               </div>
             </div>
 
-            <div className="w-full flex items-center justify-center rounded-xl border border-amber-400/40 bg-amber-400/15 px-4 py-3 text-center font-mono text-xs font-semibold text-amber-200">
+            <div className="w-full flex items-center justify-center rounded-xl border border-amber-400/30 bg-amber-500/15 px-4 py-3 text-center font-mono text-xs font-semibold text-amber-300">
               NATIVE SPECS: VERIFIED
             </div>
           </div>

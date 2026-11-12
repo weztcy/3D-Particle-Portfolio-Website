@@ -38,107 +38,107 @@ const ACCENT_THEMES: Record<
   }
 > = {
   sky: {
-    border: "border-sky-500/30",
+    border: "border-sky-500/20",
     bgGlow: "from-sky-500/10",
-    crosshair: "border-sky-400/80",
+    crosshair: "border-sky-400/60",
     ping: "bg-sky-400",
     dot: "bg-sky-500",
     title: "text-sky-300",
     icon: "text-sky-400",
-    iconBox: "border-sky-400/30 bg-sky-500/15 text-sky-300",
+    iconBox: "border-sky-400/30 bg-sky-500/10 text-sky-300",
     cardHover:
-      "hover:border-sky-400/60 hover:bg-sky-500/[0.08] hover:shadow-[0_0_20px_rgba(56,189,248,0.25)]",
+      "hover:border-sky-400/50 hover:bg-sky-500/[0.05] hover:shadow-[0_0_20px_rgba(56,189,248,0.18)]",
     cornerTick: "bg-sky-400/30 group-hover:bg-sky-400",
   },
   cyan: {
-    border: "border-cyan-500/30",
+    border: "border-cyan-500/20",
     bgGlow: "from-cyan-500/10",
-    crosshair: "border-cyan-400/80",
+    crosshair: "border-cyan-400/60",
     ping: "bg-cyan-400",
     dot: "bg-cyan-500",
     title: "text-cyan-300",
     icon: "text-cyan-400",
-    iconBox: "border-cyan-400/30 bg-cyan-500/15 text-cyan-300",
+    iconBox: "border-cyan-400/30 bg-cyan-500/10 text-cyan-300",
     cardHover:
-      "hover:border-cyan-400/60 hover:bg-cyan-500/[0.08] hover:shadow-[0_0_20px_rgba(6,182,212,0.25)]",
+      "hover:border-cyan-400/50 hover:bg-cyan-500/[0.05] hover:shadow-[0_0_20px_rgba(6,182,212,0.18)]",
     cornerTick: "bg-cyan-400/30 group-hover:bg-cyan-400",
   },
   emerald: {
-    border: "border-emerald-500/30",
+    border: "border-emerald-500/20",
     bgGlow: "from-emerald-500/10",
-    crosshair: "border-emerald-400/80",
+    crosshair: "border-emerald-400/60",
     ping: "bg-emerald-400",
     dot: "bg-emerald-500",
     title: "text-emerald-300",
     icon: "text-emerald-400",
-    iconBox: "border-emerald-400/30 bg-emerald-500/15 text-emerald-300",
+    iconBox: "border-emerald-400/30 bg-emerald-500/10 text-emerald-300",
     cardHover:
-      "hover:border-emerald-400/60 hover:bg-emerald-500/[0.08] hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]",
+      "hover:border-emerald-400/50 hover:bg-emerald-500/[0.05] hover:shadow-[0_0_20px_rgba(16,185,129,0.18)]",
     cornerTick: "bg-emerald-400/30 group-hover:bg-emerald-400",
   },
   purple: {
-    border: "border-purple-500/30",
+    border: "border-purple-500/20",
     bgGlow: "from-purple-500/10",
-    crosshair: "border-purple-400/80",
+    crosshair: "border-purple-400/60",
     ping: "bg-purple-400",
     dot: "bg-purple-500",
     title: "text-purple-300",
     icon: "text-purple-400",
-    iconBox: "border-purple-400/30 bg-purple-500/15 text-purple-300",
+    iconBox: "border-purple-400/30 bg-purple-500/10 text-purple-300",
     cardHover:
-      "hover:border-purple-400/60 hover:bg-purple-500/[0.08] hover:shadow-[0_0_20px_rgba(168,85,247,0.25)]",
+      "hover:border-purple-400/50 hover:bg-purple-500/[0.05] hover:shadow-[0_0_20px_rgba(168,85,247,0.18)]",
     cornerTick: "bg-purple-400/30 group-hover:bg-purple-400",
   },
   indigo: {
-    border: "border-indigo-500/30",
+    border: "border-indigo-500/20",
     bgGlow: "from-indigo-500/10",
-    crosshair: "border-indigo-400/80",
+    crosshair: "border-indigo-400/60",
     ping: "bg-indigo-400",
     dot: "bg-indigo-500",
     title: "text-indigo-300",
     icon: "text-indigo-400",
-    iconBox: "border-indigo-400/30 bg-indigo-500/15 text-indigo-300",
+    iconBox: "border-indigo-400/30 bg-indigo-500/10 text-indigo-300",
     cardHover:
-      "hover:border-indigo-400/60 hover:bg-indigo-500/[0.08] hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]",
+      "hover:border-indigo-400/50 hover:bg-indigo-500/[0.05] hover:shadow-[0_0_20px_rgba(99,102,241,0.18)]",
     cornerTick: "bg-indigo-400/30 group-hover:bg-indigo-400",
   },
   amber: {
-    border: "border-amber-400/30",
-    bgGlow: "from-amber-500/15 via-yellow-500/5 to-transparent",
-    crosshair: "border-amber-400/70",
+    border: "border-amber-500/20",
+    bgGlow: "from-amber-500/10",
+    crosshair: "border-amber-400/60",
     ping: "bg-amber-400",
     dot: "bg-amber-400",
     title: "text-amber-300",
     icon: "text-amber-400",
-    iconBox: "border-amber-400/30 bg-amber-400/15 text-amber-200 shadow-[0_0_12px_rgba(245,158,11,0.2)]",
+    iconBox: "border-amber-400/30 bg-amber-400/10 text-amber-300",
     cardHover:
-      "hover:border-amber-400/60 hover:bg-amber-400/[0.1] hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]",
-    cornerTick: "bg-amber-400/40 group-hover:bg-amber-400",
+      "hover:border-amber-400/50 hover:bg-amber-400/[0.05] hover:shadow-[0_0_20px_rgba(245,158,11,0.18)]",
+    cornerTick: "bg-amber-400/30 group-hover:bg-amber-400",
   },
   rose: {
-    border: "border-rose-500/30",
+    border: "border-rose-500/20",
     bgGlow: "from-rose-500/10",
-    crosshair: "border-rose-400/80",
+    crosshair: "border-rose-400/60",
     ping: "bg-rose-400",
     dot: "bg-rose-500",
     title: "text-rose-300",
     icon: "text-rose-400",
-    iconBox: "border-rose-400/30 bg-rose-500/15 text-rose-300",
+    iconBox: "border-rose-400/30 bg-rose-500/10 text-rose-300",
     cardHover:
-      "hover:border-rose-400/60 hover:bg-rose-500/[0.08] hover:shadow-[0_0_20px_rgba(244,63,94,0.25)]",
+      "hover:border-rose-400/50 hover:bg-rose-500/[0.05] hover:shadow-[0_0_20px_rgba(244,63,94,0.18)]",
     cornerTick: "bg-rose-400/30 group-hover:bg-rose-400",
   },
   orange: {
-    border: "border-orange-500/30",
+    border: "border-orange-500/20",
     bgGlow: "from-orange-500/10",
-    crosshair: "border-orange-400/80",
+    crosshair: "border-orange-400/60",
     ping: "bg-orange-400",
     dot: "bg-orange-500",
     title: "text-orange-300",
     icon: "text-orange-400",
-    iconBox: "border-orange-400/30 bg-orange-500/15 text-orange-300",
+    iconBox: "border-orange-400/30 bg-orange-500/10 text-orange-300",
     cardHover:
-      "hover:border-orange-400/60 hover:bg-orange-500/[0.08] hover:shadow-[0_0_20px_rgba(249,115,22,0.25)]",
+      "hover:border-orange-400/50 hover:bg-orange-500/[0.05] hover:shadow-[0_0_20px_rgba(249,115,22,0.18)]",
     cornerTick: "bg-orange-400/30 group-hover:bg-orange-400",
   },
 };
@@ -227,13 +227,8 @@ export default function CyberTechStackSection({
 
   return (
     <section
-      className={`relative overflow-hidden rounded-3xl border ${theme.border} bg-[#070913]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]`}
+      className={`relative overflow-hidden rounded-3xl border ${theme.border} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]`}
     >
-      {/* Ambient background glow */}
-      <div
-        className={`pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-64 w-3/4 rounded-full bg-gradient-to-b ${theme.bgGlow} via-transparent to-transparent opacity-50 blur-3xl`}
-      />
-
       {/* 4 Optical HUD Corner Crosshairs */}
       <div
         className={`pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 ${theme.crosshair}`}
@@ -250,7 +245,7 @@ export default function CyberTechStackSection({
 
       {/* Section Header */}
       <div
-        className={`relative z-10 flex flex-wrap items-center justify-between gap-3 border-b ${theme.border} pb-4 mb-6 sm:mb-8`}
+        className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8"
       >
         <div className="flex items-center gap-2.5">
           <span className="relative flex h-2.5 w-2.5">
@@ -276,7 +271,7 @@ export default function CyberTechStackSection({
           <span className="uppercase tracking-wider font-semibold">
             {uniqueTechs.length} ACTIVE TECHS
           </span>
-          <span className="text-[10px] opacity-60 font-bold hidden sm:inline">
+          <span className="text-[10px] text-slate-400 font-bold hidden sm:inline">
             // PRODUCTION_READY
           </span>
         </div>
@@ -288,7 +283,7 @@ export default function CyberTechStackSection({
           <div
             key={idx}
             onClick={() => onTriggerPulse?.()}
-            className={`group relative inline-flex items-center gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-[#0C101D]/75 px-3.5 sm:px-4 py-2 sm:py-2.5 backdrop-blur-md transition-all duration-300 ${theme.cardHover} hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.6)] cursor-default shrink-0`}
+            className={`group relative inline-flex items-center gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-black/50 px-3.5 sm:px-4 py-2 sm:py-2.5 backdrop-blur-md transition-all duration-300 ${theme.cardHover} hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.6)] cursor-default shrink-0`}
           >
             {/* Top-Right HUD Corner Tick */}
             <div

@@ -225,19 +225,15 @@ export default function AIEngineeringDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // NEURAL CONSOLE & AI ARCHITECTURE ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(168,85,247,0.15)]">
+      <section className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-purple-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-purple-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-purple-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-purple-400/70" />
-
-        {/* Ambient Neural Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-purple-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-purple-400/60" />
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-purple-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
@@ -249,11 +245,11 @@ export default function AIEngineeringDetailView({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-purple-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Bot className="h-3 w-3 text-purple-400" />
               {projectInfo.projectType}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-purple-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Network className="h-3 w-3 text-purple-400" />
               {projectInfo.aiDomain}
             </span>
@@ -265,25 +261,25 @@ export default function AIEngineeringDetailView({
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-purple-500/30 bg-purple-950/40 px-4 py-2 text-xs font-mono text-purple-300">
-              <span className="flex items-center gap-2 text-purple-200">
-                <Terminal className="h-3.5 w-3.5 text-purple-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-purple-500/30 bg-purple-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-purple-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-purple-500/25 bg-[#0A0713]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-black/50 p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-purple-500/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-purple-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-purple-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-purple-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-purple-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-purple-400/60" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-purple-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-purple-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-purple-400/60" />
 
                     {/* Hero Image */}
                     <Image
@@ -296,7 +292,7 @@ export default function AIEngineeringDetailView({
                   </div>
                 )}
 
-                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
+                <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-sans mb-4">
                   {projectDescription.length > 500
                     ? `${projectDescription.slice(0, 500).trim()}...`
                     : projectDescription}
@@ -304,7 +300,7 @@ export default function AIEngineeringDetailView({
               </div>
 
               {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-purple-500/20 flex flex-wrap gap-2">
+              <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-purple-400/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[11px] text-purple-300">
                   <Brain className="h-3 w-3 text-purple-400" />
                   Autonomous Reasoning
@@ -322,9 +318,9 @@ export default function AIEngineeringDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-purple-500/30 bg-[#0A0713]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-black/50 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-purple-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-purple-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -334,7 +330,7 @@ export default function AIEngineeringDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -343,7 +339,7 @@ export default function AIEngineeringDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -352,7 +348,7 @@ export default function AIEngineeringDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -361,7 +357,7 @@ export default function AIEngineeringDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -370,7 +366,7 @@ export default function AIEngineeringDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -379,7 +375,7 @@ export default function AIEngineeringDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -388,7 +384,7 @@ export default function AIEngineeringDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
@@ -398,21 +394,21 @@ export default function AIEngineeringDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
+                className={`mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   hasRepoUrl
-                    ? "border-purple-500/35 bg-[#0F081D]/90 hover:border-purple-400/60 hover:shadow-[0_0_25px_rgba(168,85,247,0.2)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
+                    ? "hover:border-purple-400/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.16)]"
+                    : "hover:border-white/20"
                 }`}
               >
                 {/* 4 Optical Corner Crosshairs */}
-                <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-purple-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-purple-400/60" />
-                <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-purple-400/60" />
-                <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-purple-400/60" />
+                <div className={`pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
+                <div className={`pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
+                <div className={`pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
+                <div className={`pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-purple-300">
+                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-purple-300" : "text-slate-400"}`}>
                       <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-purple-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -433,7 +429,7 @@ export default function AIEngineeringDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-purple-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-slate-200 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -446,7 +442,7 @@ export default function AIEngineeringDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-purple-400/40 bg-purple-500/15 hover:bg-purple-500/25 hover:border-purple-400 px-4 py-2.5 font-mono text-xs font-bold text-purple-200 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.18)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -460,7 +456,7 @@ export default function AIEngineeringDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-purple-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-purple-400 font-bold">READY // v1.0</span>
             </div>
@@ -472,12 +468,12 @@ export default function AIEngineeringDetailView({
           SECTION 2 — PROBLEM & STRATEGIC AI ARCHITECTURE
           Layout: Universal AI Solution Matrix (Top) + Capabilities Bento (Bottom)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -493,14 +489,14 @@ export default function AIEngineeringDetailView({
         {/* Split 2-Column: Problem Context vs Proposed AI Solution */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 mb-8 items-stretch">
           {/* Problem Context */}
-          <div className="rounded-2xl border border-purple-500/25 bg-purple-950/20 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(168,85,247,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between transition-all hover:border-purple-400/40">
             <div>
-              <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-purple-400" />
                   <span>[ PROBLEM_SPACE // OPERATIONAL_FRICTION ]</span>
                 </div>
-                <span className="rounded bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-bold">
+                <span className="rounded bg-black/60 border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-300 font-bold">
                   {project.aiProblemBadge || "PRE-AI BOTTLENECK"}
                 </span>
               </div>
@@ -512,20 +508,20 @@ export default function AIEngineeringDetailView({
               </p>
             </div>
 
-            <div className="mt-6 pt-3 border-t border-purple-500/15 font-mono text-[10px] text-purple-400/80">
+            <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               {project.aiProblemAuditNote || "AUDIT: Manual processes and static workflows introduce friction, latency, and operational fragility."}
             </div>
           </div>
 
           {/* Proposed AI Solution */}
-          <div className="rounded-2xl border border-purple-500/35 bg-[#140A24]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(168,85,247,0.08)]">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between transition-all hover:border-purple-400/40">
             <div>
-              <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300 tracking-wider">
                   <Sparkles className="h-4 w-4 text-purple-400" />
                   <span>[ PROPOSED_AI_SOLUTION // ARCHITECTURAL_APPROACH ]</span>
                 </div>
-                <span className="rounded bg-purple-400/15 border border-purple-400/35 px-2 py-0.5 font-mono text-[10px] text-purple-200 font-bold">
+                <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-bold">
                   {project.aiSolutionBadge || "AI SYSTEM APPROACH"}
                 </span>
               </div>
@@ -535,20 +531,20 @@ export default function AIEngineeringDetailView({
               </p>
             </div>
 
-            <div className="mt-6 pt-3 border-t border-purple-500/20 font-mono text-[10px] text-purple-300/80">
+            <div className="mt-6 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               {project.aiSolutionSynthesisNote || "SYNTHESIS: Engineered intelligence pipeline combining optimized model inference, deterministic validation, and automated workflows."}
             </div>
           </div>
         </div>
 
         {/* Key Capabilities & Real-World Use Cases (Full-Width Bento Grid) */}
-        <div className="relative z-10 rounded-2xl border border-purple-500/25 bg-black/50 p-6 sm:p-7">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-300">
               <Zap className="h-4 w-4 text-purple-400" />
               <span>[ KEY_CAPABILITIES & REAL-WORLD USE CASES ]</span>
             </div>
-            <span className="font-mono text-[10px] text-purple-300 font-semibold">
+            <span className="font-mono text-[10px] text-slate-400 font-semibold">
               {keyCapabilitiesAndUseCases.length} VERIFIED CAPABILITIES
             </span>
           </div>
@@ -557,10 +553,10 @@ export default function AIEngineeringDetailView({
             {keyCapabilitiesAndUseCases.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-white/10 bg-[#10091E]/70 p-5 transition-all duration-300 hover:border-purple-400/40 hover:-translate-y-1"
+                className="rounded-xl border border-white/10 bg-[#080B14] p-5 transition-all duration-300 hover:border-purple-400/50 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold mb-2">
-                  <span className="rounded bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 text-purple-300">
+                  <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 text-purple-300">
                     {item.badge || `CAPABILITY_0${idx + 1}`}
                   </span>
                   <Workflow className="h-3.5 w-3.5 text-slate-500" />
@@ -571,11 +567,11 @@ export default function AIEngineeringDetailView({
                 <p className="text-xs text-slate-300 leading-relaxed font-normal mb-3">
                   {item.description}
                 </p>
-                <div className="rounded-lg border border-purple-500/20 bg-purple-500/10 p-3">
+                <div className="rounded-lg border border-white/10 bg-black/60 p-3">
                   <span className="font-mono text-[9px] uppercase tracking-wider text-purple-300 font-bold block mb-0.5">
                     REAL-WORLD USE CASE
                   </span>
-                  <p className="text-xs text-slate-200 leading-relaxed">
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     {item.useCaseScenario}
                   </p>
                 </div>
@@ -589,12 +585,12 @@ export default function AIEngineeringDetailView({
           SECTION 3 — AI SYSTEM DESIGN & WORKFLOW
           Layout: Dual Schematic Blueprint (Top) + Core AI Components Deck (Bottom)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -610,14 +606,14 @@ export default function AIEngineeringDetailView({
         {/* Dual Schematic Blueprint: System Architecture (Left) vs AI Workflow (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 mb-8 items-stretch">
           {/* Blueprint 1: System Architecture */}
-          <div className="rounded-2xl border border-purple-500/30 bg-[#0E071A]/80 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(168,85,247,0.06)]">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
                   <Network className="h-4 w-4 text-purple-400" />
                   <span>[ SYSTEM_ARCHITECTURE // COGNITIVE TOPOLOGY ]</span>
                 </div>
-                <span className="rounded bg-purple-400/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
+                <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
                   {aiSystemArchitecture.layers.length} TIERS
                 </span>
               </div>
@@ -631,9 +627,9 @@ export default function AIEngineeringDetailView({
                 {aiSystemArchitecture.layers.map((layer, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-black/60 p-3.5 transition-all hover:border-purple-400/40"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-purple-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-purple-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-white mb-1">
                       <span>{layer.name}</span>
                       <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
                     </div>
@@ -644,7 +640,7 @@ export default function AIEngineeringDetailView({
                       {layer.components.map((comp, cIdx) => (
                         <span
                           key={cIdx}
-                          className="rounded border border-purple-400/20 bg-purple-500/10 px-2 py-0.5 font-mono text-[10px] text-purple-200"
+                          className="rounded border border-white/10 bg-black/50 px-2 py-0.5 font-mono text-[10px] text-slate-300"
                         >
                           {comp}
                         </span>
@@ -655,20 +651,20 @@ export default function AIEngineeringDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
               TOPOLOGY: Isolated sandbox with zero direct client access to foundation model credentials.
             </div>
           </div>
 
           {/* Blueprint 2: AI Workflow Execution Pipeline */}
-          <div className="rounded-2xl border border-purple-500/30 bg-[#120B1F]/80 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(168,85,247,0.06)]">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
                   <Workflow className="h-4 w-4 text-purple-400" />
                   <span>[ AI_WORKFLOW // EXECUTION PIPELINE ]</span>
                 </div>
-                <span className="rounded bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
+                <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
                   {aiWorkflow.workflowType}
                 </span>
               </div>
@@ -678,13 +674,13 @@ export default function AIEngineeringDetailView({
               </p>
 
               {/* Vertical Circuit Flow Steps */}
-              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-purple-400 before:via-purple-500 before:to-purple-600/30">
+              <div className="space-y-3 relative before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-purple-500/35">
                 {aiWorkflow.steps.map((st, i) => (
                   <div
                     key={i}
-                    className="relative pl-8 rounded-xl border border-white/5 bg-black/60 p-3.5 transition-all hover:border-purple-400/30"
+                    className="relative pl-8 rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-purple-400/50"
                   >
-                    <span className="absolute left-2 top-4 h-2.5 w-2.5 rounded-full bg-purple-400 ring-4 ring-[#120B1F]" />
+                    <span className="absolute left-2 top-4 h-2.5 w-2.5 rounded-full bg-purple-400 ring-4 ring-[#080B14]" />
                     <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 font-bold mb-1">
                       <span>
                         STEP {st.stepNumber} // {st.phase.toUpperCase()}
@@ -704,20 +700,20 @@ export default function AIEngineeringDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
               EXECUTION: Cyclic agent state graph supporting branching fallback paths.
             </div>
           </div>
         </div>
 
         {/* Core AI Components Deck (Full-Width Modular Grid) */}
-        <div className="relative z-10 rounded-2xl border border-purple-500/25 bg-black/50 p-6 sm:p-7">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-300">
               <Cpu className="h-4 w-4 text-purple-400" />
               <span>[ CORE_AI_COMPONENTS // RUNTIME HARDWARE & SOFTWARE ]</span>
             </div>
-            <span className="font-mono text-[10px] text-purple-400">
+            <span className="font-mono text-[10px] text-slate-400 font-semibold">
               {coreAiComponents.length} ESSENTIAL MODULES
             </span>
           </div>
@@ -726,11 +722,11 @@ export default function AIEngineeringDetailView({
             {coreAiComponents.map((comp, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-white/10 bg-[#10091E]/70 p-4 transition-all duration-300 hover:border-purple-400/40 hover:-translate-y-1"
+                className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all duration-300 hover:border-purple-400/50 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold mb-2">
-                  <span className="uppercase tracking-wider">{comp.type}</span>
-                  <span className="rounded bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 text-purple-200">
+                  <span className="uppercase tracking-wider text-slate-400">{comp.type}</span>
+                  <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 text-purple-300">
                     {comp.badge || "MODULE"}
                   </span>
                 </div>
@@ -761,12 +757,12 @@ export default function AIEngineeringDetailView({
           SECTION 5 — SYSTEM SHOWCASE & PERFORMANCE BENCHMARKS
           Layout: Dual-Mode Stage (Visual Interface vs Runtime Inspector) + Quantitative Evaluation & Roadmap
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0A0713]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-purple-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -787,14 +783,14 @@ export default function AIEngineeringDetailView({
         <div className="relative z-10 mb-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* SISI KIRI (Col 6/12): Visual Interface Carousel (Independent) */}
-          <div className="lg:col-span-6 flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#080511] p-4 sm:p-5 shadow-2xl">
+          <div className="lg:col-span-6 flex flex-col justify-between rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-2xl">
             <div>
               {/* Header bar */}
-              <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2">
                   <span className="h-2.5 w-2.5 rounded-full bg-purple-500/80 inline-block" />
                   <span className="h-2.5 w-2.5 rounded-full bg-purple-400/80 inline-block" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-400/80 inline-block" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-purple-300/80 inline-block" />
                   <span className="ml-2 font-mono text-[11px] text-slate-300 truncate max-w-[200px] sm:max-w-[280px]">
                     {activeVisualItem.title || "System Interface Viewport"}
                   </span>
@@ -802,7 +798,7 @@ export default function AIEngineeringDetailView({
 
                 {activeVisualItem.badge && (
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 rounded">
+                    <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 rounded">
                       {activeVisualItem.badge}
                     </span>
                   </div>
@@ -810,7 +806,7 @@ export default function AIEngineeringDetailView({
               </div>
 
               {/* Viewport Image Stage */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-xl border border-purple-500/20 bg-black flex items-center justify-center group">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#080B14] flex items-center justify-center group">
                 {activeVisualItem.imageUrl ? (
                   <Image
                     src={activeVisualItem.imageUrl}
@@ -836,7 +832,7 @@ export default function AIEngineeringDetailView({
                           (prev) => (prev - 1 + visualShowcase.length) % visualShowcase.length
                         )
                       }
-                      className="absolute left-2.5 top-1/2 -translate-y-1/2 rounded-full border border-purple-400/40 bg-black/75 p-2 text-purple-300 hover:bg-purple-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                      className="absolute left-2.5 top-1/2 -translate-y-1/2 rounded-full border border-purple-400/40 bg-black/80 p-2 text-purple-300 hover:bg-purple-500/20 hover:border-purple-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="h-4 w-4" />
@@ -847,7 +843,7 @@ export default function AIEngineeringDetailView({
                           (prev) => (prev + 1) % visualShowcase.length
                         )
                       }
-                      className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full border border-purple-400/40 bg-black/75 p-2 text-purple-300 hover:bg-purple-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full border border-purple-400/40 bg-black/80 p-2 text-purple-300 hover:bg-purple-500/20 hover:border-purple-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                       aria-label="Next image"
                     >
                       <ChevronRight className="h-4 w-4" />
@@ -931,16 +927,16 @@ export default function AIEngineeringDetailView({
           </div>
 
           {/* SISI KANAN (Col 6/12): Single Representative Execution & Telemetry Card (Independent) */}
-          <div className="lg:col-span-6 flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#0C0818]/95 p-5 sm:p-6 shadow-2xl">
+          <div className="lg:col-span-6 flex flex-col justify-between rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-6 shadow-2xl">
             <div>
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-purple-500/20 pb-3 mb-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
                   <Terminal className="h-4 w-4 text-purple-400" />
                   <span>RUNTIME EXECUTION & TELEMETRY</span>
                 </div>
                 {telemetryData.scenarioBadge && (
-                  <span className="rounded bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-semibold">
+                  <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-semibold">
                     {telemetryData.scenarioBadge}
                   </span>
                 )}
@@ -959,10 +955,10 @@ export default function AIEngineeringDetailView({
               {/* Structured Key-Value Flow (Input, Pipeline, Output) */}
               <div className="space-y-3 font-sans text-xs mb-4">
                 {/* 1. Trigger Input */}
-                <div className="rounded-xl border border-white/10 bg-[#07040D] p-3 space-y-1">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3 space-y-1">
                   <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
                     <span>{telemetryData.inputLabel || "> USER_INPUT // TRIGGER_EVENT"}</span>
-                    <span className="text-slate-500">{telemetryData.inputTag || "EVENT_IN"}</span>
+                    <span className="text-slate-400">{telemetryData.inputTag || "EVENT_IN"}</span>
                   </div>
                   <p className="text-slate-200 font-mono text-xs leading-relaxed">
                     {telemetryData.triggerInput}
@@ -970,21 +966,21 @@ export default function AIEngineeringDetailView({
                 </div>
 
                 {/* 2. Processing Pipeline / Model */}
-                <div className="rounded-xl border border-purple-500/20 bg-purple-950/20 p-2.5 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 text-purple-300 font-mono text-[11px]">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-2.5 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-slate-200 font-mono text-[11px]">
                     <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="text-slate-400 uppercase text-[10px]">
                       {telemetryData.pipelineLabel || "PIPELINE:"}
                     </span>
-                    <span className="font-semibold text-purple-200 truncate">{telemetryData.processingPipeline}</span>
+                    <span className="font-semibold text-white truncate">{telemetryData.processingPipeline}</span>
                   </div>
-                  <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded bg-purple-400/10 text-purple-300 border border-purple-400/20 shrink-0">
+                  <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-400/30 shrink-0">
                     {telemetryData.pipelineTag || "DETERMINISTIC"}
                   </span>
                 </div>
 
                 {/* 3. Output Synthesis */}
-                <div className="rounded-xl border border-purple-500/25 bg-[#120822] p-3 space-y-1">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3 space-y-1">
                   <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 font-bold uppercase tracking-wider">
                     <span className="flex items-center gap-1.5 text-purple-400">
                       <Sparkles className="h-3 w-3" />
@@ -994,7 +990,7 @@ export default function AIEngineeringDetailView({
                       {telemetryData.outputTag || "VERIFIED"}
                     </span>
                   </div>
-                  <p className="text-purple-100 font-mono text-xs leading-relaxed whitespace-pre-wrap">
+                  <p className="text-slate-200 font-mono text-xs leading-relaxed whitespace-pre-wrap">
                     {telemetryData.executionOutput}
                   </p>
                 </div>
@@ -1002,7 +998,7 @@ export default function AIEngineeringDetailView({
 
               {/* Evaluation Note (if present) */}
               {telemetryData.evaluationNote && (
-                <div className="rounded-lg border border-white/5 bg-[#08050F] p-2.5 font-mono text-[11px] text-slate-300 flex items-start gap-1.5 mb-4">
+                <div className="rounded-lg border border-white/10 bg-black/60 p-2.5 font-mono text-[11px] text-slate-300 flex items-start gap-1.5 mb-4">
                   <span className="text-purple-400 font-bold shrink-0">EVAL:</span>
                   <span className="leading-relaxed">{telemetryData.evaluationNote}</span>
                 </div>
@@ -1019,7 +1015,7 @@ export default function AIEngineeringDetailView({
                   {telemetryData.metrics.slice(0, 3).map((m: any, mIdx: number) => (
                     <div
                       key={mIdx}
-                      className="inline-flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-950/40 px-3 py-1.5 font-mono"
+                      className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-[#080B14] px-3 py-1.5 font-mono"
                     >
                       <span className="text-[10px] uppercase text-slate-400 font-medium">
                         {m.label}:
@@ -1038,7 +1034,7 @@ export default function AIEngineeringDetailView({
         {/* 2-Column Split: Evaluation & Metrics (Left) vs Limitations & Roadmap (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
           {/* Evaluation & Performance */}
-          <div className="rounded-2xl border border-purple-500/25 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
@@ -1048,7 +1044,7 @@ export default function AIEngineeringDetailView({
                       "[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]"}
                   </span>
                 </div>
-                <span className="font-mono text-[10px] text-purple-300 font-semibold">
+                <span className="font-mono text-[10px] text-slate-400 font-semibold">
                   {aiEvaluationAndPerformance.evalFrameworkBadge || "EMPIRICAL BENCHMARKS"}
                 </span>
               </div>
@@ -1060,7 +1056,7 @@ export default function AIEngineeringDetailView({
                     {aiEvaluationAndPerformance.metrics.map((m, idx) => (
                       <div
                         key={idx}
-                        className="rounded-xl border border-white/10 bg-[#10091E]/70 p-3 transition-all hover:border-purple-400/40"
+                        className="rounded-xl border border-white/10 bg-[#080B14] p-3 transition-all hover:border-purple-400/50"
                       >
                         <div className="font-mono text-lg sm:text-xl font-black text-purple-300 mb-1">
                           {m.value}
@@ -1069,7 +1065,7 @@ export default function AIEngineeringDetailView({
                           {m.label}
                         </div>
                         {m.benchmark && (
-                          <span className="font-mono text-[8px] text-purple-300 block truncate">
+                          <span className="font-mono text-[8px] text-slate-400 block truncate">
                             {m.benchmark}
                           </span>
                         )}
@@ -1083,13 +1079,13 @@ export default function AIEngineeringDetailView({
               </p>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
               {aiEvaluationAndPerformance.auditNote || "AUDIT: Benchmark evaluated across end-to-end production test suites and golden sets."}
             </div>
           </div>
 
           {/* Limitations & Improvements Roadmap */}
-          <div className="rounded-2xl border border-purple-500/25 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
@@ -1099,7 +1095,7 @@ export default function AIEngineeringDetailView({
                       "[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]"}
                   </span>
                 </div>
-                <span className="font-mono text-[10px] text-purple-300 font-semibold">
+                <span className="font-mono text-[10px] text-slate-400 font-semibold">
                   {limitationsAndImprovements.guardrailsBadge ||
                     "GUARDRAILS & TRANSPARENCY"}
                 </span>
@@ -1110,15 +1106,15 @@ export default function AIEngineeringDetailView({
                 {limitationsAndImprovements.limitations.map((lim, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/5 bg-[#140A18]/80 p-3"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-3"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] mb-1">
                       <span className="font-bold text-slate-200">{lim.title}</span>
                       <span
-                        className={`rounded px-1.5 py-0.2 font-bold ${
+                        className={`rounded px-1.5 py-0.5 font-bold ${
                           lim.severity === "HIGH"
-                            ? "bg-purple-950/60 text-purple-200 border border-purple-500/30"
-                            : "bg-purple-950/30 text-purple-300 border border-purple-500/20"
+                            ? "bg-purple-500/15 text-purple-200 border border-purple-400/35"
+                            : "bg-purple-500/10 text-purple-300 border border-purple-400/25"
                         }`}
                       >
                         {lim.severity || "MEDIUM"} SEVERITY
@@ -1139,7 +1135,7 @@ export default function AIEngineeringDetailView({
                 {limitationsAndImprovements.improvementsRoadmap.map((imp, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between rounded-lg border border-purple-500/20 bg-purple-500/5 p-2 font-mono text-[11px]"
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-[#080B14] p-2 font-mono text-[11px] hover:border-purple-400/40 transition-colors"
                   >
                     <span className="text-slate-200 truncate mr-2">
                       {imp.title}
@@ -1154,7 +1150,7 @@ export default function AIEngineeringDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-400">
               {limitationsAndImprovements.alignmentNote || "ALIGNMENT: Limitations documented openly in accordance with Responsible AI standards and continuous delivery."}
             </div>
           </div>
@@ -1164,15 +1160,15 @@ export default function AIEngineeringDetailView({
             {/* =========================================================================
           SECTION 6 — [ 06 // NEURAL ARTIFACTS & DEPLOYMENT GATES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-[#0C0714]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-purple-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-purple-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-purple-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-purple-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-purple-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-purple-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-purple-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-purple-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
             <span>[ 06 // NEURAL ARTIFACTS & DEPLOYMENT GATES ]</span>
@@ -1219,7 +1215,7 @@ export default function AIEngineeringDetailView({
           />
 
           {/* Card 3: AI Safety & Governance Manifest */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#10081E]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-purple-400/60 hover:shadow-[0_8px_32px_rgba(168,85,247,0.2)]">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-purple-500/20 bg-[#0A0D17]/85 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-purple-400/50 hover:shadow-[0_8px_32px_rgba(168,85,247,0.16)]">
             {/* 4 Optical Corner Crosshairs */}
             <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-purple-400/60" />
             <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-purple-400/60" />
@@ -1248,7 +1244,7 @@ export default function AIEngineeringDetailView({
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">PROMPT DEFENSE:</span>
-                  <span className="text-purple-400 font-semibold">Self-Correction LLM Judge</span>
+                  <span className="text-slate-200 font-semibold">Self-Correction LLM Judge</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">PII REDACTION:</span>
@@ -1257,7 +1253,7 @@ export default function AIEngineeringDetailView({
               </div>
             </div>
 
-            <div className="w-full inline-flex items-center justify-center rounded-xl border border-purple-500/30 bg-purple-500/10 px-4 py-3 font-mono text-xs font-semibold text-purple-300">
+            <div className="w-full inline-flex items-center justify-center rounded-xl border border-purple-400/30 bg-purple-500/10 px-4 py-3 font-mono text-xs font-semibold text-purple-300">
               <span>SAFETY VERIFICATION COMPLETE</span>
             </div>
           </div>

@@ -82,18 +82,18 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-sky-400",
         divider: "text-sky-500/40",
         breadcrumbBadge: "border-sky-400/30 bg-sky-400/10 text-sky-300",
-        nodeBox: "border-sky-500/25 bg-sky-950/20 shadow-[inset_0_0_12px_rgba(56,189,248,0.06)]",
+        nodeBox: "border-sky-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(56,189,248,0.06)]",
         nodeTotal: "text-sky-400",
         nodePulse: "bg-sky-400",
         navHover: "hover:bg-sky-400/10 hover:text-sky-300 hover:border-sky-400/30",
         navIcon: "text-sky-400",
         selection: "selection:bg-sky-400/30",
-        cardBorder: "border-sky-500/25",
-        cardHover: "hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]",
+        cardBorder: "border-sky-500/20",
+        cardHover: "hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.18)]",
         crosshair: "border-sky-400/60",
         textAccent: "text-sky-400",
         textHover: "group-hover:text-sky-300",
-        actionBtn: "border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 text-sky-200 hover:text-white",
+        actionBtn: "border-sky-400/40 bg-sky-500/15 hover:bg-sky-500/25 hover:border-sky-400 text-sky-200 hover:text-white",
       };
     case "indigo":
       return {
@@ -109,18 +109,18 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-indigo-400",
         divider: "text-indigo-500/40",
         breadcrumbBadge: "border-indigo-400/30 bg-indigo-400/10 text-indigo-300",
-        nodeBox: "border-indigo-500/25 bg-indigo-950/20 shadow-[inset_0_0_12px_rgba(99,102,241,0.06)]",
+        nodeBox: "border-indigo-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(99,102,241,0.06)]",
         nodeTotal: "text-indigo-400",
         nodePulse: "bg-indigo-400",
         navHover: "hover:bg-indigo-400/10 hover:text-indigo-300 hover:border-indigo-400/30",
         navIcon: "text-indigo-400",
         selection: "selection:bg-indigo-500/30",
-        cardBorder: "border-indigo-500/25",
-        cardHover: "hover:border-indigo-400/50 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)]",
+        cardBorder: "border-indigo-500/20",
+        cardHover: "hover:border-indigo-400/50 hover:shadow-[0_0_30px_rgba(99,102,241,0.18)]",
         crosshair: "border-indigo-400/60",
         textAccent: "text-indigo-400",
         textHover: "group-hover:text-indigo-300",
-        actionBtn: "border-indigo-400/30 bg-indigo-500/10 hover:bg-indigo-500/20 hover:border-indigo-400 text-indigo-200 hover:text-white",
+        actionBtn: "border-indigo-400/40 bg-indigo-500/15 hover:bg-indigo-500/25 hover:border-indigo-400 text-indigo-200 hover:text-white",
       };
     case "emerald":
       return {
@@ -136,45 +136,72 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-emerald-400",
         divider: "text-emerald-500/40",
         breadcrumbBadge: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
-        nodeBox: "border-emerald-500/25 bg-emerald-950/20 shadow-[inset_0_0_12px_rgba(16,185,129,0.06)]",
+        nodeBox: "border-emerald-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(16,185,129,0.06)]",
         nodeTotal: "text-emerald-400",
         nodePulse: "bg-emerald-400",
         navHover: "hover:bg-emerald-400/10 hover:text-emerald-300 hover:border-emerald-400/30",
         navIcon: "text-emerald-400",
         selection: "selection:bg-emerald-500/30",
-        cardBorder: "border-emerald-500/25",
-        cardHover: "hover:border-emerald-400/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]",
+        cardBorder: "border-emerald-500/20",
+        cardHover: "hover:border-emerald-400/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.18)]",
         crosshair: "border-emerald-400/60",
         textAccent: "text-emerald-400",
         textHover: "group-hover:text-emerald-300",
-        actionBtn: "border-emerald-400/30 bg-emerald-500/10 hover:bg-emerald-500/20 hover:border-emerald-400 text-emerald-200 hover:text-white",
+        actionBtn: "border-emerald-400/40 bg-emerald-500/15 hover:bg-emerald-500/25 hover:border-emerald-400 text-emerald-200 hover:text-white",
       };
     case "amber":
       return {
-        badge: "border-amber-400/40 bg-amber-500/15 text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.2)]",
+        badge: "border-amber-400/35 bg-amber-400/10 text-amber-300",
         metricText: "text-amber-400",
-        hoverBorder: "hover:border-amber-400/60",
+        hoverBorder: "hover:border-amber-400/50",
         borderAccent: "border-amber-400/30",
-        glowBg: "from-amber-500/15 via-yellow-500/5 to-transparent",
+        glowBg: "from-amber-500/15 via-transparent to-transparent",
         iconBg: "border-amber-400/30 bg-amber-400/10 text-amber-300",
         headerBorder: "border-amber-500/20",
         headerGlow: "after:via-amber-400/50",
-        returnBtn: "border-amber-400/30 bg-amber-500/10 text-amber-200 hover:text-white hover:border-amber-400/70 hover:bg-amber-500/20 hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]",
+        returnBtn: "border-amber-400/30 bg-amber-500/5 text-amber-200 hover:text-white hover:border-amber-400/70 hover:bg-amber-500/15 hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]",
         returnIcon: "text-amber-400",
         divider: "text-amber-400/40",
         breadcrumbBadge: "border-amber-400/30 bg-amber-400/10 text-amber-300",
-        nodeBox: "border-amber-500/25 bg-amber-950/20 shadow-[inset_0_0_12px_rgba(245,158,11,0.06)]",
+        nodeBox: "border-amber-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(245,158,11,0.06)]",
         nodeTotal: "text-amber-400",
         nodePulse: "bg-amber-400",
-        navHover: "hover:bg-amber-400/15 hover:text-amber-200 hover:border-amber-400/30",
+        navHover: "hover:bg-amber-400/10 hover:text-amber-300 hover:border-amber-400/30",
         navIcon: "text-amber-400",
         selection: "selection:bg-amber-400/30",
-        cardBorder: "border-amber-400/30",
-        cardHover: "hover:border-amber-400/60 hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]",
-        crosshair: "border-amber-400/70",
-        textAccent: "text-amber-300",
-        textHover: "group-hover:text-amber-200",
-        actionBtn: "border-amber-400/40 bg-amber-400/15 hover:bg-amber-400/25 hover:border-amber-300/80 text-amber-200 hover:text-white shadow-[0_0_15px_rgba(245,158,11,0.25)]",
+        cardBorder: "border-amber-500/20",
+        cardHover: "hover:border-amber-400/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.18)]",
+        crosshair: "border-amber-400/60",
+        textAccent: "text-amber-400",
+        textHover: "group-hover:text-amber-300",
+        actionBtn: "border-amber-400/40 bg-amber-500/15 hover:bg-amber-500/25 hover:border-amber-400 text-amber-200 hover:text-white",
+      };
+    case "rose":
+      return {
+        badge: "border-rose-400/35 bg-rose-400/10 text-rose-300",
+        metricText: "text-rose-400",
+        hoverBorder: "hover:border-rose-400/50",
+        borderAccent: "border-rose-400/30",
+        glowBg: "from-rose-500/15 via-transparent to-transparent",
+        iconBg: "border-rose-400/30 bg-rose-400/10 text-rose-300",
+        headerBorder: "border-rose-500/20",
+        headerGlow: "after:via-rose-400/50",
+        returnBtn: "border-rose-400/30 bg-rose-500/5 text-rose-200 hover:text-white hover:border-rose-400/70 hover:bg-rose-500/15 hover:shadow-[0_0_20px_rgba(244,63,94,0.25)]",
+        returnIcon: "text-rose-400",
+        divider: "text-rose-500/40",
+        breadcrumbBadge: "border-rose-400/30 bg-rose-400/10 text-rose-300",
+        nodeBox: "border-rose-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(244,63,94,0.06)]",
+        nodeTotal: "text-rose-400",
+        nodePulse: "bg-rose-400",
+        navHover: "hover:bg-rose-400/10 hover:text-rose-300 hover:border-rose-400/30",
+        navIcon: "text-rose-400",
+        selection: "selection:bg-rose-500/30",
+        cardBorder: "border-rose-500/20",
+        cardHover: "hover:border-rose-400/50 hover:shadow-[0_0_30px_rgba(244,63,94,0.18)]",
+        crosshair: "border-rose-400/60",
+        textAccent: "text-rose-400",
+        textHover: "group-hover:text-rose-300",
+        actionBtn: "border-rose-400/40 bg-rose-500/15 hover:bg-rose-500/25 hover:border-rose-400 text-rose-200 hover:text-white",
       };
     case "fuchsia":
       return {
@@ -190,18 +217,18 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-fuchsia-400",
         divider: "text-fuchsia-500/40",
         breadcrumbBadge: "border-fuchsia-400/30 bg-fuchsia-400/10 text-fuchsia-300",
-        nodeBox: "border-fuchsia-500/25 bg-fuchsia-950/20 shadow-[inset_0_0_12px_rgba(217,70,239,0.06)]",
+        nodeBox: "border-fuchsia-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(217,70,239,0.06)]",
         nodeTotal: "text-fuchsia-400",
         nodePulse: "bg-fuchsia-400",
         navHover: "hover:bg-fuchsia-400/10 hover:text-fuchsia-300 hover:border-fuchsia-400/30",
         navIcon: "text-fuchsia-400",
         selection: "selection:bg-fuchsia-500/30",
-        cardBorder: "border-fuchsia-500/25",
-        cardHover: "hover:border-fuchsia-400/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.2)]",
+        cardBorder: "border-fuchsia-500/20",
+        cardHover: "hover:border-fuchsia-400/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.18)]",
         crosshair: "border-fuchsia-400/60",
         textAccent: "text-fuchsia-400",
         textHover: "group-hover:text-fuchsia-300",
-        actionBtn: "border-fuchsia-400/30 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 hover:border-fuchsia-400 text-fuchsia-200 hover:text-white",
+        actionBtn: "border-fuchsia-400/40 bg-fuchsia-500/15 hover:bg-fuchsia-500/25 hover:border-fuchsia-400 text-fuchsia-200 hover:text-white",
       };
     case "orange":
       return {
@@ -217,18 +244,18 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-orange-400",
         divider: "text-orange-500/40",
         breadcrumbBadge: "border-orange-400/30 bg-orange-500/10 text-orange-300",
-        nodeBox: "border-orange-500/25 bg-orange-950/20 shadow-[inset_0_0_12px_rgba(249,115,22,0.06)]",
+        nodeBox: "border-orange-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(249,115,22,0.06)]",
         nodeTotal: "text-orange-400",
         nodePulse: "bg-orange-400",
         navHover: "hover:bg-orange-400/10 hover:text-orange-300 hover:border-orange-400/30",
         navIcon: "text-orange-400",
         selection: "selection:bg-orange-500/30",
-        cardBorder: "border-orange-500/25",
-        cardHover: "hover:border-orange-400/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)]",
+        cardBorder: "border-orange-500/20",
+        cardHover: "hover:border-orange-400/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.18)]",
         crosshair: "border-orange-400/60",
         textAccent: "text-orange-400",
         textHover: "group-hover:text-orange-300",
-        actionBtn: "border-orange-400/30 bg-orange-500/10 hover:bg-orange-500/20 hover:border-orange-400 text-orange-200 hover:text-white",
+        actionBtn: "border-orange-400/40 bg-orange-500/15 hover:bg-orange-500/25 hover:border-orange-400 text-orange-200 hover:text-white",
       };
     case "teal":
       return {
@@ -244,18 +271,18 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-teal-400",
         divider: "text-teal-500/40",
         breadcrumbBadge: "border-teal-400/30 bg-teal-400/10 text-teal-300",
-        nodeBox: "border-teal-500/25 bg-teal-950/20 shadow-[inset_0_0_12px_rgba(20,184,166,0.06)]",
+        nodeBox: "border-teal-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(20,184,166,0.06)]",
         nodeTotal: "text-teal-400",
         nodePulse: "bg-teal-400",
         navHover: "hover:bg-teal-400/10 hover:text-teal-300 hover:border-teal-400/30",
         navIcon: "text-teal-400",
         selection: "selection:bg-teal-500/30",
-        cardBorder: "border-teal-500/25",
-        cardHover: "hover:border-teal-400/50 hover:shadow-[0_0_30px_rgba(20,184,166,0.2)]",
+        cardBorder: "border-teal-500/20",
+        cardHover: "hover:border-teal-400/50 hover:shadow-[0_0_30px_rgba(20,184,166,0.18)]",
         crosshair: "border-teal-400/60",
         textAccent: "text-teal-400",
         textHover: "group-hover:text-teal-300",
-        actionBtn: "border-teal-400/30 bg-teal-500/10 hover:bg-teal-500/20 hover:border-teal-400 text-teal-200 hover:text-white",
+        actionBtn: "border-teal-400/40 bg-teal-500/15 hover:bg-teal-500/25 hover:border-teal-400 text-teal-200 hover:text-white",
       };
     case "purple":
     default:
@@ -272,18 +299,18 @@ function getAccentClasses(accent: ProjectCaseStudy["accentColor"]) {
         returnIcon: "text-purple-400",
         divider: "text-purple-500/40",
         breadcrumbBadge: "border-purple-400/30 bg-purple-400/10 text-purple-300",
-        nodeBox: "border-purple-500/25 bg-purple-950/20 shadow-[inset_0_0_12px_rgba(168,85,247,0.06)]",
+        nodeBox: "border-purple-500/20 bg-black/50 shadow-[inset_0_0_12px_rgba(168,85,247,0.06)]",
         nodeTotal: "text-purple-400",
         nodePulse: "bg-purple-400",
         navHover: "hover:bg-purple-400/10 hover:text-purple-300 hover:border-purple-400/30",
         navIcon: "text-purple-400",
         selection: "selection:bg-purple-500/30",
-        cardBorder: "border-purple-500/25",
-        cardHover: "hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]",
+        cardBorder: "border-purple-500/20",
+        cardHover: "hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.18)]",
         crosshair: "border-purple-400/60",
         textAccent: "text-purple-400",
         textHover: "group-hover:text-purple-300",
-        actionBtn: "border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 hover:border-purple-400 text-purple-200 hover:text-white",
+        actionBtn: "border-purple-400/40 bg-purple-500/15 hover:bg-purple-500/25 hover:border-purple-400 text-purple-200 hover:text-white",
       };
   }
 }
@@ -821,7 +848,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               {/* Full Description & Operational Context */}
               <div className="lg:col-span-7 space-y-5">
-                <div className="rounded-2xl border border-sky-500/20 bg-black/60 p-4 sm:p-6 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
+                <div className="rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
                   <h3 className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2.5">
                     PROJECT OVERVIEW & OPERATIONAL CONTEXT
                   </h3>
@@ -830,7 +857,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-amber-500/25 bg-amber-950/15 p-4 sm:p-6 shadow-[inset_0_0_15px_rgba(245,158,11,0.05)]">
+                <div className="rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
                   <h3 className="font-mono text-xs uppercase tracking-widest text-amber-300 mb-2.5">
                     PROBLEM STATEMENT & SYSTEM CONSTRAINTS
                   </h3>
@@ -841,7 +868,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               </div>
 
               {/* Project Objectives */}
-              <div className="lg:col-span-5 rounded-2xl border border-emerald-500/20 bg-black/60 p-4 sm:p-6 flex flex-col justify-between shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
+              <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6 flex flex-col justify-between shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
                 <div>
                   <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-emerald-300 mb-4">
                     <Target className="h-4 w-4 shrink-0" />
@@ -1339,7 +1366,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     <Link
                       key={rel.id}
                       href={`/projects/${rel.id}`}
-                      className={`group relative overflow-hidden rounded-2xl border ${accent.cardBorder} bg-black/60 p-4 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
+                      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-black/50 p-4 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
                     >
                       {/* Corner micro-crosshairs */}
                       <div className={`pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l ${accent.crosshair}`} />

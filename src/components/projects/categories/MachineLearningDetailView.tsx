@@ -262,19 +262,15 @@ export default function MachineLearningDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // MODEL CONSOLE & THEORETICAL SCOPE ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(99,102,241,0.15)]">
+      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-indigo-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-indigo-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-indigo-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-indigo-400/70" />
-
-        {/* Ambient Indigo Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-indigo-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-indigo-400/60" />
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-indigo-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
@@ -286,11 +282,11 @@ export default function MachineLearningDetailView({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-indigo-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Target className="h-3 w-3 text-indigo-400" />
               {projectInfo.projectType}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-indigo-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Workflow className="h-3 w-3 text-indigo-400" />
               {projectInfo.learningParadigm}
             </span>
@@ -302,25 +298,25 @@ export default function MachineLearningDetailView({
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-indigo-500/30 bg-indigo-950/40 px-4 py-2 text-xs font-mono text-indigo-300">
-              <span className="flex items-center gap-2 text-indigo-200">
-                <Terminal className="h-3.5 w-3.5 text-indigo-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-indigo-500/30 bg-indigo-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-indigo-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-indigo-500/25 bg-[#080A14]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-black/50 p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-indigo-500/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-indigo-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-indigo-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-indigo-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-indigo-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-indigo-400/60" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-indigo-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-indigo-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-indigo-400/60" />
 
                     {/* Hero Image */}
                     <Image
@@ -333,7 +329,7 @@ export default function MachineLearningDetailView({
                   </div>
                 )}
 
-                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-sans mb-4">
+                <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-sans mb-4">
                   {projectDescription.length > 500
                     ? `${projectDescription.slice(0, 500).trim()}...`
                     : projectDescription}
@@ -342,7 +338,7 @@ export default function MachineLearningDetailView({
 
               {/* Capability Badges Strip (Max 3 - Dynamic) */}
               {capabilityBadges.length > 0 && (
-                <div className="mt-auto pt-4 border-t border-indigo-500/20 flex flex-wrap gap-2">
+                <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
                   {capabilityBadges.map((badgeLabel, idx) => (
                     <span
                       key={idx}
@@ -358,9 +354,9 @@ export default function MachineLearningDetailView({
           </div>
 
           {/* Right Pane (35%): Model Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-indigo-500/30 bg-[#080A14]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-black/50 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-indigo-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-indigo-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -370,7 +366,7 @@ export default function MachineLearningDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -379,7 +375,7 @@ export default function MachineLearningDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -388,7 +384,7 @@ export default function MachineLearningDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -397,7 +393,7 @@ export default function MachineLearningDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -406,7 +402,7 @@ export default function MachineLearningDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -415,7 +411,7 @@ export default function MachineLearningDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -424,7 +420,7 @@ export default function MachineLearningDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
@@ -434,21 +430,21 @@ export default function MachineLearningDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
+                className={`mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   hasRepoUrl
-                    ? "border-indigo-500/35 bg-[#070B18]/90 hover:border-indigo-400/60 hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
+                    ? "hover:border-indigo-400/50 hover:shadow-[0_0_25px_rgba(99,102,241,0.16)]"
+                    : "hover:border-white/20"
                 }`}
               >
                 {/* 4 Optical Corner Crosshairs */}
-                <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-indigo-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-indigo-400/60" />
-                <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-indigo-400/60" />
-                <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-indigo-400/60" />
+                <div className={`pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
+                <div className={`pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
+                <div className={`pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
+                <div className={`pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-indigo-300">
+                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-indigo-300" : "text-slate-400"}`}>
                       <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-indigo-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -469,7 +465,7 @@ export default function MachineLearningDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-indigo-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-slate-200 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -482,7 +478,7 @@ export default function MachineLearningDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 px-4 py-2.5 font-mono text-xs font-bold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-400/40 bg-indigo-500/15 hover:bg-indigo-500/25 hover:border-indigo-400 px-4 py-2.5 font-mono text-xs font-bold text-indigo-200 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.18)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -496,7 +492,7 @@ export default function MachineLearningDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-indigo-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-indigo-400 font-bold">READY // v1.0</span>
             </div>
@@ -508,12 +504,12 @@ export default function MachineLearningDetailView({
           SECTION 2 — PROBLEM & DATASET / ENVIRONMENT PROFILE
           Layout: Top Problem Context + Split Dataset/Env Specs & Input/Objective Space
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -527,7 +523,7 @@ export default function MachineLearningDetailView({
         </div>
 
         {/* Top: Problem Context (Full-Width Card) */}
-        <div className="relative z-10 rounded-2xl border border-indigo-500/20 bg-black/50 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 mb-7">
           <div className="flex items-center gap-2 font-mono text-xs text-indigo-400 font-semibold mb-3">
             <AlertTriangle className="h-3.5 w-3.5 text-indigo-400" />
             <span>PROBLEM CONTEXT // DOMAIN &amp; TECHNICAL JUSTIFICATION</span>
@@ -542,20 +538,20 @@ export default function MachineLearningDetailView({
         {/* 2-Column Split: Dataset / Environment Profile (Left) vs Input & Objective Space (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
           {/* Dataset / Environment Profile (6 Fixed Generic Slots) */}
-          <div className="rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5 gap-2">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
                   <Database className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>[ DATASET / ENV PROFILE // 6-SLOT MATRIX ]</span>
                 </div>
-                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold truncate max-w-[160px]">
+                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold truncate max-w-[160px]">
                   {datasetProfile.profileBadge}
                 </span>
               </div>
 
               <div className="space-y-3 mb-5">
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     1. SOURCE / ENVIRONMENT
                   </span>
@@ -564,7 +560,7 @@ export default function MachineLearningDetailView({
                   </span>
                 </div>
 
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     2. MODALITY / DOMAIN TYPE
                   </span>
@@ -574,7 +570,7 @@ export default function MachineLearningDetailView({
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                  <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. SCALE / VOLUME
                     </span>
@@ -582,7 +578,7 @@ export default function MachineLearningDetailView({
                       {datasetProfile.scale}
                     </span>
                   </div>
-                  <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                  <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. INPUT SHAPE / DIMENSIONS
                     </span>
@@ -592,7 +588,7 @@ export default function MachineLearningDetailView({
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     5. DATA TYPE &amp; FORMAT
                   </span>
@@ -601,7 +597,7 @@ export default function MachineLearningDetailView({
                   </span>
                 </div>
 
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     6. DATASET / ENV DESCRIPTION
                   </span>
@@ -613,28 +609,28 @@ export default function MachineLearningDetailView({
             </div>
 
             {datasetProfile.provenanceNote && (
-              <div className="pt-3 border-t border-indigo-500/15 font-mono text-[10px] text-indigo-400/80">
+              <div className="pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
                 PROVENANCE: {datasetProfile.provenanceNote}
               </div>
             )}
           </div>
 
           {/* Input & Objective Space (Universal across Supervised / Unsupervised / RL / CV / DL) */}
-          <div className="rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(99,102,241,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-5 gap-2">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
                   <Binary className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>[ INPUT &amp; OBJECTIVE SPACE ]</span>
                 </div>
-                <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
+                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
                   {spaceSpec.spaceBadge}
                 </span>
               </div>
 
               {/* Target / Objective Output Box (Optional for Unsupervised or supports Action/Reward/Cluster/Label) */}
               {spaceSpec.objectiveOutput && spaceSpec.objectiveOutput.name && (
-                <div className="rounded-xl border border-indigo-500/30 bg-black/60 p-4 mb-4">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-4 mb-4">
                   <div className="font-mono text-[10px] uppercase tracking-wider text-indigo-400 mb-1 font-bold">
                     {spaceSpec.objectiveOutput.label}
                   </div>
@@ -646,7 +642,7 @@ export default function MachineLearningDetailView({
                       <span>Spec: {spaceSpec.objectiveOutput.type}</span>
                     )}
                     {spaceSpec.objectiveOutput.distribution && (
-                      <span className="rounded bg-indigo-400/10 px-2 py-0.5 text-indigo-300 text-[10px] font-semibold">
+                      <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 text-indigo-300 text-[10px] font-semibold">
                         {spaceSpec.objectiveOutput.distribution}
                       </span>
                     )}
@@ -663,7 +659,7 @@ export default function MachineLearningDetailView({
                   {spaceSpec.inputSignals.map((sig, idx) => (
                     <div
                       key={idx}
-                      className="rounded-xl border border-white/5 bg-black/40 p-3 transition-colors hover:border-indigo-400/30"
+                      className="rounded-xl border border-white/10 bg-[#080B14] p-3 transition-colors hover:border-indigo-400/40"
                     >
                       <div className="flex items-center justify-between gap-2 font-mono text-xs mb-1">
                         <span className="font-bold text-white">{sig.name}</span>
@@ -683,7 +679,7 @@ export default function MachineLearningDetailView({
 
               {/* Characteristics Summary */}
               {spaceSpec.dataCharacteristicsSummary && (
-                <div className="rounded-xl border border-white/5 bg-indigo-950/20 p-3 text-xs text-slate-300 leading-relaxed">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-3 text-xs text-slate-300 leading-relaxed">
                   <span className="font-mono text-[10px] text-indigo-400 font-bold block mb-1">
                     DATA &amp; SPACE CHARACTERISTICS:
                   </span>
@@ -693,7 +689,7 @@ export default function MachineLearningDetailView({
             </div>
 
             {spaceSpec.spaceNote && (
-              <div className="mt-4 pt-3 border-t border-indigo-500/15 font-mono text-[10px] text-indigo-400/80">
+              <div className="mt-4 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
                 SPACE: {spaceSpec.spaceNote}
               </div>
             )}
@@ -705,12 +701,12 @@ export default function MachineLearningDetailView({
           SECTION 3 — ALGORITHMIC METHODOLOGY & TRAINING ARCHITECTURE
           Layout: Top Learning Paradigm Banner + Split Data Pipeline & Model Configuration
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -724,21 +720,21 @@ export default function MachineLearningDetailView({
         </div>
 
         {/* Top: Learning Approach & Methodology Banner */}
-        <div className="relative z-10 mb-7 rounded-2xl border border-indigo-500/25 bg-black/50 p-6 sm:p-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 mb-7 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
               <Workflow className="h-4 w-4 text-indigo-400 shrink-0" />
               <span>[ LEARNING_PARADIGM // THEORETICAL FOUNDATION ]</span>
             </div>
-            <span className="rounded bg-indigo-400/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
+            <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
               {learningApproach.paradigm}
             </span>
           </div>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-3">
             {learningApproach.methodologyDescription}
           </p>
-          <div className="rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-3.5 font-mono text-xs text-indigo-200">
-            <span className="font-bold mr-2">JUSTIFICATION:</span>
+          <div className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 font-mono text-xs text-slate-200">
+            <span className="font-bold text-indigo-400 mr-2">JUSTIFICATION:</span>
             {learningApproach.justification}
           </div>
         </div>
@@ -746,7 +742,7 @@ export default function MachineLearningDetailView({
         {/* 2-Column Split: Preprocessing & Data Pipeline (Left) vs Model Architecture & Configuration (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
           {/* Preprocessing & Data Pipeline */}
-          <div className="rounded-2xl border border-indigo-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
@@ -762,12 +758,12 @@ export default function MachineLearningDetailView({
                 {dataPreparation.map((stage, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-[#0B0E1B]/80 p-4 transition-all hover:border-indigo-400/40"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-indigo-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] text-indigo-400 font-bold mb-1.5">
                       <span>{stage.step}</span>
                       {stage.badge && (
-                        <span className="rounded bg-indigo-400/10 border border-indigo-400/20 px-2 py-0.5 text-indigo-300">
+                        <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 text-indigo-300">
                           {stage.badge}
                         </span>
                       )}
@@ -791,14 +787,14 @@ export default function MachineLearningDetailView({
           </div>
 
           {/* Model Architecture & Configuration */}
-          <div className="rounded-2xl border border-indigo-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Settings2 className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>[ MODEL_ARCHITECTURE &amp; CONFIGURATION ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded truncate max-w-[150px]">
+                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
                   {modelArchitectureAndTraining.configurationBadge}
                 </span>
               </div>
@@ -820,7 +816,7 @@ export default function MachineLearningDetailView({
                 {modelArchitectureAndTraining.hyperparameters.map((hp, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between rounded-lg border border-white/5 bg-[#0B0E1B]/80 px-3 py-2 font-mono text-xs"
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-[#080B14] px-3 py-2 font-mono text-xs"
                   >
                     <span className="text-slate-300">{hp.name}</span>
                     <span className="font-bold text-indigo-300">{hp.value}</span>
@@ -833,7 +829,7 @@ export default function MachineLearningDetailView({
                 modelArchitectureAndTraining.optimizationSolver) && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   {modelArchitectureAndTraining.objectiveCriterion && (
-                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                    <div className="rounded-lg border border-white/10 bg-[#080B14] p-2.5">
                       <span className="font-mono text-[9px] uppercase text-slate-400 block mb-0.5">
                         OBJECTIVE / LOSS
                       </span>
@@ -843,7 +839,7 @@ export default function MachineLearningDetailView({
                     </div>
                   )}
                   {modelArchitectureAndTraining.optimizationSolver && (
-                    <div className="rounded-lg border border-white/5 bg-black/40 p-2.5">
+                    <div className="rounded-lg border border-white/10 bg-[#080B14] p-2.5">
                       <span className="font-mono text-[9px] uppercase text-slate-400 block mb-0.5">
                         OPTIMIZER / SOLVER
                       </span>
@@ -880,12 +876,12 @@ export default function MachineLearningDetailView({
           SECTION 5 — MODEL EVALUATION & RESULTS
           Layout: Top Evaluation Metrics + Split Visual Diagnostics (Left) & Interpretation (Right)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -903,7 +899,7 @@ export default function MachineLearningDetailView({
         </div>
 
         {/* Top: Evaluation Strategy & Quantitative Metrics Deck */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-indigo-500/25 bg-black/60 p-6 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-6">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
             <div className="flex items-center gap-2 text-indigo-300 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
@@ -912,7 +908,7 @@ export default function MachineLearningDetailView({
                   "EVALUATION STRATEGY // BENCHMARK PROTOCOL"}
               </span>
             </div>
-            <span className="text-indigo-400 font-semibold">
+            <span className="text-slate-300 font-semibold">
               {evaluationStrategy.validationMethod}
             </span>
           </div>
@@ -933,7 +929,7 @@ export default function MachineLearningDetailView({
               {evaluationStrategy.metrics.map((m, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-white/10 bg-[#0B0E1B]/80 p-3.5 transition-all hover:border-indigo-400/40"
+                  className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-indigo-400/50"
                 >
                   <div className="font-mono text-xl sm:text-2xl font-black text-indigo-300 mb-1 truncate">
                     {m.value}
@@ -942,7 +938,7 @@ export default function MachineLearningDetailView({
                     {m.label}
                   </div>
                   {m.benchmark && (
-                    <span className="font-mono text-[9px] text-indigo-400 block truncate">
+                    <span className="font-mono text-[9px] text-slate-400 block truncate">
                       {m.benchmark}
                     </span>
                   )}
@@ -955,9 +951,9 @@ export default function MachineLearningDetailView({
         {/* 2-Column Split: Visual Diagnostics (Left) vs Interpretation & Limitations (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
           {/* Visual Diagnostics Stage (Aligned with AI Engineering Viewport Design) */}
-          <div className="flex flex-col justify-between rounded-2xl border border-indigo-500/30 bg-[#080B18] p-4 sm:p-5 shadow-2xl h-full">
+          <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-2xl h-full">
             {/* Header Bar */}
-            <div className="flex items-center justify-between border-b border-indigo-500/20 pb-3 mb-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80 inline-block" />
                 <span className="h-2.5 w-2.5 rounded-full bg-indigo-400/80 inline-block" />
@@ -969,7 +965,7 @@ export default function MachineLearningDetailView({
 
               {activeVis?.badge && (
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded">
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded">
                     {activeVis.badge}
                   </span>
                 </div>
@@ -977,7 +973,7 @@ export default function MachineLearningDetailView({
             </div>
 
             {/* Viewport Image Stage */}
-            <div className="relative w-full aspect-[16/10] lg:aspect-auto lg:flex-1 min-h-[250px] sm:min-h-[280px] overflow-hidden rounded-xl border border-indigo-500/20 bg-black flex items-center justify-center group">
+            <div className="relative w-full aspect-[16/10] lg:aspect-auto lg:flex-1 min-h-[250px] sm:min-h-[280px] overflow-hidden rounded-xl border border-white/10 bg-[#080B14] flex items-center justify-center group">
               {activeVis?.imageUrl ? (
                 <Image
                   src={activeVis.imageUrl}
@@ -1005,7 +1001,7 @@ export default function MachineLearningDetailView({
                           performanceVisualizations.length
                       )
                     }
-                    className="absolute left-2.5 top-1/2 -translate-y-1/2 rounded-full border border-indigo-400/40 bg-black/75 p-2 text-indigo-300 hover:bg-indigo-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                    className="absolute left-2.5 top-1/2 -translate-y-1/2 rounded-full border border-indigo-400/40 bg-black/80 p-2 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="h-4 w-4" />
@@ -1017,7 +1013,7 @@ export default function MachineLearningDetailView({
                           (prev + 1) % performanceVisualizations.length
                       )
                     }
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full border border-indigo-400/40 bg-black/75 p-2 text-indigo-300 hover:bg-indigo-400 hover:text-black backdrop-blur-md transition-all shadow-lg z-20"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full border border-indigo-400/40 bg-black/80 p-2 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400 hover:text-white backdrop-blur-md transition-all shadow-lg z-20"
                     aria-label="Next image"
                   >
                     <ChevronRight className="h-4 w-4" />
@@ -1106,14 +1102,14 @@ export default function MachineLearningDetailView({
           </div>
 
           {/* Model Interpretation & Limitations */}
-          <div className="rounded-2xl border border-indigo-500/30 bg-[#080B18]/95 p-5 sm:p-6 shadow-2xl flex flex-col justify-between h-full">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-6 shadow-2xl flex flex-col justify-between h-full">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <PieChart className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>[ MODEL_INTERPRETATION &amp; ERROR ANALYSIS ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded truncate max-w-[150px]">
+                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
                   {modelInterpretationAndLimitations.interpretabilityBadge}
                 </span>
               </div>
@@ -1131,7 +1127,7 @@ export default function MachineLearningDetailView({
                   {modelInterpretationAndLimitations.keyDrivers.map((drv, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-[#0B0E1B]/80 px-3 py-1.5 font-mono text-xs"
+                      className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#080B14] px-3 py-1.5 font-mono text-xs"
                     >
                       <span className="text-slate-300">{drv.factor}</span>
                       <span className="font-bold text-indigo-300 text-right">{drv.impact}</span>
@@ -1148,7 +1144,7 @@ export default function MachineLearningDetailView({
                 {modelInterpretationAndLimitations.limitations.map((lim, i) => (
                   <div
                     key={i}
-                    className="rounded-lg border border-indigo-500/15 bg-black/40 p-2.5"
+                    className="rounded-lg border border-white/10 bg-[#080B14] p-2.5"
                   >
                     <div className="font-mono text-[11px] font-bold text-indigo-300 mb-0.5">
                       {lim.title}
@@ -1168,7 +1164,7 @@ export default function MachineLearningDetailView({
                 {modelInterpretationAndLimitations.futureImprovements.map((imp, i) => (
                   <div
                     key={i}
-                    className="flex items-baseline justify-between rounded-lg border border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 font-mono text-[11px]"
+                    className="flex items-baseline justify-between rounded-lg border border-white/10 bg-[#080B14] px-3 py-1.5 font-mono text-[11px] hover:border-indigo-400/40 transition-colors"
                   >
                     <span className="text-slate-200 font-semibold">{imp.title}:</span>
                     <span className="text-indigo-300 text-[10px] truncate ml-2">
@@ -1191,15 +1187,15 @@ export default function MachineLearningDetailView({
       {/* =========================================================================
           SECTION 6 — [ 06 // MODEL VAULT & ARTIFACT GATES ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-[#080A14]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
+      <section className="relative overflow-hidden rounded-3xl border border-indigo-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-indigo-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-indigo-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-indigo-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-indigo-400/70" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-indigo-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-indigo-400/60" />
 
         {/* Section Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-indigo-500/20 pb-4 mb-6 sm:mb-8">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
             <span>[ 06 // MODEL VAULT &amp; ARTIFACT GATES ]</span>
@@ -1247,7 +1243,7 @@ export default function MachineLearningDetailView({
           />
 
           {/* Card 3: Research Specification & Technical Report Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-indigo-500/30 bg-[#0A0D1A]/95 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-indigo-400/60 hover:shadow-[0_8px_32px_rgba(99,102,241,0.2)]">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-indigo-500/20 bg-[#0A0D17]/85 p-5 sm:p-7 shadow-lg transition-all duration-300 hover:border-indigo-400/50 hover:shadow-[0_8px_32px_rgba(99,102,241,0.16)]">
             {/* 4 Optical Corner Crosshairs */}
             <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-indigo-400/60" />
             <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-indigo-400/60" />
@@ -1289,7 +1285,7 @@ export default function MachineLearningDetailView({
               </div>
             </div>
 
-            <div className="w-full flex items-center justify-center rounded-xl border border-indigo-500/40 bg-indigo-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-indigo-300">
+            <div className="w-full flex items-center justify-center rounded-xl border border-indigo-400/30 bg-indigo-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-indigo-300">
               REPRODUCIBILITY: PASSED
             </div>
           </div>

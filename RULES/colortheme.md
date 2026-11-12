@@ -47,19 +47,20 @@ Dikonfigurasi pada [tailwind.config.ts](file:///c:/Users/Dimas/Documents/GitHub/
 
 Setiap kategori project di [ProjectsSection.tsx](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/components/ProjectsSection.tsx), [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts), dan Detail View masing-masing memiliki profil warna tetap berikut:
 
-| No | Category (`category`) | Prefix `code` | `accentColor` (Data & Detail View) | Warna Filter & Pagination (`ProjectsSection.tsx`) | Hex Inti / Glow | Surface Gelap Detail View (`bg`) |
+| No | Category (`category`) | Prefix `code` | `accentColor` (Data & Detail View) | Warna Filter & Pagination (`ProjectsSection.tsx`) | Hex Inti / Glow | Surface & Accent Detail View (Obsidian + Highlight) |
 | :-: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | `web-development` | `WEB-XX` | **`cyan`** | **`sky`** (`sky-400`) | `#06B6D4` / `#38BDF8` | `bg-[#070D12]/90` · `bg-[#070D14]/95` |
-| 2 | `data-analysis` | `DA-XX` | **`emerald`** | **`emerald`** (`emerald-400`) | `#10B981` / `#34D399` | `bg-[#070D0E]/90` · `bg-[#070E0F]/95` |
-| 3 | `ai-engineering` | `AI-XX` | **`purple`** | **`purple`** (`purple-400`) | `#A855F7` / `#C084FC` | `bg-[#0A0713]/90` · `bg-[#10081E]/95` |
-| 4 | `machine-learning` | `ML-XX` | **`indigo`** | **`indigo`** (`indigo-400`) | `#6366F1` / `#818CF8` | `bg-[#070914]/90` · `bg-[#0A0D1A]/95` |
-| 5 | `desktop-mobile` | `APP-XX` | **`amber`** | **`amber`** (`amber-400`) | `#F59E0B` / `#FBBF24` | `bg-[#0A0D17]/85` · gradasi `amber-400 -> yellow-400` |
-| 6 | `ui-ux` | `UX-XX` | **`rose`** *(detail & cards)* | **`fuchsia`** (`fuchsia-400`) | `#F43F5E` / `#E879F9` | `bg-[#0E070B]/90` · `bg-[#0D0B1B]/95` |
-| 7 | `code-learning` | `CL-XX` | **`orange`** | **`orange`** (`orange-400` / `500`) | `#F97316` / `#FB923C` | `bg-[#0F0A06]/90` · `bg-[#1A0F08]/95` |
+| 1 | `web-development` | `WEB-XX` | **`cyan`** | **`sky`** (`sky-400`) | `#06B6D4` / `#38BDF8` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `sky` highlight |
+| 2 | `data-analysis` | `DA-XX` | **`emerald`** | **`emerald`** (`emerald-400`) | `#10B981` / `#34D399` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `emerald` highlight |
+| 3 | `ai-engineering` | `AI-XX` | **`purple`** | **`purple`** (`purple-400`) | `#A855F7` / `#C084FC` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `purple` highlight |
+| 4 | `machine-learning` | `ML-XX` | **`indigo`** | **`indigo`** (`indigo-400`) | `#6366F1` / `#818CF8` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `indigo` highlight |
+| 5 | `desktop-mobile` | `APP-XX` | **`amber`** | **`amber`** (`amber-400`) | `#F59E0B` / `#FBBF24` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `amber` highlight |
+| 6 | `ui-ux` | `UX-XX` | **`rose`** *(detail & cards)* | **`fuchsia`** (`fuchsia-400`) | `#F43F5E` / `#E879F9` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `rose` highlight *(swatch palet desain asli dipertahankan)* |
+| 7 | `code-learning` | `CL-XX` | **`orange`** | **`orange`** (`orange-400` / `500`) | `#F97316` / `#FB923C` | `bg-[#0A0D17]/85` · `bg-[#080B14]` · `orange` highlight |
 
 > **Catatan Konsistensi Project:**
 > - Nilai `accentColor` di [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts) **wajib persis** mengikuti kolom `accentColor` di atas (`cyan`, `emerald`, `purple`, `indigo`, `amber`, `rose`, `orange`) — selaras dengan [projectsdata.md](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/RULES/projectsdata.md).
-> - Khusus tab filter `"All Projects"`, sistem menggunakan warna default **`sky`** (`#38BDF8`).
+> - Seluruh Detail View (`WebDevDetailView`, `DataAnalyticsDetailView`, `AIEngineeringDetailView`, `MachineLearningDetailView`, `DesktopMobileDetailView`, `UIUXDetailView`, `CodeLearningDetailView`) dan shell [ProjectDetailView.tsx](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/components/projects/ProjectDetailView.tsx) (termasuk `case "rose"`) mengikuti gaya **Obsidian + Highlight-only** ala [CertificationDetailView.tsx](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/components/certifications/CertificationDetailView.tsx): permukaan dominan Obsidian murni (`bg-[#0A0D17]/85`, nested card `bg-[#080B14]`, panel sekunder `bg-black/50`) dan hanya menggunakan **1 warna murni tema kategori** untuk highlight, crosshair luar, ikon, angka metrik, dan hover state.
+> - Khusus tab filter `"All Projects"`, sistem menggunakan warna default **`sky`** (`#38BDF8`), sedangkan `web-development` Detail View menyatukan aksen visual ke **`sky`** agar seragam.
 > - Khusus `ui-ux`, tombol filter & pagination memakai spektrum **Fuchsia (`fuchsia-400`)** sedangkan kartu detail, HUD spec, dan repo card memakai spektrum **Rose (`rose-400`/`rose-500`)** agar kontras dengan komponen lain.
 
 ---
@@ -113,19 +114,13 @@ Digunakan seragam oleh [CyberTechStackSection.tsx](file:///c:/Users/Dimas/Docume
 
 `sky` | `cyan` | `emerald` | `purple` | `indigo` | `amber` | `rose` | `orange`
 
-Aturan desain per token:
-- **Border Idle / Hover:** `border-<color>-500/30` → `hover:border-<color>-400/60` (`amber` memakai `border-amber-400/30` → `hover:border-amber-400/70`).
+Aturan desain per token pada Project Detail View (`Obsidian + Highlight-only`):
+- **Surface Utama & Nested:** Section utama memakai `bg-[#0A0D17]/85` + `border-<color>-500/20` + crosshair sudut `border-<color>-400/60`. Semua sub-card dan panel nested menggunakan surface netral (`bg-[#080B14]` atau `bg-black/50`) dengan border netral idle `border-white/10` (atau `border-white/5` pada garis `<dl>`) dan menyala saat hover ke `hover:border-<color>-400/50`.
+- **Tipografi Metadata vs Highlight:** Label `<dt>`, pill header sekunder (`border-white/10 bg-black/50 text-slate-300`), dan catatan sudut pasif memakai `text-slate-400`, sedangkan nilai utama/judul memakai `text-white` / `text-slate-200`, dan highlight kunci (ikon, angka metrik, badge status) memakai spektrum murni `-300` / `-400` dari 1 warna kategori saja (tanpa `bg-<color>-950/*` atau `bg-<color>-900/*`).
 - **Icon Box Tech Item:** `border-<color>-400/30 bg-<color>-500/15 text-<color>-300`.
-- **Action Button Gradient (`CyberRepoCard` Public Repo):**
-  - `sky`: `from-sky-400 to-cyan-500` (`text-black`)
-  - `cyan`: `from-cyan-400 to-sky-500` (`text-black`)
-  - `emerald`: `from-emerald-400 to-teal-500` (`text-black`)
-  - `purple`: `from-purple-500 to-violet-500` (`text-white`)
-  - `indigo`: `from-indigo-500 to-blue-600` (`text-white`)
-  - `amber`: `from-amber-400 via-yellow-400 to-amber-300` (`text-slate-950`)
-  - `rose`: `from-rose-500 to-pink-500` (`text-white`)
-  - `orange`: `from-orange-500 to-amber-500` (`text-white`)
-- **Private Repository (Semua Kategori):** Card 1 dan Card 2 dalam status terkunci memakai gaya netral gelap atau disabled border tanpa tautan eksternal (`RESTRICTED` / `PRIVATE REPOSITORY`).
+- **Dark Glass Neon-Bordered CTA (`CyberRepoCard`, `CyberSpecCard`, `ProjectDetailView`, dan Hero CTA semua 7 kategori):**
+  - Pola seragam ala Inspect Certificate: `border border-<color>-400/40 bg-<color>-500/15 hover:bg-<color>-500/25 hover:border-<color>-400 text-<color>-200 hover:text-white` (untuk `cyan` diarahkan ke spektrum murni `sky` pada komponen detail agar konsisten).
+- **Private Repository (Semua Kategori):** Card 1 dan Card 2 dalam status terkunci memakai gaya netral gelap (`border-white/10 bg-black/50 text-slate-400`) tanpa tautan eksternal (`RESTRICTED` / `PRIVATE REPOSITORY`).
 
 ---
 
@@ -165,8 +160,8 @@ Aturan desain per token:
 
 ## 6. Aturan Kepatuhan Warna (Do's & Don'ts)
 
-1. **Jangan Memakai Background Putih Terang atau Hitam Datar (`#000000` polos):** Seluruh permukaan kartu wajib berada pada skala Obsidian (`#06070A`–`#121723` dengan transparansi `/65`–`/95` dan `backdrop-blur`), kecuali elemen teks kontras di atas tombol neon terang (`amber`/`sky`/`cyan`/`emerald` memakai `text-slate-950` atau `text-black`).
-2. **Satu Disiplin = Satu Warna Aksen Utama:** Saat menambah data project baru ke [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts) atau skill baru ke `technicalSkills.ts`, gunakan token aksen yang tertera pada tabel Section 2, Section 3, dan Section 4 — dilarang menukar warna antar kategori (misal memberi `emerald` untuk `ai-engineering`).
-3. **Konsistensi HUD Crosshairs & Glow:** Sudut crosshair (`h-2.5 w-2.5 border-t-2 border-l-2`) dan neon glow pada hover kartu wajib menggunakan spektrum warna yang sama dengan border aktif kartu tersebut (umumnya shade `-400` untuk border/teks utama, shade `-300` untuk teks badge terang, dan opacity `/10`–`/25` untuk background pill).
-4. **Kontras Aksesibilitas:** Pastikan rasio kontras teks deskripsi di atas background obsidian tetap terbaca (`text-slate-200` atau `text-slate-300` di atas `#080B14`/`#0C0F17`, hindari teks abu-abu terlalu gelap pada paragraf panjang).
-5. **Sinkronisasi Token UI/UX Case Studies:** Khusus properti `uiUxDesignSystem.colorPalette[].hex` di dalam data project UI/UX, format hex harus valid `#RRGGBB` sesuai palet riil desain studi kasus tersebut, sementara *wrapper UI* halaman portofolionya tetap mengikuti tema **Rose / Fuchsia Obsidian** di Section 2.
+1. **Jangan Memakai Background Putih Terang, Hitam Datar (`#000000`), atau Fill Berwarna Pekat pada Nested Panel:** Seluruh permukaan kartu wajib berada pada skala Obsidian netral (`#06070A`, `#0A0D17/85`, `#080B14`, `#0C0F17`, `bg-black/50`) dengan `backdrop-blur`; hindari background bernoda warna (`bg-*-950/*`, `bg-*-900/*`, atau hex gelap bertinta ungu/coklat/hijau) pada panel detail view.
+2. **Satu Disiplin = Satu Warna Aksen Utama (Pure Highlight-Only):** Saat menambah atau mengedit detail project di [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts) maupun komponen Detail View, gunakan 1 spektrum murni sesuai tabel Section 2 (`sky`, `emerald`, `purple`, `indigo`, `amber`, `rose`, `orange`) **hanya sebagai highlight** di atas kanvas obsidian — dilarang mencampur aksen kategori lain (misal menaruh `emerald` pada status di kategori non-data atau mencampur `amber`/`pink`/`cyan` ke dalam tema murni) dan gunakan `border-white/10` untuk seluruh nested card saat idle.
+3. **Konsistensi HUD Crosshairs, CTA & Glow:** Sudut crosshair luar (`border-t-2 border-l-2 border-<color>-400/60`), hover border nested card (`hover:border-<color>-400/50`), dan Dark Glass CTA (`border-<color>-400/40 bg-<color>-500/15 hover:bg-<color>-500/25`) wajib memakai spektrum murni tema kategori (shade `-400` untuk border/ikon, `-200`/`-300` untuk teks highlight, `text-slate-400` untuk label `<dt>` & metadata sekunder).
+4. **Kontras Aksesibilitas:** Pastikan rasio kontras teks deskripsi di atas background obsidian tetap terbaca (`text-slate-200` atau `text-slate-300` di atas `#080B14`/`#0A0D17`, hindari teks abu-abu terlalu gelap pada paragraf panjang).
+5. **Sinkronisasi Token UI/UX Case Studies:** Khusus properti `uiUxDesignSystem.colorPalette[].hex` dan inline swatch (`style={{ backgroundColor: col.hex }}`) di dalam studi kasus UI/UX, format hex harus valid `#RRGGBB` sesuai palet riil desain studi kasus tersebut, sementara *wrapper UI* halaman portofolionya tetap mengikuti tema **Rose Obsidian (`rose` + Obsidian)** di Section 2.

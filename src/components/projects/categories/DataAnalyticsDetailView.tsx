@@ -252,35 +252,31 @@ export default function DataAnalyticsDetailView({
       {/* =========================================================================
           SECTION 1 — [ 01 // ANALYTICAL CONSOLE & BUSINESS CONTEXT ]
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-[#070D0E]/90 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
-        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-emerald-400/70" />
-        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-emerald-400/70" />
-        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-emerald-400/70" />
-        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-emerald-400/70" />
-
-        {/* Ambient Glow */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-emerald-600/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-emerald-400/60" />
 
         {/* Telemetry Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-emerald-500/20 pb-4 mb-6">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-emerald-300">
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-emerald-400">
               [ 01 // ANALYTICAL CONSOLE & BUSINESS CONTEXT ]
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-emerald-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <LineChart className="h-3 w-3 text-emerald-400" />
               {projectInfo.projectType}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-emerald-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Database className="h-3 w-3 text-emerald-400" />
               {projectInfo.dataDomain || projectInfo.projectCategory}
             </span>
@@ -292,25 +288,25 @@ export default function DataAnalyticsDetailView({
           {/* Left Pane (65%): Project Narrative Terminal */}
           <div className="lg:col-span-8 flex flex-col h-full">
             {/* Terminal Title Bar */}
-            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
-              <span className="flex items-center gap-2 text-emerald-200">
-                <Terminal className="h-3.5 w-3.5 text-emerald-400" />
+            <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-500/15 px-4 py-2 text-xs font-mono text-white">
+              <span className="flex items-center gap-2 text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-emerald-400/80">SYS.VIEWPORT</span>
+              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-emerald-500/25 bg-[#070D0E]/95 p-5 sm:p-6 text-slate-300 shadow-inner">
+            <div className="flex-1 flex flex-col justify-between rounded-b-xl border-x border-b border-white/10 bg-[#080B14] p-5 sm:p-6 text-slate-300 shadow-inner">
               <div>
                 {/* 16:9 Hero Viewport Container — Pure static display */}
                 {heroImage && (
-                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-emerald-500/30 bg-black/60 shadow-lg">
+                  <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14] shadow-lg">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-emerald-400/80" />
-                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-emerald-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-emerald-400/80" />
-                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-emerald-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 z-20 h-2.5 w-2.5 border-t-2 border-l-2 border-emerald-400/60" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 z-20 h-2.5 w-2.5 border-t-2 border-r-2 border-emerald-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 z-20 h-2.5 w-2.5 border-b-2 border-l-2 border-emerald-400/60" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-20 h-2.5 w-2.5 border-b-2 border-r-2 border-emerald-400/60" />
 
                     {/* Hero Image */}
                     <Image
@@ -331,16 +327,16 @@ export default function DataAnalyticsDetailView({
               </div>
 
               {/* Capability Badges Strip (Max 3) */}
-              <div className="mt-auto pt-4 border-t border-emerald-500/20 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+              <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Database className="h-3 w-3 text-emerald-400" />
                   Automated ETL Ingestion
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <Activity className="h-3 w-3 text-emerald-400" />
                   Predictive Retention Modeling
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-300">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/50 px-2.5 py-1 font-mono text-[11px] text-slate-200">
                   <PieChart className="h-3 w-3 text-emerald-400" />
                   CLV Cohort Segmentation
                 </span>
@@ -349,9 +345,9 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Right Pane (35%): Tactical Datapad */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-emerald-500/30 bg-[#070D0E]/90 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <div className="lg:col-span-4 flex flex-col justify-between h-full rounded-xl border border-white/10 bg-black/50 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
             <div>
-              <div className="flex items-center gap-2 border-b border-emerald-500/20 pb-3 mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-emerald-400" />
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
                   System Telemetry Matrix
@@ -361,7 +357,7 @@ export default function DataAnalyticsDetailView({
               <dl className="space-y-3 font-mono text-xs">
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">System Classification</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">System Classification</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
@@ -370,7 +366,7 @@ export default function DataAnalyticsDetailView({
 
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Operating Environment</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Operating Environment</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
@@ -379,7 +375,7 @@ export default function DataAnalyticsDetailView({
 
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Domain Focus</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Domain Focus</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
@@ -388,7 +384,7 @@ export default function DataAnalyticsDetailView({
 
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Engineering Pipeline</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Engineering Pipeline</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
@@ -397,7 +393,7 @@ export default function DataAnalyticsDetailView({
 
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Testing & Audit</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Testing & Audit</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
@@ -406,7 +402,7 @@ export default function DataAnalyticsDetailView({
 
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Project Status</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Status</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
@@ -415,7 +411,7 @@ export default function DataAnalyticsDetailView({
 
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[10px] uppercase text-emerald-400/80 tracking-wider">Project Year</dt>
+                  <dt className="text-[10px] uppercase text-slate-400 tracking-wider">Project Year</dt>
                   <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
@@ -427,8 +423,8 @@ export default function DataAnalyticsDetailView({
               <div
                 className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
                   hasRepoUrl
-                    ? "border-emerald-500/35 bg-[#0C1210]/90 hover:border-emerald-400/60 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
+                    ? "border-white/10 bg-[#080B14] hover:border-emerald-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
+                    : "border-white/10 bg-[#080B14] hover:border-white/20"
                 }`}
               >
                 {/* 4 Optical Corner Crosshairs */}
@@ -439,7 +435,7 @@ export default function DataAnalyticsDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-emerald-300">
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
                       <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-emerald-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -473,7 +469,7 @@ export default function DataAnalyticsDetailView({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => onTriggerPulse?.()}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 px-4 py-2.5 font-mono text-xs font-bold text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-[1.01]"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-400/40 bg-emerald-500/15 hover:bg-emerald-500/25 hover:border-emerald-400 px-4 py-2.5 font-mono text-xs font-bold text-emerald-200 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.12)] hover:shadow-[0_0_25px_rgba(16,185,129,0.28)]"
                   >
                     <span>ACCESS REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -487,7 +483,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-emerald-500/20 flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span>PROJECT CODE: {project.code}</span>
               <span className="text-emerald-400 font-bold">READY // v1.0</span>
             </div>
@@ -499,12 +495,12 @@ export default function DataAnalyticsDetailView({
           SECTION 2 — BUSINESS CONTEXT & DATASET
           Layout: Top Business Narrative + Split Telemetry Grid (Objectives vs Dataset)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/25 bg-[#070D0E]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -518,7 +514,7 @@ export default function DataAnalyticsDetailView({
         </div>
 
         {/* Top: Business Context (Full-Width Narrative Card) */}
-        <div className="relative z-10 rounded-2xl border border-emerald-500/20 bg-black/40 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold mb-3">
             <Target className="h-3.5 w-3.5 text-emerald-400" />
             <span>EXECUTIVE CONTEXT // PROBLEM BACKGROUND & RATIONALE</span>
@@ -533,14 +529,14 @@ export default function DataAnalyticsDetailView({
         {/* 2-Column Split: Analytical Objectives (Left) vs Dataset Overview (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
           {/* Analytical Objectives */}
-          <div className="rounded-2xl border border-emerald-500/30 bg-[#091512]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-emerald-500/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300 tracking-wider">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <Target className="h-4 w-4 text-emerald-400" />
                   <span>[ ANALYTICAL_OBJECTIVES // KEY QUESTIONS ]</span>
                 </div>
-                <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   {analyticalObjectives.length} TARGETS
                 </span>
               </div>
@@ -549,11 +545,11 @@ export default function DataAnalyticsDetailView({
                 {analyticalObjectives.map((obj, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-emerald-500/15 bg-black/50 p-4 transition-all hover:border-emerald-400/40"
+                    className="rounded-xl border border-white/10 bg-black/50 p-4 transition-all hover:border-emerald-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-[11px] text-emerald-400 font-bold mb-1.5">
                       <span>{obj.targetMetric || `TARGET_0${idx + 1}`}</span>
-                      <span className="text-[10px] text-emerald- font-medium">
+                      <span className="text-[10px] text-emerald-300 font-medium">
                         ANSWERED
                       </span>
                     </div>
@@ -568,26 +564,26 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-emerald-500/15 font-mono text-[10px] text-emerald-400/80">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               TELEMETRY: All analytical objectives mapped to specific quantitative hypotheses.
             </div>
           </div>
 
           {/* Dataset Overview (5-Parameter Specs) */}
-          <div className="rounded-2xl border border-emerald-/30 bg-[#071318]/70 p-6 sm:p-7 flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+          <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-emerald-/20 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald- tracking-wider">
-                  <Database className="h-4 w-4 text-emerald-" />
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                  <Database className="h-4 w-4 text-emerald-400" />
                   <span>[ DATASET_PROFILE // METADATA SPECS ]</span>
                 </div>
-                <span className="rounded bg-emerald-/10 border border-emerald-/30 px-2 py-0.5 font-mono text-[10px] text-emerald- font-bold">
+                <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   LONGITUDINAL
                 </span>
               </div>
 
               <div className="space-y-3.5 mb-5">
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     1. DATA SOURCE
                   </span>
@@ -596,7 +592,7 @@ export default function DataAnalyticsDetailView({
                   </span>
                 </div>
 
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     2. DATA PERIOD
                   </span>
@@ -606,25 +602,25 @@ export default function DataAnalyticsDetailView({
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                  <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. RECORDS (ROWS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-300">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-400">
                       {datasetOverview.recordsCount}
                     </span>
                   </div>
-                  <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                  <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. VARIABLES (COLS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-400">
                       {datasetOverview.variablesCount}
                     </span>
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/5 bg-black/40 p-3">
+                <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     5. DATA DESCRIPTION
                   </span>
@@ -635,7 +631,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="pt-3 border-t border-emerald-/15 font-mono text-[10px] text-emerald-/80">
+            <div className="pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               INTEGRITY: Zero synthetic distortion; 100% verified enterprise ledger schema.
             </div>
           </div>
@@ -646,12 +642,12 @@ export default function DataAnalyticsDetailView({
           SECTION 3 — DATA PROCESSING & METHODOLOGY
           Layout: Flow Pipeline Header + Split Preparation (Left) & Methodology (Right)
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/25 bg-[#070D0E]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -665,9 +661,9 @@ export default function DataAnalyticsDetailView({
         </div>
 
         {/* Top: Analysis Workflow Horizontal Pipeline */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-emerald-500/25 bg-black/60 p-6 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-6 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-            <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold text-white">
               <Workflow className="h-4 w-4 text-emerald-400" />
               <span>[ ANALYSIS_WORKFLOW // 5-PHASE END-TO-END PIPELINE ]</span>
             </div>
@@ -685,11 +681,11 @@ export default function DataAnalyticsDetailView({
             {analysisWorkflow.steps.map((st, i) => (
               <div
                 key={i}
-                className="relative rounded-xl border border-white/10 bg-[#0A1412]/80 p-4 transition-all hover:border-emerald-400/50 hover:-translate-y-0.5"
+                className="relative rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-emerald-400/50 hover:-translate-y-0.5"
               >
                 <div className="flex items-center justify-between font-mono text-xs font-bold text-emerald-400 mb-2">
                   <span>{st.stepNumber}</span>
-                  <span className="rounded bg-emerald-400/10 px-1.5 py-0.2 text-[9px] uppercase tracking-wider text-emerald-300">
+                  <span className="rounded bg-emerald-500/10 border border-emerald-400/20 px-1.5 py-0.2 text-[9px] uppercase tracking-wider text-emerald-300">
                     {st.phase}
                   </span>
                 </div>
@@ -707,10 +703,10 @@ export default function DataAnalyticsDetailView({
         {/* Split Sub-Bento: Data Preparation (Left) vs Analytical Methodology (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
           {/* Data Preparation */}
-          <div className="rounded-2xl border border-emerald-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
                   <span>[ DATA_PREPARATION // CLEANING & WRANGLING ]</span>
                 </div>
@@ -723,11 +719,11 @@ export default function DataAnalyticsDetailView({
                 {dataPreparation.map((prep, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#0A1412]/70 p-4 transition-all hover:border-emerald-400/40"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-emerald-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] text-emerald-400 font-bold mb-1.5">
                       <span>{prep.step}</span>
-                      <span className="rounded bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 text-emerald-300">
+                      <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 text-emerald-300">
                         {prep.badge}
                       </span>
                     </div>
@@ -742,20 +738,20 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               AUDIT: Data validated against null constraints, format outliers, and duplicate primary records.
             </div>
           </div>
 
           {/* Analytical Methodology */}
-          <div className="rounded-2xl border border-emerald-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <LineChart className="h-4 w-4 text-emerald-400" />
                   <span>[ METHODOLOGY // STATISTICAL APPROACH ]</span>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-">
+                <span className="font-mono text-[10px] text-emerald-400">
                   RIGOROUS
                 </span>
               </div>
@@ -768,11 +764,11 @@ export default function DataAnalyticsDetailView({
                 {analyticalMethodology.methods.map((met, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#081216]/80 p-3.5 transition-all hover:border-emerald-/40"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-emerald-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald- mb-1">
+                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald-300 mb-1">
                       <span>{met.name}</span>
-                      <span className="rounded bg-emerald-/10 px-1.5 py-0.2 font-mono text-[9px] text-emerald-">
+                      <span className="rounded bg-emerald-500/10 border border-emerald-400/20 px-1.5 py-0.2 font-mono text-[9px] text-emerald-300">
                         {met.badge}
                       </span>
                     </div>
@@ -784,7 +780,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               STATISTICAL VALIDITY: Significance thresholds maintained at 99% confidence level (alpha = 0.01).
             </div>
           </div>
@@ -806,12 +802,12 @@ export default function DataAnalyticsDetailView({
           SECTION 5 — ANALYSIS & FINDINGS
           Layout: Cinema Viewer Deck + Split Findings & Actions Below
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/25 bg-[#070D0E]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -825,11 +821,11 @@ export default function DataAnalyticsDetailView({
         </div>
 
         {/* 1. Analysis Presentation (Interactive Slide Viewer) */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-emerald-500/30 bg-black/60 p-4 sm:p-6 shadow-[0_0_40px_rgba(16,185,129,0.08)]">
+        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
             <div className="flex items-center gap-2">
               <Presentation className="h-4 w-4 text-emerald-400" />
-              <span className="font-bold text-emerald-300">
+              <span className="font-bold text-white">
                 EXECUTIVE_PRESENTATION_VIEWER // SLIDE DECK
               </span>
             </div>
@@ -843,7 +839,7 @@ export default function DataAnalyticsDetailView({
           </div>
 
           {/* Slide Stage Container */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#040808]">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-[#080B14]">
             <Image
               src={
                 slideErrors[presentationSlides[activeSlideIndex]?.imageUrl || ""]
@@ -871,7 +867,7 @@ export default function DataAnalyticsDetailView({
                       prev === 0 ? presentationSlides.length - 1 : prev - 1
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-emerald-400/40 bg-black/70 p-2.5 text-emerald-300 hover:bg-emerald-400 hover:text-black backdrop-blur-md transition-all shadow-lg"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-emerald-400/40 bg-black/75 p-2.5 text-emerald-200 hover:bg-emerald-500/25 hover:border-emerald-400 hover:text-white backdrop-blur-md transition-all shadow-lg"
                   aria-label="Previous Slide"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -882,7 +878,7 @@ export default function DataAnalyticsDetailView({
                       prev === presentationSlides.length - 1 ? 0 : prev + 1
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-emerald-400/40 bg-black/70 p-2.5 text-emerald-300 hover:bg-emerald-400 hover:text-black backdrop-blur-md transition-all shadow-lg"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-emerald-400/40 bg-black/75 p-2.5 text-emerald-200 hover:bg-emerald-500/25 hover:border-emerald-400 hover:text-white backdrop-blur-md transition-all shadow-lg"
                   aria-label="Next Slide"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -934,10 +930,10 @@ export default function DataAnalyticsDetailView({
         {/* 2-Column Split: Key Findings (Left) vs Recommendations & Conclusion (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
           {/* Key Findings & Insights */}
-          <div className="rounded-2xl border border-emerald-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
                   <span>[ KEY_FINDINGS // EMPIRICAL INSIGHTS ]</span>
                 </div>
@@ -950,13 +946,13 @@ export default function DataAnalyticsDetailView({
                 {keyFindings.map((finding, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border border-white/10 bg-[#0A1412]/70 p-4 transition-all hover:border-emerald-400/40 hover:-translate-y-0.5"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-4 transition-all hover:border-emerald-400/50 hover:-translate-y-0.5"
                   >
                     <div className="flex items-baseline justify-between font-mono mb-2">
                       <span className="text-xl sm:text-2xl font-black text-emerald-400">
                         {finding.metricValue}
                       </span>
-                      <span className="rounded bg-emerald-400/10 border border-emerald-400/20 px-1.5 py-0.2 text-[9px] font-bold text-emerald-300">
+                      <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-1.5 py-0.2 text-[9px] font-bold text-emerald-300">
                         {finding.impactTag}
                       </span>
                     </div>
@@ -974,16 +970,16 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               CONFIRMATION: Derived from p-value significance matrices and empirical cohort clustering.
             </div>
           </div>
 
           {/* Recommendations & Conclusion */}
-          <div className="rounded-2xl border border-emerald-500/20 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <TrendingUp className="h-4 w-4 text-emerald-400" />
                   <span>[ ACTIONABLE_RECOMMENDATIONS & CONCLUSION ]</span>
                 </div>
@@ -997,12 +993,12 @@ export default function DataAnalyticsDetailView({
                 {recommendationsAndConclusion.recommendations.map((rec, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-white/10 bg-[#07130F]/80 p-3.5 transition-all hover:border-emerald-400/30"
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-emerald-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] mb-1">
                       <span className="font-bold text-emerald-300">{rec.title}</span>
                       <span
-                        className="rounded px-1.5 py-0.2 font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                        className="rounded px-1.5 py-0.2 font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"
                       >
                         {rec.priority} PRIORITY
                       </span>
@@ -1015,7 +1011,7 @@ export default function DataAnalyticsDetailView({
               </div>
 
               {/* Conclusion Narrative */}
-              <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-4">
+              <div className="rounded-xl border border-white/10 bg-[#080B14] p-4">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-bold block mb-1">
                   STRATEGIC CONCLUSION
                 </span>
@@ -1025,7 +1021,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
+            <div className="mt-5 pt-3 border-t border-white/10 font-mono text-[10px] text-slate-400">
               GOVERNANCE: Action roadmap aligned with quarterly operational OKRs.
             </div>
           </div>
@@ -1039,12 +1035,12 @@ export default function DataAnalyticsDetailView({
           Card 2: Presentation & Report Card
           Card 3: Dataset & Supporting Files Card
           ========================================================================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-[#070D0E]/90 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-9 lg:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
         {/* Optical Corner HUD */}
-        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400" />
-        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400" />
+        <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400/60" />
+        <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400/60" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
@@ -1097,10 +1093,10 @@ export default function DataAnalyticsDetailView({
           />
 
           {/* Card 3: Dataset & Supporting Files Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-emerald-/30 bg-[#071318]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-/60">
+          <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/50">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-slate-200">
                   <HardDrive className="h-4 w-4 text-emerald-400" />
                   <span>DATASET & ARTIFACTS</span>
                 </div>
@@ -1117,10 +1113,10 @@ export default function DataAnalyticsDetailView({
                 {supportingFiles.map((file, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 p-2 font-mono text-[10px]"
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-black/50 p-2 font-mono text-[10px]"
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <FileSpreadsheet className="h-3.5 w-3.5 text-emerald- shrink-0" />
+                      <FileSpreadsheet className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                       <span className="text-slate-200 truncate">{file.name}</span>
                     </div>
                     <span className="text-emerald-400 font-bold ml-2 shrink-0">
@@ -1131,7 +1127,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="w-full flex items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-emerald-300">
+            <div className="w-full flex items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-500/15 px-4 py-3 text-center font-mono text-xs font-semibold text-emerald-300">
               STATUS: ARTIFACTS PACKAGED & AUDITED
             </div>
           </div>
