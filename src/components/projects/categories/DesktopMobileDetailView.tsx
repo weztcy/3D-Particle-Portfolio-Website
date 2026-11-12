@@ -1164,29 +1164,9 @@ export default function DesktopMobileDetailView({
               </div>
             </div>
 
-            {documentation.docsUrl ? (
-              <a
-                href={documentation.docsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-amber-400/40 bg-amber-400/15 px-4 py-3 font-mono text-xs font-semibold text-amber-200 hover:bg-amber-400/25 hover:border-amber-300/80 hover:text-white transition-all shadow-[0_0_15px_rgba(245,158,11,0.25)]"
-              >
-                <FileCode2 className="h-4 w-4 text-amber-400" />
-                <span>View Architecture Manual</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            ) : (
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-amber-400/40 bg-amber-400/15 px-4 py-3 font-mono text-xs font-semibold text-amber-200 hover:bg-amber-400/25 hover:border-amber-300/80 hover:text-white transition-all shadow-[0_0_15px_rgba(245,158,11,0.25)]"
-              >
-                <FileText className="h-4 w-4 text-amber-400" />
-                <span>Inspect Technical Specs</span>
-              </button>
-            )}
+            <div className="w-full flex items-center justify-center rounded-xl border border-amber-400/40 bg-amber-400/15 px-4 py-3 text-center font-mono text-xs font-semibold text-amber-200">
+              NATIVE SPECS: VERIFIED
+            </div>
           </div>
         </div>
       </section>

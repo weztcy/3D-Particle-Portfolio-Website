@@ -637,7 +637,6 @@ export interface ProjectCaseStudy {
     description: string;
     status: string;
     specs: { label: string; value: string }[];
-    docsUrl?: string;
   };
 
   // Extended UI/UX Design Domain Specific Fields
@@ -751,7 +750,6 @@ export interface ProjectCaseStudy {
     title?: string;
     description?: string;
     deliverables?: string[];
-    docsUrl?: string;
     status?: string;
     specs?: { label: string; value: string }[];
   };

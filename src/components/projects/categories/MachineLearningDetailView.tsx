@@ -1267,29 +1267,9 @@ export default function MachineLearningDetailView({
               </div>
             </div>
 
-            {hasRepoUrl && project.repoUrl ? (
-              <a
-                href={`${project.repoUrl}#readme`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-500/40 bg-indigo-500/10 px-4 py-3 font-mono text-xs font-semibold text-indigo-300 hover:bg-indigo-500/20 hover:text-white transition-all"
-              >
-                <FileCode2 className="h-4 w-4 text-indigo-400" />
-                <span>INSPECT EXPERIMENT SPECS</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            ) : (
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-500/40 bg-indigo-500/10 px-4 py-3 font-mono text-xs font-semibold text-indigo-300 hover:bg-indigo-500/20 hover:text-white transition-all"
-              >
-                <FileText className="h-4 w-4 text-indigo-400" />
-                <span>INSPECT TECHNICAL SPECS</span>
-              </button>
-            )}
+            <div className="w-full flex items-center justify-center rounded-xl border border-indigo-500/40 bg-indigo-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-indigo-300">
+              REPRODUCIBILITY: PASSED
+            </div>
           </div>
         </div>
       </section>

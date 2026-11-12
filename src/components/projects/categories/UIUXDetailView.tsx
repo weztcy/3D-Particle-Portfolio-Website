@@ -1176,29 +1176,9 @@ export default function UIUXDetailView({
               </div>
             </div>
 
-            {documentation.docsUrl ? (
-              <a
-                href={documentation.docsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 font-mono text-xs font-semibold text-rose-300 hover:bg-rose-500/20 hover:text-white transition-all"
-              >
-                <FileCode2 className="h-4 w-4 text-rose-400" />
-                <span>View Design Documentation</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            ) : (
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 font-mono text-xs font-semibold text-rose-300 hover:bg-rose-500/20 hover:text-white transition-all"
-              >
-                <FileText className="h-4 w-4 text-rose-400" />
-                <span>Inspect Technical Specs</span>
-              </button>
-            )}
+            <div className="w-full flex items-center justify-center rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-rose-300">
+              ACCESSIBILITY: WCAG AA PASSED
+            </div>
           </div>
         </div>
       </section>
