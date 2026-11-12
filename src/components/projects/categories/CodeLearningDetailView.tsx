@@ -44,9 +44,11 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { GoChecklist } from "react-icons/go";
 import { ProjectCaseStudy } from "@/data";
 import CyberTechStackSection from "../CyberTechStackSection";
 import CyberRepoCard from "../CyberRepoCard";
+import CyberSpecCard from "../CyberSpecCard";
 
 interface CodeLearningDetailViewProps {
   project: ProjectCaseStudy;
@@ -60,7 +62,7 @@ export default function CodeLearningDetailView({
   // Section 3: Module Catalog Filter & Search States
   const [moduleSearchQuery, setModuleSearchQuery] = useState("");
   const [selectedDifficultyFilter, setSelectedDifficultyFilter] = useState<
-    "All" | "Beginner" | "Intermediate" | "Advanced" | "Expert"
+    "All" | "Beginner" | "Intermediate" | "Advanced"
   >("All");
   const [copiedPortalLink, setCopiedPortalLink] = useState(false);
   const [copiedSnippetId, setCopiedSnippetId] = useState<string | null>(null);
@@ -681,7 +683,7 @@ export default function CodeLearningDetailView({
                 Aggregated Topics
               </span>
               <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
-                <span>{totalSubmodulesCount}+</span>
+                <span>{totalSubmodulesCount}</span>
                 <span className="text-xs text-orange-400 font-normal">Units</span>
               </div>
               <span className="font-mono text-[10px] text-slate-400 block mt-1">
@@ -691,10 +693,10 @@ export default function CodeLearningDetailView({
 
             <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
               <span className="font-mono text-[10px] uppercase text-orange-400/80 block mb-1">
-                Code Artifacts
+                Source Code
               </span>
               <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
-                <span>{totalSourceFilesCount}+</span>
+                <span>{totalSourceFilesCount}</span>
                 <span className="text-xs text-orange-400 font-normal">Files</span>
               </div>
               <span className="font-mono text-[10px] text-slate-400 block mt-1">
@@ -741,7 +743,7 @@ export default function CodeLearningDetailView({
 
           {/* Difficulty Filter Tabs */}
           <div className="flex flex-wrap items-center gap-1.5">
-            {(["All", "Beginner", "Intermediate", "Advanced", "Expert"] as const).map((diff) => {
+            {(["All", "Beginner", "Intermediate", "Advanced"] as const).map((diff) => {
               const count =
                 diff === "All"
                   ? modules.length
@@ -1043,14 +1045,17 @@ export default function CodeLearningDetailView({
                   {pillar.skills.map((sk, sIdx) => (
                     <div
                       key={sIdx}
-                      className="rounded-lg border border-white/5 bg-black/30 p-3.5 hover:border-orange-500/30 transition-colors"
+                      className="rounded-lg border border-white/5 bg-black/30 p-3.5 hover:border-orange-500/30 transition-colors flex items-start gap-3"
                     >
-                      <h5 className="font-semibold text-xs text-slate-100 mb-1">
-                        {sk.title}
-                      </h5>
-                      <p className="text-[11px] text-slate-300 leading-relaxed font-sans">
-                        {sk.description}
-                      </p>
+                      <GoChecklist className="h-4 w-4 text-orange-400 shrink-0 mt-0.5" />
+                      <div className="flex-1 min-w-0">
+                        <h5 className="font-semibold text-xs text-slate-100 mb-1">
+                          {sk.title}
+                        </h5>
+                        <p className="text-[11px] text-slate-300 leading-relaxed font-sans">
+                          {sk.description}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1095,67 +1100,42 @@ export default function CodeLearningDetailView({
             onTriggerPulse={onTriggerPulse}
           />
 
-          {/* CARD 2 — Learning Documentation & Syllabus Card */}
-          <div className="group relative flex flex-col justify-between rounded-2xl border border-orange-500/30 bg-[#1A0F08]/95 p-5 sm:p-7 shadow-lg transition-all hover:border-orange-400/50 hover:shadow-[0_8px_32px_rgba(249,115,22,0.2)]">
-            {/* 4 Optical Corner Crosshairs */}
-            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-orange-400/60" />
-            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-orange-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-orange-400/60" />
-            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-orange-400/60" />
-
-            <div>
-              <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 text-orange-300 font-mono text-xs font-bold uppercase tracking-wider">
-                  <FileText className="h-4 w-4 text-orange-400" />
-                  <span>Curriculum Taxonomy</span>
-                </div>
-                <span className="font-mono text-[10px] text-orange-400/80">
-                  SYLLABUS_v2.0
-                </span>
-              </div>
-
-              <h4 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {documentation.title}
-              </h4>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
-                {documentation.description}
-              </p>
-
-              <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {(documentation.specs || []).map((sp: any, spIdx: number) => (
-                  <div key={spIdx} className="flex items-center justify-between text-slate-400">
-                    <span className="uppercase text-[11px]">{sp.label}:</span>
-                    <span className="text-slate-200 font-semibold">{sp.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {(documentation as any).docsUrl ? (
-              <a
-                href={(documentation as any).docsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onTriggerPulse?.()}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-orange-500/40 bg-orange-500/10 px-4 py-3 font-mono text-xs font-semibold text-orange-300 hover:bg-orange-500/20 hover:text-white transition-all"
-              >
-                <FileCode2 className="h-4 w-4 text-orange-400" />
-                <span>Inspect Technical Syllabus</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            ) : (
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-orange-500/40 bg-orange-500/10 px-4 py-3 font-mono text-xs font-semibold text-orange-300 hover:bg-orange-500/20 hover:text-white transition-all"
-              >
-                <FileText className="h-4 w-4 text-orange-400" />
-                <span>Inspect Syllabus Notes</span>
-              </button>
-            )}
-          </div>
+          {/* CARD 2 — Learning Documentation & Syllabus Card (Universal Spec Standard) */}
+          <CyberSpecCard
+            accentColor="orange"
+            icon={FileText}
+            categoryTag="CURRICULUM TAXONOMY"
+            statusBadge="SYLLABUS_v2.0"
+            title={documentation.title || "Curriculum & Syllabus Architecture"}
+            description={
+              documentation.description ||
+              "Pedagogical syllabus blueprint covering modular learning phases, unit testing benchmarks, and strict compilation flags."
+            }
+            specs={documentation.specs || []}
+            action={
+              (documentation as any).docsUrl
+                ? {
+                    label: "Inspect Technical Syllabus",
+                    icon: FileCode2,
+                    href: (documentation as any).docsUrl,
+                  }
+                : repoUrl
+                ? {
+                    label: "Inspect Technical Syllabus",
+                    icon: FileCode2,
+                    href: `${repoUrl}#readme`,
+                  }
+                : {
+                    label: "Inspect Syllabus Notes",
+                    icon: FileText,
+                    onClick: () => {
+                      if (typeof window !== "undefined") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    },
+                  }
+            }
+          />
 
           {/* CARD 3 — Course Artifacts & Competencies Card */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-orange-500/30 bg-[#1A0F08]/95 p-5 sm:p-7 shadow-lg transition-all hover:border-orange-400/50 hover:shadow-[0_8px_32px_rgba(249,115,22,0.2)]">
@@ -1171,9 +1151,6 @@ export default function CodeLearningDetailView({
                   <FileCode2 className="h-4 w-4 text-orange-400" />
                   <span>Verified Competencies</span>
                 </div>
-                <span className="font-mono text-[10px] text-orange-400/80">
-                  MASTERY_TRACK
-                </span>
               </div>
 
               <h4 className="font-display text-lg sm:text-xl font-bold text-white mb-2">

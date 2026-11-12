@@ -40,6 +40,7 @@ import {
 import { ProjectCaseStudy } from "@/data";
 import CyberTechStackSection from "../CyberTechStackSection";
 import CyberRepoCard from "../CyberRepoCard";
+import CyberSpecCard from "../CyberSpecCard";
 
 interface DataAnalyticsDetailViewProps {
   project: ProjectCaseStudy;
@@ -294,9 +295,9 @@ export default function DataAnalyticsDetailView({
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-2 text-xs font-mono text-emerald-300">
               <span className="flex items-center gap-2 text-emerald-200">
                 <Terminal className="h-3.5 w-3.5 text-emerald-400" />
-                &gt; ANALYTICS_RUNTIME // SYS.VIEWPORT
+                {project.title}
               </span>
-              <span className="text-[10px] text-emerald-400/80">ONLINE</span>
+              <span className="text-[10px] text-emerald-400/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -1082,52 +1083,45 @@ export default function DataAnalyticsDetailView({
             verifiedLabel="DATA_VERIFIED"
           />
 
-          {/* Card 2: Presentation & Report Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-[#0A1412]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/60">
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-300">
-                  <FileText className="h-4 w-4 text-emerald-400" />
-                  <span>PRESENTATION & REPORT</span>
-                </div>
-                <span className="rounded bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300">
-                  PDF / PPTX READY
-                </span>
-              </div>
-
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                Executive Report & Slide Deck
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
-                Comprehensive executive dossier containing the 25-slide presentation, methodology appendix, statistical significance tables, and quarterly ROI forecast.
-              </p>
-
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 px-3 py-1.5 font-mono text-[11px]">
-                  <span className="text-slate-400">DOCUMENT FORMAT</span>
-                  <span className="font-bold text-emerald-300">PDF & PPTX SLIDES</span>
-                </div>
-                <div className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 px-3 py-1.5 font-mono text-[11px]">
-                  <span className="text-slate-400">DECK LENGTH</span>
-                  <span className="font-bold text-white">25 SLIDES // COMPLETE</span>
-                </div>
-              </div>
-            </div>
-
-            
-          </div>
+          {/* Card 2: Presentation & Report Card (Universal Spec Standard) */}
+          <CyberSpecCard
+            accentColor="emerald"
+            icon={FileText}
+            categoryTag="PRESENTATION & REPORT"
+            statusBadge="PDF / PPTX READY"
+            title="Executive Report & Slide Deck"
+            description="Comprehensive executive dossier containing the 25-slide presentation, methodology appendix, statistical significance tables, and quarterly ROI forecast."
+            specs={[
+              { label: "DOCUMENT FORMAT", value: "PDF & PPTX SLIDES", highlight: true },
+              { label: "DECK LENGTH", value: "25 SLIDES // COMPLETE" },
+              { label: "STATISTICAL RIGOR", value: "p < 0.001 Verified" },
+              { label: "EXECUTIVE AUDIT", value: "Stakeholder Approved" },
+            ]}
+            action={
+              project.repoUrl
+                ? {
+                    label: "INSPECT METHODOLOGY & DATA",
+                    href: `${project.repoUrl}#readme`,
+                  }
+                : {
+                    label: "INSPECT EXECUTIVE DOSSIER",
+                    onClick: () => {
+                      if (typeof window !== "undefined") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    },
+                  }
+            }
+          />
 
           {/* Card 3: Dataset & Supporting Files Card */}
           <div className="flex flex-col justify-between rounded-2xl border border-emerald-/30 bg-[#071318]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-/60">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-">
-                  <HardDrive className="h-4 w-4 text-emerald-" />
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
+                  <HardDrive className="h-4 w-4 text-emerald-400" />
                   <span>DATASET & ARTIFACTS</span>
                 </div>
-                <span className="rounded bg-emerald-/10 border border-emerald-/30 px-2 py-0.5 font-mono text-[10px] text-emerald-">
-                  {supportingFiles.length} FILES
-                </span>
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">

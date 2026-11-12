@@ -464,7 +464,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Tailwind CSS"
     ],
     "accentColor": "cyan",
-    "repoUrl": "https://github.com/example/silelo-auction",
     "telemetryMatrix": {
       "projectType": "Real-Time Auction Platform",
       "targetPlatform": "Cloud Web / Multi-Device",
@@ -1644,7 +1643,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Seaborn"
     ],
     "accentColor": "emerald",
-    "repoUrl": "https://github.com/example/jakarta-hotel-sentiment",
     "telemetryMatrix": {
       "projectType": "Diagnostic NLP Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
@@ -2980,7 +2978,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "NetworkX",
       "Docker"
     ],
-    "repoUrl": "https://github.com/dimas/brainsync-ai-agent",
     "telemetryMatrix": {
       "projectType": "Autonomous PKM AI Agent",
       "targetPlatform": "Local-First / Private Cloud",
@@ -4261,7 +4258,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "icon": "Sliders"
       }
     ],
-    "repoUrl": "https://github.com/weztcy/Center-of-Mass-and-Velocity-Calculator",
     "mlProjectInfo": {
       "projectType": "Computational Kinematics & Physical Modeling",
       "learningParadigm": "Deterministic Numerical Modeling",
@@ -5345,7 +5341,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "icon": "ShieldAlert"
       }
     ],
-    "repoUrl": "https://github.com/weztcy/PixVault-Private-Image-Studio",
     "desktopMobileProjectInfo": {
       "applicationType": "Native Desktop Application (x64 Architecture)",
       "targetPlatform": "Windows 11 / 10 & macOS (Cross-Platform)",
@@ -6303,7 +6298,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "icon": "CreditCard"
       }
     ],
-    "repoUrl": "https://github.com/weztcy/E-Parking-Mobile-App-UI-UX-Design",
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Mobile Application",
       "designRole": "Product Designer & UX Researcher",
@@ -7028,7 +7022,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Valgrind",
       "AddressSanitizer"
     ],
-    "repoUrl": "https://github.com/weztcy/CPP-Learning-Modules",
     "telemetryMatrix": {
       "projectType": "Systems Programming Curriculum",
       "targetPlatform": "C++17/20 / Clang / GCC / CMake",

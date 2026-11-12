@@ -39,6 +39,7 @@ import {
 import { ProjectCaseStudy } from "@/data";
 import CyberTechStackSection from "../CyberTechStackSection";
 import CyberRepoCard from "../CyberRepoCard";
+import CyberSpecCard from "../CyberSpecCard";
 
 interface WebDevDetailViewProps {
   project: ProjectCaseStudy;
@@ -219,9 +220,9 @@ export default function WebDevDetailView({
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-xs font-mono text-sky-300">
               <span className="flex items-center gap-2 text-sky-200">
                 <Terminal className="h-3.5 w-3.5 text-sky-400" />
-                &gt; WEB_RUNTIME // SYS.VIEWPORT
+                {project.title}
               </span>
-              <span className="text-[10px] text-sky-400/80">ONLINE</span>
+              <span className="text-[10px] text-sky-400/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -970,44 +971,34 @@ export default function WebDevDetailView({
             onTriggerPulse={onTriggerPulse}
           />
 
-          {/* Card 2: Technical Documentation & Specs Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#0C101D]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60">
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-300">
-                  <FileText className="h-4 w-4 text-sky-400" />
-                  <span>TECHNICAL DOCUMENTATION</span>
-                </div>
-                <span className="rounded bg-sky-400/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
-                  {technicalDocumentation.status}
-                </span>
-              </div>
-
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {technicalDocumentation.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
-                {technicalDocumentation.description}
-              </p>
-
-              {/* Specs List */}
-              <div className="space-y-2 mb-6">
-                {technicalDocumentation.specs.map((sp, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between rounded-lg border border-white/5 bg-black/40 px-3 py-1.5 font-mono text-[11px]"
-                  >
-                    <span className="text-slate-400">{sp.label}</span>
-                    <span className="font-bold text-sky-300">{sp.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-sky-400/20 bg-sky-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-sky-300">
-              STATUS: ARCHIVED & READY FOR AUDIT
-            </div>
-          </div>
+          {/* Card 2: Technical Documentation & Specs Card (Universal Spec Standard) */}
+          <CyberSpecCard
+            accentColor="sky"
+            icon={FileText}
+            categoryTag="TECHNICAL SPECIFICATION"
+            statusBadge={technicalDocumentation.status || "DOCS // VERIFIED"}
+            title={technicalDocumentation.title || "Fullstack Technical Specification"}
+            description={
+              technicalDocumentation.description ||
+              "Production-grade architectural manifest detailing service topology, schema migrations, and hosting constraints."
+            }
+            specs={technicalDocumentation.specs}
+            action={
+              project.repoUrl
+                ? {
+                    label: "INSPECT SYSTEM ARCHITECTURE",
+                    href: `${project.repoUrl}#readme`,
+                  }
+                : {
+                    label: "INSPECT TECHNICAL SPECS",
+                    onClick: () => {
+                      if (typeof window !== "undefined") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    },
+                  }
+            }
+          />
 
           {/* Card 3: Architecture & Quality Card (Sky Theme) */}
           <div className="flex flex-col justify-between rounded-2xl border border-sky-500/30 bg-[#080B14]/70 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/60">
@@ -1017,9 +1008,6 @@ export default function WebDevDetailView({
                   <ShieldCheck className="h-4 w-4 text-sky-400" />
                   <span>QUALITY & VALIDATION</span>
                 </div>
-                <span className="rounded bg-sky-400/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
-                  {architectureQuality.status}
-                </span>
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">

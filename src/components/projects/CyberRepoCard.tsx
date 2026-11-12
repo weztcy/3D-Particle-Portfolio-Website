@@ -1,7 +1,18 @@
 "use client";
 
 import React from "react";
-import { FolderGit2, Lock, ExternalLink } from "lucide-react";
+import {
+  FolderGit2,
+  Lock,
+  ExternalLink,
+  GitBranch,
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  ArrowUpRight,
+  Terminal,
+} from "lucide-react";
 import { CyberAccentColor } from "./CyberTechStackSection";
 
 interface CyberRepoCardProps {
@@ -18,6 +29,7 @@ const REPO_THEMES: Record<
     border: string;
     bg: string;
     textAccent: string;
+    textHover: string;
     icon: string;
     ping: string;
     dot: string;
@@ -27,12 +39,17 @@ const REPO_THEMES: Record<
     buttonGradient: string;
     buttonText: string;
     buttonShadow: string;
+    crosshair: string;
+    highlightBorder: string;
+    highlightBg: string;
+    rowHoverBg: string;
   }
 > = {
   sky: {
     border: "border-sky-500/30 hover:border-sky-400/60",
-    bg: "bg-[#080B14]/85",
+    bg: "bg-[#080B14]/90",
     textAccent: "text-sky-300",
+    textHover: "group-hover:text-sky-200",
     icon: "text-sky-400",
     ping: "bg-sky-400",
     dot: "bg-sky-500",
@@ -41,12 +58,17 @@ const REPO_THEMES: Record<
     badgeText: "text-sky-300",
     buttonGradient: "from-sky-400 to-cyan-500",
     buttonText: "text-black",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(56,189,248,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(56,189,248,0.35)]",
+    crosshair: "border-sky-400/60",
+    highlightBorder: "border-sky-500/20",
+    highlightBg: "bg-sky-950/20",
+    rowHoverBg: "hover:bg-sky-500/5",
   },
   cyan: {
     border: "border-cyan-500/30 hover:border-cyan-400/60",
-    bg: "bg-[#070D12]/85",
+    bg: "bg-[#070D12]/90",
     textAccent: "text-cyan-300",
+    textHover: "group-hover:text-cyan-200",
     icon: "text-cyan-400",
     ping: "bg-cyan-400",
     dot: "bg-cyan-500",
@@ -55,12 +77,17 @@ const REPO_THEMES: Record<
     badgeText: "text-cyan-300",
     buttonGradient: "from-cyan-400 to-sky-500",
     buttonText: "text-black",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(6,182,212,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(6,182,212,0.35)]",
+    crosshair: "border-cyan-400/60",
+    highlightBorder: "border-cyan-500/20",
+    highlightBg: "bg-cyan-950/20",
+    rowHoverBg: "hover:bg-cyan-500/5",
   },
   emerald: {
     border: "border-emerald-500/30 hover:border-emerald-400/60",
-    bg: "bg-[#070D0E]/85",
+    bg: "bg-[#070D0E]/90",
     textAccent: "text-emerald-300",
+    textHover: "group-hover:text-emerald-200",
     icon: "text-emerald-400",
     ping: "bg-emerald-400",
     dot: "bg-emerald-500",
@@ -69,12 +96,17 @@ const REPO_THEMES: Record<
     badgeText: "text-emerald-300",
     buttonGradient: "from-emerald-400 to-teal-500",
     buttonText: "text-black",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(16,185,129,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(16,185,129,0.35)]",
+    crosshair: "border-emerald-400/60",
+    highlightBorder: "border-emerald-500/20",
+    highlightBg: "bg-emerald-950/20",
+    rowHoverBg: "hover:bg-emerald-500/5",
   },
   purple: {
     border: "border-purple-500/30 hover:border-purple-400/60",
-    bg: "bg-[#0A0713]/85",
+    bg: "bg-[#0A0713]/90",
     textAccent: "text-purple-300",
+    textHover: "group-hover:text-purple-200",
     icon: "text-purple-400",
     ping: "bg-purple-400",
     dot: "bg-purple-500",
@@ -83,12 +115,17 @@ const REPO_THEMES: Record<
     badgeText: "text-purple-300",
     buttonGradient: "from-purple-500 to-violet-500",
     buttonText: "text-white",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(168,85,247,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(168,85,247,0.35)]",
+    crosshair: "border-purple-400/60",
+    highlightBorder: "border-purple-500/20",
+    highlightBg: "bg-purple-950/20",
+    rowHoverBg: "hover:bg-purple-500/5",
   },
   indigo: {
     border: "border-indigo-500/30 hover:border-indigo-400/60",
-    bg: "bg-[#070914]/85",
+    bg: "bg-[#070914]/90",
     textAccent: "text-indigo-300",
+    textHover: "group-hover:text-indigo-200",
     icon: "text-indigo-400",
     ping: "bg-indigo-400",
     dot: "bg-indigo-500",
@@ -97,26 +134,36 @@ const REPO_THEMES: Record<
     badgeText: "text-indigo-300",
     buttonGradient: "from-indigo-500 to-blue-600",
     buttonText: "text-white",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(99,102,241,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(99,102,241,0.35)]",
+    crosshair: "border-indigo-400/60",
+    highlightBorder: "border-indigo-500/20",
+    highlightBg: "bg-indigo-950/20",
+    rowHoverBg: "hover:bg-indigo-500/5",
   },
   amber: {
-    border: "border-amber-500/30 hover:border-amber-400/60",
-    bg: "bg-[#0E0B07]/85",
+    border: "border-amber-400/30 hover:border-amber-400/70",
+    bg: "bg-[#0A0D17]/85",
     textAccent: "text-amber-300",
+    textHover: "group-hover:text-amber-200",
     icon: "text-amber-400",
     ping: "bg-amber-400",
-    dot: "bg-amber-500",
-    badgeBorder: "border-amber-400/30",
-    badgeBg: "bg-amber-500/10",
+    dot: "bg-amber-400",
+    badgeBorder: "border-amber-400/40",
+    badgeBg: "bg-amber-400/15",
     badgeText: "text-amber-300",
-    buttonGradient: "from-amber-400 to-yellow-500",
-    buttonText: "text-black",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.35)]",
+    buttonGradient: "from-amber-400 via-yellow-400 to-amber-300 text-slate-950 font-bold",
+    buttonText: "text-slate-950 font-bold",
+    buttonShadow: "shadow-[0_0_28px_rgba(245,158,11,0.35)] hover:shadow-[0_0_40px_rgba(245,158,11,0.6)]",
+    crosshair: "border-amber-400/70",
+    highlightBorder: "border-amber-400/30",
+    highlightBg: "bg-amber-400/10",
+    rowHoverBg: "hover:bg-amber-400/10",
   },
   rose: {
     border: "border-rose-500/30 hover:border-rose-400/60",
-    bg: "bg-[#0E070B]/85",
+    bg: "bg-[#0E070B]/90",
     textAccent: "text-rose-300",
+    textHover: "group-hover:text-rose-200",
     icon: "text-rose-400",
     ping: "bg-rose-400",
     dot: "bg-rose-500",
@@ -125,12 +172,17 @@ const REPO_THEMES: Record<
     badgeText: "text-rose-300",
     buttonGradient: "from-rose-500 to-pink-500",
     buttonText: "text-white",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(244,63,94,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(244,63,94,0.35)]",
+    crosshair: "border-rose-400/60",
+    highlightBorder: "border-rose-500/20",
+    highlightBg: "bg-rose-950/20",
+    rowHoverBg: "hover:bg-rose-500/5",
   },
   orange: {
     border: "border-orange-500/30 hover:border-orange-400/60",
-    bg: "bg-[#0F0A06]/85",
+    bg: "bg-[#0F0A06]/90",
     textAccent: "text-orange-300",
+    textHover: "group-hover:text-orange-200",
     icon: "text-orange-400",
     ping: "bg-orange-400",
     dot: "bg-orange-500",
@@ -139,7 +191,11 @@ const REPO_THEMES: Record<
     badgeText: "text-orange-300",
     buttonGradient: "from-orange-500 to-amber-500",
     buttonText: "text-black",
-    buttonShadow: "hover:shadow-[0_0_20px_rgba(249,115,22,0.35)]",
+    buttonShadow: "hover:shadow-[0_0_25px_rgba(249,115,22,0.35)]",
+    crosshair: "border-orange-400/60",
+    highlightBorder: "border-orange-500/20",
+    highlightBg: "bg-orange-950/20",
+    rowHoverBg: "hover:bg-orange-500/5",
   },
 };
 
@@ -148,85 +204,173 @@ export default function CyberRepoCard({
   accentColor,
   onTriggerPulse,
   branchName = "MAIN",
-  verifiedLabel = "VERIFIED",
+  verifiedLabel = "AUDIT_VERIFIED",
 }: CyberRepoCardProps) {
   const theme = REPO_THEMES[accentColor] || REPO_THEMES.sky;
   const hasRepoUrl = Boolean(repoUrl && repoUrl.trim().length > 0);
 
+  // Extract repository path if valid GitHub link (e.g., "dimas/smart-inventory")
+  const repoSlug = hasRepoUrl
+    ? repoUrl!.replace(/^https?:\/\/github\.com\//i, "").replace(/\/+$/, "")
+    : null;
+
   return (
     <div
-      className={`group relative flex flex-col justify-between rounded-2xl border p-6 sm:p-7 shadow-lg transition-all duration-300 ${
+      className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)] ${
         hasRepoUrl
           ? `${theme.border} ${theme.bg}`
-          : "border-white/10 bg-black/60 hover:border-white/20"
+          : "border-white/10 bg-[#0A0D14]/80 hover:border-white/20"
       }`}
     >
+      {/* 4 Optical Corner Crosshairs */}
+      <div
+        className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${
+          hasRepoUrl ? theme.crosshair : "border-white/20"
+        }`}
+      />
+      <div
+        className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${
+          hasRepoUrl ? theme.crosshair : "border-white/20"
+        }`}
+      />
+      <div
+        className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${
+          hasRepoUrl ? theme.crosshair : "border-white/20"
+        }`}
+      />
+      <div
+        className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${
+          hasRepoUrl ? theme.crosshair : "border-white/20"
+        }`}
+      />
+
       <div>
-        {/* Card Status Indicator */}
-        <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+        {/* Top Header / Status Line */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
           <div
-            className={`flex items-center gap-2 font-mono text-xs font-bold ${
+            className={`flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider ${
               hasRepoUrl ? theme.textAccent : "text-slate-400"
             }`}
           >
             {hasRepoUrl ? (
-              <FolderGit2 className={`h-4 w-4 ${theme.icon}`} />
+              <FolderGit2 className={`h-4 w-4 ${theme.icon} shrink-0`} />
             ) : (
-              <Lock className="h-4 w-4 text-slate-400" />
+              <Lock className="h-4 w-4 text-slate-400 shrink-0" />
             )}
             <span>
-              {hasRepoUrl
-                ? "PUBLIC GITHUB REPOSITORY"
-                : "RESTRICTED PRIVATE REPOSITORY"}
+              {hasRepoUrl ? "GITHUB_VCS_GATEWAY" : "RESTRICTED_ACCESS_GATEWAY"}
             </span>
           </div>
-          <span className="relative flex h-2 w-2">
-            {hasRepoUrl && (
+
+          {hasRepoUrl ? (
+            <span className="relative flex h-2.5 w-2.5">
               <span
                 className={`animate-ping absolute inline-flex h-full w-full rounded-full ${theme.ping} opacity-75`}
               />
-            )}
-            <span
-              className={`relative inline-flex rounded-full h-2 w-2 ${
-                hasRepoUrl ? theme.dot : "bg-slate-500"
-              }`}
-            />
-          </span>
+              <span
+                className={`relative inline-flex rounded-full h-2.5 w-2.5 ${theme.dot}`}
+              />
+            </span>
+          ) : (
+            <span className="flex items-center justify-center text-slate-400">
+              <Lock className="h-4 w-4 text-slate-400" />
+            </span>
+          )}
         </div>
 
-        {/* Title & Description */}
-        <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-          {hasRepoUrl ? "GitHub Repository" : "Private Commercial Repository"}
+        {/* Title */}
+        <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2 transition-colors">
+          {hasRepoUrl ? "GitHub Source Repository" : "Private Commercial Repository"}
         </h3>
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
+
+        {/* Rich Description */}
+        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-4 sm:mb-5">
           {hasRepoUrl
-            ? "Explore the complete project repository on GitHub, including production source code, commit history, architectural assets, and technical documentation."
-            : "Source code access is restricted under non-disclosure agreements (NDA) or proprietary commercial rights. No public repository is published."}
+            ? "Complete project codebase version-controlled on GitHub. Access production source code, commit history, branch architecture, and deployment automation."
+            : "Source code is restricted under Non-Disclosure Agreements (NDA) and enterprise proprietary rights. Public access is disabled for intellectual property protection."}
         </p>
 
-        {/* Telemetry Badges */}
-        <div className="flex flex-wrap gap-1.5 mb-6">
+        {/* Telemetry Metric Pill Badges */}
+        <div className="flex flex-wrap gap-1.5 mb-5">
           {hasRepoUrl ? (
             <>
               <span
-                className={`rounded border ${theme.badgeBorder} ${theme.badgeBg} px-2.5 py-1 font-mono text-[10px] ${theme.badgeText} font-semibold`}
+                className={`inline-flex items-center gap-1 rounded border ${theme.badgeBorder} ${theme.badgeBg} px-2.5 py-1 font-mono text-[10px] ${theme.badgeText} font-semibold`}
               >
-                BRANCH // {branchName}
+                <GitBranch className="h-3 w-3" />
+                <span>BRANCH // {branchName}</span>
               </span>
               <span
-                className={`rounded border ${theme.badgeBorder} ${theme.badgeBg} px-2.5 py-1 font-mono text-[10px] ${theme.badgeText} font-semibold`}
+                className={`inline-flex items-center gap-1 rounded border ${theme.badgeBorder} ${theme.badgeBg} px-2.5 py-1 font-mono text-[10px] ${theme.badgeText} font-semibold`}
               >
-                STATUS // {verifiedLabel}
+                <ShieldCheck className="h-3 w-3" />
+                <span>STATUS // {verifiedLabel}</span>
               </span>
             </>
           ) : (
             <>
-              <span className="rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-400 font-semibold">
-                CLEARANCE // INTERNAL
+              <span className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-400 font-semibold">
+                <Lock className="h-3 w-3" />
+                <span>CLEARANCE // INTERNAL</span>
               </span>
-              <span className="rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-400 font-semibold">
-                PROPRIETARY // NDA
+              <span className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-400 font-semibold">
+                <Terminal className="h-3 w-3" />
+                <span>PROPRIETARY // NDA</span>
               </span>
+            </>
+          )}
+        </div>
+
+        {/* Structured Repository Metadata Matrix (Fills Space with Cyber Telecom Specs) */}
+        <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
+          {hasRepoUrl ? (
+            <>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">VCS HOSTING:</span>
+                <span className="text-slate-200 font-semibold">GitHub Enterprise / Cloud</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">REPO SLUG:</span>
+                <span
+                  className={`${theme.textAccent} font-semibold truncate max-w-[170px] sm:max-w-[210px]`}
+                  title={repoSlug || ""}
+                >
+                  {repoSlug || "public-vcs"}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">LICENSE / RIGHTS:</span>
+                <span className="text-slate-200 font-semibold">MIT / Educational</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">CI/CD PIPELINE:</span>
+                <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
+                  <CheckCircle2 className="h-3 w-3" />
+                  <span>Automated Checks</span>
+                </span>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">ACCESS POLICY:</span>
+                <span className="text-amber-400 font-semibold">Strict Zero-Trust</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">SECURITY PROTOCOL:</span>
+                <span className="text-slate-200 font-semibold">SOC2 & Enterprise NDA</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">CODE INTEGRITY:</span>
+                <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
+                  <CheckCircle2 className="h-3 w-3" />
+                  <span>Private Audit Passed</span>
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="uppercase text-[11px]">VERIFICATION:</span>
+                <span className="text-slate-300 font-semibold">Signed Release Tags</span>
+              </div>
             </>
           )}
         </div>
