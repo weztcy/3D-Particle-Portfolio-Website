@@ -362,7 +362,7 @@ export default function AIEngineeringDetailView({
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">System Classification</dt>
-                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
@@ -371,7 +371,7 @@ export default function AIEngineeringDetailView({
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Operating Environment</dt>
-                  <dd className="text-xs font-semibold text-purple-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
@@ -380,7 +380,7 @@ export default function AIEngineeringDetailView({
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Domain Focus</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
@@ -389,7 +389,7 @@ export default function AIEngineeringDetailView({
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Engineering Pipeline</dt>
-                  <dd className="text-xs font-semibold text-purple-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
@@ -398,7 +398,7 @@ export default function AIEngineeringDetailView({
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Testing & Audit</dt>
-                  <dd className="text-xs font-semibold text-purple-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
@@ -407,7 +407,7 @@ export default function AIEngineeringDetailView({
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Project Status</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-purple-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
@@ -416,7 +416,7 @@ export default function AIEngineeringDetailView({
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
                   <dt className="text-[10px] uppercase text-purple-400/80 tracking-wider">Project Year</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="truncate">{String(project.year || "2026").slice(0, 50)}</span>
                   </dd>
@@ -446,27 +446,16 @@ export default function AIEngineeringDetailView({
                         <Lock className="h-3.5 w-3.5 text-slate-400" />
                       )}
                       <span className="truncate">
-                        {hasRepoUrl
-                          ? "PUBLIC GITHUB REPOSITORY"
-                          : "RESTRICTED PRIVATE REPOSITORY"}
+                        {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
                     </div>
-                    {hasRepoUrl ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-purple-400/40 bg-purple-950/60 px-2 py-0.5 font-mono text-[9px] text-purple-300 font-semibold shadow-[0_0_10px_rgba(168,85,247,0.2)]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />PUBLIC
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[9px] text-slate-400 font-semibold">
-                        <Lock className="h-2.5 w-2.5" />PRIVATE
-                      </span>
-                    )}
                   </div>
 
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={hasRepoUrl ? "text-purple-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
+                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -474,9 +463,9 @@ export default function AIEngineeringDetailView({
                       <span className="text-slate-200 text-[11px]">{hasRepoUrl ? "Main Branch" : "Personal Archive"}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-[10px]">SECURITY AUDIT:</span>
+                      <span className="text-[10px]">LICENSE:</span>
                       <span className={hasRepoUrl ? "text-purple-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
+                        {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
                   </div>
@@ -1211,6 +1200,7 @@ export default function AIEngineeringDetailView({
             repoUrl={project.repoUrl}
             accentColor="purple"
             onTriggerPulse={onTriggerPulse}
+            license={project.license}
           />
 
           {/* Card 2: Technical Documentation & Model Specs Card (Universal Spec Standard) */}

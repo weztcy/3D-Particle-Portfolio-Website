@@ -88,6 +88,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "accentColor": "cyan",
     "repoUrl": "https://github.com/example/smart-inventory",
+      "license": "MIT License",
     "telemetryMatrix": {
       "projectType": "Enterprise Inventory ERP",
       "targetPlatform": "Cloud-Native Web (Responsive)",
@@ -841,6 +842,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "accentColor": "cyan",
     "repoUrl": "https://github.com/example/aorus-showcase",
+      "license": "MIT License",
     "telemetryMatrix": {
       "projectType": "Interactive 3D Hardware Showcase",
       "targetPlatform": "WebGL Responsive Web",
@@ -1181,6 +1183,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "accentColor": "emerald",
     "repoUrl": "https://github.com/example/omnichannel-retail-analytics",
+      "license": "Apache 2.0",
     "telemetryMatrix": {
       "projectType": "Quantitative BI Investigation",
       "targetPlatform": "Cloud Analytics / BI-Platform",
@@ -2087,6 +2090,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "accentColor": "emerald",
     "repoUrl": "https://github.com/example/kip-scholarship-analytics",
+      "license": "MIT License",
     "telemetryMatrix": {
       "projectType": "Socioeconomic Equity Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
@@ -2519,6 +2523,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Ragas"
     ],
     "repoUrl": "https://github.com/dimas/synapse-agentic-rag",
+      "license": "Apache 2.0",
     "telemetryMatrix": {
       "projectType": "Agentic Knowledge Engine",
       "targetPlatform": "Distributed Cluster / Docker",
@@ -3438,6 +3443,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "SEC EDGAR API"
     ],
     "repoUrl": "https://github.com/dimas/financial-intelligence-agent",
+      "license": "Apache 2.0",
     "telemetryMatrix": {
       "projectType": "Financial Intelligence Agent",
       "targetPlatform": "Financial Cloud / Air-Gapped",
@@ -3859,6 +3865,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization",
+      "license": "MIT License",
     "mlProjectInfo": {
       "projectType": "Supervised Classification & Feature Engineering",
       "learningParadigm": "Supervised Learning",
@@ -4648,6 +4655,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Calgeo-2D-Geometry-Calculator",
+      "license": "MIT License",
     "mlProjectInfo": {
       "projectType": "Computational Geometry & Vector Analytics",
       "learningParadigm": "Deterministic Spatial Trigonometry",
@@ -5029,6 +5037,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/WEBP-Converter-Pro",
+      "license": "MIT License",
     "desktopMobileProjectInfo": {
       "applicationType": "Native Desktop Application (x64 Architecture)",
       "targetPlatform": "Windows 11 / 10 (x64 Native)",
@@ -5658,6 +5667,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Rasa-Nusantara-Indonesian-Food-Recipe",
+      "license": "GPL-3.0",
     "desktopMobileProjectInfo": {
       "applicationType": "Cross-Platform Mobile Application (iOS & Android)",
       "targetPlatform": "Android 14+ / iOS 17+ (React Native / Flutter)",
@@ -5959,6 +5969,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Food-Recipe-Mobile-App-UI-UX-Design",
+      "license": "CC BY-NC 4.0",
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Mobile App",
       "designRole": "Lead UI/UX & Product Designer",
@@ -6642,6 +6653,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Aorus-Gaming-Shop-Mobile-App-UI-UX-Design",
+      "license": "CC BY-NC 4.0",
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Gaming E-Commerce App",
       "designRole": "Lead Product Designer & Visual Strategist",
@@ -7474,6 +7486,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Bun"
     ],
     "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules",
+      "license": "MIT / Educational",
     "telemetryMatrix": {
       "projectType": "Type-Level Architecture Curriculum",
       "targetPlatform": "TypeScript 5.x / Node.js 20+ / Bun",

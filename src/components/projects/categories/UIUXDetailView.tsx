@@ -370,7 +370,7 @@ export default function UIUXDetailView({
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">System Classification</dt>
-                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
@@ -379,7 +379,7 @@ export default function UIUXDetailView({
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Operating Environment</dt>
-                  <dd className="text-xs font-semibold text-rose-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
@@ -388,7 +388,7 @@ export default function UIUXDetailView({
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Domain Focus</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
@@ -397,7 +397,7 @@ export default function UIUXDetailView({
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Engineering Pipeline</dt>
-                  <dd className="text-xs font-semibold text-rose-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
@@ -406,7 +406,7 @@ export default function UIUXDetailView({
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Testing & Audit</dt>
-                  <dd className="text-xs font-semibold text-rose-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
@@ -415,7 +415,7 @@ export default function UIUXDetailView({
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Project Status</dt>
-                  <dd className="text-xs font-semibold text-rose-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-rose-400 animate-pulse shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
@@ -424,7 +424,7 @@ export default function UIUXDetailView({
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
                   <dt className="text-[10px] uppercase text-rose-400/80 tracking-wider">Project Year</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
                   </dd>
@@ -454,27 +454,16 @@ export default function UIUXDetailView({
                         <Lock className="h-3.5 w-3.5 text-slate-400" />
                       )}
                       <span className="truncate">
-                        {isPublicRepo
-                          ? "PUBLIC GITHUB REPOSITORY"
-                          : "RESTRICTED PRIVATE REPOSITORY"}
+                        {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
                     </div>
-                    {isPublicRepo ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-rose-400/40 bg-rose-950/60 px-2 py-0.5 font-mono text-[9px] text-rose-300 font-semibold shadow-[0_0_10px_rgba(244,63,94,0.2)]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />PUBLIC
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[9px] text-slate-400 font-semibold">
-                        <Lock className="h-2.5 w-2.5" />PRIVATE
-                      </span>
-                    )}
                   </div>
 
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={isPublicRepo ? "text-rose-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {isPublicRepo ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
+                        {isPublicRepo ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -482,9 +471,9 @@ export default function UIUXDetailView({
                       <span className="text-slate-200 text-[11px]">{isPublicRepo ? "Main Branch" : "Personal Archive"}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-[10px]">SECURITY AUDIT:</span>
-                      <span className={isPublicRepo ? "text-rose-400 font-semibold text-[11px]" : "text-rose-400/80 font-semibold text-[11px]"}>
-                        {isPublicRepo ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
+                      <span className="text-[10px]">LICENSE:</span>
+                      <span className={isPublicRepo ? "text-rose-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                        {isPublicRepo ? (project.license || "CC BY-NC 4.0") : "Proprietary Rights"}
                       </span>
                     </div>
                   </div>
@@ -1122,6 +1111,7 @@ export default function UIUXDetailView({
           <CyberRepoCard
             repoUrl={repoUrl}
             accentColor="rose"
+            license={project.license}
             onTriggerPulse={onTriggerPulse}
           />
 

@@ -368,7 +368,7 @@ export default function MachineLearningDetailView({
                 {/* 1. System Classification */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">System Classification</dt>
-                  <dd className="text-xs font-semibold text-slate-100 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Box className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.projectType || "").slice(0, 50)}</span>
                   </dd>
@@ -377,7 +377,7 @@ export default function MachineLearningDetailView({
                 {/* 2. Operating Environment */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Operating Environment</dt>
-                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Globe className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.targetPlatform || "").slice(0, 50)}</span>
                   </dd>
@@ -386,7 +386,7 @@ export default function MachineLearningDetailView({
                 {/* 3. Domain Focus */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Domain Focus</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Layers className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.primaryDomain || "").slice(0, 50)}</span>
                   </dd>
@@ -395,7 +395,7 @@ export default function MachineLearningDetailView({
                 {/* 4. Engineering Pipeline */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Engineering Pipeline</dt>
-                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Workflow className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.architecturePipeline || "").slice(0, 50)}</span>
                   </dd>
@@ -404,7 +404,7 @@ export default function MachineLearningDetailView({
                 {/* 5. Testing & Audit */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Testing & Audit</dt>
-                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <ShieldCheck className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span className="truncate">{String(telemetry.testingAndAudit || "Passed").slice(0, 50)}</span>
                   </dd>
@@ -413,7 +413,7 @@ export default function MachineLearningDetailView({
                 {/* 6. Project Status */}
                 <div className="flex flex-col gap-0.5 border-b border-white/5 pb-2">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Project Status</dt>
-                  <dd className="text-xs font-semibold text-indigo-300 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse shrink-0" />
                     <span className="truncate">{String(telemetry.projectStatus || "").slice(0, 50)}</span>
                   </dd>
@@ -422,7 +422,7 @@ export default function MachineLearningDetailView({
                 {/* 7. Project Year */}
                 <div className="flex flex-col gap-0.5">
                   <dt className="text-[10px] uppercase text-indigo-400/80 tracking-wider">Project Year</dt>
-                  <dd className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 truncate">
+                  <dd className="text-xs font-semibold text-white flex items-center gap-1.5 truncate">
                     <Clock className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
                     <span>{String(telemetry.projectYear || "").slice(0, 50)}</span>
                   </dd>
@@ -452,27 +452,16 @@ export default function MachineLearningDetailView({
                         <Lock className="h-3.5 w-3.5 text-slate-400" />
                       )}
                       <span className="truncate">
-                        {hasRepoUrl
-                          ? "PUBLIC GITHUB REPOSITORY"
-                          : "RESTRICTED PRIVATE REPOSITORY"}
+                        {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
                     </div>
-                    {hasRepoUrl ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-indigo-400/40 bg-indigo-950/60 px-2 py-0.5 font-mono text-[9px] text-indigo-300 font-semibold shadow-[0_0_10px_rgba(99,102,241,0.2)]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse" />PUBLIC
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[9px] text-slate-400 font-semibold">
-                        <Lock className="h-2.5 w-2.5" />PRIVATE
-                      </span>
-                    )}
                   </div>
 
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={hasRepoUrl ? "text-indigo-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / NDA"}
+                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -480,9 +469,9 @@ export default function MachineLearningDetailView({
                       <span className="text-slate-200 text-[11px]">{hasRepoUrl ? "Main Branch" : "Personal Archive"}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-[10px]">SECURITY AUDIT:</span>
+                      <span className="text-[10px]">LICENSE:</span>
                       <span className={hasRepoUrl ? "text-indigo-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "VERIFIED_PUBLIC" : "ENTERPRISE_CONFIDENTIAL"}
+                        {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
                   </div>
@@ -1214,6 +1203,7 @@ export default function MachineLearningDetailView({
           <CyberRepoCard
             repoUrl={project.repoUrl}
             accentColor="indigo"
+            license={project.license}
             onTriggerPulse={onTriggerPulse}
           />
 

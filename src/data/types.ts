@@ -88,6 +88,7 @@ export interface ProjectCaseStudy {
   techStack: string[];
   accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple" | "orange" | "rose";
   repoUrl?: string;
+  license?: string;
 
   // Universal System Telemetry Matrix (Standardized across all categories)
   telemetryMatrix?: UniversalTelemetryMatrix;

@@ -21,6 +21,7 @@ interface CyberRepoCardProps {
   onTriggerPulse?: () => void;
   branchName?: string;
   verifiedLabel?: string;
+  license?: string;
 }
 
 const REPO_THEMES: Record<
@@ -205,6 +206,7 @@ export default function CyberRepoCard({
   onTriggerPulse,
   branchName = "MAIN",
   verifiedLabel = "AUDIT_VERIFIED",
+  license,
 }: CyberRepoCardProps) {
   const theme = REPO_THEMES[accentColor] || REPO_THEMES.sky;
   const hasRepoUrl = Boolean(repoUrl && repoUrl.trim().length > 0);
@@ -339,8 +341,8 @@ export default function CyberRepoCard({
                 </span>
               </div>
               <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">LICENSE / RIGHTS:</span>
-                <span className="text-slate-200 font-semibold">MIT / Educational</span>
+                <span className="uppercase text-[11px]">LICENSE:</span>
+                <span className="text-slate-200 font-semibold">{license || "MIT License"}</span>
               </div>
               <div className="flex items-center justify-between text-slate-400">
                 <span className="uppercase text-[11px]">CI/CD PIPELINE:</span>
