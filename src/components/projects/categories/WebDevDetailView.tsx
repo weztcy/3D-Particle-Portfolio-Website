@@ -39,7 +39,7 @@ import {
 import { ProjectCaseStudy } from "@/data";
 import CyberTechStackSection from "../CyberTechStackSection";
 import CyberRepoCard from "../CyberRepoCard";
-import CyberSpecCard from "../CyberSpecCard";
+import CyberSpecCard, { SpecItem } from "../CyberSpecCard";
 
 interface WebDevDetailViewProps {
   project: ProjectCaseStudy;
@@ -164,6 +164,15 @@ export default function WebDevDetailView({
     status: "DOCS // VERIFIED",
     specs: [],
   };
+
+  const webDevSpecs: SpecItem[] = project.primaryTechSpecs
+    ? [
+        { label: "PROGRAMMING LANGUAGE", value: project.primaryTechSpecs.programmingLanguage },
+        { label: "FRAMEWORK", value: project.primaryTechSpecs.framework },
+        { label: "DATABASE", value: project.primaryTechSpecs.database },
+        { label: "SECURITY AUDIT", value: "Vulnerability Hardened" },
+      ]
+    : (technicalDocumentation.specs || []);
 
   const architectureQuality = project.architectureQuality || {
     title: "Architecture & Quality Standards",
@@ -958,6 +967,7 @@ export default function WebDevDetailView({
             repoUrl={project.repoUrl}
             accentColor="sky"
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
             onTriggerPulse={onTriggerPulse}
           />
 
@@ -972,20 +982,15 @@ export default function WebDevDetailView({
               technicalDocumentation.description ||
               "Production-grade architectural manifest detailing service topology, schema migrations, and hosting constraints."
             }
-            specs={technicalDocumentation.specs}
+            specs={webDevSpecs}
             action={
               project.repoUrl
                 ? {
-                    label: "INSPECT SYSTEM ARCHITECTURE",
+                    label: "INSPECT SYSTEM SPECS",
                     href: `${project.repoUrl}#readme`,
                   }
                 : {
-                    label: "INSPECT TECHNICAL SPECS",
-                    onClick: () => {
-                      if (typeof window !== "undefined") {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    },
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />
@@ -1021,8 +1026,8 @@ export default function WebDevDetailView({
               </div>
             </div>
 
-            <div className="rounded-xl border border-sky-400/20 bg-sky-400/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-sky-300">
-              SECURITY: HARDENED AGAINST VULNERABILITIES
+            <div className="w-full flex items-center justify-center rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-sky-300">
+              QA AUDIT: 100% PASSED
             </div>
           </div>
         </div>

@@ -22,6 +22,7 @@ interface CyberRepoCardProps {
   branchName?: string;
   verifiedLabel?: string;
   license?: string;
+  projectStatus?: string;
 }
 
 const REPO_THEMES: Record<
@@ -207,6 +208,7 @@ export default function CyberRepoCard({
   branchName = "MAIN",
   verifiedLabel = "AUDIT_VERIFIED",
   license,
+  projectStatus = "Completed",
 }: CyberRepoCardProps) {
   const theme = REPO_THEMES[accentColor] || REPO_THEMES.sky;
   const hasRepoUrl = Boolean(repoUrl && repoUrl.trim().length > 0);
@@ -254,14 +256,8 @@ export default function CyberRepoCard({
               hasRepoUrl ? theme.textAccent : "text-slate-400"
             }`}
           >
-            {hasRepoUrl ? (
-              <FolderGit2 className={`h-4 w-4 ${theme.icon} shrink-0`} />
-            ) : (
-              <Lock className="h-4 w-4 text-slate-400 shrink-0" />
-            )}
-            <span>
-              {hasRepoUrl ? "GITHUB_SOURCE_GATEWAY" : "RESTRICTED_ACCESS_GATEWAY"}
-            </span>
+            <FolderGit2 className={`h-4 w-4 ${hasRepoUrl ? theme.icon : "text-slate-400"} shrink-0`} />
+            <span>PROJECT ARCHIVE</span>
           </div>
 
           {hasRepoUrl ? (
@@ -282,99 +278,52 @@ export default function CyberRepoCard({
 
         {/* Title */}
         <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2 transition-colors">
-          {hasRepoUrl ? "GitHub Source Repository" : "Private Commercial Repository"}
+          {hasRepoUrl ? "GitHub Repository" : "Private Repository"}
         </h3>
 
         {/* Rich Description */}
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-4 sm:mb-5">
+        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
           {hasRepoUrl
-            ? "Complete project codebase version-controlled on GitHub. Access production source code, commit history, branch architecture, and deployment automation."
-            : "Source code is restricted under Non-Disclosure Agreements (NDA) and enterprise proprietary rights. Public access is disabled for intellectual property protection."}
+            ? "Complete project repository hosted on GitHub. Access full source files, revision history, architecture structure, and technical documentation."
+            : "Project files and assets are maintained in a private repository under proprietary rights. Public access is restricted to protect intellectual property."}
         </p>
 
-        {/* Telemetry Metric Pill Badges */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {hasRepoUrl ? (
-            <>
-              <span
-                className={`inline-flex items-center gap-1 rounded border ${theme.badgeBorder} ${theme.badgeBg} px-2.5 py-1 font-mono text-[10px] ${theme.badgeText} font-semibold`}
-              >
-                <GitBranch className="h-3 w-3" />
-                <span>BRANCH // {branchName}</span>
-              </span>
-              <span
-                className={`inline-flex items-center gap-1 rounded border ${theme.badgeBorder} ${theme.badgeBg} px-2.5 py-1 font-mono text-[10px] ${theme.badgeText} font-semibold`}
-              >
-                <ShieldCheck className="h-3 w-3" />
-                <span>STATUS // {verifiedLabel}</span>
-              </span>
-            </>
-          ) : (
-            <>
-              <span className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-400 font-semibold">
-                <Lock className="h-3 w-3" />
-                <span>CLEARANCE // INTERNAL</span>
-              </span>
-              <span className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-400 font-semibold">
-                <Terminal className="h-3 w-3" />
-                <span>PROPRIETARY // NDA</span>
-              </span>
-            </>
-          )}
-        </div>
-
-        {/* Structured Repository Metadata Matrix (Fills Space with Cyber Telecom Specs) */}
+        {/* Structured Repository Metadata Matrix (Fills Space with Universal Specs) */}
         <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-          {hasRepoUrl ? (
-            <>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">SOURCE GATEWAY:</span>
-                <span className="text-slate-200 font-semibold">{hasRepoUrl ? "Main Branch" : "Personal Archive"}</span>
-              </div>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">REPO SLUG:</span>
-                <span
-                  className={`${theme.textAccent} font-semibold truncate max-w-[170px] sm:max-w-[210px]`}
-                  title={repoSlug || ""}
-                >
-                  {repoSlug || "public-source"}
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">LICENSE:</span>
-                <span className="text-slate-200 font-semibold">{license || "MIT License"}</span>
-              </div>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">CI/CD PIPELINE:</span>
-                <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
-                  <CheckCircle2 className="h-3 w-3" />
-                  <span>Automated Checks</span>
-                </span>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">ACCESS POLICY:</span>
-                <span className="text-amber-400 font-semibold">Strict Zero-Trust</span>
-              </div>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">SECURITY PROTOCOL:</span>
-                <span className="text-slate-200 font-semibold">SOC2 & Enterprise NDA</span>
-              </div>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">CODE INTEGRITY:</span>
-                <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
-                  <CheckCircle2 className="h-3 w-3" />
-                  <span>Private Audit Passed</span>
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="uppercase text-[11px]">VERIFICATION:</span>
-                <span className="text-slate-300 font-semibold">Signed Release Tags</span>
-              </div>
-            </>
-          )}
+          <div className="flex items-center justify-between text-slate-400">
+            <span className="uppercase text-[11px]">ACCESS CLEARANCE:</span>
+            <span
+              className={
+                hasRepoUrl
+                  ? `${theme.textAccent} font-semibold`
+                  : "text-slate-300 font-semibold"
+              }
+            >
+              {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between text-slate-400">
+            <span className="uppercase text-[11px]">SOURCE GATEWAY:</span>
+            <span className="text-slate-200 font-semibold">
+              {hasRepoUrl ? "Main Branch" : "Personal Archive"}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between text-slate-400">
+            <span className="uppercase text-[11px]">LICENSE:</span>
+            <span className="text-slate-200 font-semibold">
+              {hasRepoUrl ? (license || "MIT License") : "Proprietary Rights"}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between text-slate-400">
+            <span className="uppercase text-[11px]">PROJECT STATUS:</span>
+            <span className="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
+              <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+              <span>{projectStatus}</span>
+            </span>
+          </div>
         </div>
       </div>
 

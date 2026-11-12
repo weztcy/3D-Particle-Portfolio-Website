@@ -1088,6 +1088,7 @@ export default function CodeLearningDetailView({
             accentColor="orange"
             onTriggerPulse={onTriggerPulse}
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
           />
 
           {/* CARD 2 — Learning Documentation & Syllabus Card (Universal Spec Standard) */}
@@ -1103,26 +1104,13 @@ export default function CodeLearningDetailView({
             }
             specs={documentation.specs || []}
             action={
-              (documentation as any).docsUrl
+              repoUrl
                 ? {
-                    label: "Inspect Technical Syllabus",
-                    icon: FileCode2,
-                    href: (documentation as any).docsUrl,
-                  }
-                : repoUrl
-                ? {
-                    label: "Inspect Technical Syllabus",
-                    icon: FileCode2,
+                    label: "INSPECT SYSTEM SPECS",
                     href: `${repoUrl}#readme`,
                   }
                 : {
-                    label: "Inspect Syllabus Notes",
-                    icon: FileText,
-                    onClick: () => {
-                      if (typeof window !== "undefined") {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    },
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />

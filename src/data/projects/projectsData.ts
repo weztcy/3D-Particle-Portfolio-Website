@@ -344,6 +344,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Zero-Trust"
       }
     ],
+    "primaryTechSpecs": {
+      "programmingLanguage": "TypeScript",
+      "framework": "Next.js",
+      "database": "PostgreSQL"
+    },
     "technicalDocumentation": {
       "title": "Technical Documentation & System Specs",
       "description": "Architecture blueprints covering API endpoints, transactional concurrency models, and deployment configurations.",
@@ -721,6 +726,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Security"
       }
     ],
+    "primaryTechSpecs": {
+      "programmingLanguage": "TypeScript",
+      "framework": "Socket.io",
+      "database": "Redis"
+    },
     "technicalDocumentation": {
       "title": "Technical Documentation & Protocol Specs",
       "description": "WebSocket event contracts, Redis topic structures, and latency optimization benchmarks.",
@@ -1061,6 +1071,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "60 FPS"
       }
     ],
+    "primaryTechSpecs": {
+      "programmingLanguage": "TypeScript",
+      "framework": "Three.js",
+      "database": "None (Client-Side)"
+    },
     "technicalDocumentation": {
       "title": "Technical Documentation & 3D Pipeline Specs",
       "description": "Asset guidelines, polygon budget limits, and WebGL compatibility matrix.",

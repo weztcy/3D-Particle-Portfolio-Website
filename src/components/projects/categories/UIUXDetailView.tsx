@@ -1112,6 +1112,7 @@ export default function UIUXDetailView({
             repoUrl={repoUrl}
             accentColor="rose"
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
             onTriggerPulse={onTriggerPulse}
           />
 
@@ -1130,14 +1131,13 @@ export default function UIUXDetailView({
               { label: "ACCESSIBILITY", value: "WCAG AA Contrast Compliant" },
             ]}
             action={
-              designFile.figmaUrl
+              repoUrl
                 ? {
-                    label: "INSPECT FIGMA WORKSPACE",
-                    icon: Figma,
-                    href: designFile.figmaUrl,
+                    label: "INSPECT SYSTEM SPECS",
+                    href: `${repoUrl}#readme`,
                   }
                 : {
-                    label: "DESIGN_TOKENS_VERIFIED",
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />

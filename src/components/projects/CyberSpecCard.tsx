@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FileText, LucideIcon, ExternalLink } from "lucide-react";
+import { FileText, LucideIcon, ExternalLink, Lock } from "lucide-react";
 import { CyberAccentColor } from "./CyberTechStackSection";
 
 export interface SpecItem {
@@ -252,10 +252,10 @@ export default function CyberSpecCard({
         </button>
       ) : (
         <div
-          className={`w-full inline-flex items-center justify-center gap-2 rounded-xl border ${theme.actionBorder} ${theme.actionBg} px-4 py-3 font-mono text-xs font-semibold ${theme.actionText}`}
+          className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed"
         >
-          <ActionIcon className={`h-4 w-4 ${theme.iconColor}`} />
-          <span>{action?.label || "SPECIFICATIONS_AUDITED"}</span>
+          <Lock className="h-4 w-4 text-slate-500" />
+          <span>{action?.label || "RESTRICTED ACCESS"}</span>
         </div>
       )}
     </div>

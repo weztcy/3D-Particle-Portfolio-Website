@@ -1098,6 +1098,7 @@ export default function DesktopMobileDetailView({
             repoUrl={repoUrl}
             accentColor="amber"
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
             onTriggerPulse={onTriggerPulse}
           />
 
@@ -1120,11 +1121,11 @@ export default function DesktopMobileDetailView({
             action={
               repoUrl
                 ? {
-                    label: "INSPECT RUNTIME SOURCE",
+                    label: "INSPECT SYSTEM SPECS",
                     href: `${repoUrl}#readme`,
                   }
                 : {
-                    label: "OFFLINE_STANDALONE_VERIFIED",
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />

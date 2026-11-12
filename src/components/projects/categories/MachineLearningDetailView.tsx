@@ -1204,6 +1204,7 @@ export default function MachineLearningDetailView({
             repoUrl={project.repoUrl}
             accentColor="indigo"
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
             onTriggerPulse={onTriggerPulse}
           />
 
@@ -1224,11 +1225,11 @@ export default function MachineLearningDetailView({
             action={
               project.repoUrl
                 ? {
-                    label: "INSPECT MODEL ARTIFACTS",
+                    label: "INSPECT SYSTEM SPECS",
                     href: `${project.repoUrl}#readme`,
                   }
                 : {
-                    label: "DATASET_PROFILE_VERIFIED",
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />

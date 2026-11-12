@@ -1071,6 +1071,7 @@ export default function DataAnalyticsDetailView({
             branchName="ANALYTICS"
             verifiedLabel="DATA_VERIFIED"
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
           />
 
           {/* Card 2: Presentation & Report Card (Universal Spec Standard) */}
@@ -1090,16 +1091,11 @@ export default function DataAnalyticsDetailView({
             action={
               project.repoUrl
                 ? {
-                    label: "INSPECT METHODOLOGY & DATA",
+                    label: "INSPECT SYSTEM SPECS",
                     href: `${project.repoUrl}#readme`,
                   }
                 : {
-                    label: "INSPECT EXECUTIVE DOSSIER",
-                    onClick: () => {
-                      if (typeof window !== "undefined") {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    },
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />

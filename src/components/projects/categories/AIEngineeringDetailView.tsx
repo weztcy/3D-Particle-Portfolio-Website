@@ -1201,6 +1201,7 @@ export default function AIEngineeringDetailView({
             accentColor="purple"
             onTriggerPulse={onTriggerPulse}
             license={project.license}
+            projectStatus={project.telemetry?.projectStatus || "Completed"}
           />
 
           {/* Card 2: Technical Documentation & Model Specs Card (Universal Spec Standard) */}
@@ -1218,16 +1219,11 @@ export default function AIEngineeringDetailView({
             action={
               hasRepoUrl && project.repoUrl
                 ? {
-                    label: "INSPECT SYSTEM ARCHITECTURE",
+                    label: "INSPECT SYSTEM SPECS",
                     href: `${project.repoUrl}#readme`,
                   }
                 : {
-                    label: "INSPECT TECHNICAL SPECS",
-                    onClick: () => {
-                      if (typeof window !== "undefined") {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    },
+                    label: "RESTRICTED ACCESS",
                   }
             }
           />
