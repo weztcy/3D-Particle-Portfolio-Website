@@ -240,11 +240,11 @@ export default function UIUXDetailView({
     specs: [],
   };
 
-  const documentation = project.uiUxDocumentation || {
-    title: "UI/UX Product Design Specification",
-    description: "",
-    status: "DOCS // VERIFIED FIGMA SPECS",
-    specs: [],
+  const systemSpecs = project.uiUxSystemSpecs || {
+    layoutAndGrid: "8pt Fluid Layout Grid",
+    designTokens: "Light & Dark Variable Tokens",
+    typography: "Plus Jakarta Sans Scale",
+    prototypeFidelity: "High-Fidelity Interactive",
   };
 
   const handleCopyLink = () => {
@@ -448,11 +448,7 @@ export default function UIUXDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-rose-300">
-                      {isPublicRepo ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-rose-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-rose-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -463,7 +459,7 @@ export default function UIUXDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={isPublicRepo ? "text-rose-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {isPublicRepo ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -1154,25 +1150,35 @@ export default function UIUXDetailView({
               <div className="flex items-center justify-between border-b border-rose-500/20 pb-3 mb-4 sm:mb-5">
                 <div className="flex items-center gap-2 text-rose-300 font-mono text-xs font-bold uppercase tracking-wider">
                   <FileText className="h-4 w-4 text-rose-400" />
-                  <span>UX Research Whitepaper</span>
+                  <span>DESIGN SYSTEM & STANDARDS</span>
                 </div>
               </div>
 
               <h4 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {documentation.title}
+                Design System & Craft Standards
               </h4>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
-                {documentation.description}
+                Universal visual design specification covering responsive layout grids, semantic design tokens, typography hierarchy, and interactive prototype fidelity.
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {((documentation.deliverables || (documentation as any).specs) || []).map((del: any, dIdx: number) => (
-                  <div key={dIdx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-rose-400 shrink-0" />
-                    <span className="text-[11px] truncate">{typeof del === "string" ? del : (del.label ? `${del.label}: ${del.value}` : del.title || "")}</span>
-                  </div>
-                ))}
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">LAYOUT & GRID:</span>
+                  <span className="text-slate-200 font-semibold">{systemSpecs.layoutAndGrid}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">DESIGN TOKENS:</span>
+                  <span className="text-rose-300 font-semibold">{systemSpecs.designTokens}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">TYPOGRAPHY:</span>
+                  <span className="text-slate-200 font-semibold">{systemSpecs.typography}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">PROTOTYPE FIDELITY:</span>
+                  <span className="text-slate-200 font-semibold">{systemSpecs.prototypeFidelity}</span>
+                </div>
               </div>
             </div>
 

@@ -299,7 +299,7 @@ export default function CyberRepoCard({
                   : "text-slate-300 font-semibold"
               }
             >
-              {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+              {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
             </span>
           </div>
 

@@ -175,16 +175,7 @@ export interface ProjectCaseStudy {
     description: string;
     badge?: string;
   }[];
-  technicalDocumentation?: {
-    title: string;
-    description: string;
-    status: string;
-    specs: { label: string; value: string }[];
-  };
   architectureQuality?: {
-    title: string;
-    description: string;
-    status: string;
     badges: string[];
   };
 
@@ -331,6 +322,7 @@ export interface ProjectCaseStudy {
     }[];
   };
   aiVisualShowcase?: {
+    title?: string;
     caption?: string;
     badge?: string;
     imageUrl: string;
@@ -346,20 +338,6 @@ export interface ProjectCaseStudy {
     metrics: { label: string; value: string }[];
     evaluationNote?: string;
   };
-  aiOutputShowcase?: {
-    scenarioTitle: string;
-    scenarioBadge: string;
-    inputType?: string;
-    userInput: string;
-    outputType?: string;
-    aiOutput: string;
-    explanation: string;
-    executionLatency?: string;
-    tokenUsage?: string;
-    inputBadge?: string;
-    outputBadge?: string;
-    confidenceMetric?: string;
-  }[];
   aiEvaluationAndPerformance?: {
     metrics: {
       label: string;
@@ -385,17 +363,10 @@ export interface ProjectCaseStudy {
     summary?: string;
     alignmentNote?: string;
   };
-  aiTechnicalDocumentation?: {
-    title: string;
-    description: string;
-    status: string;
-    specs: { label: string; value: string }[];
-  };
-  aiArchitectureQuality?: {
-    title: string;
-    description: string;
-    status: string;
-    badges: string[];
+  aiTechSpecs?: {
+    programmingLanguage: string;
+    aiFramework: string;
+    foundationModel: string;
   };
 
   // Extended Machine Learning Domain Specific Fields
@@ -545,12 +516,11 @@ export interface ProjectCaseStudy {
     size?: string;
     description: string;
   }[];
-  mlTechnicalDocumentation?: {
-    [key: string]: any;
-    title: string;
-    description: string;
-    status: string;
-    specs: { label: string; value: string }[];
+  mlMethodologySpecs?: {
+    learningParadigm: string;
+    modelArchitecture: string;
+    coreFramework: string;
+    validationMethod: string;
   };
 
   // Extended Desktop & Mobile App Domain Specific Fields
@@ -621,22 +591,16 @@ export interface ProjectCaseStudy {
   };
   desktopMobileDataManagement?: any;
   desktopMobilePlatformImplementation?: any;
-  desktopMobileDistribution?: {
-    [key: string]: any;
-    packageType?: string;
-    targetOs?: string;
-    version?: string;
-    fileSize?: string;
-    downloadUrl?: string;
-    releaseNotes?: string;
-    packagingFormat?: string;
+  desktopMobileTechSpecs?: {
+    programmingLanguage: string;
+    framework: string;
+    localStorage: string;
   };
-  desktopMobileDocumentation?: {
-    [key: string]: any;
-    title: string;
-    description: string;
-    status: string;
-    specs: { label: string; value: string }[];
+  desktopMobilePlatformSpecs?: {
+    targetPlatform: string;
+    packageFormat: string;
+    targetArchitecture: string;
+    buildFootprint: string;
   };
 
   // Extended UI/UX Design Domain Specific Fields
@@ -745,13 +709,11 @@ export interface ProjectCaseStudy {
     specs?: { label: string; value: string }[];
     description?: string;
   };
-  uiUxDocumentation?: {
-    [key: string]: any;
-    title?: string;
-    description?: string;
-    deliverables?: string[];
-    status?: string;
-    specs?: { label: string; value: string }[];
+  uiUxSystemSpecs?: {
+    layoutAndGrid: string;
+    designTokens: string;
+    typography: string;
+    prototypeFidelity: string;
   };
 
   // Extended Code Learning Domain Specific Fields
@@ -853,7 +815,12 @@ export interface ProjectCaseStudy {
     [key: string]: any;
   }[];
   codeLearningRepository?: any;
-  codeLearningDocumentation?: any;
+  codeLearningCurriculumSpecs?: {
+    curriculumTrack: string;
+    primaryLanguage: string;
+    executionRuntime: string;
+    testVerification: string;
+  };
   codeLearningSupplementaryResources?: any;
 
   // Flexible domain extensions

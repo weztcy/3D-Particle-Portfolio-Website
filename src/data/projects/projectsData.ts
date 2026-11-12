@@ -349,33 +349,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "framework": "Next.js",
       "database": "PostgreSQL"
     },
-    "technicalDocumentation": {
-      "title": "Technical Documentation & System Specs",
-      "description": "Architecture blueprints covering API endpoints, transactional concurrency models, and deployment configurations.",
-      "status": "DOCS // VERIFIED v2.4",
-      "specs": [
-        {
-          "label": "FRAMEWORK",
-          "value": "Next.js 16 + React 19"
-        },
-        {
-          "label": "ORM STANDARD",
-          "value": "Prisma 5.x / TypeScript"
-        },
-        {
-          "label": "ISOLATION LEVEL",
-          "value": "READ COMMITTED + Row Lock"
-        },
-        {
-          "label": "SECURITY AUDIT",
-          "value": "OWASP Top 10 Pass"
-        }
-      ]
-    },
     "architectureQuality": {
-      "title": "Architecture & Quality Standards",
-      "description": "Automated linting, strict TypeScript verification, and end-to-end integration test suites.",
-      "status": "QA AUDIT // 100% PASS",
       "badges": [
         "100% TypeScript Strict",
         "Zero Phantom Drift",
@@ -731,33 +705,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "framework": "Socket.io",
       "database": "Redis"
     },
-    "technicalDocumentation": {
-      "title": "Technical Documentation & Protocol Specs",
-      "description": "WebSocket event contracts, Redis topic structures, and latency optimization benchmarks.",
-      "status": "DOCS // VERIFIED v3.0",
-      "specs": [
-        {
-          "label": "SOCKET PROTOCOL",
-          "value": "WebSocket / WSS"
-        },
-        {
-          "label": "PUB/SUB BUS",
-          "value": "Redis 7 Cluster"
-        },
-        {
-          "label": "MEAN BROADCAST",
-          "value": "18.4ms"
-        },
-        {
-          "label": "SECURITY AUDIT",
-          "value": "OWASP Tested"
-        }
-      ]
-    },
     "architectureQuality": {
-      "title": "Architecture & Quality Standards",
-      "description": "Stress tested with automated headless browser clusters simulating heavy concurrent bidding spikes.",
-      "status": "QA AUDIT // 99.9% PASS",
       "badges": [
         "Sub-20ms Broadcast",
         "Zero Bid Collision",
@@ -1076,33 +1024,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "framework": "Three.js",
       "database": "None (Client-Side)"
     },
-    "technicalDocumentation": {
-      "title": "Technical Documentation & 3D Pipeline Specs",
-      "description": "Asset guidelines, polygon budget limits, and WebGL compatibility matrix.",
-      "status": "DOCS // VERIFIED v2.1",
-      "specs": [
-        {
-          "label": "GRAPHICS API",
-          "value": "WebGL 2.0 / WebGPU Ready"
-        },
-        {
-          "label": "TARGET FRAME RATE",
-          "value": "Locked 60 FPS"
-        },
-        {
-          "label": "ASSET COMPRESSION",
-          "value": "Google Draco glTF"
-        },
-        {
-          "label": "LIGHTHOUSE SCORE",
-          "value": "98 Performance"
-        }
-      ]
-    },
     "architectureQuality": {
-      "title": "Architecture & Quality Standards",
-      "description": "Automated WebGL canvas regression testing and polygon budget CI validation.",
-      "status": "QA AUDIT // 99.4% PASS",
       "badges": [
         "Locked 60 FPS",
         "Mobile Optimized",
@@ -2496,6 +2418,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Caching"
       }
     ],
+    "aiTechSpecs": {
+      "programmingLanguage": "Python",
+      "aiFramework": "LangGraph & LangChain",
+      "foundationModel": "Llama 3 & Claude Sonnet"
+    },
     "pipelineSteps": [
       {
         "step": "Phase 01: Multi-Format Ingestion",
@@ -2764,89 +2691,23 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "Grounding",
           "value": "99.4%"
+        },
+        {
+          "label": "Status",
+          "value": "200 OK"
         }
       ],
       "evaluationNote": "Multi-hop cross-referencing completed with zero ungrounded hallucinations."
     },
-    "aiVisualShowcase": [
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-      }
-    ],
-    "aiOutputShowcase": [
-      {
-        "scenarioTitle": "Cross-Border Regulatory Compliance Audit",
-        "scenarioBadge": "ENTERPRISE_LEGAL",
-        "inputType": "LEGAL_INQUIRY",
-        "userInput": "Under our 2025 SLA agreement with PT Nusantara, what is our maximum liability if service outage exceeds 4 hours during business hours?",
-        "outputType": "VERIFIED_CITATION",
-        "aiOutput": "According to Master Services Agreement 2025 (§4.2, p. 18), liability for business-hour outages exceeding 4 consecutive hours is capped at 15% of the monthly recurring charge (MRC), provided written notice is submitted within 10 business days.\n\nVerified Sources:\n- MSA_2025_Nusantara.pdf [Page 18, Paragraph 3]\n- SLA_Schedule_B_Addendum.pdf [Page 4, Table 2.1]",
-        "explanation": "Agent initiated multi-hop traversal linking the main Master Services Agreement with the separate SLA Schedule B addendum, cross-checking contractual liability limits and extracting exact page citations.",
-        "executionLatency": "1.14s",
-        "tokenUsage": "412 tokens",
-        "confidenceMetric": "99.4% GROUNDED // 0% HALLUCINATION"
-      },
-      {
-        "scenarioTitle": "Architecture Spec & Security Compliance Inquiry",
-        "scenarioBadge": "TECH_AUDIT",
-        "inputType": "SECURITY_AUDIT",
-        "userInput": "What encryption standard is enforced at rest for our customer session databases in the AWS Sydney region?",
-        "outputType": "STRUCTURED_ANSWER",
-        "aiOutput": "Customer session databases in ap-southeast-2 (Sydney) enforce AES-256 server-side encryption via AWS KMS customer-managed keys (CMK) with automated 90-day key rotation, satisfying ISO 27001 §A.10.1.\n\nVerified Sources:\n- Cloud_Infra_Security_Baseline_v3.pdf [Page 42, §8.4]",
-        "explanation": "Direct single-hop vector retrieval with metadata filtering on region (ap-southeast-2) and security domain, answering in sub-second latency.",
-        "executionLatency": "0.78s",
-        "tokenUsage": "260 tokens",
-        "confidenceMetric": "99.8% GROUNDED // ISO-ALIGNED"
-      }
-    ],
     "aiEvaluationAndPerformance": {
       "evalFrameworkBadge": "RAGAS & TRULENS BENCHMARKS",
       "metrics": [
-        {
-          "label": "RAGAS Faithfulness",
-          "value": "97.8%",
-          "benchmark": "> 92% Target",
-          "pass": true
-        },
-        {
-          "label": "Answer Relevance",
-          "value": "96.2%",
-          "benchmark": "> 90% Target",
-          "pass": true
-        },
-        {
-          "label": "Context Precision",
-          "value": "94.5%",
-          "benchmark": "> 88% Target",
-          "pass": true
-        },
-        {
-          "label": "Inference Latency",
-          "value": "1.14s",
-          "benchmark": "< 2.0s Target",
-          "pass": true
-        },
-        {
-          "label": "Cost Efficiency",
-          "value": "+42%",
-          "benchmark": "vs Standard RAG",
-          "pass": true
-        },
-        {
-          "label": "Hallucination Rate",
-          "value": "0.02%",
-          "benchmark": "< 0.5% Threshold",
-          "pass": true
-        }
+        { "label": "RAGAS Faithfulness", "value": "97.8%", "benchmark": "> 92% Target", "pass": true },
+        { "label": "Answer Relevance", "value": "96.2%", "benchmark": "> 90% Target", "pass": true },
+        { "label": "Context Precision", "value": "94.5%", "benchmark": "> 88% Target", "pass": true },
+        { "label": "Inference Latency", "value": "1.14s", "benchmark": "< 2.0s Target", "pass": true },
+        { "label": "Cost Efficiency", "value": "+42%", "benchmark": "vs Standard RAG", "pass": true },
+        { "label": "Hallucination Rate", "value": "0.02%", "benchmark": "< 0.5% Threshold", "pass": true }
       ],
       "qualitativeEvaluation": "Synapse demonstrated robust, hallucination-free generation across an automated evaluation suite of 1,200 complex multi-document questions, maintaining strict factual consistency even on adversarial prompts.",
       "auditNote": "AUDIT: Benchmark evaluated across 1,200 synthetic adversarial stress tests and human-verified ground truths."
@@ -2865,49 +2726,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        {
-          "title": "Multimodal Vision-Language Chunking (ColPali)"
-        },
-        {
-          "title": "On-Device Small Language Model Distillation"
-        }
+        { "title": "Multimodal Vision-Language Chunking (ColPali)", "phase": "Q2 2026" },
+        { "title": "On-Device Small Language Model Distillation", "phase": "Q3 2026" }
       ],
       "summary": "Limitations documented in compliance with enterprise Responsible AI standards and continuous delivery guidelines.",
       "alignmentNote": "ALIGNMENT: Governed by enterprise data privacy, GDPR compliance, and Responsible AI principles."
-    },
-    "aiTechnicalDocumentation": {
-      "title": "Synapse Agentic RAG System Architecture Whitepaper",
-      "description": "Comprehensive engineering specifications detailing LangGraph state machine mechanics, Qdrant hybrid index calibration, and RAGAS benchmark telemetry.",
-      "status": "SYS_DOCS // v2.4 VERIFIED",
-      "specs": [
-        {
-          "label": "STATE MACHINE",
-          "value": "LangGraph v0.2.x"
-        },
-        {
-          "label": "VECTOR ENGINE",
-          "value": "Qdrant Clustered"
-        },
-        {
-          "label": "EMBEDDING DIMENSION",
-          "value": "384 Dense + Sparse Lexical"
-        },
-        {
-          "label": "SIMILARITY METRIC",
-          "value": "Cosine + Reciprocal Rank Fusion"
-        }
-      ]
-    },
-    "aiArchitectureQuality": {
-      "title": "AI Safety, Observability & Enterprise Governance",
-      "description": "Continuous monitoring and guardrails ensuring zero PII leakage, deterministic source citation, and full telemetry tracing.",
-      "status": "QA & GOVERNANCE // COMPLIANT",
-      "badges": [
-        "ISO 27001 Aligned",
-        "Zero-PII Leakage Guardrails",
-        "Deterministic Grounding",
-        "Langfuse Tracing Verified"
-      ]
     }
   },
   {
@@ -2958,6 +2781,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "3D Visualizer"
       }
     ],
+    "aiTechSpecs": {
+      "programmingLanguage": "Python",
+      "aiFramework": "LangChain & NetworkX",
+      "foundationModel": "Mistral & Phi-3"
+    },
     "pipelineSteps": [
       {
         "step": "Phase 01: Vault Ingestion & Watcher",
@@ -3217,6 +3045,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "value": "260ms"
         },
         {
+          "label": "Engine",
+          "value": "Local Ollama"
+        },
+        {
           "label": "Affinity",
           "value": "98.8%"
         },
@@ -3227,85 +3059,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "evaluationNote": "Air-gapped local execution completed with zero external network telemetry."
     },
-    "aiVisualShowcase": [
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
-      }
-    ],
-    "aiOutputShowcase": [
-      {
-        "scenarioTitle": "Research Paper Associative Linking",
-        "scenarioBadge": "RESEARCH_SYNTHESIS",
-        "inputType": "MARKDOWN_NOTE",
-        "userInput": "# Note: Attention Mechanisms in Biological Nervous Systems\nStudying how selective attention in the human visual cortex parallels multi-head attention in transformer architectures. Key observation: saccadic eye movements prioritize information density over raw pixel coverage.",
-        "outputType": "GRAPH_ASSOCIATION",
-        "aiOutput": "BrainSync Association Found:\n1. Link to: [[2025-11-DeepSeek-MoE-Routing.md]] (§Sparse Gating in Neural Ensembles)\n2. Link to: [[Cognitive-Psychology-Saccades.md]] (§Selective Focus & Foveated Rendering)\n\nSuggested Auto-Backlink Insertion:\n\"Similar to the biological saccade mechanism documented in [[Cognitive-Psychology-Saccades]], sparse mixture-of-experts models dynamically route compute to critical token pathways.\"",
-        "explanation": "Agent parsed the draft note, extracted core cognitive neuroscience concepts, and discovered high-affinity backlink candidates across notes written 8 months apart.",
-        "executionLatency": "260ms",
-        "tokenUsage": "190 tokens",
-        "confidenceMetric": "98.8% AFFINITY // LOCAL INFERENCE"
-      },
-      {
-        "scenarioTitle": "Meeting Action Item Extraction & Goal Alignment",
-        "scenarioBadge": "ACTION_EXTRACTION",
-        "inputType": "AUDIO_TRANSCRIPT",
-        "userInput": "Transcript: 'Alright team, Dimas will refactor the Vector Store to ChromaDB by Friday, and Sarah will benchmark inference latency against the 100k document golden set before Monday's client demo.'",
-        "outputType": "ACTION_PLAN_JSON",
-        "aiOutput": "{\n  \"action_items\": [\n    {\n      \"owner\": \"Dimas\",\n      \"task\": \"Refactor Vector Store to ChromaDB\",\n      \"deadline\": \"2026-11-13 (Friday)\",\n      \"linked_project\": \"[[BrainSync-Sprint-24]]\"\n    },\n    {\n      \"owner\": \"Sarah\",\n      \"task\": \"Benchmark inference latency on 100k doc set\",\n      \"deadline\": \"2026-11-16 (Monday)\",\n      \"linked_project\": \"[[QA-Milestone-Q4]]\"\n    }\n  ]\n}",
-        "explanation": "Parsed conversational transcript into structured JSON action tasks and automatically associated them with active project milestone pages.",
-        "executionLatency": "320ms",
-        "tokenUsage": "240 tokens",
-        "confidenceMetric": "99.5% ACCURACY // DETERMINISTIC"
-      }
-    ],
     "aiEvaluationAndPerformance": {
       "evalFrameworkBadge": "MEMGPT & LOCAL-EVAL BENCHMARKS",
       "metrics": [
-        {
-          "label": "Recall Accuracy",
-          "value": "98.1%",
-          "benchmark": "> 95% Target",
-          "pass": true
-        },
-        {
-          "label": "Entity Linking F1",
-          "value": "94.7%",
-          "benchmark": "> 90% Target",
-          "pass": true
-        },
-        {
-          "label": "Association Precision",
-          "value": "92.3%",
-          "benchmark": "> 85% Target",
-          "pass": true
-        },
-        {
-          "label": "Local Query Latency",
-          "value": "260ms",
-          "benchmark": "< 500ms Target",
-          "pass": true
-        },
-        {
-          "label": "Context Preservation",
-          "value": "99.2%",
-          "benchmark": "> 95% Target",
-          "pass": true
-        },
-        {
-          "label": "False Link Rate",
-          "value": "0.04%",
-          "benchmark": "< 1.0% Threshold",
-          "pass": true
-        }
+        { "label": "Recall Accuracy", "value": "98.1%", "benchmark": "> 95% Target", "pass": true },
+        { "label": "Entity Linking F1", "value": "94.7%", "benchmark": "> 90% Target", "pass": true },
+        { "label": "Association Precision", "value": "92.3%", "benchmark": "> 85% Target", "pass": true },
+        { "label": "Local Query Latency", "value": "260ms", "benchmark": "< 500ms Target", "pass": true },
+        { "label": "Context Preservation", "value": "99.2%", "benchmark": "> 95% Target", "pass": true },
+        { "label": "False Link Rate", "value": "0.04%", "benchmark": "< 1.0% Threshold", "pass": true }
       ],
       "qualitativeEvaluation": "BrainSync demonstrated flawless associative recall across 15,000 multi-topic markdown notes without memory drift or hallucinated associations, operating entirely within local hardware constraints.",
       "auditNote": "AUDIT: Verified across 2,500 real-world research queries with zero leak outside the local sandbox."
@@ -3324,49 +3086,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        {
-          "title": "Apple Silicon NPU CoreML Acceleration"
-        },
-        {
-          "title": "Hierarchical Temporal Memory Clustering"
-        }
+        { "title": "Apple Silicon NPU CoreML Acceleration", "phase": "Q2 2026" },
+        { "title": "Hierarchical Temporal Memory Clustering", "phase": "Q3 2026" }
       ],
       "summary": "100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints.",
       "alignmentNote": "ALIGNMENT: 100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints."
-    },
-    "aiTechnicalDocumentation": {
-      "title": "BrainSync Local Cognitive Agent Architecture Whitepaper",
-      "description": "Technical specifications detailing ChromaDB embedded storage mechanics, local Ollama pipeline orchestration, and graph centrality algorithms.",
-      "status": "SYS_DOCS // v1.8 LOCAL_VERIFIED",
-      "specs": [
-        {
-          "label": "LOCAL RUNTIME",
-          "value": "Ollama / ONNX Runtime"
-        },
-        {
-          "label": "VECTOR STORAGE",
-          "value": "ChromaDB SQLite Engine"
-        },
-        {
-          "label": "GRAPH TOPOLOGY",
-          "value": "NetworkX Bidirectional Graph"
-        },
-        {
-          "label": "HARDWARE TARGET",
-          "value": "Apple Silicon M-Series / RTX 4070"
-        }
-      ]
-    },
-    "aiArchitectureQuality": {
-      "title": "Privacy, Air-Gap Security & Data Sovereignty",
-      "description": "Strict air-gap execution guaranteeing zero external telemetry, client-side encryption, and deterministic local processing.",
-      "status": "SECURITY AUDIT // PASSED",
-      "badges": [
-        "100% Offline Capable",
-        "Zero Cloud Telemetry",
-        "AES-256 Vault Encryption",
-        "User-Controlled Memory Retention"
-      ]
     }
   },
   {
@@ -3417,6 +3141,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "SOX Aligned"
       }
     ],
+    "aiTechSpecs": {
+      "programmingLanguage": "Python",
+      "aiFramework": "LangChain & Pandas",
+      "foundationModel": "Claude Sonnet & GPT-4o Mini"
+    },
     "pipelineSteps": [
       {
         "step": "Phase 01: SEC Filing Ingestion",
@@ -3684,89 +3413,23 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "Compute",
           "value": "520 tokens"
+        },
+        {
+          "label": "Compliance",
+          "value": "SOX 404"
         }
       ],
       "evaluationNote": "Deterministic arithmetic verification executed in isolated Docker sandbox."
     },
-    "aiVisualShowcase": [
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "imageUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
-      }
-    ],
-    "aiOutputShowcase": [
-      {
-        "scenarioTitle": "10-K Free Cash Flow & Debt Maturity Reconciliation",
-        "scenarioBadge": "BALANCE_SHEET_AUDIT",
-        "inputType": "FINANCIAL_QUERY",
-        "userInput": "Reconcile Apple Inc.'s FY2025 Free Cash Flow from the latest 10-K, and calculate interest coverage ratio against operating income.",
-        "outputType": "VERIFIED_CODE_OUTPUT",
-        "aiOutput": "Calculation Trace via Python Sandbox:\n```python\noperating_cash_flow = 118_254_000_000  # Form 10-K p. 64\ncapital_expenditures = 9_452_000_000   # Form 10-K p. 65\noperating_income = 123_216_000_000     # Consolidated Statement of Operations\ntotal_interest_expense = 3_933_000_000 # Note 6: Debt\n\nfree_cash_flow = operating_cash_flow - capital_expenditures\ninterest_coverage = operating_income / total_interest_expense\n```\n\nAudited Results:\n- FY2025 Free Cash Flow: $108,802,000,000 ($108.80B)\n- Interest Coverage Ratio: 31.33x\n\nVerified Sources:\n- Apple_10K_FY2025.pdf [Statement of Cash Flows, p. 64-65]\n- Apple_10K_FY2025.pdf [Note 6: Long-term Debt, p. 78]",
-        "explanation": "Agent routed numerical calculation to the isolated Python execution sandbox, executing exact variable operations from 10-K line items with 100% mathematical precision.",
-        "executionLatency": "1.85s",
-        "tokenUsage": "520 tokens",
-        "confidenceMetric": "100.0% ARITHMETIC VERIFIED // PYTHON CODE INTERPRETER"
-      },
-      {
-        "scenarioTitle": "Earnings Call Guidance vs Actual Variance Analysis",
-        "scenarioBadge": "GUIDANCE_VARIANCE",
-        "inputType": "TRANSCRIPT_QUERY",
-        "userInput": "Compare Microsoft's Q4 FY25 Cloud revenue growth guidance stated in Q3 earnings call against actual reported numbers in Q4 10-Q.",
-        "outputType": "VARIANCE_MATRIX",
-        "aiOutput": "Variance Analysis Summary:\n- Stated Guidance (Q3 Call): 29% - 31% YoY Azure & Cloud Services growth (Constant Currency)\n- Actual Reported (Q4 10-Q p. 32): 30.5% YoY actual growth\n- Variance: +0.50% above mid-point guidance (+50 bps)\n\nVerified Sources:\n- MSFT_Q3_FY25_Earnings_Transcript.pdf [p. 14, CFO remarks]\n- MSFT_Q4_FY25_Form10Q.pdf [p. 32, Note 18 Segment Information]",
-        "explanation": "Cross-referenced earnings call transcript timestamps with subsequent SEC 10-Q segment disclosures to calculate exact basis point variance.",
-        "executionLatency": "1.42s",
-        "tokenUsage": "380 tokens",
-        "confidenceMetric": "99.9% ATTRIBUTION // SEC-VERIFIED"
-      }
-    ],
     "aiEvaluationAndPerformance": {
       "evalFrameworkBadge": "FINQA & MATH-EVAL BENCHMARKS",
       "metrics": [
-        {
-          "label": "Arithmetic Accuracy",
-          "value": "100.0%",
-          "benchmark": "100% Code Verified",
-          "pass": true
-        },
-        {
-          "label": "Table Extraction F1",
-          "value": "98.6%",
-          "benchmark": "> 95% Target",
-          "pass": true
-        },
-        {
-          "label": "Footnote Precision",
-          "value": "96.1%",
-          "benchmark": "> 90% Target",
-          "pass": true
-        },
-        {
-          "label": "P&L Audit Latency",
-          "value": "1.85s",
-          "benchmark": "< 3.0s Target",
-          "pass": true
-        },
-        {
-          "label": "SEC Coverage",
-          "value": "100.0%",
-          "benchmark": "10-K & 10-Q",
-          "pass": true
-        },
-        {
-          "label": "Hallucination Rate",
-          "value": "0.00%",
-          "benchmark": "0.00% Symbolic Guard",
-          "pass": true
-        }
+        { "label": "Arithmetic Accuracy", "value": "100.0%", "benchmark": "100% Code Verified", "pass": true },
+        { "label": "Table Extraction F1", "value": "98.6%", "benchmark": "> 95% Target", "pass": true },
+        { "label": "Footnote Precision", "value": "96.1%", "benchmark": "> 90% Target", "pass": true },
+        { "label": "P&L Audit Latency", "value": "1.85s", "benchmark": "< 3.0s Target", "pass": true },
+        { "label": "SEC Coverage", "value": "100.0%", "benchmark": "10-K & 10-Q", "pass": true },
+        { "label": "Hallucination Rate", "value": "0.00%", "benchmark": "0.00% Symbolic Guard", "pass": true }
       ],
       "qualitativeEvaluation": "Zero numerical errors achieved across 500 SEC 10-K filings via deterministic Python sandbox validation, with perfect calculation parity against audited Bloomberg models.",
       "auditNote": "AUDIT: Audited against verified Bloomberg and FactSet data with 100% calculation parity."
@@ -3785,49 +3448,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        {
-          "title": "Monte Carlo Scenario Simulation Engine"
-        },
-        {
-          "title": "Real-time SEC EDGAR WebSocket Stream Ingestion"
-        }
+        { "title": "Monte Carlo Scenario Simulation Engine", "phase": "Q2 2026" },
+        { "title": "Real-time SEC EDGAR WebSocket Stream Ingestion", "phase": "Q3 2026" }
       ],
       "summary": "SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution.",
       "alignmentNote": "ALIGNMENT: SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution."
-    },
-    "aiTechnicalDocumentation": {
-      "title": "Financial Intelligence Neural-Symbolic Architecture Specification",
-      "description": "Detailed architecture whitepaper outlining code interpreter sandbox isolation, table parsing algorithms, and SEC EDGAR parsing pipelines.",
-      "status": "DOCS // v3.2 AUDITED",
-      "specs": [
-        {
-          "label": "EXECUTION RUNTIME",
-          "value": "Docker gVisor Air-Gapped Python"
-        },
-        {
-          "label": "STORAGE ENGINE",
-          "value": "PostgreSQL 16 + pgvector"
-        },
-        {
-          "label": "PRIMARY REASONER",
-          "value": "Claude 3.5 Sonnet API"
-        },
-        {
-          "label": "PARSING ENGINE",
-          "value": "pdfplumber + XBRL Native"
-        }
-      ]
-    },
-    "aiArchitectureQuality": {
-      "title": "Financial Auditability, SOX Governance & Data Isolation",
-      "description": "Comprehensive institutional compliance ensuring deterministic computation, immutable audit logs, and zero financial calculation drift.",
-      "status": "FINANCIAL AUDIT // SOX COMPLIANT",
-      "badges": [
-        "100% Arithmetic Parity",
-        "SOX 404 Audit Logging",
-        "Air-Gapped Code Sandbox",
-        "SEC EDGAR Certified"
-      ]
     }
   },
   {
@@ -4176,28 +3801,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "description": "Preprocessed 768-row clinical dataset with median-imputed physiological biomarkers."
       }
     ],
-    "mlTechnicalDocumentation": {
-      "title": "Machine Learning Experiment Documentation",
-      "description": "Comprehensive research dossier covering mathematical formulations of normalization paradigms, Random Forest feature importance derivations, and Student's t-test statistical proofs.",
-      "status": "DOCS // VERIFIED RESEARCH",
-      "specs": [
-        {
-          "label": "ALGORITHM",
-          "value": "K-NN (k=7, Uniform Euclidean)"
-        },
-        {
-          "label": "BEST SCALER",
-          "value": "Min-Max Normalization"
-        },
-        {
-          "label": "STAT SIGNIFICANCE",
-          "value": "p = 0.00003 (Paired t-test)"
-        },
-        {
-          "label": "FEATURE COUNT",
-          "value": "4 Pruned Predictors"
-        }
-      ]
+    "mlMethodologySpecs": {
+      "learningParadigm": "Supervised Classification",
+      "modelArchitecture": "K-Nearest Neighbors (Euclidean)",
+      "coreFramework": "Scikit-Learn & SciPy",
+      "validationMethod": "Cross-Validation & Paired t-Test"
     },
     "pipelineSteps": [
       {
@@ -4565,28 +4173,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "description": "Preset multi-body configurations including binary stars, symmetrical rings, and collision stages."
       }
     ],
-    "mlTechnicalDocumentation": {
-      "title": "Computational Kinematics Engine Documentation",
-      "description": "Mathematical specification detailing vector formulations of center-of-mass barycentric coordinates, conservation theorems, and SIMD array vectorization strategies.",
-      "status": "DOCS // VERIFIED PHYSICS ENGINE",
-      "specs": [
-        {
-          "label": "PARADIGM",
-          "value": "Newtonian Discrete Mechanics"
-        },
-        {
-          "label": "PRECISION",
-          "value": "Double Float64 (IEEE 754)"
-        },
-        {
-          "label": "TIME COMPLEXITY",
-          "value": "O(N) Vectorized Inner Product"
-        },
-        {
-          "label": "VERIFICATION",
-          "value": "Analytical Momentum Balance"
-        }
-      ]
+    "mlMethodologySpecs": {
+      "learningParadigm": "Numerical Mechanics Simulation",
+      "modelArchitecture": "Vectorized N-Body Kinematics",
+      "coreFramework": "Python & NumPy",
+      "validationMethod": "Analytical Momentum Benchmarks"
     },
     "pipelineSteps": [
       {
@@ -4947,28 +4538,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "description": "Comprehensive test suite covering 40 regular and irregular geometric benchmark scenarios."
       }
     ],
-    "mlTechnicalDocumentation": {
-      "title": "Planar Computational Geometry Documentation",
-      "description": "Technical mathematical treatise detailing Gauss's Shoelace formula, Green's theorem area integrals, and second-moment centroid derivations.",
-      "status": "DOCS // VERIFIED GEOMETRY ENGINE",
-      "specs": [
-        {
-          "label": "PARADIGM",
-          "value": "Analytical Planar Geometry"
-        },
-        {
-          "label": "PRECISION",
-          "value": "Double Float64 (IEEE 754)"
-        },
-        {
-          "label": "TIME COMPLEXITY",
-          "value": "O(N) Gauss Area Integration"
-        },
-        {
-          "label": "VALIDATION",
-          "value": "Analytical Mathematical Proofs"
-        }
-      ]
+    "mlMethodologySpecs": {
+      "learningParadigm": "Analytical Geometry Modeling",
+      "modelArchitecture": "Gauss Shoelace & Centroid Solver",
+      "coreFramework": "Python & Tkinter",
+      "validationMethod": "Mathematical Geometric Proofs"
     },
     "pipelineSteps": [
       {
@@ -5248,41 +4822,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "desktopMobileDistribution": {
-      "version": "v1.4.0-STABLE",
-      "releaseNotes": "Multi-threaded libwebp C++ native bindings with zero-telemetry offline batch conversion.",
-      "targetOs": "Windows 11 / 10 & macOS",
-      "packageType": "Standalone Executable (.exe) & NSIS Installer",
-      "fileSize": "68 MB",
-      "downloadUrl": "https://github.com/weztcy/webp-converter-pro/releases",
-      "packagingFormat": "Portable Executable (.exe) & NSIS Installer",
-      "binarySize": "68 MB (Bundled Runtime)",
-      "distributionChannel": "GitHub Releases & Direct Binary Download",
-      "targetArchitecture": "x86_64 / ARM64 Compatible",
-      "updateMechanism": "Manual Release Polling / Zero-telemetry updates"
+    "desktopMobileTechSpecs": {
+      "programmingLanguage": "TypeScript & C++",
+      "framework": "Electron",
+      "localStorage": "Local File System"
     },
-    "desktopMobileDocumentation": {
-      "title": "WEBP Converter Pro Technical Manual",
-      "description": "Complete architectural specification detailing native worker thread coordination, libwebp quality parameters, and high-concurrency batch memory limits.",
-      "status": "DOCS // VERIFIED DESKTOP CLIENT",
-      "specs": [
-        {
-          "label": "TARGET OS",
-          "value": "Windows 10 / 11 (x64)"
-        },
-        {
-          "label": "ENGINE",
-          "value": "Libwebp Native SIMD Core"
-        },
-        {
-          "label": "CONCURRENCY",
-          "value": "Hardware Logical Core Saturated"
-        },
-        {
-          "label": "METADATA",
-          "value": "Lossless EXIF / ICC Pass-Through"
-        }
-      ]
+    "desktopMobilePlatformSpecs": {
+      "targetPlatform": "Windows & macOS",
+      "packageFormat": "EXE & NSIS Installer",
+      "targetArchitecture": "x86_64 & ARM64",
+      "buildFootprint": "68 MB"
     },
     "pipelineSteps": [
       {
@@ -5564,41 +5113,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "desktopMobileDistribution": {
-      "version": "v2.1.0-PRODUCTION",
-      "releaseNotes": "Hardware-accelerated AES-256 encrypted local vault with zero cloud sync.",
-      "targetOs": "Windows 11 / 10 & Linux x64",
-      "packageType": "Standalone Executable (.exe) & AppImage",
-      "fileSize": "84 MB",
-      "downloadUrl": "https://github.com/weztcy/pixvault-private-image-studio/releases",
-      "packagingFormat": "Portable Executable (.exe) & AppImage",
-      "binarySize": "84 MB (Encrypted Runtime)",
-      "distributionChannel": "GitHub Releases & Direct Binary Download",
-      "targetArchitecture": "x86_64 Native",
-      "updateMechanism": "Air-gapped manual checksum verification"
+    "desktopMobileTechSpecs": {
+      "programmingLanguage": "TypeScript & Rust",
+      "framework": "Electron",
+      "localStorage": "SQLCipher & SQLite"
     },
-    "desktopMobileDocumentation": {
-      "title": "PixVault Cryptographic Architecture Whitepaper",
-      "description": "Security proof outlining threat models, Argon2id parameters (t=4, m=64MB, p=4), and zero-knowledge memory eviction guarantees.",
-      "status": "DOCS // VERIFIED CRYPTO SPEC",
-      "specs": [
-        {
-          "label": "CIPHER",
-          "value": "AES-256-GCM (Authenticated)"
-        },
-        {
-          "label": "KDF",
-          "value": "Argon2id (Memory-Hard)"
-        },
-        {
-          "label": "NETWORKING",
-          "value": "0 Outbound Calls (Stripped)"
-        },
-        {
-          "label": "SHREDDING",
-          "value": "DoD 5220.22-M 7-Pass Overwrite"
-        }
-      ]
+    "desktopMobilePlatformSpecs": {
+      "targetPlatform": "Windows & Linux",
+      "packageFormat": "EXE & AppImage",
+      "targetArchitecture": "x86_64 Native",
+      "buildFootprint": "84 MB"
     },
     "pipelineSteps": [
       {
@@ -5866,41 +5390,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "desktopMobileDistribution": {
-      "version": "v1.0.2-PRODUCTION",
-      "releaseNotes": "Offline-first Indonesian culinary recipe vault with native biometric bookmarking.",
-      "targetOs": "Android 14+ / iOS 17+",
-      "packageType": "Production APK / iOS App Bundle",
-      "fileSize": "32 MB",
-      "downloadUrl": "https://github.com/weztcy/rasa-nusantara-indonesian-food-recipe/releases",
-      "packagingFormat": "Production APK / iOS App Bundle",
-      "binarySize": "32 MB (Optimized Bundle)",
-      "distributionChannel": "Google Play Internal Track / Direct APK",
-      "targetArchitecture": "ARM64-v8a / Universal",
-      "updateMechanism": "OTA delta updates via Expo EAS"
+    "desktopMobileTechSpecs": {
+      "programmingLanguage": "TypeScript",
+      "framework": "React Native & Expo",
+      "localStorage": "Expo SQLite & MMKV"
     },
-    "desktopMobileDocumentation": {
-      "title": "Rasa Nusantara Mobile App Specification",
-      "description": "Comprehensive product documentation covering offline SQLite database schemas, ingredient math multiplier formulas, and accessibility standards.",
-      "status": "DOCS // VERIFIED MOBILE APP",
-      "specs": [
-        {
-          "label": "TARGET PLATFORM",
-          "value": "iOS 17+ & Android 14+"
-        },
-        {
-          "label": "OFFLINE CAPABILITY",
-          "value": "100% Offline (Embedded SQLite)"
-        },
-        {
-          "label": "RECIPE DATABASE",
-          "value": "1,200+ Documented Regional Dishes"
-        },
-        {
-          "label": "KITCHEN TIMERS",
-          "value": "Lockscreen Live Activity Sync"
-        }
-      ]
+    "desktopMobilePlatformSpecs": {
+      "targetPlatform": "Android & iOS",
+      "packageFormat": "APK & App Bundle",
+      "targetArchitecture": "ARM64 Universal",
+      "buildFootprint": "32 MB"
     },
     "pipelineSteps": [
       {
@@ -6166,30 +5665,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "fileStatus": "Published Component Library & Interactive Prototype",
       "totalFrames": 24,
       "componentsCount": 52,
-      "handoffSpecs": "Auto-Layout 5.0, Variables for Light/Dark Tokens, iOS Human Interface Guidelines Aligned"
+      "handoffSpecs": "Auto-Layout, Variables for Light/Dark Tokens, iOS Human Interface Guidelines Aligned"
     },
-    "uiUxDocumentation": {
-      "title": "Food Recipe UI/UX Design System Specification",
-      "description": "Comprehensive product design documentation covering atomic component tokens, responsive constraints, WCAG AA color ratios, and Figma auto-layout standards.",
-      "status": "DOCS // VERIFIED FIGMA SPECS",
-      "specs": [
-        {
-          "label": "GRID SYSTEM",
-          "value": "8pt Fluid Layout Grid"
-        },
-        {
-          "label": "MIN TOUCH TARGET",
-          "value": "48 x 48 dp (WCAG AA)"
-        },
-        {
-          "label": "CONTRAST RATIO",
-          "value": "4.8:1 Scrim Overlay"
-        },
-        {
-          "label": "PROTOTYPE FIDELITY",
-          "value": "Hi-Fi Interactive (Figma)"
-        }
-      ]
+    "uiUxSystemSpecs": {
+      "layoutAndGrid": "8pt Fluid Layout Grid",
+      "designTokens": "Light & Dark Variable Tokens",
+      "typography": "Plus Jakarta Sans Scale",
+      "prototypeFidelity": "High-Fidelity Interactive"
     },
     "pipelineSteps": [
       {
@@ -6511,28 +5993,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "componentsCount": 68,
       "handoffSpecs": "Figma Variables, Material 3 Adaptive Layouts, iOS Dynamic Island Live Activity Tokens"
     },
-    "uiUxDocumentation": {
-      "title": "E-Parking Mobility UI/UX Specification",
-      "description": "Technical design specification detailing IoT sensor data visualization, accessibility standards for moving vehicles, and digital ticket wallet architecture.",
-      "status": "DOCS // VERIFIED FIGMA SPECS",
-      "specs": [
-        {
-          "label": "DESIGN TOKENS",
-          "value": "Material 3 Semantic Tokens"
-        },
-        {
-          "label": "GARAGE CONTRAST",
-          "value": "7.2:1 High-Contrast Dark Mode"
-        },
-        {
-          "label": "SCAN VELOCITY",
-          "value": "< 2.5s Total Gate Transaction"
-        },
-        {
-          "label": "PROTOTYPE FIDELITY",
-          "value": "High-Fidelity Micro-interactions"
-        }
-      ]
+    "uiUxSystemSpecs": {
+      "layoutAndGrid": "Material Adaptive Grid",
+      "designTokens": "Material Semantic Tokens",
+      "typography": "JetBrains Mono & Sans",
+      "prototypeFidelity": "High-Fidelity Micro-Interactions"
     },
     "pipelineSteps": [
       {
@@ -6854,30 +6319,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "fileStatus": "Published Component Library & Interactive Prototype",
       "totalFrames": 28,
       "componentsCount": 64,
-      "handoffSpecs": "Auto-Layout 5.0, Dark Mode Variables, 3D Mesh Mockups, WCAG 4.5:1 Contrast Compliant"
+      "handoffSpecs": "Auto-Layout, Dark Mode Variables, 3D Mesh Mockups, WCAG 4.5:1 Contrast Compliant"
     },
-    "uiUxDocumentation": {
-      "title": "Aorus Gaming Commerce UI/UX Specification",
-      "description": "Technical design dossier specifying gaming design tokens, high-density hardware comparison matrices, and fast-purchase checkout ergonomics.",
-      "status": "DOCS // VERIFIED FIGMA SPECS",
-      "specs": [
-        {
-          "label": "DESIGN THEME",
-          "value": "Cyberpunk Mecha Aesthetics"
-        },
-        {
-          "label": "TYPOGRAPHY",
-          "value": "Orbitron & JetBrains Mono"
-        },
-        {
-          "label": "ACCENT PALETTE",
-          "value": "Aorus Orange (#F97316) & Obsidian"
-        },
-        {
-          "label": "FIGMA FIDELITY",
-          "value": "Interactive Component Prototype"
-        }
-      ]
+    "uiUxSystemSpecs": {
+      "layoutAndGrid": "Responsive Dark Showcase Grid",
+      "designTokens": "Mecha Dark & Accent Tokens",
+      "typography": "Orbitron & JetBrains Mono",
+      "prototypeFidelity": "Interactive Component Prototype"
     },
     "pipelineSteps": [
       {
@@ -7012,6 +6460,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Concurrency"
       }
     ],
+    "codeLearningCurriculumSpecs": {
+      "curriculumTrack": "Systems & Memory Engineering",
+      "primaryLanguage": "Modern C++",
+      "executionRuntime": "CMake, Clang & GCC",
+      "testVerification": "GoogleTest & Sanitizers"
+    },
     "pipelineSteps": [
       {
         "step": "Source Compilation",
@@ -7389,29 +6843,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "role": "Heap allocation profiling and cache miss analysis"
         }
       ]
-    },
-    "codeLearningDocumentation": {
-      "title": "CPP Learning Modules Educational Specification",
-      "description": "Pedagogical roadmap detailing lesson plans, code challenges, CMake build standards, and verification guidelines.",
-      "status": "DOCS // VERIFIED CURRICULUM",
-      "specs": [
-        {
-          "label": "STANDARD",
-          "value": "Modern C++20 / C++17"
-        },
-        {
-          "label": "BUILD SYSTEM",
-          "value": "CMake 3.20+ with Presets"
-        },
-        {
-          "label": "TEST SUITE",
-          "value": "GoogleTest Unit Verification"
-        },
-        {
-          "label": "SANITIZERS",
-          "value": "AddressSanitizer & UB-Sanitizer"
-        }
-      ]
     }
   },
   {
@@ -7423,15 +6854,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "year": "2024",
     "status": "Completed",
     "accentColor": "orange",
-    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+    "imageUrl": "/images/projects/TypeScript Learning Modules 1.webp",
     "images": [
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+      "/images/projects/TypeScript Learning Modules 1.webp",
+      "/images/projects/JavaScript Learning Modules 1.webp"
     ],
     "summary": "Comprehensive type-level programming curriculum mastering TypeScript 5 generics, template literal types, distributed conditional types, and enterprise architecture patterns.",
-    "overview": "TypeScript Learning Modules is an enterprise-oriented curriculum engineered to transform JavaScript developers into type-level architectural masters. Moving far beyond basic annotations, the repository explores the TypeScript compiler as a Turing-complete system. Topics cover mapped types, key remapping, template literal string validation, distributive conditionals, recursive inference, and branded nominal contracts.",
+    "overview": "TypeScript Learning Modules is an enterprise-oriented pedagogical curriculum engineered to transform standard JavaScript developers into type-level architectural masters. Moving far beyond basic primitive annotations, the repository dives deep into the TypeScript type compiler as a Turing-complete functional system. Topics cover mapped types, key remapping, template literal string validation, distributive conditional types, recursive inference with infer, branded nominal typing, and type-safe API client design.",
     "challenge": "Many web developers use TypeScript merely as 'JavaScript with any', failing to harness the type system's ability to eradicate entire classes of runtime defects. Overly permissive types lead to fragile architectures and broken refactorings in large codebases.",
     "architectureSummary": "Interactive Type-Challenge Matrix + Vitest Type-Testing (expect-type) + Strict ESLint Pipeline",
     "objectives": [
@@ -7501,12 +6930,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Bun"
     ],
     "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules",
-      "license": "MIT / Educational",
     "telemetryMatrix": {
       "projectType": "Type-Level Architecture Curriculum",
-      "targetPlatform": "TypeScript 5.x / Node.js 20+ / Bun",
+      "targetPlatform": "TypeScript / Node.js / Bun",
       "primaryDomain": "Type-Level Programming & Static Verification",
-      "architecturePipeline": "Type-level gymnastics + branded typing contracts",
+      "architecturePipeline": "Type-Level Gymnastics + Branded Typing + Zero-Cost Contracts",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2024"
@@ -7519,7 +6947,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "totalModules": "10 Interactive Modules",
       "totalSubmodules": "30 Type Challenges",
       "totalSourceCodeFiles": "40 Files",
-      "programmingLanguages": "TypeScript 5.x (Strict Mode)",
+      "programmingLanguages": "TypeScript Strict",
       "learningStatus": "Completed"
     },
     "codeLearningObjectives": [
@@ -7790,6 +7218,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ]
       }
     ],
+    "codeLearningCurriculumSpecs": {
+      "curriculumTrack": "Type Systems & Static Safety",
+      "primaryLanguage": "Strict TypeScript",
+      "executionRuntime": "tsc, Node.js & Bun",
+      "testVerification": "Vitest & expect-type"
+    },
     "codeLearningSupplementaryResources": {
       "title": "Recommended Deep-Dive Resources & References",
       "description": "Curated collection of official documentation, type challenges, and references.",
@@ -7837,29 +7271,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "name": "Prettier",
           "role": "Code styling across code challenges"
-        }
-      ]
-    },
-    "codeLearningDocumentation": {
-      "title": "TypeScript Learning Modules Technical Specification",
-      "description": "Pedagogical guidelines outlining type problem architectures, test-driven type verification standards, and strict tsconfig compiler flags.",
-      "status": "DOCS // VERIFIED CURRICULUM",
-      "specs": [
-        {
-          "label": "VERSION",
-          "value": "TypeScript 5.x Strict"
-        },
-        {
-          "label": "COMPILER FLAGS",
-          "value": "strict: true, noImplicitAny: true"
-        },
-        {
-          "label": "TYPE TESTING",
-          "value": "Vitest expect-type Suites"
-        },
-        {
-          "label": "RUNTIME",
-          "value": "Node.js 20+ / Bun Compatible"
         }
       ]
     }

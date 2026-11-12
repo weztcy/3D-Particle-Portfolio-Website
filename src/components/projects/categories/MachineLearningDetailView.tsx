@@ -247,11 +247,11 @@ export default function MachineLearningDetailView({
 
   const modelArtifacts = project.mlModelArtifacts || [];
 
-  const technicalDocumentation = project.mlTechnicalDocumentation || {
-    title: "Machine Learning Experiment Documentation",
-    description: "",
-    status: "DOCS // VERIFIED",
-    specs: [],
+  const mlSpecs = project.mlMethodologySpecs || {
+    learningParadigm: "Supervised Classification",
+    modelArchitecture: "K-Nearest Neighbors (Euclidean)",
+    coreFramework: "Scikit-Learn & SciPy",
+    validationMethod: "Cross-Validation & Paired t-Test",
   };
 
   return (
@@ -446,11 +446,7 @@ export default function MachineLearningDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-indigo-300">
-                      {hasRepoUrl ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-indigo-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-indigo-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -461,7 +457,7 @@ export default function MachineLearningDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={hasRepoUrl ? "text-indigo-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -1215,7 +1211,7 @@ export default function MachineLearningDetailView({
             categoryTag="DATASET & MODEL ARTIFACTS"
             statusBadge={`${modelArtifacts.length} ARTIFACTS`}
             title="Model Artifacts & Dataset Profile"
-            description={datasetProfile.description}
+            description="Structured training dataset and model artifact profile detailing data scale, tensor input dimensions, serialization format, and integrity verification."
             specs={[
               { label: "SCALE / VOLUME", value: datasetProfile.scale },
               { label: "INPUT SHAPE", value: datasetProfile.inputShape, highlight: true },
@@ -1251,19 +1247,29 @@ export default function MachineLearningDetailView({
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {technicalDocumentation.title}
+                Modeling & Validation Specification
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                {technicalDocumentation.description}
+                Standardized research and computational methodology covering learning paradigms, model or solver architectures, core frameworks, and formal validation methods.
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {technicalDocumentation.specs.map((sp, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-slate-400">
-                    <span className="text-[11px] uppercase">{sp.label}:</span>
-                    <span className="text-slate-200 font-semibold">{sp.value}</span>
-                  </div>
-                ))}
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="text-[11px] uppercase">LEARNING PARADIGM:</span>
+                  <span className="text-slate-200 font-semibold">{mlSpecs.learningParadigm}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="text-[11px] uppercase">MODEL ARCHITECTURE:</span>
+                  <span className="text-indigo-300 font-semibold">{mlSpecs.modelArchitecture}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="text-[11px] uppercase">CORE FRAMEWORK:</span>
+                  <span className="text-slate-200 font-semibold">{mlSpecs.coreFramework}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="text-[11px] uppercase">VALIDATION METHOD:</span>
+                  <span className="text-slate-200 font-semibold">{mlSpecs.validationMethod}</span>
+                </div>
               </div>
             </div>
 

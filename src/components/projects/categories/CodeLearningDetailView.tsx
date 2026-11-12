@@ -191,11 +191,11 @@ export default function CodeLearningDetailView({
   const repoUrl = project.repoUrl || "";
   const isPublicRepo = Boolean(repoUrl && repoUrl.trim().length > 0);
 
-  const documentation = project.codeLearningDocumentation || {
-    title: "Educational Specification",
-    description: "",
-    status: "DOCS // VERIFIED",
-    specs: [],
+  const curriculumSpecs = project.codeLearningCurriculumSpecs || {
+    curriculumTrack: "Systems & Memory Engineering",
+    primaryLanguage: "Modern C++",
+    executionRuntime: "CMake, Clang & GCC",
+    testVerification: "GoogleTest & Sanitizers",
   };
 
   const supplementaryResources = project.codeLearningSupplementaryResources || {
@@ -397,11 +397,7 @@ export default function CodeLearningDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-orange-300">
-                      {isPublicRepo ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-orange-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-orange-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -412,7 +408,7 @@ export default function CodeLearningDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={isPublicRepo ? "text-orange-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {isPublicRepo ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -1096,13 +1092,14 @@ export default function CodeLearningDetailView({
             accentColor="orange"
             icon={FileText}
             categoryTag="CURRICULUM TAXONOMY"
-            statusBadge="SYLLABUS_v2.0"
-            title={documentation.title || "Curriculum & Syllabus Architecture"}
-            description={
-              documentation.description ||
-              "Pedagogical syllabus blueprint covering modular learning phases, unit testing benchmarks, and strict compilation flags."
-            }
-            specs={documentation.specs || []}
+            title="Curriculum & Syllabus Architecture"
+            description="Structured technical curriculum blueprint defining core learning tracks, primary programming languages, execution runtimes, and automated test verification."
+            specs={[
+              { label: "CURRICULUM TRACK", value: curriculumSpecs.curriculumTrack },
+              { label: "PRIMARY LANGUAGE", value: curriculumSpecs.primaryLanguage, highlight: true },
+              { label: "EXECUTION RUNTIME", value: curriculumSpecs.executionRuntime },
+              { label: "TEST VERIFICATION", value: curriculumSpecs.testVerification },
+            ]}
             action={
               repoUrl
                 ? {
@@ -1151,9 +1148,8 @@ export default function CodeLearningDetailView({
               </div>
             </div>
 
-            <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-orange-500/30 bg-orange-500/10 px-4 py-3 font-mono text-xs font-semibold text-orange-300">
-              <Check className="h-4 w-4 text-orange-400" />
-              <span>CURRICULUM_AUDIT_PASSED</span>
+            <div className="w-full flex items-center justify-center rounded-xl border border-orange-500/30 bg-orange-500/10 px-4 py-3 font-mono text-xs font-semibold text-orange-300">
+              CURRICULUM AUDIT PASSED
             </div>
           </div>
         </div>

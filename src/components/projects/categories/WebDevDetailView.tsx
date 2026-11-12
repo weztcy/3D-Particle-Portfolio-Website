@@ -158,28 +158,14 @@ export default function WebDevDetailView({
   // Section 5 Data: Technical Implementation & Documentation
   const technicalImplementation = project.technicalImplementation || [];
 
-  const technicalDocumentation = project.technicalDocumentation || {
-    title: "Technical Documentation",
-    description: "",
-    status: "DOCS // VERIFIED",
-    specs: [],
-  };
+  const webDevSpecs: SpecItem[] = [
+    { label: "PROGRAMMING LANGUAGE", value: project.primaryTechSpecs?.programmingLanguage || "TypeScript" },
+    { label: "FRAMEWORK", value: project.primaryTechSpecs?.framework || "Next.js" },
+    { label: "DATABASE", value: project.primaryTechSpecs?.database || "PostgreSQL" },
+    { label: "SECURITY AUDIT", value: "Vulnerability Hardened" },
+  ];
 
-  const webDevSpecs: SpecItem[] = project.primaryTechSpecs
-    ? [
-        { label: "PROGRAMMING LANGUAGE", value: project.primaryTechSpecs.programmingLanguage },
-        { label: "FRAMEWORK", value: project.primaryTechSpecs.framework },
-        { label: "DATABASE", value: project.primaryTechSpecs.database },
-        { label: "SECURITY AUDIT", value: "Vulnerability Hardened" },
-      ]
-    : (technicalDocumentation.specs || []);
-
-  const architectureQuality = project.architectureQuality || {
-    title: "Architecture & Quality Standards",
-    description: "",
-    status: "QA AUDIT // VERIFIED",
-    badges: [],
-  };
+  const qualityBadges = project.architectureQuality?.badges || [];
 
   return (
     <div className="space-y-12 sm:space-y-16">
@@ -374,11 +360,7 @@ export default function WebDevDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-sky-300">
-                      {hasRepoUrl ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-sky-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-sky-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -389,7 +371,7 @@ export default function WebDevDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={hasRepoUrl ? "text-sky-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -976,12 +958,8 @@ export default function WebDevDetailView({
             accentColor="sky"
             icon={FileText}
             categoryTag="TECHNICAL SPECIFICATION"
-            statusBadge={technicalDocumentation.status || "DOCS // VERIFIED"}
-            title={technicalDocumentation.title || "Fullstack Technical Specification"}
-            description={
-              technicalDocumentation.description ||
-              "Production-grade architectural manifest detailing service topology, schema migrations, and hosting constraints."
-            }
+            title="Technical Documentation & System Specs"
+            description="Fullstack architecture specifications covering core language runtimes, primary frameworks, persistence engines, and hardened security posture."
             specs={webDevSpecs}
             action={
               project.repoUrl
@@ -1006,15 +984,15 @@ export default function WebDevDetailView({
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {architectureQuality.title}
+                Architecture & Quality Standards
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
-                {architectureQuality.description}
+                Automated static verification, strict type safety compliance, and performance engineering benchmarks validated across web environments.
               </p>
 
               {/* Quality Badges */}
               <div className="grid grid-cols-2 gap-2 mb-6">
-                {architectureQuality.badges.map((bg, idx) => (
+                {qualityBadges.map((bg, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-1.5 rounded-lg border border-sky-400/20 bg-sky-400/10 p-2 font-mono text-[10px] text-sky-200 font-semibold"

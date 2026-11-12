@@ -440,11 +440,7 @@ export default function DataAnalyticsDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-emerald-300">
-                      {hasRepoUrl ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-emerald-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-emerald-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -455,7 +451,7 @@ export default function DataAnalyticsDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={hasRepoUrl ? "text-emerald-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -1127,7 +1123,7 @@ export default function DataAnalyticsDetailView({
                       <FileSpreadsheet className="h-3.5 w-3.5 text-emerald- shrink-0" />
                       <span className="text-slate-200 truncate">{file.name}</span>
                     </div>
-                    <span className="text-emerald- font-bold ml-2 shrink-0">
+                    <span className="text-emerald-400 font-bold ml-2 shrink-0">
                       {file.format}
                     </span>
                   </div>
@@ -1135,7 +1131,7 @@ export default function DataAnalyticsDetailView({
               </div>
             </div>
 
-            <div className="rounded-xl border border-emerald-/20 bg-emerald-/5 px-4 py-2.5 text-center font-mono text-xs font-medium text-emerald-">
+            <div className="w-full flex items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-center font-mono text-xs font-semibold text-emerald-300">
               STATUS: ARTIFACTS PACKAGED & AUDITED
             </div>
           </div>

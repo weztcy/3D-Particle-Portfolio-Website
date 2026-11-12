@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FileText, LucideIcon, ExternalLink, Lock } from "lucide-react";
+import { FileText, LucideIcon, Lock } from "lucide-react";
 import { CyberAccentColor } from "./CyberTechStackSection";
 
 export interface SpecItem {
@@ -240,7 +240,6 @@ export default function CyberSpecCard({
         >
           <ActionIcon className={`h-4 w-4 ${theme.iconColor}`} />
           <span>{action.label}</span>
-          <ExternalLink className="h-3.5 w-3.5" />
         </a>
       ) : action && action.onClick ? (
         <button

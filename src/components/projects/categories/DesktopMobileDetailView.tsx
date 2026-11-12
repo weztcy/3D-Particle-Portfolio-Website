@@ -285,25 +285,17 @@ export default function DesktopMobileDetailView({
   const repoUrl = project.repoUrl || "";
   const isPublicRepo = Boolean(repoUrl && repoUrl.trim().length > 0);
 
-  const distribution = {
-    version: "v1.0.0-RELEASE",
-    releaseNotes: "Production release binary compiled with ahead-of-time optimizations and native OS bindings.",
-    targetOs: isMobile ? "Android 14+ / iOS 17+" : "Windows 11 / 10 & macOS",
-    packageType: isMobile ? "APK / iOS App Bundle" : "Standalone Binary (.exe)",
-    fileSize: isMobile ? "32 MB" : "68 MB",
-    packagingFormat: isMobile ? "APK / iOS App Bundle" : "Standalone Binary (.exe)",
-    binarySize: isMobile ? "32 MB" : "68 MB",
-    distributionChannel: "GitHub Releases & Direct Binary Download",
-    targetArchitecture: "Universal Cross-Platform",
-    updateMechanism: "Zero-telemetry manual updates",
-    ...project.desktopMobileDistribution,
+  const techSpecs = project.desktopMobileTechSpecs || {
+    programmingLanguage: isMobile ? "TypeScript" : "TypeScript & C++",
+    framework: isMobile ? "React Native & Expo" : "Electron",
+    localStorage: isMobile ? "Expo SQLite & MMKV" : "Local File System",
   };
 
-  const documentation = project.desktopMobileDocumentation || {
-    title: "Application Technical Specification",
-    description: "",
-    status: "DOCS // VERIFIED",
-    specs: [],
+  const platformSpecs = project.desktopMobilePlatformSpecs || {
+    targetPlatform: isMobile ? "Android & iOS" : "Windows & macOS",
+    packageFormat: isMobile ? "APK & App Bundle" : "EXE & NSIS Installer",
+    targetArchitecture: isMobile ? "ARM64 Universal" : "x86_64 & ARM64",
+    buildFootprint: isMobile ? "32 MB" : "68 MB",
   };
 
   const handleCopyLink = () => {
@@ -511,11 +503,7 @@ export default function DesktopMobileDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-amber-300">
-                      {isPublicRepo ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-amber-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-amber-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -526,7 +514,7 @@ export default function DesktopMobileDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={isPublicRepo ? "text-amber-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {isPublicRepo ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -1102,21 +1090,18 @@ export default function DesktopMobileDetailView({
             onTriggerPulse={onTriggerPulse}
           />
 
-          {/* CARD 2 — Application Runtime & Target Specifications Card (Universal Spec Standard) */}
+          {/* CARD 2 — Application Runtime & Stack Specifications Card (Universal Spec Standard) */}
           <CyberSpecCard
             accentColor="amber"
             icon={Package}
-            categoryTag="TARGET RUNTIME SPECS"
-            statusBadge={distribution.version || "STABLE_RELEASE"}
-            title="Native Client Architecture"
-            description={distribution.releaseNotes}
+            categoryTag="TECHNICAL SPECIFICATION"
+            title="Native Client & Stack Specifications"
+            description="Cross-platform client engineering architecture covering core programming languages, application frameworks, local persistence, and runtime hardening."
             specs={[
-              { label: "TARGET OS", value: distribution.targetOs, highlight: true },
-              { label: "PACKAGE TYPE", value: distribution.packageType },
-              ...(distribution.fileSize
-                ? [{ label: "BINARY FOOTPRINT", value: distribution.fileSize }]
-                : []),
-              { label: "NETWORK EXPOSURE", value: "AIR-GAPPED OFFLINE" },
+              { label: "PROGRAMMING LANGUAGE", value: techSpecs.programmingLanguage },
+              { label: "FRAMEWORK", value: techSpecs.framework, highlight: true },
+              { label: "LOCAL STORAGE", value: techSpecs.localStorage },
+              { label: "RUNTIME SECURITY", value: "Offline-First Hardened" },
             ]}
             action={
               repoUrl
@@ -1130,7 +1115,7 @@ export default function DesktopMobileDetailView({
             }
           />
 
-          {/* CARD 3 — Documentation & Supporting Files Card */}
+          {/* CARD 3 — Platform & Delivery Standards Card */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-amber-400/30 bg-[#080B14]/85 p-5 sm:p-7 shadow-lg transition-all hover:border-amber-400/50 hover:shadow-[0_8px_32px_rgba(245,158,11,0.25)]">
             {/* 4 Optical Corner Crosshairs */}
             <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-amber-400/70" />
@@ -1142,25 +1127,35 @@ export default function DesktopMobileDetailView({
               <div className="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-4 sm:mb-5">
                 <div className="flex items-center gap-2 text-amber-300 font-mono text-xs font-bold uppercase tracking-wider">
                   <FileText className="h-4 w-4 text-amber-400" />
-                  <span>Technical Documentation</span>
+                  <span>TECHNICAL DOCUMENTATION</span>
                 </div>
               </div>
 
               <h4 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                {documentation.title}
+                Client Build & Delivery Standards
               </h4>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
-                {documentation.description}
+                Standardized cross-platform build profiles specifying supported operating systems, binary packaging deliverables, CPU architectures, and application footprint.
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {documentation.specs.map((spec, sIdx) => (
-                  <div key={sIdx} className="flex items-center justify-between text-slate-400">
-                    <span className="uppercase text-[11px]">{spec.label}:</span>
-                    <span className="text-slate-200 font-semibold">{spec.value}</span>
-                  </div>
-                ))}
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">TARGET PLATFORM:</span>
+                  <span className="text-slate-200 font-semibold">{platformSpecs.targetPlatform}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">PACKAGE FORMAT:</span>
+                  <span className="text-amber-300 font-semibold">{platformSpecs.packageFormat}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">TARGET ARCHITECTURE:</span>
+                  <span className="text-slate-200 font-semibold">{platformSpecs.targetArchitecture}</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="uppercase text-[11px]">BUILD FOOTPRINT:</span>
+                  <span className="text-slate-200 font-semibold">{platformSpecs.buildFootprint}</span>
+                </div>
               </div>
             </div>
 

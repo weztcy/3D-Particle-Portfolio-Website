@@ -68,7 +68,9 @@ export default function AIEngineeringDetailView({
       ? [project.imageUrl]
       : [];
 
-  const visualShowcase = useMemo(() => {
+  const visualShowcase = useMemo<
+    NonNullable<ProjectCaseStudy["aiVisualShowcase"]>
+  >(() => {
     if (project.aiVisualShowcase && project.aiVisualShowcase.length > 0) {
       return project.aiVisualShowcase;
     }
@@ -77,7 +79,7 @@ export default function AIEngineeringDetailView({
     }));
   }, [project.aiVisualShowcase, visualImages]);
 
-  const activeVisualItem =
+  const activeVisualItem: NonNullable<ProjectCaseStudy["aiVisualShowcase"]>[number] =
     visualShowcase[activeHiFiIndex] ||
     visualShowcase[0] || {
       imageUrl: project.imageUrl || "",
@@ -168,62 +170,41 @@ export default function AIEngineeringDetailView({
   const frameworksAndLibraries = project.aiTechStack?.frameworksAndLibraries || [];
   const developmentAndInfrastructure = project.aiTechStack?.developmentAndInfrastructure || [];
 
-  // Section 5: AI Output Showcase & Execution Scenarios
-  const aiOutputShowcase: {
-    scenarioTitle: string;
-    scenarioBadge: string;
-    inputType?: string;
-    userInput: string;
-    outputType?: string;
-    aiOutput: string;
-    explanation: string;
-    executionLatency?: string;
-    tokenUsage?: string;
-    inputBadge?: string;
-    outputBadge?: string;
-    confidenceMetric?: string;
-  }[] =
-    project.aiOutputShowcase && project.aiOutputShowcase.length > 0
-      ? project.aiOutputShowcase
-      : [
-          {
-            scenarioTitle: `${project.title} — Primary Scenario`,
-            scenarioBadge: "EXECUTION",
-            inputType: "USER_QUERY",
-            userInput: "Inquiry input query prompt",
-            outputType: "SYSTEM_RESPONSE",
-            aiOutput: "AI execution output response",
-            explanation: "Automated end-to-end model inference trace.",
-            executionLatency: "1.2s",
-            tokenUsage: "320 tokens",
-            confidenceMetric: "98.4% CONFIDENCE",
-          },
-        ];
-
   // Section 5: Single Representative Execution Telemetry
-  const telemetryData = project.aiExecutionTelemetry || {
-    scenarioTitle: aiOutputShowcase[0]?.scenarioTitle || `${project.title} — Runtime Execution Trace`,
-    scenarioBadge: aiOutputShowcase[0]?.scenarioBadge || "INFERENCE_TRACE",
-    scenarioDescription: project.summary || "High-assurance automated inference pipeline with deterministic validation.",
-    triggerInput: aiOutputShowcase[0]?.userInput || "Inquiry query prompt dispatched to neural runtime gateway.",
-    processingPipeline: project.architectureSummary || "Dynamic Reasoning Pipeline + Guardrail Verification",
-    executionOutput: aiOutputShowcase[0]?.aiOutput || "Synthesized execution output generated with deterministic validation.",
-    metrics: [
-      { label: "Latency", value: aiOutputShowcase[0]?.executionLatency || "1.14s" },
-      { label: "Compute", value: aiOutputShowcase[0]?.tokenUsage || "412 tokens" },
-      { label: "Confidence", value: aiOutputShowcase[0]?.confidenceMetric || "99.4%" },
-    ],
-    evaluationNote: aiOutputShowcase[0]?.explanation || "System validated end-to-end with deterministic guardrails.",
-  };
+  const telemetryData: NonNullable<ProjectCaseStudy["aiExecutionTelemetry"]> =
+    project.aiExecutionTelemetry || {
+      scenarioTitle: `${project.title} — Runtime Execution Trace`,
+      scenarioBadge: "INFERENCE_TRACE",
+      scenarioDescription:
+        project.summary ||
+        "High-assurance automated inference pipeline with deterministic validation.",
+      triggerInput: "Inquiry query prompt dispatched to neural runtime gateway.",
+      processingPipeline:
+        project.architectureSummary ||
+        "Dynamic Reasoning Pipeline + Guardrail Verification",
+      executionOutput:
+        "Synthesized execution output generated with deterministic validation.",
+      metrics: [
+        { label: "Latency", value: "1.14s" },
+        { label: "Compute", value: "412 tokens" },
+        { label: "Confidence", value: "99.4%" },
+      ],
+      evaluationNote:
+        "System validated end-to-end with deterministic guardrails.",
+    };
 
-  // Section 7: Evaluation, Performance & Benchmarks
-  const aiEvaluationAndPerformance = project.aiEvaluationAndPerformance || {
+  // Section 5: Evaluation, Performance & Benchmarks
+  const aiEvaluationAndPerformance: NonNullable<
+    ProjectCaseStudy["aiEvaluationAndPerformance"]
+  > = project.aiEvaluationAndPerformance || {
     qualitativeEvaluation: project.evaluation || "",
     metrics: [],
   };
 
-  // Section 8: Limitations & Future Improvements
-  const limitationsAndImprovements = project.limitationsAndImprovements || {
+  // Section 5: Limitations & Future Improvements
+  const limitationsAndImprovements: NonNullable<
+    ProjectCaseStudy["limitationsAndImprovements"]
+  > = project.limitationsAndImprovements || {
     limitations: [],
     improvementsRoadmap: [],
   };
@@ -233,18 +214,10 @@ export default function AIEngineeringDetailView({
     project.repoUrl && project.repoUrl.trim().length > 0
   );
 
-  const aiTechnicalDocumentation = project.aiTechnicalDocumentation || {
-    title: "AI Systems Engineering Specification",
-    description: "",
-    status: "DOCS // VERIFIED",
-    specs: [],
-  };
-
-  const aiArchitectureQuality = project.aiArchitectureQuality || {
-    title: "AI Safety, Observability and Quality Standards",
-    description: "",
-    status: "QA AUDIT // VERIFIED",
-    badges: [],
+  const aiTechSpecs = project.aiTechSpecs || {
+    programmingLanguage: "Python",
+    aiFramework: "LangGraph & LangChain",
+    foundationModel: "Llama 3 & Claude Sonnet",
   };
 
   return (
@@ -440,11 +413,7 @@ export default function AIEngineeringDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-purple-300">
-                      {hasRepoUrl ? (
-                        <FolderGit2 className="h-3.5 w-3.5 text-purple-400" />
-                      ) : (
-                        <Lock className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-purple-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -455,7 +424,7 @@ export default function AIEngineeringDetailView({
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
                       <span className={hasRepoUrl ? "text-purple-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
-                        {hasRepoUrl ? "UNRESTRICTED / PUBLIC" : "RESTRICTED / PRIVATE"}
+                        {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
@@ -634,7 +603,7 @@ export default function AIEngineeringDetailView({
             <span>[ 03 // SYSTEM TOPOLOGY & EXECUTION PIPELINE ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            SCHEMATICS // 4 TIERS // CORE MODULES
+            SCHEMATICS // {aiSystemArchitecture.layers.length} TIERS // CORE MODULES
           </span>
         </div>
 
@@ -649,7 +618,7 @@ export default function AIEngineeringDetailView({
                   <span>[ SYSTEM_ARCHITECTURE // COGNITIVE TOPOLOGY ]</span>
                 </div>
                 <span className="rounded bg-purple-400/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
-                  4 TIERS
+                  {aiSystemArchitecture.layers.length} TIERS
                 </span>
               </div>
 
@@ -823,14 +792,14 @@ export default function AIEngineeringDetailView({
                   <span className="h-2.5 w-2.5 rounded-full bg-purple-400/80 inline-block" />
                   <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-400/80 inline-block" />
                   <span className="ml-2 font-mono text-[11px] text-slate-300 truncate max-w-[200px] sm:max-w-[280px]">
-                    {(activeVisualItem as any).title || "System Interface Viewport"}
+                    {activeVisualItem.title || "System Interface Viewport"}
                   </span>
                 </div>
 
-                {(activeVisualItem as any).badge && (
+                {activeVisualItem.badge && (
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-[10px] tracking-wider uppercase text-purple-300 bg-purple-950/60 border border-purple-500/30 px-2 py-0.5 rounded">
-                      {(activeVisualItem as any).badge}
+                      {activeVisualItem.badge}
                     </span>
                   </div>
                 )}
@@ -1067,7 +1036,7 @@ export default function AIEngineeringDetailView({
                   <span>[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]</span>
                 </div>
                 <span className="font-mono text-[10px] text-purple-300 font-semibold">
-                  {(aiEvaluationAndPerformance as any).evalFrameworkBadge || "EMPIRICAL BENCHMARKS"}
+                  {aiEvaluationAndPerformance.evalFrameworkBadge || "EMPIRICAL BENCHMARKS"}
                 </span>
               </div>
 
@@ -1099,7 +1068,7 @@ export default function AIEngineeringDetailView({
             </div>
 
             <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              {(aiEvaluationAndPerformance as any).auditNote || "AUDIT: Benchmark evaluated across end-to-end production test suites and golden sets."}
+              {aiEvaluationAndPerformance.auditNote || "AUDIT: Benchmark evaluated across end-to-end production test suites and golden sets."}
             </div>
           </div>
 
@@ -1132,7 +1101,7 @@ export default function AIEngineeringDetailView({
                             : "bg-purple-950/30 text-purple-300 border border-purple-500/20"
                         }`}
                       >
-                        {lim.severity} SEVERITY
+                        {lim.severity || "MEDIUM"} SEVERITY
                       </span>
                     </div>
                     <p className="text-[11px] text-slate-300 leading-relaxed">
@@ -1166,7 +1135,7 @@ export default function AIEngineeringDetailView({
             </div>
 
             <div className="mt-5 pt-3 border-t border-white/5 font-mono text-[10px] text-slate-500">
-              {(limitationsAndImprovements as any).alignmentNote || "ALIGNMENT: Limitations documented openly in accordance with Responsible AI standards and continuous delivery."}
+              {limitationsAndImprovements.alignmentNote || "ALIGNMENT: Limitations documented openly in accordance with Responsible AI standards and continuous delivery."}
             </div>
           </div>
         </div>
@@ -1209,13 +1178,14 @@ export default function AIEngineeringDetailView({
             accentColor="purple"
             icon={FileText}
             categoryTag="MODEL SPECS & DOCUMENTATION"
-            statusBadge={aiTechnicalDocumentation.status || "DOCS // VERIFIED"}
-            title={aiTechnicalDocumentation.title || "AI Systems Engineering Specification"}
-            description={
-              aiTechnicalDocumentation.description ||
-              "Formal AI engineering specification defining orchestration topology, vector latency bounds, and evaluation standards."
-            }
-            specs={aiTechnicalDocumentation.specs}
+            title="AI Systems & Orchestration Architecture"
+            description="Universal AI engineering specification detailing core languages, orchestration frameworks, foundation models, and safety guardrails across agentic and AI-powered systems."
+            specs={[
+              { label: "PROGRAMMING LANGUAGE", value: aiTechSpecs.programmingLanguage },
+              { label: "AI FRAMEWORK", value: aiTechSpecs.aiFramework, highlight: true },
+              { label: "FOUNDATION MODEL", value: aiTechSpecs.foundationModel },
+              { label: "SAFETY AUDIT", value: "Guardrails & Prompt Hardened" },
+            ]}
             action={
               hasRepoUrl && project.repoUrl
                 ? {
@@ -1254,7 +1224,7 @@ export default function AIEngineeringDetailView({
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">GUARDRAIL ENGINE:</span>
-                  <span className="text-purple-300 font-semibold">NeMo Guardrails v0.9</span>
+                  <span className="text-purple-300 font-semibold">NeMo Guardrails</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">PROMPT DEFENSE:</span>
@@ -1267,9 +1237,8 @@ export default function AIEngineeringDetailView({
               </div>
             </div>
 
-            <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-purple-500/30 bg-purple-500/10 px-4 py-3 font-mono text-xs font-semibold text-purple-300">
-              <Check className="h-4 w-4 text-purple-400" />
-              <span>SAFETY_VERIFICATION_COMPLETE</span>
+            <div className="w-full inline-flex items-center justify-center rounded-xl border border-purple-500/30 bg-purple-500/10 px-4 py-3 font-mono text-xs font-semibold text-purple-300">
+              <span>SAFETY VERIFICATION COMPLETE</span>
             </div>
           </div>
         </div>
