@@ -189,9 +189,6 @@ export default function MachineLearningDetailView({
 
   // Section 5: Model Evaluation, Visual Diagnostics & Interpretation
   const evaluationStrategy = project.mlEvaluationStrategy || {
-    sectionTitle: "[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]",
-    sectionTag: "EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS",
-    strategyLabel: "EVALUATION STRATEGY // BENCHMARK PROTOCOL",
     validationMethod: "",
     description: "",
     metrics: [],
@@ -221,23 +218,9 @@ export default function MachineLearningDetailView({
     activeVis?.telemetryNote || project.mlVisualizationTelemetryNote || "";
 
   const rawInterp = project.mlModelInterpretationAndLimitations;
-  const normalizedDrivers = useMemo(() => {
-    if (rawInterp?.keyDrivers && rawInterp.keyDrivers.length > 0) {
-      return rawInterp.keyDrivers;
-    }
-    return (rawInterp?.topPredictors || []).map((tp) => ({
-      factor: tp.feature,
-      impact: tp.impact,
-    }));
-  }, [rawInterp?.keyDrivers, rawInterp?.topPredictors]);
-
   const modelInterpretationAndLimitations = {
     interpretationSummary: rawInterp?.interpretationSummary || "",
-    interpretabilityBadge:
-      rawInterp?.interpretabilityBadge || "DIAGNOSTIC INSIGHTS",
-    driversTitle:
-      rawInterp?.driversTitle || "KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS",
-    keyDrivers: normalizedDrivers,
+    keyDrivers: rawInterp?.keyDrivers || [],
     limitations: rawInterp?.limitations || [],
     futureImprovements: rawInterp?.futureImprovements || [],
     discoveryNote: rawInterp?.discoveryNote || "",
@@ -883,14 +866,10 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>
-              {evaluationStrategy.sectionTitle ||
-                "[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]"}
-            </span>
+            <span>[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            {evaluationStrategy.sectionTag ||
-              "EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS"}
+            EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS
           </span>
         </div>
 
@@ -899,10 +878,7 @@ export default function MachineLearningDetailView({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
             <div className="flex items-center gap-2 text-indigo-400 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
-              <span>
-                {evaluationStrategy.strategyLabel ||
-                  "EVALUATION STRATEGY // BENCHMARK PROTOCOL"}
-              </span>
+              <span>[ EVALUATION_STRATEGY // BENCHMARK_PROTOCOL ]</span>
             </div>
             <span className="text-slate-300 font-semibold">
               {evaluationStrategy.validationMethod}
@@ -1106,7 +1082,7 @@ export default function MachineLearningDetailView({
                   <span>[ MODEL_INTERPRETATION &amp; ERROR ANALYSIS ]</span>
                 </div>
                 <span className="font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
-                  {modelInterpretationAndLimitations.interpretabilityBadge}
+                  DIAGNOSTIC INSIGHTS
                 </span>
               </div>
 
@@ -1118,7 +1094,7 @@ export default function MachineLearningDetailView({
               {modelInterpretationAndLimitations.keyDrivers.length > 0 && (
                 <div className="space-y-2 mb-5">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-indigo-400 block font-bold">
-                    {modelInterpretationAndLimitations.driversTitle}
+                    KEY MODEL DRIVERS &amp; BEHAVIORAL INSIGHTS
                   </span>
                   {modelInterpretationAndLimitations.keyDrivers.map((drv, i) => (
                     <div

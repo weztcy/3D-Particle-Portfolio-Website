@@ -2700,7 +2700,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "evaluationNote": "Multi-hop cross-referencing completed with zero ungrounded hallucinations."
     },
     "aiEvaluationAndPerformance": {
-      "evalFrameworkBadge": "RAGAS & TRULENS BENCHMARKS",
       "metrics": [
         { "label": "RAGAS Faithfulness", "value": "97.8%", "benchmark": "> 92% Target", "pass": true },
         { "label": "Answer Relevance", "value": "96.2%", "benchmark": "> 90% Target", "pass": true },
@@ -2726,8 +2725,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        { "title": "Multimodal Vision-Language Chunking (ColPali)", "phase": "Q2 2026" },
-        { "title": "On-Device Small Language Model Distillation", "phase": "Q3 2026" }
+        { "title": "Multimodal Vision-Language Chunking (ColPali)" },
+        { "title": "On-Device Small Language Model Distillation" }
       ],
       "summary": "Limitations documented in compliance with enterprise Responsible AI standards and continuous delivery guidelines.",
       "alignmentNote": "ALIGNMENT: Governed by enterprise data privacy, GDPR compliance, and Responsible AI principles."
@@ -3060,7 +3059,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "evaluationNote": "Air-gapped local execution completed with zero external network telemetry."
     },
     "aiEvaluationAndPerformance": {
-      "evalFrameworkBadge": "MEMGPT & LOCAL-EVAL BENCHMARKS",
       "metrics": [
         { "label": "Recall Accuracy", "value": "98.1%", "benchmark": "> 95% Target", "pass": true },
         { "label": "Entity Linking F1", "value": "94.7%", "benchmark": "> 90% Target", "pass": true },
@@ -3086,8 +3084,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        { "title": "Apple Silicon NPU CoreML Acceleration", "phase": "Q2 2026" },
-        { "title": "Hierarchical Temporal Memory Clustering", "phase": "Q3 2026" }
+        { "title": "Apple Silicon NPU CoreML Acceleration" },
+        { "title": "Hierarchical Temporal Memory Clustering" }
       ],
       "summary": "100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints.",
       "alignmentNote": "ALIGNMENT: 100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints."
@@ -3422,7 +3420,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "evaluationNote": "Deterministic arithmetic verification executed in isolated Docker sandbox."
     },
     "aiEvaluationAndPerformance": {
-      "evalFrameworkBadge": "FINQA & MATH-EVAL BENCHMARKS",
       "metrics": [
         { "label": "Arithmetic Accuracy", "value": "100.0%", "benchmark": "100% Code Verified", "pass": true },
         { "label": "Table Extraction F1", "value": "98.6%", "benchmark": "> 95% Target", "pass": true },
@@ -3448,8 +3445,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        { "title": "Monte Carlo Scenario Simulation Engine", "phase": "Q2 2026" },
-        { "title": "Real-time SEC EDGAR WebSocket Stream Ingestion", "phase": "Q3 2026" }
+        { "title": "Monte Carlo Scenario Simulation Engine" },
+        { "title": "Real-time SEC EDGAR WebSocket Stream Ingestion" }
       ],
       "summary": "SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution.",
       "alignmentNote": "ALIGNMENT: SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution."
@@ -3738,8 +3735,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "mlVisualizationTelemetryNote": "Min-Max scaling significantly surpasses Z-Score, Decimal Scaling & unscaled raw baselines across all k bounds.",
     "mlModelInterpretationAndLimitations": {
-      "interpretabilityBadge": "SHAP / GINI",
-      "driversTitle": "PREDICTOR IMPORTANCE & FEATURE DRIVERS",
       "interpretationSummary": "Feature pruning and normalization conclusively proved that Glucose and BMI account for over 56% of predictive decision boundaries in instance space. Min-Max normalization prevented insulin magnitude scaling artifacts, yielding statistically significant (p = 0.00003) diagnostic consistency.",
       "keyDrivers": [
         {
@@ -4050,9 +4045,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "mlEvaluationStrategy": {
-      "sectionTitle": "[ 05 // NUMERICAL VERIFICATION & INVARIANT DIAGNOSTICS ]",
-      "sectionTag": "CONSERVATION LAWS // PRECISION AUDIT // VECTOR STABILITY",
-      "strategyLabel": "NUMERICAL VERIFICATION // INVARIANT CONSERVATION",
       "validationMethod": "Analytical Benchmark Validation & Conservation Invariant Tests",
       "description": "Validation suite comparing numerical outputs against known analytical physics problems (two-body inelastic collisions, symmetrical planetary arrays, and chaotic n-body centers).",
       "metrics": [
@@ -4113,9 +4105,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "mlVisualizationTelemetryNote": "Physics telemetry rendered from vectorized planar coordinate traces, velocity vector decomposition, and system kinetic energy partition diagnostics.",
     "mlModelInterpretationAndLimitations": {
-      "interpretabilityBadge": "CONSERVATION INVARIANCE // AUDIT",
       "interpretationSummary": "Numerical benchmarking demonstrates that vectorized batch dot-products compute barycentric coordinates 45x faster than iterative loops while maintaining absolute zero floating-point momentum drift.",
-      "driversTitle": "KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS",
       "keyDrivers": [
         {
           "factor": "Dominant Mass Particle",
@@ -4427,9 +4417,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "mlEvaluationStrategy": {
-      "sectionTitle": "[ 05 // GEOMETRIC VERIFICATION & ANALYTICAL DIAGNOSTICS ]",
-      "sectionTag": "EUCLIDEAN PROOFS // SPATIAL STABILITY // BOUNDARY CHECKS",
-      "strategyLabel": "GEOMETRIC VERIFICATION // ANALYTICAL PROOF SUITE",
       "validationMethod": "Analytical Geometry Benchmark Suite",
       "description": "Validation comparing calculated areas, perimeters, and centroids against exact mathematical proofs across regular n-gons (n=3..100) and concave star polygons.",
       "metrics": [
@@ -4485,9 +4472,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "mlVisualizationTelemetryNote": "Geometric diagnostic snapshots rendered from planar contour solver test suites and interactive GUI verification views.",
     "mlModelInterpretationAndLimitations": {
-      "interpretabilityBadge": "GEOMETRIC VERIFICATION // AUDIT",
       "interpretationSummary": "Calgeo guarantees absolute mathematical precision across 2D shapes, eliminating CAD calculation errors while offering an intuitive standalone interface.",
-      "driversTitle": "KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS",
       "keyDrivers": [
         {
           "factor": "Vertex Coordinate Sequence",

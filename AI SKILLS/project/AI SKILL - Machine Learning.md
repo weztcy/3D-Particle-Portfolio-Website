@@ -63,9 +63,10 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - `mlProjectInfo.capabilityBadges`: **WAJIB tepat 3 item**, masing-masing **maksimal 3 kata**, tanpa underscore (`_`).
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
-3. **Section 2, 3, & 5 (Skema Kanonik Universal & Label Kustom Penuh)**:
+3. **Section 2, 3, & 5 (Skema Kanonik Universal)**:
    - Gunakan skema kanonik universal (`mlDatasetOverview`, `mlFeaturesAndDataCharacteristics` dengan `objectiveOutput` & `inputSignals`, serta `objectiveCriterion` & `optimizationSolver` pada `mlModelArchitectureAndTraining`). **Jangan gunakan field legacy** (`targetVariable`, `inputFeatures`, `lossFunction`, `optimizer`, `topPredictors`).
-   - **Label Fully Customizable pada Section 5 (`mlEvaluationStrategy`)**: Tidak semua project Machine Learning berorientasi pada metrik evaluasi prediktif (misalnya Unsupervised Clustering, Reinforcement Learning, Generative Modeling, atau Numerical Simulation). Oleh karena itu, sesuaikan `sectionTitle`, `sectionTag`, `strategyLabel`, `validationMethod`, dan `metrics` (boleh diisi observasi perilaku/sistem yang terverifikasi **atau** dikosongkan `[]` jika memang tidak menggunakan metrik numerik). Jaga `metrics[].value` tetap ringkas (± ≤10 karakter) agar tidak terpotong ellipsis (`truncate`) di UI.
+   - **Heading & Subheading Static Universal pada Section 5**: Seluruh heading dan subheading di Section 5 bersifat static universal pada template (Heading: `[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]`, Tag: `EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS`, Card 1: `[ EVALUATION_STRATEGY // BENCHMARK_PROTOCOL ]`, Card 3: `[ MODEL_INTERPRETATION & ERROR ANALYSIS ]` dengan badge static `DIAGNOSTIC INSIGHTS`, serta blok `KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS`, `MODEL LIMITATIONS`, `FUTURE IMPROVEMENTS ROADMAP`). Tidak diperbolehkan menyertakan field custom header (`sectionTitle`, `sectionTag`, `strategyLabel`, `interpretabilityBadge`, `driversTitle`) di dalam data.
+   - Variasi jenis project (Supervised, Unsupervised, Reinforcement Learning, Deep Learning, Computer Vision, maupun Simulasi Numerik) diwadahi melalui isi data: `validationMethod`, narasi `description`, array `metrics` (opsional, `value` ringkas ≤10–12 karakter agar tidak terpotong), `keyDrivers`, `limitations`, dan `futureImprovements`.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti project.
 4. **Section 4 (`techStack` & `mlTechStack`)**:
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"PyTorch"`, `"Scikit-Learn"`, `"XGBoost"`, `"NumPy"`, BUKAN `"PyTorch 2.3 (CUDA)"`).
@@ -238,10 +239,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     ]
   },
   "mlEvaluationStrategy": {
-    "sectionTitle": "<Opsional: Custom Header Section 5 sesuai jenis project, misal [ 05 // MODEL VALIDATION & BEHAVIORAL DIAGNOSTICS ]>",
-    "sectionTag": "<Opsional: Tag kanan atas Section 5 sesuai konteks project>",
-    "strategyLabel": "<WAJIB disesuaikan dengan jenis project: misal POLICY CONVERGENCE // REWARD PROTOCOL, UNSUPERVISED COHESION // CLUSTER STRUCTURE, atau EVALUATION STRATEGY // BENCHMARK PROTOCOL>",
-    "validationMethod": "<Metode validasi/observasi aktual sesuai jenis project>",
+    "validationMethod": "<Metode validasi/observasi aktual sesuai jenis project, misal 5-Fold Stratified Cross-Validation>",
     "description": "<Penjelasan protokol validasi, observasi perilaku model, atau analisis empiris>",
     "metrics": [
       {
@@ -270,8 +268,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
   ],
   "mlVisualizationTelemetryNote": "<Catatan ringkas konsistensi train vs validation>",
   "mlModelInterpretationAndLimitations": {
-    "interpretabilityBadge": "<Misal SHAP Feature Attribution>",
-    "driversTitle": "Primary Predictive Drivers",
     "interpretationSummary": "<Penjelasan bagaimana model mengambil keputusan & pola paling berpengaruh>",
     "keyDrivers": [
       {
@@ -319,7 +315,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Seluruh dataset, notebook, script training/evaluasi, checkpoint model, plot grafik, dan dokumen pendukung telah diinspeksi.
 - [ ] `category` = `"machine-learning"`, `categoryLabel` = `"Machine Learning"`, `accentColor` = `"indigo"`.
 - [ ] Memakai skema kanonik universal (`objectiveOutput`, `inputSignals`, `objectiveCriterion`, `optimizationSolver`), bukan field legacy.
-- [ ] Label `mlEvaluationStrategy` (`strategyLabel`, `sectionTitle`, `sectionTag`, `validationMethod`) disesuaikan dengan jenis project; `metrics` opsional atau diisi indikator terverifikasi dengan `value` ringkas.
+- [ ] Header Section 5 bersifat static universal pada template; isi `mlEvaluationStrategy` (`validationMethod`, `description`, `metrics`) dan `mlModelInterpretationAndLimitations` (`keyDrivers`, `limitations`, `futureImprovements`) disesuaikan dengan jenis project; `metrics` opsional atau diisi indikator terverifikasi dengan `value` ringkas.
 - [ ] `mlProjectInfo.capabilityBadges` berisi **tepat 3 item** (maks 3 kata, tanpa underscore `_`).
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]`, `mlTechStack`, dan `mlMethodologySpecs` **bebas nomor versi** dan tanda kurung; `mlMethodologySpecs` maks 3–4 kata tanpa underscore (`_`).

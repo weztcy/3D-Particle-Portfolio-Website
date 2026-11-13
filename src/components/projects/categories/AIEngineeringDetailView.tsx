@@ -764,14 +764,10 @@ export default function AIEngineeringDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-purple-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-            <span>
-              {aiEvaluationAndPerformance.sectionTitle ||
-                "[ 05 // SYSTEM SHOWCASE & PERFORMANCE BENCHMARKS ]"}
-            </span>
+            <span>[ 05 // SYSTEM SHOWCASE & EVALUATION BENCHMARKS ]</span>
           </div>
           <span className="font-mono text-[11px] text-slate-400">
-            {aiEvaluationAndPerformance.sectionTag ||
-              "RUNTIME_TELEMETRY // QUANTITATIVE_EVAL"}
+            RUNTIME_TELEMETRY // QUALITY_ASSURANCE
           </span>
         </div>
 
@@ -953,8 +949,8 @@ export default function AIEngineeringDetailView({
                 {/* 1. Trigger Input */}
                 <div className="rounded-xl border border-white/10 bg-[#080B14] p-3 space-y-1">
                   <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
-                    <span>{telemetryData.inputLabel || "> USER_INPUT // TRIGGER_EVENT"}</span>
-                    <span className="text-slate-400">{telemetryData.inputTag || "EVENT_IN"}</span>
+                    <span>{"> TRIGGER_INPUT // USER_EVENT"}</span>
+                    <span className="text-slate-400">EVENT_IN</span>
                   </div>
                   <p className="text-slate-200 font-mono text-xs leading-relaxed">
                     {telemetryData.triggerInput}
@@ -966,12 +962,12 @@ export default function AIEngineeringDetailView({
                   <div className="flex items-center gap-2 text-slate-200 font-mono text-[11px]">
                     <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
                     <span className="text-slate-400 uppercase text-[10px]">
-                      {telemetryData.pipelineLabel || "PIPELINE:"}
+                      PIPELINE:
                     </span>
                     <span className="font-semibold text-white truncate">{telemetryData.processingPipeline}</span>
                   </div>
                   <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-400/30 shrink-0">
-                    {telemetryData.pipelineTag || "DETERMINISTIC"}
+                    PROCESSING
                   </span>
                 </div>
 
@@ -980,10 +976,10 @@ export default function AIEngineeringDetailView({
                   <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
                     <span className="flex items-center gap-1.5 text-purple-400">
                       <Sparkles className="h-3 w-3" />
-                      {telemetryData.outputLabel || "SYSTEM_RESPONSE // SYNTHESIS"}
+                      SYSTEM_RESPONSE // SYNTHESIS
                     </span>
                     <span className="text-purple-400 text-[9px]">
-                      {telemetryData.outputTag || "VERIFIED"}
+                      VERIFIED
                     </span>
                   </div>
                   <p className="text-slate-200 font-mono text-xs leading-relaxed whitespace-pre-wrap">
@@ -1001,11 +997,11 @@ export default function AIEngineeringDetailView({
               )}
             </div>
 
-            {/* Customizable Metric Chips (Bottom of Right Card - Max 3 Badges) */}
+            {/* Metric Chips (Bottom of Right Card - Max 3 Badges) */}
             {telemetryData.metrics && telemetryData.metrics.length > 0 && (
               <div className="pt-3 border-t border-white/10">
                 <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 block mb-2 font-bold">
-                  {telemetryData.telemetryChipsLabel || "RUNTIME TELEMETRY CHIPS:"}
+                  RUNTIME TELEMETRY CHIPS:
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {telemetryData.metrics.slice(0, 3).map((m: any, mIdx: number) => (
@@ -1036,12 +1032,11 @@ export default function AIEngineeringDetailView({
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <TrendingUp className="h-4 w-4 text-purple-400" />
                   <span>
-                    {aiEvaluationAndPerformance.evaluationLabel ||
-                      "[ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]"}
+                    [ EMPIRICAL_EVALUATION & SYSTEM_BENCHMARKS ]
                   </span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400 font-semibold">
-                  {aiEvaluationAndPerformance.evalFrameworkBadge || "EMPIRICAL BENCHMARKS"}
+                  EVALUATION_SUITE
                 </span>
               </div>
 
@@ -1087,13 +1082,11 @@ export default function AIEngineeringDetailView({
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <ShieldAlert className="h-4 w-4 text-purple-400" />
                   <span>
-                    {limitationsAndImprovements.constraintsLabel ||
-                      "[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]"}
+                    [ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]
                   </span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400 font-semibold">
-                  {limitationsAndImprovements.guardrailsBadge ||
-                    "GUARDRAILS & TRANSPARENCY"}
+                  GUARDRAILS & TRANSPARENCY
                 </span>
               </div>
 
@@ -1131,15 +1124,15 @@ export default function AIEngineeringDetailView({
                 {limitationsAndImprovements.improvementsRoadmap.map((imp, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between rounded-lg border border-white/10 bg-[#080B14] p-2 font-mono text-[11px] hover:border-purple-400/40 transition-colors"
+                    className="rounded-lg border border-white/10 bg-[#080B14] p-2.5 font-mono text-[11px] hover:border-purple-400/40 transition-colors"
                   >
-                    <span className="text-slate-200 truncate mr-2">
+                    <div className="text-slate-200 font-medium">
                       {imp.title}
-                    </span>
-                    {imp.phase && (
-                      <span className="text-purple-400 font-bold shrink-0">
-                        {imp.phase}
-                      </span>
+                    </div>
+                    {imp.target && (
+                      <p className="text-[11px] text-slate-300 font-sans mt-0.5 leading-relaxed font-normal">
+                        {imp.target}
+                      </p>
                     )}
                   </div>
                 ))}

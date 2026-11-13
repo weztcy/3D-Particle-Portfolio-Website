@@ -63,9 +63,13 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
-3. **Section 2, 3, & 5 (Kritikal & Label Kustom Penuh AI Engineering)**:
+3. **Section 2, 3, & 5 (Kritikal & Static Universal Section 5 AI Engineering)**:
    - **`aiEvaluationAndPerformance` dan `limitationsAndImprovements` WAJIB terisi lengkap** pada Section 5 karena `AIEngineeringDetailView.tsx` merendernya langsung sebagai dua panel bawah Section 5.
-   - **Label Fully Customizable (`aiExecutionTelemetry`, `aiEvaluationAndPerformance`, `limitationsAndImprovements`)**: Tidak semua project AI Engineering menampilkan metrik evaluasi benchmark formal (misalnya AI Chatbot, AI Skills, MCP Servers, Workflow Automation, atau AI-Powered Web/App). Sesuaikan `sectionTitle`, `sectionTag`, `evaluationLabel`, `evalFrameworkBadge`, `telemetryChipsLabel` (dan `inputLabel`/`pipelineLabel`/`outputLabel`, `constraintsLabel`/`guardrailsBadge`) dengan karakteristik project nyata. `metrics` dapat diisi indikator sistem yang terverifikasi **atau** dikosongkan (`[]`) bila tidak tersedia metrik kuantitatif.
+   - **Heading & Subheading Static Universal Section 5**:
+     - Heading Utama Section 5: `[ 05 // SYSTEM SHOWCASE & EVALUATION BENCHMARKS ]` (Tag Kanan: `RUNTIME_TELEMETRY // QUALITY_ASSURANCE`).
+     - Card 2 (`aiExecutionTelemetry`): Sub-block label bersifat static universal (Input: `> TRIGGER_INPUT // USER_EVENT` [Tag: `EVENT_IN`], Pipeline: `PIPELINE:` [Tag: `PROCESSING`], Output: `SYSTEM_RESPONSE // SYNTHESIS` [Tag: `VERIFIED`], Chips: `RUNTIME TELEMETRY CHIPS:`). Field data murni konten: `scenarioTitle`, `scenarioBadge?`, `scenarioDescription?`, `triggerInput`, `processingPipeline`, `executionOutput`, `metrics?`, `evaluationNote?`.
+     - Card 3 (`aiEvaluationAndPerformance`): Subheading Card 3 (`[ EMPIRICAL_EVALUATION & SYSTEM_BENCHMARKS ]`) dan badge pojok kanan (`EVALUATION_SUITE`) bersifat static universal pada template. Berlaku universal untuk seluruh jenis project AI (AI Skill, Automation, RAG, Chatbot, Agentic AI, AI-powered Website, AI-powered App). Jika project non-angka/kualitatif, array `metrics` boleh dikosongkan (`[]`) atau diisi indikator verifikasi perilaku/keandalan sistem, sedangkan evaluasi mendalam diuraikan pada `qualitativeEvaluation`.
+     - Card 4 (`limitationsAndImprovements`): Subheading Card 4 (`[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]`), badge pojok kanan (`GUARDRAILS & TRANSPARENCY`), serta sub-block (`ROADMAP & NEXT ITERATION`) bersifat static universal pada template.
    - `severity` pada `limitations` hanya boleh `"LOW"`, `"MEDIUM"`, atau `"HIGH"`.
    - `aiExecutionTelemetry.metrics`: isi maksimal 3 chip ringkas (UI menampilkan maksimal 3 chip teratas).
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti nyata.
@@ -237,16 +241,9 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "scenarioTitle": "<Judul Skenario Eksekusi Nyata>",
     "scenarioBadge": "<Short Scenario Badge>",
     "scenarioDescription": "<Konteks skenario uji coba / workflow>",
-    "inputLabel": "<Opsional: Label Trigger Input, misal > USER_PROMPT // WORKFLOW_TRIGGER>",
-    "inputTag": "<Opsional: Tag singkat, misal INPUT_EVENT>",
     "triggerInput": "<Contoh input/query/trigger nyata ke sistem>",
-    "pipelineLabel": "<Opsional: Label alur proses, misal ORCHESTRATION:>",
-    "pipelineTag": "<Opsional: Tag sifat pipeline, misal MULTI-STEP / AGENTIC>",
     "processingPipeline": "<Ringkasan langkah pemrosesan agent/retrieval/automation>",
-    "outputLabel": "<Opsional: Label keluaran, misal AGENT_OUTPUT // ACTION_RESULT>",
-    "outputTag": "<Opsional: Tag validasi output, misal VERIFIED>",
     "executionOutput": "<Output terstruktur/terverifikasi yang dihasilkan sistem>",
-    "telemetryChipsLabel": "<Opsional: Label di atas chip, misal SYSTEM EXECUTION SIGNALS: / RUNTIME TELEMETRY CHIPS:>",
     "metrics": [
       {
         "label": "<Signal / Metric Label 1>",
@@ -264,10 +261,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "evaluationNote": "<Catatan telemetri singkat>"
   },
   "aiEvaluationAndPerformance": {
-    "sectionTitle": "<Opsional: Custom Header Section 5, misal [ 05 // SYSTEM WORKFLOW & BEHAVIORAL VALIDATION ]>",
-    "sectionTag": "<Opsional: Tag kanan header Section 5>",
-    "evaluationLabel": "<WAJIB disesuaikan jenis project: misal [ BEHAVIORAL_VALIDATION // SYSTEM_CAPABILITIES ] atau [ QUANTITATIVE_EVALUATION // BENCHMARK_METRICS ]>",
-    "evalFrameworkBadge": "<Misal RAGAS Eval / Production Workflow Audit>",
     "metrics": [
       {
         "label": "<Metric atau Reliability Indicator Name>",
@@ -280,8 +273,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "auditNote": "<Catatan cakupan test suite/verifikasi sistem>"
   },
   "limitationsAndImprovements": {
-    "constraintsLabel": "<Opsional: Custom Header Card Constraints, misal [ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]>",
-    "guardrailsBadge": "<Opsional: Tag kanan card, misal GUARDRAILS & TRANSPARENCY>",
     "limitations": [
       {
         "title": "<Operational Constraint Title>",
@@ -292,7 +283,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "improvementsRoadmap": [
       {
         "title": "<Planned Enhancement Title>",
-        "phase": "<Misal Next Iteration>",
         "target": "<Dampak peningkatan yang dituju>"
       }
     ],
@@ -314,7 +304,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
 - [ ] Seluruh prompt template, workflow graph, vector DB config, hasil eval (`.json`/`.csv`/logs), docs, dan gambar telah diperiksa.
 - [ ] `category` = `"ai-engineering"`, `categoryLabel` = `"AI Engineering"`, `accentColor` = `"purple"`.
-- [ ] **`aiEvaluationAndPerformance` dan `limitationsAndImprovements` WAJIB terisi penuh**; seluruh label Section 5 (`sectionTitle`, `evaluationLabel`, `telemetryChipsLabel`, `constraintsLabel`, dsb.) disesuaikan dengan jenis project AI, dan nilai `severity` hanya `"LOW" | "MEDIUM" | "HIGH"`.
+- [ ] **`aiEvaluationAndPerformance` dan `limitationsAndImprovements` WAJIB terisi penuh**; seluruh heading dan subheading Section 5 bersifat static universal pada template (tidak ada field label/badge kustom), dan nilai `severity` hanya `"LOW" | "MEDIUM" | "HIGH"`.
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]`, `aiTechStack`, dan `aiTechSpecs` **bebas nomor versi** dan tanda kurung; hindari underscore (`_`) pada label/badge UI.
 - [ ] Path showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.

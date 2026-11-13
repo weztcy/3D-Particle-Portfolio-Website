@@ -332,23 +332,13 @@ export interface ProjectCaseStudy {
     scenarioTitle: string;
     scenarioBadge?: string;
     scenarioDescription?: string;
-    inputLabel?: string;
-    inputTag?: string;
     triggerInput: string;
-    pipelineLabel?: string;
-    pipelineTag?: string;
     processingPipeline: string;
-    outputLabel?: string;
-    outputTag?: string;
     executionOutput: string;
-    telemetryChipsLabel?: string;
     metrics?: { label: string; value: string }[];
     evaluationNote?: string;
   };
   aiEvaluationAndPerformance?: {
-    sectionTitle?: string;
-    sectionTag?: string;
-    evaluationLabel?: string;
     metrics?: {
       label: string;
       value: string;
@@ -356,12 +346,9 @@ export interface ProjectCaseStudy {
       pass?: boolean;
     }[];
     qualitativeEvaluation: string;
-    evalFrameworkBadge?: string;
     auditNote?: string;
   };
   limitationsAndImprovements?: {
-    constraintsLabel?: string;
-    guardrailsBadge?: string;
     limitations: {
       title: string;
       description: string;
@@ -370,7 +357,6 @@ export interface ProjectCaseStudy {
     improvementsRoadmap: {
       title: string;
       target?: string;
-      phase?: string;
     }[];
     summary?: string;
     alignmentNote?: string;
@@ -478,9 +464,6 @@ export interface ProjectCaseStudy {
     }[];
   };
   mlEvaluationStrategy?: {
-    sectionTitle?: string;
-    sectionTag?: string;
-    strategyLabel?: string;
     validationMethod: string;
     description: string;
     metrics?: {
@@ -505,14 +488,8 @@ export interface ProjectCaseStudy {
   mlVisualizationTelemetryNote?: string;
   mlModelInterpretationAndLimitations?: {
     interpretationSummary: string;
-    interpretabilityBadge?: string;
-    driversTitle?: string;
     keyDrivers?: {
       factor: string;
-      impact: string;
-    }[];
-    topPredictors?: {
-      feature: string;
       impact: string;
     }[];
     limitations: {
