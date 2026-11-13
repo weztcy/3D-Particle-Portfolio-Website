@@ -1,7 +1,7 @@
 ---
 name: portfolio-code-learning
 description: >-
-  Audits a Code Learning / educational repository comprehensively (syllabus docs, ordered learning modules, submodules, theory notes, runnable source code examples, exercises, unit tests, capstones, and media) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
+  Audits a Code Learning / educational repository comprehensively (syllabus docs, ordered learning modules, exercises, unit tests, capstones, and media) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
 ---
 
 # Code Learning Portfolio Data Generator (`portfolio-code-learning`)
@@ -28,9 +28,9 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Telusuri folder berurutan (`01-*`, `module-*`, `week-*`, `bab-*`), `README.md`, silabus PDF/DOCX/PPTX, serta file peta materi.
    - Hitung secara akurat jumlah total modul (`totalModules`), total submodul (`totalSubmodules`), dan total file source code latihan (`totalSourceCodeFiles`) untuk `codeLearningProjectInfo`.
    - Kelompokkan alur belajar berjenjang ke `codeLearningCurriculumStructure.phases`.
-2. **Konten Teori Submodul & Source Code Riil**:
-   - Baca file penjelasan teori (`.md`, komentar edukatif, `.ipynb` markdown cells) untuk mengisi `theoryContent` (`summary`, `keyPoints`, `conceptualSnippet?`).
-   - Ekstrak snippet atau file kode aktual lengkap beserta hasil eksekusi/test output nyata (`code`, `language`, `output?`) ke dalam `submodules[].sourceCodeFiles` untuk ditampilkan pada code viewer interaktif.
+2. **Modul Pembelajaran & Topik Kunci**:
+   - Analisis topik bahasan per modul, hitung unit materi (`submoduleCount`), identifikasi topik kunci (`keyTopics`), dan estimasi jam belajar (`estimatedHours`).
+   - Tentukan tingkat kesulitan (`difficulty`) secara akurat (`"Beginner"`, `"Intermediate"`, atau `"Advanced"`).
 3. **Exercises, Unit Tests, & Capstone Projects**:
    - Periksa folder `projects/`, `capstone/`, `challenges/`, `tests/`, dan `resources/` (cheatsheet PDF, referensi bacaan).
    - Ekstrak deskripsi tugas praktik nyata ke `codeLearningPracticalProjects` dan referensi tambahan ke `codeLearningSupplementaryResources`.
@@ -176,34 +176,11 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       "moduleNumber": "01",
       "title": "<Module Title>",
       "description": "<Deskripsi cakupan modul>",
-      "submoduleCount": 2,
+      "submoduleCount": 3,
       "difficulty": "Beginner",
       "keyTopics": ["<Topic 1>", "<Topic 2>"],
-      "sourceFilesCount": 2,
-      "estimatedHours": "<Misal 4 Hours>",
-      "submodules": [
-        {
-          "id": "mod-01-sub-01",
-          "submoduleNumber": "01.1",
-          "title": "<Submodule Title>",
-          "description": "<Ringkasan subtopik & latihan>",
-          "duration": "<Misal 45m>",
-          "hasCode": true,
-          "theoryContent": {
-            "summary": "<Penjelasan konsep inti dari catatan/README modul>",
-            "keyPoints": ["<Key Point 1>", "<Key Point 2>"],
-            "conceptualSnippet": "<Potongan sintaks ringkas jika relevan>"
-          },
-          "sourceCodeFiles": [
-            {
-              "fileName": "<actual_file_name.py>",
-              "language": "<python / typescript / cpp>",
-              "code": "<Isi kode aktual dari direktori project>",
-              "output": "<Output terminal/test aktual jika terverifikasi>"
-            }
-          ]
-        }
-      ]
+      "sourceFilesCount": 3,
+      "estimatedHours": "<Misal 4 Hours>"
     }
   ],
   "codeLearningTechStack": {
@@ -280,7 +257,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 ## 5. Checklist Verifikasi Sebelum Menyimpan
 
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
-- [ ] Seluruh folder modul, submodul, silabus PDF/MD, source code aktual, test output, dan resource tambahan telah diperiksa.
+- [ ] Seluruh folder modul, silabus PDF/MD, test output, dan resource tambahan telah diperiksa.
 - [ ] `category` = `"code-learning"`, `categoryLabel` = `"Code Learning"`, `accentColor` = `"orange"`.
 - [ ] Setiap item `codeLearningModules[].difficulty` memakai **strictly** `"Beginner"`, `"Intermediate"`, atau `"Advanced"`.
 - [ ] `codeLearningDescription`, `overview`, dan `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.

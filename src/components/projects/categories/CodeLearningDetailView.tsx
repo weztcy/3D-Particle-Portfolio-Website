@@ -150,7 +150,7 @@ export default function CodeLearningDetailView({
 
   const totalModulesCount = modules.length;
   const totalSubmodulesCount = modules.reduce(
-    (acc, m) => acc + (m.submoduleCount || (m.submodules ? m.submodules.length : 0)),
+    (acc, m) => acc + (m.submoduleCount || 0),
     0
   );
   const totalSourceFilesCount = modules.length * 4;
@@ -432,8 +432,8 @@ export default function CodeLearningDetailView({
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 ) : (
-                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-2.5 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                    <Lock className="h-3.5 w-3.5 text-slate-600" />
+                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-orange-400/30 bg-[#080B14] px-4 py-2.5 font-mono text-xs font-semibold text-orange-400 cursor-not-allowed">
+                    <Lock className="h-3.5 w-3.5 text-orange-400" />
                     <span>RESTRICTED ACCESS</span>
                   </div>
                 )}
@@ -799,7 +799,7 @@ export default function CodeLearningDetailView({
                     <div className="flex flex-col">
                       <span className="font-mono text-[9px] uppercase text-slate-400">Lessons</span>
                       <span className="font-mono text-xs font-bold text-slate-100">
-                        {mod.submoduleCount || (mod.submodules ? mod.submodules.length : 12)} Units
+                        {mod.submoduleCount || 12} Units
                       </span>
                     </div>
 

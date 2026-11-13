@@ -484,8 +484,8 @@ export default function MachineLearningDetailView({
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 ) : (
-                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-2.5 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                    <Lock className="h-3.5 w-3.5 text-slate-600" />
+                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-400/30 bg-[#080B14] px-4 py-2.5 font-mono text-xs font-semibold text-indigo-400 cursor-not-allowed">
+                    <Lock className="h-3.5 w-3.5 text-indigo-400" />
                     <span>RESTRICTED ACCESS</span>
                   </div>
                 )}

@@ -250,7 +250,7 @@ export default function CyberRepoCard({
             <span>PROJECT ARCHIVE</span>
           </div>
 
-          {hasRepoUrl ? (
+          {hasRepoUrl && (
             <span className="relative flex h-2.5 w-2.5">
               <span
                 className={`animate-ping absolute inline-flex h-full w-full rounded-full ${theme.ping} opacity-75`}
@@ -258,10 +258,6 @@ export default function CyberRepoCard({
               <span
                 className={`relative inline-flex rounded-full h-2.5 w-2.5 ${theme.dot}`}
               />
-            </span>
-          ) : (
-            <span className={`flex items-center justify-center ${theme.textAccent}`}>
-              <Lock className={`h-4 w-4 ${theme.icon}`} />
             </span>
           )}
         </div>

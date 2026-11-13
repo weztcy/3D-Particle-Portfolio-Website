@@ -475,8 +475,8 @@ export default function DataAnalyticsDetailView({
                     <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 ) : (
-                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-2.5 font-mono text-xs font-semibold text-slate-500 cursor-not-allowed">
-                    <Lock className="h-3.5 w-3.5 text-slate-600" />
+                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-400/30 bg-[#080B14] px-4 py-2.5 font-mono text-xs font-semibold text-emerald-400 cursor-not-allowed">
+                    <Lock className="h-3.5 w-3.5 text-emerald-400" />
                     <span>RESTRICTED ACCESS</span>
                   </div>
                 )}
@@ -1096,7 +1096,7 @@ export default function DataAnalyticsDetailView({
           <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/50">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-slate-200">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">
                   <HardDrive className="h-4 w-4 text-emerald-400" />
                   <span>DATASET & ARTIFACTS</span>
                 </div>

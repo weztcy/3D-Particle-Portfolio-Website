@@ -120,7 +120,7 @@ Field khusus Section 6 per kategori:
 | `ai-engineering` | `aiTechSpecs`: `{ programmingLanguage, aiFramework, foundationModel }`. | Statis di UI (`aiEvaluationAndPerformance` dari Section 5 melengkapi konteks evaluasi). |
 | `machine-learning` | Memakai `mlDatasetOverview` (`scale`, `inputShape`, `dataFormat`). | `mlMethodologySpecs`: `{ learningParadigm, modelArchitecture, coreFramework, validationMethod }` — maks 3–4 kata per nilai. |
 | `desktop-mobile` | `desktopMobileTechSpecs`: `{ programmingLanguage, framework, localStorage }`. | `desktopMobilePlatformSpecs`: `{ targetPlatform, packageFormat, targetArchitecture, buildFootprint }` — maks 3–4 kata per nilai. |
-| `ui-ux` | `uiUxDesignFile`: `{ platform, url, isPublic, fileStatus, totalFrames, componentsCount, handoffSpecs }`. | `uiUxSystemSpecs`: `{ layoutAndGrid, designTokens, typography, prototypeFidelity }` — maks 3–4 kata per nilai. |
+| `ui-ux` | `uiUxDesignFile`: `{ fileStatus, totalFrames, componentsCount, handoffSpecs }`. | `uiUxSystemSpecs`: `{ layoutAndGrid, designTokens, typography, prototypeFidelity }` — maks 3–4 kata per nilai. |
 | `code-learning` | `codeLearningCurriculumSpecs`: `{ curriculumTrack, primaryLanguage, executionRuntime, testVerification }`. | Mengambil ringkasan struktur & outcome kurikulum (statis di footer card). |
 
 ---
@@ -255,9 +255,8 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `codeLearningCurriculumStructure`: `{ summary, totalEstimatedHours?, phases: { phaseNumber, phaseTitle, difficulty, moduleRange, topics: string[] }[] }`
 - **Section 3 (Curriculum Modules & Topic Architecture):**
   - `codeLearningModules`: array modul belajar dengan field:
-    - `id`, `moduleNumber`, `title`, `description`, `submoduleCount?`, `keyTopics?`, `sourceFilesCount?`, `estimatedHours?`.
+    - `id`, `moduleNumber`, `title`, `description`, `submoduleCount`, `difficulty`, `keyTopics?`, `sourceFilesCount?`, `estimatedHours?`.
     - `difficulty`: **Wajib bernilai persis salah satu dari `"Beginner"`, `"Intermediate"`, atau `"Advanced"`** (*case-sensitive*) agar fitur tab filter modul UI menghitung dan menyaring dengan benar.
-    - `submodules`: `{ id, submoduleNumber, title, description, duration?, hasCode?, theoryContent?: { summary, keyPoints: string[], conceptualSnippet? }, sourceCodeFiles?: { fileName, language, code, output? }[] }[]`
 - **Section 5 (Practical Projects & Learning Outcomes):**
   - `codeLearningPracticalProjects`: `{ title, description, highlights?, coreScope?, trackTag?, tier?, difficulty?, estimatedTime?, scenario?, architecturalConstraints?, acceptanceCriteria? }[]` — **dilarang menyertakan `imageUrl` tambahan** karena kategori Code Learning hanya memakai `banner.webp`.
   - `codeLearningOutcomes`: `{ pillar, skills: { title, description }[] }[]`

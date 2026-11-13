@@ -5667,7 +5667,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "uiUxDesignFile": {
-      "figmaUrl": "https://www.figma.com/design/sample-food-recipe-app",
       "fileStatus": "Published Component Library & Interactive Prototype",
       "totalFrames": 24,
       "componentsCount": 52,
@@ -5993,7 +5992,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "uiUxDesignFile": {
-      "figmaUrl": "https://www.figma.com/design/sample-eparking-app",
       "fileStatus": "Production Design Tokens & Prototype Ready",
       "totalFrames": 32,
       "componentsCount": 68,
@@ -6321,7 +6319,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ]
     },
     "uiUxDesignFile": {
-      "figmaUrl": "https://www.figma.com/design/sample-aorus-gaming-shop",
       "fileStatus": "Published Component Library & Interactive Prototype",
       "totalFrames": 28,
       "componentsCount": 64,
@@ -6617,31 +6614,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Pointer Arithmetic",
           "RAII Idiom",
           "Smart Pointers"
-        ],
-        "submodules": [
-          {
-            "id": "submod-01-1",
-            "submoduleNumber": "01.1",
-            "title": "Stack Frames and Heap Allocation",
-            "description": "Hands-on exploration of stack pointer movements and dynamic allocation overheads.",
-            "hasCode": true,
-            "theoryContent": {
-              "summary": "Understanding physical memory layout prevents catastrophic stack overflows and memory fragmentation.",
-              "keyPoints": [
-                "Stack is contiguous and LIFO",
-                "Heap requires OS system calls via brk/mmap",
-                "RAII guarantees deterministic destructors"
-              ]
-            },
-            "sourceCodeFiles": [
-              {
-                "fileName": "memory_layout.cpp",
-                "language": "cpp",
-                "code": "#include <iostream>\n#include <memory>\n\nstruct Node { int val; };\nint main() {\n  auto ptr = std::make_unique<Node>(Node{42});\n  std::cout << ptr->val << std::endl;\n  return 0;\n}",
-                "output": "42"
-              }
-            ]
-          }
         ]
       },
       {
@@ -6656,31 +6628,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "std::move",
           "Rule of Five",
           "Copy Elision"
-        ],
-        "submodules": [
-          {
-            "id": "submod-02-1",
-            "submoduleNumber": "02.1",
-            "title": "Rvalue References and Ownership Transfer",
-            "description": "Zero-copy resource transfers using move constructors.",
-            "hasCode": true,
-            "theoryContent": {
-              "summary": "Move semantics allow resources to be stolen from temporary objects in O(1) time.",
-              "keyPoints": [
-                "T&& denotes rvalue reference",
-                "std::move casts to rvalue",
-                "Moved-from state must be valid"
-              ]
-            },
-            "sourceCodeFiles": [
-              {
-                "fileName": "move_buffer.cpp",
-                "language": "cpp",
-                "code": "class Buffer { int* p; size_t sz;\npublic:\n  Buffer(Buffer&& o) noexcept : p(o.p), sz(o.sz) { o.p = nullptr; o.sz = 0; }\n};",
-                "output": "Resource moved without reallocation"
-              }
-            ]
-          }
         ]
       },
       {
@@ -6695,31 +6642,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Type Traits",
           "Constexpr Functions",
           "SFINAE"
-        ],
-        "submodules": [
-          {
-            "id": "submod-03-1",
-            "submoduleNumber": "03.1",
-            "title": "Constraining Templates with Concepts",
-            "description": "Replacing verbose SFINAE with elegant requires clauses.",
-            "hasCode": true,
-            "theoryContent": {
-              "summary": "C++20 concepts constrain template arguments at compile-time with clear compiler errors.",
-              "keyPoints": [
-                "concept keyword defines constraints",
-                "requires clause validates expressions",
-                "Zero runtime overhead"
-              ]
-            },
-            "sourceCodeFiles": [
-              {
-                "fileName": "concepts.cpp",
-                "language": "cpp",
-                "code": "template <typename T> concept Numeric = std::integral<T> || std::floating_point<T>;\ntemplate <Numeric T> T add(T a, T b) { return a + b; }",
-                "output": "Template compiled with strict type constraint"
-              }
-            ]
-          }
         ]
       }
     ],
@@ -6808,13 +6730,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "name": "ISO C++ Core Guidelines",
           "type": "Guide",
           "format": "Online Specification",
-          "url": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines"
         },
         {
           "name": "Compiler Explorer (Godbolt)",
           "type": "Starter Template",
           "format": "Interactive Tool",
-          "url": "https://godbolt.org"
         }
       ]
     },
@@ -7043,31 +6963,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Generic Functions",
           "extends Keyof Constraints",
           "Discriminated Unions"
-        ],
-        "submodules": [
-          {
-            "id": "submod-01-1",
-            "submoduleNumber": "01.1",
-            "title": "Type-Safe Object Property Picker",
-            "description": "Implementing key-safe object lookups without runtime error risks.",
-            "hasCode": true,
-            "theoryContent": {
-              "summary": "Constraining K extends keyof T ensures that only valid property names are permitted at compile-time.",
-              "keyPoints": [
-                "keyof produces string literal union",
-                "T[K] extracts indexed access type",
-                "Autocomplete suggests valid keys"
-              ]
-            },
-            "sourceCodeFiles": [
-              {
-                "fileName": "generic_picker.ts",
-                "language": "typescript",
-                "code": "function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}\nconst user = { id: 101, username: 'alex' } as const;\nconst username = getProperty(user, 'username');",
-                "output": "Inferred as 'alex'"
-              }
-            ]
-          }
         ]
       },
       {
@@ -7081,31 +6976,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Conditional Types",
           "The infer Keyword",
           "Tail-Call Recursion"
-        ],
-        "submodules": [
-          {
-            "id": "submod-02-1",
-            "submoduleNumber": "02.1",
-            "title": "Recursive Promise Unwrapping",
-            "description": "Deep unwrap of multi-level Promise structures using infer.",
-            "hasCode": true,
-            "theoryContent": {
-              "summary": "Conditional types evaluate conditions on types, enabling recursive type transformations.",
-              "keyPoints": [
-                "T extends Promise<infer U> extracts inner type",
-                "Recursive call unwraps arbitrarily nested promises",
-                "Base case returns non-promise type"
-              ]
-            },
-            "sourceCodeFiles": [
-              {
-                "fileName": "deep_awaited.ts",
-                "language": "typescript",
-                "code": "type DeepAwaited<T> = T extends Promise<infer U> ? DeepAwaited<U> : T;\ntype Result = DeepAwaited<Promise<Promise<string>>>;",
-                "output": "Result is strictly string"
-              }
-            ]
-          }
         ]
       },
       {
@@ -7119,31 +6989,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "Structural vs Nominal",
           "Unique Symbols",
           "Smart Constructors"
-        ],
-        "submodules": [
-          {
-            "id": "submod-03-1",
-            "submoduleNumber": "03.1",
-            "title": "UserId vs OrderId Nominal Guard",
-            "description": "Compile-time prevention of accidental primitive variable swapping.",
-            "hasCode": true,
-            "theoryContent": {
-              "summary": "Unique symbols create compile-time nominal types with zero runtime execution cost.",
-              "keyPoints": [
-                "declare const Brand: unique symbol",
-                "Intersection with brand tag creates nominal type",
-                "Smart constructor enforces validation"
-              ]
-            },
-            "sourceCodeFiles": [
-              {
-                "fileName": "branded_types.ts",
-                "language": "typescript",
-                "code": "declare const Brand: unique symbol;\ntype Branded<T, B> = T & { readonly [Brand]: B };\ntype UserId = Branded<string, 'UserId'>;\nfunction makeUserId(id: string): UserId { return id as UserId; }",
-                "output": "Type-checked at compile-time"
-              }
-            ]
-          }
         ]
       }
     ],
@@ -7237,14 +7082,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "name": "TypeScript Official Handbook",
           "type": "Guide",
-          "format": "Documentation",
-          "url": "https://www.typescriptlang.org/docs/handbook/intro.html"
+          "format": "Documentation"
         },
         {
           "name": "Type-Challenges Repository",
           "type": "Starter Template",
-          "format": "Interactive Problem Set",
-          "url": "https://github.com/type-challenges/type-challenges"
+          "format": "Interactive Problem Set"
         }
       ]
     },

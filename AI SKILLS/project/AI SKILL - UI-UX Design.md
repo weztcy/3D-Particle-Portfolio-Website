@@ -1,7 +1,7 @@
 ---
 name: portfolio-ui-ux-design
 description: >-
-  Audits a UI/UX Design project directory comprehensively (Figma files/links, design tokens CSS/JSON, wireframes, high-fidelity mockups, user personas, UX research reports, usability testing logs, and prototypes) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
+  Audits a UI/UX Design project directory comprehensively (design source files, design tokens CSS/JSON, wireframes, high-fidelity mockups, user personas, UX research reports, usability testing logs, and prototypes) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
 ---
 
 # UI/UX Design Portfolio Data Generator (`portfolio-ui-ux-design`)
@@ -50,7 +50,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 2. **Section 1 (Hero Console & Telemetry)**:
    - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
-   - `uiUxDesignFile`: isi link Figma (`url` / `figmaUrl`) & `isPublic` jika tersedia secara publik; sesuaikan `fileStatus` jika privat.
+   - `uiUxDesignFile`: isi spesifikasi file design `{ fileStatus, totalFrames, componentsCount, handoffSpecs }` (seluruh akses file/repo dikendalikan universal oleh `repoUrl`).
 3. **Section 2, 3, & 5**:
    - Pada `uiUxDesignSystem.colorPalette`, setiap nilai `hex` **WAJIB berformat valid `#RRGGBB`** (contoh: `"#E11D48"`, `"#0F172A"`).
    - Jumlah item array pada riset, persona, flow, visual showcase, design system, dan iterasi UT **bebas** sesuai bukti riil project.
@@ -87,7 +87,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
   "year": "<YYYY>",
   "status": "Completed",
   "accentColor": "rose",
-  "repoUrl": "<https://github.com/... atau hapus field ini jika hanya Figma / Private>",
+  "repoUrl": "<https://github.com/... atau hapus field ini jika Private>",
   "license": "<MIT License / CC BY 4.0 atau hapus jika Private>",
   "imageUrl": "/images/projects/<nama_project>/banner.webp",
   "images": [
@@ -256,13 +256,10 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     ]
   },
   "uiUxDesignFile": {
-    "platform": "Figma",
-    "url": "<Link Figma jika publik atau hapus>",
-    "isPublic": true,
-    "fileStatus": "<Published Prototype / Restricted Design Archive>",
-    "totalFrames": "<Jumlah Artboard/Frame terukur>",
-    "componentsCount": "<Jumlah Komponen/Variant>",
-    "handoffSpecs": "<Ringkasan spesifikasi developer handoff>"
+    "fileStatus": "<Published Component Library / Production Design Archive>",
+    "totalFrames": 24,
+    "componentsCount": 52,
+    "handoffSpecs": "<Ringkasan spesifikasi developer handoff, auto-layout, & variable tokens>"
   },
   "uiUxSystemSpecs": {
     "layoutAndGrid": "<Max 3-4 Kata Tanpa Underscore>",

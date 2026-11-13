@@ -688,7 +688,6 @@ export interface ProjectCaseStudy {
   };
   uiUxUsabilityValidation?: {
     [key: string]: any;
-    prototypeUrl?: string;
     susScore?: string;
     taskSuccessRate?: string;
     timeOnTask?: string;
@@ -707,22 +706,10 @@ export interface ProjectCaseStudy {
   };
   uiUxDesignFile?: {
     [key: string]: any;
-    platform?: string;
-    url?: string;
-    isPublic?: boolean;
-    description?: string;
-    figmaUrl?: string;
     fileStatus?: string;
     totalFrames?: number;
     componentsCount?: number;
     handoffSpecs?: string;
-  };
-  uiUxPrototypeAndHandoff?: {
-    [key: string]: any;
-    prototypeUrl?: string;
-    handoffStatus?: string;
-    specs?: { label: string; value: string }[];
-    description?: string;
   };
   uiUxSystemSpecs?: {
     layoutAndGrid: string;
@@ -773,31 +760,11 @@ export interface ProjectCaseStudy {
     moduleNumber: string;
     title: string;
     description: string;
-    submoduleCount?: number;
+    submoduleCount: number;
     difficulty: string;
     keyTopics?: string[];
     sourceFilesCount?: number;
     estimatedHours?: string;
-    submodules?: {
-      id: string;
-      submoduleNumber: string;
-      title: string;
-      description: string;
-      duration?: string;
-      hasCode?: boolean;
-      theoryContent?: {
-        summary: string;
-        keyPoints: string[];
-        conceptualSnippet?: string;
-      };
-      sourceCodeFiles?: {
-        fileName: string;
-        language: string;
-        code: string;
-        output?: string;
-      }[];
-      [key: string]: any;
-    }[];
     [key: string]: any;
   }[];
   codeLearningTechStack?: {
@@ -836,7 +803,16 @@ export interface ProjectCaseStudy {
     executionRuntime: string;
     testVerification: string;
   };
-  codeLearningSupplementaryResources?: any;
+  codeLearningSupplementaryResources?: {
+    title?: string;
+    description?: string;
+    resources?: {
+      name: string;
+      type?: string;
+      format?: string;
+    }[];
+    [key: string]: any;
+  };
 
   // Flexible domain extensions
   [key: string]: any;

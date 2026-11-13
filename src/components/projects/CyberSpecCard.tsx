@@ -251,9 +251,9 @@ export default function CyberSpecCard({
         </button>
       ) : (
         <div
-          className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-[#080B14] px-4 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed"
+          className={`w-full inline-flex items-center justify-center gap-2 rounded-xl border ${theme.border} bg-[#080B14] px-4 py-3 font-mono text-xs font-semibold ${theme.textAccent} cursor-not-allowed`}
         >
-          <Lock className="h-4 w-4 text-slate-500" />
+          <Lock className={`h-4 w-4 ${theme.iconColor}`} />
           <span>{action?.label || "RESTRICTED ACCESS"}</span>
         </div>
       )}
