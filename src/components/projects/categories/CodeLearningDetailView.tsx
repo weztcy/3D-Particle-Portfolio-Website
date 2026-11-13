@@ -306,7 +306,7 @@ export default function CodeLearningDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-orange-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-orange-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -378,11 +378,7 @@ export default function CodeLearningDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  isPublicRepo
-                    ? "border-white/10 bg-black/50 hover:border-orange-400/50 hover:shadow-[0_0_25px_rgba(249,115,22,0.12)]"
-                    : "border-white/10 bg-black/60 hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-orange-400/50 hover:shadow-[0_0_25px_rgba(249,115,22,0.12)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-orange-400/60" />
@@ -393,7 +389,7 @@ export default function CodeLearningDetailView({
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-orange-400">
-                      <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-orange-400" : "h-3.5 w-3.5 text-slate-400"} />
+                      <FolderGit2 className="h-3.5 w-3.5 text-orange-400" />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -403,7 +399,7 @@ export default function CodeLearningDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={isPublicRepo ? "text-orange-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-orange-400 font-semibold text-[11px]">
                         {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -413,7 +409,7 @@ export default function CodeLearningDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-orange-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-orange-400 font-semibold text-[11px]">
                         {isPublicRepo ? (project.license || "MIT / Educational") : "Proprietary Rights"}
                       </span>
                     </div>

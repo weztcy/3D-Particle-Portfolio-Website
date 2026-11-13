@@ -414,7 +414,7 @@ export default function DesktopMobileDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-amber-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-amber-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -486,11 +486,7 @@ export default function DesktopMobileDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  isPublicRepo
-                    ? "border-white/10 bg-[#080B14] hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
-                    : "border-white/10 bg-[#080B14] hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.16)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-amber-400/60" />
@@ -500,8 +496,8 @@ export default function DesktopMobileDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
-                      <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-amber-400" : "h-3.5 w-3.5 text-slate-400"} />
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-amber-400">
+                      <FolderGit2 className="h-3.5 w-3.5 text-amber-400" />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -511,7 +507,7 @@ export default function DesktopMobileDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={isPublicRepo ? "text-amber-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-amber-400 font-semibold text-[11px]">
                         {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -521,7 +517,7 @@ export default function DesktopMobileDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-amber-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-amber-400 font-semibold text-[11px]">
                         {isPublicRepo ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -603,7 +599,7 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: Problem Statements */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <AlertTriangle className="h-4 w-4 text-amber-400" />
               <span>Target Constraints & Bottlenecks</span>
             </div>
@@ -635,7 +631,7 @@ export default function DesktopMobileDetailView({
 
           {/* Right Column: Project Objectives */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Sparkles className="h-4 w-4 text-amber-400" />
               <span>Architectural Objectives & Targets</span>
             </div>
@@ -703,7 +699,7 @@ export default function DesktopMobileDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
-              <span className="font-bold text-white">
+              <span className="font-bold text-amber-400">
                 CLIENT_VIEWPORT // INTERFACE_STAGE
               </span>
             </div>
@@ -800,7 +796,7 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column (6/12): Core Features */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Zap className="h-4 w-4 text-amber-400" />
               <span>Core Application Capabilities</span>
             </div>
@@ -832,7 +828,7 @@ export default function DesktopMobileDetailView({
 
           {/* Right Column (6/12): User Flow & Interaction Pipeline */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Workflow className="h-4 w-4 text-amber-400" />
                 <span>User Interaction & Execution Flow</span>
@@ -977,7 +973,7 @@ export default function DesktopMobileDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: Data Management & Integration */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Database className="h-4 w-4 text-amber-400" />
               <span>Data Management & Storage Pipeline</span>
             </div>
@@ -1009,7 +1005,7 @@ export default function DesktopMobileDetailView({
 
           {/* Right Column: Platform Implementation */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Monitor className="h-4 w-4 text-amber-400" />
               <span>Native Platform Implementation</span>
             </div>

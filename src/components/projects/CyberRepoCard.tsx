@@ -220,11 +220,7 @@ export default function CyberRepoCard({
 
   return (
     <div
-      className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)] ${
-        hasRepoUrl
-          ? `${theme.border} ${theme.bg}`
-          : `${theme.border} bg-[#080B14] hover:border-white/20`
-      }`}
+      className={`group relative flex flex-col justify-between rounded-2xl border ${theme.border} ${theme.bg} p-5 sm:p-7 shadow-lg transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]`}
     >
       {/* 4 Optical Corner Crosshairs */}
       <div
@@ -249,17 +245,6 @@ export default function CyberRepoCard({
             <FolderGit2 className={`h-4 w-4 ${theme.icon} shrink-0`} />
             <span>PROJECT ARCHIVE</span>
           </div>
-
-          {hasRepoUrl && (
-            <span className="relative flex h-2.5 w-2.5">
-              <span
-                className={`animate-ping absolute inline-flex h-full w-full rounded-full ${theme.ping} opacity-75`}
-              />
-              <span
-                className={`relative inline-flex rounded-full h-2.5 w-2.5 ${theme.dot}`}
-              />
-            </span>
-          )}
         </div>
 
         {/* Title */}
@@ -294,7 +279,7 @@ export default function CyberRepoCard({
 
           <div className="flex items-center justify-between text-slate-400">
             <span className="uppercase text-[11px]">LICENSE:</span>
-            <span className="text-slate-200 font-semibold">
+            <span className={`${theme.textAccent} font-semibold`}>
               {hasRepoUrl ? (license || "MIT License") : "Proprietary Rights"}
             </span>
           </div>
@@ -322,7 +307,7 @@ export default function CyberRepoCard({
           <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       ) : (
-        <div className={`w-full inline-flex items-center justify-center gap-2 rounded-xl border ${theme.border} bg-[#080B14] px-5 py-3 font-mono text-xs font-semibold ${theme.textAccent} cursor-not-allowed`}>
+        <div className={`w-full inline-flex items-center justify-center gap-2 rounded-xl border ${theme.badgeBorder} bg-[#080B14] px-5 py-3 font-mono text-xs font-semibold ${theme.textAccent} cursor-not-allowed`}>
           <Lock className={`h-4 w-4 ${theme.icon}`} />
           <span>RESTRICTED ACCESS</span>
         </div>

@@ -269,7 +269,7 @@ export default function WebDevDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-sky-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-sky-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -341,11 +341,7 @@ export default function WebDevDetailView({
 
               {/* VCS Repository Access Sub-Card */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  hasRepoUrl
-                    ? "border-white/10 bg-[#080B14] hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
-                    : "border-white/10 bg-[#080B14] hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.16)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-sky-400/60" />
@@ -355,8 +351,8 @@ export default function WebDevDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
-                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-sky-400" : "h-3.5 w-3.5 text-slate-400"} />
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-sky-400">
+                      <FolderGit2 className="h-3.5 w-3.5 text-sky-400" />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -366,7 +362,7 @@ export default function WebDevDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-sky-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-sky-400 font-semibold text-[11px]">
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -376,7 +372,7 @@ export default function WebDevDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-sky-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-sky-400 font-semibold text-[11px]">
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -452,7 +448,7 @@ export default function WebDevDetailView({
           <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-sky-400" />
                   <span>[ ISSUE_DETECTED // PROBLEM STATEMENT ]</span>
                 </div>
@@ -493,7 +489,7 @@ export default function WebDevDetailView({
           <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Target className="h-4 w-4 text-sky-400" />
                   <span>[ TARGET_SOLVED // STRATEGIC OBJECTIVES ]</span>
                 </div>
@@ -654,7 +650,7 @@ export default function WebDevDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-sky-400" />
                   <span>[ CORE_FEATURES // CAPABILITY MATRIX ]</span>
                 </div>
@@ -695,7 +691,7 @@ export default function WebDevDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Workflow className="h-4 w-4 text-sky-400" />
                   <span>[ USER_FLOW // INTERACTION PIPELINE ]</span>
                 </div>
@@ -779,7 +775,7 @@ export default function WebDevDetailView({
           <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Network className="h-4 w-4 text-sky-400" />
                   <span>[ SYSTEM_ARCHITECTURE // TOPOLOGY ]</span>
                 </div>
@@ -799,7 +795,7 @@ export default function WebDevDetailView({
                     key={idx}
                     className="rounded-xl border border-white/10 bg-black/50 p-3.5 transition-all hover:border-sky-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-400 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-white mb-1">
                       <span>{layer.name}</span>
                       <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
                     </div>
@@ -830,7 +826,7 @@ export default function WebDevDetailView({
           <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Database className="h-4 w-4 text-sky-400" />
                   <span>[ DATABASE_SCHEMA // DATA_FLOW ]</span>
                 </div>
@@ -850,7 +846,7 @@ export default function WebDevDetailView({
                     key={idx}
                     className="rounded-xl border border-white/10 bg-black/50 p-3.5 transition-all hover:border-sky-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-400 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-white mb-1">
                       <span>{item.name}</span>
                       <span className="rounded bg-sky-500/10 border border-sky-400/20 px-1.5 py-0.2 font-mono text-[9px] text-sky-400">
                         {item.type}
@@ -880,7 +876,7 @@ export default function WebDevDetailView({
         {/* Technical Implementation Deck (Modular List/Cards Below) */}
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-white">
+            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-sky-400">
               <Zap className="h-4 w-4 text-sky-400" />
               <span>[ TECHNICAL_IMPLEMENTATION // REAL-WORLD PROTOCOLS ]</span>
             </div>
@@ -954,7 +950,7 @@ export default function WebDevDetailView({
             accentColor="sky"
             icon={FileText}
             categoryTag="TECHNICAL SPECIFICATION"
-            title="Technical Documentation & System Specs"
+            title="Technical & System Documentation"
             description="Fullstack architecture specifications covering core language runtimes, primary frameworks, persistence engines, and hardened security posture."
             specs={webDevSpecs}
             action={

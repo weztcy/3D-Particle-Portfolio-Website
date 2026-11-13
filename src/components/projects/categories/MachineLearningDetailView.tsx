@@ -358,7 +358,7 @@ export default function MachineLearningDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-indigo-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-indigo-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -430,22 +430,18 @@ export default function MachineLearningDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  hasRepoUrl
-                    ? "hover:border-indigo-400/50 hover:shadow-[0_0_25px_rgba(99,102,241,0.16)]"
-                    : "hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-indigo-400/50 hover:shadow-[0_0_25px_rgba(99,102,241,0.16)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
-                <div className={`pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
-                <div className={`pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
-                <div className={`pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
-                <div className={`pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 ${hasRepoUrl ? "border-indigo-400/60" : "border-white/20"}`} />
+                <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-indigo-400/60" />
+                <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-indigo-400/60" />
+                <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-indigo-400/60" />
+                <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-indigo-400/60" />
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-indigo-400" : "text-slate-400"}`}>
-                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-indigo-400" : "h-3.5 w-3.5 text-slate-400"} />
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-indigo-400">
+                      <FolderGit2 className="h-3.5 w-3.5 text-indigo-400" />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -455,7 +451,7 @@ export default function MachineLearningDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-indigo-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-indigo-400 font-semibold text-[11px]">
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -465,7 +461,7 @@ export default function MachineLearningDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-slate-200 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-indigo-400 font-semibold text-[11px]">
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -1127,10 +1123,14 @@ export default function MachineLearningDetailView({
                   {modelInterpretationAndLimitations.keyDrivers.map((drv, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#080B14] px-3 py-1.5 font-mono text-xs"
+                      className="rounded-lg border border-white/10 bg-[#080B14] p-2.5 hover:border-indigo-400/40 transition-colors"
                     >
-                      <span className="text-slate-300">{drv.factor}</span>
-                      <span className="font-bold text-indigo-300 text-right">{drv.impact}</span>
+                      <div className="font-mono text-[11px] font-bold text-slate-200 mb-0.5">
+                        {drv.factor}
+                      </div>
+                      <p className="font-mono text-[11px] text-indigo-300 leading-relaxed font-normal">
+                        {drv.impact}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -1157,19 +1157,21 @@ export default function MachineLearningDetailView({
               </div>
 
               {/* Future Improvements */}
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-indigo-400 block font-bold">
                   FUTURE IMPROVEMENTS ROADMAP
                 </span>
                 {modelInterpretationAndLimitations.futureImprovements.map((imp, i) => (
                   <div
                     key={i}
-                    className="flex items-baseline justify-between rounded-lg border border-white/10 bg-[#080B14] px-3 py-1.5 font-mono text-[11px] hover:border-indigo-400/40 transition-colors"
+                    className="rounded-lg border border-white/10 bg-[#080B14] p-2.5 hover:border-indigo-400/40 transition-colors"
                   >
-                    <span className="text-slate-200 font-semibold">{imp.title}:</span>
-                    <span className="text-indigo-300 text-[10px] truncate ml-2">
+                    <div className="font-mono text-[11px] font-bold text-slate-200 mb-0.5">
+                      {imp.title}
+                    </div>
+                    <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
                       {imp.target}
-                    </span>
+                    </p>
                   </div>
                 ))}
               </div>

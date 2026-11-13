@@ -322,7 +322,7 @@ export default function AIEngineeringDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-purple-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-purple-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -394,22 +394,18 @@ export default function AIEngineeringDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  hasRepoUrl
-                    ? "hover:border-purple-400/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.16)]"
-                    : "hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-purple-400/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.16)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
-                <div className={`pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
-                <div className={`pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
-                <div className={`pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
-                <div className={`pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 ${hasRepoUrl ? "border-purple-400/60" : "border-white/20"}`} />
+                <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-purple-400/60" />
+                <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-purple-400/60" />
+                <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-purple-400/60" />
+                <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-purple-400/60" />
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-purple-400" : "text-slate-400"}`}>
-                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-purple-400" : "h-3.5 w-3.5 text-slate-400"} />
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-purple-400">
+                      <FolderGit2 className="h-3.5 w-3.5 text-purple-400" />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -419,7 +415,7 @@ export default function AIEngineeringDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-purple-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-purple-400 font-semibold text-[11px]">
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -429,7 +425,7 @@ export default function AIEngineeringDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-slate-200 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-purple-400 font-semibold text-[11px]">
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -1194,7 +1190,7 @@ export default function AIEngineeringDetailView({
             accentColor="purple"
             icon={FileText}
             categoryTag="MODEL SPECS & DOCUMENTATION"
-            title="AI Systems & Orchestration Architecture"
+            title="AI Orchestration Architecture"
             description="Universal AI engineering specification detailing core languages, orchestration frameworks, foundation models, and safety guardrails across agentic and AI-powered systems."
             specs={[
               { label: "PROGRAMMING LANGUAGE", value: aiTechSpecs.programmingLanguage },

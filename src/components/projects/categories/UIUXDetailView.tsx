@@ -350,7 +350,7 @@ export default function UIUXDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-rose-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-rose-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -422,11 +422,7 @@ export default function UIUXDetailView({
 
               {/* VCS Repository Access Sub-Card (Copied from Section 6) */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  isPublicRepo
-                    ? "border-white/10 bg-[#080B14] hover:border-rose-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
-                    : "border-white/10 bg-[#080B14] hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-rose-400/50 hover:shadow-[0_0_25px_rgba(244,63,94,0.16)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-rose-400/60" />
@@ -436,8 +432,8 @@ export default function UIUXDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
-                      <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-rose-400" : "h-3.5 w-3.5 text-slate-400"} />
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-rose-400">
+                      <FolderGit2 className="h-3.5 w-3.5 text-rose-400" />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -447,7 +443,7 @@ export default function UIUXDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={isPublicRepo ? "text-rose-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-rose-400 font-semibold text-[11px]">
                         {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -457,7 +453,7 @@ export default function UIUXDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-rose-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-rose-400 font-semibold text-[11px]">
                         {isPublicRepo ? (project.license || "CC BY-NC 4.0") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -537,7 +533,7 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left Column: User Research Methods & Findings */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Users className="h-4 w-4 text-rose-400" />
               <span>User Research Methodologies & Findings</span>
             </div>
@@ -577,7 +573,7 @@ export default function UIUXDetailView({
 
           {/* Right Column: User Personas & Pain Points */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <UserCheck className="h-4 w-4 text-rose-400" />
               <span>Target Personas & Critical Pain Points</span>
             </div>
@@ -674,7 +670,7 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column (6/12): Information Architecture */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Compass className="h-4 w-4 text-rose-400" />
                 <span>Information Architecture & Sitemap</span>
@@ -717,7 +713,7 @@ export default function UIUXDetailView({
 
           {/* Right Column (6/12): User Flow */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Workflow className="h-4 w-4 text-rose-400" />
                 <span>User Journey & Task Interaction Flow</span>
@@ -908,7 +904,7 @@ export default function UIUXDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column (6/12): Design System & Components */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Layers className="h-4 w-4 text-rose-400" />
               <span>Design System Foundations & Tokens</span>
             </div>
@@ -992,7 +988,7 @@ export default function UIUXDetailView({
 
           {/* Right Column (6/12): Usability Validation & Feedback Iterations */}
           <div className="lg:col-span-6 flex flex-col space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-white font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Target className="h-4 w-4 text-rose-400" />
                 <span>Usability Validation & Iterations</span>

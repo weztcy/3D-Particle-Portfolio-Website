@@ -349,7 +349,7 @@ export default function DataAnalyticsDetailView({
             <div>
               <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
                 <Layout className="h-4 w-4 text-emerald-400" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-slate-200">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-emerald-400">
                   System Telemetry Matrix
                 </h3>
               </div>
@@ -421,11 +421,7 @@ export default function DataAnalyticsDetailView({
 
               {/* VCS Repository Access Sub-Card */}
               <div
-                className={`mt-5 group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 shadow-lg transition-all duration-300 ${
-                  hasRepoUrl
-                    ? "border-white/10 bg-[#080B14] hover:border-emerald-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.06)]"
-                    : "border-white/10 bg-[#080B14] hover:border-white/20"
-                }`}
+                className="mt-5 group relative flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-4 sm:p-5 shadow-lg transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.16)]"
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-emerald-400/60" />
@@ -435,8 +431,8 @@ export default function DataAnalyticsDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-200">
-                      <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-emerald-400" : "h-3.5 w-3.5 text-slate-400"} />
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-emerald-400">
+                      <FolderGit2 className="h-3.5 w-3.5 text-emerald-400" />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
                       </span>
@@ -446,7 +442,7 @@ export default function DataAnalyticsDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-emerald-400 font-semibold text-[11px]">
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -456,7 +452,7 @@ export default function DataAnalyticsDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className="text-emerald-400 font-semibold text-[11px]">
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -532,7 +528,7 @@ export default function DataAnalyticsDetailView({
           <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Target className="h-4 w-4 text-emerald-400" />
                   <span>[ ANALYTICAL_OBJECTIVES // KEY QUESTIONS ]</span>
                 </div>
@@ -573,7 +569,7 @@ export default function DataAnalyticsDetailView({
           <div className="rounded-2xl border border-white/10 bg-[#080B14] p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
                   <span>[ DATASET_PROFILE // METADATA SPECS ]</span>
                 </div>
@@ -663,7 +659,7 @@ export default function DataAnalyticsDetailView({
         {/* Top: Analysis Workflow Horizontal Pipeline */}
         <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-6 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-            <div className="flex items-center gap-2 font-mono text-xs font-bold text-white">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
               <Workflow className="h-4 w-4 text-emerald-400" />
               <span>[ ANALYSIS_WORKFLOW // 5-PHASE END-TO-END PIPELINE ]</span>
             </div>
@@ -706,7 +702,7 @@ export default function DataAnalyticsDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
                   <span>[ DATA_PREPARATION // CLEANING & WRANGLING ]</span>
                 </div>
@@ -747,7 +743,7 @@ export default function DataAnalyticsDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <LineChart className="h-4 w-4 text-emerald-400" />
                   <span>[ METHODOLOGY // STATISTICAL APPROACH ]</span>
                 </div>
@@ -933,7 +929,7 @@ export default function DataAnalyticsDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
                   <span>[ KEY_FINDINGS // EMPIRICAL INSIGHTS ]</span>
                 </div>
