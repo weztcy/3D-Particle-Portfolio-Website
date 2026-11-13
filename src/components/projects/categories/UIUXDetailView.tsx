@@ -454,7 +454,7 @@ export default function UIUXDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={isPublicRepo ? "text-rose-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-rose-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -464,7 +464,7 @@ export default function UIUXDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-rose-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-rose-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? (project.license || "CC BY-NC 4.0") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -1165,7 +1165,7 @@ export default function UIUXDetailView({
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="uppercase text-[11px]">DESIGN TOKENS:</span>
-                  <span className="text-rose-300 font-semibold">{systemSpecs.designTokens}</span>
+                  <span className="text-rose-400 font-semibold">{systemSpecs.designTokens}</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="uppercase text-[11px]">TYPOGRAPHY:</span>

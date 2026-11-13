@@ -446,7 +446,7 @@ export default function DataAnalyticsDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-emerald-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -456,7 +456,7 @@ export default function DataAnalyticsDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-emerald-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-emerald-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -766,7 +766,7 @@ export default function DataAnalyticsDetailView({
                     key={i}
                     className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-emerald-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald-400 mb-1">
                       <span>{met.name}</span>
                       <span className="rounded bg-emerald-500/10 border border-emerald-400/20 px-1.5 py-0.2 font-mono text-[9px] text-emerald-300">
                         {met.badge}
@@ -996,7 +996,7 @@ export default function DataAnalyticsDetailView({
                     className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-emerald-400/50"
                   >
                     <div className="flex items-center justify-between font-mono text-[10px] mb-1">
-                      <span className="font-bold text-emerald-300">{rec.title}</span>
+                      <span className="font-bold text-emerald-400">{rec.title}</span>
                       <span
                         className="rounded px-1.5 py-0.2 font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"
                       >

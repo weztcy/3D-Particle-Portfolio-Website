@@ -511,7 +511,7 @@ export default function DesktopMobileDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={isPublicRepo ? "text-amber-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-amber-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -521,7 +521,7 @@ export default function DesktopMobileDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={isPublicRepo ? "text-amber-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-amber-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -1136,7 +1136,7 @@ export default function DesktopMobileDetailView({
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="uppercase text-[11px]">PACKAGE FORMAT:</span>
-                  <span className="text-amber-300 font-semibold">{platformSpecs.packageFormat}</span>
+                  <span className="text-amber-400 font-semibold">{platformSpecs.packageFormat}</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="uppercase text-[11px]">TARGET ARCHITECTURE:</span>

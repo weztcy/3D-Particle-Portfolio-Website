@@ -444,7 +444,7 @@ export default function MachineLearningDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-indigo-300" : "text-slate-400"}`}>
+                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-indigo-400" : "text-slate-400"}`}>
                       <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-indigo-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -455,7 +455,7 @@ export default function MachineLearningDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-indigo-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-indigo-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -541,11 +541,11 @@ export default function MachineLearningDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Database className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>[ DATASET / ENV PROFILE // 6-SLOT MATRIX ]</span>
                 </div>
-                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold truncate max-w-[160px]">
+                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold truncate max-w-[160px]">
                   {datasetProfile.profileBadge}
                 </span>
               </div>
@@ -574,7 +574,7 @@ export default function MachineLearningDetailView({
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. SCALE / VOLUME
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-indigo-300">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-indigo-400">
                       {datasetProfile.scale}
                     </span>
                   </div>
@@ -582,7 +582,7 @@ export default function MachineLearningDetailView({
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. INPUT SHAPE / DIMENSIONS
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-indigo-300">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-indigo-400">
                       {datasetProfile.inputShape}
                     </span>
                   </div>
@@ -619,11 +619,11 @@ export default function MachineLearningDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Binary className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>[ INPUT &amp; OBJECTIVE SPACE ]</span>
                 </div>
-                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
+                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
                   {spaceSpec.spaceBadge}
                 </span>
               </div>
@@ -722,11 +722,11 @@ export default function MachineLearningDetailView({
         {/* Top: Learning Approach & Methodology Banner */}
         <div className="relative z-10 mb-7 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
-            <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400">
               <Workflow className="h-4 w-4 text-indigo-400 shrink-0" />
               <span>[ LEARNING_PARADIGM // THEORETICAL FOUNDATION ]</span>
             </div>
-            <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-300 font-bold">
+            <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
               {learningApproach.paradigm}
             </span>
           </div>
@@ -901,7 +901,7 @@ export default function MachineLearningDetailView({
         {/* Top: Evaluation Strategy & Quantitative Metrics Deck */}
         <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-6">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
-            <div className="flex items-center gap-2 text-indigo-300 font-bold">
+            <div className="flex items-center gap-2 text-indigo-400 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
               <span>
                 {evaluationStrategy.strategyLabel ||
@@ -931,7 +931,7 @@ export default function MachineLearningDetailView({
                   key={idx}
                   className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-indigo-400/50"
                 >
-                  <div className="font-mono text-xl sm:text-2xl font-black text-indigo-300 mb-1 truncate">
+                  <div className="font-mono text-xl sm:text-2xl font-black text-indigo-400 mb-1 truncate">
                     {m.value}
                   </div>
                   <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mb-1 truncate">
@@ -1146,7 +1146,7 @@ export default function MachineLearningDetailView({
                     key={i}
                     className="rounded-lg border border-white/10 bg-[#080B14] p-2.5"
                   >
-                    <div className="font-mono text-[11px] font-bold text-indigo-300 mb-0.5">
+                    <div className="font-mono text-[11px] font-bold text-indigo-400 mb-0.5">
                       {lim.title}
                     </div>
                     <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
@@ -1252,7 +1252,7 @@ export default function MachineLearningDetailView({
 
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400">
                   <FileText className="h-4 w-4 text-indigo-400" />
                   <span>RESEARCH SPECIFICATION</span>
                 </div>
@@ -1272,7 +1272,7 @@ export default function MachineLearningDetailView({
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px] uppercase">MODEL ARCHITECTURE:</span>
-                  <span className="text-indigo-300 font-semibold">{mlSpecs.modelArchitecture}</span>
+                  <span className="text-indigo-400 font-semibold">{mlSpecs.modelArchitecture}</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px] uppercase">CORE FRAMEWORK:</span>

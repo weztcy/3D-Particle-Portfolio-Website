@@ -408,7 +408,7 @@ export default function AIEngineeringDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-purple-300" : "text-slate-400"}`}>
+                    <div className={`flex items-center gap-1.5 font-mono text-xs font-bold ${hasRepoUrl ? "text-purple-400" : "text-slate-400"}`}>
                       <FolderGit2 className={hasRepoUrl ? "h-3.5 w-3.5 text-purple-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {hasRepoUrl ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -419,7 +419,7 @@ export default function AIEngineeringDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-purple-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-purple-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -492,7 +492,7 @@ export default function AIEngineeringDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between transition-all hover:border-purple-400/40">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-purple-400" />
                   <span>[ PROBLEM_SPACE // OPERATIONAL_FRICTION ]</span>
                 </div>
@@ -517,11 +517,11 @@ export default function AIEngineeringDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between transition-all hover:border-purple-400/40">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300 tracking-wider">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-purple-400" />
                   <span>[ PROPOSED_AI_SOLUTION // ARCHITECTURAL_APPROACH ]</span>
                 </div>
-                <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300 font-bold">
+                <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-400 font-bold">
                   {project.aiSolutionBadge || "AI SYSTEM APPROACH"}
                 </span>
               </div>
@@ -540,7 +540,7 @@ export default function AIEngineeringDetailView({
         {/* Key Capabilities & Real-World Use Cases (Full-Width Bento Grid) */}
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-300">
+            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-400">
               <Zap className="h-4 w-4 text-purple-400" />
               <span>[ KEY_CAPABILITIES & REAL-WORLD USE CASES ]</span>
             </div>
@@ -568,7 +568,7 @@ export default function AIEngineeringDetailView({
                   {item.description}
                 </p>
                 <div className="rounded-lg border border-white/10 bg-black/60 p-3">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-purple-300 font-bold block mb-0.5">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-purple-400 font-bold block mb-0.5">
                     REAL-WORLD USE CASE
                   </span>
                   <p className="text-xs text-slate-300 leading-relaxed">
@@ -609,7 +609,7 @@ export default function AIEngineeringDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <Network className="h-4 w-4 text-purple-400" />
                   <span>[ SYSTEM_ARCHITECTURE // COGNITIVE TOPOLOGY ]</span>
                 </div>
@@ -660,7 +660,7 @@ export default function AIEngineeringDetailView({
           <div className="rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <Workflow className="h-4 w-4 text-purple-400" />
                   <span>[ AI_WORKFLOW // EXECUTION PIPELINE ]</span>
                 </div>
@@ -681,7 +681,7 @@ export default function AIEngineeringDetailView({
                     className="relative pl-8 rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-purple-400/50"
                   >
                     <span className="absolute left-2 top-4 h-2.5 w-2.5 rounded-full bg-purple-400 ring-4 ring-[#080B14]" />
-                    <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 font-bold mb-1">
+                    <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold mb-1">
                       <span>
                         STEP {st.stepNumber} // {st.phase.toUpperCase()}
                       </span>
@@ -709,7 +709,7 @@ export default function AIEngineeringDetailView({
         {/* Core AI Components Deck (Full-Width Modular Grid) */}
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7">
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-300">
+            <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-400">
               <Cpu className="h-4 w-4 text-purple-400" />
               <span>[ CORE_AI_COMPONENTS // RUNTIME HARDWARE & SOFTWARE ]</span>
             </div>
@@ -931,7 +931,7 @@ export default function AIEngineeringDetailView({
             <div>
               {/* Header */}
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <Terminal className="h-4 w-4 text-purple-400" />
                   <span>RUNTIME EXECUTION & TELEMETRY</span>
                 </div>
@@ -981,12 +981,12 @@ export default function AIEngineeringDetailView({
 
                 {/* 3. Output Synthesis */}
                 <div className="rounded-xl border border-white/10 bg-[#080B14] p-3 space-y-1">
-                  <div className="flex items-center justify-between font-mono text-[10px] text-purple-300 font-bold uppercase tracking-wider">
+                  <div className="flex items-center justify-between font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
                     <span className="flex items-center gap-1.5 text-purple-400">
                       <Sparkles className="h-3 w-3" />
                       {telemetryData.outputLabel || "SYSTEM_RESPONSE // SYNTHESIS"}
                     </span>
-                    <span className="text-purple-300 text-[9px]">
+                    <span className="text-purple-400 text-[9px]">
                       {telemetryData.outputTag || "VERIFIED"}
                     </span>
                   </div>
@@ -1020,7 +1020,7 @@ export default function AIEngineeringDetailView({
                       <span className="text-[10px] uppercase text-slate-400 font-medium">
                         {m.label}:
                       </span>
-                      <span className="text-xs font-bold text-purple-300">
+                      <span className="text-xs font-bold text-purple-400">
                         {m.value}
                       </span>
                     </div>
@@ -1058,7 +1058,7 @@ export default function AIEngineeringDetailView({
                         key={idx}
                         className="rounded-xl border border-white/10 bg-[#080B14] p-3 transition-all hover:border-purple-400/50"
                       >
-                        <div className="font-mono text-lg sm:text-xl font-black text-purple-300 mb-1">
+                        <div className="font-mono text-lg sm:text-xl font-black text-purple-400 mb-1">
                           {m.value}
                         </div>
                         <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mb-1 leading-tight">
@@ -1141,7 +1141,7 @@ export default function AIEngineeringDetailView({
                       {imp.title}
                     </span>
                     {imp.phase && (
-                      <span className="text-purple-300 font-bold shrink-0">
+                      <span className="text-purple-400 font-bold shrink-0">
                         {imp.phase}
                       </span>
                     )}
@@ -1224,7 +1224,7 @@ export default function AIEngineeringDetailView({
 
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-300">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <ShieldCheck className="h-4 w-4 text-purple-400" />
                   <span>SAFETY & GOVERNANCE MANIFEST</span>
                 </div>
@@ -1240,7 +1240,7 @@ export default function AIEngineeringDetailView({
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">GUARDRAIL ENGINE:</span>
-                  <span className="text-purple-300 font-semibold">NeMo Guardrails</span>
+                  <span className="text-purple-400 font-semibold">NeMo Guardrails</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
                   <span className="text-[11px]">PROMPT DEFENSE:</span>

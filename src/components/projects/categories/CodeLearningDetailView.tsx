@@ -392,7 +392,7 @@ export default function CodeLearningDetailView({
 
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-orange-300">
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-orange-400">
                       <FolderGit2 className={isPublicRepo ? "h-3.5 w-3.5 text-orange-400" : "h-3.5 w-3.5 text-slate-400"} />
                       <span className="truncate">
                         {isPublicRepo ? "GITHUB REPOSITORY" : "PRIVATE REPOSITORY"}
@@ -403,7 +403,7 @@ export default function CodeLearningDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={isPublicRepo ? "text-orange-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={isPublicRepo ? "text-orange-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {isPublicRepo ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -478,7 +478,7 @@ export default function CodeLearningDetailView({
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {/* Left Column: Prerequisites */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-400 font-mono text-xs uppercase tracking-wider">
               <ShieldCheck className="h-4 w-4 text-orange-400" />
               <span>Prerequisites & Foundation Gates</span>
             </div>
@@ -511,7 +511,7 @@ export default function CodeLearningDetailView({
 
           {/* Right Column: Learning Objectives */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-300 font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-400 font-mono text-xs uppercase tracking-wider">
               <Sparkles className="h-4 w-4 text-orange-400" />
               <span>Learning Objectives & Competencies</span>
             </div>
@@ -545,7 +545,7 @@ export default function CodeLearningDetailView({
         {/* Bottom: Visual Curriculum Structure Roadmap */}
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-7 shadow-inner">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-            <div className="flex items-center gap-2 text-xs font-mono text-orange-300">
+            <div className="flex items-center gap-2 text-xs font-mono text-orange-400">
               <Workflow className="h-4 w-4 text-orange-400" />
               <span className="font-bold uppercase tracking-wider">
                 Visual Curriculum Structure Roadmap (Phase Progression)
@@ -685,7 +685,7 @@ export default function CodeLearningDetailView({
               <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                 Curriculum Rigor
               </span>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-orange-300 flex items-baseline gap-1.5">
+              <div className="text-xl sm:text-2xl font-bold font-mono text-orange-400 flex items-baseline gap-1.5">
                 <span>100%</span>
                 <span className="text-xs text-orange-400 font-normal">Verified</span>
               </div>
@@ -747,7 +747,7 @@ export default function CodeLearningDetailView({
         {/* Results Counter */}
         <div className="relative z-10 flex items-center justify-between text-xs font-mono text-slate-400 mb-6 pb-2 border-b border-white/5">
           <span>
-            SHOWING <span className="text-orange-300 font-semibold">{filteredModules.length}</span> OF{" "}
+            SHOWING <span className="text-orange-400 font-semibold">{filteredModules.length}</span> OF{" "}
             {modules.length} CURRICULUM MODULES
           </span>
           <span className="text-[10px] text-slate-400">SYSTEM_MODULE_CATALOG</span>
@@ -765,7 +765,7 @@ export default function CodeLearningDetailView({
                   {/* Card Header */}
                   <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-orange-300 bg-orange-500/10 border border-orange-400/30 px-2.5 py-1 rounded">
+                      <span className="font-mono text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-400/30 px-2.5 py-1 rounded">
                         MOD // {mod.moduleNumber}
                       </span>
                       <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
@@ -805,7 +805,7 @@ export default function CodeLearningDetailView({
 
                     <div className="flex flex-col">
                       <span className="font-mono text-[9px] uppercase text-slate-400">Programs</span>
-                      <span className="font-mono text-xs font-bold text-orange-300">
+                      <span className="font-mono text-xs font-bold text-orange-400">
                         {mod.sourceFilesCount || Math.round((mod.submoduleCount || 12) * 1.3)} Files
                       </span>
                     </div>
@@ -819,7 +819,7 @@ export default function CodeLearningDetailView({
 
                     <div className="flex flex-col">
                       <span className="font-mono text-[9px] uppercase text-slate-400">Status</span>
-                      <span className="font-mono text-xs font-bold text-orange-300 flex items-center gap-1">
+                      <span className="font-mono text-xs font-bold text-orange-400 flex items-center gap-1">
                         <Check className="h-3 w-3 text-orange-400" />
                         100% OK
                       </span>
@@ -945,7 +945,7 @@ export default function CodeLearningDetailView({
                 <div>
                   {/* Card Topbar */}
                   <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-orange-300 bg-orange-500/10 border border-orange-400/30 px-2.5 py-0.5 rounded">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-400/30 px-2.5 py-0.5 rounded">
                       {levelBadge}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-wider text-orange-400 font-semibold truncate">
@@ -966,7 +966,7 @@ export default function CodeLearningDetailView({
                   {/* Core Implementation Scope */}
                   {scopeItems.length > 0 && (
                     <div className="mb-4 border-t border-white/5 pt-3">
-                      <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-orange-300 block mb-2">
+                      <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-orange-400 block mb-2">
                         Core Implementation Scope:
                       </span>
                       <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
@@ -999,7 +999,7 @@ export default function CodeLearningDetailView({
         {/* Bottom: Learning Outcomes & Mastery Matrix (2 Universal Pillars) */}
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-7 shadow-inner">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-            <div className="flex items-center gap-2 text-xs font-mono text-orange-300">
+            <div className="flex items-center gap-2 text-xs font-mono text-orange-400">
               <GraduationCap className="h-4 w-4 text-orange-400" />
               <span className="font-bold uppercase tracking-wider">
                 Demonstrated Engineering Competencies & Outcomes
@@ -1011,7 +1011,7 @@ export default function CodeLearningDetailView({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {learningOutcomes.slice(0, 2).map((pillar, pIdx) => (
               <div key={pIdx} className="space-y-3">
-                <span className="font-mono text-xs uppercase font-bold text-orange-300 block border-b border-white/10 pb-1.5">
+                <span className="font-mono text-xs uppercase font-bold text-orange-400 block border-b border-white/10 pb-1.5">
                   {pillar.pillar}
                 </span>
                 <div className="space-y-2.5">
@@ -1110,7 +1110,7 @@ export default function CodeLearningDetailView({
 
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
-                <div className="flex items-center gap-2 text-orange-300 font-mono text-xs font-bold uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-orange-400 font-mono text-xs font-bold uppercase tracking-wider">
                   <FileCode2 className="h-4 w-4 text-orange-400" />
                   <span>Verified Competencies</span>
                 </div>

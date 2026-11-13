@@ -366,7 +366,7 @@ export default function WebDevDetailView({
                   <div className="space-y-1.5 font-mono text-xs mb-4">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">ACCESS CLEARANCE:</span>
-                      <span className={hasRepoUrl ? "text-sky-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-sky-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
                       </span>
                     </div>
@@ -376,7 +376,7 @@ export default function WebDevDetailView({
                     </div>
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="text-[10px]">LICENSE:</span>
-                      <span className={hasRepoUrl ? "text-sky-300 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
+                      <span className={hasRepoUrl ? "text-sky-400 font-semibold text-[11px]" : "text-slate-400 font-semibold text-[11px]"}>
                         {hasRepoUrl ? (project.license || "MIT License") : "Proprietary Rights"}
                       </span>
                     </div>
@@ -799,7 +799,7 @@ export default function WebDevDetailView({
                     key={idx}
                     className="rounded-xl border border-white/10 bg-black/50 p-3.5 transition-all hover:border-sky-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-400 mb-1">
                       <span>{layer.name}</span>
                       <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
                     </div>
@@ -850,7 +850,7 @@ export default function WebDevDetailView({
                     key={idx}
                     className="rounded-xl border border-white/10 bg-black/50 p-3.5 transition-all hover:border-sky-400/50"
                   >
-                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-300 mb-1">
+                    <div className="flex items-center justify-between font-mono text-xs font-bold text-sky-400 mb-1">
                       <span>{item.name}</span>
                       <span className="rounded bg-sky-500/10 border border-sky-400/20 px-1.5 py-0.2 font-mono text-[9px] text-sky-400">
                         {item.type}
