@@ -191,7 +191,7 @@ export default function WebDevDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Box className="h-3 w-3 text-sky-400" />
               {projectInfo.projectType}
@@ -210,10 +210,10 @@ export default function WebDevDetailView({
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-sky-500/30 bg-sky-500/15 px-4 py-2 text-xs font-mono text-white">
               <span className="flex items-center gap-2 text-white">
-                <Terminal className="h-3.5 w-3.5 text-white" />
+                <Terminal className="hidden md:inline-block h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
+              <span className="hidden md:inline-block text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -424,7 +424,7 @@ export default function WebDevDetailView({
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <span>[ 02 // CONTEXT ORIGIN & STRATEGIC OBJECTIVES ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             PROBLEM_MATRIX // MILESTONES
           </span>
         </div>
@@ -450,9 +450,9 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-sky-400" />
-                  <span>ISSUE_DETECTED // PROBLEM STATEMENT</span>
+                  <span>ISSUE DETECTED // PROBLEM STATEMENT</span>
                 </div>
-                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {problemStatements.length} BOTTLENECKS
                 </span>
               </div>
@@ -491,9 +491,9 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Target className="h-4 w-4 text-sky-400" />
-                  <span>TARGET_SOLVED // STRATEGIC OBJECTIVES</span>
+                  <span>TARGET SOLVED // STRATEGIC OBJECTIVES</span>
                 </div>
-                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {projectObjectives.length} TARGETS
                 </span>
               </div>
@@ -546,7 +546,7 @@ export default function WebDevDetailView({
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <span>[ 03 // CORE CAPABILITIES & HOLOGRAPHIC SHOWCASE ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             SHOWCASE // USER PIPELINE
           </span>
         </div>
@@ -557,7 +557,7 @@ export default function WebDevDetailView({
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
               <span className="font-bold text-white">
-                HOLOGRAPHIC_VIEWPORT // INTERFACE_STAGE
+                HOLOGRAPHIC VIEWPORT // INTERFACE STAGE
               </span>
             </div>
             <div className="flex items-center gap-2">
@@ -652,9 +652,9 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-sky-400" />
-                  <span>CORE_FEATURES // CAPABILITY MATRIX</span>
+                  <span>CORE FEATURES // CAPABILITY MATRIX</span>
                 </div>
-                <span className="font-mono text-[10px] text-slate-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {coreFeatures.length} ACTIVE MODULES
                 </span>
               </div>
@@ -693,9 +693,9 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Workflow className="h-4 w-4 text-sky-400" />
-                  <span>USER_FLOW // INTERACTION PIPELINE</span>
+                  <span>USER FLOW // INTERACTION PIPELINE</span>
                 </div>
-                <span className="font-mono text-[10px] text-sky-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-sky-400">
                   DETERMINISTIC
                 </span>
               </div>
@@ -764,7 +764,7 @@ export default function WebDevDetailView({
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <span>[ 05 // SYSTEM TOPOLOGY & DEPLOYMENT BLUEPRINTS ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             DIAGRAMS // TECHNICAL IMPLEMENTATIONS
           </span>
         </div>
@@ -777,9 +777,9 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Network className="h-4 w-4 text-sky-400" />
-                  <span>SYSTEM_ARCHITECTURE // TOPOLOGY</span>
+                  <span>SYSTEM ARCHITECTURE // TOPOLOGY</span>
                 </div>
-                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
+                <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   TIERED MVC
                 </span>
               </div>
@@ -828,9 +828,9 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Database className="h-4 w-4 text-sky-400" />
-                  <span>DATABASE_SCHEMA // DATA_FLOW</span>
+                  <span>DATABASE SCHEMA // DATA FLOW</span>
                 </div>
-                <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
+                <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   {databaseDataFlow.type}
                 </span>
               </div>
@@ -878,9 +878,9 @@ export default function WebDevDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-sky-400">
               <Zap className="h-4 w-4 text-sky-400" />
-              <span>TECHNICAL_IMPLEMENTATION // REAL-WORLD PROTOCOLS</span>
+              <span>TECHNICAL IMPLEMENTATION // REAL-WORLD PROTOCOLS</span>
             </div>
-            <span className="font-mono text-[10px] text-slate-400">
+            <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
               5 VERIFIED PROTOCOLS
             </span>
           </div>
@@ -929,7 +929,7 @@ export default function WebDevDetailView({
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <span>[ 06 // SOURCE VAULT & TECHNICAL SPECIFICATION GATES ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             FINAL_ACCESS // REPOSITORIES & QUALITY ASSURANCE
           </span>
         </div>
@@ -978,7 +978,7 @@ export default function WebDevDetailView({
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
                 Architecture & Quality Standards
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
+              <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
                 Automated static verification, strict type safety compliance, and performance engineering benchmarks validated across web environments.
               </p>
 

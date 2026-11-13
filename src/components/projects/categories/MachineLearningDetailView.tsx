@@ -264,7 +264,7 @@ export default function MachineLearningDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Target className="h-3 w-3 text-indigo-400" />
               {projectInfo.projectType}
@@ -283,10 +283,10 @@ export default function MachineLearningDetailView({
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-indigo-500/30 bg-indigo-500/15 px-4 py-2 text-xs font-mono text-white">
               <span className="flex items-center gap-2 text-white">
-                <Terminal className="h-3.5 w-3.5 text-white" />
+                <Terminal className="hidden md:inline-block h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
+              <span className="hidden md:inline-block text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -496,7 +496,7 @@ export default function MachineLearningDetailView({
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
             <span>[ 02 // PROBLEM SPACE &amp; DATASET MATRIX ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             PROBLEM_FORMULATION // DATA_TOPOLOGY
           </span>
         </div>
@@ -524,7 +524,7 @@ export default function MachineLearningDetailView({
                   <Database className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>DATASET / ENV PROFILE // 6-SLOT MATRIX</span>
                 </div>
-                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold truncate max-w-[160px]">
+                <span className="hidden md:inline-block rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold truncate max-w-[160px]">
                   {datasetProfile.profileBadge}
                 </span>
               </div>
@@ -602,7 +602,7 @@ export default function MachineLearningDetailView({
                   <Binary className="h-4 w-4 text-indigo-400 shrink-0" />
                   <span>INPUT &amp; OBJECTIVE SPACE</span>
                 </div>
-                <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
+                <span className="hidden md:inline-block rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
                   {spaceSpec.spaceBadge}
                 </span>
               </div>
@@ -693,7 +693,7 @@ export default function MachineLearningDetailView({
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
             <span>[ 03 // ALGORITHMIC METHODOLOGY &amp; TRAINING ARCHITECTURE ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             DATA_PIPELINE // MODEL_CONFIGURATION
           </span>
         </div>
@@ -703,9 +703,9 @@ export default function MachineLearningDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400">
               <Workflow className="h-4 w-4 text-indigo-400 shrink-0" />
-              <span>LEARNING_PARADIGM // THEORETICAL FOUNDATION</span>
+              <span>LEARNING PARADIGM // THEORETICAL FOUNDATION</span>
             </div>
-            <span className="rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
+            <span className="hidden md:inline-block rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
               {learningApproach.paradigm}
             </span>
           </div>
@@ -728,7 +728,7 @@ export default function MachineLearningDetailView({
                   <Sliders className="h-4 w-4 text-indigo-400" />
                   <span>PREPROCESSING &amp; DATA PIPELINE</span>
                 </div>
-                <span className="font-mono text-[10px] text-slate-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {dataPreparation.length} STAGES
                 </span>
               </div>
@@ -771,9 +771,9 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Settings2 className="h-4 w-4 text-indigo-400 shrink-0" />
-                  <span>MODEL_ARCHITECTURE &amp; CONFIGURATION</span>
+                  <span>MODEL ARCHITECTURE &amp; CONFIGURATION</span>
                 </div>
-                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
+                <span className="hidden md:inline-block font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
                   {modelArchitectureAndTraining.configurationBadge}
                 </span>
               </div>
@@ -868,7 +868,7 @@ export default function MachineLearningDetailView({
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
             <span>[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS
           </span>
         </div>
@@ -878,9 +878,9 @@ export default function MachineLearningDetailView({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
             <div className="flex items-center gap-2 text-indigo-400 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
-              <span>EVALUATION_STRATEGY // BENCHMARK_PROTOCOL</span>
+              <span>EVALUATION STRATEGY // BENCHMARK PROTOCOL</span>
             </div>
-            <span className="text-slate-300 font-semibold">
+            <span className="hidden md:inline-block text-slate-300 font-semibold">
               {evaluationStrategy.validationMethod}
             </span>
           </div>
@@ -926,7 +926,7 @@ export default function MachineLearningDetailView({
           <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-2xl h-full">
             {/* Header Bar */}
             <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80 inline-block" />
                 <span className="h-2.5 w-2.5 rounded-full bg-indigo-400/80 inline-block" />
                 <span className="h-2.5 w-2.5 rounded-full bg-indigo-300/80 inline-block" />
@@ -1044,7 +1044,7 @@ export default function MachineLearningDetailView({
 
             {/* Bottom Status & Dot Navigator */}
             <div className="mt-3.5 pt-2.5 border-t border-white/5 flex items-center justify-between">
-              <span className="font-mono text-[10px] text-slate-400">
+              <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                 VIEWPORT {activeVisIndex + 1} OF {performanceVisualizations.length}
               </span>
               <div className="flex items-center gap-1.5">
@@ -1079,9 +1079,9 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <PieChart className="h-4 w-4 text-indigo-400 shrink-0" />
-                  <span>MODEL_INTERPRETATION &amp; ERROR ANALYSIS</span>
+                  <span>MODEL INTERPRETATION &amp; ERROR ANALYSIS</span>
                 </div>
-                <span className="font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
+                <span className="hidden md:inline-block font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
                   DIAGNOSTIC INSIGHTS
                 </span>
               </div>
@@ -1178,7 +1178,7 @@ export default function MachineLearningDetailView({
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
             <span>[ 06 // MODEL VAULT &amp; ARTIFACT GATES ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             FINAL_ACCESS // REPOSITORIES, ARTIFACTS &amp; RESEARCH SPECIFICATIONS
           </span>
         </div>
@@ -1239,7 +1239,7 @@ export default function MachineLearningDetailView({
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
                 Modeling & Validation Specification
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
+              <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
                 Standardized research and computational methodology covering learning paradigms, model or solver architectures, core frameworks, and formal validation methods.
               </p>
 

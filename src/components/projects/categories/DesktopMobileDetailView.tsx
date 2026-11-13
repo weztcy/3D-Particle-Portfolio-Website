@@ -332,7 +332,7 @@ export default function DesktopMobileDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               {isMobile ? (
                 <Smartphone className="h-3 w-3 text-amber-400" />
@@ -355,10 +355,10 @@ export default function DesktopMobileDetailView({
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-amber-500/30 bg-amber-500/15 px-4 py-2 text-xs font-mono text-white">
               <span className="flex items-center gap-2 text-white">
-                <Terminal className="h-3.5 w-3.5 text-white" />
+                <Terminal className="hidden md:inline-block h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
+              <span className="hidden md:inline-block text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -575,7 +575,7 @@ export default function DesktopMobileDetailView({
               [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             ROOT_CAUSE // SPECIFICATION_MATRIX
           </span>
         </div>
@@ -687,7 +687,7 @@ export default function DesktopMobileDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
+          <div className="hidden md:flex items-center gap-2 font-mono text-xs text-slate-400">
             <span>
               STAGE {activeImageIndex + 1} OF {interfaceShowcase.length}
             </span>
@@ -697,10 +697,10 @@ export default function DesktopMobileDetailView({
         {/* Top: Device Viewport Stage */}
         <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-[#080B14] p-4 sm:p-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
               <span className="font-bold text-amber-400">
-                CLIENT_VIEWPORT // INTERFACE_STAGE
+                CLIENT VIEWPORT // INTERFACE STAGE
               </span>
             </div>
             <div className="flex items-center gap-2">
@@ -833,7 +833,7 @@ export default function DesktopMobileDetailView({
                 <Workflow className="h-4 w-4 text-amber-400" />
                 <span>User Interaction & Execution Flow</span>
               </div>
-              <span className="text-[10px] text-slate-400">PIPELINE_FLOW</span>
+              <span className="hidden md:inline-block text-[10px] text-slate-400">PIPELINE_FLOW</span>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/50 p-4">
@@ -914,7 +914,7 @@ export default function DesktopMobileDetailView({
               [ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             BLUEPRINT // SYSTEM_TOPOLOGY
           </span>
         </div>
@@ -1060,7 +1060,7 @@ export default function DesktopMobileDetailView({
               [ 06 // SOURCE VAULT & RUNTIME SPECIFICATION GATES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             FINAL_ACCESS // REPOSITORIES & RUNTIME SPECS
           </span>
         </div>
@@ -1121,7 +1121,7 @@ export default function DesktopMobileDetailView({
                 Client Build & Delivery Standards
               </h4>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
+              <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
                 Standardized cross-platform build profiles specifying supported operating systems, binary packaging deliverables, CPU architectures, and application footprint.
               </p>
 

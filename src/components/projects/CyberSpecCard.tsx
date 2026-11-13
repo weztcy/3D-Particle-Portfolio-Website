@@ -205,7 +205,7 @@ export default function CyberSpecCard({
         </h3>
 
         {/* Description */}
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
+        <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
           {description}
         </p>
 

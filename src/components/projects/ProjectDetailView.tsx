@@ -1249,7 +1249,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           {/* Project Switcher Navigation (Previous Project & Next Project) */}
           <section className={`pt-6 border-t ${accent.headerBorder} space-y-6`}>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="font-mono text-xs uppercase tracking-widest text-slate-400">
+              <div className="hidden md:block font-mono text-xs uppercase tracking-widest text-slate-400">
                 // SYSTEM_GATEWAYS // SWITCH PROJECT NODE
               </div>
               <Link

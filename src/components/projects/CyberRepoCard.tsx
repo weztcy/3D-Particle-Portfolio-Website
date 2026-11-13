@@ -253,7 +253,7 @@ export default function CyberRepoCard({
         </h3>
 
         {/* Rich Description */}
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
+        <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
           {hasRepoUrl
             ? "Complete project repository hosted on GitHub. Access full source files, revision history, architecture structure, and technical documentation."
             : "Project files and assets are maintained in a private repository under proprietary rights. Public access is restricted to protect intellectual property."}

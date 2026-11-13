@@ -231,6 +231,18 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
           techDot: "bg-fuchsia-400",
           button: "border-fuchsia-400/40 bg-fuchsia-400/10 text-fuchsia-300 hover:bg-fuchsia-400/25 hover:border-fuchsia-400/70 hover:text-white hover:shadow-[0_0_20px_rgba(232,121,249,0.35)]",
         };
+      case "rose":
+        return {
+          badge: "border-rose-400/40 bg-rose-400/10 text-rose-300 shadow-[0_0_12px_rgba(244,63,94,0.15)]",
+          metricText: "text-rose-400",
+          cornerColor: "border-rose-400/80",
+          cardHover: "hover:border-rose-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(244,63,94,0.22)]",
+          glowBg: "from-rose-500/20 via-rose-500/5 to-transparent",
+          beacon: "bg-rose-400 shadow-[0_0_8px_#fb7185]",
+          titleHover: "group-hover:text-rose-300",
+          techDot: "bg-rose-400",
+          button: "border-rose-400/40 bg-rose-400/10 text-rose-300 hover:bg-rose-400/25 hover:border-rose-400/70 hover:text-white hover:shadow-[0_0_20px_rgba(244,63,94,0.35)]",
+        };
       case "teal":
         return {
           badge: "border-teal-400/40 bg-teal-400/10 text-teal-300 shadow-[0_0_12px_rgba(45,212,191,0.15)]",

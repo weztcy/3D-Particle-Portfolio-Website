@@ -272,7 +272,7 @@ export default function UIUXDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <Palette className="h-3 w-3 text-rose-400" />
               {telemetry.projectType}
@@ -291,10 +291,10 @@ export default function UIUXDetailView({
             {/* Studio Header Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-rose-500/30 bg-rose-500/15 px-4 py-2 text-xs font-mono text-white">
               <span className="flex items-center gap-2 text-white">
-                <Terminal className="h-3.5 w-3.5 text-white" />
+                <Terminal className="hidden md:inline-block h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
+              <span className="hidden md:inline-block text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Studio Body */}
@@ -509,7 +509,7 @@ export default function UIUXDetailView({
               [ 02 // RESEARCH DISCOVERY & USER PERSONAS ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             EMPATHY // PROBLEM_SPACE
           </span>
         </div>
@@ -661,7 +661,7 @@ export default function UIUXDetailView({
               [ 03 // INFORMATION ARCHITECTURE & USER INTERACTION FLOW ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             SITEMAP // NAVIGATION_TREE // INTERACTION_FLOW
           </span>
         </div>
@@ -675,7 +675,7 @@ export default function UIUXDetailView({
                 <Compass className="h-4 w-4 text-rose-400" />
                 <span>Information Architecture & Sitemap</span>
               </div>
-              <span className="text-[10px] text-slate-400">NAVIGATION_TREE</span>
+              <span className="hidden md:inline-block text-[10px] text-slate-400">NAVIGATION_TREE</span>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/50 p-4 mb-2">
@@ -718,7 +718,7 @@ export default function UIUXDetailView({
                 <Workflow className="h-4 w-4 text-rose-400" />
                 <span>User Journey & Task Interaction Flow</span>
               </div>
-              <span className="text-[10px] text-slate-400">INTERACTION_PIPELINE</span>
+              <span className="hidden md:inline-block text-[10px] text-slate-400">INTERACTION_PIPELINE</span>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/50 p-4">
@@ -798,7 +798,7 @@ export default function UIUXDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
+          <div className="hidden md:flex items-center gap-2 font-mono text-xs text-slate-400">
             <span>
               SHOWCASE {activeHiFiIndex + 1} OF {visualShowcase.length}
             </span>
@@ -809,7 +809,7 @@ export default function UIUXDetailView({
         <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-[#080B14] p-3 sm:p-5 shadow-2xl">
           {/* Simulated Device Frame Header */}
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-rose-500/80 inline-block" />
               <span className="h-3 w-3 rounded-full bg-rose-400/80 inline-block" />
               <span className="h-3 w-3 rounded-full bg-rose-300/80 inline-block" />
@@ -993,7 +993,7 @@ export default function UIUXDetailView({
                 <Target className="h-4 w-4 text-rose-400" />
                 <span>Usability Validation & Iterations</span>
               </div>
-              <span className="text-[10px] text-slate-400">SUS_BENCHMARK</span>
+              <span className="hidden md:inline-block text-[10px] text-slate-400">SUS_BENCHMARK</span>
             </div>
 
             {/* Usability Benchmark Metrics Grid */}
@@ -1038,7 +1038,7 @@ export default function UIUXDetailView({
                 >
                   <div className="flex items-center gap-2 font-mono text-[10px] text-rose-400 uppercase font-bold">
                     <AlertTriangle className="h-3.5 w-3.5" />
-                    <span>USER_FEEDBACK // TRIAL {ffIdx + 1}:</span>
+                    <span>USER FEEDBACK // TRIAL {ffIdx + 1}:</span>
                   </div>
                   <p className="text-xs text-slate-200 font-sans italic">
                     &quot;{ff.feedback || ff.usabilityIssue}&quot;
@@ -1081,7 +1081,7 @@ export default function UIUXDetailView({
               [ 06 // DESIGN VAULT & HANDOFF GATES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             GITHUB_SOURCE // FIGMA_SPECIFICATION_GATES
           </span>
         </div>
@@ -1143,7 +1143,7 @@ export default function UIUXDetailView({
                 Design System & Craft Standards
               </h4>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
+              <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
                 Universal visual design specification covering responsive layout grids, semantic design tokens, typography hierarchy, and interactive prototype fidelity.
               </p>
 

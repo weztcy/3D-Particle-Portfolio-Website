@@ -265,7 +265,7 @@ export default function CyberTechStackSection({
 
         {/* Telemetry Counter Pill */}
         <div
-          className={`flex items-center gap-2 font-mono text-xs ${theme.title}`}
+          className={`hidden md:flex items-center gap-2 font-mono text-xs ${theme.title}`}
         >
           <Cpu className={`h-3.5 w-3.5 ${theme.icon}`} />
           <span className="uppercase tracking-wider font-semibold">

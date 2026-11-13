@@ -271,7 +271,7 @@ export default function DataAnalyticsDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <LineChart className="h-3 w-3 text-emerald-400" />
               {projectInfo.projectType}
@@ -290,10 +290,10 @@ export default function DataAnalyticsDetailView({
             {/* Terminal Title Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-emerald-500/30 bg-emerald-500/15 px-4 py-2 text-xs font-mono text-white">
               <span className="flex items-center gap-2 text-white">
-                <Terminal className="h-3.5 w-3.5 text-white" />
+                <Terminal className="hidden md:inline-block h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
+              <span className="hidden md:inline-block text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -504,7 +504,7 @@ export default function DataAnalyticsDetailView({
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>[ 02 // BUSINESS CONTEXT & DATASET TELEMETRY ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             PROBLEM_CONTEXT // DATASET_PROFILE
           </span>
         </div>
@@ -530,9 +530,9 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Target className="h-4 w-4 text-emerald-400" />
-                  <span>ANALYTICAL_OBJECTIVES // KEY QUESTIONS</span>
+                  <span>ANALYTICAL OBJECTIVES // KEY QUESTIONS</span>
                 </div>
-                <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   {analyticalObjectives.length} TARGETS
                 </span>
               </div>
@@ -571,9 +571,9 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
-                  <span>DATASET_PROFILE // METADATA SPECS</span>
+                  <span>DATASET PROFILE // METADATA SPECS</span>
                 </div>
-                <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   LONGITUDINAL
                 </span>
               </div>
@@ -651,7 +651,7 @@ export default function DataAnalyticsDetailView({
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>[ 03 // DATA PROCESSING PIPELINE & METHODOLOGY ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             WORKFLOW_CIRCUIT // PREPROCESSING
           </span>
         </div>
@@ -661,9 +661,9 @@ export default function DataAnalyticsDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
               <Workflow className="h-4 w-4 text-emerald-400" />
-              <span>ANALYSIS_WORKFLOW // 5-PHASE END-TO-END PIPELINE</span>
+              <span>ANALYSIS WORKFLOW // 5-PHASE END-TO-END PIPELINE</span>
             </div>
-            <span className="font-mono text-[10px] text-slate-400">
+            <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
               DETERMINISTIC ETL
             </span>
           </div>
@@ -704,9 +704,9 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
-                  <span>DATA_PREPARATION // CLEANING & WRANGLING</span>
+                  <span>DATA PREPARATION // CLEANING & WRANGLING</span>
                 </div>
-                <span className="font-mono text-[10px] text-slate-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {dataPreparation.length} STAGES
                 </span>
               </div>
@@ -747,7 +747,7 @@ export default function DataAnalyticsDetailView({
                   <LineChart className="h-4 w-4 text-emerald-400" />
                   <span>METHODOLOGY // STATISTICAL APPROACH</span>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-emerald-400">
                   RIGOROUS
                 </span>
               </div>
@@ -811,7 +811,7 @@ export default function DataAnalyticsDetailView({
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>[ 05 // ANALYSIS PRESENTATION & INSIGHTS DECK ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             EMBEDDED_SLIDES // STRATEGIC_OUTCOMES
           </span>
         </div>
@@ -822,7 +822,7 @@ export default function DataAnalyticsDetailView({
             <div className="flex items-center gap-2">
               <Presentation className="h-4 w-4 text-emerald-400" />
               <span className="font-bold text-white">
-                EXECUTIVE_PRESENTATION_VIEWER // SLIDE DECK
+                EXECUTIVE PRESENTATION VIEWER // SLIDE DECK
               </span>
             </div>
             <div className="flex items-center gap-2">
@@ -931,9 +931,9 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
-                  <span>KEY_FINDINGS // EMPIRICAL INSIGHTS</span>
+                  <span>KEY FINDINGS // EMPIRICAL INSIGHTS</span>
                 </div>
-                <span className="font-mono text-[10px] text-slate-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {keyFindings.length} METRICS VALIDATED
                 </span>
               </div>
@@ -977,9 +977,9 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <TrendingUp className="h-4 w-4 text-emerald-400" />
-                  <span>ACTIONABLE_RECOMMENDATIONS & CONCLUSION</span>
+                  <span>ACTIONABLE RECOMMENDATIONS & CONCLUSION</span>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-400">
+                <span className="hidden md:inline-block font-mono text-[10px] text-emerald-400">
                   EXECUTIVE_DECK
                 </span>
               </div>
@@ -1044,7 +1044,7 @@ export default function DataAnalyticsDetailView({
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>[ 06 // ANALYTICAL ARTIFACTS & DATA DELIVERABLES ]</span>
           </div>
-          <span className="font-mono text-[11px] text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             FINAL_ACCESS // NOTEBOOKS, REPORTS & DATASETS
           </span>
         </div>
@@ -1101,7 +1101,7 @@ export default function DataAnalyticsDetailView({
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
                 Processed Datasets & Workbooks
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
+              <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
                 Processed transaction extracts, metadata schemas, and interactive Power BI workbooks available for reproducible research.
               </p>
 

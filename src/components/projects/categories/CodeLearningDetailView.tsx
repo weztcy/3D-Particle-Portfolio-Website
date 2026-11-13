@@ -228,7 +228,7 @@ export default function CodeLearningDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-300">
               <GraduationCap className="h-3 w-3 text-orange-400" />
               {learningInfo.learningCategory}
@@ -247,10 +247,10 @@ export default function CodeLearningDetailView({
             {/* Header Bar */}
             <div className="shrink-0 flex items-center justify-between rounded-t-xl border border-orange-500/30 bg-orange-500/15 px-4 py-2 text-xs font-mono text-white">
               <span className="flex items-center gap-2 text-white">
-                <Terminal className="h-3.5 w-3.5 text-white" />
+                <Terminal className="hidden md:inline-block h-3.5 w-3.5 text-white" />
                 {project.title}
               </span>
-              <span className="text-[10px] text-white/80">SYS.VIEWPORT</span>
+              <span className="hidden md:inline-block text-[10px] text-white/80">SYS.VIEWPORT</span>
             </div>
 
             {/* Terminal Body */}
@@ -465,7 +465,7 @@ export default function CodeLearningDetailView({
               [ 02 // LEARNING ROADMAP & CURRICULUM BLUEPRINT ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             PEDAGOGICAL_ROADMAP // COMPETENCY_TREE
           </span>
         </div>
@@ -547,7 +547,7 @@ export default function CodeLearningDetailView({
                 Visual Curriculum Structure Roadmap (Phase Progression)
               </span>
             </div>
-            <span className="font-mono text-[10px] text-slate-400">3_TIER_PIPELINE</span>
+            <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">3_TIER_PIPELINE</span>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-300 font-sans mb-6">
@@ -623,7 +623,7 @@ export default function CodeLearningDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-xs">
+          <div className="hidden md:flex items-center gap-2 font-mono text-xs">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 text-slate-300 text-[10px] uppercase">
               <BookOpen className="h-3 w-3 text-orange-400" />
               {totalModulesCount} MODULE TIERS
@@ -760,7 +760,7 @@ export default function CodeLearningDetailView({
                 <div>
                   {/* Card Header */}
                   <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                    <div className="flex items-center gap-2">
+                    <div className="hidden md:flex items-center gap-2">
                       <span className="font-mono text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-400/30 px-2.5 py-1 rounded">
                         MOD // {mod.moduleNumber}
                       </span>
@@ -849,7 +849,7 @@ export default function CodeLearningDetailView({
                     <div className="h-full w-full rounded-full bg-orange-400 shadow-[0_0_8px_rgba(249,115,22,0.35)]" />
                   </div>
                   <div className="flex items-center justify-between text-[10px] font-mono text-slate-400">
-                    <span>UNIT_SPEC // M{mod.moduleNumber}_STABLE</span>
+                    <span>UNIT SPEC // M{mod.moduleNumber}_STABLE</span>
                     <span className="text-orange-400 font-semibold">VERIFIED_COMPLETE</span>
                   </div>
                 </div>
@@ -911,7 +911,7 @@ export default function CodeLearningDetailView({
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-xs">
+          <div className="hidden md:flex items-center gap-2 font-mono text-xs">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-0.5 text-slate-300 text-[10px] uppercase">
               <Terminal className="h-3 w-3 text-orange-400" />
               3 TIERED TRACKS
@@ -1001,7 +1001,7 @@ export default function CodeLearningDetailView({
                 Demonstrated Engineering Competencies & Outcomes
               </span>
             </div>
-            <span className="font-mono text-[10px] text-slate-400">CERTIFIED_MASTERY</span>
+            <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">CERTIFIED_MASTERY</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1055,7 +1055,7 @@ export default function CodeLearningDetailView({
               [ 06 // CURRICULUM VAULT & SYLLABUS GATES ]
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase text-slate-400">
+          <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
             GITHUB_SOURCE // SYLLABUS_GATEWAYS
           </span>
         </div>
@@ -1116,7 +1116,7 @@ export default function CodeLearningDetailView({
                 Engineering Competency Ledger
               </h4>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
+              <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-5">
                 Systematic progressive learning outcomes verified through automated test suites and deterministic memory inspections.
               </p>
 
