@@ -43,7 +43,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-sky-400/60",
     ping: "bg-sky-400",
     dot: "bg-sky-500",
-    title: "text-sky-300",
+    title: "text-sky-400",
     icon: "text-sky-400",
     iconBox: "border-sky-400/30 bg-sky-500/10 text-sky-300",
     cardHover:
@@ -56,7 +56,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-cyan-400/60",
     ping: "bg-cyan-400",
     dot: "bg-cyan-500",
-    title: "text-cyan-300",
+    title: "text-cyan-400",
     icon: "text-cyan-400",
     iconBox: "border-cyan-400/30 bg-cyan-500/10 text-cyan-300",
     cardHover:
@@ -69,7 +69,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-emerald-400/60",
     ping: "bg-emerald-400",
     dot: "bg-emerald-500",
-    title: "text-emerald-300",
+    title: "text-emerald-400",
     icon: "text-emerald-400",
     iconBox: "border-emerald-400/30 bg-emerald-500/10 text-emerald-300",
     cardHover:
@@ -82,7 +82,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-purple-400/60",
     ping: "bg-purple-400",
     dot: "bg-purple-500",
-    title: "text-purple-300",
+    title: "text-purple-400",
     icon: "text-purple-400",
     iconBox: "border-purple-400/30 bg-purple-500/10 text-purple-300",
     cardHover:
@@ -95,7 +95,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-indigo-400/60",
     ping: "bg-indigo-400",
     dot: "bg-indigo-500",
-    title: "text-indigo-300",
+    title: "text-indigo-400",
     icon: "text-indigo-400",
     iconBox: "border-indigo-400/30 bg-indigo-500/10 text-indigo-300",
     cardHover:
@@ -107,12 +107,12 @@ const ACCENT_THEMES: Record<
     bgGlow: "from-amber-500/10",
     crosshair: "border-amber-400/60",
     ping: "bg-amber-400",
-    dot: "bg-amber-400",
-    title: "text-amber-300",
+    dot: "bg-amber-500",
+    title: "text-amber-400",
     icon: "text-amber-400",
-    iconBox: "border-amber-400/30 bg-amber-400/10 text-amber-300",
+    iconBox: "border-amber-400/30 bg-amber-500/10 text-amber-300",
     cardHover:
-      "hover:border-amber-400/50 hover:bg-amber-400/[0.05] hover:shadow-[0_0_20px_rgba(245,158,11,0.18)]",
+      "hover:border-amber-400/50 hover:bg-amber-500/[0.05] hover:shadow-[0_0_20px_rgba(245,158,11,0.18)]",
     cornerTick: "bg-amber-400/30 group-hover:bg-amber-400",
   },
   rose: {
@@ -121,7 +121,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-rose-400/60",
     ping: "bg-rose-400",
     dot: "bg-rose-500",
-    title: "text-rose-300",
+    title: "text-rose-400",
     icon: "text-rose-400",
     iconBox: "border-rose-400/30 bg-rose-500/10 text-rose-300",
     cardHover:
@@ -134,7 +134,7 @@ const ACCENT_THEMES: Record<
     crosshair: "border-orange-400/60",
     ping: "bg-orange-400",
     dot: "bg-orange-500",
-    title: "text-orange-300",
+    title: "text-orange-400",
     icon: "text-orange-400",
     iconBox: "border-orange-400/30 bg-orange-500/10 text-orange-300",
     cardHover:
@@ -227,7 +227,7 @@ export default function CyberTechStackSection({
 
   return (
     <section
-      className={`relative overflow-hidden rounded-3xl border ${theme.border} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.06)]`}
+      className={`relative overflow-hidden rounded-3xl border ${theme.border} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]`}
     >
       {/* 4 Optical HUD Corner Crosshairs */}
       <div
@@ -283,7 +283,7 @@ export default function CyberTechStackSection({
           <div
             key={idx}
             onClick={() => onTriggerPulse?.()}
-            className={`group relative inline-flex items-center gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-black/50 px-3.5 sm:px-4 py-2 sm:py-2.5 backdrop-blur-md transition-all duration-300 ${theme.cardHover} hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.6)] cursor-default shrink-0`}
+            className={`group relative inline-flex items-center gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-[#080B14] px-3.5 sm:px-4 py-2 sm:py-2.5 backdrop-blur-md transition-all duration-300 ${theme.cardHover} hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.6)] cursor-default shrink-0`}
           >
             {/* Top-Right HUD Corner Tick */}
             <div

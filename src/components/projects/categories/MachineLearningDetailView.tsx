@@ -276,7 +276,7 @@ export default function MachineLearningDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-indigo-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-indigo-400">
               [ 01 // MODEL CONSOLE & THEORETICAL SCOPE ]
             </span>
           </div>

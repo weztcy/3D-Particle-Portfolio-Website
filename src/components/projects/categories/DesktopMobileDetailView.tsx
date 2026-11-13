@@ -327,7 +327,7 @@ export default function DesktopMobileDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
               [ 01 // CLIENT CONSOLE & NATIVE OVERVIEW ]
             </span>
           </div>
@@ -575,7 +575,7 @@ export default function DesktopMobileDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
               [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
             </span>
           </div>
@@ -686,7 +686,7 @@ export default function DesktopMobileDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
               [ 03 // CORE CAPABILITIES & INTERACTION FLOW ]
             </span>
           </div>
@@ -914,7 +914,7 @@ export default function DesktopMobileDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
               [ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]
             </span>
           </div>
@@ -1060,7 +1060,7 @@ export default function DesktopMobileDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
               [ 06 // SOURCE VAULT & RUNTIME SPECIFICATION GATES ]
             </span>
           </div>

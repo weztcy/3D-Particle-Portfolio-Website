@@ -1266,7 +1266,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${prevProject.id}`}
                 onClick={handleTriggerPulse}
-                className={`group relative overflow-hidden rounded-3xl border ${prevAccent.cardBorder} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${prevAccent.cardHover} transition-all duration-300 flex flex-col justify-between`}
+                className={`group relative overflow-hidden rounded-3xl border ${prevAccent.cardBorder} bg-[#080B14] p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${prevAccent.cardHover} transition-all duration-300 flex flex-col justify-between`}
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${prevAccent.crosshair}`} />
@@ -1302,7 +1302,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${nextProject.id}`}
                 onClick={handleTriggerPulse}
-                className={`group relative overflow-hidden rounded-3xl border ${nextAccent.cardBorder} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${nextAccent.cardHover} transition-all duration-300 flex flex-col justify-between text-left md:text-right`}
+                className={`group relative overflow-hidden rounded-3xl border ${nextAccent.cardBorder} bg-[#080B14] p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${nextAccent.cardHover} transition-all duration-300 flex flex-col justify-between text-left md:text-right`}
               >
                 {/* 4 Optical Corner Crosshairs */}
                 <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${nextAccent.crosshair}`} />
@@ -1337,7 +1337,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
             {/* Related Projects in the Same Category */}
             {relatedProjects.length > 0 && (
-              <div className={`relative rounded-3xl border ${accent.cardBorder} bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8`}>
+              <div className={`relative rounded-3xl border ${accent.cardBorder} bg-[#06070A]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-2xl`}>
                 {/* 4 Optical Corner Crosshairs */}
                 <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${accent.crosshair}`} />
                 <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${accent.crosshair}`} />
@@ -1366,7 +1366,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     <Link
                       key={rel.id}
                       href={`/projects/${rel.id}`}
-                      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-black/50 p-4 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
+                      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#080B14] p-4 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
                     >
                       {/* Corner micro-crosshairs */}
                       <div className={`pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l ${accent.crosshair}`} />

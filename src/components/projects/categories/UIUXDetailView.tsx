@@ -274,7 +274,7 @@ export default function UIUXDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
               [ 01 // DESIGN CONSOLE & PRODUCT ARCHITECTURE ]
             </span>
           </div>
@@ -516,7 +516,7 @@ export default function UIUXDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
               [ 02 // RESEARCH DISCOVERY & USER PERSONAS ]
             </span>
           </div>
@@ -668,7 +668,7 @@ export default function UIUXDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-rose-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
               [ 03 // INFORMATION ARCHITECTURE & USER INTERACTION FLOW ]
             </span>
           </div>
@@ -804,7 +804,7 @@ export default function UIUXDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
               [ 05 // HI-FI INTERFACE & USABILITY VALIDATION ]
             </span>
           </div>
@@ -1088,7 +1088,7 @@ export default function UIUXDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-rose-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
               [ 06 // DESIGN VAULT & HANDOFF GATES ]
             </span>
           </div>

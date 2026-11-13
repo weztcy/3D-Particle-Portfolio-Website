@@ -45,8 +45,8 @@ const SPEC_THEMES: Record<
 > = {
   sky: {
     border: "border-sky-500/20 hover:border-sky-400/50 hover:shadow-[0_8px_32px_rgba(56,189,248,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-sky-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-sky-400",
     iconColor: "text-sky-400",
     badgeBorder: "border-sky-400/30",
     badgeBg: "bg-sky-500/10",
@@ -59,8 +59,8 @@ const SPEC_THEMES: Record<
   },
   cyan: {
     border: "border-cyan-500/20 hover:border-cyan-400/50 hover:shadow-[0_8px_32px_rgba(6,182,212,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-cyan-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-cyan-400",
     iconColor: "text-cyan-400",
     badgeBorder: "border-cyan-400/30",
     badgeBg: "bg-cyan-500/10",
@@ -73,8 +73,8 @@ const SPEC_THEMES: Record<
   },
   emerald: {
     border: "border-emerald-500/20 hover:border-emerald-400/50 hover:shadow-[0_8px_32px_rgba(16,185,129,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-emerald-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-emerald-400",
     iconColor: "text-emerald-400",
     badgeBorder: "border-emerald-400/30",
     badgeBg: "bg-emerald-500/10",
@@ -87,8 +87,8 @@ const SPEC_THEMES: Record<
   },
   purple: {
     border: "border-purple-500/20 hover:border-purple-400/50 hover:shadow-[0_8px_32px_rgba(168,85,247,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-purple-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-purple-400",
     iconColor: "text-purple-400",
     badgeBorder: "border-purple-400/30",
     badgeBg: "bg-purple-500/10",
@@ -101,8 +101,8 @@ const SPEC_THEMES: Record<
   },
   indigo: {
     border: "border-indigo-500/20 hover:border-indigo-400/50 hover:shadow-[0_8px_32px_rgba(99,102,241,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-indigo-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-indigo-400",
     iconColor: "text-indigo-400",
     badgeBorder: "border-indigo-400/30",
     badgeBg: "bg-indigo-500/10",
@@ -115,11 +115,11 @@ const SPEC_THEMES: Record<
   },
   amber: {
     border: "border-amber-500/20 hover:border-amber-400/50 hover:shadow-[0_8px_32px_rgba(245,158,11,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-amber-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-amber-400",
     iconColor: "text-amber-400",
     badgeBorder: "border-amber-400/30",
-    badgeBg: "bg-amber-400/10",
+    badgeBg: "bg-amber-500/10",
     badgeText: "text-amber-300",
     crosshair: "border-amber-400/60",
     actionBorder: "border-amber-400/40",
@@ -129,8 +129,8 @@ const SPEC_THEMES: Record<
   },
   rose: {
     border: "border-rose-500/20 hover:border-rose-400/50 hover:shadow-[0_8px_32px_rgba(244,63,94,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-rose-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-rose-400",
     iconColor: "text-rose-400",
     badgeBorder: "border-rose-400/30",
     badgeBg: "bg-rose-500/10",
@@ -143,8 +143,8 @@ const SPEC_THEMES: Record<
   },
   orange: {
     border: "border-orange-500/20 hover:border-orange-400/50 hover:shadow-[0_8px_32px_rgba(249,115,22,0.16)]",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-orange-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-orange-400",
     iconColor: "text-orange-400",
     badgeBorder: "border-orange-400/30",
     badgeBg: "bg-orange-500/10",
@@ -251,7 +251,7 @@ export default function CyberSpecCard({
         </button>
       ) : (
         <div
-          className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed"
+          className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-[#080B14] px-4 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed"
         >
           <Lock className="h-4 w-4 text-slate-500" />
           <span>{action?.label || "RESTRICTED ACCESS"}</span>

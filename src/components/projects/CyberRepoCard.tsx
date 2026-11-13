@@ -49,8 +49,8 @@ const REPO_THEMES: Record<
 > = {
   sky: {
     border: "border-sky-500/20 hover:border-sky-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-sky-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-sky-400",
     textHover: "group-hover:text-sky-200",
     icon: "text-sky-400",
     ping: "bg-sky-400",
@@ -63,13 +63,13 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(56,189,248,0.18)] hover:shadow-[0_0_28px_rgba(56,189,248,0.3)]",
     crosshair: "border-sky-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-sky-500/5",
   },
   cyan: {
     border: "border-cyan-500/20 hover:border-cyan-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-cyan-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-cyan-400",
     textHover: "group-hover:text-cyan-200",
     icon: "text-cyan-400",
     ping: "bg-cyan-400",
@@ -82,13 +82,13 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(6,182,212,0.18)] hover:shadow-[0_0_28px_rgba(6,182,212,0.3)]",
     crosshair: "border-cyan-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-cyan-500/5",
   },
   emerald: {
     border: "border-emerald-500/20 hover:border-emerald-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-emerald-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-emerald-400",
     textHover: "group-hover:text-emerald-200",
     icon: "text-emerald-400",
     ping: "bg-emerald-400",
@@ -101,13 +101,13 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(16,185,129,0.18)] hover:shadow-[0_0_28px_rgba(16,185,129,0.3)]",
     crosshair: "border-emerald-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-emerald-500/5",
   },
   purple: {
     border: "border-purple-500/20 hover:border-purple-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-purple-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-purple-400",
     textHover: "group-hover:text-purple-200",
     icon: "text-purple-400",
     ping: "bg-purple-400",
@@ -120,13 +120,13 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(168,85,247,0.18)] hover:shadow-[0_0_28px_rgba(168,85,247,0.3)]",
     crosshair: "border-purple-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-purple-500/5",
   },
   indigo: {
     border: "border-indigo-500/20 hover:border-indigo-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-indigo-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-indigo-400",
     textHover: "group-hover:text-indigo-200",
     icon: "text-indigo-400",
     ping: "bg-indigo-400",
@@ -139,32 +139,32 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(99,102,241,0.18)] hover:shadow-[0_0_28px_rgba(99,102,241,0.3)]",
     crosshair: "border-indigo-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-indigo-500/5",
   },
   amber: {
     border: "border-amber-500/20 hover:border-amber-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-amber-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-amber-400",
     textHover: "group-hover:text-amber-200",
     icon: "text-amber-400",
     ping: "bg-amber-400",
-    dot: "bg-amber-400",
+    dot: "bg-amber-500",
     badgeBorder: "border-amber-400/30",
-    badgeBg: "bg-amber-400/10",
+    badgeBg: "bg-amber-500/10",
     badgeText: "text-amber-300",
     buttonGradient: "border border-amber-400/40 bg-amber-500/15 hover:bg-amber-500/25 hover:border-amber-400",
     buttonText: "text-amber-200 hover:text-white",
     buttonShadow: "shadow-[0_0_20px_rgba(245,158,11,0.18)] hover:shadow-[0_0_28px_rgba(245,158,11,0.3)]",
     crosshair: "border-amber-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
-    rowHoverBg: "hover:bg-amber-400/5",
+    highlightBg: "bg-[#080B14]",
+    rowHoverBg: "hover:bg-amber-500/5",
   },
   rose: {
     border: "border-rose-500/20 hover:border-rose-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-rose-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-rose-400",
     textHover: "group-hover:text-rose-200",
     icon: "text-rose-400",
     ping: "bg-rose-400",
@@ -177,13 +177,13 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(244,63,94,0.18)] hover:shadow-[0_0_28px_rgba(244,63,94,0.3)]",
     crosshair: "border-rose-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-rose-500/5",
   },
   orange: {
     border: "border-orange-500/20 hover:border-orange-400/50",
-    bg: "bg-[#0A0D17]/85",
-    textAccent: "text-orange-300",
+    bg: "bg-[#080B14]",
+    textAccent: "text-orange-400",
     textHover: "group-hover:text-orange-200",
     icon: "text-orange-400",
     ping: "bg-orange-400",
@@ -196,7 +196,7 @@ const REPO_THEMES: Record<
     buttonShadow: "shadow-[0_0_20px_rgba(249,115,22,0.18)] hover:shadow-[0_0_28px_rgba(249,115,22,0.3)]",
     crosshair: "border-orange-400/60",
     highlightBorder: "border-white/10",
-    highlightBg: "bg-black/50",
+    highlightBg: "bg-[#080B14]",
     rowHoverBg: "hover:bg-orange-500/5",
   },
 };
@@ -223,40 +223,30 @@ export default function CyberRepoCard({
       className={`group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-7 shadow-lg transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)] ${
         hasRepoUrl
           ? `${theme.border} ${theme.bg}`
-          : "border-white/10 bg-[#080B14] hover:border-white/20"
+          : `${theme.border} bg-[#080B14] hover:border-white/20`
       }`}
     >
       {/* 4 Optical Corner Crosshairs */}
       <div
-        className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${
-          hasRepoUrl ? theme.crosshair : "border-white/20"
-        }`}
+        className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${theme.crosshair}`}
       />
       <div
-        className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${
-          hasRepoUrl ? theme.crosshair : "border-white/20"
-        }`}
+        className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${theme.crosshair}`}
       />
       <div
-        className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${
-          hasRepoUrl ? theme.crosshair : "border-white/20"
-        }`}
+        className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${theme.crosshair}`}
       />
       <div
-        className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${
-          hasRepoUrl ? theme.crosshair : "border-white/20"
-        }`}
+        className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${theme.crosshair}`}
       />
 
       <div>
         {/* Top Header / Status Line */}
         <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
           <div
-            className={`flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider ${
-              hasRepoUrl ? theme.textAccent : "text-slate-400"
-            }`}
+            className={`flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider ${theme.textAccent}`}
           >
-            <FolderGit2 className={`h-4 w-4 ${hasRepoUrl ? theme.icon : "text-slate-400"} shrink-0`} />
+            <FolderGit2 className={`h-4 w-4 ${theme.icon} shrink-0`} />
             <span>PROJECT ARCHIVE</span>
           </div>
 
@@ -270,8 +260,8 @@ export default function CyberRepoCard({
               />
             </span>
           ) : (
-            <span className="flex items-center justify-center text-slate-400">
-              <Lock className="h-4 w-4 text-slate-400" />
+            <span className={`flex items-center justify-center ${theme.textAccent}`}>
+              <Lock className={`h-4 w-4 ${theme.icon}`} />
             </span>
           )}
         </div>
@@ -293,11 +283,7 @@ export default function CyberRepoCard({
           <div className="flex items-center justify-between text-slate-400">
             <span className="uppercase text-[11px]">ACCESS CLEARANCE:</span>
             <span
-              className={
-                hasRepoUrl
-                  ? `${theme.textAccent} font-semibold`
-                  : "text-slate-300 font-semibold"
-              }
+              className={`${theme.textAccent} font-semibold`}
             >
               {hasRepoUrl ? "UNRESTRICTED" : "RESTRICTED"}
             </span>
@@ -319,7 +305,7 @@ export default function CyberRepoCard({
 
           <div className="flex items-center justify-between text-slate-400">
             <span className="uppercase text-[11px]">PROJECT STATUS:</span>
-            <span className={`inline-flex items-center gap-1.5 ${hasRepoUrl ? theme.textAccent : "text-slate-300"} font-semibold`}>
+            <span className={`inline-flex items-center gap-1.5 ${theme.textAccent} font-semibold`}>
               <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
               <span>{projectStatus}</span>
             </span>
@@ -340,8 +326,8 @@ export default function CyberRepoCard({
           <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       ) : (
-        <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-black/40 px-5 py-3 font-mono text-xs font-semibold text-slate-400 cursor-not-allowed">
-          <Lock className="h-4 w-4 text-slate-500" />
+        <div className={`w-full inline-flex items-center justify-center gap-2 rounded-xl border ${theme.border} bg-[#080B14] px-5 py-3 font-mono text-xs font-semibold ${theme.textAccent} cursor-not-allowed`}>
+          <Lock className={`h-4 w-4 ${theme.icon}`} />
           <span>RESTRICTED ACCESS</span>
         </div>
       )}

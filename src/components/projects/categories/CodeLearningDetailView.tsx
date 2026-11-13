@@ -223,7 +223,7 @@ export default function CodeLearningDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-orange-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
               [ 01 // CURRICULUM CONSOLE & LEARNING PATH ]
             </span>
           </div>
@@ -465,7 +465,7 @@ export default function CodeLearningDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-orange-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
               [ 02 // LEARNING ROADMAP & CURRICULUM BLUEPRINT ]
             </span>
           </div>
@@ -622,7 +622,7 @@ export default function CodeLearningDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-orange-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
               [ 03 // CURRICULUM MODULES & TOPIC ARCHITECTURE ]
             </span>
           </div>
@@ -910,7 +910,7 @@ export default function CodeLearningDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-orange-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
               [ 05 // RECOMMENDED PRACTICE PROJECTS & APPLIED CAPSTONES ]
             </span>
           </div>
@@ -1055,7 +1055,7 @@ export default function CodeLearningDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-orange-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
               [ 06 // CURRICULUM VAULT & SYLLABUS GATES ]
             </span>
           </div>

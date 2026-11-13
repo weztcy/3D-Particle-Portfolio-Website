@@ -239,7 +239,7 @@ export default function AIEngineeringDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-purple-400">
               [ 01 // NEURAL CONSOLE & AI ARCHITECTURE ]
             </span>
           </div>

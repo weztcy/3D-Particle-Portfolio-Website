@@ -186,7 +186,7 @@ export default function WebDevDetailView({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500" />
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-sky-400">
+            <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-sky-400">
               [ 01 // SYSTEM CONSOLE & FULLSTACK ARCHITECTURE ]
             </span>
           </div>
