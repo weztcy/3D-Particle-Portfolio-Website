@@ -490,7 +490,7 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-purple-400" />
-                  <span>[ PROBLEM_SPACE // OPERATIONAL_FRICTION ]</span>
+                  <span>PROBLEM_SPACE // OPERATIONAL_FRICTION</span>
                 </div>
                 <span className="rounded bg-black/60 border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-300 font-bold">
                   {project.aiProblemBadge || "PRE-AI BOTTLENECK"}
@@ -515,7 +515,7 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-purple-400" />
-                  <span>[ PROPOSED_AI_SOLUTION // ARCHITECTURAL_APPROACH ]</span>
+                  <span>PROPOSED_AI_SOLUTION // ARCHITECTURAL_APPROACH</span>
                 </div>
                 <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-400 font-bold">
                   {project.aiSolutionBadge || "AI SYSTEM APPROACH"}
@@ -538,7 +538,7 @@ export default function AIEngineeringDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-400">
               <Zap className="h-4 w-4 text-purple-400" />
-              <span>[ KEY_CAPABILITIES & REAL-WORLD USE CASES ]</span>
+              <span>KEY_CAPABILITIES & REAL-WORLD USE CASES</span>
             </div>
             <span className="font-mono text-[10px] text-slate-400 font-semibold">
               {keyCapabilitiesAndUseCases.length} VERIFIED CAPABILITIES
@@ -607,7 +607,7 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <Network className="h-4 w-4 text-purple-400" />
-                  <span>[ SYSTEM_ARCHITECTURE // COGNITIVE TOPOLOGY ]</span>
+                  <span>SYSTEM_ARCHITECTURE // COGNITIVE TOPOLOGY</span>
                 </div>
                 <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
                   {aiSystemArchitecture.layers.length} TIERS
@@ -658,7 +658,7 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <Workflow className="h-4 w-4 text-purple-400" />
-                  <span>[ AI_WORKFLOW // EXECUTION PIPELINE ]</span>
+                  <span>AI_WORKFLOW // EXECUTION PIPELINE</span>
                 </div>
                 <span className="rounded bg-purple-500/10 border border-purple-400/30 px-2 py-0.5 font-mono text-[10px] text-purple-300">
                   {aiWorkflow.workflowType}
@@ -707,7 +707,7 @@ export default function AIEngineeringDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-purple-400">
               <Cpu className="h-4 w-4 text-purple-400" />
-              <span>[ CORE_AI_COMPONENTS // RUNTIME HARDWARE & SOFTWARE ]</span>
+              <span>CORE_AI_COMPONENTS // RUNTIME HARDWARE & SOFTWARE</span>
             </div>
             <span className="font-mono text-[10px] text-slate-400 font-semibold">
               {coreAiComponents.length} ESSENTIAL MODULES
@@ -1031,9 +1031,7 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <TrendingUp className="h-4 w-4 text-purple-400" />
-                  <span>
-                    [ EMPIRICAL_EVALUATION & SYSTEM_BENCHMARKS ]
-                  </span>
+                  <span>EMPIRICAL_EVALUATION & SYSTEM_BENCHMARKS</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400 font-semibold">
                   EVALUATION_SUITE
@@ -1081,9 +1079,7 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400 tracking-wider">
                   <ShieldAlert className="h-4 w-4 text-purple-400" />
-                  <span>
-                    [ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]
-                  </span>
+                  <span>OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400 font-semibold">
                   GUARDRAILS & TRANSPARENCY

@@ -530,7 +530,7 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Target className="h-4 w-4 text-emerald-400" />
-                  <span>[ ANALYTICAL_OBJECTIVES // KEY QUESTIONS ]</span>
+                  <span>ANALYTICAL_OBJECTIVES // KEY QUESTIONS</span>
                 </div>
                 <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   {analyticalObjectives.length} TARGETS
@@ -571,7 +571,7 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
-                  <span>[ DATASET_PROFILE // METADATA SPECS ]</span>
+                  <span>DATASET_PROFILE // METADATA SPECS</span>
                 </div>
                 <span className="rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   LONGITUDINAL
@@ -661,7 +661,7 @@ export default function DataAnalyticsDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
               <Workflow className="h-4 w-4 text-emerald-400" />
-              <span>[ ANALYSIS_WORKFLOW // 5-PHASE END-TO-END PIPELINE ]</span>
+              <span>ANALYSIS_WORKFLOW // 5-PHASE END-TO-END PIPELINE</span>
             </div>
             <span className="font-mono text-[10px] text-slate-400">
               DETERMINISTIC ETL
@@ -704,7 +704,7 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
-                  <span>[ DATA_PREPARATION // CLEANING & WRANGLING ]</span>
+                  <span>DATA_PREPARATION // CLEANING & WRANGLING</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400">
                   {dataPreparation.length} STAGES
@@ -745,7 +745,7 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <LineChart className="h-4 w-4 text-emerald-400" />
-                  <span>[ METHODOLOGY // STATISTICAL APPROACH ]</span>
+                  <span>METHODOLOGY // STATISTICAL APPROACH</span>
                 </div>
                 <span className="font-mono text-[10px] text-emerald-400">
                   RIGOROUS
@@ -931,7 +931,7 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
-                  <span>[ KEY_FINDINGS // EMPIRICAL INSIGHTS ]</span>
+                  <span>KEY_FINDINGS // EMPIRICAL INSIGHTS</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400">
                   {keyFindings.length} METRICS VALIDATED
@@ -977,7 +977,7 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <TrendingUp className="h-4 w-4 text-emerald-400" />
-                  <span>[ ACTIONABLE_RECOMMENDATIONS & CONCLUSION ]</span>
+                  <span>ACTIONABLE_RECOMMENDATIONS & CONCLUSION</span>
                 </div>
                 <span className="font-mono text-[10px] text-emerald-400">
                   EXECUTIVE_DECK

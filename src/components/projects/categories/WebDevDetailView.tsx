@@ -450,7 +450,7 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-sky-400" />
-                  <span>[ ISSUE_DETECTED // PROBLEM STATEMENT ]</span>
+                  <span>ISSUE_DETECTED // PROBLEM STATEMENT</span>
                 </div>
                 <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {problemStatements.length} BOTTLENECKS
@@ -491,7 +491,7 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Target className="h-4 w-4 text-sky-400" />
-                  <span>[ TARGET_SOLVED // STRATEGIC OBJECTIVES ]</span>
+                  <span>TARGET_SOLVED // STRATEGIC OBJECTIVES</span>
                 </div>
                 <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {projectObjectives.length} TARGETS
@@ -652,7 +652,7 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-sky-400" />
-                  <span>[ CORE_FEATURES // CAPABILITY MATRIX ]</span>
+                  <span>CORE_FEATURES // CAPABILITY MATRIX</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-400">
                   {coreFeatures.length} ACTIVE MODULES
@@ -693,7 +693,7 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Workflow className="h-4 w-4 text-sky-400" />
-                  <span>[ USER_FLOW // INTERACTION PIPELINE ]</span>
+                  <span>USER_FLOW // INTERACTION PIPELINE</span>
                 </div>
                 <span className="font-mono text-[10px] text-sky-400">
                   DETERMINISTIC
@@ -777,7 +777,7 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Network className="h-4 w-4 text-sky-400" />
-                  <span>[ SYSTEM_ARCHITECTURE // TOPOLOGY ]</span>
+                  <span>SYSTEM_ARCHITECTURE // TOPOLOGY</span>
                 </div>
                 <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   TIERED MVC
@@ -828,7 +828,7 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Database className="h-4 w-4 text-sky-400" />
-                  <span>[ DATABASE_SCHEMA // DATA_FLOW ]</span>
+                  <span>DATABASE_SCHEMA // DATA_FLOW</span>
                 </div>
                 <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   {databaseDataFlow.type}
@@ -878,7 +878,7 @@ export default function WebDevDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-sky-400">
               <Zap className="h-4 w-4 text-sky-400" />
-              <span>[ TECHNICAL_IMPLEMENTATION // REAL-WORLD PROTOCOLS ]</span>
+              <span>TECHNICAL_IMPLEMENTATION // REAL-WORLD PROTOCOLS</span>
             </div>
             <span className="font-mono text-[10px] text-slate-400">
               5 VERIFIED PROTOCOLS
