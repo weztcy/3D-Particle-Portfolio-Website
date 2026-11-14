@@ -787,7 +787,7 @@ export default function DataAnalyticsDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // ANALYTIC RUNTIME & TOOLING ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & ANALYTIC ECOSYSTEM ]"
         techStack={allDataAnalyticsTechStack}
         accentColor="emerald"
         onTriggerPulse={onTriggerPulse}
@@ -1092,7 +1092,13 @@ export default function DataAnalyticsDetailView({
           />
 
           {/* Card 3: Dataset & Supporting Files Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/50">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-emerald-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_8px_32px_rgba(16,185,129,0.16)]">
+            {/* 4 Optical Corner Crosshairs */}
+            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-emerald-400/60" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-emerald-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-emerald-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-emerald-400/60" />
+
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">

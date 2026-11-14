@@ -769,7 +769,7 @@ export default function UIUXDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // DESIGN STACK & TOOLING ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & DESIGN ECOSYSTEM ]"
         techStack={allUIUXTechStack}
         accentColor="rose"
         onTriggerPulse={onTriggerPulse}

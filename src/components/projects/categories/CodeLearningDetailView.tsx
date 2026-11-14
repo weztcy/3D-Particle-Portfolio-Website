@@ -878,7 +878,7 @@ export default function CodeLearningDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // LEARNING TECH STACK & RUNTIME ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & RUNTIME ENVIRONMENT ]"
         techStack={allCodeLearningTechStack}
         accentColor="orange"
         onTriggerPulse={onTriggerPulse}

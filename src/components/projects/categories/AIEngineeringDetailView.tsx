@@ -742,7 +742,7 @@ export default function AIEngineeringDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // AI STACK & RUNTIME ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & INTELLIGENCE RUNTIME ]"
         techStack={allAIEngineeringTechStack}
         accentColor="purple"
         onTriggerPulse={onTriggerPulse}

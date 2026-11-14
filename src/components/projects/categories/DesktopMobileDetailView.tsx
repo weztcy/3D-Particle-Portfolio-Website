@@ -882,7 +882,7 @@ export default function DesktopMobileDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // DESKTOP & MOBILE RUNTIME ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & PLATFORM RUNTIME ]"
         techStack={allDesktopMobileTechStack}
         accentColor="amber"
         onTriggerPulse={onTriggerPulse}

@@ -747,7 +747,7 @@ export default function WebDevDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // FULL-STACK RUNTIME & TOOLING ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & FULLSTACK ARCHITECTURE ]"
         techStack={allWebDevTechStack}
         accentColor="sky"
         onTriggerPulse={onTriggerPulse}
@@ -977,7 +977,13 @@ export default function WebDevDetailView({
           />
 
           {/* Card 3: Architecture & Quality Card (Sky Theme) */}
-          <div className="flex flex-col justify-between rounded-2xl border border-sky-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/50">
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-sky-500/20 bg-[#0A0D17]/85 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_8px_32px_rgba(56,189,248,0.16)]">
+            {/* 4 Optical Corner Crosshairs */}
+            <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 border-sky-400/60" />
+
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 uppercase tracking-wider">

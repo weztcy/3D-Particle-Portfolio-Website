@@ -1249,12 +1249,13 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           {/* Project Switcher Navigation (Previous Project & Next Project) */}
           <section className={`pt-6 border-t ${accent.headerBorder} space-y-6`}>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="hidden md:block font-mono text-xs uppercase tracking-widest text-slate-400">
-                // SYSTEM_GATEWAYS // SWITCH PROJECT NODE
+              <div className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-slate-400">
+                <span className="hidden sm:inline">// SYSTEM_GATEWAYS // SWITCH PROJECT NODE</span>
+                <span className="sm:hidden">// SYSTEM_GATEWAYS</span>
               </div>
               <Link
                 href="/#projects"
-                className={`inline-flex items-center gap-1.5 font-mono text-xs ${accent.textAccent} hover:underline transition-colors`}
+                className={`inline-flex items-center gap-1.5 font-mono text-[11px] sm:text-xs ${accent.textAccent} hover:underline transition-colors`}
               >
                 <Grid className="h-3.5 w-3.5" />
                 <span>INDEX_MATRIX // {totalProjects} PROJECTS</span>

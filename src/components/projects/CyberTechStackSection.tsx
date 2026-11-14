@@ -259,7 +259,8 @@ export default function CyberTechStackSection({
           <span
             className={`font-mono text-xs sm:text-sm font-bold uppercase tracking-wider ${theme.title}`}
           >
-            {displayTitle}
+            <span className="hidden lg:inline">{displayTitle}</span>
+            <span className="lg:hidden">[ {sectionNumber} // TECH STACK ]</span>
           </span>
         </div>
 
@@ -269,10 +270,7 @@ export default function CyberTechStackSection({
         >
           <Cpu className={`h-3.5 w-3.5 ${theme.icon}`} />
           <span className="uppercase tracking-wider font-semibold">
-            {uniqueTechs.length} ACTIVE TECHS
-          </span>
-          <span className="text-[10px] text-slate-400 font-bold hidden sm:inline">
-            // PRODUCTION_READY
+            {uniqueTechs.length} ACTIVE
           </span>
         </div>
       </div>

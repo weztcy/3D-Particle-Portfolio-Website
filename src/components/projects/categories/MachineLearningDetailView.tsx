@@ -848,7 +848,7 @@ export default function MachineLearningDetailView({
           ========================================================================= */}
       <CyberTechStackSection
         sectionNumber="04"
-        sectionTitle="[ 04 // ML RUNTIME & COMPUTATION ECOSYSTEM ]"
+        sectionTitle="[ 04 // TECH STACK & COMPUTATION RUNTIME ]"
         techStack={allMLTechStack}
         accentColor="indigo"
         onTriggerPulse={onTriggerPulse}
