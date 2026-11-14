@@ -472,7 +472,7 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
             >
               <ArrowLeft className={`h-3.5 w-3.5 ${accent.returnIcon} group-hover:-translate-x-1 transition-transform shrink-0`} />
               <span className="tracking-wider">
-                RETURN<span className="hidden min-[380px]:inline">_TO_PROJECTS</span>
+                RETURN<span className="hidden min-[380px]:inline"> TO PROJECTS</span>
               </span>
             </Link>
 

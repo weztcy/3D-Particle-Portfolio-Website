@@ -17,6 +17,7 @@ import {
   PROJECT_CASE_STUDIES,
   ProjectCaseStudy,
 } from "@/data";
+import { ProjectTechStack } from "./projects/ProjectTechStack";
 
 const PROJECT_FILTER_ROW_1 = [
   { id: "all", label: "All Projects", shortLabel: "All", prefix: "00" },
@@ -705,38 +706,10 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                         {project.techStack.length} MODULES
                       </span>
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech, tIdx) => {
-                        // Max 6 on mobile (<md), max 10 on tablet/desktop (>=md), hidden beyond 10
-                        if (tIdx >= 10) return null;
-                        const isHiddenOnMobile = tIdx >= 6;
-                        return (
-                          <span
-                            key={tech}
-                            className={`${
-                              isHiddenOnMobile ? "hidden md:inline-flex" : "inline-flex"
-                            } items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[11px] text-slate-200 hover:border-white/20 transition-colors`}
-                          >
-                            <span
-                              className={`h-1 w-1 rounded-full ${accent.techDot} opacity-80`}
-                            />
-                            <span>{tech}</span>
-                          </span>
-                        );
-                      })}
-                      {/* Mobile +more badge (> 6 items) */}
-                      {project.techStack.length > 6 && (
-                        <span className="md:hidden inline-flex items-center rounded-lg border border-white/10 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-slate-300">
-                          +{project.techStack.length - 6} more
-                        </span>
-                      )}
-                      {/* Desktop & Tablet +more badge (> 10 items) */}
-                      {project.techStack.length > 10 && (
-                        <span className="hidden md:inline-flex items-center rounded-lg border border-white/10 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-slate-300">
-                          +{project.techStack.length - 10} more
-                        </span>
-                      )}
-                    </div>
+                    <ProjectTechStack
+                      techStack={project.techStack}
+                      accent={{ techDot: accent.techDot }}
+                    />
                   </div>
                 </div>
 

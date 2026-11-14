@@ -394,7 +394,7 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
             >
               <ArrowLeft className="h-3.5 w-3.5 text-amber-400 group-hover:-translate-x-1 transition-transform shrink-0" />
               <span className="tracking-wider">
-                RETURN<span className="hidden min-[380px]:inline">_TO_EXPERIENCE</span>
+                RETURN<span className="hidden min-[380px]:inline"> TO EXPERIENCE</span>
               </span>
             </Link>
 
@@ -590,7 +590,8 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_#f59e0b]" />
                 </span>
                 <span className="font-bold tracking-widest uppercase">
-                  [ 02 // PUBLICATION SPECIFICATION & METADATA DECK ]
+                  <span className="hidden sm:inline">PUBLICATION SPECIFICATION & METADATA DECK</span>
+                  <span className="sm:hidden">PUBLICATION METADATA DECK</span>
                 </span>
                 <span className="text-slate-600 hidden sm:inline">//</span>
                 <span className="text-slate-400 text-[11px] hidden sm:inline">
@@ -715,7 +716,7 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                     <div className="font-mono text-[10px] uppercase tracking-wider text-slate-400">
                       RESEARCH FIELD & DOMAIN
                     </div>
-                    <div className="font-display text-sm sm:text-base font-bold text-emerald-300 leading-snug lg:truncate">
+                    <div className="font-display text-sm sm:text-base font-bold text-emerald-300 leading-snug break-words">
                       {pub.field}
                     </div>
                     <div className="font-mono text-[11px] text-slate-400 truncate">
@@ -741,7 +742,7 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                     <div className="font-mono text-[10px] uppercase tracking-wider text-slate-400">
                       AUTHORS & INVESTIGATORS
                     </div>
-                    <div className="font-display text-sm sm:text-base font-bold text-white leading-snug lg:truncate">
+                    <div className="font-display text-sm sm:text-base font-bold text-white leading-snug break-words">
                       {pub.authors || "Yohanes Dimas Pratama (First Author), Abu Salam"}
                     </div>
                     <div className="font-mono text-[11px] text-indigo-300/90 truncate">
@@ -840,7 +841,8 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                 <div className="flex-1 flex flex-col">
                   <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-400 mb-4">
                     <Sparkles className="h-4 w-4 text-amber-400 shrink-0" />
-                    <span>[ 01 // ABSTRACT & RESEARCH SPECIFICATION ]</span>
+                    <span className="hidden sm:inline">[ 01 // ABSTRACT & RESEARCH SPECIFICATION ]</span>
+                    <span className="sm:hidden">[ 01 // ABSTRACT & RESEARCH ]</span>
                   </div>
 
                   <div className="flex-1 rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-6 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] flex flex-col justify-center">
@@ -881,7 +883,8 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-300">
                       <BookOpen className="h-4 w-4 shrink-0" />
-                      <span>[ 02 // JOURNAL ACCREDITATION & INDEXING ]</span>
+                      <span className="hidden sm:inline">[ 02 // JOURNAL ACCREDITATION & INDEXING ]</span>
+                      <span className="sm:hidden">[ 02 // ACCREDITATION & INDEXING ]</span>
                     </div>
 
                     {/* Telemetry Readout Terminal Box */}
@@ -1032,7 +1035,8 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3.5 font-mono text-xs">
                 <div className="flex items-center gap-2 uppercase tracking-widest text-amber-300 font-bold">
                   <Tag className="h-4 w-4 text-amber-400 shrink-0" />
-                  <span>[ 03 // INDEX TERMS & RESEARCH KEYWORDS ]</span>
+                  <span className="hidden sm:inline">[ 03 // INDEX TERMS & RESEARCH KEYWORDS ]</span>
+                  <span className="sm:hidden">[ 03 // INDEX & RESEARCH KEYWORDS ]</span>
                 </div>
                 <span className="text-[10px] text-amber-400/90 font-mono bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full w-fit font-bold">
                   {pub.keywords.length} TAXONOMY LABELS
@@ -1066,7 +1070,8 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
 
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-emerald-400 mb-6">
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
-                <span>[ 04 // ARCHITECTURAL INNOVATIONS & KEY CONTRIBUTIONS ]</span>
+                <span className="hidden sm:inline">[ 04 // ARCHITECTURAL INNOVATIONS & KEY CONTRIBUTIONS ]</span>
+                <span className="sm:hidden">[ 04 // KEY CONTRIBUTIONS ]</span>
               </div>
 
               {/* 4 Contributions Cards */}
@@ -1097,7 +1102,8 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               <div className="pt-6 border-t border-white/10">
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-amber-400 mb-4">
                   <Cpu className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>RESEARCH ARCHITECTURE PIPELINE EXECUTION</span>
+                  <span className="hidden sm:inline">RESEARCH ARCHITECTURE PIPELINE EXECUTION</span>
+                  <span className="sm:hidden">RESEARCH PIPELINE</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
@@ -1336,7 +1342,10 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-amber-300">
                     <BookOpen className="h-4 w-4 text-amber-400 shrink-0" />
-                    <span className="font-bold">[ 06 // CITED REFERENCES & LITERATURE ]</span>
+                    <span className="font-bold">
+                      <span className="hidden sm:inline">[ 06 // CITED REFERENCES & LITERATURE ]</span>
+                      <span className="sm:hidden">[ 06 // REFERENCES & LITERATURE ]</span>
+                    </span>
                     <span className="text-slate-600 hidden sm:inline">//</span>
                     <span className="text-slate-400 text-[11px] hidden sm:inline">
                       PEER-REVIEWED SCIENTIFIC BIBLIOGRAPHY

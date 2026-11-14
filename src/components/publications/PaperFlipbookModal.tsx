@@ -421,17 +421,6 @@ export default function PaperFlipbookModal({
               <span>RAW PDF</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
-
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={onClose}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/15 px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer"
-              title="Close Reader (Esc)"
-            >
-              <X className="h-4 w-4" />
-              <span className="hidden sm:inline">CLOSE</span>
-            </button>
           </div>
         </div>
       </header>

@@ -278,7 +278,7 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
             >
               <ArrowLeft className="h-3.5 w-3.5 text-sky-400 group-hover:-translate-x-1 transition-transform shrink-0" />
               <span className="tracking-wider">
-                RETURN<span className="hidden min-[380px]:inline">_TO_CERTIFICATE</span>
+                RETURN<span className="hidden min-[380px]:inline"> TO CERTIFICATE</span>
               </span>
             </Link>
 
@@ -575,33 +575,31 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
                   <div className="font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-0.5">
                     CREDENTIAL ID
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                    <div className="font-mono text-sm sm:text-lg font-bold text-sky-300 break-all sm:break-normal truncate">
+                  <div className="flex items-center justify-between gap-2.5">
+                    <div className="font-mono text-sm sm:text-lg font-bold text-sky-300 truncate">
                       {cert.credentialId}
                     </div>
 
                     {/* Tactical Copy ID Button */}
                     {cert.credentialId && (
-                      <div className="flex justify-end shrink-0">
-                        <button
-                          onClick={handleCopyId}
-                          type="button"
-                          title="Copy Credential ID"
-                          className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shadow-[0_0_12px_rgba(56,189,248,0.15)]"
-                        >
-                          {isCopied ? (
-                            <>
-                              <Check className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
-                              <span className="text-emerald-400 font-bold">COPIED</span>
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="h-3.5 w-3.5 text-sky-400" />
-                              <span>COPY</span>
-                            </>
-                          )}
-                        </button>
-                      </div>
+                      <button
+                        onClick={handleCopyId}
+                        type="button"
+                        title="Copy Credential ID"
+                        className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shadow-[0_0_12px_rgba(56,189,248,0.15)]"
+                      >
+                        {isCopied ? (
+                          <>
+                            <Check className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+                            <span className="text-emerald-400 font-bold">COPIED</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="h-3.5 w-3.5 text-sky-400" />
+                            <span>COPY</span>
+                          </>
+                        )}
+                      </button>
                     )}
                   </div>
                 </div>
