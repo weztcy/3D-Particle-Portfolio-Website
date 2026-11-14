@@ -309,7 +309,7 @@ export default function DesktopMobileDetailView({
   return (
     <div className="space-y-10 sm:space-y-14">
       {/* =========================================================================
-          SECTION 1 — [ 01 // CLIENT CONSOLE & NATIVE OVERVIEW ]
+          SECTION 1 — [ 01 // APP CONSOLE & NATIVE OVERVIEW ]
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
@@ -328,7 +328,8 @@ export default function DesktopMobileDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
-              [ 01 // CLIENT CONSOLE & NATIVE OVERVIEW ]
+              <span className="hidden lg:inline">[ 01 // APP CONSOLE & NATIVE OVERVIEW ]</span>
+              <span className="lg:hidden">[ 01 // APP CONSOLE ]</span>
             </span>
           </div>
 
@@ -572,7 +573,8 @@ export default function DesktopMobileDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
-              [ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]
+              <span className="hidden lg:inline">[ 02 // PROBLEM LANDSCAPE & SYSTEM OBJECTIVES ]</span>
+              <span className="lg:hidden">[ 02 // PROBLEM LANDSCAPE ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
@@ -585,7 +587,8 @@ export default function DesktopMobileDetailView({
           <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-3">
             <Info className="h-4 w-4 text-amber-400" />
             <span className="font-bold uppercase tracking-wider">
-              Project Context & Background Genesis
+              <span className="hidden lg:inline">Project Context & Background Genesis</span>
+              <span className="lg:hidden">Project Context</span>
             </span>
           </div>
           <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
@@ -601,7 +604,8 @@ export default function DesktopMobileDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <AlertTriangle className="h-4 w-4 text-amber-400" />
-              <span>Target Constraints & Bottlenecks</span>
+              <span className="hidden lg:inline">Target Constraints & Bottlenecks</span>
+              <span className="lg:hidden">Target Constraints</span>
             </div>
 
             <div className="space-y-3.5">
@@ -633,7 +637,8 @@ export default function DesktopMobileDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Sparkles className="h-4 w-4 text-amber-400" />
-              <span>Architectural Objectives & Targets</span>
+              <span className="hidden lg:inline">Architectural Objectives & Targets</span>
+              <span className="lg:hidden">Architectural Objectives</span>
             </div>
 
             <div className="space-y-3.5">
@@ -683,7 +688,8 @@ export default function DesktopMobileDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
-              [ 03 // CORE CAPABILITIES & INTERACTION FLOW ]
+              <span className="hidden lg:inline">[ 03 // CORE CAPABILITIES & INTERACTION FLOW ]</span>
+              <span className="lg:hidden">[ 03 // INTERACTION FLOW ]</span>
             </span>
           </div>
 
@@ -798,7 +804,7 @@ export default function DesktopMobileDetailView({
           <div className="lg:col-span-6 flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Zap className="h-4 w-4 text-amber-400" />
-              <span>Core Application Capabilities</span>
+              <span>Application Capabilities</span>
             </div>
 
             <div className="space-y-3">
@@ -831,7 +837,8 @@ export default function DesktopMobileDetailView({
             <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Workflow className="h-4 w-4 text-amber-400" />
-                <span>User Interaction & Execution Flow</span>
+                <span className="hidden lg:inline">User Interaction & Execution Flow</span>
+                <span className="lg:hidden">User Interaction</span>
               </div>
               <span className="hidden md:inline-block text-[10px] text-slate-400">PIPELINE_FLOW</span>
             </div>
@@ -911,7 +918,8 @@ export default function DesktopMobileDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
-              [ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]
+              <span className="hidden lg:inline">[ 05 // CLIENT ARCHITECTURE & PLATFORM INTEGRATION ]</span>
+              <span className="lg:hidden">[ 05 // CLIENT ARCHITECTURE ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
@@ -924,7 +932,8 @@ export default function DesktopMobileDetailView({
           <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-3">
             <Layers className="h-4 w-4 text-amber-400" />
             <span className="font-bold uppercase tracking-wider">
-              Application Architecture Blueprint
+              <span className="hidden lg:inline">Application Architecture Blueprint</span>
+              <span className="lg:hidden">Architecture Blueprint</span>
             </span>
           </div>
 
@@ -975,7 +984,8 @@ export default function DesktopMobileDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Database className="h-4 w-4 text-amber-400" />
-              <span>Data Management & Storage Pipeline</span>
+              <span className="hidden lg:inline">Data Management & Storage Pipeline</span>
+              <span className="lg:hidden">Data Management</span>
             </div>
 
             <div className="space-y-3.5">
@@ -1007,7 +1017,8 @@ export default function DesktopMobileDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Monitor className="h-4 w-4 text-amber-400" />
-              <span>Native Platform Implementation</span>
+              <span className="hidden lg:inline">Native Platform Implementation</span>
+              <span className="lg:hidden">Platform Implementation</span>
             </div>
 
             <div className="space-y-3.5">
@@ -1057,7 +1068,8 @@ export default function DesktopMobileDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
-              [ 06 // SOURCE VAULT & RUNTIME SPECIFICATION GATES ]
+              <span className="hidden lg:inline">[ 06 // SOURCE VAULT & RUNTIME SPECIFICATION GATES ]</span>
+              <span className="lg:hidden">[ 06 // SOURCE VAULT ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">

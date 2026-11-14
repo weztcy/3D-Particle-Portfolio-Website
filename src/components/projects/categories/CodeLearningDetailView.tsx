@@ -224,7 +224,8 @@ export default function CodeLearningDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
-              [ 01 // CURRICULUM CONSOLE & LEARNING PATH ]
+              <span className="hidden lg:inline">[ 01 // CURRICULUM CONSOLE & LEARNING PATH ]</span>
+              <span className="lg:hidden">[ 01 // CURRICULUM CONSOLE ]</span>
             </span>
           </div>
 
@@ -462,7 +463,8 @@ export default function CodeLearningDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
-              [ 02 // LEARNING ROADMAP & CURRICULUM BLUEPRINT ]
+              <span className="hidden lg:inline">[ 02 // LEARNING ROADMAP & CURRICULUM BLUEPRINT ]</span>
+              <span className="lg:hidden">[ 02 // LEARNING ROADMAP ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
@@ -476,7 +478,8 @@ export default function CodeLearningDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-400 font-mono text-xs uppercase tracking-wider">
               <ShieldCheck className="h-4 w-4 text-orange-400" />
-              <span>Prerequisites & Foundation Gates</span>
+              <span className="hidden lg:inline">Prerequisites & Foundation Gates</span>
+              <span className="lg:hidden">Prerequisites</span>
             </div>
 
             <div className="space-y-3.5">
@@ -509,7 +512,8 @@ export default function CodeLearningDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-orange-400 font-mono text-xs uppercase tracking-wider">
               <Sparkles className="h-4 w-4 text-orange-400" />
-              <span>Learning Objectives & Competencies</span>
+              <span className="hidden lg:inline">Learning Objectives & Competencies</span>
+              <span className="lg:hidden">Learning Objectives</span>
             </div>
 
             <div className="space-y-3.5">
@@ -544,7 +548,8 @@ export default function CodeLearningDetailView({
             <div className="flex items-center gap-2 text-xs font-mono text-orange-400">
               <Workflow className="h-4 w-4 text-orange-400" />
               <span className="font-bold uppercase tracking-wider">
-                Visual Curriculum Structure Roadmap (Phase Progression)
+                <span className="hidden lg:inline">Visual Curriculum Structure Roadmap (Phase Progression)</span>
+                <span className="lg:hidden">Curriculum Roadmap</span>
               </span>
             </div>
             <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">3_TIER_PIPELINE</span>
@@ -619,7 +624,8 @@ export default function CodeLearningDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
-              [ 03 // CURRICULUM MODULES & TOPIC ARCHITECTURE ]
+              <span className="hidden lg:inline">[ 03 // CURRICULUM MODULES & TOPIC ARCHITECTURE ]</span>
+              <span className="lg:hidden">[ 03 // CURRICULUM MODULES ]</span>
             </span>
           </div>
 
@@ -636,59 +642,57 @@ export default function CodeLearningDetailView({
         </div>
 
         {/* Top Telemetry Aggregator Bar */}
-        <div className="relative z-10 mb-8 rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-lg">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
-                Pedagogical Modules
-              </span>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
-                <span>{totalModulesCount}</span>
-                <span className="text-xs text-orange-400 font-normal">Stages</span>
-              </div>
-              <span className="font-mono text-[10px] text-slate-400 block mt-1">
-                Foundational to Advanced
-              </span>
+        <div className="relative z-10 mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="rounded-xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-sm shadow-sm hover:border-orange-500/30 transition-colors">
+            <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
+              Pedagogical Modules
+            </span>
+            <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
+              <span>{totalModulesCount}</span>
+              <span className="text-xs text-orange-400 font-normal">Stages</span>
             </div>
+            <span className="font-mono text-[10px] text-slate-400 block mt-1">
+              Foundational to Advanced
+            </span>
+          </div>
 
-            <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
-                Aggregated Topics
-              </span>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
-                <span>{totalSubmodulesCount}</span>
-                <span className="text-xs text-orange-400 font-normal">Units</span>
-              </div>
-              <span className="font-mono text-[10px] text-slate-400 block mt-1">
-                Submodule Invariants
-              </span>
+          <div className="rounded-xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-sm shadow-sm hover:border-orange-500/30 transition-colors">
+            <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
+              Aggregated Topics
+            </span>
+            <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
+              <span>{totalSubmodulesCount}</span>
+              <span className="text-xs text-orange-400 font-normal">Units</span>
             </div>
+            <span className="font-mono text-[10px] text-slate-400 block mt-1">
+              Submodule Invariants
+            </span>
+          </div>
 
-            <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
-                Source Code
-              </span>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
-                <span>{totalSourceFilesCount}</span>
-                <span className="text-xs text-orange-400 font-normal">Files</span>
-              </div>
-              <span className="font-mono text-[10px] text-slate-400 block mt-1">
-                Compilable Programs
-              </span>
+          <div className="rounded-xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-sm shadow-sm hover:border-orange-500/30 transition-colors">
+            <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
+              Source Code
+            </span>
+            <div className="text-xl sm:text-2xl font-bold font-mono text-slate-100 flex items-baseline gap-1.5">
+              <span>{totalSourceFilesCount}</span>
+              <span className="text-xs text-orange-400 font-normal">Files</span>
             </div>
+            <span className="font-mono text-[10px] text-slate-400 block mt-1">
+              Compilable Programs
+            </span>
+          </div>
 
-            <div className="rounded-xl border border-white/5 bg-black/40 p-3.5">
-              <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
-                Curriculum Rigor
-              </span>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-orange-400 flex items-baseline gap-1.5">
-                <span>100%</span>
-                <span className="text-xs text-orange-400 font-normal">Verified</span>
-              </div>
-              <span className="font-mono text-[10px] text-slate-400 block mt-1">
-                Zero Leaks & Warnings
-              </span>
+          <div className="rounded-xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-sm shadow-sm hover:border-orange-500/30 transition-colors">
+            <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
+              Curriculum Rigor
+            </span>
+            <div className="text-xl sm:text-2xl font-bold font-mono text-orange-400 flex items-baseline gap-1.5">
+              <span>100%</span>
+              <span className="text-xs text-orange-400 font-normal">Verified</span>
             </div>
+            <span className="font-mono text-[10px] text-slate-400 block mt-1">
+              Zero Leaks & Warnings
+            </span>
           </div>
         </div>
 
@@ -907,7 +911,8 @@ export default function CodeLearningDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
-              [ 05 // RECOMMENDED PRACTICE PROJECTS & APPLIED CAPSTONES ]
+              <span className="hidden lg:inline">[ 05 // RECOMMENDED PRACTICE PROJECTS & APPLIED CAPSTONES ]</span>
+              <span className="lg:hidden">[ 05 // PRACTICE PROJECTS ]</span>
             </span>
           </div>
 
@@ -998,7 +1003,8 @@ export default function CodeLearningDetailView({
             <div className="flex items-center gap-2 text-xs font-mono text-orange-400">
               <GraduationCap className="h-4 w-4 text-orange-400" />
               <span className="font-bold uppercase tracking-wider">
-                Demonstrated Engineering Competencies & Outcomes
+                <span className="hidden lg:inline">Demonstrated Engineering Competencies & Outcomes</span>
+                <span className="lg:hidden">Engineering Competencies</span>
               </span>
             </div>
             <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">CERTIFIED_MASTERY</span>
@@ -1052,7 +1058,8 @@ export default function CodeLearningDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-orange-400">
-              [ 06 // CURRICULUM VAULT & SYLLABUS GATES ]
+              <span className="hidden lg:inline">[ 06 // CURRICULUM VAULT & SYLLABUS GATES ]</span>
+              <span className="lg:hidden">[ 06 // CURRICULUM VAULT ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">

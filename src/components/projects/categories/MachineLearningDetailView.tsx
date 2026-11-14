@@ -260,7 +260,8 @@ export default function MachineLearningDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-indigo-400">
-              [ 01 // MODEL CONSOLE & THEORETICAL SCOPE ]
+              <span className="hidden lg:inline">[ 01 // MODEL CONSOLE & THEORETICAL SCOPE ]</span>
+              <span className="lg:hidden">[ 01 // MODEL CONSOLE ]</span>
             </span>
           </div>
 
@@ -494,7 +495,8 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 02 // PROBLEM SPACE &amp; DATASET MATRIX ]</span>
+            <span className="hidden lg:inline">[ 02 // RESEARCH CONTEXT &amp; DATASET MATRIX ]</span>
+            <span className="lg:hidden">[ 02 // RESEARCH CONTEXT ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             PROBLEM_FORMULATION // DATA_TOPOLOGY
@@ -505,7 +507,8 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 mb-7">
           <div className="flex items-center gap-2 font-mono text-xs text-indigo-400 font-semibold mb-3">
             <AlertTriangle className="h-3.5 w-3.5 text-indigo-400" />
-            <span>PROBLEM CONTEXT // DOMAIN &amp; TECHNICAL JUSTIFICATION</span>
+            <span className="hidden lg:inline">PROBLEM SCOPE // DOMAIN &amp; TECHNICAL JUSTIFICATION</span>
+            <span className="lg:hidden">PROBLEM SCOPE</span>
           </div>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
             {problemContext.length > 1000
@@ -522,7 +525,8 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Database className="h-4 w-4 text-indigo-400 shrink-0" />
-                  <span>DATASET / ENV PROFILE // 6-SLOT MATRIX</span>
+                  <span className="hidden lg:inline">DATASET / ENV PROFILE // 6-SLOT MATRIX</span>
+                  <span className="lg:hidden">DATASET ENV PROFILE</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold truncate max-w-[160px]">
                   {datasetProfile.profileBadge}
@@ -691,7 +695,8 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 03 // ALGORITHMIC METHODOLOGY &amp; TRAINING ARCHITECTURE ]</span>
+            <span className="hidden lg:inline">[ 03 // ALGORITHMIC METHODOLOGY &amp; TRAINING ARCHITECTURE ]</span>
+            <span className="lg:hidden">[ 03 // ALGORITHMIC METHODOLOGY ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             DATA_PIPELINE // MODEL_CONFIGURATION
@@ -703,7 +708,8 @@ export default function MachineLearningDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400">
               <Workflow className="h-4 w-4 text-indigo-400 shrink-0" />
-              <span>LEARNING PARADIGM // THEORETICAL FOUNDATION</span>
+              <span className="hidden lg:inline">LEARNING PARADIGM // THEORETICAL FOUNDATION</span>
+              <span className="lg:hidden">LEARNING PARADIGM</span>
             </div>
             <span className="hidden md:inline-block rounded bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 font-mono text-[10px] text-indigo-400 font-bold">
               {learningApproach.paradigm}
@@ -726,7 +732,8 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Sliders className="h-4 w-4 text-indigo-400" />
-                  <span>PREPROCESSING &amp; DATA PIPELINE</span>
+                  <span className="hidden lg:inline">PREPROCESSING &amp; DATA PIPELINE</span>
+                  <span className="lg:hidden">PREPROCESSING DATA</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {dataPreparation.length} STAGES
@@ -771,7 +778,8 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <Settings2 className="h-4 w-4 text-indigo-400 shrink-0" />
-                  <span>MODEL ARCHITECTURE &amp; CONFIGURATION</span>
+                  <span className="hidden lg:inline">MODEL ARCHITECTURE &amp; CONFIGURATION</span>
+                  <span className="lg:hidden">MODEL ARCHITECTURE</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
                   {modelArchitectureAndTraining.configurationBadge}
@@ -866,7 +874,8 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]</span>
+            <span className="hidden lg:inline">[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]</span>
+            <span className="lg:hidden">[ 05 // MODEL EVALUATION ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS
@@ -878,7 +887,8 @@ export default function MachineLearningDetailView({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4 font-mono text-xs">
             <div className="flex items-center gap-2 text-indigo-400 font-bold">
               <TrendingUp className="h-4 w-4 text-indigo-400" />
-              <span>EVALUATION STRATEGY // BENCHMARK PROTOCOL</span>
+              <span className="hidden lg:inline">EVALUATION STRATEGY // BENCHMARK PROTOCOL</span>
+              <span className="lg:hidden">EVALUATION STRATEGY</span>
             </div>
             <span className="hidden md:inline-block text-slate-300 font-semibold">
               {evaluationStrategy.validationMethod}
@@ -1079,7 +1089,8 @@ export default function MachineLearningDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-indigo-400 tracking-wider">
                   <PieChart className="h-4 w-4 text-indigo-400 shrink-0" />
-                  <span>MODEL INTERPRETATION &amp; ERROR ANALYSIS</span>
+                  <span className="hidden lg:inline">MODEL INTERPRETATION &amp; ERROR ANALYSIS</span>
+                  <span className="lg:hidden">MODEL INTERPRETATION</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded truncate max-w-[150px]">
                   DIAGNOSTIC INSIGHTS
@@ -1176,7 +1187,8 @@ export default function MachineLearningDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6 sm:mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-indigo-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-            <span>[ 06 // MODEL VAULT &amp; ARTIFACT GATES ]</span>
+            <span className="hidden lg:inline">[ 06 // MODEL VAULT &amp; ARTIFACT GATES ]</span>
+            <span className="lg:hidden">[ 06 // MODEL VAULT ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             FINAL_ACCESS // REPOSITORIES, ARTIFACTS &amp; RESEARCH SPECIFICATIONS

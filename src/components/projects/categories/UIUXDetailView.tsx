@@ -268,7 +268,8 @@ export default function UIUXDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
-              [ 01 // DESIGN CONSOLE & PRODUCT ARCHITECTURE ]
+              <span className="hidden lg:inline">[ 01 // DESIGN CONSOLE & PRODUCT ARCHITECTURE ]</span>
+              <span className="lg:hidden">[ 01 // DESIGN CONSOLE ]</span>
             </span>
           </div>
 
@@ -506,7 +507,8 @@ export default function UIUXDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
-              [ 02 // RESEARCH DISCOVERY & USER PERSONAS ]
+              <span className="hidden lg:inline">[ 02 // RESEARCH DISCOVERY & USER PERSONAS ]</span>
+              <span className="lg:hidden">[ 02 // RESEARCH DISCOVERY ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
@@ -519,7 +521,8 @@ export default function UIUXDetailView({
           <div className="flex items-center gap-2 text-xs font-mono text-rose-400 mb-3">
             <Info className="h-4 w-4 text-rose-400" />
             <span className="font-bold uppercase tracking-wider">
-              Project Context & Research Genesis
+              <span className="hidden lg:inline">Project Context & Research Genesis</span>
+              <span className="lg:hidden">Project Context</span>
             </span>
           </div>
           <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
@@ -535,7 +538,8 @@ export default function UIUXDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Users className="h-4 w-4 text-rose-400" />
-              <span>User Research Methodologies & Findings</span>
+              <span className="hidden lg:inline">User Research Methodologies & Findings</span>
+              <span className="lg:hidden">User Research</span>
             </div>
 
             <div className="space-y-3.5">
@@ -575,7 +579,8 @@ export default function UIUXDetailView({
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <UserCheck className="h-4 w-4 text-rose-400" />
-              <span>Target Personas & Critical Pain Points</span>
+              <span className="hidden lg:inline">Target Personas & Critical Pain Points</span>
+              <span className="lg:hidden">Target Personas</span>
             </div>
 
             <div className="space-y-4">
@@ -658,7 +663,8 @@ export default function UIUXDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
-              [ 03 // INFORMATION ARCHITECTURE & USER INTERACTION FLOW ]
+              <span className="hidden lg:inline">[ 03 // INFORMATION ARCHITECTURE & USER INTERACTION FLOW ]</span>
+              <span className="lg:hidden">[ 03 // USER INTERACTION FLOW ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">
@@ -673,7 +679,8 @@ export default function UIUXDetailView({
             <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Compass className="h-4 w-4 text-rose-400" />
-                <span>Information Architecture & Sitemap</span>
+                <span className="hidden lg:inline">Information Architecture & Sitemap</span>
+                <span className="lg:hidden">Information Architecture</span>
               </div>
               <span className="hidden md:inline-block text-[10px] text-slate-400">NAVIGATION_TREE</span>
             </div>
@@ -716,7 +723,8 @@ export default function UIUXDetailView({
             <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Workflow className="h-4 w-4 text-rose-400" />
-                <span>User Journey & Task Interaction Flow</span>
+                <span className="hidden lg:inline">User Journey & Task Interaction Flow</span>
+                <span className="lg:hidden">User Interaction Flow</span>
               </div>
               <span className="hidden md:inline-block text-[10px] text-slate-400">INTERACTION_PIPELINE</span>
             </div>
@@ -794,7 +802,8 @@ export default function UIUXDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
-              [ 05 // HI-FI INTERFACE & USABILITY VALIDATION ]
+              <span className="hidden lg:inline">[ 05 // HI-FI INTERFACE & USABILITY VALIDATION ]</span>
+              <span className="lg:hidden">[ 05 // INTERFACE & USABILITY ]</span>
             </span>
           </div>
 
@@ -906,7 +915,8 @@ export default function UIUXDetailView({
           <div className="lg:col-span-6 flex flex-col space-y-4">
             <div className="flex items-center gap-2 border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <Layers className="h-4 w-4 text-rose-400" />
-              <span>Design System Foundations & Tokens</span>
+              <span className="hidden lg:inline">Design System Foundations & Tokens</span>
+              <span className="lg:hidden">Design Foundations</span>
             </div>
 
             {/* Color Palette Swatches */}
@@ -991,7 +1001,8 @@ export default function UIUXDetailView({
             <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <Target className="h-4 w-4 text-rose-400" />
-                <span>Usability Validation & Iterations</span>
+                <span className="hidden lg:inline">Usability Validation & Iterations</span>
+                <span className="lg:hidden">Usability Validation</span>
               </div>
               <span className="hidden md:inline-block text-[10px] text-slate-400">SUS_BENCHMARK</span>
             </div>
@@ -1078,7 +1089,8 @@ export default function UIUXDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-400">
-              [ 06 // DESIGN VAULT & HANDOFF GATES ]
+              <span className="hidden lg:inline">[ 06 // DESIGN VAULT & HANDOFF GATES ]</span>
+              <span className="lg:hidden">[ 06 // DESIGN VAULT ]</span>
             </span>
           </div>
           <span className="hidden md:inline-block font-mono text-[10px] uppercase text-slate-400">

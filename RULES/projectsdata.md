@@ -152,7 +152,7 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `dataAnalyticsDatasetOverview`: `{ dataSource, dataPeriod, recordsCount, featuresCount?, variablesCount?, dataTypes?, description }`
   - `dataAnalyticsDataPreparation`: `{ step, title, description, badge? }[]`
   - `analyticalMethodology`: `{ summary, methods: { name, description, badge? }[] }`
-  - `analysisWorkflow`: `{ summary, steps: { stepNumber, title, description, phase? }[] }`
+  - `analysisWorkflow`: `{ summary, steps: { stepNumber, title, description, phase? }[] }` — alur pipeline fleksibel dan dinamis (bebas tanpa batas minimal, maksimal 10 tahapan).
 - **Section 5 (Presentation Slides, Key Findings & Recommendations):**
   - `dataAnalyticsPresentationSlides`: `{ slideNumber, title, imageUrl, caption? }[]` — `imageUrl` wajib mengarah ke `/images/projects/<nama_project>/slide01.webp` s/d `slideXX.webp`.
   - `dataAnalyticsKeyFindings`: `{ metricValue, metricLabel, title, description, impactTag? }[]` — `metricValue` wajib ringkas berupa 1 nilai/persentase utama (contoh: `"+28.4%"`, `"Rp 4.2M"`, `"0.94 AUC"`).

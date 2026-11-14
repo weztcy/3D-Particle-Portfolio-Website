@@ -181,6 +181,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
   "analysisWorkflow": {
     "summary": "<Alur kerja end-to-end dari raw data ke executive recommendations>",
     "steps": [
+      // Fleksibel dan dinamis, bebas tanpa batas minimal, maksimal 10 tahapan)
       {
         "stepNumber": "01",
         "phase": "<Phase Name, misal Data Extraction>",

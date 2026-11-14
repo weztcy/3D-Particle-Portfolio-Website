@@ -187,7 +187,8 @@ export default function WebDevDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-sky-400">
-              [ 01 // SYSTEM CONSOLE & FULLSTACK ARCHITECTURE ]
+              <span className="hidden lg:inline">[ 01 // SYSTEM CONSOLE & FULLSTACK ARCHITECTURE ]</span>
+              <span className="lg:hidden">[ 01 // SYSTEM CONSOLE ]</span>
             </span>
           </div>
 
@@ -422,7 +423,8 @@ export default function WebDevDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            <span>[ 02 // CONTEXT ORIGIN & STRATEGIC OBJECTIVES ]</span>
+            <span className="hidden lg:inline">[ 02 // CONTEXT ORIGIN & STRATEGIC OBJECTIVES ]</span>
+            <span className="lg:hidden">[ 02 // CONTEXT ORIGIN ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             PROBLEM_MATRIX // MILESTONES
@@ -433,7 +435,8 @@ export default function WebDevDetailView({
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2 font-mono text-xs text-sky-400 font-semibold mb-3">
             <Activity className="h-3.5 w-3.5 text-sky-400" />
-            <span>ORIGIN CONTEXT // PROJECT BACKGROUND</span>
+            <span className="hidden lg:inline">ORIGIN CONTEXT // PROJECT BACKGROUND</span>
+            <span className="lg:hidden">PROJECT BACKGROUND</span>
           </div>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
             {projectBackground.length > 1000
@@ -450,7 +453,8 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <AlertTriangle className="h-4 w-4 text-sky-400" />
-                  <span>ISSUE DETECTED // PROBLEM STATEMENT</span>
+                  <span className="hidden lg:inline">ISSUE DETECTED // PROBLEM STATEMENT</span>
+                  <span className="lg:hidden">PROBLEM STATEMENT</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {problemStatements.length} BOTTLENECKS
@@ -491,7 +495,8 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Target className="h-4 w-4 text-sky-400" />
-                  <span>TARGET SOLVED // STRATEGIC OBJECTIVES</span>
+                  <span className="hidden lg:inline">TARGET SOLVED // STRATEGIC OBJECTIVES</span>
+                  <span className="lg:hidden">STRATEGIC OBJECTIVES</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
                   {projectObjectives.length} TARGETS
@@ -544,7 +549,8 @@ export default function WebDevDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            <span>[ 03 // CORE CAPABILITIES & HOLOGRAPHIC SHOWCASE ]</span>
+            <span className="hidden lg:inline">[ 03 // CORE CAPABILITIES & HOLOGRAPHIC SHOWCASE ]</span>
+            <span className="lg:hidden">[ 03 // CORE CAPABILITIES ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             SHOWCASE // USER PIPELINE
@@ -557,7 +563,8 @@ export default function WebDevDetailView({
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
               <span className="font-bold text-white">
-                HOLOGRAPHIC VIEWPORT // INTERFACE STAGE
+                <span className="hidden lg:inline">HOLOGRAPHIC VIEWPORT // INTERFACE STAGE</span>
+                <span className="lg:hidden">INTERFACE STAGE</span>
               </span>
             </div>
             <div className="flex items-center gap-2">
@@ -652,7 +659,8 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-sky-400" />
-                  <span>CORE FEATURES // CAPABILITY MATRIX</span>
+                  <span className="hidden lg:inline">CORE FEATURES // CAPABILITY MATRIX</span>
+                  <span className="lg:hidden">CORE FEATURES</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {coreFeatures.length} ACTIVE MODULES
@@ -693,7 +701,8 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400 tracking-wider">
                   <Workflow className="h-4 w-4 text-sky-400" />
-                  <span>USER FLOW // INTERACTION PIPELINE</span>
+                  <span className="hidden lg:inline">USER FLOW // INTERACTION PIPELINE</span>
+                  <span className="lg:hidden">USER FLOW</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-sky-400">
                   DETERMINISTIC
@@ -762,7 +771,8 @@ export default function WebDevDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            <span>[ 05 // SYSTEM TOPOLOGY & DEPLOYMENT BLUEPRINTS ]</span>
+            <span className="hidden lg:inline">[ 05 // SYSTEM TOPOLOGY & DEPLOYMENT BLUEPRINTS ]</span>
+            <span className="lg:hidden">[ 05 // SYSTEM TOPOLOGY ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             DIAGRAMS // TECHNICAL IMPLEMENTATIONS
@@ -777,7 +787,8 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Network className="h-4 w-4 text-sky-400" />
-                  <span>SYSTEM ARCHITECTURE // TOPOLOGY</span>
+                  <span className="hidden lg:inline">SYSTEM ARCHITECTURE // TOPOLOGY</span>
+                  <span className="lg:hidden">SYSTEM ARCHITECTURE</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   TIERED MVC
@@ -828,7 +839,8 @@ export default function WebDevDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-sky-400">
                   <Database className="h-4 w-4 text-sky-400" />
-                  <span>DATABASE SCHEMA // DATA FLOW</span>
+                  <span className="hidden lg:inline">DATABASE SCHEMA // DATA FLOW</span>
+                  <span className="lg:hidden">DATABASE SCHEMA</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300">
                   {databaseDataFlow.type}
@@ -878,7 +890,8 @@ export default function WebDevDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold text-sky-400">
               <Zap className="h-4 w-4 text-sky-400" />
-              <span>TECHNICAL IMPLEMENTATION // REAL-WORLD PROTOCOLS</span>
+              <span className="hidden lg:inline">TECHNICAL IMPLEMENTATION // REAL-WORLD PROTOCOLS</span>
+              <span className="lg:hidden">TECHNICAL IMPLEMENTATION</span>
             </div>
             <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
               5 VERIFIED PROTOCOLS
@@ -927,7 +940,8 @@ export default function WebDevDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-sky-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            <span>[ 06 // SOURCE VAULT & TECHNICAL SPECIFICATION GATES ]</span>
+            <span className="hidden lg:inline">[ 06 // SOURCE VAULT & TECHNICAL SPECIFICATION GATES ]</span>
+            <span className="lg:hidden">[ 06 // SOURCE VAULT ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             FINAL_ACCESS // REPOSITORIES & QUALITY ASSURANCE

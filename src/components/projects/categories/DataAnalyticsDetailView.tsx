@@ -250,7 +250,7 @@ export default function DataAnalyticsDetailView({
   return (
     <div className="space-y-12 sm:space-y-16">
       {/* =========================================================================
-          SECTION 1 — [ 01 // ANALYTICAL CONSOLE & BUSINESS CONTEXT ]
+          SECTION 1 — [ 01 // ANALYTICAL CONSOLE & DATA OVERVIEW ]
           ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-emerald-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)]">
         {/* Optical HUD Crosshairs */}
@@ -267,7 +267,8 @@ export default function DataAnalyticsDetailView({
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-400">
-              [ 01 // ANALYTICAL CONSOLE & BUSINESS CONTEXT ]
+              <span className="hidden lg:inline">[ 01 // ANALYTICAL CONSOLE & DATA OVERVIEW ]</span>
+              <span className="lg:hidden">[ 01 // ANALYTICAL CONSOLE ]</span>
             </span>
           </div>
 
@@ -502,7 +503,8 @@ export default function DataAnalyticsDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>[ 02 // BUSINESS CONTEXT & DATASET TELEMETRY ]</span>
+            <span className="hidden lg:inline">[ 02 // BUSINESS CONTEXT & DATASET TELEMETRY ]</span>
+            <span className="lg:hidden">[ 02 // BUSINESS CONTEXT ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             PROBLEM_CONTEXT // DATASET_PROFILE
@@ -513,7 +515,8 @@ export default function DataAnalyticsDetailView({
         <div className="relative z-10 rounded-2xl border border-white/10 bg-black/50 p-6 sm:p-7 mb-7 shadow-[inset_0_0_16px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold mb-3">
             <Target className="h-3.5 w-3.5 text-emerald-400" />
-            <span>EXECUTIVE CONTEXT // PROBLEM BACKGROUND & RATIONALE</span>
+            <span className="hidden lg:inline">EXECUTIVE CONTEXT // BACKGROUND PROBLEM</span>
+            <span className="lg:hidden">BACKGROUND PROBLEM</span>
           </div>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
             {businessContext.length > 1000
@@ -530,7 +533,8 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Target className="h-4 w-4 text-emerald-400" />
-                  <span>ANALYTICAL OBJECTIVES // KEY QUESTIONS</span>
+                  <span className="hidden lg:inline">ANALYTICAL OBJECTIVES // KEY QUESTIONS</span>
+                  <span className="lg:hidden">ANALYTICAL OBJECTIVES</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   {analyticalObjectives.length} TARGETS
@@ -571,7 +575,8 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
-                  <span>DATASET PROFILE // METADATA SPECS</span>
+                  <span className="hidden lg:inline">DATASET PROFILE // METADATA SPECS</span>
+                  <span className="lg:hidden">DATASET PROFILE</span>
                 </div>
                 <span className="hidden md:inline-block rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
                   LONGITUDINAL
@@ -649,7 +654,8 @@ export default function DataAnalyticsDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>[ 03 // DATA PROCESSING PIPELINE & METHODOLOGY ]</span>
+            <span className="hidden lg:inline">[ 03 // DATA PROCESSING PIPELINE & METHODOLOGY ]</span>
+            <span className="lg:hidden">[ 03 // DATA PROCESSING ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             WORKFLOW_CIRCUIT // PREPROCESSING
@@ -661,7 +667,8 @@ export default function DataAnalyticsDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
               <Workflow className="h-4 w-4 text-emerald-400" />
-              <span>ANALYSIS WORKFLOW // 5-PHASE END-TO-END PIPELINE</span>
+              <span className="hidden lg:inline">ANALYSIS WORKFLOW // END-TO-END PIPELINE</span>
+              <span className="lg:hidden">ANALYSIS WORKFLOW</span>
             </div>
             <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
               DETERMINISTIC ETL
@@ -673,7 +680,13 @@ export default function DataAnalyticsDetailView({
           </p>
 
           {/* Horizontal Circuit Steps */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${
+            analysisWorkflow.steps.length <= 3
+              ? "lg:grid-cols-3"
+              : analysisWorkflow.steps.length === 4
+              ? "lg:grid-cols-4"
+              : "lg:grid-cols-3 xl:grid-cols-5"
+          } gap-3.5`}>
             {analysisWorkflow.steps.map((st, i) => (
               <div
                 key={i}
@@ -704,7 +717,8 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Database className="h-4 w-4 text-emerald-400" />
-                  <span>DATA PREPARATION // CLEANING & WRANGLING</span>
+                  <span className="hidden lg:inline">DATA PREPARATION // CLEANING & WRANGLING</span>
+                  <span className="lg:hidden">DATA PREPARATION</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {dataPreparation.length} STAGES
@@ -745,7 +759,8 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <LineChart className="h-4 w-4 text-emerald-400" />
-                  <span>METHODOLOGY // STATISTICAL APPROACH</span>
+                  <span className="hidden lg:inline">METHODOLOGY // STATISTICAL APPROACH</span>
+                  <span className="lg:hidden">STATISTICAL APPROACH</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-emerald-400">
                   RIGOROUS
@@ -809,7 +824,8 @@ export default function DataAnalyticsDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>[ 05 // ANALYSIS PRESENTATION & INSIGHTS DECK ]</span>
+            <span className="hidden lg:inline">[ 05 // ANALYSIS PRESENTATION & INSIGHTS DECK ]</span>
+            <span className="lg:hidden">[ 05 // INSIGHTS DECK ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             EMBEDDED_SLIDES // STRATEGIC_OUTCOMES
@@ -931,7 +947,8 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400 tracking-wider">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
-                  <span>KEY FINDINGS // EMPIRICAL INSIGHTS</span>
+                  <span className="hidden lg:inline">KEY FINDINGS // EMPIRICAL INSIGHTS</span>
+                  <span className="lg:hidden">KEY FINDINGS</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-slate-400">
                   {keyFindings.length} METRICS VALIDATED
@@ -977,7 +994,8 @@ export default function DataAnalyticsDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-white tracking-wider">
                   <TrendingUp className="h-4 w-4 text-emerald-400" />
-                  <span>ACTIONABLE RECOMMENDATIONS & CONCLUSION</span>
+                  <span className="hidden lg:inline">ACTIONABLE RECOMMENDATIONS & CONCLUSION</span>
+                  <span className="lg:hidden">RECOMMENDATIONS & CONCLUSION</span>
                 </div>
                 <span className="hidden md:inline-block font-mono text-[10px] text-emerald-400">
                   EXECUTIVE_DECK
@@ -1042,7 +1060,8 @@ export default function DataAnalyticsDetailView({
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
           <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>[ 06 // ANALYTICAL ARTIFACTS & DATA DELIVERABLES ]</span>
+            <span className="hidden lg:inline">[ 06 // ANALYTICAL VAULT & DATA DELIVERABLES ]</span>
+            <span className="lg:hidden">[ 06 // ANALYTICAL VAULT ]</span>
           </div>
           <span className="hidden md:inline-block font-mono text-[11px] text-slate-400">
             FINAL_ACCESS // NOTEBOOKS, REPORTS & DATASETS
