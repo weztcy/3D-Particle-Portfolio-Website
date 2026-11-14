@@ -572,7 +572,7 @@ export default function CodeLearningDetailView({
                     <span className="font-mono text-[10px] font-bold uppercase text-orange-400">
                       {ph.phaseNumber}
                     </span>
-                    <span className="font-mono text-[10px] text-orange-300 bg-orange-500/10 border border-orange-400/30 px-2 py-0.5 rounded">
+                    <span className="font-mono text-[10px] text-slate-400 bg-black/50 border border-white/10 px-2 py-0.5 rounded">
                       {ph.moduleRange}
                     </span>
                   </div>

@@ -453,7 +453,7 @@ export default function WebDevDetailView({
                   <span className="hidden lg:inline">ISSUE DETECTED // PROBLEM STATEMENT</span>
                   <span className="lg:hidden">PROBLEM STATEMENT</span>
                 </div>
-                <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-black/50 border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-400 font-medium">
                   {problemStatements.length} BOTTLENECKS
                 </span>
               </div>
@@ -495,7 +495,7 @@ export default function WebDevDetailView({
                   <span className="hidden lg:inline">TARGET SOLVED // STRATEGIC OBJECTIVES</span>
                   <span className="lg:hidden">STRATEGIC OBJECTIVES</span>
                 </div>
-                <span className="hidden md:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] text-sky-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-black/50 border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-400 font-medium">
                   {projectObjectives.length} TARGETS
                 </span>
               </div>
@@ -559,7 +559,7 @@ export default function WebDevDetailView({
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 font-mono text-xs text-slate-300">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-              <span className="font-bold text-white">
+              <span className="font-bold text-sky-400">
                 <span className="hidden lg:inline">HOLOGRAPHIC VIEWPORT // INTERFACE STAGE</span>
                 <span className="lg:hidden">INTERFACE STAGE</span>
               </span>

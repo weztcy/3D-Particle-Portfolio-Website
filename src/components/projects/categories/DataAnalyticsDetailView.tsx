@@ -520,7 +520,7 @@ export default function DataAnalyticsDetailView({
                   <span className="hidden lg:inline">ANALYTICAL OBJECTIVES // KEY QUESTIONS</span>
                   <span className="lg:hidden">ANALYTICAL OBJECTIVES</span>
                 </div>
-                <span className="hidden md:inline-block rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-black/50 border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-400 font-medium">
                   {analyticalObjectives.length} TARGETS
                 </span>
               </div>
@@ -562,7 +562,7 @@ export default function DataAnalyticsDetailView({
                   <span className="hidden lg:inline">DATASET PROFILE // METADATA SPECS</span>
                   <span className="lg:hidden">DATASET PROFILE</span>
                 </div>
-                <span className="hidden md:inline-block rounded bg-emerald-500/10 border border-emerald-400/30 px-2 py-0.5 font-mono text-[10px] text-emerald-300 font-bold">
+                <span className="hidden md:inline-block rounded bg-black/50 border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-400 font-medium">
                   LONGITUDINAL
                 </span>
               </div>
