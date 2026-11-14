@@ -372,16 +372,22 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
           {/* Right Column: Projects Completed Badge & Category Filter Bar */}
           <div className="flex flex-col items-start xl:items-end gap-3 w-full xl:w-auto shrink-0">
             {/* Futuristic Telemetry HUD Badge: XX Projects Completed */}
-            <div className="relative group overflow-hidden rounded-2xl border border-sky-500/25 bg-[#0C0F17]/85 backdrop-blur-xl px-3.5 sm:px-4 py-2.5 shadow-[0_0_30px_rgba(56,189,248,0.12)] transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_40px_rgba(56,189,248,0.22)] w-full sm:w-auto">
+            <div className="relative group overflow-hidden rounded-2xl border border-sky-500/25 bg-[#0C0F17]/85 backdrop-blur-xl px-4 sm:px-4 py-3 sm:py-2.5 shadow-[0_0_30px_rgba(56,189,248,0.12)] transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_40px_rgba(56,189,248,0.22)] w-full sm:w-auto">
               {/* Sci-Fi Gradient Ambient Glow */}
               <div className="pointer-events-none absolute -inset-px bg-gradient-to-r from-sky-500/15 via-indigo-500/10 to-emerald-500/15 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Decorative Corner Tech Ticks */}
-              <div className="pointer-events-none absolute top-1 left-2 font-mono text-[8px] text-sky-400/40 select-none">
+              <div className="pointer-events-none absolute top-1 left-1.5 sm:top-1 sm:left-2 font-mono text-[8px] text-sky-400/40 select-none">
                 ┌
               </div>
-              <div className="pointer-events-none absolute top-1 right-2 font-mono text-[8px] text-sky-400/40 select-none">
+              <div className="pointer-events-none absolute top-1 right-1.5 sm:top-1 sm:right-2 font-mono text-[8px] text-sky-400/40 select-none">
                 ┐
+              </div>
+              <div className="pointer-events-none absolute bottom-1 left-1.5 sm:bottom-1 sm:left-2 font-mono text-[8px] text-sky-400/40 select-none">
+                └
+              </div>
+              <div className="pointer-events-none absolute bottom-1 right-1.5 sm:bottom-1 sm:right-2 font-mono text-[8px] text-sky-400/40 select-none">
+                ┘
               </div>
 
               <div className="relative z-10 flex items-center gap-3 font-mono">
@@ -421,12 +427,12 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
 
             {/* Filter Category Console Bar - Strictly 3 Rows Maximum */}
             <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[570px] 2xl:w-[590px]">
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-2 sm:p-2.5 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-4 sm:p-3 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
                 {/* Optical Corner HUD Crosshairs */}
-                <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-sky-400/80" />
-                <div className="pointer-events-none absolute top-1.5 right-1.5 h-2 w-2 border-t border-r border-sky-400/80" />
-                <div className="pointer-events-none absolute bottom-1.5 left-1.5 h-2 w-2 border-b border-l border-sky-400/80" />
-                <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-2 w-2 border-b border-r border-sky-400/80" />
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-2.5 sm:left-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-t border-l border-sky-400/80" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-2.5 sm:right-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-t border-r border-sky-400/80" />
+                <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-2.5 sm:left-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-b border-l border-sky-400/80" />
+                <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-2.5 sm:right-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-b border-r border-sky-400/80" />
 
                 {/* Cyber Grid Lines */}
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]" />
@@ -601,20 +607,20 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                 }}
                 tabIndex={0}
                 role="link"
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 cursor-pointer select-none focus:outline-none focus:border-sky-400/60 ${accent.cardHover}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 cursor-pointer select-none focus:outline-none focus:border-sky-400/60 ${accent.cardHover}`}
               >
                 {/* Optical Corner HUD Crosshairs */}
                 <div
-                  className={`pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
                 <div
-                  className={`pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
                 <div
-                  className={`pointer-events-none absolute bottom-3.5 left-3.5 h-2.5 w-2.5 border-b-2 border-l-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
                 <div
-                  className={`pointer-events-none absolute bottom-3.5 right-3.5 h-2.5 w-2.5 border-b-2 border-r-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
 
                 {/* Ambient Glow Field & Holographic Sweep */}
@@ -643,9 +649,10 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                   {/* Project Preview Image (Consistent 16:9 Aspect Ratio with HUD Corner Notches & Category Badge) */}
                   <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90 mb-5 group/image">
                     {/* Viewfinder Corner Notches */}
-                    <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-white/40" />
-                    <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-white/40" />
-                    <div className="pointer-events-none absolute bottom-2 left-2 z-20 h-2 w-2 border-b border-l border-white/40" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 h-2 w-2 border-t border-l border-white/40" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 h-2 w-2 border-t border-r border-white/40" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 z-20 h-2 w-2 border-b border-l border-white/40" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-20 h-2 w-2 border-b border-r border-white/40" />
 
                     {project.imageUrl && !hasImgError ? (
                       <img
@@ -755,12 +762,12 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
         {totalPages > 1 && (() => {
           const paginationStyle = getProjectPaginationStyles(activeFilter);
           return (
-            <div className="relative z-10 mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+            <div className="relative z-10 mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-5 sm:px-6 py-3.5 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
               {/* Corner Micro Crosshairs */}
-              <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${paginationStyle.crosshair}`} />
-              <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${paginationStyle.crosshair}`} />
-              <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${paginationStyle.crosshair}`} />
-              <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 ${paginationStyle.crosshair}`} />
+              <div className={`pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 ${paginationStyle.crosshair}`} />
 
               <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
                 <span className={`h-1.5 w-1.5 rounded-full ${paginationStyle.beacon} animate-pulse shrink-0`} />

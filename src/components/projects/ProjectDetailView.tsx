@@ -566,12 +566,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           ) : (
             <>
               {/* 1. PROJECT HEADER */}
-              <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* High-tech Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             {/* Ambient Sci-Fi Glow */}
             <div
@@ -605,10 +605,10 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                 <div className="block lg:hidden pt-2">
                   <div className="relative overflow-hidden rounded-2xl border border-sky-400/30 bg-[#080B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(56,189,248,0.1)]">
                     {/* Optical HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
-                    <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
-                    <div className="pointer-events-none absolute bottom-11 left-2 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
-                    <div className="pointer-events-none absolute bottom-11 right-2 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
+                    <div className="pointer-events-none absolute bottom-11 left-2.5 sm:bottom-11 sm:left-3 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
+                    <div className="pointer-events-none absolute bottom-11 right-2.5 sm:bottom-11 sm:right-3 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
 
                     {/* 16:9 Image Container */}
                     <div
@@ -703,8 +703,8 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     className="group relative inline-flex items-center justify-between sm:justify-center gap-3 overflow-hidden rounded-xl border border-sky-400/40 bg-gradient-to-r from-sky-950/80 via-[#0B1226] to-indigo-950/80 backdrop-blur-xl px-5 sm:px-6 py-3 sm:py-3.5 font-mono text-xs sm:text-[13px] font-bold tracking-wider text-white shadow-[0_0_25px_rgba(56,189,248,0.2),inset_0_1px_0_rgba(255,255,255,0.12)] hover:border-sky-300 hover:shadow-[0_0_40px_rgba(56,189,248,0.45),inset_0_1px_0_rgba(255,255,255,0.25)] hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 select-none cursor-pointer"
                   >
                     {/* Corner HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l border-sky-400/80 group-hover:border-white transition-colors" />
-                    <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r border-sky-400/80 group-hover:border-white transition-colors" />
+                    <div className="pointer-events-none absolute top-2 left-2 sm:top-2.5 sm:left-2.5 h-1.5 w-1.5 border-t border-l border-sky-400/80 group-hover:border-white transition-colors" />
+                    <div className="pointer-events-none absolute bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 h-1.5 w-1.5 border-b border-r border-sky-400/80 group-hover:border-white transition-colors" />
 
                     {/* Cyber Light Beam Shimmer Sweeper */}
                     <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-sky-400/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
@@ -738,10 +738,10 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <div className="hidden lg:block lg:col-span-5">
                 <div className="relative overflow-hidden rounded-2xl border border-sky-400/30 bg-[#080B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(56,189,248,0.1)]">
                   {/* Optical HUD Crosshairs */}
-                  <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
-                  <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
-                  <div className="pointer-events-none absolute bottom-11 left-2 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
-                  <div className="pointer-events-none absolute bottom-11 right-2 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
+                  <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
+                  <div className="pointer-events-none absolute bottom-11 left-2.5 sm:bottom-11 sm:left-3 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
+                  <div className="pointer-events-none absolute bottom-11 right-2.5 sm:bottom-11 sm:right-3 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
 
                   {/* 16:9 Image Container */}
                   <div
@@ -833,12 +833,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           </section>
 
           {/* 2. PROJECT OVERVIEW */}
-          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky-400 mb-6">
               <BookOpen className="h-4 w-4 shrink-0" />
@@ -901,12 +901,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           </section>
 
           {/* 3. KEY FEATURES / HIGHLIGHTS */}
-          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-sky-500/20">
               <div className="font-mono text-xs uppercase tracking-widest text-sky-400 flex items-center gap-2">
@@ -924,11 +924,11 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               {project.features.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="group relative overflow-hidden rounded-2xl border border-sky-500/20 bg-black/60 p-4 sm:p-6 transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)] flex flex-col justify-between"
+                  className="group relative overflow-hidden rounded-2xl border border-sky-500/20 bg-black/60 p-5 sm:p-6 transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)] flex flex-col justify-between"
                 >
                   {/* Micro Corner Ticks */}
-                  <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/50" />
-                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b border-r border-sky-400/50" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t border-l border-sky-400/50" />
+                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b border-r border-sky-400/50" />
 
                   {/* Corner Accent Tick */}
                   <span className="pointer-events-none absolute top-2 right-3 font-mono text-[9px] text-sky-400/30 select-none group-hover:text-sky-400/80 transition-colors">
@@ -971,12 +971,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           </section>
 
           {/* 4. TECHNICAL APPROACH / PROCESS */}
-          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-sky-500/20">
               <div className="font-mono text-xs uppercase tracking-widest text-sky-400 flex items-center gap-2">
@@ -1005,11 +1005,11 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               {project.pipelineSteps.map((st, i) => (
                 <div
                   key={i}
-                  className="group relative overflow-hidden rounded-2xl border border-sky-500/20 bg-black/60 p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)]"
+                  className="group relative overflow-hidden rounded-2xl border border-sky-500/20 bg-black/60 p-5 sm:p-5 flex flex-col justify-between transition-all duration-300 hover:border-sky-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)]"
                 >
                   {/* Micro Corner Ticks */}
-                  <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t border-l border-sky-400/40" />
-                  <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b border-r border-sky-400/40" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t border-l border-sky-400/40" />
+                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b border-r border-sky-400/40" />
 
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
@@ -1041,12 +1041,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           </section>
 
           {/* 5. TECH STACK & TOOLS */}
-          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-sky-500/20">
               <div className="font-mono text-xs uppercase tracking-widest text-sky-400 flex items-center gap-2">
@@ -1078,12 +1078,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           </section>
 
           {/* 6. RESULTS / OUTCOMES */}
-          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-emerald-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-emerald-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-emerald-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-emerald-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-emerald-400/60" />
 
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-sky-500/20">
               <div className="font-mono text-xs uppercase tracking-widest text-emerald-400 flex items-center gap-2">
@@ -1132,13 +1132,13 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
           {/* 7. PROJECT LINKS & RESOURCES */}
           <section
             id="project-links"
-            className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] scroll-mt-24"
+            className="relative rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] scroll-mt-24"
           >
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-sky-500/20">
               <div className="font-mono text-xs uppercase tracking-widest text-sky-400 flex items-center gap-2">
@@ -1267,13 +1267,13 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${prevProject.id}`}
                 onClick={handleTriggerPulse}
-                className={`group relative overflow-hidden rounded-3xl border ${prevAccent.cardBorder} bg-[#080B14] p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${prevAccent.cardHover} transition-all duration-300 flex flex-col justify-between`}
+                className={`group relative overflow-hidden rounded-3xl border ${prevAccent.cardBorder} bg-[#080B14] p-6 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${prevAccent.cardHover} transition-all duration-300 flex flex-col justify-between`}
               >
                 {/* 4 Optical Corner Crosshairs */}
-                <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${prevAccent.crosshair}`} />
-                <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${prevAccent.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${prevAccent.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${prevAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${prevAccent.crosshair}`} />
 
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
@@ -1303,13 +1303,13 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${nextProject.id}`}
                 onClick={handleTriggerPulse}
-                className={`group relative overflow-hidden rounded-3xl border ${nextAccent.cardBorder} bg-[#080B14] p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${nextAccent.cardHover} transition-all duration-300 flex flex-col justify-between text-left md:text-right`}
+                className={`group relative overflow-hidden rounded-3xl border ${nextAccent.cardBorder} bg-[#080B14] p-6 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] ${nextAccent.cardHover} transition-all duration-300 flex flex-col justify-between text-left md:text-right`}
               >
                 {/* 4 Optical Corner Crosshairs */}
-                <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${nextAccent.crosshair}`} />
-                <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${nextAccent.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${nextAccent.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${nextAccent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${nextAccent.crosshair}`} />
 
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
@@ -1338,12 +1338,12 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
 
             {/* Related Projects in the Same Category */}
             {relatedProjects.length > 0 && (
-              <div className={`relative rounded-3xl border ${accent.cardBorder} bg-[#06070A]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-2xl`}>
+              <div className={`relative rounded-3xl border ${accent.cardBorder} bg-[#06070A]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-2xl`}>
                 {/* 4 Optical Corner Crosshairs */}
-                <div className={`pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t-2 border-l-2 ${accent.crosshair}`} />
-                <div className={`pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t-2 border-r-2 ${accent.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 h-2 w-2 border-b-2 border-l-2 ${accent.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b-2 border-r-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${accent.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${accent.crosshair}`} />
 
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                   <div>
@@ -1367,13 +1367,13 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     <Link
                       key={rel.id}
                       href={`/projects/${rel.id}`}
-                      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#080B14] p-4 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
+                      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#080B14] p-5 transition-all duration-300 ${accent.cardHover} flex flex-col justify-between`}
                     >
                       {/* Corner micro-crosshairs */}
-                      <div className={`pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l ${accent.crosshair}`} />
-                      <div className={`pointer-events-none absolute top-1.5 right-1.5 h-1.5 w-1.5 border-t border-r ${accent.crosshair}`} />
-                      <div className={`pointer-events-none absolute bottom-1.5 left-1.5 h-1.5 w-1.5 border-b border-l ${accent.crosshair}`} />
-                      <div className={`pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 ${accent.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 ${accent.crosshair}`} />
 
                       <div>
                         <div className="flex items-center justify-between gap-2 font-mono text-[11px] text-slate-400 mb-1.5">

@@ -227,20 +227,20 @@ export default function CyberTechStackSection({
 
   return (
     <section
-      className={`relative overflow-hidden rounded-3xl border ${theme.border} bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]`}
+      className={`relative overflow-hidden rounded-3xl border ${theme.border} bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.85)]`}
     >
       {/* 4 Optical HUD Corner Crosshairs */}
       <div
-        className={`pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 ${theme.crosshair}`}
+        className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${theme.crosshair}`}
       />
       <div
-        className={`pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 ${theme.crosshair}`}
+        className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${theme.crosshair}`}
       />
       <div
-        className={`pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 ${theme.crosshair}`}
+        className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${theme.crosshair}`}
       />
       <div
-        className={`pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 ${theme.crosshair}`}
+        className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${theme.crosshair}`}
       />
 
       {/* Section Header */}
@@ -259,8 +259,7 @@ export default function CyberTechStackSection({
           <span
             className={`font-mono text-xs sm:text-sm font-bold uppercase tracking-wider ${theme.title}`}
           >
-            <span className="hidden lg:inline">{displayTitle}</span>
-            <span className="lg:hidden">[ {sectionNumber} // TECH STACK ]</span>
+            {displayTitle}
           </span>
         </div>
 
@@ -271,6 +270,9 @@ export default function CyberTechStackSection({
           <Cpu className={`h-3.5 w-3.5 ${theme.icon}`} />
           <span className="uppercase tracking-wider font-semibold">
             {uniqueTechs.length} ACTIVE
+          </span>
+          <span className="text-[10px] text-slate-400 font-bold hidden sm:inline">
+            // PRODUCTION_READY
           </span>
         </div>
       </div>

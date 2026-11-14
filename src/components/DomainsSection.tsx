@@ -454,13 +454,13 @@ function DomainsSection({
     return (
       <div
         key={`core-${skill.category}-${skill.name}`}
-        className={`group relative rounded-2xl border ${catStyles.cardBorder} bg-gradient-to-br from-[#0c1322]/90 via-[#080e1a]/90 to-[#04070f]/95 p-4 sm:p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.6)]`}
+        className={`group relative rounded-2xl border ${catStyles.cardBorder} bg-gradient-to-br from-[#0c1322]/90 via-[#080e1a]/90 to-[#04070f]/95 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.6)]`}
       >
         {/* Micro Corner Crosshairs with Category Theme */}
-        <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${catStyles.crosshair}`} />
-        <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${catStyles.crosshair}`} />
-        <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${catStyles.crosshair}`} />
-        <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 ${catStyles.crosshair}`} />
+        <div className={`pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 ${catStyles.crosshair}`} />
 
         {/* Cyber Holographic Light Sweep & Ambient Glow */}
         <div className={`pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full ${catStyles.glowOrb} blur-2xl transition-all duration-500`} />
@@ -538,13 +538,13 @@ function DomainsSection({
     return (
       <div
         key={`stack-${skill.category}-${skill.name}`}
-        className={`group relative rounded-2xl border border-white/[0.08] bg-[#07090E]/90 p-3.5 sm:p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${catStyles.cardGlow} flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)]`}
+        className={`group relative rounded-2xl border border-white/[0.08] bg-[#07090E]/90 p-4 sm:p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${catStyles.cardGlow} flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)]`}
       >
         {/* Micro Corner Crosshairs */}
-        <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/20 group-hover:border-indigo-400 transition-colors" />
-        <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/20 group-hover:border-indigo-400 transition-colors" />
-        <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-white/20 group-hover:border-indigo-400 transition-colors" />
-        <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 border-white/20 group-hover:border-indigo-400 transition-colors" />
+        <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-white/20 group-hover:border-indigo-400 transition-colors" />
 
         {/* Holographic Sweep */}
         <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-transform duration-700 ease-out" />
@@ -1827,7 +1827,7 @@ function DomainsSection({
                 onClick={() => {
                   toggleExpandCapabilities(pillar.id, pillar.formationTrigger);
                 }}
-                className={`group relative cursor-pointer overflow-hidden rounded-3xl border p-4 sm:p-8 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-between ${
+                className={`group relative cursor-pointer overflow-hidden rounded-3xl border p-6 sm:p-8 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-between ${
                   isSelected
                     ? pillarStyle.borderSelected
                     : `bg-[#0A0D17]/85 ${pillarStyle.borderNormal}`
@@ -1835,16 +1835,16 @@ function DomainsSection({
               >
                 {/* Optical Corner HUD Crosshairs */}
                 <div
-                  className={`pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t-2 border-l-2 ${pillarStyle.cornerColor} transition-colors`}
+                  className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${pillarStyle.cornerColor} transition-colors`}
                 />
                 <div
-                  className={`pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t-2 border-r-2 ${pillarStyle.cornerColor} transition-colors`}
+                  className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${pillarStyle.cornerColor} transition-colors`}
                 />
                 <div
-                  className={`pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b-2 border-l-2 ${pillarStyle.cornerColor} transition-colors`}
+                  className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${pillarStyle.cornerColor} transition-colors`}
                 />
                 <div
-                  className={`pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b-2 border-r-2 ${pillarStyle.cornerColor} transition-colors`}
+                  className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${pillarStyle.cornerColor} transition-colors`}
                 />
 
                 {/* Sci-Fi Ambient Glow & Holographic Sweep */}
@@ -2024,12 +2024,12 @@ function DomainsSection({
         </div>
 
         {/* Interactive Technical Stack & Proficiency Matrix */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B12]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_30px_90px_rgba(0,0,0,0.85)]">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B12]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_30px_90px_rgba(0,0,0,0.85)]">
           {/* Optical Corner HUD Crosshairs */}
-          <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-indigo-400/80" />
-          <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-indigo-400/80" />
-          <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-indigo-400/80" />
-          <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-indigo-400/80" />
+          <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-indigo-400/80" />
+          <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-indigo-400/80" />
+          <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-indigo-400/80" />
+          <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-indigo-400/80" />
 
           {/* Sci-Fi Ambient Glow & Holographic Sweep */}
           <div className="pointer-events-none absolute -top-40 right-1/4 h-80 w-80 rounded-full bg-indigo-500/10 blur-[100px]" />
@@ -2078,12 +2078,12 @@ function DomainsSection({
 
             {/* Filter Category Console Bar - Strictly 3 Rows Maximum */}
             <div className="w-full lg:max-w-3xl xl:max-w-none xl:w-[480px] 2xl:w-[500px]">
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-2 sm:p-2.5 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-4 sm:p-3 shadow-[inset_0_0_24px_rgba(0,0,0,0.8),0_10px_35px_rgba(0,0,0,0.5)]">
                 {/* Optical Corner HUD Crosshairs */}
-                <div className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t border-l border-indigo-400/80" />
-                <div className="pointer-events-none absolute top-1.5 right-1.5 h-2 w-2 border-t border-r border-indigo-400/80" />
-                <div className="pointer-events-none absolute bottom-1.5 left-1.5 h-2 w-2 border-b border-l border-indigo-400/80" />
-                <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-2 w-2 border-b border-r border-indigo-400/80" />
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-2.5 sm:left-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-t border-l border-indigo-400/80" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-2.5 sm:right-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-t border-r border-indigo-400/80" />
+                <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-2.5 sm:left-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-b border-l border-indigo-400/80" />
+                <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-2.5 sm:right-2.5 h-1.5 w-1.5 sm:h-2 sm:w-2 border-b border-r border-indigo-400/80" />
 
                 {/* Cyber Grid Lines */}
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]" />
@@ -2256,12 +2256,12 @@ function DomainsSection({
 
                   {/* Core Skills Pagination Controller: Consistent Cyber HUD Layout */}
                   {totalCorePages > 1 && (
-                    <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-5 sm:px-6 py-3.5 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
                       {/* Corner Micro Crosshairs */}
-                      <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${activeCategoryStyle.crosshair}`} />
-                      <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${activeCategoryStyle.crosshair}`} />
-                      <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${activeCategoryStyle.crosshair}`} />
-                      <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 ${activeCategoryStyle.crosshair}`} />
+                      <div className={`pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 ${activeCategoryStyle.crosshair}`} />
 
                       <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
                         <span className={`h-1.5 w-1.5 rounded-full ${activeCategoryStyle.beacon} animate-pulse shrink-0`} />
@@ -2413,12 +2413,12 @@ function DomainsSection({
           {totalStackPages > 1 && (() => {
             const activeStackStyle = getSkillCategoryStyles(selectedSkillCategory);
             return (
-              <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+              <div className="relative z-10 mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-5 sm:px-6 py-3.5 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
                 {/* Corner Micro Crosshairs */}
-                <div className={`pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l ${activeStackStyle.crosshair}`} />
-                <div className={`pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r ${activeStackStyle.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l ${activeStackStyle.crosshair}`} />
-                <div className={`pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 ${activeStackStyle.crosshair}`} />
+                <div className={`pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 ${activeStackStyle.crosshair}`} />
 
                 <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
                   <span className={`h-1.5 w-1.5 rounded-full ${activeStackStyle.beacon} animate-pulse shrink-0`} />
@@ -2521,12 +2521,12 @@ function DomainsSection({
         </div>
 
         {/* Dedicated Soft Skills Card */}
-        <div className="relative overflow-hidden mt-8 rounded-3xl border border-white/10 bg-[#080B12]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_30px_90px_rgba(0,0,0,0.85)]">
+        <div className="relative overflow-hidden mt-8 rounded-3xl border border-white/10 bg-[#080B12]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_30px_90px_rgba(0,0,0,0.85)]">
           {/* Optical Corner HUD Crosshairs */}
-          <div className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t-2 border-l-2 border-emerald-400/80" />
-          <div className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t-2 border-r-2 border-emerald-400/80" />
-          <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b-2 border-l-2 border-emerald-400/80" />
-          <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-3 w-3 border-b-2 border-r-2 border-emerald-400/80" />
+          <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/80" />
+          <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/80" />
+          <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-emerald-400/80" />
+          <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-emerald-400/80" />
 
           {/* Sci-Fi Ambient Glow */}
           <div className="pointer-events-none absolute -top-40 right-1/4 h-80 w-80 rounded-full bg-emerald-500/10 blur-[100px]" />

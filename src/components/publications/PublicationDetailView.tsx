@@ -451,12 +451,12 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
       <main className="relative z-10 py-8 sm:py-14 px-3.5 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1380px] space-y-6 sm:space-y-8">
           {/* SECTION 1: PUBLICATION HERO HEADER */}
-          <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* High-tech Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/70" />
 
             {/* Ambient Sci-Fi Amber/Yellow Glow */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/15 via-yellow-500/5 to-transparent opacity-60" />
@@ -572,12 +572,12 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
           </section>
 
           {/* SECTION 2: FUTURISTIC PUBLICATION DOSSIER METADATA CONSOLE */}
-          <section className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-7 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-7 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* High-tech Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/70" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/70" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/70" />
 
             {/* Ambient Sci-Fi Glow & Scanning Overlay */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-emerald-500/10 opacity-40" />
@@ -608,9 +608,9 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
             {/* 6 Modular Futuristic Telemetry Pods (Balanced 3x2 Grid) */}
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
               {/* 1. SINTA 3 (ACCREDITATION) */}
-              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-amber-400/30 bg-black/60 p-4 sm:p-5 hover:border-amber-400/70 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all duration-300">
-                <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-amber-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-amber-400/60" />
+              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-amber-400/30 bg-black/60 p-5 sm:p-6 hover:border-amber-400/70 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all duration-300">
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/60" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/60" />
                 <span className="pointer-events-none absolute top-2.5 right-3 font-mono text-[9px] text-amber-400/40 group-hover:text-amber-400 transition-colors">
                   [ TEL.01 // INDEX ]
                 </span>
@@ -639,9 +639,9 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               </div>
 
               {/* 2. YEAR: 2025 */}
-              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-sky-500/25 bg-black/60 p-4 sm:p-5 hover:border-sky-400/70 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)] transition-all duration-300">
-                <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-sky-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-sky-400/60" />
+              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-sky-500/25 bg-black/60 p-5 sm:p-6 hover:border-sky-400/70 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)] transition-all duration-300">
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
                 <span className="pointer-events-none absolute top-2.5 right-3 font-mono text-[9px] text-sky-400/40 group-hover:text-sky-400 transition-colors">
                   [ TEL.02 // CYCLE ]
                 </span>
@@ -670,9 +670,9 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               </div>
 
               {/* 3. VOLUME, ISSUE & PAGINATION (DEDICATED COMPONENT) */}
-              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-purple-500/25 bg-black/60 p-4 sm:p-5 hover:border-purple-400/70 hover:shadow-[0_0_25px_rgba(168,85,247,0.2)] transition-all duration-300">
-                <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-purple-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-purple-400/60" />
+              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-purple-500/25 bg-black/60 p-5 sm:p-6 hover:border-purple-400/70 hover:shadow-[0_0_25px_rgba(168,85,247,0.2)] transition-all duration-300">
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-purple-400/60" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-purple-400/60" />
                 <span className="pointer-events-none absolute top-2.5 right-3 font-mono text-[9px] text-purple-400/40 group-hover:text-purple-400 transition-colors">
                   [ TEL.03 // ISSUE ]
                 </span>
@@ -701,9 +701,9 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               </div>
 
               {/* 4. FIELD: Machine Learning & Healthcare Data Mining */}
-              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-black/60 p-4 sm:p-5 hover:border-emerald-400/70 hover:shadow-[0_0_25px_rgba(16,185,129,0.2)] transition-all duration-300">
-                <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-emerald-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-emerald-400/60" />
+              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-black/60 p-5 sm:p-6 hover:border-emerald-400/70 hover:shadow-[0_0_25px_rgba(16,185,129,0.2)] transition-all duration-300">
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/60" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/60" />
                 <span className="pointer-events-none absolute top-2.5 right-3 font-mono text-[9px] text-emerald-400/40 group-hover:text-emerald-400 transition-colors">
                   [ TEL.04 // DISCIPLINE ]
                 </span>
@@ -727,9 +727,9 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               </div>
 
               {/* 5. AUTHORS: Yohanes Dimas Pratama (First Author), Abu Salam */}
-              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-indigo-500/25 bg-black/60 p-4 sm:p-5 hover:border-indigo-400/70 hover:shadow-[0_0_25px_rgba(99,102,241,0.2)] transition-all duration-300">
-                <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-indigo-400/60" />
-                <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-indigo-400/60" />
+              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-indigo-500/25 bg-black/60 p-5 sm:p-6 hover:border-indigo-400/70 hover:shadow-[0_0_25px_rgba(99,102,241,0.2)] transition-all duration-300">
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-indigo-400/60" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-indigo-400/60" />
                 <span className="pointer-events-none absolute top-2.5 right-3 font-mono text-[9px] text-indigo-400/40 group-hover:text-indigo-400 transition-colors">
                   [ TEL.05 // INVESTIGATORS ]
                 </span>
@@ -753,9 +753,9 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               </div>
 
               {/* 6. PUBLISHER: Journal of Applied Informatics and Computing (JAIC) */}
-              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-white/15 bg-black/60 p-4 sm:p-5 hover:border-amber-400/60 hover:shadow-[0_0_25px_rgba(245,158,11,0.15)] transition-all duration-300">
-                <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/40" />
-                <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-white/40" />
+              <div className="lg:col-span-4 group relative overflow-hidden rounded-2xl border border-white/15 bg-black/60 p-5 sm:p-6 hover:border-amber-400/60 hover:shadow-[0_0_25px_rgba(245,158,11,0.15)] transition-all duration-300">
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-white/40" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-white/40" />
                 <span className="pointer-events-none absolute top-2.5 right-3 font-mono text-[9px] text-slate-500 group-hover:text-amber-400 transition-colors">
                   [ TEL.06 // PUBLISHER ]
                 </span>
@@ -802,11 +802,11 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
               {pub.metrics.map((m, idx) => (
                 <div
                   key={idx}
-                  className="group relative overflow-hidden rounded-2xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-3.5 sm:p-5 hover:border-amber-400/60 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all duration-300"
+                  className="group relative overflow-hidden rounded-2xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-6 hover:border-amber-400/60 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all duration-300"
                 >
                   {/* Optical HUD Crosshair */}
-                  <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t border-l border-amber-400/60" />
-                  <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t border-r border-amber-400/60" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/60" />
+                  <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/60" />
 
                   <span className="pointer-events-none hidden min-[380px]:inline absolute top-2 right-3 font-mono text-[9px] text-amber-400/40 group-hover:text-amber-400/80 transition-colors select-none">
                     [ METRIC.0{idx + 1} ]
@@ -831,12 +831,12 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
             {/* Left 7 Cols: [ 01 // ABSTRACT ] */}
             <div className="lg:col-span-7 flex flex-col h-full">
               {/* Card 1: [ 01 // ABSTRACT & RESEARCH SPECIFICATION ] */}
-              <div className="relative h-full flex flex-col justify-between rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <div className="relative h-full flex flex-col justify-between rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
                 {/* Corner HUD Crosshairs */}
-                <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-amber-400/70" />
-                <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-amber-400/70" />
-                <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-amber-400/70" />
-                <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-amber-400/70" />
+                <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/70" />
+                <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/70" />
+                <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/70" />
+                <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/70" />
 
                 <div className="flex-1 flex flex-col">
                   <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-400 mb-4">
@@ -872,12 +872,12 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
 
             {/* Right 5 Cols: [ 02 // JOURNAL ACCREDITATION & INDEXING ] */}
             <div className="lg:col-span-5 flex flex-col h-full">
-              <div className="relative h-full flex flex-col justify-between rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-7 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <div className="relative h-full flex flex-col justify-between rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
                 {/* Corner HUD Crosshairs */}
-                <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-amber-400/60" />
-                <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-amber-400/60" />
-                <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-amber-400/60" />
-                <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-amber-400/60" />
+                <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/60" />
+                <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/60" />
+                <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/60" />
+                <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/60" />
 
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="space-y-4">
@@ -1025,12 +1025,12 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
 
           {/* SECTION: [ 03 // INDEX TERMS & RESEARCH KEYWORDS ] (FULL WIDTH) */}
           {pub.keywords && pub.keywords.length > 0 && (
-            <section className="relative rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-7 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <section className="relative rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-7 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
               {/* Corner HUD Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-amber-400/70" />
-              <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-amber-400/70" />
-              <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-amber-400/70" />
-              <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-amber-400/70" />
+              <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/70" />
+              <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/70" />
+              <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/70" />
+              <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/70" />
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3.5 font-mono text-xs">
                 <div className="flex items-center gap-2 uppercase tracking-widest text-amber-300 font-bold">
@@ -1063,10 +1063,12 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
 
           {/* SECTION 4: ARCHITECTURAL CONTRIBUTIONS & PIPELINE ARCHITECTURE */}
           {pub.keyContributions && pub.keyContributions.length > 0 && (
-            <section className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+            <section className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
               {/* Corner HUD Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-emerald-400/60" />
-              <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-emerald-400/60" />
+              <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/60" />
+              <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/60" />
+              <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-emerald-400/60" />
+              <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-emerald-400/60" />
 
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-emerald-400 mb-6">
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
@@ -1161,13 +1163,13 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
           {pub.citationText && (
             <section
               id="citation-section"
-              className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
+              className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
             >
               {/* Corner HUD Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-amber-400/60" />
-              <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-amber-400/60" />
-              <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-amber-400/60" />
-              <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-amber-400/60" />
+              <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/60" />
+              <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/60" />
+              <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/60" />
+              <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/60" />
 
               {/* Ambient Sci-Fi Glow */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-amber-500/5 via-sky-500/5 to-purple-500/5 opacity-40" />
@@ -1326,13 +1328,13 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
           {pub.references && pub.references.length > 0 && (
             <section
               id="references-section"
-              className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
+              className="relative overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
             >
               {/* Corner HUD Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-amber-400/60" />
-              <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-amber-400/60" />
-              <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-amber-400/60" />
-              <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-amber-400/60" />
+              <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/60" />
+              <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/60" />
+              <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/60" />
+              <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/60" />
 
               {/* Ambient Sci-Fi Glow */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-amber-500/5 via-sky-500/5 to-purple-500/5 opacity-50" />
@@ -1422,11 +1424,11 @@ export default function PublicationDetailView({ publicationId: propPubId }: { pu
                       return (
                         <div
                           key={ref.id}
-                          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 hover:border-amber-400/40 hover:bg-black/75 transition-all duration-300"
+                          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-6 hover:border-amber-400/40 hover:bg-black/75 transition-all duration-300"
                         >
                           {/* Corner HUD accent */}
-                          <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-white/30 group-hover:border-amber-400/60" />
-                          <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-white/30 group-hover:border-amber-400/60" />
+                          <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-white/30 group-hover:border-amber-400/60" />
+                          <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-white/30 group-hover:border-amber-400/60" />
 
                           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                             <div className="space-y-2 flex-1 min-w-0">

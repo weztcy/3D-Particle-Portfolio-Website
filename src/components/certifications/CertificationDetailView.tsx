@@ -335,12 +335,12 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
       <main className="relative z-10 py-8 sm:py-14 px-3.5 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1380px] space-y-6 sm:space-y-8">
           {/* 1. CERTIFICATE HERO HEADER */}
-          <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* High-tech Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-3 w-3 border-t-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-3 w-3 border-t-2 border-r-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2 border-sky-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
             {/* Ambient Sci-Fi Glow */}
             <div
@@ -377,8 +377,8 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
                       className="group relative inline-flex items-center justify-between sm:justify-center gap-3 overflow-hidden rounded-xl border border-sky-400/40 bg-gradient-to-r from-sky-950/80 via-[#0B1226] to-indigo-950/80 backdrop-blur-xl px-5 sm:px-6 py-3 sm:py-3.5 font-mono text-xs sm:text-[13px] font-bold tracking-wider text-white shadow-[0_0_25px_rgba(56,189,248,0.2),inset_0_1px_0_rgba(255,255,255,0.12)] hover:border-sky-300 hover:shadow-[0_0_40px_rgba(56,189,248,0.45),inset_0_1px_0_rgba(255,255,255,0.25)] hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 select-none cursor-pointer w-full sm:w-auto"
                     >
                       {/* Corner HUD Crosshairs */}
-                      <div className="pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l border-sky-400/80 group-hover:border-white transition-colors" />
-                      <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r border-sky-400/80 group-hover:border-white transition-colors" />
+                      <div className="pointer-events-none absolute top-2 left-2 sm:top-2.5 sm:left-2.5 h-1.5 w-1.5 border-t border-l border-sky-400/80 group-hover:border-white transition-colors" />
+                      <div className="pointer-events-none absolute bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 h-1.5 w-1.5 border-b border-r border-sky-400/80 group-hover:border-white transition-colors" />
 
                       {/* Cyber Light Beam Shimmer Sweeper */}
                       <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-sky-400/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
@@ -413,10 +413,10 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <div className="lg:col-span-5">
                 <div className="relative overflow-hidden rounded-2xl border border-sky-400/30 bg-[#080B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(56,189,248,0.1)]">
                   {/* Optical HUD Crosshairs */}
-                  <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
-                  <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
-                  <div className="pointer-events-none absolute bottom-11 left-2 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
-                  <div className="pointer-events-none absolute bottom-11 right-2 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 h-2 w-2 border-t border-l border-sky-400/80" />
+                  <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 h-2 w-2 border-t border-r border-sky-400/80" />
+                  <div className="pointer-events-none absolute bottom-11 left-2.5 sm:bottom-11 sm:left-3 z-20 h-2 w-2 border-b border-l border-sky-400/80" />
+                  <div className="pointer-events-none absolute bottom-11 right-2.5 sm:bottom-11 sm:right-3 z-20 h-2 w-2 border-b border-r border-sky-400/80" />
 
                   <div
                     onMouseEnter={() => setIsPaused(true)}
@@ -610,12 +610,12 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
           {/* 3. OVERVIEW & OFFICIAL VERIFICATION ROW (Balanced 7 : 5 Grid) */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
             {/* Left 7 Cols: Program Overview & Scope */}
-            <div className="lg:col-span-7 relative flex flex-col justify-between rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <div className="lg:col-span-7 relative flex flex-col justify-between rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
               {/* Corner HUD Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-sky-400/60" />
-              <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-sky-400/60" />
-              <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-sky-400/60" />
-              <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-sky-400/60" />
+              <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60" />
+              <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60" />
+              <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60" />
+              <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60" />
 
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky-400 mb-4">
@@ -691,12 +691,12 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
             </div>
 
             {/* Right 5 Cols: Official Credential Verification */}
-            <div className="lg:col-span-5 relative flex flex-col justify-between rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <div className="lg:col-span-5 relative flex flex-col justify-between rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
               {/* Corner HUD Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-emerald-400/60" />
-              <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-emerald-400/60" />
-              <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-emerald-400/60" />
-              <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-emerald-400/60" />
+              <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/60" />
+              <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/60" />
+              <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-emerald-400/60" />
+              <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-emerald-400/60" />
 
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4">
@@ -769,12 +769,12 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
           </section>
 
           {/* 4. CURRICULUM & KEY MODULES (Full-Width Responsive Multi-Column Grid) */}
-          <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
             {/* Corner HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-indigo-400/60" />
-            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-indigo-400/60" />
-            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-indigo-400/60" />
-            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-indigo-400/60" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-indigo-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-indigo-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-indigo-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-indigo-400/60" />
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-sky-500/20 pb-4 mb-6">
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-indigo-400">
@@ -796,8 +796,8 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
                   className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-6 transition-all duration-300 hover:border-sky-400/50 hover:bg-sky-500/[0.04] hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] flex flex-col justify-between"
                 >
                   {/* Micro Corner Ticks */}
-                  <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/40" />
-                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b border-r border-sky-400/40" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t border-l border-sky-400/40" />
+                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b border-r border-sky-400/40" />
 
                   {/* Corner Accent Tick */}
                   <span className="pointer-events-none absolute top-2 right-3 font-mono text-[9px] text-sky-400/30 select-none group-hover:text-sky-400/80 transition-colors">
@@ -855,9 +855,9 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <Link
                 href={`/certifications/${prevCert.id}`}
                 onClick={handleTriggerPulse}
-                className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-6 hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all flex flex-col justify-between"
+                className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-7 hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all flex flex-col justify-between"
               >
-                <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/50" />
+                <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t border-l border-sky-400/50" />
                 <div className="flex items-center justify-between gap-2 mb-3 font-mono text-xs text-slate-400">
                   <span className="inline-flex items-center gap-1.5 text-sky-400 font-bold">
                     <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1.5 transition-transform" />
@@ -880,9 +880,9 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <Link
                 href={`/certifications/${nextCert.id}`}
                 onClick={handleTriggerPulse}
-                className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-6 hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all flex flex-col justify-between text-left md:text-right"
+                className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-6 sm:p-7 hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all flex flex-col justify-between text-left md:text-right"
               >
-                <div className="pointer-events-none absolute top-2.5 right-2.5 h-2 w-2 border-t border-r border-sky-400/50" />
+                <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t border-r border-sky-400/50" />
                 <div className="flex items-center justify-between gap-2 mb-3 font-mono text-xs text-slate-400">
                   <span className="rounded border border-white/10 bg-black/40 px-2 py-0.5 font-mono text-xs text-slate-300">
                     {nextCert.code}
@@ -917,10 +917,10 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
             onClick={(e) => e.stopPropagation()}
           >
             {/* Optical HUD Crosshairs */}
-            <div className="pointer-events-none absolute top-3 left-3 z-20 h-3 w-3 border-t-2 border-l-2 border-sky-400" />
-            <div className="pointer-events-none absolute top-3 right-3 z-20 h-3 w-3 border-t-2 border-r-2 border-sky-400" />
-            <div className="pointer-events-none absolute bottom-3 left-3 z-20 h-3 w-3 border-b-2 border-l-2 border-sky-400" />
-            <div className="pointer-events-none absolute bottom-3 right-3 z-20 h-3 w-3 border-b-2 border-r-2 border-sky-400" />
+            <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-20 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400" />
+            <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 z-20 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400" />
+            <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 z-20 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400" />
+            <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 z-20 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400" />
 
             <div className="flex items-center justify-between px-6 py-4 border-b border-sky-500/20 bg-black/80">
               <div className="flex items-center gap-3 font-mono text-xs text-slate-200 truncate pr-3">

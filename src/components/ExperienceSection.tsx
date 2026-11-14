@@ -110,13 +110,13 @@ function ExperienceSection() {
                     }}
                     role="button"
                     tabIndex={0}
-                    className="group/card relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-4 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(59,130,246,0.25)] cursor-pointer select-none focus:outline-none focus:border-blue-400/80"
+                    className="group/card relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(59,130,246,0.25)] cursor-pointer select-none focus:outline-none focus:border-blue-400/80"
                   >
                     {/* Optical Corner HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
-                    <div className="pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
-                    <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-2.5 w-2.5 border-b-2 border-l-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
-                    <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-2.5 w-2.5 border-b-2 border-r-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-blue-400/70 group-hover/card:border-blue-400 transition-colors duration-300" />
 
                     {/* Ambient Glow Field & Holographic Sweep */}
                     <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-blue-500/15 via-sky-500/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
@@ -212,10 +212,10 @@ function ExperienceSection() {
 
               <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl shadow-[0_24px_60px_rgba(0,0,0,0.7)] hover:border-purple-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(168,85,247,0.25)] transition-all duration-500">
                 {/* Optical Corner HUD Crosshairs */}
-                <div className="pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
-                <div className="pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
-                <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-2.5 w-2.5 border-b-2 border-l-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
-                <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-2.5 w-2.5 border-b-2 border-r-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
+                <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
+                <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
+                <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
+                <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-purple-400/80 group-hover:border-purple-400 transition-colors duration-300 z-30" />
 
                 {/* Ambient Glow Field & Holographic Sweep */}
                 <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-purple-500/20 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -224,10 +224,10 @@ function ExperienceSection() {
                 {/* University Campus Photo with Viewfinder Overlays & Cyber Logo Seal */}
                 <div className="relative h-44 sm:h-56 w-full overflow-hidden bg-slate-900/90 group/photo">
                   {/* Viewfinder Corner Notches */}
-                  <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-white/40" />
-                  <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-white/40" />
-                  <div className="pointer-events-none absolute bottom-2 left-2 z-20 h-2 w-2 border-b border-l border-white/40" />
-                  <div className="pointer-events-none absolute bottom-2 right-2 z-20 h-2 w-2 border-b border-r border-white/40" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 h-2 w-2 border-t border-l border-white/40" />
+                  <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 h-2 w-2 border-t border-r border-white/40" />
+                  <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 z-20 h-2 w-2 border-b border-l border-white/40" />
+                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-20 h-2 w-2 border-b border-r border-white/40" />
 
                   {!imageError ? (
                     <img
@@ -282,7 +282,7 @@ function ExperienceSection() {
                 </div>
 
                 {/* Education Content Body */}
-                <div className="relative z-10 p-4 sm:p-7 space-y-4">
+                <div className="relative z-10 p-5 sm:p-7 space-y-4">
                   {/* University Name & Degree */}
                   <div>
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
@@ -344,13 +344,13 @@ function ExperienceSection() {
                     }}
                     tabIndex={0}
                     role="link"
-                    className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-4 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 hover:border-amber-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(245,158,11,0.25)] select-none cursor-pointer focus:outline-none focus:border-amber-400/60"
+                    className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 hover:border-amber-400/60 hover:shadow-[0_24px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(245,158,11,0.25)] select-none cursor-pointer focus:outline-none focus:border-amber-400/60"
                   >
                     {/* Optical Corner HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
-                    <div className="pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
-                    <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-2.5 w-2.5 border-b-2 border-l-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
-                    <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-2.5 w-2.5 border-b-2 border-r-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
+                    <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400/70 group-hover:border-amber-400 transition-colors duration-300" />
 
                     {/* Ambient Glow Field & Holographic Sweep */}
                     <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-amber-400/15 via-yellow-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

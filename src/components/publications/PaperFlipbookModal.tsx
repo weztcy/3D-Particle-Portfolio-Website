@@ -490,12 +490,12 @@ export default function PaperFlipbookModal({
             }}
           >
             {/* Outer High-Tech Paper Frame */}
-            <div className="relative w-full rounded-2xl p-2.5 sm:p-3.5 bg-[#0C101C]/90 border border-amber-500/35 shadow-[0_24px_80px_rgba(0,0,0,0.95),0_0_40px_rgba(245,158,11,0.18)] backdrop-blur-xl">
+            <div className="relative w-full rounded-2xl p-3 sm:p-4 bg-[#0C101C]/90 border border-amber-500/35 shadow-[0_24px_80px_rgba(0,0,0,0.95),0_0_40px_rgba(245,158,11,0.18)] backdrop-blur-xl">
               {/* Optical Viewfinder Corner Notches */}
-              <div className="pointer-events-none absolute top-2 left-2 h-3.5 w-3.5 border-t-2 border-l-2 border-amber-400 z-20" />
-              <div className="pointer-events-none absolute top-2 right-2 h-3.5 w-3.5 border-t-2 border-r-2 border-amber-400 z-20" />
-              <div className="pointer-events-none absolute bottom-2 left-2 h-3.5 w-3.5 border-b-2 border-l-2 border-amber-400 z-20" />
-              <div className="pointer-events-none absolute bottom-2 right-2 h-3.5 w-3.5 border-b-2 border-r-2 border-amber-400 z-20" />
+              <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400 z-20" />
+              <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400 z-20" />
+              <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400 z-20" />
+              <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400 z-20" />
 
               {/* Document Sheet */}
               <div className="relative rounded-xl overflow-hidden bg-white shadow-xl">
@@ -544,13 +544,13 @@ export default function PaperFlipbookModal({
               <div
                 key={pageNum}
                 id={`paper-page-card-${pageNum}`}
-                className="relative rounded-2xl p-2.5 sm:p-3.5 bg-[#0C101C]/90 border border-amber-500/30 shadow-[0_20px_70px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+                className="relative rounded-2xl p-3 sm:p-4 bg-[#0C101C]/90 border border-amber-500/30 shadow-[0_20px_70px_rgba(0,0,0,0.9)] backdrop-blur-xl"
               >
                 {/* Optical Viewfinder Corner Notches */}
-                <div className="pointer-events-none absolute top-2 left-2 h-3.5 w-3.5 border-t-2 border-l-2 border-amber-400 z-20" />
-                <div className="pointer-events-none absolute top-2 right-2 h-3.5 w-3.5 border-t-2 border-r-2 border-amber-400 z-20" />
-                <div className="pointer-events-none absolute bottom-2 left-2 h-3.5 w-3.5 border-b-2 border-l-2 border-amber-400 z-20" />
-                <div className="pointer-events-none absolute bottom-2 right-2 h-3.5 w-3.5 border-b-2 border-r-2 border-amber-400 z-20" />
+                <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-amber-400 z-20" />
+                <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-amber-400 z-20" />
+                <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-amber-400 z-20" />
+                <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-amber-400 z-20" />
 
                 {/* Natural Full Unclipped Image */}
                 <div className="relative rounded-xl overflow-hidden bg-white shadow-xl">

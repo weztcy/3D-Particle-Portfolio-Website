@@ -185,16 +185,22 @@ function CertificationsSection({
           </div>
 
           {/* Futuristic Telemetry HUD Badge: Authenticated Registry */}
-          <div className="relative group overflow-hidden rounded-2xl border border-emerald-500/25 bg-[#0C0F17]/85 backdrop-blur-xl px-3.5 sm:px-4 py-2.5 shadow-[0_0_30px_rgba(16,185,129,0.12)] transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.22)] self-start lg:self-end w-full sm:w-auto">
+          <div className="relative group overflow-hidden rounded-2xl border border-emerald-500/25 bg-[#0C0F17]/85 backdrop-blur-xl px-4 sm:px-4 py-3 sm:py-2.5 shadow-[0_0_30px_rgba(16,185,129,0.12)] transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.22)] self-start lg:self-end w-full sm:w-auto">
             {/* Sci-Fi Gradient Ambient Glow */}
             <div className="pointer-events-none absolute -inset-px bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-sky-500/15 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Decorative Corner Tech Ticks */}
-            <div className="pointer-events-none absolute top-1 left-2 font-mono text-[8px] text-emerald-400/40 select-none">
+            <div className="pointer-events-none absolute top-1 left-1.5 sm:top-1 sm:left-2 font-mono text-[8px] text-emerald-400/40 select-none">
               ┌
             </div>
-            <div className="pointer-events-none absolute top-1 right-2 font-mono text-[8px] text-emerald-400/40 select-none">
+            <div className="pointer-events-none absolute top-1 right-1.5 sm:top-1 sm:right-2 font-mono text-[8px] text-emerald-400/40 select-none">
               ┐
+            </div>
+            <div className="pointer-events-none absolute bottom-1 left-1.5 sm:bottom-1 sm:left-2 font-mono text-[8px] text-emerald-400/40 select-none">
+              └
+            </div>
+            <div className="pointer-events-none absolute bottom-1 right-1.5 sm:bottom-1 sm:right-2 font-mono text-[8px] text-emerald-400/40 select-none">
+              ┘
             </div>
 
             <div className="relative z-10 flex items-center gap-3 font-mono">
@@ -258,20 +264,20 @@ function CertificationsSection({
                 }}
                 tabIndex={0}
                 role="link"
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 cursor-pointer select-none focus:outline-none focus:border-emerald-400/60 ${accent.cardHover}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/85 backdrop-blur-2xl p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all duration-500 hover:-translate-y-1.5 cursor-pointer select-none focus:outline-none focus:border-emerald-400/60 ${accent.cardHover}`}
               >
                 {/* Optical Corner HUD Crosshairs */}
                 <div
-                  className={`pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
                 <div
-                  className={`pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
                 <div
-                  className={`pointer-events-none absolute bottom-3.5 left-3.5 h-2.5 w-2.5 border-b-2 border-l-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
                 <div
-                  className={`pointer-events-none absolute bottom-3.5 right-3.5 h-2.5 w-2.5 border-b-2 border-r-2 ${accent.cornerColor} transition-colors duration-300`}
+                  className={`pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 ${accent.cornerColor} transition-colors duration-300`}
                 />
 
                 {/* Ambient Glow Field & Holographic Sweep */}
@@ -300,9 +306,10 @@ function CertificationsSection({
                   {/* Certificate Preview Image (Consistent 16:9 Aspect Ratio with HUD Corner Notches) */}
                   <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90 mb-5 group/image">
                     {/* Viewfinder Corner Notches */}
-                    <div className="pointer-events-none absolute top-2 left-2 z-20 h-2 w-2 border-t border-l border-white/40" />
-                    <div className="pointer-events-none absolute top-2 right-2 z-20 h-2 w-2 border-t border-r border-white/40" />
-                    <div className="pointer-events-none absolute bottom-2 left-2 z-20 h-2 w-2 border-b border-l border-white/40" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 h-2 w-2 border-t border-l border-white/40" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 h-2 w-2 border-t border-r border-white/40" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 z-20 h-2 w-2 border-b border-l border-white/40" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-20 h-2 w-2 border-b border-r border-white/40" />
 
                     {cert.imageUrl && !hasImgError ? (
                       <img
@@ -392,12 +399,12 @@ function CertificationsSection({
 
         {/* Pagination Controls when certifications exceed 1 view: Consistent Cyber HUD Layout */}
         {totalPages > 1 && (
-          <div className="relative z-10 mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-3.5 sm:px-5 py-3 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
+          <div className="relative z-10 mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl px-5 sm:px-6 py-3.5 sm:py-3.5 shadow-[inset_0_0_20px_rgba(0,0,0,0.8),0_10px_30px_rgba(0,0,0,0.5)]">
             {/* Corner Micro Crosshairs */}
-            <div className="pointer-events-none absolute top-2 left-2 h-1.5 w-1.5 border-t border-l border-emerald-400/70" />
-            <div className="pointer-events-none absolute top-2 right-2 h-1.5 w-1.5 border-t border-r border-emerald-400/70" />
-            <div className="pointer-events-none absolute bottom-2 left-2 h-1.5 w-1.5 border-b border-l border-emerald-400/70" />
-            <div className="pointer-events-none absolute bottom-2 right-2 h-1.5 w-1.5 border-b border-r border-emerald-400/70" />
+            <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/70" />
+            <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/70" />
+            <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 border-emerald-400/70" />
+            <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-emerald-400/70" />
 
             <div className="font-mono text-[11px] sm:text-xs text-slate-400 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse shrink-0" />

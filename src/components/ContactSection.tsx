@@ -213,12 +213,12 @@ function ContactSection({
               {/* Futuristic Telemetry & Dispatch Pods */}
               <div className="space-y-3">
                 {/* 1. DIRECT ENCRYPTED DISPATCH */}
-                <div className="group relative overflow-hidden rounded-2xl border border-sky-500/25 bg-[#080B14]/85 backdrop-blur-2xl p-4 sm:p-5 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-sky-400/60 hover:shadow-[0_0_30px_rgba(56,189,248,0.25)]">
+                <div className="group relative overflow-hidden rounded-2xl border border-sky-500/25 bg-[#080B14]/85 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-sky-400/60 hover:shadow-[0_0_30px_rgba(56,189,248,0.25)]">
                   {/* Optical Corner HUD Crosshairs */}
-                  <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
-                  <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
-                  <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
-                  <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                  <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                  <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
 
                   {/* Ambient Glow Field & Holographic Sweep */}
                   <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-sky-500/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -264,12 +264,12 @@ function ContactSection({
                 {/* Live Location & Timezone Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3 font-mono text-xs">
                   {/* 2. BASE STATION */}
-                  <div className="group relative overflow-hidden rounded-2xl border border-sky-500/25 bg-[#080B14]/85 backdrop-blur-2xl p-4 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-sky-400/60 hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] flex flex-col justify-between">
+                  <div className="group relative overflow-hidden rounded-2xl border border-sky-500/25 bg-[#080B14]/85 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-sky-400/60 hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] flex flex-col justify-between">
                     {/* Optical Corner HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
-                    <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
-                    <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
-                    <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/70 group-hover:border-sky-400 transition-colors" />
 
                     {/* Ambient Glow & Holographic Sweep */}
                     <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-sky-500/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -313,12 +313,12 @@ function ContactSection({
                   </div>
 
                   {/* 3. LOCAL TELEMETRY */}
-                  <div className="group relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-[#080B14]/85 backdrop-blur-2xl p-4 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-emerald-400/60 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] flex flex-col justify-between">
+                  <div className="group relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-[#080B14]/85 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-emerald-400/60 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] flex flex-col justify-between">
                     {/* Optical Corner HUD Crosshairs */}
-                    <div className="pointer-events-none absolute top-2 left-2 h-2 w-2 border-t-2 border-l-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
-                    <div className="pointer-events-none absolute top-2 right-2 h-2 w-2 border-t-2 border-r-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
-                    <div className="pointer-events-none absolute bottom-2 left-2 h-2 w-2 border-b-2 border-l-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
-                    <div className="pointer-events-none absolute bottom-2 right-2 h-2 w-2 border-b-2 border-r-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
+                    <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
+                    <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
+                    <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
+                    <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-emerald-400/70 group-hover:border-emerald-400 transition-colors" />
 
                     {/* Ambient Glow & Holographic Sweep */}
                     <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-emerald-500/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -418,12 +418,12 @@ function ContactSection({
 
             {/* Right Column: Interactive Transmission Composer (7 cols) */}
             <div className="lg:col-span-7">
-              <div className="group/terminal relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/90 backdrop-blur-2xl p-4 sm:p-8 lg:p-9 shadow-[0_24px_70px_rgba(0,0,0,0.85)] transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_24px_80px_rgba(0,0,0,0.9),0_0_35px_rgba(56,189,248,0.18)]">
+              <div className="group/terminal relative overflow-hidden rounded-3xl border border-white/10 bg-[#080B14]/90 backdrop-blur-2xl p-6 sm:p-8 lg:p-9 shadow-[0_24px_70px_rgba(0,0,0,0.85)] transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_24px_80px_rgba(0,0,0,0.9),0_0_35px_rgba(56,189,248,0.18)]">
                 {/* Optical Corner HUD Crosshairs */}
-                <div className="pointer-events-none absolute top-3.5 left-3.5 h-2.5 w-2.5 border-t-2 border-l-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
-                <div className="pointer-events-none absolute top-3.5 right-3.5 h-2.5 w-2.5 border-t-2 border-r-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
-                <div className="pointer-events-none absolute bottom-3.5 left-3.5 h-2.5 w-2.5 border-b-2 border-l-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
-                <div className="pointer-events-none absolute bottom-3.5 right-3.5 h-2.5 w-2.5 border-b-2 border-r-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
+                <div className="pointer-events-none absolute top-3 left-3 sm:top-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
+                <div className="pointer-events-none absolute top-3 right-3 sm:top-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
+                <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-3.5 sm:left-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
+                <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/70 group-hover/terminal:border-sky-400 transition-colors duration-300" />
 
                 {/* Ambient Glow Field & Holographic Sweep */}
                 <div className="pointer-events-none absolute -inset-px bg-gradient-to-br from-sky-500/10 via-indigo-500/5 to-transparent opacity-0 group-hover/terminal:opacity-100 transition-opacity duration-500" />
@@ -662,17 +662,17 @@ function ContactSection({
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className={`group/btn relative w-full sm:w-auto overflow-hidden rounded-xl border px-4 sm:px-7 py-3 font-mono transition-all duration-300 active:scale-[0.98] ${
+                          className={`group/btn relative w-full sm:w-auto overflow-hidden rounded-xl border px-5 sm:px-7 py-3.5 sm:py-3 font-mono transition-all duration-300 active:scale-[0.98] ${
                             isSubmitting
                               ? "border-sky-400/50 bg-sky-950/50 cursor-wait opacity-85 shadow-[0_0_20px_rgba(56,189,248,0.2)]"
                               : "border-sky-400/40 bg-gradient-to-r from-[#070C18] via-[#0B1528] to-[#070C18] shadow-[0_0_24px_rgba(56,189,248,0.2),inset_0_1px_0_rgba(255,255,255,0.1)] hover:border-emerald-400/80 hover:shadow-[0_0_35px_rgba(16,185,129,0.35),0_0_15px_rgba(56,189,248,0.25)]"
                           }`}
                         >
                           {/* Optical Corner HUD Reticles */}
-                          <span className="pointer-events-none absolute top-1.5 left-1.5 h-2 w-2 border-t-2 border-l-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
-                          <span className="pointer-events-none absolute top-1.5 right-1.5 h-2 w-2 border-t-2 border-r-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
-                          <span className="pointer-events-none absolute bottom-1.5 left-1.5 h-2 w-2 border-b-2 border-l-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
-                          <span className="pointer-events-none absolute bottom-1.5 right-1.5 h-2 w-2 border-b-2 border-r-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
+                          <span className="pointer-events-none absolute top-1.5 left-1.5 sm:top-2 sm:left-2 h-1.5 w-1.5 sm:h-2 sm:w-2 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
+                          <span className="pointer-events-none absolute top-1.5 right-1.5 sm:top-2 sm:right-2 h-1.5 w-1.5 sm:h-2 sm:w-2 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
+                          <span className="pointer-events-none absolute bottom-1.5 left-1.5 sm:bottom-2 sm:left-2 h-1.5 w-1.5 sm:h-2 sm:w-2 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
+                          <span className="pointer-events-none absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 h-1.5 w-1.5 sm:h-2 sm:w-2 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/70 group-hover/btn:border-emerald-400 transition-colors duration-300" />
 
                           {/* Ambient Cyber Grid & Holographic Scan Sweep */}
                           <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-emerald-500/10 opacity-60 group-hover/btn:opacity-100 transition-opacity" />

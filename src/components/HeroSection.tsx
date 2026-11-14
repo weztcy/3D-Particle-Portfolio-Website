@@ -363,7 +363,7 @@ export default function HeroSection({
             </div>
 
             {/* Architectural Headline & Bio - Futuristic Dossier Card */}
-            <div className="relative group max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0C0F17]/90 via-[#080B14]/85 to-[#04060A]/90 backdrop-blur-xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.7)] hover:border-sky-500/40 transition-all duration-500">
+            <div className="relative group max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0C0F17]/90 via-[#080B14]/85 to-[#04060A]/90 backdrop-blur-xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.7)] hover:border-sky-500/40 transition-all duration-500">
               {/* Sci-Fi Ambient Glow */}
               <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-emerald-500/10 opacity-40 group-hover:opacity-100 transition duration-700 blur-sm" />
 
@@ -371,18 +371,10 @@ export default function HeroSection({
               <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 ease-in-out" />
 
               {/* Decorative Corner Tech Ticks */}
-              <span className="pointer-events-none absolute top-2 left-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/80 transition-colors">
-                ┌
-              </span>
-              <span className="pointer-events-none absolute top-2 right-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/80 transition-colors">
-                ┐
-              </span>
-              <span className="pointer-events-none absolute bottom-2 left-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/80 transition-colors">
-                └
-              </span>
-              <span className="pointer-events-none absolute bottom-2 right-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/80 transition-colors">
-                ┘
-              </span>
+              <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
+              <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
+              <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
+              <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
 
               <div className="relative z-10 space-y-3.5">
                 {/* Dossier Telemetry Header */}
@@ -501,7 +493,7 @@ export default function HeroSection({
 
           {/* Right Column: Interactive 3D Manifold Control Deck (5 cols / 4 cols on xl) */}
           <div className="lg:col-span-5 xl:col-span-4 flex flex-col lg:items-end">
-            <div className="relative group w-full lg:max-w-md overflow-hidden rounded-2xl border border-sky-500/25 bg-gradient-to-br from-[#0C101A]/95 via-[#070A12]/92 to-[#04060C]/96 backdrop-blur-2xl p-4 sm:p-5.5 shadow-[0_24px_64px_rgba(0,0,0,0.8),0_0_35px_rgba(56,189,248,0.08)] hover:border-sky-400/45 transition-all duration-500">
+            <div className="relative group w-full lg:max-w-md overflow-hidden rounded-2xl border border-sky-500/25 bg-gradient-to-br from-[#0C101A]/95 via-[#070A12]/92 to-[#04060C]/96 backdrop-blur-2xl p-5 sm:p-5.5 shadow-[0_24px_64px_rgba(0,0,0,0.8),0_0_35px_rgba(56,189,248,0.08)] hover:border-sky-400/45 transition-all duration-500">
               {/* Sci-Fi Ambient Glow & Shimmer */}
               <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-r from-sky-500/15 via-indigo-500/10 to-emerald-500/15 opacity-40 group-hover:opacity-100 transition duration-700 blur-sm" />
 
@@ -509,18 +501,10 @@ export default function HeroSection({
               <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 ease-in-out" />
 
               {/* Decorative Corner Tech Ticks */}
-              <span className="pointer-events-none absolute top-2 left-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/90 transition-colors">
-                ┌
-              </span>
-              <span className="pointer-events-none absolute top-2 right-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/90 transition-colors">
-                ┐
-              </span>
-              <span className="pointer-events-none absolute bottom-2 left-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/90 transition-colors">
-                └
-              </span>
-              <span className="pointer-events-none absolute bottom-2 right-2.5 font-mono text-[9px] text-sky-400/40 select-none group-hover:text-sky-400/90 transition-colors">
-                ┘
-              </span>
+              <div className="pointer-events-none absolute top-2.5 left-2.5 sm:top-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-l sm:border-l-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
+              <div className="pointer-events-none absolute top-2.5 right-2.5 sm:top-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-t sm:border-t-2 border-r sm:border-r-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
+              <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-l sm:border-l-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
+              <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 h-2 w-2 sm:h-2.5 sm:w-2.5 border-b sm:border-b-2 border-r sm:border-r-2 border-sky-400/60 group-hover:border-sky-400 transition-colors" />
 
               {/* Background HUD Micro-Reticle Watermark */}
               <div className="pointer-events-none absolute top-3 right-8 opacity-10 text-sky-400 font-mono text-[9px] select-none hidden sm:block">
@@ -823,7 +807,7 @@ export default function HeroSection({
               return (
                 <div
                   key={idx}
-                  className={`relative group overflow-hidden rounded-2xl border ${config.border} ${config.bg} backdrop-blur-xl p-3.5 sm:p-5 transition-all duration-300 ${config.glow}`}
+                  className={`relative group overflow-hidden rounded-2xl border ${config.border} ${config.bg} backdrop-blur-xl p-4 sm:p-5 transition-all duration-300 ${config.glow}`}
                 >
                   {/* Sci-Fi Ambient Glow */}
                   <div
@@ -835,22 +819,22 @@ export default function HeroSection({
 
                   {/* Decorative Corner Bracket Accents */}
                   <span
-                    className={`pointer-events-none absolute top-1.5 left-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
+                    className={`pointer-events-none absolute top-1 left-1.5 sm:top-1.5 sm:left-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
                   >
                     ┌
                   </span>
                   <span
-                    className={`pointer-events-none absolute top-1.5 right-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
+                    className={`pointer-events-none absolute top-1 right-1.5 sm:top-1.5 sm:right-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
                   >
                     ┐
                   </span>
                   <span
-                    className={`pointer-events-none absolute bottom-1.5 left-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
+                    className={`pointer-events-none absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
                   >
                     └
                   </span>
                   <span
-                    className={`pointer-events-none absolute bottom-1.5 right-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
+                    className={`pointer-events-none absolute bottom-1 right-1.5 sm:bottom-1.5 sm:right-2 font-mono text-[9px] select-none ${config.cornerColor} transition-colors`}
                   >
                     ┘
                   </span>
