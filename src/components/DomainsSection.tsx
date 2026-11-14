@@ -2040,7 +2040,8 @@ function DomainsSection({
             <div>
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-indigo-400">
                 <Layers className="h-3.5 w-3.5" />
-                <span>TECHNICAL TELEMETRY & TOOLING MATRIX</span>
+                <span className="hidden sm:inline">TECHNICAL STACK & TOOLING MATRIX</span>
+                <span className="sm:hidden">TECHNICAL TELEMETRY & TOOLING MATRIX</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mt-1">
                 Production Stack & Quantitative <span className="sm:block inline">Proficiency.</span>
@@ -2535,7 +2536,8 @@ function DomainsSection({
             <div>
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-emerald-400">
                 <Sparkles className="h-3.5 w-3.5 shrink-0" />
-                <span>INTERPERSONAL & PROFESSIONAL TELEMETRY</span>
+                <span className="hidden sm:inline">INTERPERSONAL & PROFESSIONAL TELEMETRY</span>
+                <span className="sm:hidden">INTERPERSONAL TELEMETRY</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mt-1">
                 Soft Skills & Professional

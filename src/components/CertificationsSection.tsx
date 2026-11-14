@@ -169,7 +169,8 @@ function CertificationsSection({
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky-400">
-              <span>[ 03 // PROFESSIONAL CERTIFICATIONS & CREDENTIALS ]</span>
+              <span className="hidden sm:inline">[ 03 // PROFESSIONAL CERTIFICATIONS & CREDENTIALS ]</span>
+              <span className="sm:hidden">[ 03 // PROFESSIONAL CERTIFICATIONS ]</span>
             </div>
             <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
               Verified Certifications &{" "}

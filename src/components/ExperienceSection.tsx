@@ -50,7 +50,8 @@ function ExperienceSection() {
         {/* Section Header */}
         <div className="space-y-3 max-w-2xl mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky-400">
-            <span>[ 04 // CAREER TRAJECTORY & ACADEMIC CREDENTIALS ]</span>
+            <span className="hidden sm:inline">[ 04 // CAREER TRAJECTORY & ACADEMIC CREDENTIALS ]</span>
+            <span className="sm:hidden">[ 04 // CAREER & ACADEMIC TRAJECTORY ]</span>
           </div>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
             Engineering Practice &{" "}

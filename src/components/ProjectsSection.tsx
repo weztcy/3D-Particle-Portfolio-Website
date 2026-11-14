@@ -354,7 +354,8 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
         <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky-400">
-              <span>[ 02 // PRODUCTION PROJECTS & CASE STUDIES ]</span>
+              <span className="hidden sm:inline">[ 02 // PRODUCTION PROJECTS & CASE STUDIES ]</span>
+              <span className="sm:hidden">[ 02 // PRODUCTION PROJECTS ]</span>
             </div>
             <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
               Engineering & Projects{" "}
