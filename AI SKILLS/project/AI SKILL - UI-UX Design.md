@@ -54,7 +54,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 3. **Section 2, 3, & 5**:
    - Pada `uiUxDesignSystem.colorPalette`, setiap nilai `hex` **WAJIB berformat valid `#RRGGBB`** (contoh: `"#E11D48"`, `"#0F172A"`).
    - Jumlah item array pada riset, persona, flow, visual showcase, design system, dan iterasi UT **bebas** sesuai bukti riil project.
-4. **Section 4 (`techStack` & `uiUxTechStack`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama tool desain/riset murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Figma"`, `"FigJam"`, `"Maze"`, `"Lottie"`, `"Tailwind CSS"`, BUKAN `"Figma Design System 2024"`).
 5. **Section 6 (`uiUxSystemSpecs`)**:
    - `{ layoutAndGrid, designTokens, typography, prototypeFidelity }` — wajib mencerminkan **spesifikasi design system universal** (maks **3–4 kata per nilai**, **tanpa underscore (`_`)**).
@@ -235,26 +236,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       }
     ]
   },
-  "uiUxTechStack": {
-    "designAndPrototypingTools": [
-      {
-        "name": "<Clean Design Tool Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "designSystemsAndResources": [
-      {
-        "name": "<Clean Icon/Token/Asset Resource>",
-        "role": "<Peran>"
-      }
-    ],
-    "researchAndCollaborationTools": [
-      {
-        "name": "<Clean Research Tool Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ]
-  },
   "uiUxDesignFile": {
     "fileStatus": "<Published Component Library / Production Design Archive>",
     "totalFrames": 24,
@@ -280,7 +261,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] `category` = `"ui-ux"`, `categoryLabel` = `"UI/UX Design"`, `accentColor` = `"rose"`.
 - [ ] Semua nilai `colorPalette[].hex` memakai format HEX valid `#RRGGBB`.
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
-- [ ] `techStack[]` dan `uiUxTechStack` **bebas nomor versi** dan tanda kurung.
+- [ ] `techStack[]` **bebas nomor versi** dan tanda kurung.
 - [ ] `uiUxSystemSpecs` memakai 4 nilai universal (maks 3–4 kata, tanpa underscore `_`).
 - [ ] Path visual showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

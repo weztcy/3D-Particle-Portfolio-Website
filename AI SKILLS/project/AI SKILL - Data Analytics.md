@@ -56,7 +56,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Gunakan field kanonik **`dataAnalyticsBusinessContext`** (untuk konteks bisnis Section 2).
    - Pada `dataAnalyticsKeyFindings`, `metricValue` harus berupa angka/persentase tunggal yang ringkas & tajam (misal `"+34.2%"`, `"$1.4M"`, `"87.5%"`) tanpa kalimat panjang.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai temuan riil project.
-4. **Section 4 (`techStack` & `dataAnalyticsTechStack`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi/tool analitik murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"Pandas"`, `"PostgreSQL"`, `"Power BI"`, `"SQL"`, BUKAN `"Python 3.11"` atau `"Power BI Desktop"`).
    - Jumlah item bebas.
 5. **Section 6**:
@@ -190,20 +191,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       }
     ]
   },
-  "dataAnalyticsTechStack": {
-    "coreTechnologies": [
-      {
-        "name": "<Clean Core Tech Tanpa Versi>",
-        "role": "<Peran dalam ingestion/processing/query>"
-      }
-    ],
-    "analyticsVizTools": [
-      {
-        "name": "<Clean BI/Viz Tool Tanpa Versi>",
-        "role": "<Peran dalam visualisasi/reporting>"
-      }
-    ]
-  },
   "dataAnalyticsPresentationSlides": [
     {
       "slideNumber": 1,
@@ -252,6 +239,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] `category` = `"data-analysis"`, `categoryLabel` = `"Data Analytics"`, `accentColor` = `"emerald"`.
 - [ ] Field konteks bisnis memakai `dataAnalyticsBusinessContext`; `recommendations[].priority` hanya `"HIGH"`, `"MEDIUM"`, atau `"STRATEGIC"`.
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
-- [ ] `techStack[]` dan `dataAnalyticsTechStack` **bebas nomor versi** dan tanda kurung.
+- [ ] `techStack[]` **bebas nomor versi** dan tanda kurung.
 - [ ] Path slide memakai `"/images/projects/<nama_project>/slide01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

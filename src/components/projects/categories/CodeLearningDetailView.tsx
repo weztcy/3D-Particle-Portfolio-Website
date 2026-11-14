@@ -166,19 +166,10 @@ export default function CodeLearningDetailView({
     }
   };
 
-  // Section 5: Tech Stack & Dev Environment
-  const explicitTech = project.codeLearningTechStack;
-  const rawTech = project.techStack || [];
-
   // Section 4: Tech Stack (Unified Flat)
   const allCodeLearningTechStack = useMemo(() => {
-    return [
-      ...(explicitTech?.programmingLanguages || []).map((t: any) => t.name),
-      ...(explicitTech?.frameworksAndLibraries || []).map((t: any) => t.name),
-      ...(explicitTech?.developmentToolsAndEnvironment || []).map((t: any) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [explicitTech, project.techStack]);
+    return project.techStack || [];
+  }, [project.techStack]);
 
   // Section 6: Practical Projects & Exercises
   const practicalProjects = project.codeLearningPracticalProjects || [];

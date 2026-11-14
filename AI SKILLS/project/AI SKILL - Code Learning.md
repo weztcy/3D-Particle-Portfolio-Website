@@ -53,7 +53,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 3. **Section 2, 3, & 5 (ATURAN FILTER LEVEL KESULITAN)**:
    - Nilai `difficulty` pada `codeLearningModules[]` **WAJIB** menggunakan salah satu dari tiga string persis (case-sensitive): **`"Beginner"`**, **`"Intermediate"`**, atau **`"Advanced"`** agar filter tab `CodeLearningDetailView.tsx` berfungsi benar.
    - Jumlah modul, submodul, phase, capstone project, dan kompetensi bebas sesuai struktur riil materi project.
-4. **Section 4 (`techStack` & `codeLearningTechStack`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama bahasa/runtime/tool murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"TypeScript"`, `"Pytest"`, `"Node.js"`, `"VS Code"`, BUKAN `"Python 3.12"`).
 5. **Section 6 (`codeLearningCurriculumSpecs`)**:
    - `{ curriculumTrack, primaryLanguage, executionRuntime, testVerification }` — bersih tanpa nomor versi, maks **3–4 kata per nilai**, dan **tanpa underscore (`_`)**.
@@ -183,26 +184,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       "estimatedHours": "<Misal 4 Hours>"
     }
   ],
-  "codeLearningTechStack": {
-    "programmingLanguages": [
-      {
-        "name": "<Clean Language Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "frameworksAndLibraries": [
-      {
-        "name": "<Clean Library/Test Framework Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "developmentToolsAndEnvironment": [
-      {
-        "name": "<Clean IDE/CLI Tool Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ]
-  },
   "codeLearningPracticalProjects": [
     {
       "title": "<Capstone / Practical Lab Title>",
@@ -262,5 +243,5 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Setiap item `codeLearningModules[].difficulty` memakai **strictly** `"Beginner"`, `"Intermediate"`, atau `"Advanced"`.
 - [ ] `codeLearningDescription`, `overview`, dan `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] **HANYA `banner.webp`** yang digunakan; tidak ada `image01.webp` maupun `imageUrl` di `codeLearningPracticalProjects`.
-- [ ] `techStack[]`, `codeLearningTechStack`, dan `codeLearningCurriculumSpecs` **bebas nomor versi** dan tanda kurung; `codeLearningCurriculumSpecs` tanpa underscore (`_`).
+- [ ] `techStack[]` dan `codeLearningCurriculumSpecs` **bebas nomor versi** dan tanda kurung; `codeLearningCurriculumSpecs` tanpa underscore (`_`).
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

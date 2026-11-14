@@ -55,7 +55,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Repository: isi `repoUrl` & `license` jika Public; kosongkan/hapus `repoUrl` jika Private.
 3. **Section 2, 3, & 5**:
    - Jumlah item array **bebas** sesuai kebutuhan dan temuan riil project (tidak ada batas min/maks).
-4. **Section 4 (`techStack` & `techStackCategorized`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Next.js"`, `"TypeScript"`, `"PostgreSQL"`, `"Prisma"`, BUKAN `"Next.js 16 App Router"` atau `"PostgreSQL 16"`).
    - Jumlah item bebas.
 5. **Section 6 (`primaryTechSpecs` & `architectureQuality`)**:
@@ -183,13 +184,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       }
     ]
   },
-  "techStackCategorized": [
-    {
-      "name": "<Clean Tech Name Tanpa Versi>",
-      "category": "Frontend",
-      "role": "<Peran spesifik di project>"
-    }
-  ],
   "systemArchitecture": {
     "summary": "<Penjelasan topologi sistem>",
     "layers": [

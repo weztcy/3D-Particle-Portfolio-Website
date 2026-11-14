@@ -68,7 +68,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Heading & Subheading Static Universal pada Section 5**: Seluruh heading dan subheading di Section 5 bersifat static universal pada template (Heading: `[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]`, Tag: `EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS`, Card 1: `[ EVALUATION_STRATEGY // BENCHMARK_PROTOCOL ]`, Card 3: `[ MODEL_INTERPRETATION & ERROR ANALYSIS ]` dengan badge static `DIAGNOSTIC INSIGHTS`, serta blok `KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS`, `MODEL LIMITATIONS`, `FUTURE IMPROVEMENTS ROADMAP`). Tidak diperbolehkan menyertakan field custom header (`sectionTitle`, `sectionTag`, `strategyLabel`, `interpretabilityBadge`, `driversTitle`) di dalam data.
    - Variasi jenis project (Supervised, Unsupervised, Reinforcement Learning, Deep Learning, Computer Vision, maupun Simulasi Numerik) diwadahi melalui isi data: `validationMethod`, narasi `description`, array `metrics` (opsional, `value` ringkas ≤10–12 karakter agar tidak terpotong), `keyDrivers`, `limitations`, dan `futureImprovements`.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti project.
-4. **Section 4 (`techStack` & `mlTechStack`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"PyTorch"`, `"Scikit-Learn"`, `"XGBoost"`, `"NumPy"`, BUKAN `"PyTorch 2.3 (CUDA)"`).
 5. **Section 6 (`mlMethodologySpecs`)**:
    - `{ learningParadigm, modelArchitecture, coreFramework, validationMethod }` — wajib bersih tanpa nomor versi, maks **3–4 kata per nilai**, **tanpa underscore (`_`)**.
@@ -218,26 +219,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "optimizationSolver": "<Optimizer / solver, misal AdamW / Coordinate Descent>",
     "trainingProcess": "<Penjelasan detail loop training, early stopping, & konvergensi>"
   },
-  "mlTechStack": {
-    "programmingLanguages": [
-      {
-        "name": "<Clean Language Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "frameworksAndLibraries": [
-      {
-        "name": "<Clean ML Library Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "experimentationTools": [
-      {
-        "name": "<Clean Tool/Plot Library Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ]
-  },
   "mlEvaluationStrategy": {
     "validationMethod": "<Metode validasi/observasi aktual sesuai jenis project, misal 5-Fold Stratified Cross-Validation>",
     "description": "<Penjelasan protokol validasi, observasi perilaku model, atau analisis empiris>",
@@ -318,6 +299,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Header Section 5 bersifat static universal pada template; isi `mlEvaluationStrategy` (`validationMethod`, `description`, `metrics`) dan `mlModelInterpretationAndLimitations` (`keyDrivers`, `limitations`, `futureImprovements`) disesuaikan dengan jenis project; `metrics` opsional atau diisi indikator terverifikasi dengan `value` ringkas.
 - [ ] `mlProjectInfo.capabilityBadges` berisi **tepat 3 item** (maks 3 kata, tanpa underscore `_`).
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
-- [ ] `techStack[]`, `mlTechStack`, dan `mlMethodologySpecs` **bebas nomor versi** dan tanda kurung; `mlMethodologySpecs` maks 3–4 kata tanpa underscore (`_`).
+- [ ] `techStack[]` dan `mlMethodologySpecs` **bebas nomor versi** dan tanda kurung; `mlMethodologySpecs` maks 3–4 kata tanpa underscore (`_`).
 - [ ] Path visualisasi memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

@@ -73,7 +73,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `severity` pada `limitations` hanya boleh `"LOW"`, `"MEDIUM"`, atau `"HIGH"`.
    - `aiExecutionTelemetry.metrics`: isi maksimal 3 chip ringkas (UI menampilkan maksimal 3 chip teratas).
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti nyata.
-4. **Section 4 (`techStack` & `aiTechStack`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"LangGraph"`, `"Qdrant"`, `"OpenAI GPT"`, `"FastAPI"`, BUKAN `"GPT-4o (2024)"` atau `"LangChain v0.3"`).
 5. **Section 6 (`aiTechSpecs`)**:
    - `aiTechSpecs`: `{ programmingLanguage, aiFramework, foundationModel }` — wajib bersih tanpa nomor versi.
@@ -205,26 +206,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       "badge": "<Short Badge>"
     }
   ],
-  "aiTechStack": {
-    "aiModelsAndServices": [
-      {
-        "name": "<Clean Model/API Name Tanpa Versi>",
-        "role": "<Peran spesifik>"
-      }
-    ],
-    "frameworksAndLibraries": [
-      {
-        "name": "<Clean Framework Name Tanpa Versi>",
-        "role": "<Peran spesifik>"
-      }
-    ],
-    "developmentAndInfrastructure": [
-      {
-        "name": "<Clean Infra/DB/Tool Name Tanpa Versi>",
-        "role": "<Peran spesifik>"
-      }
-    ]
-  },
   "aiVisualShowcase": [
     {
       "title": "<Showcase Title>",
@@ -306,6 +287,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] `category` = `"ai-engineering"`, `categoryLabel` = `"AI Engineering"`, `accentColor` = `"purple"`.
 - [ ] **`aiEvaluationAndPerformance` dan `limitationsAndImprovements` WAJIB terisi penuh**; seluruh heading dan subheading Section 5 bersifat static universal pada template (tidak ada field label/badge kustom), dan nilai `severity` hanya `"LOW" | "MEDIUM" | "HIGH"`.
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
-- [ ] `techStack[]`, `aiTechStack`, dan `aiTechSpecs` **bebas nomor versi** dan tanda kurung; hindari underscore (`_`) pada label/badge UI.
+- [ ] `techStack[]` dan `aiTechSpecs` **bebas nomor versi** dan tanda kurung; hindari underscore (`_`) pada label/badge UI.
 - [ ] Path showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

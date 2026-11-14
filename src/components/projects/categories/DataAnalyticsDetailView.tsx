@@ -162,24 +162,8 @@ export default function DataAnalyticsDetailView({
 
   // Section 4: Tech Stack (Unified Flat)
   const allDataAnalyticsTechStack = useMemo(() => {
-    return [
-      ...(project.dataAnalyticsTechStack?.coreTechnologies || []).map((t: any) => t.name),
-      ...(project.dataAnalyticsTechStack?.analyticsVizTools || []).map((t: any) => t.name),
-      ...((project as any).dataTechStack?.coreTechnologies || []).map((t: any) => t.name),
-      ...((project as any).dataTechStack?.analyticsVizTools || []).map((t: any) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [project.dataAnalyticsTechStack, (project as any).dataTechStack, project.techStack]);
-
-  const coreTechnologies: {
-    name: string;
-    role?: string;
-  }[] = project.dataAnalyticsTechStack?.coreTechnologies || [];
-
-  const analyticsVizTools: {
-    name: string;
-    role?: string;
-  }[] = project.dataAnalyticsTechStack?.analyticsVizTools || [];
+    return project.techStack || [];
+  }, [project.techStack]);
 
   // Section 6: Presentation Slides & Dashboards
   const presentationSlides: {

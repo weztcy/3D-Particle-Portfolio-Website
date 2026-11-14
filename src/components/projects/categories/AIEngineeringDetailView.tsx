@@ -158,17 +158,8 @@ export default function AIEngineeringDetailView({
 
   // Section 4: Tech Stack (Unified Flat)
   const allAIEngineeringTechStack = useMemo(() => {
-    return [
-      ...(project.aiTechStack?.aiModelsAndServices || []).map((t: any) => t.name),
-      ...(project.aiTechStack?.frameworksAndLibraries || []).map((t: any) => t.name),
-      ...(project.aiTechStack?.developmentAndInfrastructure || []).map((t: any) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [project.aiTechStack, project.techStack]);
-
-  const aiModelsAndServices = project.aiTechStack?.aiModelsAndServices || [];
-  const frameworksAndLibraries = project.aiTechStack?.frameworksAndLibraries || [];
-  const developmentAndInfrastructure = project.aiTechStack?.developmentAndInfrastructure || [];
+    return project.techStack || [];
+  }, [project.techStack]);
 
   // Section 5: Single Representative Execution Telemetry
   const telemetryData: NonNullable<ProjectCaseStudy["aiExecutionTelemetry"]> =

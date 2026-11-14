@@ -178,19 +178,10 @@ export default function UIUXDetailView({
     steps: [],
   };
 
-  // Section 4: Design System & Tech Stack
-  const explicitTech = project.uiUxTechStack;
-  const rawTech = project.techStack || [];
-
   // Section 4: Tech Stack (Unified Flat)
   const allUIUXTechStack = useMemo(() => {
-    return [
-      ...(explicitTech?.designAndPrototyping || explicitTech?.designAndPrototypingTools || []).map((t: any) => t.name),
-      ...(explicitTech?.designSystemsAndResources || []).map((t: any) => t.name),
-      ...(explicitTech?.researchAndCollaboration || explicitTech?.researchAndCollaborationTools || []).map((t: any) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [explicitTech, project.techStack]);
+    return project.techStack || [];
+  }, [project.techStack]);
 
   // Section 6: High-Fidelity Showcase
   const visualShowcase =

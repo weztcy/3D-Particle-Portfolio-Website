@@ -58,7 +58,8 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 3. **Section 2, 3, & 5 (Struktur Wajib `desktopMobile*`)**:
    - Seluruh field Section 2–5 **WAJIB menggunakan struktur objek `desktopMobile*`** yang sesuai dengan `types.ts` (seperti `desktopMobileProblemStatements`, `desktopMobileObjectives`, `desktopMobileFeatures`, `desktopMobileUserFlow`, `desktopMobileArchitecture`, `desktopMobileDataManagement`, `desktopMobilePlatformImplementation`). **Jangan gunakan array string polos** sebagai pengganti objek terstruktur.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti nyata.
-4. **Section 4 (`techStack` & `desktopMobileTechStack`)**:
+4. **Section 4 (`techStack`)**:
+   - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Electron"`, `"TypeScript"`, `"Flutter"`, `"Dart"`, `"SQLite"`, `"Rust"`, BUKAN `"Flutter 3.22"` atau `"SQLite 3"`).
 5. **Section 6 (`desktopMobileTechSpecs` & `desktopMobilePlatformSpecs`)**:
    - `desktopMobileTechSpecs`: `{ programmingLanguage, framework, localStorage }` — bersih tanpa nomor versi.
@@ -187,32 +188,6 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
       }
     ]
   },
-  "desktopMobileTechStack": {
-    "programmingLanguages": [
-      {
-        "name": "<Clean Language Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "frameworksAndLibraries": [
-      {
-        "name": "<Clean Framework Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "databaseAndStorage": [
-      {
-        "name": "<Clean Storage Tech Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ],
-    "testingAndBuildTools": [
-      {
-        "name": "<Clean Build/Packaging Tool Tanpa Versi>",
-        "role": "<Peran>"
-      }
-    ]
-  },
   "desktopMobileArchitecture": {
     "summary": "<Penjelasan topologi layer UI, state, native bridge, dan penyimpanan>",
     "layers": [
@@ -261,7 +236,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] `category` = `"desktop-mobile"`, `categoryLabel` ditentukan akurat berdasarkan platform (`"Mobile App"` / `"Desktop App"` / `"Desktop & Mobile"`), `accentColor` = `"amber"`.
 - [ ] Seluruh Section 2, 3, & 5 memakai struktur `desktopMobile*` yang terdefinisi di `types.ts`.
 - [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
-- [ ] `techStack[]`, `desktopMobileTechStack`, dan `desktopMobileTechSpecs` **bebas nomor versi** dan tanda kurung.
+- [ ] `techStack[]` dan `desktopMobileTechSpecs` **bebas nomor versi** dan tanda kurung.
 - [ ] `desktopMobilePlatformSpecs` menggunakan 4 nilai universal (maks 3–4 kata, tanpa underscore `_`).
 - [ ] Path showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

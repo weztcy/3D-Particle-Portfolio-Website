@@ -138,20 +138,7 @@ export interface ProjectCaseStudy {
       actorOrNode?: string;
     }[];
   };
-  techStackCategorized?: {
-    name: string;
-    category:
-      | "Frontend"
-      | "Backend"
-      | "Database"
-      | "Framework & Libraries"
-      | "API & Integration"
-      | "Development Tools"
-      | "Version Control"
-      | "Testing Tools"
-      | "External Services";
-    role?: string;
-  }[];
+  // Section 4 — Unified Tech Stack (standardized via techStack: string[])
   systemArchitecture?: {
     summary: string;
     layers?: {
@@ -221,16 +208,6 @@ export interface ProjectCaseStudy {
       title: string;
       description: string;
       phase?: string;
-    }[];
-  };
-  dataTechStack?: {
-    coreTechnologies: {
-      name: string;
-      role?: string;
-    }[];
-    analyticsVizTools: {
-      name: string;
-      role?: string;
     }[];
   };
   presentationSlides?: {
@@ -307,20 +284,6 @@ export interface ProjectCaseStudy {
     description: string;
     badge?: string;
   }[];
-  aiTechStack?: {
-    aiModelsAndServices?: {
-      name: string;
-      role?: string;
-    }[];
-    frameworksAndLibraries?: {
-      name: string;
-      role?: string;
-    }[];
-    developmentAndInfrastructure?: {
-      name: string;
-      role?: string;
-    }[];
-  };
   aiVisualShowcase?: {
     title?: string;
     caption?: string;
@@ -449,20 +412,6 @@ export interface ProjectCaseStudy {
     optimizationSolver?: string;
     trainingProcess?: string;
   };
-  mlTechStack?: {
-    programmingLanguages?: {
-      name: string;
-      role?: string;
-    }[];
-    frameworksAndLibraries?: {
-      name: string;
-      role?: string;
-    }[];
-    experimentationTools?: {
-      name: string;
-      role?: string;
-    }[];
-  };
   mlEvaluationStrategy?: {
     validationMethod: string;
     description: string;
@@ -555,21 +504,6 @@ export interface ProjectCaseStudy {
     badge?: string;
   }[];
   desktopMobileUserFlow?: any;
-  desktopMobileTechStack?: {
-    [key: string]: any;
-    programmingLanguages?: {
-      name: string;
-      role?: string;
-    }[];
-    frameworksAndLibraries?: {
-      name: string;
-      role?: string;
-    }[];
-    databaseToolsAndServices?: {
-      name: string;
-      role?: string;
-    }[];
-  };
   desktopMobileArchitecture?: {
     [key: string]: any;
     summary?: string;
@@ -617,21 +551,6 @@ export interface ProjectCaseStudy {
     [key: string]: any;
   };
   uiUxUserFlow?: any;
-  uiUxTechStack?: {
-    [key: string]: any;
-    designAndPrototypingTools?: {
-      name: string;
-      role?: string;
-    }[];
-    designSystemsAndResources?: {
-      name: string;
-      role?: string;
-    }[];
-    researchAndCollaborationTools?: {
-      name: string;
-      role?: string;
-    }[];
-  };
   uiUxVisualShowcase?: {
     [key: string]: any;
     title?: string;
@@ -744,12 +663,6 @@ export interface ProjectCaseStudy {
     estimatedHours?: string;
     [key: string]: any;
   }[];
-  codeLearningTechStack?: {
-    [key: string]: any;
-    programmingLanguages?: { name: string; role?: string }[];
-    frameworksAndLibraries?: { name: string; role?: string }[];
-    developmentToolsAndEnvironment?: { name: string; role?: string }[];
-  };
   codeLearningPracticalProjects?: {
     title: string;
     description: string;

@@ -206,20 +206,10 @@ export default function DesktopMobileDetailView({
           steps: [],
         });
 
-  // Section 4: Architecture & Tech Stack
-  const explicitTech = project.desktopMobileTechStack;
-  const rawTech = project.techStack || [];
-
   // Section 4: Tech Stack (Unified Flat)
   const allDesktopMobileTechStack = useMemo(() => {
-    return [
-      ...(explicitTech?.programmingLanguages || []).map((t: any) => t.name),
-      ...(explicitTech?.frameworksAndLibraries || []).map((t: any) => t.name),
-      ...(explicitTech?.databaseAndStorage || []).map((t: any) => t.name),
-      ...(explicitTech?.testingAndBuildTools || []).map((t: any) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [explicitTech, project.techStack]);
+    return project.techStack || [];
+  }, [project.techStack]);
 
   const systemArchitecture =
     project.desktopMobileArchitecture ||

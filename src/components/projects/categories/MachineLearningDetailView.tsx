@@ -179,13 +179,8 @@ export default function MachineLearningDetailView({
 
   // Section 4: Tech Stack (Unified Flat)
   const allMLTechStack = useMemo(() => {
-    return [
-      ...(project.mlTechStack?.programmingLanguages || []).map((t: any) => t.name),
-      ...(project.mlTechStack?.frameworksAndLibraries || []).map((t: any) => t.name),
-      ...(project.mlTechStack?.experimentationTools || []).map((t: any) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [project.mlTechStack, project.techStack]);
+    return project.techStack || [];
+  }, [project.techStack]);
 
   // Section 5: Model Evaluation, Visual Diagnostics & Interpretation
   const evaluationStrategy = project.mlEvaluationStrategy || {

@@ -84,11 +84,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "SQLite",
       "PostgreSQL",
       "Tailwind CSS",
-      "Lucide Icons"
+      "Lucide Icons",
+      "Node.js",
+      "Docker"
     ],
     "accentColor": "cyan",
     "repoUrl": "https://github.com/example/smart-inventory",
-      "license": "MIT License",
+    "license": "MIT License",
     "telemetryMatrix": {
       "projectType": "Enterprise Inventory ERP",
       "targetPlatform": "Cloud-Native Web (Responsive)",
@@ -210,53 +212,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "techStackCategorized": [
-      {
-        "name": "Next.js 16 App Router",
-        "category": "Frontend",
-        "role": "SSR & React Server Components runtime"
-      },
-      {
-        "name": "React 19",
-        "category": "Frontend",
-        "role": "Reactive interface state and optimistic updates"
-      },
-      {
-        "name": "TypeScript",
-        "category": "Frontend",
-        "role": "End-to-end static type soundness"
-      },
-      {
-        "name": "Tailwind CSS",
-        "category": "Frontend",
-        "role": "Responsive dark-mode UI styling"
-      },
-      {
-        "name": "Prisma ORM",
-        "category": "Backend",
-        "role": "Schema migrations and interactive transactions"
-      },
-      {
-        "name": "Node.js 22",
-        "category": "Backend",
-        "role": "Server runtime & API route handlers"
-      },
-      {
-        "name": "PostgreSQL 16",
-        "category": "Database",
-        "role": "Relational production persistence"
-      },
-      {
-        "name": "SQLite",
-        "category": "Database",
-        "role": "Local embedded developer database"
-      },
-      {
-        "name": "Docker",
-        "category": "Development Tools",
-        "role": "Containerized deployment and reproducible environments"
-      }
-    ],
     "systemArchitecture": {
       "summary": "Three-tier modular enterprise web architecture with edge caching, server action controllers, and isolated database transaction pools.",
       "layers": [
@@ -565,48 +520,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "techStackCategorized": [
-      {
-        "name": "Next.js",
-        "category": "Frontend",
-        "role": "Application framework and UI layout"
-      },
-      {
-        "name": "React",
-        "category": "Frontend",
-        "role": "Component state management"
-      },
-      {
-        "name": "Socket.io Client",
-        "category": "Frontend",
-        "role": "Real-time client connection handler"
-      },
-      {
-        "name": "Node.js",
-        "category": "Backend",
-        "role": "WebSocket auction server process"
-      },
-      {
-        "name": "Socket.io Server",
-        "category": "Backend",
-        "role": "Room-based event broadcast multiplexer"
-      },
-      {
-        "name": "Redis",
-        "category": "Database",
-        "role": "Pub/Sub message bus and session cache"
-      },
-      {
-        "name": "PostgreSQL",
-        "category": "Database",
-        "role": "Persistent transaction and account ledger"
-      },
-      {
-        "name": "Tailwind CSS",
-        "category": "Frontend",
-        "role": "Styling and micro-interactions"
-      }
-    ],
     "systemArchitecture": {
       "summary": "Distributed real-time streaming architecture with separate HTTP application server and dedicated WebSocket gateway cluster.",
       "layers": [
@@ -800,7 +713,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "accentColor": "cyan",
     "repoUrl": "https://github.com/example/aorus-showcase",
-      "license": "MIT License",
+    "license": "MIT License",
     "telemetryMatrix": {
       "projectType": "Interactive 3D Hardware Showcase",
       "targetPlatform": "WebGL Responsive Web",
@@ -914,33 +827,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "techStackCategorized": [
-      {
-        "name": "Next.js 16",
-        "category": "Frontend",
-        "role": "Framework runtime and SSR optimization"
-      },
-      {
-        "name": "Three.js / R3F",
-        "category": "Frontend",
-        "role": "WebGL 3D scene graph and shader rendering"
-      },
-      {
-        "name": "TypeScript",
-        "category": "Frontend",
-        "role": "Type safety for 3D state and spec objects"
-      },
-      {
-        "name": "Tailwind CSS",
-        "category": "Frontend",
-        "role": "Cyberpunk glassmorphic HUD styling"
-      },
-      {
-        "name": "Draco Loader",
-        "category": "Development Tools",
-        "role": "Geometry decompression decoder"
-      }
-    ],
     "systemArchitecture": {
       "summary": "Modern WebGL hybrid architecture isolating rendering loops from DOM mutations to preserve frame budget.",
       "layers": [
@@ -1116,11 +1002,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Scikit-Learn",
       "PostgreSQL",
       "Power BI",
-      "Tableau"
+      "Tableau",
+      "Matplotlib",
+      "Seaborn"
     ],
     "accentColor": "emerald",
     "repoUrl": "https://github.com/example/omnichannel-retail-analytics",
-      "license": "Apache 2.0",
+    "license": "Apache 2.0",
     "telemetryMatrix": {
       "projectType": "Quantitative BI Investigation",
       "targetPlatform": "Cloud Analytics / BI-Platform",
@@ -1238,40 +1126,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "dataTechStack": {
-      "coreTechnologies": [
-        {
-          "name": "Python",
-          "role": "Primary computational and exploratory data analysis runtime"
-        },
-        {
-          "name": "PostgreSQL",
-          "role": "High-performance relational data warehouse and analytical query engine"
-        },
-        {
-          "name": "SQL",
-          "role": "Complex aggregations, windowing, and transactional ETL queries"
-        },
-        {
-          "name": "Pandas & NumPy",
-          "role": "Vectorized array calculations and dataframe manipulations"
-        }
-      ],
-      "analyticsVizTools": [
-        {
-          "name": "Power BI Desktop",
-          "role": "Interactive executive KPI dashboards and drill-through matrices"
-        },
-        {
-          "name": "Tableau Public",
-          "role": "Exploratory geospatial heatmaps and store dispersion visualizations"
-        },
-        {
-          "name": "Matplotlib & Seaborn",
-          "role": "Statistical publication plots and distribution density graphs"
-        }
-      ]
-    },
     "presentationSlides": [
       {
         "slideNumber": 1,
@@ -1352,40 +1206,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "description": "Interactive Power BI template with dynamic parameters and DAX measures."
       }
     ],
-    "dataAnalyticsTechStack": {
-      "coreTechnologies": [
-        {
-          "name": "Python",
-          "role": "Primary computational and exploratory data analysis runtime"
-        },
-        {
-          "name": "PostgreSQL",
-          "role": "High-performance relational data warehouse and analytical query engine"
-        },
-        {
-          "name": "SQL",
-          "role": "Complex aggregations, windowing, and transactional ETL queries"
-        },
-        {
-          "name": "Pandas & NumPy",
-          "role": "Vectorized array calculations and dataframe manipulations"
-        }
-      ],
-      "analyticsVizTools": [
-        {
-          "name": "Power BI Desktop",
-          "role": "Interactive executive KPI dashboards and drill-through matrices"
-        },
-        {
-          "name": "Tableau Public",
-          "role": "Exploratory geospatial heatmaps and store dispersion visualizations"
-        },
-        {
-          "name": "Matplotlib & Seaborn",
-          "role": "Statistical publication plots and distribution density graphs"
-        }
-      ]
-    },
     "dataAnalyticsAnalyticalObjectives": [
       {
         "title": "Margin Cannibalization Thresholds",
@@ -1580,7 +1400,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Pandas",
       "PostgreSQL",
       "Tableau",
-      "Seaborn"
+      "Seaborn",
+      "Matplotlib"
     ],
     "accentColor": "emerald",
     "telemetryMatrix": {
@@ -1700,36 +1521,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "dataTechStack": {
-      "coreTechnologies": [
-        {
-          "name": "Python",
-          "role": "Text processing and statistical NLP analysis"
-        },
-        {
-          "name": "NLTK & VADER",
-          "role": "Lexicon-based sentiment scoring and tokenization"
-        },
-        {
-          "name": "Scikit-Learn",
-          "role": "Regression modeling and TF-IDF matrix transformations"
-        },
-        {
-          "name": "PostgreSQL",
-          "role": "Relational storage for normalized reviews and aspect scores"
-        }
-      ],
-      "analyticsVizTools": [
-        {
-          "name": "Tableau Public",
-          "role": "Interactive property comparison and aspect ranking dashboards"
-        },
-        {
-          "name": "Seaborn / Matplotlib",
-          "role": "Aspect correlation matrices and sentiment density distributions"
-        }
-      ]
-    },
     "presentationSlides": [
       {
         "slideNumber": 1,
@@ -1805,36 +1596,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "description": "High-level summary deck formatted for executive leadership."
       }
     ],
-    "dataAnalyticsTechStack": {
-      "coreTechnologies": [
-        {
-          "name": "Python",
-          "role": "Text processing and statistical NLP analysis"
-        },
-        {
-          "name": "NLTK & VADER",
-          "role": "Lexicon-based sentiment scoring and tokenization"
-        },
-        {
-          "name": "Scikit-Learn",
-          "role": "Regression modeling and TF-IDF matrix transformations"
-        },
-        {
-          "name": "PostgreSQL",
-          "role": "Relational storage for normalized reviews and aspect scores"
-        }
-      ],
-      "analyticsVizTools": [
-        {
-          "name": "Tableau Public",
-          "role": "Interactive property comparison and aspect ranking dashboards"
-        },
-        {
-          "name": "Seaborn / Matplotlib",
-          "role": "Aspect correlation matrices and sentiment density distributions"
-        }
-      ]
-    },
     "dataAnalyticsAnalyticalObjectives": [
       {
         "title": "Aspect Sentiment Isolation",
@@ -2023,11 +1784,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Scikit-Learn",
       "PostgreSQL",
       "Power BI",
-      "Matplotlib"
+      "Matplotlib",
+      "Scipy",
+      "SQL",
+      "Seaborn"
     ],
     "accentColor": "emerald",
     "repoUrl": "https://github.com/example/kip-scholarship-analytics",
-      "license": "MIT License",
+    "license": "MIT License",
     "telemetryMatrix": {
       "projectType": "Socioeconomic Equity Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
@@ -2145,36 +1909,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "dataTechStack": {
-      "coreTechnologies": [
-        {
-          "name": "Python",
-          "role": "Algorithmic decision modeling and statistical processing"
-        },
-        {
-          "name": "Pandas & Scipy",
-          "role": "Matrix operations, normalization, and Euclidean distance formulas"
-        },
-        {
-          "name": "PostgreSQL",
-          "role": "Applicant database repository and audit logs"
-        },
-        {
-          "name": "SQL",
-          "role": "Staging and cohort stratification queries"
-        }
-      ],
-      "analyticsVizTools": [
-        {
-          "name": "Power BI Desktop",
-          "role": "Administrative review dashboard with dynamic weighting sliders"
-        },
-        {
-          "name": "Matplotlib & Seaborn",
-          "role": "Applicant demographic distribution charts and poverty histograms"
-        }
-      ]
-    },
     "presentationSlides": [
       {
         "slideNumber": 1,
@@ -2239,36 +1973,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "description": "Comprehensive audit documentation and methodology whitepaper."
       }
     ],
-    "dataAnalyticsTechStack": {
-      "coreTechnologies": [
-        {
-          "name": "Python",
-          "role": "Algorithmic decision modeling and statistical processing"
-        },
-        {
-          "name": "Pandas & Scipy",
-          "role": "Matrix operations, normalization, and Euclidean distance formulas"
-        },
-        {
-          "name": "PostgreSQL",
-          "role": "Applicant database repository and audit logs"
-        },
-        {
-          "name": "SQL",
-          "role": "Staging and cohort stratification queries"
-        }
-      ],
-      "analyticsVizTools": [
-        {
-          "name": "Power BI Desktop",
-          "role": "Administrative review dashboard with dynamic weighting sliders"
-        },
-        {
-          "name": "Matplotlib & Seaborn",
-          "role": "Applicant demographic distribution charts and poverty histograms"
-        }
-      ]
-    },
     "dataAnalyticsAnalyticalObjectives": [
       {
         "title": "Standardized Poverty Index",
@@ -2457,15 +2161,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "LangChain",
       "Qdrant",
       "FastEmbed",
-      "Python 3.12",
+      "Python",
       "FastAPI",
       "Pydantic",
       "Redis",
       "Docker",
-      "Ragas"
+      "Ragas",
+      "Llama",
+      "Claude"
     ],
     "repoUrl": "https://github.com/dimas/synapse-agentic-rag",
-      "license": "Apache 2.0",
+    "license": "Apache 2.0",
     "telemetryMatrix": {
       "projectType": "Agentic Knowledge Engine",
       "targetPlatform": "Distributed Cluster / Docker",
@@ -2620,58 +2326,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Telemetry"
       }
     ],
-    "aiTechStack": {
-      "aiModelsAndServices": [
-        {
-          "name": "Llama 3 70B Instruct",
-          "role": "Primary Reasoning & Generation"
-        },
-        {
-          "name": "Claude 3.5 Sonnet",
-          "role": "Complex Multi-Hop Synthesis"
-        },
-        {
-          "name": "FastEmbed BAAI/bge-small-en-v1.5",
-          "role": "Dense Vector Embeddings"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "LangGraph",
-          "role": "Cyclic Agent State Orchestration"
-        },
-        {
-          "name": "LangChain Core",
-          "role": "Chains and Prompt Templates"
-        },
-        {
-          "name": "Pydantic V2",
-          "role": "Deterministic Output Validation"
-        },
-        {
-          "name": "Ragas",
-          "role": "Automated RAG Evaluation Framework"
-        }
-      ],
-      "developmentAndInfrastructure": [
-        {
-          "name": "Qdrant Vector DB",
-          "role": "Hybrid Vector Indexing"
-        },
-        {
-          "name": "FastAPI",
-          "role": "Asynchronous High-Throughput REST API"
-        },
-        {
-          "name": "Redis 7",
-          "role": "Semantic Caching & Rate Limiting"
-        },
-        {
-          "name": "Docker & Compose",
-          "role": "Containerized Clustered Deployment"
-        }
-      ]
-    },
     "aiExecutionTelemetry": {
       "scenarioTitle": "Cross-Border Regulatory Compliance Audit",
       "scenarioBadge": "ENTERPRISE_LEGAL",
@@ -2701,12 +2355,42 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "aiEvaluationAndPerformance": {
       "metrics": [
-        { "label": "RAGAS Faithfulness", "value": "97.8%", "benchmark": "> 92% Target", "pass": true },
-        { "label": "Answer Relevance", "value": "96.2%", "benchmark": "> 90% Target", "pass": true },
-        { "label": "Context Precision", "value": "94.5%", "benchmark": "> 88% Target", "pass": true },
-        { "label": "Inference Latency", "value": "1.14s", "benchmark": "< 2.0s Target", "pass": true },
-        { "label": "Cost Efficiency", "value": "+42%", "benchmark": "vs Standard RAG", "pass": true },
-        { "label": "Hallucination Rate", "value": "0.02%", "benchmark": "< 0.5% Threshold", "pass": true }
+        {
+          "label": "RAGAS Faithfulness",
+          "value": "97.8%",
+          "benchmark": "> 92% Target",
+          "pass": true
+        },
+        {
+          "label": "Answer Relevance",
+          "value": "96.2%",
+          "benchmark": "> 90% Target",
+          "pass": true
+        },
+        {
+          "label": "Context Precision",
+          "value": "94.5%",
+          "benchmark": "> 88% Target",
+          "pass": true
+        },
+        {
+          "label": "Inference Latency",
+          "value": "1.14s",
+          "benchmark": "< 2.0s Target",
+          "pass": true
+        },
+        {
+          "label": "Cost Efficiency",
+          "value": "+42%",
+          "benchmark": "vs Standard RAG",
+          "pass": true
+        },
+        {
+          "label": "Hallucination Rate",
+          "value": "0.02%",
+          "benchmark": "< 0.5% Threshold",
+          "pass": true
+        }
       ],
       "qualitativeEvaluation": "Synapse demonstrated robust, hallucination-free generation across an automated evaluation suite of 1,200 complex multi-document questions, maintaining strict factual consistency even on adversarial prompts.",
       "auditNote": "AUDIT: Benchmark evaluated across 1,200 synthetic adversarial stress tests and human-verified ground truths."
@@ -2725,8 +2409,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        { "title": "Multimodal Vision-Language Chunking (ColPali)" },
-        { "title": "On-Device Small Language Model Distillation" }
+        {
+          "title": "Multimodal Vision-Language Chunking (ColPali)"
+        },
+        {
+          "title": "On-Device Small Language Model Distillation"
+        }
       ],
       "summary": "Limitations documented in compliance with enterprise Responsible AI standards and continuous delivery guidelines.",
       "alignmentNote": "ALIGNMENT: Governed by enterprise data privacy, GDPR compliance, and Responsible AI principles."
@@ -2815,15 +2503,19 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "100% Privacy-preserving local execution with zero outbound telemetry."
     ],
     "techStack": [
-      "Python 3.12",
+      "Python",
       "ChromaDB",
       "Ollama",
-      "Mistral 7B",
+      "Mistral",
       "SQLite",
       "FastAPI",
       "LangChain",
       "NetworkX",
-      "Docker"
+      "Docker",
+      "Phi-3",
+      "Sentence-Transformers",
+      "Watchdog",
+      "Pydantic"
     ],
     "telemetryMatrix": {
       "projectType": "Autonomous PKM AI Agent",
@@ -2979,58 +2671,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Embeddings"
       }
     ],
-    "aiTechStack": {
-      "aiModelsAndServices": [
-        {
-          "name": "Mistral 7B Instruct Q4_K_M",
-          "role": "Local Reasoning & Concept Linking"
-        },
-        {
-          "name": "Phi-3 Mini 3.8B",
-          "role": "Lightweight Tagging & Fast Summarization"
-        },
-        {
-          "name": "all-MiniLM-L6-v2 ONNX",
-          "role": "Local Fast Dense Vector Embeddings"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "LangChain Local",
-          "role": "Model Invocation & Local Pipelines"
-        },
-        {
-          "name": "NetworkX",
-          "role": "Graph Topology & Node Centrality Calculations"
-        },
-        {
-          "name": "Watchdog",
-          "role": "Real-time Filesystem Event Tracking"
-        },
-        {
-          "name": "Pydantic V2",
-          "role": "Strict Data Serialization"
-        }
-      ],
-      "developmentAndInfrastructure": [
-        {
-          "name": "ChromaDB",
-          "role": "Local Vector Persistence"
-        },
-        {
-          "name": "SQLite 3",
-          "role": "Relational Note Metadata & Graph Edges"
-        },
-        {
-          "name": "FastAPI",
-          "role": "Local IPC Daemon & Web Interface"
-        },
-        {
-          "name": "Docker Container",
-          "role": "Isolated Air-Gapped Local Runtime"
-        }
-      ]
-    },
     "aiExecutionTelemetry": {
       "scenarioTitle": "Research Paper Associative Memory Linking",
       "scenarioBadge": "RESEARCH_SYNTHESIS",
@@ -3060,12 +2700,42 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "aiEvaluationAndPerformance": {
       "metrics": [
-        { "label": "Recall Accuracy", "value": "98.1%", "benchmark": "> 95% Target", "pass": true },
-        { "label": "Entity Linking F1", "value": "94.7%", "benchmark": "> 90% Target", "pass": true },
-        { "label": "Association Precision", "value": "92.3%", "benchmark": "> 85% Target", "pass": true },
-        { "label": "Local Query Latency", "value": "260ms", "benchmark": "< 500ms Target", "pass": true },
-        { "label": "Context Preservation", "value": "99.2%", "benchmark": "> 95% Target", "pass": true },
-        { "label": "False Link Rate", "value": "0.04%", "benchmark": "< 1.0% Threshold", "pass": true }
+        {
+          "label": "Recall Accuracy",
+          "value": "98.1%",
+          "benchmark": "> 95% Target",
+          "pass": true
+        },
+        {
+          "label": "Entity Linking F1",
+          "value": "94.7%",
+          "benchmark": "> 90% Target",
+          "pass": true
+        },
+        {
+          "label": "Association Precision",
+          "value": "92.3%",
+          "benchmark": "> 85% Target",
+          "pass": true
+        },
+        {
+          "label": "Local Query Latency",
+          "value": "260ms",
+          "benchmark": "< 500ms Target",
+          "pass": true
+        },
+        {
+          "label": "Context Preservation",
+          "value": "99.2%",
+          "benchmark": "> 95% Target",
+          "pass": true
+        },
+        {
+          "label": "False Link Rate",
+          "value": "0.04%",
+          "benchmark": "< 1.0% Threshold",
+          "pass": true
+        }
       ],
       "qualitativeEvaluation": "BrainSync demonstrated flawless associative recall across 15,000 multi-topic markdown notes without memory drift or hallucinated associations, operating entirely within local hardware constraints.",
       "auditNote": "AUDIT: Verified across 2,500 real-world research queries with zero leak outside the local sandbox."
@@ -3084,8 +2754,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        { "title": "Apple Silicon NPU CoreML Acceleration" },
-        { "title": "Hierarchical Temporal Memory Clustering" }
+        {
+          "title": "Apple Silicon NPU CoreML Acceleration"
+        },
+        {
+          "title": "Hierarchical Temporal Memory Clustering"
+        }
       ],
       "summary": "100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints.",
       "alignmentNote": "ALIGNMENT: 100% Zero-telemetry policy, local encryption at rest, and user-governed memory checkpoints."
@@ -3174,18 +2848,24 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Zero calculation hallucinations detected across 500 corporate annual filings."
     ],
     "techStack": [
-      "Python 3.12",
-      "Claude 3.5 Sonnet",
+      "Python",
+      "Claude",
       "Pandas",
       "NumPy",
       "PostgreSQL",
       "pgvector",
       "FastAPI",
       "Docker Sandbox",
-      "SEC EDGAR API"
+      "SEC EDGAR API",
+      "GPT-4o Mini",
+      "LangChain",
+      "Pydantic",
+      "pdfplumber",
+      "Docker",
+      "Redis"
     ],
     "repoUrl": "https://github.com/dimas/financial-intelligence-agent",
-      "license": "Apache 2.0",
+    "license": "Apache 2.0",
     "telemetryMatrix": {
       "projectType": "Financial Intelligence Agent",
       "targetPlatform": "Financial Cloud / Air-Gapped",
@@ -3340,58 +3020,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "badge": "Table OCR"
       }
     ],
-    "aiTechStack": {
-      "aiModelsAndServices": [
-        {
-          "name": "Claude 3.5 Sonnet",
-          "role": "Financial Reasoning & Code Generation"
-        },
-        {
-          "name": "GPT-4o Mini",
-          "role": "Fast Triage & Document Entity Classification"
-        },
-        {
-          "name": "text-embedding-3-large",
-          "role": "Dense Financial Embeddings"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "Pandas & NumPy",
-          "role": "Deterministic Financial Data Manipulation"
-        },
-        {
-          "name": "LangChain Python",
-          "role": "Tool Calling & Sandbox Orchestration"
-        },
-        {
-          "name": "Pydantic V2",
-          "role": "Financial Schema Validation"
-        },
-        {
-          "name": "pdfplumber",
-          "role": "Table Bounding Box Extraction"
-        }
-      ],
-      "developmentAndInfrastructure": [
-        {
-          "name": "PostgreSQL 16 + pgvector",
-          "role": "ACID Data Persistence & Vector Search"
-        },
-        {
-          "name": "Docker & gVisor",
-          "role": "Secure Sandboxed Code Execution"
-        },
-        {
-          "name": "FastAPI",
-          "role": "High-Performance Financial Service API"
-        },
-        {
-          "name": "Redis",
-          "role": "Market Data & Session Caching"
-        }
-      ]
-    },
     "aiExecutionTelemetry": {
       "scenarioTitle": "10-K Free Cash Flow & Debt Maturity Reconciliation",
       "scenarioBadge": "BALANCE_SHEET_AUDIT",
@@ -3421,12 +3049,42 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "aiEvaluationAndPerformance": {
       "metrics": [
-        { "label": "Arithmetic Accuracy", "value": "100.0%", "benchmark": "100% Code Verified", "pass": true },
-        { "label": "Table Extraction F1", "value": "98.6%", "benchmark": "> 95% Target", "pass": true },
-        { "label": "Footnote Precision", "value": "96.1%", "benchmark": "> 90% Target", "pass": true },
-        { "label": "P&L Audit Latency", "value": "1.85s", "benchmark": "< 3.0s Target", "pass": true },
-        { "label": "SEC Coverage", "value": "100.0%", "benchmark": "10-K & 10-Q", "pass": true },
-        { "label": "Hallucination Rate", "value": "0.00%", "benchmark": "0.00% Symbolic Guard", "pass": true }
+        {
+          "label": "Arithmetic Accuracy",
+          "value": "100.0%",
+          "benchmark": "100% Code Verified",
+          "pass": true
+        },
+        {
+          "label": "Table Extraction F1",
+          "value": "98.6%",
+          "benchmark": "> 95% Target",
+          "pass": true
+        },
+        {
+          "label": "Footnote Precision",
+          "value": "96.1%",
+          "benchmark": "> 90% Target",
+          "pass": true
+        },
+        {
+          "label": "P&L Audit Latency",
+          "value": "1.85s",
+          "benchmark": "< 3.0s Target",
+          "pass": true
+        },
+        {
+          "label": "SEC Coverage",
+          "value": "100.0%",
+          "benchmark": "10-K & 10-Q",
+          "pass": true
+        },
+        {
+          "label": "Hallucination Rate",
+          "value": "0.00%",
+          "benchmark": "0.00% Symbolic Guard",
+          "pass": true
+        }
       ],
       "qualitativeEvaluation": "Zero numerical errors achieved across 500 SEC 10-K filings via deterministic Python sandbox validation, with perfect calculation parity against audited Bloomberg models.",
       "auditNote": "AUDIT: Audited against verified Bloomberg and FactSet data with 100% calculation parity."
@@ -3445,8 +3103,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ],
       "improvementsRoadmap": [
-        { "title": "Monte Carlo Scenario Simulation Engine" },
-        { "title": "Real-time SEC EDGAR WebSocket Stream Ingestion" }
+        {
+          "title": "Monte Carlo Scenario Simulation Engine"
+        },
+        {
+          "title": "Real-time SEC EDGAR WebSocket Stream Ingestion"
+        }
       ],
       "summary": "SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution.",
       "alignmentNote": "ALIGNMENT: SOX compliance verified, encrypted multi-tenant data isolation, and read-only financial execution."
@@ -3502,7 +3164,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization",
-      "license": "MIT License",
+    "license": "MIT License",
     "mlProjectInfo": {
       "projectType": "Supervised Classification & Feature Engineering",
       "learningParadigm": "Supervised Learning",
@@ -3633,46 +3295,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "objectiveCriterion": "0-1 Classification Loss / Brier Score",
       "optimizationSolver": "GridSearchCV (k = 1..11 sweep)",
       "trainingProcess": "Evaluated across neighborhood densities k=1 to 11 via stratified cross-validation and paired Student's t-tests (p < 0.05)."
-    },
-    "mlTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "Python",
-          "role": "Core mathematical scripting, matrix manipulation, and statistical hypothesis tests"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "Scikit-learn",
-          "role": "K-NN classifier, Random Forest feature importance, and preprocessing scalers"
-        },
-        {
-          "name": "NumPy & SciPy",
-          "role": "Vectorized distance computations, array broadcasting, and paired t-tests"
-        },
-        {
-          "name": "Pandas",
-          "role": "DataFrame ETL, missing value imputation, and descriptive statistics"
-        },
-        {
-          "name": "Matplotlib & Seaborn",
-          "role": "ROC curve generation, confusion matrix heatmaps, and metric boxplots"
-        }
-      ],
-      "experimentationTools": [
-        {
-          "name": "Jupyter Notebook",
-          "role": "Literate scientific computing scratchpad, experiment logs, and visual documentation"
-        },
-        {
-          "name": "Google Colab",
-          "role": "Cloud-hosted execution environment for reproducible statistical benchmarking"
-        },
-        {
-          "name": "Git & GitHub",
-          "role": "Version control for experiment scripts, dataset manifests, and research notebooks"
-        }
-      ]
     },
     "mlEvaluationStrategy": {
       "validationMethod": "Stratified Holdout Validation + 5-Fold Cross-Validation",
@@ -3828,10 +3450,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Deploy reproducible Python and Scikit-Learn pipelines with serialized inference artifacts."
     ],
     "techStack": [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Architecture Engine"
+      "Python",
+      "Scikit-learn",
+      "NumPy",
+      "SciPy",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter Notebook",
+      "Google Colab",
+      "Git",
+      "GitHub"
     ]
   },
   {
@@ -4008,42 +3637,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "optimizationSolver": "Analytical Closed-Form Tensor Solver",
       "trainingProcess": "Deterministic parameter-free solver verified across 25 canonical multi-body collision benchmarks."
     },
-    "mlTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "Python",
-          "role": "High-level scientific computing, matrix manipulation, and kinematics orchestration"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "NumPy",
-          "role": "Vectorized array arithmetic, batch inner products, and linear algebra routines"
-        },
-        {
-          "name": "Matplotlib & Pyplot",
-          "role": "Planar vector plotting, particle scatter rendering, and velocity vector arrows"
-        },
-        {
-          "name": "Tkinter / CustomTkinter",
-          "role": "Interactive desktop GUI for visual coordinate manipulation and real-time updates"
-        }
-      ],
-      "experimentationTools": [
-        {
-          "name": "VS Code",
-          "role": "Integrated development environment for algorithmic scripting and unit testing"
-        },
-        {
-          "name": "PyTest",
-          "role": "Automated test suite verifying momentum conservation against analytical edge cases"
-        },
-        {
-          "name": "Git & GitHub",
-          "role": "Source code repository and release packaging"
-        }
-      ]
-    },
     "mlEvaluationStrategy": {
       "validationMethod": "Analytical Benchmark Validation & Conservation Invariant Tests",
       "description": "Validation suite comparing numerical outputs against known analytical physics problems (two-body inelastic collisions, symmetrical planetary arrays, and chaotic n-body centers).",
@@ -4198,10 +3791,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Export validated kinematics telemetry arrays in structured JSON and CSV formats."
     ],
     "techStack": [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Architecture Engine"
+      "Python",
+      "NumPy",
+      "Matplotlib",
+      "Tkinter",
+      "VS Code",
+      "PyTest",
+      "Git",
+      "GitHub"
     ]
   },
   {
@@ -4254,7 +3851,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Calgeo-2D-Geometry-Calculator",
-      "license": "MIT License",
+    "license": "MIT License",
     "mlProjectInfo": {
       "projectType": "Computational Geometry & Vector Analytics",
       "learningParadigm": "Deterministic Spatial Trigonometry",
@@ -4379,42 +3976,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "objectiveCriterion": "Absolute Geometric Residual ||Area_computed - Area_analytical||",
       "optimizationSolver": "Exact Analytical Solver (Closed Form)",
       "trainingProcess": "Deterministic algebraic formulas evaluated against standard ISO / ANSI geometric verification test suites."
-    },
-    "mlTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "Python",
-          "role": "Core algebraic logic, trigonometric calculations, and GUI architecture"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "NumPy",
-          "role": "Vectorized coordinate cross-products and vertex array manipulation"
-        },
-        {
-          "name": "Tkinter / TTKBootstrap",
-          "role": "Modern desktop interface with high-contrast scientific calculator theme"
-        },
-        {
-          "name": "Math",
-          "role": "Trigonometric functions, square roots, and high-precision pi constants"
-        }
-      ],
-      "experimentationTools": [
-        {
-          "name": "VS Code",
-          "role": "IDE for development, geometric unit test scripting, and linting"
-        },
-        {
-          "name": "PyInstaller",
-          "role": "Standalone binary compilation for portable desktop distribution"
-        },
-        {
-          "name": "Git & GitHub",
-          "role": "Source code repository and release packaging"
-        }
-      ]
     },
     "mlEvaluationStrategy": {
       "validationMethod": "Analytical Geometry Benchmark Suite",
@@ -4561,10 +4122,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Deliver a clean, responsive graphical interface for rapid spatial parameter validation."
     ],
     "techStack": [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Architecture Engine"
+      "Python",
+      "NumPy",
+      "Tkinter",
+      "Math",
+      "VS Code",
+      "PyInstaller",
+      "Git",
+      "GitHub"
     ]
   },
   {
@@ -4617,7 +4182,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/WEBP-Converter-Pro",
-      "license": "MIT License",
+    "license": "MIT License",
     "desktopMobileProjectInfo": {
       "applicationType": "Native Desktop Application (x64 Architecture)",
       "targetPlatform": "Windows 11 / 10 (x64 Native)",
@@ -4767,52 +4332,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "offlineSyncStrategy": "100% Offline Air-Gapped Execution; zero outbound network requests.",
       "cachingMechanism": "In-memory circular buffer for thumbnail previews and compression history stats."
     },
-    "desktopMobileTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "TypeScript",
-          "role": "Type-safe application orchestration and state logic"
-        },
-        {
-          "name": "C++",
-          "role": "Native libwebp bindings and memory-efficient image buffers"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "Electron",
-          "role": "Cross-platform desktop application container"
-        },
-        {
-          "name": "Sharp / Libvips",
-          "role": "Ultra-fast native image processing pipeline"
-        },
-        {
-          "name": "Tailwind CSS",
-          "role": "High-density dark glassmorphic UI architecture"
-        }
-      ],
-      "databaseAndStorage": [
-        {
-          "name": "Local File System",
-          "role": "Direct streaming read/write access via Node.js fs streams"
-        },
-        {
-          "name": "Electron Store",
-          "role": "Persistent user compression preferences and export directories"
-        }
-      ],
-      "testingAndBuildTools": [
-        {
-          "name": "Electron Builder",
-          "role": "Multi-platform packaging, NSIS installer, and portable exe generation"
-        },
-        {
-          "name": "Vitest",
-          "role": "Unit testing for compression queue state logic and file validation"
-        }
-      ]
-    },
     "desktopMobileTechSpecs": {
       "programmingLanguage": "TypeScript & C++",
       "framework": "Electron",
@@ -4851,9 +4370,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "techStack": [
       "TypeScript",
-      "Next.js",
+      "C++",
+      "Electron",
+      "Sharp",
       "Tailwind CSS",
-      "Architecture Engine"
+      "Local File System",
+      "Electron Store",
+      "Electron Builder",
+      "Vitest"
     ]
   },
   {
@@ -5058,52 +4582,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "offlineSyncStrategy": "Strictly air-gapped; networking APIs completely stripped from the production build.",
       "cachingMechanism": "RAM-only circular thumbnail cache bounded to 256 MB with automated LRU memory eviction."
     },
-    "desktopMobileTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "TypeScript",
-          "role": "UI state machines, gallery virtualization, and component rendering"
-        },
-        {
-          "name": "Rust / Node Native",
-          "role": "Cryptographic envelope primitives and Argon2id execution"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "Electron",
-          "role": "Secure desktop runtime with sandboxing and context isolation"
-        },
-        {
-          "name": "Lucide Icons",
-          "role": "Tactical visual icon taxonomy across vault interfaces"
-        },
-        {
-          "name": "Tailwind CSS",
-          "role": "Low-light cryptographic control room aesthetic"
-        }
-      ],
-      "databaseAndStorage": [
-        {
-          "name": "SQLCipher / SQLite",
-          "role": "Encrypted relational metadata and tag database"
-        },
-        {
-          "name": "Custom Blob Storage",
-          "role": "Split encrypted media chunks with random salt prefixes"
-        }
-      ],
-      "testingAndBuildTools": [
-        {
-          "name": "Vitest",
-          "role": "Cryptographic regression tests verifying cipher round-trips"
-        },
-        {
-          "name": "Electron Builder",
-          "role": "Code-signed installer and hardened runtime packaging"
-        }
-      ]
-    },
     "desktopMobileTechSpecs": {
       "programmingLanguage": "TypeScript & Rust",
       "framework": "Electron",
@@ -5142,9 +4620,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "techStack": [
       "TypeScript",
-      "Next.js",
+      "Rust",
+      "Electron",
+      "Lucide Icons",
       "Tailwind CSS",
-      "Architecture Engine"
+      "SQLCipher",
+      "Custom Blob Storage",
+      "Vitest",
+      "Electron Builder"
     ]
   },
   {
@@ -5197,7 +4680,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Rasa-Nusantara-Indonesian-Food-Recipe",
-      "license": "GPL-3.0",
+    "license": "GPL-3.0",
     "desktopMobileProjectInfo": {
       "applicationType": "Cross-Platform Mobile Application (iOS & Android)",
       "targetPlatform": "Android 14+ / iOS 17+ (React Native / Flutter)",
@@ -5339,48 +4822,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "offlineSyncStrategy": "100% Offline functional; optional periodic delta updates when WiFi is connected.",
       "cachingMechanism": "Fast-access MMKV storage for user bookmarks, active timers, and cooking history."
     },
-    "desktopMobileTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "TypeScript",
-          "role": "Complete mobile UI, state store, and business logic typing"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "React Native / Expo",
-          "role": "Cross-platform mobile client compilation"
-        },
-        {
-          "name": "Tailwind CSS",
-          "role": "Ergonomic mobile component styling"
-        },
-        {
-          "name": "Lucide React Native",
-          "role": "Vector iconography for kitchen UI controls"
-        }
-      ],
-      "databaseAndStorage": [
-        {
-          "name": "Expo SQLite",
-          "role": "Embedded local relational database for 1,200 recipe records"
-        },
-        {
-          "name": "React Native MMKV",
-          "role": "Ultra-fast binary key-value persistence for settings"
-        }
-      ],
-      "testingAndBuildTools": [
-        {
-          "name": "EAS Build",
-          "role": "Cloud compilation for APK and iOS IPA production builds"
-        },
-        {
-          "name": "Jest",
-          "role": "Unit testing for ingredient multiplier math and portion algorithms"
-        }
-      ]
-    },
     "desktopMobileTechSpecs": {
       "programmingLanguage": "TypeScript",
       "framework": "React Native & Expo",
@@ -5419,9 +4860,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "techStack": [
       "TypeScript",
-      "Next.js",
+      "React Native",
       "Tailwind CSS",
-      "Architecture Engine"
+      "Lucide Icons",
+      "Expo SQLite",
+      "React Native MMKV",
+      "EAS Build",
+      "Jest"
     ]
   },
   {
@@ -5474,7 +4919,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Food-Recipe-Mobile-App-UI-UX-Design",
-      "license": "CC BY-NC 4.0",
+    "license": "CC BY-NC 4.0",
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Mobile App",
       "designRole": "Lead UI/UX & Product Designer",
@@ -5689,63 +5134,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Streamline meal discovery by categorizing recipes into dedicated regional cuisine collections."
     ],
     "techStack": [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Architecture Engine"
-    ],
-    "uiUxTechStack": {
-      "designAndPrototypingTools": [
-        {
-          "name": "Figma",
-          "role": "Component system, auto-layout screens, and micro-interaction prototypes"
-        },
-        {
-          "name": "FigJam",
-          "role": "Affinity diagramming, user journey maps, and empathy synthesis"
-        }
-      ],
-      "designSystemsAndResources": [
-        {
-          "name": "Material Design",
-          "role": "Adaptive color palettes and dynamic contrast ratios"
-        },
-        {
-          "name": "Lucide Icons",
-          "role": "Vector iconography and micro-action indicators"
-        }
-      ],
-      "researchAndCollaborationTools": [
-        {
-          "name": "Maze",
-          "role": "Remote usability testing and task-completion analytics"
-        },
-        {
-          "name": "Miro",
-          "role": "Information architecture card sorting and tree testing"
-        }
-      ],
-      "designAndPrototyping": [
-        {
-          "name": "Figma",
-          "role": "Component system, auto-layout screens, and micro-interaction prototypes"
-        },
-        {
-          "name": "FigJam",
-          "role": "Affinity diagramming, user journey maps, and empathy synthesis"
-        }
-      ],
-      "researchAndCollaboration": [
-        {
-          "name": "Maze",
-          "role": "Remote usability testing and task-completion analytics"
-        },
-        {
-          "name": "Miro",
-          "role": "Information architecture card sorting and tree testing"
-        }
-      ]
-    }
+      "Figma",
+      "FigJam",
+      "Material Design",
+      "Lucide Icons",
+      "Maze",
+      "Miro"
+    ]
   },
   {
     "id": "e-parking-mobile-app-uiux-design",
@@ -6014,63 +5409,14 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Reduce average garage ingress and egress latency from 90 seconds to under 4 seconds."
     ],
     "techStack": [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Architecture Engine"
-    ],
-    "uiUxTechStack": {
-      "designAndPrototypingTools": [
-        {
-          "name": "Figma",
-          "role": "Real-time vector wireframing, high-contrast HUD components, interactive prototypes"
-        },
-        {
-          "name": "ProtoPie",
-          "role": "High-fidelity micro-interactions and NFC gate trigger animations"
-        }
-      ],
-      "designSystemsAndResources": [
-        {
-          "name": "Cyber Automotive UI Tokens",
-          "role": "High-contrast dark-mode tokens for high glare conditions"
-        },
-        {
-          "name": "SF Pro & JetBrains Mono",
-          "role": "Telemetry typographic hierarchy for parking slot codes"
-        }
-      ],
-      "researchAndCollaborationTools": [
-        {
-          "name": "Useberry",
-          "role": "In-vehicle usability simulation and driver glance test analysis"
-        },
-        {
-          "name": "Notion",
-          "role": "Design spec matrix, edge case catalog, and developer handoff documentation"
-        }
-      ],
-      "designAndPrototyping": [
-        {
-          "name": "Figma",
-          "role": "Real-time vector wireframing, high-contrast HUD components, interactive prototypes"
-        },
-        {
-          "name": "ProtoPie",
-          "role": "High-fidelity micro-interactions and NFC gate trigger animations"
-        }
-      ],
-      "researchAndCollaboration": [
-        {
-          "name": "Useberry",
-          "role": "In-vehicle usability simulation and driver glance test analysis"
-        },
-        {
-          "name": "Notion",
-          "role": "Design spec matrix, edge case catalog, and developer handoff documentation"
-        }
-      ]
-    }
+      "Figma",
+      "ProtoPie",
+      "Cyber Automotive UI Tokens",
+      "SF Pro",
+      "JetBrains Mono",
+      "Useberry",
+      "Notion"
+    ]
   },
   {
     "id": "aorus-gaming-shop-mobile-app-uiux-design",
@@ -6122,7 +5468,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "repoUrl": "https://github.com/weztcy/Aorus-Gaming-Shop-Mobile-App-UI-UX-Design",
-      "license": "CC BY-NC 4.0",
+    "license": "CC BY-NC 4.0",
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Gaming E-Commerce App",
       "designRole": "Lead Product Designer & Visual Strategist",
@@ -6341,63 +5687,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Provide an interactive PC build configurator with running wattage and budget tallies."
     ],
     "techStack": [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Architecture Engine"
-    ],
-    "uiUxTechStack": {
-      "designAndPrototypingTools": [
-        {
-          "name": "Figma",
-          "role": "Faceted cyber-mecha UI components, variants, variables, and interaction state engines"
-        },
-        {
-          "name": "Adobe After Effects",
-          "role": "Cyberpunk particle glow transitions and unboxing 3D render mockups"
-        }
-      ],
-      "designSystemsAndResources": [
-        {
-          "name": "Aorus Falcon Design Tokens",
-          "role": "Neon orange neon telemetry, obsidian carbon facets, 6px angular cuts"
-        },
-        {
-          "name": "Phosphor Gaming Icons",
-          "role": "Hardware GPU/CPU vector glyphs and benchmark indicators"
-        }
-      ],
-      "researchAndCollaborationTools": [
-        {
-          "name": "Lyssna",
-          "role": "Esports gamer preference testing and hardware compatibility visual clarity tests"
-        },
-        {
-          "name": "Figma Dev Mode",
-          "role": "Design token export, CSS variable mapping, and React Native handoff"
-        }
-      ],
-      "designAndPrototyping": [
-        {
-          "name": "Figma",
-          "role": "Faceted cyber-mecha UI components, variants, variables, and interaction state engines"
-        },
-        {
-          "name": "Adobe After Effects",
-          "role": "Cyberpunk particle glow transitions and unboxing 3D render mockups"
-        }
-      ],
-      "researchAndCollaboration": [
-        {
-          "name": "Lyssna",
-          "role": "Esports gamer preference testing and hardware compatibility visual clarity tests"
-        },
-        {
-          "name": "Figma Dev Mode",
-          "role": "Design token export, CSS variable mapping, and React Native handoff"
-        }
-      ]
-    }
+      "Figma",
+      "Adobe After Effects",
+      "Aorus Falcon Design Tokens",
+      "Phosphor Gaming Icons",
+      "Lyssna",
+      "Figma Dev Mode"
+    ]
   },
   {
     "id": "cpp-learning-modules",
@@ -6714,44 +6010,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "name": "ISO C++ Core Guidelines",
           "type": "Guide",
-          "format": "Online Specification",
+          "format": "Online Specification"
         },
         {
           "name": "Compiler Explorer (Godbolt)",
           "type": "Starter Template",
-          "format": "Interactive Tool",
-        }
-      ]
-    },
-    "codeLearningTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "C++",
-          "role": "Core language standard for systems modules"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "GoogleTest",
-          "role": "Automated unit test assertion framework"
-        },
-        {
-          "name": "CMake",
-          "role": "Target-based cross-platform build orchestrator"
-        }
-      ],
-      "developmentToolsAndEnvironment": [
-        {
-          "name": "Clang / GCC",
-          "role": "Compilers with strict -Wall -Wextra -Wpedantic flags"
-        },
-        {
-          "name": "AddressSanitizer",
-          "role": "Runtime memory safety and leak instrumentation"
-        },
-        {
-          "name": "Valgrind",
-          "role": "Heap allocation profiling and cache miss analysis"
+          "format": "Interactive Tool"
         }
       ]
     }
@@ -6838,7 +6102,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Zod",
       "ESLint",
       "Node.js",
-      "Bun"
+      "Bun",
+      "tsc",
+      "Prettier"
     ],
     "repoUrl": "https://github.com/weztcy/TypeScript-Learning-Modules",
     "telemetryMatrix": {
@@ -7075,40 +6341,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           "format": "Interactive Problem Set"
         }
       ]
-    },
-    "codeLearningTechStack": {
-      "programmingLanguages": [
-        {
-          "name": "TypeScript",
-          "role": "Type system under analysis with strict compiler flags"
-        }
-      ],
-      "frameworksAndLibraries": [
-        {
-          "name": "Vitest & expect-type",
-          "role": "Type-level test assertion framework"
-        },
-        {
-          "name": "Zod",
-          "role": "Runtime schema validation inferred into compile-time types"
-        }
-      ],
-      "developmentToolsAndEnvironment": [
-        {
-          "name": "tsc",
-          "role": "Static analysis and verification via tsc --noEmit"
-        },
-        {
-          "name": "ESLint",
-          "role": "Enforces strict type safety and bans any escapes"
-        },
-        {
-          "name": "Prettier",
-          "role": "Code styling across code challenges"
-        }
-      ]
     }
   }
 ];
-
-export const projectsData = PROJECT_CASE_STUDIES;

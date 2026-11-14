@@ -138,11 +138,8 @@ export default function WebDevDetailView({
 
   // Section 4 Data: Flat Unified Tech Stack
   const allWebDevTechStack = useMemo(() => {
-    return [
-      ...(project.techStackCategorized || []).map((t) => t.name),
-      ...(project.techStack || []),
-    ];
-  }, [project.techStackCategorized, project.techStack]);
+    return project.techStack || [];
+  }, [project.techStack]);
 
   const systemArchitecture = project.systemArchitecture || {
     summary: project.architectureSummary || "",

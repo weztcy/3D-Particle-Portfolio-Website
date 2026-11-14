@@ -99,7 +99,7 @@ Format folder: `public/images/projects/<nama_project>/`
    - Khusus **`machine-learning`**, isi properti `mlProjectInfo.capabilityBadges` dengan **tepat 3 item**, masing-masing **maksimal 3 kata**.
 
 ### B. Section 4 — Tech Stack & Runtime Architecture
-1. **Sumber Utama:** Isi `techStack: string[]` sebagai sumber utama. Field kategorikal per domain (`techStackCategorized`, `dataAnalyticsTechStack`, `aiTechStack`, `mlTechStack`, `desktopMobileTechStack`, `uiUxTechStack`, `codeLearningTechStack`) bersifat **opsional/sinkron** untuk kebutuhan pengelompokan metadata.
+1. **Satu Field Standar Global:** Menggunakan satu field tunggal `techStack: string[]` yang seragam untuk **seluruh 7 kategori proyek**. Tidak lagi dikelompokkan ke dalam kategori atau field terpisah (`techStackCategorized`, `dataTechStack`, `aiTechStack`, `mlTechStack`, dll. sudah dihapus sepenuhnya).
 2. **Format Nama Teknologi:** Wajib menggunakan **nama teknologi murni tanpa nomor versi dan tanpa keterangan dalam tanda kurung**.
    - Benar: `"Next.js"`, `"TypeScript"`, `"PostgreSQL"`, `"Python"`, `"C++"`, `"Tailwind CSS"`, `"FastAPI"`.
    - Salah: `"Next.js 16 App Router"`, `"Python 3.12"`, `"C++20 (Modern)"`, `"Electron 30"`.
@@ -275,7 +275,7 @@ Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan sel
 2. **Kepatuhan Penuh Bahasa Inggris:** Seluruh teks output data project (`summary`, `overview`, deskripsi fitur, alur arsitektur, metrik, catatan audit, rekomendasi, dll.) **WAJIB 100% menggunakan Bahasa Inggris profesional & teknis**.
 3. **Aset Lokal `.webp`:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; terdapat `banner.webp`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`).
 4. **Batas Karakter Section 1:** Narasi `overview` / `projectDescription` / `codeLearningDescription` sepanjang **400–490 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
-5. **Tech Stack Section 4:** Seluruh elemen `techStack[]` (dan `*TechStack`) murni nama teknologi **tanpa nomor versi atau tanda kurung**.
+5. **Tech Stack Section 4:** Satu field tunggal `techStack: string[]` murni nama teknologi **tanpa pengelompokan category, tanpa nomor versi, atau tanda kurung**.
 6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
 7. **Enum & Format Ketat:**
    - Data Analytics `priority`: `"HIGH" | "MEDIUM" | "STRATEGIC"`
