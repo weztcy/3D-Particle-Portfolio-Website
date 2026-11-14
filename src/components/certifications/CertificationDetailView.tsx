@@ -567,7 +567,7 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <span className="pointer-events-none absolute top-2 right-3 font-mono text-[9px] text-indigo-400/30 group-hover:text-indigo-400/70 transition-colors select-none">
                 [ TEL.03 // CIPHER_ID ]
               </span>
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3.5 min-w-0 flex-1">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-indigo-400/30 bg-indigo-500/10 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
                     <Fingerprint className="h-5 w-5" />
@@ -584,24 +584,26 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
 
                 {/* Tactical Copy ID Button */}
                 {cert.credentialId && (
-                  <button
-                    onClick={handleCopyId}
-                    type="button"
-                    title="Copy Credential ID"
-                    className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shadow-[0_0_12px_rgba(56,189,248,0.15)]"
-                  >
-                    {isCopied ? (
-                      <>
-                        <Check className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
-                        <span className="text-emerald-400 font-bold">COPIED</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-3.5 w-3.5 text-sky-400" />
-                        <span>COPY</span>
-                      </>
-                    )}
-                  </button>
+                  <div className="flex justify-end sm:justify-start">
+                    <button
+                      onClick={handleCopyId}
+                      type="button"
+                      title="Copy Credential ID"
+                      className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shadow-[0_0_12px_rgba(56,189,248,0.15)]"
+                    >
+                      {isCopied ? (
+                        <>
+                          <Check className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+                          <span className="text-emerald-400 font-bold">COPIED</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-3.5 w-3.5 text-sky-400" />
+                          <span>COPY</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -620,7 +622,8 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky-400 mb-4">
                   <BookOpen className="h-4 w-4 shrink-0" />
-                  <span>[ 01 // CERTIFICATION OVERVIEW & SCOPE ]</span>
+                  <span className="hidden lg:inline">[ 01 // CERTIFICATION OVERVIEW & SCOPE ]</span>
+                  <span className="lg:hidden">[ 01 // OVERVIEW & SCOPE ]</span>
                 </div>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                   {cert.overview}
@@ -632,7 +635,8 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
                 <div className="flex items-center justify-between gap-2 font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-3">
                   <div className="flex items-center gap-2">
                     <Cpu className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-                    <span>CRYPTOGRAPHIC INTEGRITY & VERIFICATION PROTOCOL</span>
+                    <span className="hidden lg:inline">CRYPTOGRAPHIC INTEGRITY & VERIFICATION PROTOCOL</span>
+                    <span className="lg:hidden">INTEGRITY & VERIFICATION PROTOCOL</span>
                   </div>
                   <span className="hidden sm:inline-flex items-center gap-1.5 font-mono text-[10px] text-emerald-400">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -699,7 +703,8 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4">
                   <ShieldCheck className="h-4 w-4 shrink-0" />
-                  <span>[ 02 // CREDENTIAL VERIFICATION CONSOLE ]</span>
+                  <span className="hidden lg:inline">[ 02 // CREDENTIAL VERIFICATION CONSOLE ]</span>
+                  <span className="lg:hidden">[ 02 // CREDENTIAL CONSOLE ]</span>
                 </div>
 
                 {/* Telemetry Readout Terminal Box */}
@@ -770,9 +775,10 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-sky-500/20 pb-4">
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-indigo-400">
                 <Layers className="h-4 w-4 shrink-0" />
-                <span>[ 03 // CURRICULUM BREAKDOWN & CORE MODULES ]</span>
+                <span className="hidden lg:inline">[ 03 // CURRICULUM BREAKDOWN & CORE MODULES ]</span>
+                <span className="lg:hidden">[ 03 // CORE MODULES ]</span>
               </div>
-              <div className="inline-flex items-center gap-2 rounded-xl border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1.5 font-mono text-xs text-indigo-200 w-fit">
+              <div className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1.5 font-mono text-xs text-indigo-200 w-fit">
                 <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse" />
                 <span className="text-white font-bold">{cert.keyModules.length}</span>
                 <span className="text-indigo-300">CORE_MODULES_LOADED</span>
