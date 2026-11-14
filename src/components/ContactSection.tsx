@@ -189,8 +189,8 @@ function ContactSection({
       className="relative pt-20 sm:pt-28 pb-12 sm:pb-16 px-3.5 sm:px-6 lg:px-10 scroll-mt-20"
     >
       <div className="mx-auto max-w-[1380px] space-y-6 sm:space-y-10">
-        <div className="rounded-3xl border border-white/10 bg-[#0C0F17]/85 backdrop-blur-xl p-4 sm:p-10 lg:p-12 shadow-[0_24px_80px_rgba(0,0,0,0.85)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12">
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-end">
             {/* Left Column: Direct Channel & Telemetry (5 cols) */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6 sm:space-y-8">
               <div className="space-y-3.5 sm:space-y-4">
@@ -344,7 +344,7 @@ function ContactSection({
                       <div>
                         <div className="text-emerald-300 font-mono text-base sm:text-lg font-extrabold tracking-tight tabular-nums flex items-baseline gap-1.5 leading-tight">
                           <span>{jakartaTime}</span>
-                          <span className="text-[10px] font-semibold text-emerald-400/90 bg-emerald-950/50 border border-emerald-500/30 px-1 rounded">
+                          <span className="text-xs font-semibold text-emerald-400/80">
                             WIB
                           </span>
                         </div>
