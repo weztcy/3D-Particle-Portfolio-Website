@@ -567,44 +567,44 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               <span className="pointer-events-none absolute top-2 right-3 font-mono text-[9px] text-indigo-400/30 group-hover:text-indigo-400/70 transition-colors select-none">
                 [ TEL.03 // CIPHER_ID ]
               </span>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-indigo-400/30 bg-indigo-500/10 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
-                    <Fingerprint className="h-5 w-5" />
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-indigo-400/30 bg-indigo-500/10 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+                  <Fingerprint className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-0.5">
+                    CREDENTIAL ID
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-0.5">
-                      CREDENTIAL ID
-                    </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                     <div className="font-mono text-sm sm:text-lg font-bold text-sky-300 break-all sm:break-normal truncate">
                       {cert.credentialId}
                     </div>
+
+                    {/* Tactical Copy ID Button */}
+                    {cert.credentialId && (
+                      <div className="flex justify-end shrink-0">
+                        <button
+                          onClick={handleCopyId}
+                          type="button"
+                          title="Copy Credential ID"
+                          className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shadow-[0_0_12px_rgba(56,189,248,0.15)]"
+                        >
+                          {isCopied ? (
+                            <>
+                              <Check className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+                              <span className="text-emerald-400 font-bold">COPIED</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="h-3.5 w-3.5 text-sky-400" />
+                              <span>COPY</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
-
-                {/* Tactical Copy ID Button */}
-                {cert.credentialId && (
-                  <div className="flex justify-end sm:justify-start">
-                    <button
-                      onClick={handleCopyId}
-                      type="button"
-                      title="Copy Credential ID"
-                      className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-sky-400/30 bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-400 px-3 py-1.5 font-mono text-xs text-sky-200 hover:text-white transition-all shadow-[0_0_12px_rgba(56,189,248,0.15)]"
-                    >
-                      {isCopied ? (
-                        <>
-                          <Check className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
-                          <span className="text-emerald-400 font-bold">COPIED</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="h-3.5 w-3.5 text-sky-400" />
-                          <span>COPY</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                )}
               </div>
             </div>
           </section>
@@ -713,9 +713,9 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
                     <span className="text-[11px] uppercase tracking-wider shrink-0">ISSUING_ENTITY:</span>
                     <span className="text-white font-bold text-right truncate">{cert.issuer}</span>
                   </div>
-                  <div className="flex items-center justify-between gap-2 text-slate-400">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 text-slate-400">
                     <span className="text-[11px] uppercase tracking-wider shrink-0">CREDENTIAL_HASH:</span>
-                    <span className="text-sky-300 font-bold truncate max-w-[160px] sm:max-w-[200px] text-right">
+                    <span className="text-sky-300 font-bold text-left sm:text-right font-mono text-[11px] sm:text-xs break-all">
                       {cert.credentialId}
                     </span>
                   </div>
@@ -771,8 +771,14 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
           </section>
 
           {/* 4. CURRICULUM & KEY MODULES (Full-Width Responsive Multi-Column Grid) */}
-          <section className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-sky-500/20 pb-4">
+          <section className="relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            {/* Corner HUD Crosshairs */}
+            <div className="pointer-events-none absolute top-3 left-3 h-2.5 w-2.5 border-t border-l border-indigo-400/60" />
+            <div className="pointer-events-none absolute top-3 right-3 h-2.5 w-2.5 border-t border-r border-indigo-400/60" />
+            <div className="pointer-events-none absolute bottom-3 left-3 h-2.5 w-2.5 border-b border-l border-indigo-400/60" />
+            <div className="pointer-events-none absolute bottom-3 right-3 h-2.5 w-2.5 border-b border-r border-indigo-400/60" />
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-sky-500/20 pb-4 mb-6">
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-indigo-400">
                 <Layers className="h-4 w-4 shrink-0" />
                 <span className="hidden lg:inline">[ 03 // CURRICULUM BREAKDOWN & CORE MODULES ]</span>
@@ -789,14 +795,11 @@ export default function CertificationDetailView({ certId: propCertId }: { certId
               {cert.keyModules.map((mod, idx) => (
                 <div
                   key={idx}
-                  className="group relative overflow-hidden rounded-3xl border border-sky-500/20 bg-[#0A0D17]/85 backdrop-blur-2xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-sky-400/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all duration-300 flex flex-col justify-between"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/50 p-5 sm:p-6 transition-all duration-300 hover:border-sky-400/50 hover:bg-sky-500/[0.04] hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] flex flex-col justify-between"
                 >
                   {/* Micro Corner Ticks */}
-                  <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/50" />
-                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b border-r border-sky-400/50" />
-
-                  {/* Ambient Top Glow */}
-                  <div className="pointer-events-none absolute -top-12 -right-12 h-36 w-36 rounded-full bg-sky-500/10 blur-3xl group-hover:bg-sky-500/20 transition-all duration-500" />
+                  <div className="pointer-events-none absolute top-2.5 left-2.5 h-2 w-2 border-t border-l border-sky-400/40" />
+                  <div className="pointer-events-none absolute bottom-2.5 right-2.5 h-2 w-2 border-b border-r border-sky-400/40" />
 
                   {/* Corner Accent Tick */}
                   <span className="pointer-events-none absolute top-2 right-3 font-mono text-[9px] text-sky-400/30 select-none group-hover:text-sky-400/80 transition-colors">
