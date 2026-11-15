@@ -301,8 +301,11 @@ function ContactSection({
                       {/* Technical Telemetry Specs Strip */}
                       <div className="border-t border-white/10 pt-2 grid grid-cols-2 gap-1.5 font-mono text-[9px] text-slate-400">
                         <div className="bg-white/[0.02] border border-white/5 rounded-lg px-2 py-1">
-                          <span className="text-slate-500 block text-[8px] uppercase">COORDINATES</span>
-                          <span className="text-slate-200 font-semibold">-6.2088°, 106.8456°</span>
+                          <span className="text-slate-500 block text-[8px] uppercase">AVAILABILITY</span>
+                          <span className="text-emerald-300 font-semibold flex items-center gap-1">
+                            <span className="h-1 w-1 rounded-full bg-emerald-400 inline-block animate-pulse" />
+                            <span>OPEN TO WORK</span>
+                          </span>
                         </div>
                         <div className="bg-white/[0.02] border border-white/5 rounded-lg px-2 py-1">
                           <span className="text-slate-500 block text-[8px] uppercase">REGION ZONE</span>
