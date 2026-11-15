@@ -22,7 +22,7 @@ Setiap objek `ProjectCaseStudy` di dalam `PROJECT_CASE_STUDIES` wajib memiliki p
 | `accentColor` | Harus sama persis dengan tabel pemetaan kategori. | `"cyan"` |
 | `year` | Tahun rilis/selesai dalam string 4 digit. | `"2026"` |
 | `status` | Status pengerjaan (misal `"Completed"`, `"Published"`, `"Production Ready"`). | `"Completed"` |
-| `summary` | Ringkasan singkat 1–2 kalimat untuk preview kartu utama & meta SEO. | — |
+| `summary` | Ringkasan singkat padat untuk preview kartu utama & meta SEO. **Maksimal 150 karakter** (termasuk spasi). | `"Enterprise-grade multi-tenant ERP platform engineered with mutex concurrency to eliminate negative stock drift and distorted inventory valuations."` |
 | `repoUrl` | URL penuh GitHub jika **Public**. Kosongkan (`""` atau hapus properti) jika **Private**. | `"https://github.com/..."` |
 | `license` | Isi `"MIT License"` (atau lisensi OSS terkait) jika Public; otomatis menjadi `"Proprietary Rights"` di UI jika Private. | `"MIT License"` |
 
@@ -83,9 +83,11 @@ Format folder: `public/images/projects/<nama_project>/`
 ## 3. Aturan Section Universal (`Section 1`, `Section 4`, `Section 6`)
 
 ### A. Section 1 — Hero Console, System Telemetry Matrix, & Repo Card
-1. **Deskripsi Utama (`projectDescription` / `dataAnalyticsExecutiveSummary` / `codeLearningDescription`):**
+1. **Summary Global (`summary`):**
+   - Panjang teks **maksimal 150 karakter** (termasuk spasi), padat, profesional, dan merepresentasikan value/solusi utama project.
+2. **Deskripsi Utama (`projectDescription` / `dataAnalyticsExecutiveSummary` / `codeLearningDescription`):**
    - Panjang teks **wajib berada di rentang 250–300 karakter** (termasuk spasi) agar padat, proporsional pada card Hero Section 1, dan tidak terpotong `...` oleh batas `.slice(0, 500)` di UI.
-2. **System Telemetry Matrix (`telemetryMatrix`):**
+3. **System Telemetry Matrix (`telemetryMatrix`):**
    - Wajib mengisi seluruh **7 properti** berikut dengan panjang masing-masing **maksimal 45 karakter** (agar tidak terpotong elipsis di *Tactical Datapad*):
      - `projectType`: Jenis sistem/aplikasi.
      - `targetPlatform`: Platform atau lingkungan eksekusi.
@@ -94,7 +96,7 @@ Format folder: `public/images/projects/<nama_project>/`
      - `testingAndAudit`: Status verifikasi/pengujian (contoh: `"Passed"`).
      - `projectStatus`: Status proyek (konsisten dengan `status`).
      - `projectYear`: Tahun proyek (konsisten dengan `year`).
-3. **Capability Badges Strip (3 Badge di Bawah Deskripsi):**
+4. **Capability Badges Strip (3 Badge di Bawah Deskripsi):**
    - Pada 6 kategori (`web-development`, `data-analysis`, `ai-engineering`, `desktop-mobile`, `ui-ux`, `code-learning`), badge bersifat statis di UI (tidak perlu diisi di data).
    - Khusus **`machine-learning`**, isi properti `mlProjectInfo.capabilityBadges` dengan **tepat 3 item**, masing-masing **maksimal 3 kata**.
 
@@ -290,8 +292,8 @@ Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan sel
 2. **Kepatuhan Penuh Bahasa Inggris:** Seluruh teks output data project (`summary`, `overview`, deskripsi fitur, alur arsitektur, metrik, catatan audit, rekomendasi, dll.) **WAJIB 100% menggunakan Bahasa Inggris profesional & teknis**.
 3. **Aset Lokal `.webp`:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; terdapat `banner.webp`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`).
 4. **Batas Karakter & Kalimat:**
-   - Section 1: Narasi `overview` / `projectDescription` / `codeLearningDescription` sepanjang **250–300 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
-   - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item grid list **120–180 karakter**; caption visual **80–140 karakter**.
+   - Section 1: `summary` **maksimal 150 karakter**; Narasi `projectDescription` / `codeLearningDescription` sepanjang **250–300 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
+   - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item bertipe list/array **bebas tanpa batas minimum maupun maksimum**; caption visual **80–140 karakter**.
 5. **Tech Stack Section 4:** Satu field tunggal `techStack: string[]` murni nama teknologi **tanpa pengelompokan category, tanpa nomor versi, atau tanda kurung**.
 6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
 7. **Enum & Format Ketat:**
