@@ -129,11 +129,12 @@ Field khusus Section 6 per kategori:
 
 ### A. Panduan Panjang Teks & Format Paragraf (Section 2, 3, 5)
 Di Section 2, 3, dan 5 seluruh teks dirender alami (*natural responsive wrap* tanpa truncate `.slice()`). Untuk menjaga simetri grid dan proporsionalitas layout card, terapkan batasan karakter tegas berikut (termasuk spasi):
-1. **Narasi Card Tunggal:** Wajib berada di rentang **250 – 350 karakter** (sekitar 2–3 kalimat padat).
+1. **Narasi Card Tunggal (Tipe Paragraf):** Wajib berada di rentang **250 – 350 karakter** (sekitar 2–3 kalimat padat).
    - Latar belakang & konteks masalah: `projectBackground`, `dataAnalyticsBusinessContext`, `problemContext`, `mlProblemContext`, `desktopMobileBackground`, `uiUxBackground`.
    - Ringkasan solusi & arsitektur: `proposedAiSolution`, `analyticalMethodology.summary`, `trainingProcess`, `conclusion`, `qualitativeEvaluation`.
-2. **Deskripsi Item List / Sub-Kartu Grid:** Wajib berada di rentang **120 – 180 karakter** (sekitar 1–2 kalimat ringkas).
-   - Fitur, masalah, & alur: `coreFeatures[].description`, `desktopMobileFeatures[].description`, `problemStatements[].description`, `projectObjectives[].description`, `dataPreparation[].description`, `prerequisites[].description`, `keyFindings[].description`, `limitations[].description`.
+2. **Item List & Sub-Kartu Grid (Tipe List):**
+   - **Bebas tanpa batasan minimum maupun maksimum** (baik jumlah item array maupun panjang karakternya bebas terserah, menyesuaikan kedalaman dan kompleksitas riil project).
+   - Berlaku untuk seluruh elemen bertipe list/array: `problemStatements`, `projectObjectives`, `coreFeatures`, `desktopMobileFeatures`, `technicalImplementation`, `dataAnalyticsAnalyticalObjectives`, `dataAnalyticsKeyFindings`, `dataAnalyticsDataPreparation`, `recommendations`, `keyCapabilitiesAndUseCases`, `coreAiComponents`, `hyperparameters`, `inputSignals`, `codeLearningObjectives`, `codeLearningPrerequisites`, `codeLearningModules`, `limitations`, dsb.
 3. **Caption Visual / Slide:** Wajib berada di rentang **80 – 140 karakter** (1 kalimat tajam).
    - Keterangan gambar / slide: `deckSlides[].caption`, `interfaceShowcase[].caption`, `visualShowcase[].caption`, `designShowcase[].caption`.
 

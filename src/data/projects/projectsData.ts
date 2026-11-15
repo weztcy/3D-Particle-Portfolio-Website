@@ -16,7 +16,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Enterprise-grade multi-tenant ERP platform engineered to eradicate negative stock drift, untracked workshop material scrap, and distorted inventory valuations in manufacturing operations.",
+    "summary": "Enterprise-grade multi-tenant ERP platform engineered with mutex concurrency to eliminate negative stock drift and distorted inventory valuations.",
     "architectureSummary": "Next.js 16 App Router + Prisma ORM + Process-level Mutex ACID Engine + SQLite / PostgreSQL persistence + Edge Caching",
     "techStack": [
       "Next.js",
@@ -526,7 +526,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "High-performance interactive 3D web showcase for gaming hardware featuring Three.js product shaders, headless CMS integration, and sub-40ms edge caching.",
+    "summary": "Interactive 3D web showcase for gaming hardware featuring Three.js product shaders, real-time particle effects, and sub-40ms edge caching.",
     "architectureSummary": "Next.js 16 + React Three Fiber + Draco glTF Compression + Edge Asset Delivery + Tailwind CSS",
     "techStack": [
       "Next.js",
@@ -760,7 +760,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Enterprise-grade quantitative business intelligence investigation analyzing multi-channel retail transaction streams to resolve margin cannibalization and customer churn.",
+    "summary": "Quantitative retail business intelligence analytics evaluating multi-channel sales transactions to resolve margin cannibalization and customer churn.",
     "architectureSummary": "Python (Pandas, NumPy) + PostgreSQL data warehouse + Scikit-Learn RFM clustering + Power BI interactive dashboards",
     "techStack": [
       "Python",
@@ -1094,7 +1094,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1517840901100-8179e982acb7?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Large-scale NLP text mining and diagnostic customer experience analysis evaluating 45,000+ guest reviews across Jakarta luxury and boutique hospitality properties.",
+    "summary": "Diagnostic NLP text mining analysis evaluating 45,000+ guest reviews across Jakarta luxury hotels to uncover key customer sentiment drivers.",
     "architectureSummary": "Python NLP (NLTK, VADER, TF-IDF) + PostgreSQL text store + Aspect-based sentiment extraction + Tableau visualization",
     "techStack": [
       "Python",
@@ -1415,7 +1415,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Quantitative socioeconomic demographic analysis and predictive scoring audit evaluating scholarship allocation equity across 18,000+ university applicants.",
+    "summary": "Quantitative socioeconomic demographic analysis and predictive scoring audit evaluating scholarship allocation equity across 18,000+ applicants.",
     "architectureSummary": "Python (Pandas, Scipy) + Multi-criteria Decision Analysis (TOPSIS) + Demographic clustering + Power BI audit reporting",
     "techStack": [
       "Python",
@@ -1724,7 +1724,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Enterprise agentic retrieval-augmented generation engine engineered with self-reflective reasoning loops, hybrid dense-sparse vector indexing, and zero-hallucination source attribution.",
+    "summary": "Enterprise agentic RAG engine engineered with self-reflective reasoning loops, hybrid dense-sparse vector indexing, and verifiable source attribution.",
     "architectureSummary": "LangGraph Cognitive Graph + Qdrant Hybrid Dense/Sparse Index + FastEmbed + Self-Reflective Verification Engine + FastAPI Gateway",
     "aiTechSpecs": {
       "programmingLanguage": "Python",
@@ -2005,7 +2005,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Autonomous personal knowledge management cognitive agent that transforms scattered digital notes, research papers, and work logs into an active associative memory network.",
+    "summary": "Autonomous personal knowledge management cognitive agent that transforms scattered digital notes and research into an associative memory network.",
     "architectureSummary": "Local-First Semantic Agent + Graph-Augmented Memory + ChromaDB + Ollama / Local Mistral + SQLite Graph Store",
     "aiTechSpecs": {
       "programmingLanguage": "Python",
@@ -2285,7 +2285,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "High-assurance financial intelligence AI copilot engineered with deterministic code interpreter execution for balance sheet reconciliation and SEC filing analysis.",
+    "summary": "Financial intelligence AI copilot engineered with deterministic code interpreter execution for balance sheet reconciliation and SEC filing analysis.",
     "architectureSummary": "Neural-Symbolic Architecture + Python Code Execution Sandbox + SEC EDGAR Pipeline + Claude 3.5 Sonnet + PostgreSQL pgvector",
     "aiTechSpecs": {
       "programmingLanguage": "Python",
@@ -2569,7 +2569,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Empirical machine learning research project engineered to resolve distance metric sensitivity and magnitude distortions in non-parametric clinical diagnostic systems, deploying feature importance pruning and paired statistical significance testing.",
+    "summary": "Clinical ML diagnostic research optimizing KNN distance metric sensitivity and feature scaling, verified via paired statistical significance tests.",
     "architectureSummary": "Supervised Classification + Multi-Paradigm Normalization + Cross-Validated Hyperparameter Grid",
     "repoUrl": "https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization",
     "license": "MIT License",
@@ -2856,7 +2856,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Physics-informed mathematical computing engine modeling multi-particle kinematics, momentum conservation vectors, and center-of-mass trajectory dynamics in discrete Newtonian particle systems.",
+    "summary": "Physics-informed computing engine modeling multi-particle kinematics, momentum conservation vectors, and center-of-mass trajectory dynamics.",
     "architectureSummary": "Vectorized Newtonian Tensor Engine + Barycentric Coordinate Solver + Interactive Matrix HUD",
     "mlProjectInfo": {
       "projectType": "Computational Kinematics & Physical Modeling",
@@ -3132,7 +3132,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Planar geometric analytics and spatial trigonometry engine computing polygon centroids, circumferences, surface integrals, and Euclidean vector metrics with mathematical rigor.",
+    "summary": "Planar geometric analytics engine computing polygon centroids, circumferences, surface integrals, and Euclidean vector metrics with precision.",
     "architectureSummary": "Planar Shoelace Area Integrator + Analytical Polygon Centroid Engine + Interactive Geometric HUD",
     "repoUrl": "https://github.com/weztcy/Calgeo-2D-Geometry-Calculator",
     "license": "MIT License",
@@ -3401,7 +3401,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "High-throughput desktop batch image transcoding workstation engineered with multithreaded libwebp bindings, lossless metadata preservation, and asynchronous drag-and-drop ingestion queues.",
+    "summary": "High-throughput desktop batch image transcoding workstation with multithreaded libwebp bindings, metadata preservation, and drag-and-drop queues.",
     "architectureSummary": "Multithreaded Worker Pool + Libwebp Native Bindings + Asynchronous File Stream Queue + Dark Glassmorphic UI",
     "repoUrl": "https://github.com/weztcy/WEBP-Converter-Pro",
     "license": "MIT License",
@@ -3588,7 +3588,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Zero-knowledge encrypted local media vault and private image studio engineered with AES-256 GCM hardware encryption, biometric unlocking, and client-side neural tag classification.",
+    "summary": "Zero-knowledge encrypted local media vault engineered with AES-256 GCM hardware encryption, biometric unlocking, and neural tag classification.",
     "architectureSummary": "Argon2id Key Derivation + AES-256 GCM Envelope Vault + Virtualized Canvas Grid + Sandboxed Media Worker",
     "desktopMobileProjectInfo": {
       "applicationType": "Native Desktop Application (x64 Architecture)",
@@ -3777,7 +3777,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Cross-platform mobile culinary application celebrating authentic Indonesian regional recipes, featuring offline recipe indexing, dynamic ingredient portion scaling, and kitchen timer synchronization.",
+    "summary": "Cross-platform mobile culinary app celebrating Indonesian regional cuisine, featuring offline recipe indexing and dynamic ingredient portion scaling.",
     "architectureSummary": "Offline-First SQLite Cache + Reactive State Manager + Responsive Mobile Glassmorphic Design",
     "repoUrl": "https://github.com/weztcy/Rasa-Nusantara-Indonesian-Food-Recipe",
     "license": "GPL-3.0",
@@ -3955,7 +3955,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Mobile culinary discovery and cooking assistant interface engineered with high-contrast food photography hierarchy, thumb-zone navigation ergonomics, and streamlined step-by-step preparation cards.",
+    "summary": "Culinary discovery and cooking assistant interface designed with ergonomic thumb-zone navigation and streamlined step-by-step preparation cards.",
     "architectureSummary": "Ergonomic thumb-zone bottom navigation + dual-column food photography grid + dark gradient scrim overlay + modular bottom-sheet cooking card",
     "repoUrl": "https://github.com/weztcy/Food-Recipe-Mobile-App-UI-UX-Design",
     "license": "CC BY-NC 4.0",
@@ -4172,7 +4172,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Urban smart parking reservation and frictionless contactless barrier ingress interface engineered with real-time floor occupancy heatmaps, license-plate recognition linking, and digital receipt wallets.",
+    "summary": "Smart urban parking reservation interface designed with real-time floor occupancy heatmaps, license-plate recognition, and digital wallet checkout.",
     "architectureSummary": "GPS Map Overlay + Real-time Floor Slot Matrix + Encrypted QR Ingress Card + Digital Wallet Gateway",
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Mobile Application",
@@ -4392,7 +4392,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Cyberpunk-themed high-performance PC hardware and esports gear commerce interface engineered with 3D component configurators, benchmark performance telemetry, and streamlined checkout.",
+    "summary": "Cyberpunk-themed PC hardware and esports commerce interface engineered with interactive 3D component configurators and streamlined checkout.",
     "architectureSummary": "Mecha-Themed E-Commerce UI + Component Compatibility Engine + FPS Benchmark Matrix + Gamified Cart HUD",
     "repoUrl": "https://github.com/weztcy/Aorus-Gaming-Shop-Mobile-App-UI-UX-Design",
     "license": "CC BY-NC 4.0",
@@ -4613,7 +4613,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80"
     ],
-    "summary": "Systematic low-level systems programming curriculum covering modern C++20 memory models, RAII resource lifecycles, template metaprogramming, and lock-free concurrency.",
+    "summary": "Systematic low-level systems programming curriculum covering modern C++20 memory models, RAII resource lifecycles, and lock-free concurrency patterns.",
     "architectureSummary": "Modular CMake Build Matrix + Executable Code Units + GoogleTest Verification Harness",
     "codeLearningCurriculumSpecs": {
       "curriculumTrack": "Systems & Memory Engineering",
@@ -4873,7 +4873,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "/images/projects/TypeScript Learning Modules 1.webp",
       "/images/projects/JavaScript Learning Modules 1.webp"
     ],
-    "summary": "Comprehensive type-level programming curriculum mastering TypeScript 5 generics, template literal types, distributed conditional types, and enterprise architecture patterns.",
+    "summary": "Comprehensive type-level programming curriculum mastering TypeScript 5 generics, template literal types, and enterprise architecture patterns.",
     "architectureSummary": "Interactive Type-Challenge Matrix + Vitest Type-Testing (expect-type) + Strict ESLint Pipeline",
     "techStack": [
       "TypeScript",

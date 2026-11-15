@@ -47,6 +47,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Kategori **Code Learning HANYA menggunakan `banner.webp`**.
    - **DILARANG** membuat file showcase tambahan (`image01.webp`, dst.) dan **DILARANG** menambahkan properti `imageUrl` di dalam item `codeLearningPracticalProjects[]`.
 2. **Section 1 (Hero Console & Telemetry)**:
+   - `summary`: **Maksimal 150 karakter** (termasuk spasi), padat, profesional, dan merepresentasikan value/solusi utama project.
    - **`codeLearningDescription`** (atau `projectDescription`): **WAJIB 250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
@@ -55,7 +56,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Jumlah modul, submodul, phase, capstone project, dan kompetensi bebas sesuai struktur riil materi project.
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`codeLearningCurriculumStructure.summary`): **250–350 karakter** (termasuk spasi).
-     - Item list grid (`codeLearningObjectives[].description`, `codeLearningPrerequisites[].description`, `codeLearningModules[].description`, `codeLearningPracticalProjects[].description`): **120–180 karakter** (termasuk spasi).
+     - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama bahasa/runtime/tool murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"TypeScript"`, `"Pytest"`, `"Node.js"`, `"VS Code"`, BUKAN `"Python 3.12"`).
@@ -96,7 +97,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
   "images": [
     "/images/projects/<nama_project>/banner.webp"
   ],
-  "summary": "<1-2 kalimat ringkas tentang cakupan kurikulum & pendekatan praktik pemrograman>",
+  "summary": "<Maksimal 150 karakter: ringkasan masalah & solusi utama>",
   "codeLearningDescription": "<250-300 karakter untuk Hero Console Section 1>",
   "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [

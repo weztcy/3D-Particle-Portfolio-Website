@@ -271,9 +271,6 @@ export default function CyberTechStackSection({
           <span className="uppercase tracking-wider font-semibold">
             {uniqueTechs.length} ACTIVE
           </span>
-          <span className="text-[10px] text-slate-400 font-bold hidden sm:inline">
-            // PRODUCTION_READY
-          </span>
         </div>
       </div>
 

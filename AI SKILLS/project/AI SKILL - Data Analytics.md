@@ -49,6 +49,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `dataAnalyticsPresentationSlides[].imageUrl`: **WAJIB** menggunakan pola `"/images/projects/<nama_project>/slide01.webp"`, `slide02.webp`, dst. (2 digit *zero-padded*, **BUKAN** `image01.webp`).
 2. **Section 1 (Hero Console & Telemetry)**:
+   - `summary`: **Maksimal 150 karakter** (termasuk spasi), padat, profesional, dan merepresentasikan value/solusi utama project.
    - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
@@ -58,7 +59,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai temuan riil project.
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`dataAnalyticsBusinessContext`, `analyticalMethodology.summary`, `conclusion`): **250–350 karakter** (termasuk spasi).
-     - Item list grid (`dataAnalyticsAnalyticalObjectives[].description`, `dataAnalyticsKeyFindings[].description`, `recommendations[].action`): **120–180 karakter** (termasuk spasi).
+     - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
      - Caption visual (`deckSlides[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
@@ -101,7 +102,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
   "images": [
     "/images/projects/<nama_project>/banner.webp"
   ],
-  "summary": "<1-2 kalimat ringkas tentang masalah analitik bisnis & insight utama yang dihasilkan>",
+  "summary": "<Maksimal 150 karakter: ringkasan masalah & solusi utama>",
   "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
   "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
