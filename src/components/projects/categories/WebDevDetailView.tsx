@@ -74,7 +74,6 @@ export default function WebDevDetailView({
   // Section 1 Data: Project Description & Project Information
   const projectDescription =
     project.projectDescription ||
-    project.overview ||
     project.summary ||
     "";
 
@@ -99,30 +98,14 @@ export default function WebDevDetailView({
   // Section 2 Data: Background & Objectives
   const projectBackground =
     project.projectBackground ||
-    project.challenge ||
     "";
 
   const problemStatements = project.problemStatements || [];
 
-  const projectObjectives = project.projectObjectives ||
-    (project.objectives && project.objectives.length > 0
-      ? project.objectives.map((obj, idx) => ({
-          title: `Milestone ${String(idx + 1).padStart(2, "0")}`,
-          description: obj,
-          targetTag: `TARGET_0${idx + 1}`,
-        }))
-      : []);
+  const projectObjectives = project.projectObjectives || [];
 
   // Section 3 Data: Features & Interface
-  const coreFeatures = project.coreFeatures ||
-    (project.features && project.features.length > 0
-      ? project.features.map((f, i) => ({
-          title: f.title,
-          description: f.description,
-          badge: f.badge || `MODULE_0${i + 1}`,
-          metric: f.metric || "",
-        }))
-      : []);
+  const coreFeatures = project.coreFeatures || [];
 
   const interfaceShowcase =
     project.interfaceShowcase && project.interfaceShowcase.length > 0

@@ -77,14 +77,7 @@ export interface ProjectCaseStudy {
   imageUrl?: string;
   images?: string[];
   summary: string;
-  overview: string;
-  challenge: string;
   architectureSummary: string;
-  objectives: string[];
-  features: { title: string; description: string; badge?: string; [key: string]: any }[];
-  pipelineSteps: { step: string; detail: string; latencyOrMetric?: string; [key: string]: any }[];
-  evaluation: string;
-  outcomes: string[];
   techStack: string[];
   accentColor: "cyan" | "emerald" | "indigo" | "amber" | "fuchsia" | "teal" | "purple" | "orange" | "rose";
   repoUrl?: string;
@@ -306,7 +299,6 @@ export interface ProjectCaseStudy {
       label: string;
       value: string;
       benchmark?: string;
-      pass?: boolean;
     }[];
     qualitativeEvaluation: string;
     auditNote?: string;
@@ -419,7 +411,6 @@ export interface ProjectCaseStudy {
       label: string;
       value: string;
       benchmark?: string;
-      pass?: boolean;
     }[];
   };
   mlPerformanceVisualizations?: {

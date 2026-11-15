@@ -59,7 +59,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `mlPerformanceVisualizations[].imageUrl`: `"/images/projects/<nama_project>/image01.webp"`, `image02.webp`, dst. (2 digit *zero-padded*).
 2. **Section 1 (Hero Console & Telemetry)**:
-   - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - `mlProjectInfo.capabilityBadges`: **WAJIB tepat 3 item**, masing-masing **maksimal 3 kata**, tanpa underscore (`_`).
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
@@ -68,6 +68,10 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Heading & Subheading Static Universal pada Section 5**: Seluruh heading dan subheading di Section 5 bersifat static universal pada template (Heading: `[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]`, Tag: `EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS`, Card 1: `[ EVALUATION_STRATEGY // BENCHMARK_PROTOCOL ]`, Card 3: `[ MODEL_INTERPRETATION & ERROR ANALYSIS ]` dengan badge static `DIAGNOSTIC INSIGHTS`, serta blok `KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS`, `MODEL LIMITATIONS`, `FUTURE IMPROVEMENTS ROADMAP`). Tidak diperbolehkan menyertakan field custom header (`sectionTitle`, `sectionTag`, `strategyLabel`, `interpretabilityBadge`, `driversTitle`) di dalam data.
    - Variasi jenis project (Supervised, Unsupervised, Reinforcement Learning, Deep Learning, Computer Vision, maupun Simulasi Numerik) diwadahi melalui isi data: `validationMethod`, narasi `description`, array `metrics` (opsional, `value` ringkas ≤10–12 karakter agar tidak terpotong), `keyDrivers`, `limitations`, dan `futureImprovements`.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti project.
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`mlProblemContext`, `dataCharacteristicsSummary`, `methodologyDescription`, `trainingProcess`, `interpretationSummary`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`hyperparameters[].description`, `limitations[].description`, `inputSignals[].description`): **120–180 karakter** (termasuk spasi).
+     - Caption visual (`mlPerformanceVisualizations[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"PyTorch"`, `"Scikit-Learn"`, `"XGBoost"`, `"NumPy"`, BUKAN `"PyTorch 2.3 (CUDA)"`).
@@ -109,33 +113,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang masalah prediktif/komputasi & hasil model>",
-  "overview": "<400-500 karakter narasi teknis tentang data, arsitektur model, validasi, dan performa>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview) untuk Hero Console Section 1>",
-  "challenge": "<Ringkasan tantangan data/ketidakseimbangan kelas/konvergensi/generalisasi>",
-  "architectureSummary": "<Ringkasan pipeline dari ingestion, preprocessing, training, hingga evaluasi>",
-  "objectives": [
-    "<ML Objective 1>",
-    "<ML Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<Modeling / Pipeline Capability>",
-      "description": "<Penjelasan teknis mekanisme>",
-      "badge": "<Short Badge>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Pipeline Stage>",
-      "detail": "<Transformasi data / training / evaluasi>",
-      "latencyOrMetric": "<Dimensi atau metrik tahap>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi hasil validasi silang, metrik holdout, dan perbandingan baseline>",
-  "outcomes": [
-    "<Verified Model Outcome 1>",
-    "<Verified Model Outcome 2>"
-  ],
+  "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
+  "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
     "<Clean Tech Name Tanpa Versi>"
   ],
@@ -298,7 +277,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Memakai skema kanonik universal (`objectiveOutput`, `inputSignals`, `objectiveCriterion`, `optimizationSolver`), bukan field legacy.
 - [ ] Header Section 5 bersifat static universal pada template; isi `mlEvaluationStrategy` (`validationMethod`, `description`, `metrics`) dan `mlModelInterpretationAndLimitations` (`keyDrivers`, `limitations`, `futureImprovements`) disesuaikan dengan jenis project; `metrics` opsional atau diisi indikator terverifikasi dengan `value` ringkas.
 - [ ] `mlProjectInfo.capabilityBadges` berisi **tepat 3 item** (maks 3 kata, tanpa underscore `_`).
-- [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `mlMethodologySpecs` **bebas nomor versi** dan tanda kurung; `mlMethodologySpecs` maks 3–4 kata tanpa underscore (`_`).
 - [ ] Path visualisasi memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

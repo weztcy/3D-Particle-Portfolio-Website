@@ -60,7 +60,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `aiVisualShowcase[].imageUrl`: `"/images/projects/<nama_project>/image01.webp"`, `image02.webp`, dst. (2 digit *zero-padded*).
 2. **Section 1 (Hero Console & Telemetry)**:
-   - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
 3. **Section 2, 3, & 5 (Kritikal & Static Universal Section 5 AI Engineering)**:
@@ -73,6 +73,10 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `severity` pada `limitations` hanya boleh `"LOW"`, `"MEDIUM"`, atau `"HIGH"`.
    - `aiExecutionTelemetry.metrics`: isi maksimal 3 chip ringkas (UI menampilkan maksimal 3 chip teratas).
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti nyata.
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`problemContext`, `proposedAiSolution`, `qualitativeEvaluation`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`keyCapabilitiesAndUseCases[].description`, `coreAiComponents[].description`, `limitations[].description`): **120–180 karakter** (termasuk spasi).
+     - Caption visual (`aiVisualShowcase[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"LangGraph"`, `"Qdrant"`, `"OpenAI GPT"`, `"FastAPI"`, BUKAN `"GPT-4o (2024)"` atau `"LangChain v0.3"`).
@@ -115,33 +119,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang tantangan rekayasa AI & arsitektur solusi>",
-  "overview": "<400-500 karakter narasi teknis tentang orkestrasi AI, pipeline inferensi, dan hasil evaluasi>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview) untuk Hero Console Section 1>",
-  "challenge": "<Ringkasan tantangan akurasi/hallucination/latensi/konteks>",
-  "architectureSummary": "<Ringkasan alur orkestrasi model, retrieval/tools, dan guardrails>",
-  "objectives": [
-    "<AI Engineering Objective 1>",
-    "<AI Engineering Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<AI Capability Title>",
-      "description": "<Deskripsi mekanisme teknis>",
-      "badge": "<Short Badge>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Pipeline Step>",
-      "detail": "<Transformasi prompt/retrieval/reasoning/verifikasi>",
-      "latencyOrMetric": "<Latensi atau metrik tahap>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi hasil pengujian evaluasi kuantitatif & adversarial testing>",
-  "outcomes": [
-    "<Verified AI Performance Outcome 1>",
-    "<Verified AI Performance Outcome 2>"
-  ],
+  "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
+  "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
     "<Clean Tech Name Tanpa Versi>"
   ],
@@ -286,7 +265,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Seluruh prompt template, workflow graph, vector DB config, hasil eval (`.json`/`.csv`/logs), docs, dan gambar telah diperiksa.
 - [ ] `category` = `"ai-engineering"`, `categoryLabel` = `"AI Engineering"`, `accentColor` = `"purple"`.
 - [ ] **`aiEvaluationAndPerformance` dan `limitationsAndImprovements` WAJIB terisi penuh**; seluruh heading dan subheading Section 5 bersifat static universal pada template (tidak ada field label/badge kustom), dan nilai `severity` hanya `"LOW" | "MEDIUM" | "HIGH"`.
-- [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `aiTechSpecs` **bebas nomor versi** dan tanda kurung; hindari underscore (`_`) pada label/badge UI.
 - [ ] Path showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

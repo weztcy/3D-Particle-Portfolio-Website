@@ -52,12 +52,16 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `desktopMobileInterfaceShowcase[].imageUrl`: `"/images/projects/<nama_project>/image01.webp"`, `image02.webp`, dst. (2 digit *zero-padded*).
 2. **Section 1 (Hero Console & Telemetry)**:
-   - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
 3. **Section 2, 3, & 5 (Struktur Wajib `desktopMobile*`)**:
    - Seluruh field Section 2–5 **WAJIB menggunakan struktur objek `desktopMobile*`** yang sesuai dengan `types.ts` (seperti `desktopMobileProblemStatements`, `desktopMobileObjectives`, `desktopMobileFeatures`, `desktopMobileUserFlow`, `desktopMobileArchitecture`, `desktopMobileDataManagement`, `desktopMobilePlatformImplementation`). **Jangan gunakan array string polos** sebagai pengganti objek terstruktur.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti nyata.
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`desktopMobileBackground`, `desktopMobileArchitecture.summary`, `desktopMobileUserFlow.summary`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`desktopMobileProblemStatements[].description`, `desktopMobileObjectives[].description`, `desktopMobileFeatures[].description`, `desktopMobilePlatformImplementation[].description`): **120–180 karakter** (termasuk spasi).
+     - Caption visual (`desktopMobileInterfaceShowcase[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Electron"`, `"TypeScript"`, `"Flutter"`, `"Dart"`, `"SQLite"`, `"Rust"`, BUKAN `"Flutter 3.22"` atau `"SQLite 3"`).
@@ -101,33 +105,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang masalah pengguna/performa native & solusi aplikasi>",
-  "overview": "<400-500 karakter narasi teknis tentang kapabilitas aplikasi, arsitektur offline/native, dan dampaknya>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview) untuk Hero Console Section 1>",
-  "challenge": "<Ringkasan tantangan concurrency, memori, platform bridge, atau offline sync>",
-  "architectureSummary": "<Ringkasan alur UI client, worker/native core, dan penyimpanan lokal>",
-  "objectives": [
-    "<Application Objective 1>",
-    "<Application Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<App Feature Title>",
-      "description": "<Deskripsi fitur client>",
-      "badge": "<Short Badge>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Execution Step>",
-      "detail": "<Interaksi UI -> Worker/Native Bridge -> Persistence>",
-      "latencyOrMetric": "<Metrik atau tag>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi hasil pengujian platform, benchmark responsivitas, dan reliabilitas>",
-  "outcomes": [
-    "<Verified App Outcome 1>",
-    "<Verified App Outcome 2>"
-  ],
+  "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
+  "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
     "<Clean Tech Name Tanpa Versi>"
   ],
@@ -235,7 +214,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Seluruh manifest platform (`package.json`, `pubspec.yaml`, `AndroidManifest.xml`, `tauri.conf.json`), binary/installer, screenshot, manual, dan kode native telah diperiksa.
 - [ ] `category` = `"desktop-mobile"`, `categoryLabel` ditentukan akurat berdasarkan platform (`"Mobile App"` / `"Desktop App"` / `"Desktop & Mobile"`), `accentColor` = `"amber"`.
 - [ ] Seluruh Section 2, 3, & 5 memakai struktur `desktopMobile*` yang terdefinisi di `types.ts`.
-- [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `desktopMobileTechSpecs` **bebas nomor versi** dan tanda kurung.
 - [ ] `desktopMobilePlatformSpecs` menggunakan 4 nilai universal (maks 3–4 kata, tanpa underscore `_`).
 - [ ] Path showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.

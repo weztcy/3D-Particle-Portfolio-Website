@@ -77,9 +77,8 @@ export default function DesktopMobileDetailView({
 
   // Section 1: Overview & Information
   const projectDescription =
-    project.desktopMobileBackground ||
     project.projectDescription ||
-    project.overview ||
+    project.desktopMobileBackground ||
     project.summary ||
     "";
 
@@ -118,7 +117,6 @@ export default function DesktopMobileDetailView({
   const projectBackground =
     project.desktopMobileBackground ||
     project.projectBackground ||
-    project.challenge ||
     project.summary ||
     "";
 
@@ -137,25 +135,10 @@ export default function DesktopMobileDetailView({
           ? { title: `Objective 0${idx + 1}`, description: obj, targetTag: `OBJ_0${idx + 1}` }
           : { title: obj.title || `Objective 0${idx + 1}`, description: obj.description || "", targetTag: obj.targetTag || `OBJ_0${idx + 1}` }
       )
-    : (project.objectives && project.objectives.length > 0
-      ? project.objectives.map((obj, idx) => ({
-          title: `Objective 0${idx + 1}`,
-          description: obj,
-          targetTag: `OBJ_0${idx + 1}`,
-        }))
-      : []);
+    : [];
 
   // Section 3: Features & Showcase
-  const coreFeatures =
-    project.desktopMobileFeatures ||
-    (project.features && project.features.length > 0
-      ? project.features.map((f, i) => ({
-          title: f.title,
-          description: f.description,
-          badge: f.badge || `FEATURE_0${i + 1}`,
-          metric: (f as any).metric || "",
-        }))
-      : []);
+  const coreFeatures = project.desktopMobileFeatures || [];
 
   const interfaceShowcase =
     project.desktopMobileInterfaceShowcase ||
@@ -191,20 +174,10 @@ export default function DesktopMobileDetailView({
           })),
         }
       : (project.desktopMobileUserFlow || project.userFlow) as any
-  ) : (project.pipelineSteps && project.pipelineSteps.length > 0
-      ? {
-          summary: "Pipeline Execution Flow",
-          steps: project.pipelineSteps.map((step, idx) => ({
-            step: `STEP 0${idx + 1}`,
-            title: step.step,
-            description: step.detail,
-            actorOrNode: step.latencyOrMetric || `ACTION_0${idx + 1}`,
-          })),
-        }
-      : {
-          summary: "End-to-end user navigation and asynchronous client runtime flow.",
-          steps: [],
-        });
+  ) : {
+      summary: "End-to-end user navigation and asynchronous client runtime flow.",
+      steps: [],
+    };
 
   // Section 4: Tech Stack (Unified Flat)
   const allDesktopMobileTechStack = useMemo(() => {

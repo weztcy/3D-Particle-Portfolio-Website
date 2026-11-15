@@ -71,7 +71,6 @@ export default function MachineLearningDetailView({
   // Section 1: Overview & Information
   const projectDescription =
     project.projectDescription ||
-    project.overview ||
     project.summary ||
     "";
 
@@ -113,7 +112,6 @@ export default function MachineLearningDetailView({
   // Section 2: Problem Space & Dataset / Environment Profile
   const problemContext =
     project.mlProblemContext ||
-    project.challenge ||
     "";
 
   const rawDataset = project.mlDatasetOverview;

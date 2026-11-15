@@ -50,11 +50,15 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `interfaceShowcase[].imageUrl`: `"/images/projects/<nama_project>/image01.webp"`, `image02.webp`, dst. (2 digit *zero-padded*).
 2. **Section 1 (Hero Console & Telemetry)**:
-   - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; kosongkan/hapus `repoUrl` jika Private.
 3. **Section 2, 3, & 5**:
    - Jumlah item array **bebas** sesuai kebutuhan dan temuan riil project (tidak ada batas min/maks).
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`projectBackground`, `systemArchitecture.summary`, `userJourney.summary`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`problemStatements[].description`, `projectObjectives[].description`, `coreFeatures[].description`, `technicalImplementation[].description`): **120–180 karakter** (termasuk spasi).
+     - Caption visual (`interfaceShowcase[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Next.js"`, `"TypeScript"`, `"PostgreSQL"`, `"Prisma"`, BUKAN `"Next.js 16 App Router"` atau `"PostgreSQL 16"`).
@@ -98,33 +102,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang masalah utama & solusi web engineering>",
-  "overview": "<400-500 karakter narasi teknis mendalam tentang tujuan, arsitektur, dan dampak>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview) untuk Hero Console Section 1>",
-  "challenge": "<Ringkasan tantangan teknis/bottleneck utama>",
+  "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
   "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
-  "objectives": [
-    "<Objective 1>",
-    "<Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<Feature Title>",
-      "description": "<Deskripsi fitur teknis>",
-      "badge": "<Short Badge>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Step Title>",
-      "detail": "<Detail proses request/data>",
-      "latencyOrMetric": "<Metrik/tag>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi hasil pengujian, performa, dan validasi>",
-  "outcomes": [
-    "<Outcome terukur 1>",
-    "<Outcome terukur 2>"
-  ],
   "techStack": [
     "<Clean Tech Name Tanpa Versi>"
   ],
@@ -237,7 +216,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
 - [ ] Seluruh file non-kode (gambar, PDF, dokumen, SQL, test output) di direktori target ikut diperiksa.
 - [ ] `category` = `"web-development"`, `categoryLabel` = `"Web Development"`, `accentColor` = `"cyan"`.
-- [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `primaryTechSpecs` **bebas nomor versi** dan tanda kurung.
 - [ ] `architectureQuality.badges` berjumlah **tepat 4 item** dan **tanpa underscore (`_`)**.
 - [ ] Path aset lokal memakai `/images/projects/<nama_project>/banner.webp` & `image01-XX.webp`.

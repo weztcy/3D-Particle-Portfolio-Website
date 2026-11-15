@@ -17,65 +17,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Enterprise-grade multi-tenant ERP platform engineered to eradicate negative stock drift, untracked workshop material scrap, and distorted inventory valuations in manufacturing operations.",
-    "overview": "Smart Inventory & Operations System is an enterprise-grade multi-tenant ERP platform engineered to eradicate negative stock drift, untracked workshop material scrap, and distorted inventory valuations in manufacturing operations. Built on Next.js 16 App Router, React 19, TypeScript, and Prisma ORM with SQLite and PostgreSQL compatibility, the architecture handles high-concurrency inventory mutations through a dedicated ACID Inventory Engine. The engine serializes execution via process-level mutex locks and Prisma interactive transactions with ROW-level locking (SELECT FOR UPDATE) to prevent race conditions during simultaneous material receipts and dispatches.",
-    "challenge": "Manufacturing workshops faced severe stock drift caused by concurrent writes during physical dispatches and inventory audits. Legacy systems lacked serial transactional locks, resulting in negative stock tallies and phantom discrepancies averaging 8.4% monthly.",
     "architectureSummary": "Next.js 16 App Router + Prisma ORM + Process-level Mutex ACID Engine + SQLite / PostgreSQL persistence + Edge Caching",
-    "objectives": [
-      "Eliminate phantom stock discrepancies through atomic ACID transactional updates.",
-      "Achieve sub-50ms latency for inventory status queries under high concurrency.",
-      "Deploy robust multi-tenant role-based access control (RBAC) with granular operator permissions.",
-      "Deliver automated physical reconciliation audit trails with immutable timestamping."
-    ],
-    "features": [
-      {
-        "title": "ACID Inventory Engine",
-        "description": "Serializes inventory mutations with row-level locks and transactional rollbacks.",
-        "badge": "Core Engine"
-      },
-      {
-        "title": "Multi-Tenant RBAC",
-        "description": "Strict tenant isolation with role-specific permissions for operators and auditors.",
-        "badge": "Security"
-      },
-      {
-        "title": "Real-Time Drift Detection",
-        "description": "Automated reconciliation scanner highlighting stock level variances in milliseconds.",
-        "badge": "Audit"
-      },
-      {
-        "title": "Material Dispatch Gateway",
-        "description": "Streamlined dispatch portal preventing negative stock allocations automatically.",
-        "badge": "Operations"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Mutation Request Ingestion",
-        "detail": "Validates incoming inventory dispatch payload and checks session clearance.",
-        "latencyOrMetric": "4ms"
-      },
-      {
-        "step": "Mutex Lock Acquisition",
-        "detail": "Secures in-memory mutex key per SKU to serialize concurrent balance mutations.",
-        "latencyOrMetric": "1ms"
-      },
-      {
-        "step": "ACID Transaction Execution",
-        "detail": "Executes atomic deduction and generates immutable audit ledger entry.",
-        "latencyOrMetric": "18ms"
-      },
-      {
-        "step": "Cache Invalidation & Push",
-        "detail": "Purges edge cache and broadcasts updated balance to connected operator sessions.",
-        "latencyOrMetric": "12ms"
-      }
-    ],
-    "evaluation": "Under simulated load of 500 concurrent stock deductions, Smart Inventory achieved 100% transactional determinism with zero phantom stock drift and maintained p95 latency under 34ms.",
-    "outcomes": [
-      "Eliminated 100% of negative stock balance race conditions across active workshop deployments.",
-      "Reduced monthly audit reconciliation overhead from 14 hours down to under 15 minutes.",
-      "Maintained sub-35ms p95 response time across high-frequency manufacturing shift handovers."
-    ],
     "techStack": [
       "Next.js",
       "React",
@@ -329,65 +271,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Real-time web auction engine featuring sub-20ms WebSocket bid synchronization, Redis countdown timers, and automated anti-sniping bid extensions.",
-    "overview": "SiLelo is a high-concurrency real-time online auction platform designed to eliminate bid latency and race condition vulnerabilities during final-second bidding wars. Developed with Next.js, Node.js, Socket.io, and Redis pub/sub channels, the system handles thousands of concurrent bidders per auction lot with millisecond synchronization. An intelligent anti-sniping algorithm dynamically extends auction timers when bids land in the final 30 seconds, ensuring fair market value discovery.",
-    "challenge": "Traditional HTTP polling failed during peak auction closes, causing missed bids, server timeouts, and bidder frustration during competitive lot closings.",
     "architectureSummary": "Next.js + Socket.io WebSockets + Redis Pub/Sub + Atomic Escrow Transactions + Tailwind CSS",
-    "objectives": [
-      "Deliver sub-20ms bi-directional WebSocket bid broadcast across all connected clients.",
-      "Implement dynamic anti-sniping timer extensions to prevent last-millisecond bid bots.",
-      "Enforce atomic escrow balance pre-authorization to prevent unbacked auction bids.",
-      "Provide real-time bidding telemetry with visual price-ladder updates."
-    ],
-    "features": [
-      {
-        "title": "WebSocket Bidding Engine",
-        "description": "Zero-latency full-duplex socket channel broadcasting live price increments.",
-        "badge": "Real-Time"
-      },
-      {
-        "title": "Anti-Sniping Protocol",
-        "description": "Automatically resets remaining auction countdown upon late bid submission.",
-        "badge": "Fair Play"
-      },
-      {
-        "title": "Pre-Auth Escrow Shield",
-        "description": "Locks bidder credit limits prior to bid acceptance to ensure solvency.",
-        "badge": "Financial"
-      },
-      {
-        "title": "Live Price-Ladder HUD",
-        "description": "Holographic interface rendering live bid progressions and competitor avatars.",
-        "badge": "UI/UX"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Bid Placement",
-        "detail": "Client transmits cryptographic bid signature over secure WebSocket frame.",
-        "latencyOrMetric": "6ms"
-      },
-      {
-        "step": "Balance Verification",
-        "detail": "Redis check asserts bidder escrow solvency before admitting bid to stream.",
-        "latencyOrMetric": "2ms"
-      },
-      {
-        "step": "Atomic Price Update",
-        "detail": "Database row increments current highest bid and stores timestamped bid log.",
-        "latencyOrMetric": "14ms"
-      },
-      {
-        "step": "Global Broadcast",
-        "detail": "Redis Pub/Sub pushes updated lot state to all connected room subscribers.",
-        "latencyOrMetric": "8ms"
-      }
-    ],
-    "evaluation": "Stress tested with 1,200 simultaneous bidders on a single lot closing; sustained 0 dropped bids and maintained median broadcast delay below 18ms.",
-    "outcomes": [
-      "Achieved 99.98% bid delivery reliability during high-stakes closing minutes.",
-      "Increased average lot final valuation by 14.2% through dynamic anti-sniping extensions.",
-      "Processed over 10,000 simulated auction transactions with zero escrow reconciliation errors."
-    ],
     "techStack": [
       "Next.js",
       "React",
@@ -643,65 +527,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "High-performance interactive 3D web showcase for gaming hardware featuring Three.js product shaders, headless CMS integration, and sub-40ms edge caching.",
-    "overview": "Aorus Gaming Showcase is an interactive, GPU-accelerated web platform presenting high-end computer hardware through interactive 3D model viewports and fluid component animations. Built using Next.js 16, React Three Fiber (Three.js), and Tailwind CSS, the platform delivers 60fps holographic hardware exploration on desktop and mobile web viewports. Asset pipelines compress 3D meshes and 4K textures into ultra-light glTF/Draco formats, enabling sub-second initial load times across global CDNs.",
-    "challenge": "Heavy 3D assets previously triggered severe layout shifting and prolonged loading delays on mobile devices, diminishing user engagement and conversion rates.",
     "architectureSummary": "Next.js 16 + React Three Fiber + Draco glTF Compression + Edge Asset Delivery + Tailwind CSS",
-    "objectives": [
-      "Deliver interactive 3D hardware exploration sustaining locked 60fps performance on modern browsers.",
-      "Compress 3D asset bundles by 70% using Draco mesh compression without visual fidelity loss.",
-      "Implement headless API integration for instantaneous spec lookups across 150+ hardware SKUs.",
-      "Ensure full mobile responsiveness and touch orbit control calibration."
-    ],
-    "features": [
-      {
-        "title": "Interactive 3D Viewport",
-        "description": "Real-time lighting shaders and 360-degree orbit inspection for GPUs and motherboards.",
-        "badge": "WebGL / 3D"
-      },
-      {
-        "title": "Draco Mesh Optimization",
-        "description": "Aggressive geometry and texture compression ensuring sub-second model hydrations.",
-        "badge": "Performance"
-      },
-      {
-        "title": "Dynamic Component Comparer",
-        "description": "Side-by-side technical spec matrix with benchmark overlays and visual diffing.",
-        "badge": "Comparison"
-      },
-      {
-        "title": "Edge Cached Specs Catalog",
-        "description": "Static site generation backed by edge KV caching for sub-30ms page transitions.",
-        "badge": "Edge"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Asset Ingestion",
-        "detail": "3D OBJ/FBX models processed via Draco encoder to produce optimized .glb files.",
-        "latencyOrMetric": "Asset Pipeline"
-      },
-      {
-        "step": "Progressive Hydration",
-        "detail": "Low-poly placeholder rendered instantly while high-res textures stream asynchronously.",
-        "latencyOrMetric": "120ms"
-      },
-      {
-        "step": "WebGL Shader Init",
-        "detail": "GPU initializes PBR materials and ambient occlusion maps within canvas context.",
-        "latencyOrMetric": "16ms"
-      },
-      {
-        "step": "User Interaction Loop",
-        "detail": "Touch or mouse orbit updates camera matrix at locked 60fps.",
-        "latencyOrMetric": "16.6ms / frame"
-      }
-    ],
-    "evaluation": "Maintained a stable 60fps rendering frame rate on mid-tier mobile hardware with initial bundle transfer size reduced to under 1.4MB.",
-    "outcomes": [
-      "Reduced average 3D asset load time from 4.8 seconds down to 0.9 seconds.",
-      "Increased user dwell time on technical product pages by 84% compared to 2D image galleries.",
-      "Achieved a 98/100 Google Lighthouse performance score on desktop viewport."
-    ],
     "techStack": [
       "Next.js",
       "React",
@@ -935,65 +761,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Enterprise-grade quantitative business intelligence investigation analyzing multi-channel retail transaction streams to resolve margin cannibalization and customer churn.",
-    "overview": "OmniChannel Retail Sales Analytics is an enterprise-grade quantitative business intelligence investigation engineered to resolve severe margin cannibalization, escalating customer churn, and fulfillment latency across hybrid online and brick-and-mortar storefronts. Combining automated ETL pipelines, RFM segmentation, and predictive survival modeling across 840,000+ transaction rows, the project isolates discount inefficiencies and identifies high-value customer retention cohorts.",
-    "challenge": "Aggressive promotional discounting induced revenue dilution and obscured true customer acquisition cost, with 42% of first-time discounted shoppers never returning for secondary purchases.",
     "architectureSummary": "Python (Pandas, NumPy) + PostgreSQL data warehouse + Scikit-Learn RFM clustering + Power BI interactive dashboards",
-    "objectives": [
-      "Isolate discount cannibalization thresholds across top-performing product categories.",
-      "Calculate 12-month Customer Lifetime Value (CLV) stratified by acquisition channel.",
-      "Identify churn-risk triggers using recency-frequency decay modeling.",
-      "Formulate actionable inventory allocation strategies to eliminate fulfillment bottlenecks."
-    ],
-    "features": [
-      {
-        "title": "RFM Cohort Segmentation",
-        "description": "Classifies 120,000+ customers into distinct engagement and retention tiers.",
-        "badge": "Segmentation"
-      },
-      {
-        "title": "Discount Elasticity Analysis",
-        "description": "Pinpoints the exact promotional ceiling before gross margin erosion occurs.",
-        "badge": "Econometrics"
-      },
-      {
-        "title": "Churn Hazard Modeling",
-        "description": "Survival analysis identifying lapse danger windows after initial purchase.",
-        "badge": "Predictive"
-      },
-      {
-        "title": "Channel Profitability HUD",
-        "description": "Executive telemetry dashboard contrasting store vs e-commerce net margins.",
-        "badge": "Executive BI"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Automated Data Ingestion",
-        "detail": "Extracts transactional logs from POS and e-commerce databases via automated SQL staging.",
-        "latencyOrMetric": "ETL Pipeline"
-      },
-      {
-        "step": "Data Cleansing & Deduplication",
-        "detail": "Removes canceled orders, normalizes customer identifiers, and imputes null timestamps.",
-        "latencyOrMetric": "Data Prep"
-      },
-      {
-        "step": "Feature Engineering & RFM",
-        "detail": "Calculates Recency, Frequency, and Monetary scores with quintile rank bucketing.",
-        "latencyOrMetric": "Analytics"
-      },
-      {
-        "step": "Dashboard Hydration",
-        "detail": "Populates interactive visualizations and executive summary slide decks.",
-        "latencyOrMetric": "Presentation"
-      }
-    ],
-    "evaluation": "The analysis proved that discounts exceeding 18% reduced net operating margins by 24.8% without improving repeat purchase frequency (p < 0.005).",
-    "outcomes": [
-      "Identified $1.4M in annual margin recovery through capped promotion thresholds.",
-      "Improved 90-day retention rates by 16.4% via targeted re-engagement campaigns for 'At-Risk Champions'.",
-      "Streamlined regional warehouse inventory holding allocations by 22%."
-    ],
     "techStack": [
       "Python",
       "SQL",
@@ -1299,21 +1067,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "dataAnalyticsSupportingFiles": [
       {
         "name": "omnichannel_transactions_cleaned_v2.csv",
-        "format": "CSV // GZIP",
-        "size": "48.2 MB",
-        "description": "De-duplicated transaction records with RFM and CLV segment tags."
+        "format": "CSV // GZIP"
       },
       {
         "name": "retail_executive_kpi_deck.pbix",
-        "format": "Power BI Desktop",
-        "size": "12.4 MB",
-        "description": "Interactive multi-screen dashboard with dynamic cohort filters."
+        "format": "Power BI Desktop"
       },
       {
         "name": "clv_cohort_survival_model.ipynb",
-        "format": "Jupyter Notebook",
-        "size": "3.8 MB",
-        "description": "BG/NBD and Gamma-Gamma statistical model fitting pipeline."
+        "format": "Jupyter Notebook"
       }
     ]
   },
@@ -1333,65 +1095,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Large-scale NLP text mining and diagnostic customer experience analysis evaluating 45,000+ guest reviews across Jakarta luxury and boutique hospitality properties.",
-    "overview": "Jakarta Hotel Review Sentiment Analysis is a diagnostic data analytics study combining Natural Language Processing (NLP), aspect-based sentiment scoring, and exploratory correlation modeling across 45,000+ guest reviews. The project deconstructs guest satisfaction drivers across cleanliness, front-desk service latency, room amenities, and breakfast quality, equipping hotel operators with prioritized operational action roadmaps.",
-    "challenge": "Hoteliers struggled with unstructured online feedback across multiple booking platforms, unable to systematically separate trivial complaints from systemic operational bottlenecks.",
     "architectureSummary": "Python NLP (NLTK, VADER, TF-IDF) + PostgreSQL text store + Aspect-based sentiment extraction + Tableau visualization",
-    "objectives": [
-      "Process and structure 45,000+ raw hotel guest reviews across 35 Jakarta properties.",
-      "Extract granular aspect-based sentiment polarity for service, amenities, and cleanliness.",
-      "Identify the primary drivers of negative 1-star and 2-star hotel ratings.",
-      "Develop executive dashboards visualizing guest satisfaction trends by hotel tier."
-    ],
-    "features": [
-      {
-        "title": "Aspect-Based Sentiment Mining",
-        "description": "Isolates sentiment polarity specifically for front desk, housekeeping, and F&B.",
-        "badge": "NLP"
-      },
-      {
-        "title": "Topic Modeling (LDA)",
-        "description": "Unsupervised Latent Dirichlet Allocation identifying emergent guest complaint themes.",
-        "badge": "Topic Modeling"
-      },
-      {
-        "title": "Satisfaction Correlator",
-        "description": "Statistical regression linking specific service failures to overall star rating drops.",
-        "badge": "Correlation"
-      },
-      {
-        "title": "Hospitality KPI HUD",
-        "description": "Interactive dashboard displaying Net Promoter Score (NPS) proxies per hotel brand.",
-        "badge": "Dashboard"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Text Normalization",
-        "detail": "Tokenization, stopword removal, slang normalization, and lemmatization across Indonesian and English text.",
-        "latencyOrMetric": "Preprocessing"
-      },
-      {
-        "step": "Aspect Keyword Extraction",
-        "detail": "Domain dictionary matching mapping customer phrases to operational hotel departments.",
-        "latencyOrMetric": "NER"
-      },
-      {
-        "step": "Polarity Scoring",
-        "detail": "Hybrid lexicon-based VADER scoring fine-tuned for hospitality terminology.",
-        "latencyOrMetric": "Sentiment"
-      },
-      {
-        "step": "Correlation Modeling",
-        "detail": "Multiple linear regression quantifying impact of each aspect on numerical review scores.",
-        "latencyOrMetric": "Analytics"
-      }
-    ],
-    "evaluation": "The sentiment model achieved an 89.4% F1-score in detecting negative operational sentiment, confirming front-desk check-in delays as the #1 predictor of sub-3-star reviews.",
-    "outcomes": [
-      "Analyzed 45,210 customer reviews with verified statistical rigor.",
-      "Identified that check-in waiting times over 15 minutes caused an 82% spike in 1-star reviews.",
-      "Provided 6 regional general managers with prioritized operational remediation checklists."
-    ],
     "techStack": [
       "Python",
       "NLTK",
@@ -1684,21 +1388,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "dataAnalyticsSupportingFiles": [
       {
         "name": "jakarta_hotel_sentiment_corpus.csv",
-        "format": "CSV Dataset",
-        "size": "24.6 MB",
-        "description": "Pre-processed customer reviews with VADER and aspect polarity scores."
+        "format": "CSV Dataset"
       },
       {
         "name": "hospitality_experience_matrix.twbx",
-        "format": "Tableau Packaged",
-        "size": "18.1 MB",
-        "description": "Visual hotel category ranking and guest sentiment radar charts."
+        "format": "Tableau Packaged"
       },
       {
         "name": "aspect_extraction_lda_pipeline.ipynb",
-        "format": "Jupyter Notebook",
-        "size": "5.2 MB",
-        "description": "Topic modeling and negative review root-cause analysis."
+        "format": "Jupyter Notebook"
       }
     ]
   },
@@ -1718,65 +1416,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Quantitative socioeconomic demographic analysis and predictive scoring audit evaluating scholarship allocation equity across 18,000+ university applicants.",
-    "overview": "KIP Student Eligibility Analytics is an educational equity and quantitative demographic investigation designed to ensure fair, transparent, and audited distribution of university government scholarships (KIP Kuliah). By auditing 18,000+ student applications across parental income, housing characteristics, utility expenditure, and academic achievements, the study builds an automated demographic scoring model that reduces human review bias and flags fraudulent applications.",
-    "challenge": "Manual scholarship review committees faced immense document processing volume, leading to inconsistent evaluations, clerical oversights, and misallocated financial aid funds.",
     "architectureSummary": "Python (Pandas, Scipy) + Multi-criteria Decision Analysis (TOPSIS) + Demographic clustering + Power BI audit reporting",
-    "objectives": [
-      "Audit socioeconomic distributions across 18,000+ scholarship applicant profiles.",
-      "Construct a composite Socioeconomic Vulnerability Index (SVI) combining 14 weighted parameters.",
-      "Identify application inconsistencies and phantom income declarations via automated anomaly detection.",
-      "Provide university administrators with an equitable and auditable scholarship ranking matrix."
-    ],
-    "features": [
-      {
-        "title": "Socioeconomic Vulnerability Index",
-        "description": "Normalized 0-100 composite index synthesizing household income and dependent counts.",
-        "badge": "Index"
-      },
-      {
-        "title": "Discrepancy Anomaly Scanner",
-        "description": "Automated logic flagging applicants with low declared income but high utility consumption.",
-        "badge": "Audit"
-      },
-      {
-        "title": "Geospatial Equity Mapping",
-        "description": "Visualizes scholarship beneficiary allocation by provincial origin and rurality.",
-        "badge": "Geospatial"
-      },
-      {
-        "title": "Committee Decision Matrix HUD",
-        "description": "Interactive portal ranking verified applicants with transparent criteria weighting.",
-        "badge": "Decision Support"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Data Extraction & Cleansing",
-        "detail": "Aggregates multi-source scholarship portal forms and normalizes financial records.",
-        "latencyOrMetric": "Ingestion"
-      },
-      {
-        "step": "Socioeconomic Feature Scaling",
-        "detail": "Applies min-max scaling to household income, house square footage, and electricity bills.",
-        "latencyOrMetric": "Scaling"
-      },
-      {
-        "step": "Multi-Criteria TOPSIS Ranking",
-        "detail": "Calculates mathematical distance to ideal poverty and academic merit profiles.",
-        "latencyOrMetric": "MCDA"
-      },
-      {
-        "step": "Committee Export & Verification",
-        "detail": "Generates auditable ranking lists with detailed breakdown of scoring rationale.",
-        "latencyOrMetric": "Reporting"
-      }
-    ],
-    "evaluation": "The algorithmic scoring system achieved 96.8% agreement with senior human audit committees while processing the entire applicant pool in under 4 minutes.",
-    "outcomes": [
-      "Audited 18,400 applicant records with zero manual data entry errors.",
-      "Flagged 420 fraudulent applications claiming poverty despite high luxury utility footprints.",
-      "Shortened university scholarship award publication cycle from 6 weeks down to 4 days."
-    ],
     "techStack": [
       "Python",
       "Pandas",
@@ -2056,21 +1696,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "dataAnalyticsSupportingFiles": [
       {
         "name": "kip_student_demographics_anonymized.csv",
-        "format": "CSV Dataset",
-        "size": "14.8 MB",
-        "description": "Anonymized socioeconomic metrics, family income, and academic GPA records."
+        "format": "CSV Dataset"
       },
       {
         "name": "topsis_mcda_eligibility_report.xlsx",
-        "format": "Excel Workbook",
-        "size": "8.5 MB",
-        "description": "TOPSIS normalized scoring matrices, criterion weights, and ranking cutoffs."
+        "format": "Excel Workbook"
       },
       {
         "name": "equity_statistical_distribution.ipynb",
-        "format": "Jupyter Notebook",
-        "size": "4.1 MB",
-        "description": "Distribution disparity analysis and policy impact simulation."
+        "format": "Jupyter Notebook"
       }
     ]
   },
@@ -2091,71 +1725,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Enterprise agentic retrieval-augmented generation engine engineered with self-reflective reasoning loops, hybrid dense-sparse vector indexing, and zero-hallucination source attribution.",
-    "overview": "Synapse Agentic RAG Knowledge Engine is a high-assurance enterprise intelligence platform engineered to eliminate knowledge silos and eradicate hallucinated generation. Built on LangGraph, Qdrant vector database, FastEmbed, and Llama 3 / Claude 3.5 Sonnet, Synapse transforms static documentation archives into dynamic, queryable cognitive memory. Rather than relying on single-pass vector similarity, Synapse initiates an autonomous cognitive graph that plans queries, evaluates document relevance, refines search paths recursively, and synthesizes answers with immutable citation links.",
-    "challenge": "Enterprise knowledge archives suffer from fragmented file formats, conflicting document versions, and high noise ratios. Standard naive RAG pipelines return irrelevant snippets and hallucinate critical facts when information spans multiple documents, creating unacceptable risk for enterprise compliance and legal teams.",
     "architectureSummary": "LangGraph Cognitive Graph + Qdrant Hybrid Dense/Sparse Index + FastEmbed + Self-Reflective Verification Engine + FastAPI Gateway",
-    "objectives": [
-      "Eliminate factual hallucinations through recursive self-reflection and deterministic source validation.",
-      "Achieve multi-hop retrieval accuracy exceeding 95% across cross-document corporate repositories.",
-      "Deliver sub-1.2s end-to-end inference latency with hybrid vector search and semantic caching.",
-      "Provide immutable, transparent citation attribution for all generated outputs down to page and paragraph."
-    ],
-    "features": [
-      {
-        "title": "Self-Reflective Retrieval Graph",
-        "description": "Multi-agent graph evaluating retrieved context quality and triggering corrective searches dynamically.",
-        "badge": "Cognitive Graph"
-      },
-      {
-        "title": "Hybrid Dense-Sparse Index",
-        "description": "Combines dense vector embeddings with BM25 sparse lexical tokens in Qdrant for optimal retrieval precision.",
-        "badge": "Hybrid Search"
-      },
-      {
-        "title": "Deterministic Citation Linking",
-        "description": "Direct source grounding anchoring every sentence to verified document pages with confidence scoring.",
-        "badge": "Attribution"
-      },
-      {
-        "title": "Semantic Response Cache",
-        "description": "Redis-backed vector similarity cache serving frequent enterprise inquiries with sub-50ms latency.",
-        "badge": "Caching"
-      }
-    ],
     "aiTechSpecs": {
       "programmingLanguage": "Python",
       "aiFramework": "LangGraph & LangChain",
       "foundationModel": "Llama 3 & Claude Sonnet"
     },
-    "pipelineSteps": [
-      {
-        "step": "Phase 01: Multi-Format Ingestion",
-        "detail": "PDF, DOCX, and Notion parsing via unstructured OCR pipelines with metadata preservation.",
-        "latencyOrMetric": "45ms/doc"
-      },
-      {
-        "step": "Phase 02: Hybrid Embedding & Indexing",
-        "detail": "Dual dense-sparse vector generation stored in Qdrant collections with payload filtering.",
-        "latencyOrMetric": "68ms/batch"
-      },
-      {
-        "step": "Phase 03: Agentic Reasoning Loop",
-        "detail": "LangGraph state machine decomposes queries, routes tools, and grades retrieved context.",
-        "latencyOrMetric": "480ms"
-      },
-      {
-        "step": "Phase 04: Grounded Synthesis & Audit",
-        "detail": "LLM response generation with strict Pydantic JSON schema output and citation verification.",
-        "latencyOrMetric": "540ms"
-      }
-    ],
-    "evaluation": "Synapse achieved 97.8% RAGAS faithfulness and 96.2% answer relevancy across a golden dataset of 1,200 complex multi-document regulatory queries, completely eliminating ungrounded hallucinations.",
-    "outcomes": [
-      "97.8% RAGAS Faithfulness verified in empirical stress testing.",
-      "42% Reduction in token inference costs via semantic caching and targeted chunking.",
-      "Sub-1.2s average end-to-end latency for complex multi-hop enterprise inquiries.",
-      "Zero ungrounded hallucinations detected across 1,200 golden test cases."
-    ],
     "techStack": [
       "LangGraph",
       "LangChain",
@@ -2358,38 +1933,32 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "RAGAS Faithfulness",
           "value": "97.8%",
-          "benchmark": "> 92% Target",
-          "pass": true
+          "benchmark": "> 92% Target"
         },
         {
           "label": "Answer Relevance",
           "value": "96.2%",
-          "benchmark": "> 90% Target",
-          "pass": true
+          "benchmark": "> 90% Target"
         },
         {
           "label": "Context Precision",
           "value": "94.5%",
-          "benchmark": "> 88% Target",
-          "pass": true
+          "benchmark": "> 88% Target"
         },
         {
           "label": "Inference Latency",
           "value": "1.14s",
-          "benchmark": "< 2.0s Target",
-          "pass": true
+          "benchmark": "< 2.0s Target"
         },
         {
           "label": "Cost Efficiency",
           "value": "+42%",
-          "benchmark": "vs Standard RAG",
-          "pass": true
+          "benchmark": "vs Standard RAG"
         },
         {
           "label": "Hallucination Rate",
           "value": "0.02%",
-          "benchmark": "< 0.5% Threshold",
-          "pass": true
+          "benchmark": "< 0.5% Threshold"
         }
       ],
       "qualitativeEvaluation": "Synapse demonstrated robust, hallucination-free generation across an automated evaluation suite of 1,200 complex multi-document questions, maintaining strict factual consistency even on adversarial prompts.",
@@ -2437,71 +2006,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Autonomous personal knowledge management cognitive agent that transforms scattered digital notes, research papers, and work logs into an active associative memory network.",
-    "overview": "BrainSync Autonomous PKM AI Agent is a privacy-first personal intelligence agent engineered to resolve information overload and fragmented knowledge retention. Running locally or in a private cloud container, BrainSync continuously ingests Markdown files, browser bookmarks, PDF research papers, and audio transcripts. Utilizing an autonomous semantic entity linker and graph-augmented memory architecture, BrainSync uncovers hidden conceptual links between disparate notes and surfaces serendipitous insights exactly when needed.",
-    "challenge": "Knowledge workers and researchers store thousands of digital notes across Obsidian, Notion, and local drives, but over 70% of notes are never reopened. Traditional keyword search fails to connect related concepts written months apart in different vocabularies, leading to severe cognitive fragmentation and duplicated effort.",
     "architectureSummary": "Local-First Semantic Agent + Graph-Augmented Memory + ChromaDB + Ollama / Local Mistral + SQLite Graph Store",
-    "objectives": [
-      "Automate bidirectional associative backlinking across thousands of scattered markdown notes and papers.",
-      "Achieve sub-300ms associative search latency running strictly on local hardware with zero cloud leaks.",
-      "Generate proactive knowledge digests highlighting related past ideas when drafting new documents.",
-      "Maintain a 100% private, air-gapped cryptographic storage tier ensuring user data sovereignty."
-    ],
-    "features": [
-      {
-        "title": "Autonomous Entity Linker",
-        "description": "Background agent that discovers conceptual affinities and auto-generates bidirectional markdown backlinks.",
-        "badge": "Entity Linking"
-      },
-      {
-        "title": "Spaced Cognitive Recall",
-        "description": "Proactive serendipity engine delivering forgotten relevant insights based on current writing focus.",
-        "badge": "Serendipity"
-      },
-      {
-        "title": "Local-First Vector Store",
-        "description": "ChromaDB embedded vector store and local ONNX embeddings running 100% offline on device.",
-        "badge": "Offline First"
-      },
-      {
-        "title": "Graph Knowledge Visualizer",
-        "description": "Interactive 3D dynamic force-directed graph illustrating semantic clustering and note relationship density.",
-        "badge": "3D Visualizer"
-      }
-    ],
     "aiTechSpecs": {
       "programmingLanguage": "Python",
       "aiFramework": "LangChain & NetworkX",
       "foundationModel": "Mistral & Phi-3"
     },
-    "pipelineSteps": [
-      {
-        "step": "Phase 01: Vault Ingestion & Watcher",
-        "detail": "Filesystem watcher detects note edits in Obsidian/Notion markdown vaults in real time.",
-        "latencyOrMetric": "12ms"
-      },
-      {
-        "step": "Phase 02: Entity & Concept Extraction",
-        "detail": "Local quantized LLM identifies key entities, themes, and intellectual questions.",
-        "latencyOrMetric": "180ms"
-      },
-      {
-        "step": "Phase 03: Associative Graph Linking",
-        "detail": "Cosine similarity graph links semantically related nodes across temporal boundaries.",
-        "latencyOrMetric": "45ms"
-      },
-      {
-        "step": "Phase 04: Serendipity Delivery",
-        "detail": "Contextual floating card delivers relevant past notes directly into the current active document.",
-        "latencyOrMetric": "60ms"
-      }
-    ],
-    "evaluation": "BrainSync achieved 98.1% associative recall accuracy across a benchmark of 15,000 multi-topic personal notes, reducing note retrieval times from 4.5 minutes to under 300 milliseconds.",
-    "outcomes": [
-      "98.1% Associative recall accuracy on a 15,000-note personal research corpus.",
-      "89% Reduction in duplicate note creation and manual tagging effort.",
-      "Sub-300ms search latency on edge devices using local ONNX embeddings.",
-      "100% Privacy-preserving local execution with zero outbound telemetry."
-    ],
     "techStack": [
       "Python",
       "ChromaDB",
@@ -2703,38 +2213,32 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "Recall Accuracy",
           "value": "98.1%",
-          "benchmark": "> 95% Target",
-          "pass": true
+          "benchmark": "> 95% Target"
         },
         {
           "label": "Entity Linking F1",
           "value": "94.7%",
-          "benchmark": "> 90% Target",
-          "pass": true
+          "benchmark": "> 90% Target"
         },
         {
           "label": "Association Precision",
           "value": "92.3%",
-          "benchmark": "> 85% Target",
-          "pass": true
+          "benchmark": "> 85% Target"
         },
         {
           "label": "Local Query Latency",
           "value": "260ms",
-          "benchmark": "< 500ms Target",
-          "pass": true
+          "benchmark": "< 500ms Target"
         },
         {
           "label": "Context Preservation",
           "value": "99.2%",
-          "benchmark": "> 95% Target",
-          "pass": true
+          "benchmark": "> 95% Target"
         },
         {
           "label": "False Link Rate",
           "value": "0.04%",
-          "benchmark": "< 1.0% Threshold",
-          "pass": true
+          "benchmark": "< 1.0% Threshold"
         }
       ],
       "qualitativeEvaluation": "BrainSync demonstrated flawless associative recall across 15,000 multi-topic markdown notes without memory drift or hallucinated associations, operating entirely within local hardware constraints.",
@@ -2782,71 +2286,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "High-assurance financial intelligence AI copilot engineered with deterministic code interpreter execution for balance sheet reconciliation and SEC filing analysis.",
-    "overview": "Enterprise Financial Intelligence AI Agent is an audit-grade financial copilot engineered for investment analysts, CFO offices, and risk auditors. Powered by a neural-symbolic architecture combining Claude 3.5 Sonnet, a secure Python code execution sandbox, and a specialized financial table parser, the platform digests SEC 10-K/10-Q filings, earnings transcripts, and multi-sheet financial models. The agent eliminates arithmetic hallucinations by routing all calculations through an isolated deterministic execution sandbox.",
-    "challenge": "Financial analysts spend hours manually reconciling complex balance sheet disclosures, tabular notes, and earnings calls under strict regulatory scrutiny. Standard LLMs hallucinate calculations in 34% of quarterly financial reports, making unverified AI dangerous for institutional financial decisions.",
     "architectureSummary": "Neural-Symbolic Architecture + Python Code Execution Sandbox + SEC EDGAR Pipeline + Claude 3.5 Sonnet + PostgreSQL pgvector",
-    "objectives": [
-      "Eradicate numerical hallucinations in financial disclosures through deterministic code sandbox execution.",
-      "Achieve 100% calculation parity with Bloomberg and FactSet models on public SEC 10-K filings.",
-      "Extract and structure complex multi-layer tabular disclosures with complete footnote cross-referencing.",
-      "Provide SOX-compliant audit trails capturing every intermediate query, calculation script, and source link."
-    ],
-    "features": [
-      {
-        "title": "Deterministic Python Sandbox",
-        "description": "Isolated execution environment verifying all arithmetic formulas, ratios, and percentages via real Python code.",
-        "badge": "Code Interpreter"
-      },
-      {
-        "title": "SEC EDGAR Live Pipeline",
-        "description": "Automated ingestion pipeline parsing 10-K, 10-Q, and 8-K filings directly from the SEC EDGAR repository.",
-        "badge": "SEC Ingestion"
-      },
-      {
-        "title": "Multi-Layer Tabular Parser",
-        "description": "Specialized OCR and table extraction converting multi-level financial statement grids into structured DataFrames.",
-        "badge": "Table Extraction"
-      },
-      {
-        "title": "SOX Compliance Audit Trail",
-        "description": "Immutable log tracking exact source document page, calculation script, and analyst approval timestamps.",
-        "badge": "SOX Aligned"
-      }
-    ],
     "aiTechSpecs": {
       "programmingLanguage": "Python",
       "aiFramework": "LangChain & Pandas",
       "foundationModel": "Claude Sonnet & GPT-4o Mini"
     },
-    "pipelineSteps": [
-      {
-        "step": "Phase 01: SEC Filing Ingestion",
-        "detail": "Automated scraper downloads and partitions XBRL and PDF filings with footnote preservation.",
-        "latencyOrMetric": "110ms"
-      },
-      {
-        "step": "Phase 02: Financial Table Extraction",
-        "detail": "Converts unstructured PDF tables into clean Pandas DataFrames with header alignment.",
-        "latencyOrMetric": "240ms"
-      },
-      {
-        "step": "Phase 03: Neural Query Routing",
-        "detail": "LLM decomposes user inquiry into textual analysis and deterministic mathematical operations.",
-        "latencyOrMetric": "380ms"
-      },
-      {
-        "step": "Phase 04: Python Sandbox Execution",
-        "detail": "Runs arithmetic verification in an air-gapped Docker sandbox and outputs audited result.",
-        "latencyOrMetric": "210ms"
-      }
-    ],
-    "evaluation": "Achieved 100% arithmetic accuracy across 500 public company 10-K filings and 98.6% tabular extraction precision, validated against audited financial databases with zero mathematical drift.",
-    "outcomes": [
-      "100.0% Arithmetic calculation accuracy via deterministic Python sandbox execution.",
-      "98.6% Tabular extraction F1 score across multi-column SEC financial disclosures.",
-      "78% Reduction in quarterly financial model update time for buy-side analysts.",
-      "Zero calculation hallucinations detected across 500 corporate annual filings."
-    ],
     "techStack": [
       "Python",
       "Claude",
@@ -3052,38 +2497,32 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "Arithmetic Accuracy",
           "value": "100.0%",
-          "benchmark": "100% Code Verified",
-          "pass": true
+          "benchmark": "100% Code Verified"
         },
         {
           "label": "Table Extraction F1",
           "value": "98.6%",
-          "benchmark": "> 95% Target",
-          "pass": true
+          "benchmark": "> 95% Target"
         },
         {
           "label": "Footnote Precision",
           "value": "96.1%",
-          "benchmark": "> 90% Target",
-          "pass": true
+          "benchmark": "> 90% Target"
         },
         {
           "label": "P&L Audit Latency",
           "value": "1.85s",
-          "benchmark": "< 3.0s Target",
-          "pass": true
+          "benchmark": "< 3.0s Target"
         },
         {
           "label": "SEC Coverage",
           "value": "100.0%",
-          "benchmark": "10-K & 10-Q",
-          "pass": true
+          "benchmark": "10-K & 10-Q"
         },
         {
           "label": "Hallucination Rate",
           "value": "0.00%",
-          "benchmark": "0.00% Symbolic Guard",
-          "pass": true
+          "benchmark": "0.00% Symbolic Guard"
         }
       ],
       "qualitativeEvaluation": "Zero numerical errors achieved across 500 SEC 10-K filings via deterministic Python sandbox validation, with perfect calculation parity against audited Bloomberg models.",
@@ -3131,38 +2570,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Empirical machine learning research project engineered to resolve distance metric sensitivity and magnitude distortions in non-parametric clinical diagnostic systems, deploying feature importance pruning and paired statistical significance testing.",
-    "overview": "In distance-based machine learning such as K-NN, high-magnitude features mathematically overpower smaller markers in Euclidean space. Without calibrated scaling, nearest-neighbor boundaries distort, causing severe diagnostic misclassifications. This project evaluates Min-Max Scaling, Z-Score Standardization, and Decimal Scaling across k=1..11, demonstrating statistically significant accuracy gains verified via paired t-tests.",
-    "challenge": "In distance-based machine learning algorithms such as K-Nearest Neighbors (K-NN), high-magnitude physiological attributes (e.g. insulin or serum glucose) mathematically overpower smaller continuous markers in Euclidean distance space. Without calibrated feature scaling and non-parametric importance pruning, raw distances distort nearest-neighbor boundaries, causing severe diagnostic misclassifications.",
     "architectureSummary": "Supervised Classification + Multi-Paradigm Normalization + Cross-Validated Hyperparameter Grid",
-    "objectives": [
-      "Eliminate Euclidean magnitude bias across diverse physiological feature dimensions.",
-      "Prune non-informative predictor variables using Random Forest Gini impurity rankings.",
-      "Benchmark classification accuracy across 4 scaling paradigms from k=1 through k=11.",
-      "Validate diagnostic performance using paired two-tailed Student's t-tests (p < 0.05).",
-      "Deploy reproducible Python and Scikit-Learn pipelines with serialized inference artifacts."
-    ],
-    "features": [
-      {
-        "title": "Random Forest Gini Feature Pruning",
-        "description": "Ensemble-based feature importance evaluation isolating top clinical predictors and discarding noise.",
-        "icon": "ShieldAlert"
-      },
-      {
-        "title": "Multi-Paradigm Feature Scaling",
-        "description": "Comparative benchmarking between Min-Max Scaling, Z-Score Standardization, and Decimal Scaling.",
-        "icon": "Sliders"
-      },
-      {
-        "title": "Odd-Neighborhood K Sweeping",
-        "description": "Evaluation across odd neighborhood sizes k=1..11 preventing tied binary decision boundaries.",
-        "icon": "Target"
-      },
-      {
-        "title": "Paired Student's t-Test Verification",
-        "description": "Formal hypothesis testing proving statistical significance of normalization improvements (p = 0.00003).",
-        "icon": "Scale"
-      }
-    ],
     "repoUrl": "https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization",
     "license": "MIT License",
     "mlProjectInfo": {
@@ -3303,38 +2711,32 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "TEST ACCURACY",
           "value": "81.17%",
-          "benchmark": "Baseline: 74.03%",
-          "pass": true
+          "benchmark": "Baseline: 74.03%"
         },
         {
           "label": "SPECIFICITY",
           "value": "84.85%",
-          "benchmark": "Baseline: 78.12%",
-          "pass": true
+          "benchmark": "Baseline: 78.12%"
         },
         {
           "label": "ROC-AUC SCORE",
           "value": "0.852",
-          "benchmark": "Paired t-test: p = 0.00003",
-          "pass": true
+          "benchmark": "Paired t-test: p = 0.00003"
         },
         {
           "label": "OPTIMAL K-VALUE",
           "value": "k = 7",
-          "benchmark": "Peak Stability (k=1..11)",
-          "pass": true
+          "benchmark": "Peak Stability (k=1..11)"
         },
         {
           "label": "PRECISION",
           "value": "78.4%",
-          "benchmark": "Threshold > 70%",
-          "pass": true
+          "benchmark": "Threshold > 70%"
         },
         {
           "label": "F1-SCORE",
           "value": "76.2%",
-          "benchmark": "Harmonic Mean Balanced",
-          "pass": true
+          "benchmark": "Harmonic Mean Balanced"
         }
       ]
     },
@@ -3424,31 +2826,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "coreFramework": "Scikit-Learn & SciPy",
       "validationMethod": "Cross-Validation & Paired t-Test"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Empirical machine learning research project engineered to resolve distance metric sensitivity and magnitude distortions in non-parametric clinical diagnostic systems, deploying feature importance pruning and paired statistical significance testing.",
-    "outcomes": [
-      "Eliminate Euclidean magnitude bias across diverse physiological feature dimensions.",
-      "Prune non-informative predictor variables using Random Forest Gini impurity rankings.",
-      "Benchmark classification accuracy across 4 scaling paradigms from k=1 through k=11.",
-      "Validate diagnostic performance using paired two-tailed Student's t-tests (p < 0.05).",
-      "Deploy reproducible Python and Scikit-Learn pipelines with serialized inference artifacts."
-    ],
     "techStack": [
       "Python",
       "Scikit-learn",
@@ -3480,38 +2857,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Physics-informed mathematical computing engine modeling multi-particle kinematics, momentum conservation vectors, and center-of-mass trajectory dynamics in discrete Newtonian particle systems.",
-    "overview": "Computational physical modeling engine designed to simulate multi-particle collision dynamics, continuous barycentric trajectory vectors, and discrete center-of-mass kinematics. Leveraging vectorized NumPy tensor transformations and deterministic Newtonian equations of motion, the application computes instantaneous position coordinates, aggregate momentum fluxes, and kinetic energy distributions across arbitrary N-body coordinate spaces with microsecond execution latency.",
-    "challenge": "Manual or iterative algebraic computation of multi-body Newtonian mechanics becomes computationally intractable when scaling to multi-particle elastic and inelastic collisions. Floating-point numerical drift and unvectorized coordinate iterations distort momentum conservation tensors, leading to inaccurate kinetic simulations.",
     "architectureSummary": "Vectorized Newtonian Tensor Engine + Barycentric Coordinate Solver + Interactive Matrix HUD",
-    "objectives": [
-      "Implement vector-accelerated center-of-mass tensor solvers across multi-particle coordinate fields.",
-      "Guarantee absolute linear momentum conservation verification across arbitrary mass distributions.",
-      "Calculate instantaneous velocity vectors and kinetic energy gradients with sub-millisecond latency.",
-      "Provide interactive 2D coordinate projections with parametric vector trajectory overlays.",
-      "Export validated kinematics telemetry arrays in structured JSON and CSV formats."
-    ],
-    "features": [
-      {
-        "title": "Vectorized Center-of-Mass Solver",
-        "description": "Computes weighted barycentric coordinates via batch dot-product tensor operations.",
-        "icon": "Target"
-      },
-      {
-        "title": "Momentum Conservation Verifier",
-        "description": "Validates sum of particle momentum vectors against aggregate system center-of-mass momentum.",
-        "icon": "Scale"
-      },
-      {
-        "title": "Kinetic Energy Partitioning",
-        "description": "Separates translational center-of-mass energy from internal relative kinetic motion.",
-        "icon": "Zap"
-      },
-      {
-        "title": "Dynamic Particle Parameter Matrix",
-        "description": "Real-time coordinate manipulation grid supporting arbitrary mass, position, and velocity inputs.",
-        "icon": "Sliders"
-      }
-    ],
     "mlProjectInfo": {
       "projectType": "Computational Kinematics & Physical Modeling",
       "learningParadigm": "Deterministic Numerical Modeling",
@@ -3644,38 +2990,32 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "MOMENTUM RESIDUAL",
           "value": "0.00000000",
-          "benchmark": "Tolerance < 1e-12",
-          "pass": true
+          "benchmark": "Tolerance < 1e-12"
         },
         {
           "label": "BARYCENTER ACCURACY",
           "value": "100.0%",
-          "benchmark": "Analytical Exact",
-          "pass": true
+          "benchmark": "Analytical Exact"
         },
         {
           "label": "EXECUTION LATENCY",
           "value": "0.08 ms",
-          "benchmark": "Target < 5 ms",
-          "pass": true
+          "benchmark": "Target < 5 ms"
         },
         {
           "label": "PARTICLE SCALE",
           "value": "10,000",
-          "benchmark": "Linear O(N) Complexity",
-          "pass": true
+          "benchmark": "Linear O(N) Complexity"
         },
         {
           "label": "ENERGY CONSERVATION",
           "value": "Exact",
-          "benchmark": "Elastic Collisions",
-          "pass": true
+          "benchmark": "Elastic Collisions"
         },
         {
           "label": "FP64 PRECISION",
           "value": "53-bit",
-          "benchmark": "IEEE 754 Significand",
-          "pass": true
+          "benchmark": "IEEE 754 Significand"
         }
       ]
     },
@@ -3765,31 +3105,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "coreFramework": "Python & NumPy",
       "validationMethod": "Analytical Momentum Benchmarks"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Physics-informed mathematical computing engine modeling multi-particle kinematics, momentum conservation vectors, and center-of-mass trajectory dynamics in discrete Newtonian particle systems.",
-    "outcomes": [
-      "Implement vector-accelerated center-of-mass tensor solvers across multi-particle coordinate fields.",
-      "Guarantee absolute linear momentum conservation verification across arbitrary mass distributions.",
-      "Calculate instantaneous velocity vectors and kinetic energy gradients with sub-millisecond latency.",
-      "Provide interactive 2D coordinate projections with parametric vector trajectory overlays.",
-      "Export validated kinematics telemetry arrays in structured JSON and CSV formats."
-    ],
     "techStack": [
       "Python",
       "NumPy",
@@ -3818,38 +3133,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Planar geometric analytics and spatial trigonometry engine computing polygon centroids, circumferences, surface integrals, and Euclidean vector metrics with mathematical rigor.",
-    "overview": "Calgeo is an analytical spatial trigonometry and planar computational geometry software suite designed to resolve multi-vertex Euclidean polygon metrics. Built on deterministic algebraic formulas and spatial vector algorithms, Calgeo computes perimeter bounds, Shoelace formula polygon surface areas, centroid coordinates, and chordal trigonometry for regular and irregular planar polygons with zero numerical approximations.",
-    "challenge": "Complex polygon area calculations and irregular planar geometry metrics are prone to cumulative truncation errors when using naive triangulation algorithms. Inconsistent handling of non-convex vertices and degenerate edges causes computational failures in spatial CAD workflows.",
     "architectureSummary": "Planar Shoelace Area Integrator + Analytical Polygon Centroid Engine + Interactive Geometric HUD",
-    "objectives": [
-      "Implement the Shoelace algorithm (Gauss's area formula) for arbitrary N-vertex planar polygons.",
-      "Calculate analytical polygonal centroid coordinates (center of area) for irregular geometry.",
-      "Provide deterministic perimeter and arc-chord trigonometry calculators across 12 geometric primitives.",
-      "Guarantee absolute mathematical precision using rational fractions and double-precision IEEE-754 floats.",
-      "Deliver a clean, responsive graphical interface for rapid spatial parameter validation."
-    ],
-    "features": [
-      {
-        "title": "Shoelace Formula Area Integrator",
-        "description": "Computes polygon area via cross-multiplied determinant summation of ordered vertex coordinates.",
-        "icon": "Target"
-      },
-      {
-        "title": "Barycentric Polygon Centroid Solver",
-        "description": "Determines physical geometric center of area for non-self-intersecting arbitrary polygons.",
-        "icon": "Scale"
-      },
-      {
-        "title": "Multi-Shape Trigonometric Suite",
-        "description": "Covers triangles (Heron's formula), ellipses (Ramanujan perimeter), trapezoids, and regular polygons.",
-        "icon": "Sliders"
-      },
-      {
-        "title": "Degeneracy & Boundary Validator",
-        "description": "Detects colinear points, zero-length edges, and polygon self-intersections before calculation.",
-        "icon": "ShieldAlert"
-      }
-    ],
     "repoUrl": "https://github.com/weztcy/Calgeo-2D-Geometry-Calculator",
     "license": "MIT License",
     "mlProjectInfo": {
@@ -3984,38 +3268,32 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         {
           "label": "AREA RESIDUAL",
           "value": "0.00000000",
-          "benchmark": "Exact Analytical Match",
-          "pass": true
+          "benchmark": "Exact Analytical Match"
         },
         {
           "label": "CENTROID ACCURACY",
           "value": "100.0%",
-          "benchmark": "Barycentric Match",
-          "pass": true
+          "benchmark": "Barycentric Match"
         },
         {
           "label": "CALCULATION LATENCY",
           "value": "0.04 ms",
-          "benchmark": "Real-time Responsive",
-          "pass": true
+          "benchmark": "Real-time Responsive"
         },
         {
           "label": "2D PRIMITIVES",
           "value": "14 Shapes",
-          "benchmark": "Full Geometry Scope",
-          "pass": true
+          "benchmark": "Full Geometry Scope"
         },
         {
           "label": "WINDING INVARIANCE",
           "value": "100%",
-          "benchmark": "Signed Area Normalization",
-          "pass": true
+          "benchmark": "Signed Area Normalization"
         },
         {
           "label": "INPUT VALIDATION",
           "value": "100%",
-          "benchmark": "Zero Degeneracy Escapes",
-          "pass": true
+          "benchmark": "Zero Degeneracy Escapes"
         }
       ]
     },
@@ -4096,31 +3374,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "coreFramework": "Python & Tkinter",
       "validationMethod": "Mathematical Geometric Proofs"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Planar geometric analytics and spatial trigonometry engine computing polygon centroids, circumferences, surface integrals, and Euclidean vector metrics with mathematical rigor.",
-    "outcomes": [
-      "Implement the Shoelace algorithm (Gauss's area formula) for arbitrary N-vertex planar polygons.",
-      "Calculate analytical polygonal centroid coordinates (center of area) for irregular geometry.",
-      "Provide deterministic perimeter and arc-chord trigonometry calculators across 12 geometric primitives.",
-      "Guarantee absolute mathematical precision using rational fractions and double-precision IEEE-754 floats.",
-      "Deliver a clean, responsive graphical interface for rapid spatial parameter validation."
-    ],
     "techStack": [
       "Python",
       "NumPy",
@@ -4149,38 +3402,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "High-throughput desktop batch image transcoding workstation engineered with multithreaded libwebp bindings, lossless metadata preservation, and asynchronous drag-and-drop ingestion queues.",
-    "overview": "WEBP Converter Pro is a high-performance desktop utility engineered to transcode massive raster image libraries into optimized WebP formats. Deploys multi-threaded worker pools matching CPU concurrency to eliminate UI freezes during multi-gigabyte batch processing. Features compression quality tuning, lossless alpha preservation, and directory recursion, reducing payload size by 68% while preserving ICC profiles.",
-    "challenge": "Traditional web-based image conversion tools pose severe privacy risks, enforce restrictive upload size limits, and throttle batch throughput over network bottlenecks. Meanwhile, command-line cwebp scripts lack visual feedback, requiring tedious manual argument construction for complex directory trees.",
     "architectureSummary": "Multithreaded Worker Pool + Libwebp Native Bindings + Asynchronous File Stream Queue + Dark Glassmorphic UI",
-    "objectives": [
-      "Deliver native offline desktop transcoding with zero cloud telemetry or data leakage.",
-      "Achieve 100% CPU thread saturation for parallel image processing without freezing the graphical UI.",
-      "Provide customizable lossless, near-lossless, and lossy WebP compression presets.",
-      "Support deep nested recursive directory tree preservation with intelligent file collisions handling.",
-      "Preserve embedded EXIF metadata, ICC color profiles, and transparent alpha channels."
-    ],
-    "features": [
-      {
-        "title": "Multithreaded Batch Transcoding",
-        "description": "Distributes image compression workloads across all logical CPU cores via worker threads.",
-        "icon": "Cpu"
-      },
-      {
-        "title": "Lossless Alpha & Metadata Pass",
-        "description": "Maintains exact RGBA transparency bounds, EXIF camera tags, and ICC color calibration profiles.",
-        "icon": "ShieldCheck"
-      },
-      {
-        "title": "Recursive Directory Rebuilding",
-        "description": "Mirrors source folder hierarchy in target output destination automatically.",
-        "icon": "FolderGit2"
-      },
-      {
-        "title": "Real-Time Compression Preview",
-        "description": "Side-by-side visual difference loupe evaluating compression artifacts prior to batch execution.",
-        "icon": "Layers"
-      }
-    ],
     "repoUrl": "https://github.com/weztcy/WEBP-Converter-Pro",
     "license": "MIT License",
     "desktopMobileProjectInfo": {
@@ -4318,12 +3540,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "platform": "Windows 11 / 10 Native (x64)",
         "nativeTech": "Win32 File System APIs & Shell Integration",
-        "integrationRole": "Deep OS file association, right-click context menu integration, and native taskbar progress bars.",
-        "capabilities": [
-          "Direct Win32 drag-and-drop file stream handling",
-          "Taskbar progress indicator reflecting batch completion percentage",
-          "High-DPI display scaling support with crisp typography"
-        ]
+        "integrationRole": "Deep OS file association, right-click context menu integration, and native taskbar progress bars."
       }
     ],
     "desktopMobileDataManagement": {
@@ -4343,31 +3560,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "targetArchitecture": "x86_64 & ARM64",
       "buildFootprint": "68 MB"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "High-throughput desktop batch image transcoding workstation engineered with multithreaded libwebp bindings, lossless metadata preservation, and asynchronous drag-and-drop ingestion queues.",
-    "outcomes": [
-      "Deliver native offline desktop transcoding with zero cloud telemetry or data leakage.",
-      "Achieve 100% CPU thread saturation for parallel image processing without freezing the graphical UI.",
-      "Provide customizable lossless, near-lossless, and lossy WebP compression presets.",
-      "Support deep nested recursive directory tree preservation with intelligent file collisions handling.",
-      "Preserve embedded EXIF metadata, ICC color profiles, and transparent alpha channels."
-    ],
     "techStack": [
       "TypeScript",
       "C++",
@@ -4397,38 +3589,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Zero-knowledge encrypted local media vault and private image studio engineered with AES-256 GCM hardware encryption, biometric unlocking, and client-side neural tag classification.",
-    "overview": "PixVault is an air-gapped private desktop image studio and encrypted digital vault built for privacy-focused professionals. Utilizing AES-256 GCM envelope encryption with Argon2id key derivation, PixVault protects sensitive visual archives from OS scanning and scraping. Features virtual scrolling, non-destructive editing filters, cryptographic checksums, and offline neural tagging with zero data exfiltration.",
-    "challenge": "Operating system photo viewers and cloud-synced galleries index private images without encryption, exposing sensitive personal and professional media to background telemetry, ransomware scraping, and unintended cloud uploads. Existing encryption containers are clunky and lack modern image browsing ergonomics.",
     "architectureSummary": "Argon2id Key Derivation + AES-256 GCM Envelope Vault + Virtualized Canvas Grid + Sandboxed Media Worker",
-    "objectives": [
-      "Guarantee absolute zero-knowledge local encryption for visual assets on desktop storage.",
-      "Prevent unauthorized file system indexing through encrypted binary blob chunks.",
-      "Deliver fluid 60 FPS gallery virtual scrolling for libraries containing over 50,000 photos.",
-      "Provide non-destructive local image manipulation filters with instant GPU shaders.",
-      "Ensure instantaneous session locking upon application minimization or OS idle state."
-    ],
-    "features": [
-      {
-        "title": "AES-256 GCM Vault Security",
-        "description": "Authenticated military-grade encryption with Argon2id memory-hard key derivation.",
-        "icon": "Lock"
-      },
-      {
-        "title": "Virtualized High-Density Grid",
-        "description": "Infinite virtual scrolling handling tens of thousands of encrypted assets with 60 FPS smoothness.",
-        "icon": "Grid"
-      },
-      {
-        "title": "Air-Gapped Neural Tagging",
-        "description": "On-device lightweight neural network for automated offline semantic search tags.",
-        "icon": "Sparkles"
-      },
-      {
-        "title": "Zero-Trace Session Disarming",
-        "description": "Auto-clears decrypted memory buffers and locks vaults upon idle timeout or screen lock.",
-        "icon": "ShieldAlert"
-      }
-    ],
     "desktopMobileProjectInfo": {
       "applicationType": "Native Desktop Application (x64 Architecture)",
       "targetPlatform": "Windows 11 / 10 & macOS (Cross-Platform)",
@@ -4568,12 +3729,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "platform": "Windows 11 / 10 & macOS Native",
         "nativeTech": "OS Credential Vault & Power State Hooks",
-        "integrationRole": "Hooks into OS suspend/sleep events to trigger immediate memory scrubbing and lock screens.",
-        "capabilities": [
-          "Instant vault locking on OS sleep or screen lock event",
-          "Windows Hello and macOS Touch ID biometric credential support",
-          "Protected memory allocation via sodium_mlock memory guards"
-        ]
+        "integrationRole": "Hooks into OS suspend/sleep events to trigger immediate memory scrubbing and lock screens."
       }
     ],
     "desktopMobileDataManagement": {
@@ -4593,31 +3749,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "targetArchitecture": "x86_64 Native",
       "buildFootprint": "84 MB"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Zero-knowledge encrypted local media vault and private image studio engineered with AES-256 GCM hardware encryption, biometric unlocking, and client-side neural tag classification.",
-    "outcomes": [
-      "Guarantee absolute zero-knowledge local encryption for visual assets on desktop storage.",
-      "Prevent unauthorized file system indexing through encrypted binary blob chunks.",
-      "Deliver fluid 60 FPS gallery virtual scrolling for libraries containing over 50,000 photos.",
-      "Provide non-destructive local image manipulation filters with instant GPU shaders.",
-      "Ensure instantaneous session locking upon application minimization or OS idle state."
-    ],
     "techStack": [
       "TypeScript",
       "Rust",
@@ -4647,38 +3778,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Cross-platform mobile culinary application celebrating authentic Indonesian regional recipes, featuring offline recipe indexing, dynamic ingredient portion scaling, and kitchen timer synchronization.",
-    "overview": "Rasa Nusantara is a cross-platform mobile culinary assistant designed to preserve Indonesian traditional cuisine across 38 provinces. Built with an offline-first architecture, the app provides access to over 1,200 regional recipes with zero internet dependency. Features smart ingredient scaling based on guest counts, multi-step kitchen timers synchronized with cooking steps, and spice substitution guides.",
-    "challenge": "Traditional Indonesian recipes often rely on inexact vernacular measurements (jempol, genggam, sejumput) and obscure regional herbs that are unavailable in global markets. Standard cooking apps fail to provide dynamic portion scaling and require continuous internet connectivity in low-signal home kitchens.",
     "architectureSummary": "Offline-First SQLite Cache + Reactive State Manager + Responsive Mobile Glassmorphic Design",
-    "objectives": [
-      "Catalog over 1,200 traditional recipes across all major Indonesian archipelago culinary traditions.",
-      "Implement dynamic portion scaling algorithms recalculating ingredient quantities in real time.",
-      "Provide multi-step kitchen timers integrated directly into cooking procedure cards.",
-      "Support 100% offline functionality via embedded local SQLite databases.",
-      "Design an ergonomic thumb-zone mobile interface suitable for messy kitchen environments."
-    ],
-    "features": [
-      {
-        "title": "Dynamic Portion Scaler",
-        "description": "Auto-recalculates metric and vernacular ingredient weights based on serving count.",
-        "icon": "Sliders"
-      },
-      {
-        "title": "Embedded Cooking Timers",
-        "description": "One-tap timers embedded in recipe steps with audio alerts and background notifications.",
-        "icon": "Clock"
-      },
-      {
-        "title": "Archipelago Regional Filter",
-        "description": "Categorize dishes by island, province, spice intensity, and halal dietary filters.",
-        "icon": "Compass"
-      },
-      {
-        "title": "100% Offline SQLite Engine",
-        "description": "Full recipe catalog, instruction steps, and bookmarks accessible without internet.",
-        "icon": "Database"
-      }
-    ],
     "repoUrl": "https://github.com/weztcy/Rasa-Nusantara-Indonesian-Food-Recipe",
     "license": "GPL-3.0",
     "desktopMobileProjectInfo": {
@@ -4808,12 +3908,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "platform": "Android 14+ & iOS 17+ Mobile",
         "nativeTech": "iOS Live Activities & Android Dynamic Island / Foreground Services",
-        "integrationRole": "Provides active step timer countdowns directly on the device lockscreen and dynamic notification island.",
-        "capabilities": [
-          "Lockscreen live timer countdowns while phone is locked on kitchen counter",
-          "Audio chime playback bypassing silent mode for burning alerts",
-          "Haptic feedback on step completion buttons"
-        ]
+        "integrationRole": "Provides active step timer countdowns directly on the device lockscreen and dynamic notification island."
       }
     ],
     "desktopMobileDataManagement": {
@@ -4833,31 +3928,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "targetArchitecture": "ARM64 Universal",
       "buildFootprint": "32 MB"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Cross-platform mobile culinary application celebrating authentic Indonesian regional recipes, featuring offline recipe indexing, dynamic ingredient portion scaling, and kitchen timer synchronization.",
-    "outcomes": [
-      "Catalog over 1,200 traditional recipes across all major Indonesian archipelago culinary traditions.",
-      "Implement dynamic portion scaling algorithms recalculating ingredient quantities in real time.",
-      "Provide multi-step kitchen timers integrated directly into cooking procedure cards.",
-      "Support 100% offline functionality via embedded local SQLite databases.",
-      "Design an ergonomic thumb-zone mobile interface suitable for messy kitchen environments."
-    ],
     "techStack": [
       "TypeScript",
       "React Native",
@@ -4886,38 +3956,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Mobile culinary discovery and cooking assistant interface engineered with high-contrast food photography hierarchy, thumb-zone navigation ergonomics, and streamlined step-by-step preparation cards.",
-    "overview": "Food Recipe App is a human-centered mobile interface designed for home cooks navigating multi-tasking in active kitchen environments. Built around an appetite-stimulating visual hierarchy, the system structures culinary exploration into regional cuisine categorization, two-column visual recipe grids with high-legibility scrim overlays, and an ergonomic bottom bar within the primary thumb zone to ensure effortless one-handed readability.",
-    "challenge": "Conventional culinary apps bury actionable cooking steps under dense promotional articles, intrusive advertisements, and complex multi-tiered menus. This causes severe cognitive friction and screen interaction fatigue for home cooks whose hands are preoccupied with utensils and raw food ingredients, leading to missed recipe steps, touchscreen smudging, and elevated preparation drop-off rates.",
     "architectureSummary": "Ergonomic thumb-zone bottom navigation + dual-column food photography grid + dark gradient scrim overlay + modular bottom-sheet cooking card",
-    "objectives": [
-      "Eliminate cognitive clutter by separating high-level cuisine discovery from actionable cooking preparation steps.",
-      "Maintain strict 4.5:1 WCAG AA text contrast across dark photography overlays using calibrated translucent scrims.",
-      "Optimize ergonomic touch interaction for one-handed mobile use within natural thumb reach zones.",
-      "Enhance culinary community credibility through integrated chef profiles, creator ratings, and direct follow mechanisms.",
-      "Streamline meal discovery by categorizing recipes into dedicated regional cuisine collections."
-    ],
-    "features": [
-      {
-        "title": "Cuisine Category Navigation",
-        "description": "Horizontally scrollable taxonomy pills enabling one-tap filtering across Breakfast, Healthy, Indonesian, and Italian dishes.",
-        "icon": "Compass"
-      },
-      {
-        "title": "Visual Recipe Grid Cards",
-        "description": "High-density photography cards with bottom-anchored scrim gradients displaying prep times, difficulty tags, and bookmarking toggles.",
-        "icon": "Grid"
-      },
-      {
-        "title": "One-Handed Thumb Bar",
-        "description": "Ergonomic bottom navigation placing Home, Search, Bookmarks, and Profile within natural thumb reach zones.",
-        "icon": "Smartphone"
-      },
-      {
-        "title": "Chef Profile Attributions",
-        "description": "Community trust elements highlighting verified recipe creators, follower tallies, and user satisfaction ratings.",
-        "icon": "Users"
-      }
-    ],
     "repoUrl": "https://github.com/weztcy/Food-Recipe-Mobile-App-UI-UX-Design",
     "license": "CC BY-NC 4.0",
     "uiUxProjectInfo": {
@@ -5108,31 +4147,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "typography": "Plus Jakarta Sans Scale",
       "prototypeFidelity": "High-Fidelity Interactive"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Mobile culinary discovery and cooking assistant interface engineered with high-contrast food photography hierarchy, thumb-zone navigation ergonomics, and streamlined step-by-step preparation cards.",
-    "outcomes": [
-      "Eliminate cognitive clutter by separating high-level cuisine discovery from actionable cooking preparation steps.",
-      "Maintain strict 4.5:1 WCAG AA text contrast across dark photography overlays using calibrated translucent scrims.",
-      "Optimize ergonomic touch interaction for one-handed mobile use within natural thumb reach zones.",
-      "Enhance culinary community credibility through integrated chef profiles, creator ratings, and direct follow mechanisms.",
-      "Streamline meal discovery by categorizing recipes into dedicated regional cuisine collections."
-    ],
     "techStack": [
       "Figma",
       "FigJam",
@@ -5159,38 +4173,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Urban smart parking reservation and frictionless contactless barrier ingress interface engineered with real-time floor occupancy heatmaps, license-plate recognition linking, and digital receipt wallets.",
-    "overview": "E-Parking Mobile App is an end-to-end smart parking reservation system designed to eliminate urban traffic congestion from circling drivers. Anchored by a dark-mode GPS radar navigation interface, the app enables finding nearby garages, verifying real-time slot availability, reserving spots in advance, and barrier clearance via encrypted QR or NFC passes with high-contrast electric amber accents for dim environments.",
-    "challenge": "Urban drivers waste an average of 14 minutes searching for parking in commercial districts, causing traffic gridlocks and driver stress. Traditional parking facilities use outdated paper tickets that get lost, and bottleneck payment queues at physical ticket booths.",
     "architectureSummary": "GPS Map Overlay + Real-time Floor Slot Matrix + Encrypted QR Ingress Card + Digital Wallet Gateway",
-    "objectives": [
-      "Eliminate physical parking tickets through digital license-plate and QR code entry credentials.",
-      "Provide real-time parking slot occupancy telemetries across multilevel garage basements.",
-      "Enable seamless reservation and contactless mobile wallet payment before vehicle exit.",
-      "Design an ultra-legible dark UI optimized for quick glances in moving vehicles and dark basements.",
-      "Reduce average garage ingress and egress latency from 90 seconds to under 4 seconds."
-    ],
-    "features": [
-      {
-        "title": "Real-Time Slot Occupancy Heatmap",
-        "description": "Visual floor schematics displaying green (available), red (occupied), and blue (reserved) slots.",
-        "icon": "Grid"
-      },
-      {
-        "title": "Instant QR Ingress Pass",
-        "description": "Dynamic rotating QR code with integrated brightness boost for instant barrier scanning.",
-        "icon": "ShieldCheck"
-      },
-      {
-        "title": "Proximity GPS Garage Radar",
-        "description": "Map view displaying nearby parking facilities sorted by proximity, hourly rate, and capacity.",
-        "icon": "Compass"
-      },
-      {
-        "title": "Contactless E-Wallet Checkout",
-        "description": "Auto-debited parking fees via linked digital wallets with instant digital tax receipts.",
-        "icon": "CreditCard"
-      }
-    ],
     "uiUxProjectInfo": {
       "platformType": "iOS & Android Mobile Application",
       "designRole": "Product Designer & UX Researcher",
@@ -5383,31 +4366,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "typography": "JetBrains Mono & Sans",
       "prototypeFidelity": "High-Fidelity Micro-Interactions"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Urban smart parking reservation and frictionless contactless barrier ingress interface engineered with real-time floor occupancy heatmaps, license-plate recognition linking, and digital receipt wallets.",
-    "outcomes": [
-      "Eliminate physical parking tickets through digital license-plate and QR code entry credentials.",
-      "Provide real-time parking slot occupancy telemetries across multilevel garage basements.",
-      "Enable seamless reservation and contactless mobile wallet payment before vehicle exit.",
-      "Design an ultra-legible dark UI optimized for quick glances in moving vehicles and dark basements.",
-      "Reduce average garage ingress and egress latency from 90 seconds to under 4 seconds."
-    ],
     "techStack": [
       "Figma",
       "ProtoPie",
@@ -5435,38 +4393,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Cyberpunk-themed high-performance PC hardware and esports gear commerce interface engineered with 3D component configurators, benchmark performance telemetry, and streamlined checkout.",
-    "overview": "Aorus Gaming Shop Mobile App is a specialized e-commerce interface crafted for PC builders and competitive esports athletes. Featuring a bold mecha-cyberpunk design aesthetic with angular faceted cards and neon orange laser accents, the UX is optimized around hardware specifications, component compatibility verification (GPU size, PSU wattage, CPU sockets), real-world FPS benchmark comparisons, and gamified checkout.",
-    "challenge": "Mainstream e-commerce apps treat complex computer hardware like general consumer commodities, failing to display crucial technical specs like PCIe lane bandwidth, clock speeds, and thermal TDP. Gamers struggle to confirm hardware compatibility, leading to frustrating return cycles and buyer hesitation.",
     "architectureSummary": "Mecha-Themed E-Commerce UI + Component Compatibility Engine + FPS Benchmark Matrix + Gamified Cart HUD",
-    "objectives": [
-      "Design an authentic gaming aesthetic tailored to enthusiast hardware builders without compromising usability.",
-      "Integrate interactive FPS and benchmark performance comparison charts directly into product cards.",
-      "Implement real-time hardware compatibility indicators preventing mismatched CPU sockets and case dimensions.",
-      "Optimize mobile checkout flow for high-ticket limited-stock GPU and motherboard drops.",
-      "Provide an interactive PC build configurator with running wattage and budget tallies."
-    ],
-    "features": [
-      {
-        "title": "FPS Benchmark Comparator",
-        "description": "Interactive chart comparing hardware FPS across Cyberpunk 2077, Valorant, and CS2 at 1440p and 4K.",
-        "icon": "TrendingUp"
-      },
-      {
-        "title": "Hardware Compatibility Guard",
-        "description": "Automated verification confirming CPU socket, RAM DDR5 speed, and GPU case clearance.",
-        "icon": "ShieldCheck"
-      },
-      {
-        "title": "Aorus Falcon Mecha Aesthetic",
-        "description": "Futuristic dark mode with faceted geometric frames, holographic foil badges, and neon accents.",
-        "icon": "Sparkles"
-      },
-      {
-        "title": "Speed-Drop Flash Checkout",
-        "description": "Biometric one-tap checkout engineered to secure limited-edition graphics cards in seconds.",
-        "icon": "Zap"
-      }
-    ],
     "repoUrl": "https://github.com/weztcy/Aorus-Gaming-Shop-Mobile-App-UI-UX-Design",
     "license": "CC BY-NC 4.0",
     "uiUxProjectInfo": {
@@ -5661,31 +4588,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "typography": "Orbitron & JetBrains Mono",
       "prototypeFidelity": "Interactive Component Prototype"
     },
-    "pipelineSteps": [
-      {
-        "step": "Data & System Ingestion",
-        "detail": "Automated ingestion, parsing and normalization pipeline.",
-        "latencyOrMetric": "Deterministic"
-      },
-      {
-        "step": "Core Processing Engine",
-        "detail": "Computational transformation and execution workflow.",
-        "latencyOrMetric": "Real-time"
-      },
-      {
-        "step": "Quality Verification & Audit",
-        "detail": "Formal unit validation, boundary inspection and automated scoring.",
-        "latencyOrMetric": "100% Pass"
-      }
-    ],
-    "evaluation": "Cyberpunk-themed high-performance PC hardware and esports gear commerce interface engineered with 3D component configurators, benchmark performance telemetry, and streamlined checkout.",
-    "outcomes": [
-      "Design an authentic gaming aesthetic tailored to enthusiast hardware builders without compromising usability.",
-      "Integrate interactive FPS and benchmark performance comparison charts directly into product cards.",
-      "Implement real-time hardware compatibility indicators preventing mismatched CPU sockets and case dimensions.",
-      "Optimize mobile checkout flow for high-ticket limited-stock GPU and motherboard drops.",
-      "Provide an interactive PC build configurator with running wattage and budget tallies."
-    ],
     "techStack": [
       "Figma",
       "Adobe After Effects",
@@ -5712,72 +4614,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80"
     ],
     "summary": "Systematic low-level systems programming curriculum covering modern C++20 memory models, RAII resource lifecycles, template metaprogramming, and lock-free concurrency.",
-    "overview": "CPP Learning Modules is a hands-on pedagogical repository architected to guide software engineers to low-level systems mastery. Deconstructing modern C++ (C++17 and C++20), the curriculum explores deterministic memory lifecycles (stack vs heap, pointer arithmetic, custom arena allocators), compile-time metaprogramming (SFINAE, concepts, constexpr), and thread-safe systems programming with automated CMake suites.",
-    "challenge": "C++ presents a notoriously steep learning curve due to manual pointer management, undefined behavior hazards, complex compiler diagnostic messages, and the historical accumulation of legacy syntax across thirty years of language evolution.",
     "architectureSummary": "Modular CMake Build Matrix + Executable Code Units + GoogleTest Verification Harness",
-    "objectives": [
-      "Master modern C++ resource acquisition is initialization (RAII) and smart pointer semantics.",
-      "Demystify pointer arithmetic, stack frames, heap layouts, and custom memory arena allocation.",
-      "Harness compile-time metaprogramming with C++20 concepts, type traits, and template specialization.",
-      "Understand hardware concurrency: memory barriers, atomic operations, and lock-free thread synchronizations.",
-      "Build production-grade CLI systems utilities using CMake, Clang-Tidy, and AddressSanitizer."
-    ],
-    "features": [
-      {
-        "title": "Modern RAII & Smart Pointers",
-        "description": "Zero-leak resource safety using std::unique_ptr, std::shared_ptr, and custom destructors.",
-        "badge": "Memory Safety"
-      },
-      {
-        "title": "Compile-Time Metaprogramming",
-        "description": "Zero-cost abstractions leveraging C++20 concepts, SFINAE, and constexpr evaluation.",
-        "badge": "C++20 Concepts"
-      },
-      {
-        "title": "Deterministic Memory Architecture",
-        "description": "Hands-on implementation of custom slab and pool allocators optimizing cache locality.",
-        "badge": "Low-Level Memory"
-      },
-      {
-        "title": "Hardware Concurrency Primitives",
-        "description": "Multithreaded pipelines with std::atomic, memory orderings, and lock-free rings.",
-        "badge": "Concurrency"
-      }
-    ],
     "codeLearningCurriculumSpecs": {
       "curriculumTrack": "Systems & Memory Engineering",
       "primaryLanguage": "Modern C++",
       "executionRuntime": "CMake, Clang & GCC",
       "testVerification": "GoogleTest & Sanitizers"
     },
-    "pipelineSteps": [
-      {
-        "step": "Source Compilation",
-        "detail": "Compiles modern C++20 modules with Clang using -Wall -Wextra -Wpedantic flags.",
-        "latencyOrMetric": "120ms"
-      },
-      {
-        "step": "Sanitizer Instrumentation",
-        "detail": "Runs AddressSanitizer and UndefinedBehaviorSanitizer memory safety checks.",
-        "latencyOrMetric": "45ms"
-      },
-      {
-        "step": "Automated Unit Tests",
-        "detail": "Executes GoogleTest test suites verifying expected outputs across edge cases.",
-        "latencyOrMetric": "35ms"
-      },
-      {
-        "step": "Memory Profile Audit",
-        "detail": "Executes Valgrind heap analysis confirming zero memory leaks upon process exit.",
-        "latencyOrMetric": "180ms"
-      }
-    ],
-    "evaluation": "All 8 modules compiled with 0 warnings under GCC 13 and Clang 17 in strict C++20 mode, achieving 100% test coverage with zero memory leaks verified by AddressSanitizer.",
-    "outcomes": [
-      "Fluency in writing modern C++ code conforming to ISO C++ Core Guidelines.",
-      "Elimination of undefined behavior, segmentation faults, and memory leaks.",
-      "Capability to architect high-performance multithreaded systems with predictable sub-millisecond latencies."
-    ],
     "techStack": [
       "C++",
       "CMake",
@@ -6004,17 +4847,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "codeLearningSupplementaryResources": {
-      "title": "Recommended Deep-Dive Resources & References",
-      "description": "Curated collection of industry specifications, books, and interactive tooling.",
       "resources": [
         {
           "name": "ISO C++ Core Guidelines",
-          "type": "Guide",
           "format": "Online Specification"
         },
         {
           "name": "Compiler Explorer (Godbolt)",
-          "type": "Starter Template",
           "format": "Interactive Tool"
         }
       ]
@@ -6035,66 +4874,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "/images/projects/JavaScript Learning Modules 1.webp"
     ],
     "summary": "Comprehensive type-level programming curriculum mastering TypeScript 5 generics, template literal types, distributed conditional types, and enterprise architecture patterns.",
-    "overview": "TypeScript Learning Modules is an enterprise-oriented pedagogical curriculum engineered to transform standard JavaScript developers into type-level architectural masters. Moving far beyond basic primitive annotations, the repository dives deep into the TypeScript type compiler as a Turing-complete functional system. Topics cover mapped types, key remapping, template literal string validation, distributive conditional types, recursive inference with infer, branded nominal typing, and type-safe API client design.",
-    "challenge": "Many web developers use TypeScript merely as 'JavaScript with any', failing to harness the type system's ability to eradicate entire classes of runtime defects. Overly permissive types lead to fragile architectures and broken refactorings in large codebases.",
     "architectureSummary": "Interactive Type-Challenge Matrix + Vitest Type-Testing (expect-type) + Strict ESLint Pipeline",
-    "objectives": [
-      "Master advanced generic parameter constraints and default generic parameters.",
-      "Construct compile-time string parsers using template literal types and recursive inference.",
-      "Enforce domain invariants using branded nominal types that eliminate primitive obsession.",
-      "Implement fully type-safe event buses and RPC gateways with zero runtime overhead.",
-      "Write automated type assertions using expect-type and Vitest type-testing suites."
-    ],
-    "features": [
-      {
-        "title": "Turing-Complete Type Gymnastics",
-        "description": "Recursive conditional types, tuple manipulation, and union distribution mechanics.",
-        "badge": "Conditional Types"
-      },
-      {
-        "title": "Template Literal String Parsers",
-        "description": "Compile-time validation of SQL queries, route paths, and semantic version strings.",
-        "badge": "String Parsers"
-      },
-      {
-        "title": "Branded Nominal Typing",
-        "description": "Guarantees domain validation for UserIDs, email addresses, and currency amounts at compile time.",
-        "badge": "Nominal Typing"
-      },
-      {
-        "title": "Zero-Overhead Contract Design",
-        "description": "Build robust contracts that evaporate completely during production bundling.",
-        "badge": "Zero-Cost Contracts"
-      }
-    ],
-    "pipelineSteps": [
-      {
-        "step": "Type Checking Pass",
-        "detail": "Compiles exercises using tsc --noEmit with strict: true and noImplicitAny.",
-        "latencyOrMetric": "85ms"
-      },
-      {
-        "step": "Vitest Type-Testing",
-        "detail": "Executes expect-type assertions verifying precise compiler inferences.",
-        "latencyOrMetric": "42ms"
-      },
-      {
-        "step": "ESLint Strict Gate",
-        "detail": "Validates AST enforcing zero 'any' escapes and explicit return types.",
-        "latencyOrMetric": "65ms"
-      },
-      {
-        "step": "Production DCE Build",
-        "detail": "Verifies type definitions evaporate completely with zero runtime artifact footprint.",
-        "latencyOrMetric": "110ms"
-      }
-    ],
-    "evaluation": "Over 60 type challenges pass strict Vitest type-level assertion suites, eliminating 100% of 'any' escapes while providing instant sub-second IDE autocomplete suggestions.",
-    "outcomes": [
-      "Absolute confidence navigating and contributing to large-scale enterprise TypeScript repositories.",
-      "Ability to architect bulletproof library APIs with intuitive, auto-completing type signatures.",
-      "Elimination of all usage of 'any' across production codebases in favor of unknown and generic constraints."
-    ],
     "techStack": [
       "TypeScript",
       "Vitest",
@@ -6327,17 +5107,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "testVerification": "Vitest & expect-type"
     },
     "codeLearningSupplementaryResources": {
-      "title": "Recommended Deep-Dive Resources & References",
-      "description": "Curated collection of official documentation, type challenges, and references.",
       "resources": [
         {
           "name": "TypeScript Official Handbook",
-          "type": "Guide",
           "format": "Documentation"
         },
         {
           "name": "Type-Challenges Repository",
-          "type": "Starter Template",
           "format": "Interactive Problem Set"
         }
       ]

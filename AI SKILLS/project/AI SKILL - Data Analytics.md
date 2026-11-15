@@ -49,13 +49,17 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `dataAnalyticsPresentationSlides[].imageUrl`: **WAJIB** menggunakan pola `"/images/projects/<nama_project>/slide01.webp"`, `slide02.webp`, dst. (2 digit *zero-padded*, **BUKAN** `image01.webp`).
 2. **Section 1 (Hero Console & Telemetry)**:
-   - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
 3. **Section 2, 3, & 5**:
    - Gunakan field kanonik **`dataAnalyticsBusinessContext`** (untuk konteks bisnis Section 2).
    - Pada `dataAnalyticsKeyFindings`, `metricValue` harus berupa angka/persentase tunggal yang ringkas & tajam (misal `"+34.2%"`, `"$1.4M"`, `"87.5%"`) tanpa kalimat panjang.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai temuan riil project.
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`dataAnalyticsBusinessContext`, `analyticalMethodology.summary`, `conclusion`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`dataAnalyticsAnalyticalObjectives[].description`, `dataAnalyticsKeyFindings[].description`, `recommendations[].action`): **120–180 karakter** (termasuk spasi).
+     - Caption visual (`deckSlides[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi/tool analitik murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"Pandas"`, `"PostgreSQL"`, `"Power BI"`, `"SQL"`, BUKAN `"Python 3.11"` atau `"Power BI Desktop"`).
@@ -98,33 +102,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang masalah analitik bisnis & insight utama yang dihasilkan>",
-  "overview": "<400-500 karakter narasi teknis tentang cakupan dataset, metodologi analitik, dan dampak keputusan>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview) untuk Hero Console Section 1>",
-  "challenge": "<Ringkasan tantangan kualitas data atau kompleksitas analitik>",
-  "architectureSummary": "<Ringkasan pipeline data dari ingestion, cleaning, analisis, hingga visualisasi BI>",
-  "objectives": [
-    "<Analytical Objective 1>",
-    "<Analytical Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<Analytical Capability / Dashboard Module>",
-      "description": "<Penjelasan analisis atau fitur interaktif>",
-      "badge": "<Short Tag>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Stage Title>",
-      "detail": "<Proses transformasi / agregasi / pemodelan>",
-      "latencyOrMetric": "<Volume atau metrik tahap>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi hasil validasi statistik, cross-check data, dan reliabilitas temuan>",
-  "outcomes": [
-    "<Quantified Insight / Business Impact 1>",
-    "<Quantified Insight / Business Impact 2>"
-  ],
+  "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
+  "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
     "<Clean Tech Name Tanpa Versi>"
   ],
@@ -238,7 +217,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Seluruh dataset, notebook (`.ipynb`), query `.sql`, file BI (`.pbix`/`.twb`), dokumen `.pdf`/`.pptx`, dan chart telah diinspeksi.
 - [ ] `category` = `"data-analysis"`, `categoryLabel` = `"Data Analytics"`, `accentColor` = `"emerald"`.
 - [ ] Field konteks bisnis memakai `dataAnalyticsBusinessContext`; `recommendations[].priority` hanya `"HIGH"`, `"MEDIUM"`, atau `"STRATEGIC"`.
-- [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` **bebas nomor versi** dan tanda kurung.
 - [ ] Path slide memakai `"/images/projects/<nama_project>/slide01.webp"` dst., sedangkan hero memakai `banner.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.

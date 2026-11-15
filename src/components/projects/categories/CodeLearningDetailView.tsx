@@ -84,7 +84,6 @@ export default function CodeLearningDetailView({
   const learningDescription =
     project.codeLearningDescription ||
     project.projectDescription ||
-    project.overview ||
     project.summary ||
     "";
 
@@ -110,15 +109,7 @@ export default function CodeLearningDetailView({
   };
 
   // Section 2: Objectives & Prerequisites
-  const learningObjectives =
-    project.codeLearningObjectives ||
-    (project.objectives && project.objectives.length > 0
-      ? project.objectives.map((obj, i) => ({
-          title: `Objective ${String(i + 1).padStart(2, "0")}`,
-          description: obj,
-          competencyCode: `COMP-${String(i + 1).padStart(2, "0")}`,
-        }))
-      : []);
+  const learningObjectives = project.codeLearningObjectives || [];
 
   const prerequisites =
     project.codeLearningPrerequisites ||

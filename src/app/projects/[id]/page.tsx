@@ -23,7 +23,6 @@ export async function generateMetadata({
   const title = `${project.title} | Case Study`;
   const description =
     project.summary ||
-    project.overview ||
     `Detailed case study of ${project.title} by Yohanes Dimas Pratama.`;
 
   const ogImage = project.imageUrl || project.images?.[0];

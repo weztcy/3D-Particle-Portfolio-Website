@@ -81,9 +81,8 @@ export default function UIUXDetailView({
   // =========================================================================
   // Section 1: Overview & Information
   const projectDescription =
-    project.uiUxBackground ||
     project.projectDescription ||
-    project.overview ||
+    project.uiUxBackground ||
     project.summary ||
     "";
 
@@ -114,7 +113,6 @@ export default function UIUXDetailView({
   const projectBackground =
     project.uiUxBackground ||
     project.projectBackground ||
-    project.challenge ||
     project.summary ||
     "";
 

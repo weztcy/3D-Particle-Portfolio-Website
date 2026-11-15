@@ -88,7 +88,6 @@ export default function AIEngineeringDetailView({
   // Section 1: Project Overview & Information
   const projectDescription =
     project.projectDescription ||
-    project.overview ||
     project.summary ||
     "";
 
@@ -113,7 +112,6 @@ export default function AIEngineeringDetailView({
   // Section 2: Problem & Proposed AI Solution
   const problemContext =
     project.problemContext ||
-    project.challenge ||
     "";
 
   const proposedAiSolution = project.proposedAiSolution || project.architectureSummary || "";
@@ -188,7 +186,7 @@ export default function AIEngineeringDetailView({
   const aiEvaluationAndPerformance: NonNullable<
     ProjectCaseStudy["aiEvaluationAndPerformance"]
   > = project.aiEvaluationAndPerformance || {
-    qualitativeEvaluation: project.evaluation || "",
+    qualitativeEvaluation: "",
     metrics: [],
   };
 

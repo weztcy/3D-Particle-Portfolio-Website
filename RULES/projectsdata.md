@@ -4,7 +4,7 @@ Dokumen ini merupakan panduan resmi dan aturan baku untuk pengisian, pembaruan, 
 
 > **Ruang Lingkup & Bahasa:**
 > - File aturan ini fokus murni pada struktur data, format nilai, penamaan aset lokal, serta batasan panjang teks agar selaras dengan seluruh tampilan UI (`Section 1`–`Section 6`).
-> - **Aturan Wajib Bahasa Output:** Seluruh data yang dihasilkan (output data project) baik pada file Markdown hasil analisis (`.md`) maupun saat diintegrasikan ke dalam [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts) **WAJIB 100% menggunakan Bahasa Inggris profesional dan teknis (Professional Technical English)**. Mulai dari `summary`, `overview`, `challenge`, `features`, `objectives`, `pipelineSteps`, `outcomes`, penjelasan arsitektur, metodologi, temuan, hingga rekomendasi dan catatan teknis. Dilarang mencampurkan bahasa Indonesia di dalam nilai/properti data output.
+> - **Aturan Wajib Bahasa Output:** Seluruh data yang dihasilkan (output data project) baik pada file Markdown hasil analisis (`.md`) maupun saat diintegrasikan ke dalam [projectsData.ts](file:///c:/Users/Dimas/Documents/GitHub/3D%20Particle%20Portfolio%20Website/src/data/projects/projectsData.ts) **WAJIB 100% menggunakan Bahasa Inggris profesional dan teknis (Professional Technical English)**. Mulai dari `summary`, `projectDescription`, `codeLearningDescription`, latar belakang, penjelasan arsitektur, alur workflow, temuan, hingga rekomendasi dan catatan teknis. Dilarang mencampurkan bahasa Indonesia di dalam nilai/properti data output.
 
 ---
 
@@ -83,8 +83,8 @@ Format folder: `public/images/projects/<nama_project>/`
 ## 3. Aturan Section Universal (`Section 1`, `Section 4`, `Section 6`)
 
 ### A. Section 1 — Hero Console, System Telemetry Matrix, & Repo Card
-1. **Deskripsi Utama (`overview` / `projectDescription` / `codeLearningDescription`):**
-   - Panjang teks **wajib berada di rentang 400–490 karakter** (termasuk spasi) agar informatif dan tidak terpotong `...` oleh batas `.slice(0, 500)` di UI.
+1. **Deskripsi Utama (`projectDescription` / `dataAnalyticsExecutiveSummary` / `codeLearningDescription`):**
+   - Panjang teks **wajib berada di rentang 250–300 karakter** (termasuk spasi) agar padat, proporsional pada card Hero Section 1, dan tidak terpotong `...` oleh batas `.slice(0, 500)` di UI.
 2. **System Telemetry Matrix (`telemetryMatrix`):**
    - Wajib mengisi seluruh **7 properti** berikut dengan panjang masing-masing **maksimal 45 karakter** (agar tidak terpotong elipsis di *Tactical Datapad*):
      - `projectType`: Jenis sistem/aplikasi.
@@ -126,6 +126,20 @@ Field khusus Section 6 per kategori:
 ---
 
 ## 4. Aturan Spesifik Kategori (`Section 2`, `Section 3`, `Section 5`)
+
+### A. Panduan Panjang Teks & Format Paragraf (Section 2, 3, 5)
+Di Section 2, 3, dan 5 seluruh teks dirender alami (*natural responsive wrap* tanpa truncate `.slice()`). Untuk menjaga simetri grid dan proporsionalitas layout card, terapkan batasan karakter tegas berikut (termasuk spasi):
+1. **Narasi Card Tunggal:** Wajib berada di rentang **250 – 350 karakter** (sekitar 2–3 kalimat padat).
+   - Latar belakang & konteks masalah: `projectBackground`, `dataAnalyticsBusinessContext`, `problemContext`, `mlProblemContext`, `desktopMobileBackground`, `uiUxBackground`.
+   - Ringkasan solusi & arsitektur: `proposedAiSolution`, `analyticalMethodology.summary`, `trainingProcess`, `conclusion`, `qualitativeEvaluation`.
+2. **Deskripsi Item List / Sub-Kartu Grid:** Wajib berada di rentang **120 – 180 karakter** (sekitar 1–2 kalimat ringkas).
+   - Fitur, masalah, & alur: `coreFeatures[].description`, `desktopMobileFeatures[].description`, `problemStatements[].description`, `projectObjectives[].description`, `dataPreparation[].description`, `prerequisites[].description`, `keyFindings[].description`, `limitations[].description`.
+3. **Caption Visual / Slide:** Wajib berada di rentang **80 – 140 karakter** (1 kalimat tajam).
+   - Keterangan gambar / slide: `deckSlides[].caption`, `interfaceShowcase[].caption`, `visualShowcase[].caption`, `designShowcase[].caption`.
+
+---
+
+### B. Aturan Per Kategori
 
 Untuk seluruh kategori berikut, **jumlah item (array length) di Section 2, 3, dan 5 bersifat bebas** sesuai kebutuhan project (tidak ada batas minimal/maksimal kecuali yang disebutkan eksplisit), namun **wajib mengikuti nama field canonical** dan **dilarang menduplikasi field legacy/non-canonical**.
 
@@ -274,7 +288,9 @@ Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan sel
 1. **Identitas & Pemetaan Kategori:** `id` unik, `code` urut (`PRO-XX // PREFIX-YY`), serta `category`, `categoryLabel`, dan `accentColor` cocok dengan tabel pemetaan.
 2. **Kepatuhan Penuh Bahasa Inggris:** Seluruh teks output data project (`summary`, `overview`, deskripsi fitur, alur arsitektur, metrik, catatan audit, rekomendasi, dll.) **WAJIB 100% menggunakan Bahasa Inggris profesional & teknis**.
 3. **Aset Lokal `.webp`:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; terdapat `banner.webp`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`).
-4. **Batas Karakter Section 1:** Narasi `overview` / `projectDescription` / `codeLearningDescription` sepanjang **400–490 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
+4. **Batas Karakter & Kalimat:**
+   - Section 1: Narasi `overview` / `projectDescription` / `codeLearningDescription` sepanjang **250–300 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
+   - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item grid list **120–180 karakter**; caption visual **80–140 karakter**.
 5. **Tech Stack Section 4:** Satu field tunggal `techStack: string[]` murni nama teknologi **tanpa pengelompokan category, tanpa nomor versi, atau tanda kurung**.
 6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
 7. **Enum & Format Ketat:**

@@ -48,12 +48,16 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
    - `uiUxVisualShowcase[].imageUrl`: `"/images/projects/<nama_project>/image01.webp"`, `image02.webp`, dst. (2 digit *zero-padded*).
 2. **Section 1 (Hero Console & Telemetry)**:
-   - `overview` dan `projectDescription`: **400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - `projectDescription`: **250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - `uiUxDesignFile`: isi spesifikasi file design `{ fileStatus, totalFrames, componentsCount, handoffSpecs }` (seluruh akses file/repo dikendalikan universal oleh `repoUrl`).
 3. **Section 2, 3, & 5**:
    - Pada `uiUxDesignSystem.colorPalette`, setiap nilai `hex` **WAJIB berformat valid `#RRGGBB`** (contoh: `"#E11D48"`, `"#0F172A"`).
    - Jumlah item array pada riset, persona, flow, visual showcase, design system, dan iterasi UT **bebas** sesuai bukti riil project.
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`uiUxBackground`, `uiUxInformationArchitecture.summary`, `uiUxUserFlow.summary`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`keyFindings[].description`, `userFlow[].description`, `iterations[].iterationSolution`): **120–180 karakter** (termasuk spasi).
+     - Caption visual (`uiUxVisualShowcase[].caption`): **80–140 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama tool desain/riset murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Figma"`, `"FigJam"`, `"Maze"`, `"Lottie"`, `"Tailwind CSS"`, BUKAN `"Figma Design System 2024"`).
@@ -95,33 +99,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang friction pengalaman pengguna & solusi desain produk>",
-  "overview": "<400-500 karakter narasi desain menyeluruh dari riset, arsitektur informasi, hingga validasi prototype>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview) untuk Hero Console Section 1>",
-  "challenge": "<Ringkasan masalah usability / friksi alur pengguna utama>",
-  "architectureSummary": "<Ringkasan pendekatan riset ke Information Architecture dan Hi-Fi Design System>",
-  "objectives": [
-    "<UX Objective 1>",
-    "<UX Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<UX Solution / Interaction Highlight>",
-      "description": "<Bagaimana fitur UI/UX menyelesaikan pain point pengguna>",
-      "badge": "<Short Badge>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Design Phase>",
-      "detail": "<Aktivitas Empathize / Define / Ideate / Prototype / Test>",
-      "latencyOrMetric": "<Deliverable atau metrik fase>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi hasil usability testing, aksesibilitas kontras, dan iterasi desain>",
-  "outcomes": [
-    "<Verified UX Outcome / Usability Gain 1>",
-    "<Verified UX Outcome / Usability Gain 2>"
-  ],
+  "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
+  "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
     "<Clean Design Tool Tanpa Versi>"
   ],
@@ -260,7 +239,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Seluruh mockup, wireframe, token warna/font, dokumen riset, persona, dan catatan usability test telah diperiksa.
 - [ ] `category` = `"ui-ux"`, `categoryLabel` = `"UI/UX Design"`, `accentColor` = `"rose"`.
 - [ ] Semua nilai `colorPalette[].hex` memakai format HEX valid `#RRGGBB`.
-- [ ] `overview` / `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` **bebas nomor versi** dan tanda kurung.
 - [ ] `uiUxSystemSpecs` memakai 4 nilai universal (maks 3–4 kata, tanpa underscore `_`).
 - [ ] Path visual showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.

@@ -63,7 +63,6 @@ export default function DataAnalyticsDetailView({
   const projectDescription =
     project.dataAnalyticsExecutiveSummary ||
     project.projectDescription ||
-    project.overview ||
     project.summary ||
     "";
 
@@ -88,7 +87,6 @@ export default function DataAnalyticsDetailView({
   // Section 2: Business Understanding & Objectives
   const businessContext =
     project.dataAnalyticsBusinessContext ||
-    project.challenge ||
     project.summary ||
     "";
 
@@ -97,15 +95,7 @@ export default function DataAnalyticsDetailView({
     description: string;
     targetTag?: string;
     targetMetric?: string;
-  }[] =
-    project.dataAnalyticsAnalyticalObjectives ||
-    (project.objectives && project.objectives.length > 0
-      ? project.objectives.map((obj, idx) => ({
-          title: `Objective ${String(idx + 1).padStart(2, "0")}`,
-          description: obj,
-          targetTag: `OBJECTIVE_0${idx + 1}`,
-        }))
-      : []);
+  }[] = project.dataAnalyticsAnalyticalObjectives || [];
 
   // Section 3: Data Inspection & Preparation
   const datasetOverview = project.dataAnalyticsDatasetOverview || (project as any).datasetOverview || {
@@ -211,11 +201,11 @@ export default function DataAnalyticsDetailView({
             action: r.description || r.action || "",
             priority: r.priority || "HIGH",
           })),
-          conclusion: (project as any).dataAnalyticsRecommendations?.conclusionSummary || project.evaluation || project.summary || "",
+          conclusion: (project as any).dataAnalyticsRecommendations?.conclusionSummary || project.summary || "",
         }
   ) : {
     recommendations: [],
-    conclusion: project.evaluation || project.summary || "",
+    conclusion: project.summary || "",
   };
 
   // Section 9: Project Resources

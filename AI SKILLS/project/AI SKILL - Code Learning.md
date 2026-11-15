@@ -47,12 +47,15 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Kategori **Code Learning HANYA menggunakan `banner.webp`**.
    - **DILARANG** membuat file showcase tambahan (`image01.webp`, dst.) dan **DILARANG** menambahkan properti `imageUrl` di dalam item `codeLearningPracticalProjects[]`.
 2. **Section 1 (Hero Console & Telemetry)**:
-   - **`codeLearningDescription`**, `overview`, dan `projectDescription`: **WAJIB 400–500 karakter** (termasuk spasi) agar tidak terpotong `.slice(0, 500)`.
+   - **`codeLearningDescription`** (atau `projectDescription`): **WAJIB 250–300 karakter** (termasuk spasi) agar padat, proporsional, dan tidak terpotong `.slice(0, 500)`.
    - `telemetryMatrix`: wajib isi **7 field**, masing-masing **maksimal 45 karakter**.
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
 3. **Section 2, 3, & 5 (ATURAN FILTER LEVEL KESULITAN)**:
    - Nilai `difficulty` pada `codeLearningModules[]` **WAJIB** menggunakan salah satu dari tiga string persis (case-sensitive): **`"Beginner"`**, **`"Intermediate"`**, atau **`"Advanced"`** agar filter tab `CodeLearningDetailView.tsx` berfungsi benar.
    - Jumlah modul, submodul, phase, capstone project, dan kompetensi bebas sesuai struktur riil materi project.
+   - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
+     - Narasi card tunggal (`codeLearningCurriculumStructure.summary`): **250–350 karakter** (termasuk spasi).
+     - Item list grid (`codeLearningObjectives[].description`, `codeLearningPrerequisites[].description`, `codeLearningModules[].description`, `codeLearningPracticalProjects[].description`): **120–180 karakter** (termasuk spasi).
 4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama bahasa/runtime/tool murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"TypeScript"`, `"Pytest"`, `"Node.js"`, `"VS Code"`, BUKAN `"Python 3.12"`).
@@ -94,34 +97,8 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
     "/images/projects/<nama_project>/banner.webp"
   ],
   "summary": "<1-2 kalimat ringkas tentang cakupan kurikulum & pendekatan praktik pemrograman>",
-  "overview": "<400-500 karakter narasi teknis tentang progresivitas kurikulum, konsep inti, dan capstone praktik>",
-  "projectDescription": "<400-500 karakter (selaras dengan overview)>",
-  "codeLearningDescription": "<400-500 karakter khusus untuk Hero Console Section 1 Code Learning>",
-  "challenge": "<Ringkasan tantangan pedagogis / kurva belajar konsep teknis yang diatasi>",
-  "architectureSummary": "<Ringkasan progresi teori -> guided code labs -> test verification -> capstone>",
-  "objectives": [
-    "<Learning Objective 1>",
-    "<Learning Objective 2>"
-  ],
-  "features": [
-    {
-      "title": "<Curriculum Feature / Lab Highlight>",
-      "description": "<Penjelasan fitur materi>",
-      "badge": "<Short Badge>"
-    }
-  ],
-  "pipelineSteps": [
-    {
-      "step": "<Learning Stage>",
-      "detail": "<Alur pembelajaran bertingkat>",
-      "latencyOrMetric": "<Durasi atau jumlah unit>"
-    }
-  ],
-  "evaluation": "<1 paragraf narasi mekanisme verifikasi pemahaman, unit test suite, dan capstone grading>",
-  "outcomes": [
-    "<Competency Outcome 1>",
-    "<Competency Outcome 2>"
-  ],
+  "codeLearningDescription": "<250-300 karakter untuk Hero Console Section 1>",
+  "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
   "techStack": [
     "<Clean Language/Tool Tanpa Versi>"
   ],
@@ -241,7 +218,7 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] Seluruh folder modul, silabus PDF/MD, test output, dan resource tambahan telah diperiksa.
 - [ ] `category` = `"code-learning"`, `categoryLabel` = `"Code Learning"`, `accentColor` = `"orange"`.
 - [ ] Setiap item `codeLearningModules[].difficulty` memakai **strictly** `"Beginner"`, `"Intermediate"`, atau `"Advanced"`.
-- [ ] `codeLearningDescription`, `overview`, dan `projectDescription` berjumlah **400–500 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
+- [ ] `codeLearningDescription` dan `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] **HANYA `banner.webp`** yang digunakan; tidak ada `image01.webp` maupun `imageUrl` di `codeLearningPracticalProjects`.
 - [ ] `techStack[]` dan `codeLearningCurriculumSpecs` **bebas nomor versi** dan tanda kurung; `codeLearningCurriculumSpecs` tanpa underscore (`_`).
 - [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.
