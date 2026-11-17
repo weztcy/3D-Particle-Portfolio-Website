@@ -1,4 +1,4 @@
----
+﻿---
 name: portfolio-desktop-mobile-app
 description: >-
   Audits a Desktop or Mobile application project directory comprehensively (native/cross-platform source code, manifests, installers/APKs/binaries, offline storage schemas, OS/hardware integrations, screenshots, docs, and test reports) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
@@ -6,7 +6,7 @@ description: >-
 
 # Desktop & Mobile App Portfolio Data Generator (`portfolio-desktop-mobile-app`)
 
-Skill ini mengaudit sebuah direktori project **Desktop & Mobile App** (Electron, Tauri, Flutter, React Native, Kotlin/Swift, C#/.NET, Python Desktop, C++/Qt) secara menyeluruh lintas format file, mengekstrak bukti arsitektur client & integrasi OS, dan menghasilkan file Markdown (`.md`) berisi data `ProjectCaseStudy` yang siap dimasukkan ke `src/data/projects/projectsData.ts`.
+Skill ini mengaudit sebuah direktori project **Desktop & Mobile App** (Electron, Tauri, Flutter, React Native, Kotlin/Swift, C#/.NET, Python Desktop, C++/Qt) secara menyeluruh lintas format file, mengekstrak bukti arsitektur client & integrasi OS, dan menghasilkan file Markdown (`.md`) berisi data `ProjectCaseStudy` yang disimpan langsung ke dalam root folder direktori project yang sedang dibuka dengan format penamaan nama direktori project (jangan disimpan di `src/data/projects/projectsData.ts`).
 
 ---
 
@@ -74,9 +74,9 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 
 ## 4. Template Output Markdown (`.md`)
 
-Simpan hasil analisis sebagai file Markdown di **dalam root direktori project yang sedang dianalisis** dengan nama `<project-id>.md` (mengikuti nilai `id` slug, contoh: `offline-pos-mobile-terminal.md`).
+Simpan hasil analisis sebagai file Markdown di **dalam root folder direktori project yang sedang dibuka** dengan format penamaan nama direktori project (`<nama-direktori-project>.md`, contoh: `offline-pos-mobile-terminal.md`, jangan disimpan di `src/data/projects/projectsData.ts`).
 
-Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
+Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berikut secara lengkap:
 
 ````markdown
 # Portfolio Project Data — <Project Title>
@@ -219,4 +219,4 @@ Isi file `<project-id>.md` harus mengikuti struktur berikut secara lengkap:
 - [ ] `techStack[]` dan `desktopMobileTechSpecs` **bebas nomor versi** dan tanda kurung.
 - [ ] `desktopMobilePlatformSpecs` menggunakan 4 nilai universal (maks 3–4 kata, tanpa underscore `_`).
 - [ ] Path showcase memakai `"/images/projects/<nama_project>/image01.webp"` dst., sedangkan hero memakai `banner.webp`.
-- [ ] File `.md` berhasil disimpan di dalam **root direktori project yang dianalisis**.
+- [ ] File `.md` berhasil disimpan di dalam **root folder direktori project yang sedang dibuka** dengan format penamaan nama direktori project (`<nama-direktori-project>.md`), bukan di `src/data/projects/projectsData.ts`.
