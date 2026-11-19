@@ -64,9 +64,7 @@ export default function MachineLearningDetailView({
   // Visualization Stage State
   const [activeVisIndex, setActiveVisIndex] = useState(0);
 
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
+  const heroImage = project.banner || null;
 
   // Section 1: Overview & Information
   const projectDescription =
@@ -187,23 +185,20 @@ export default function MachineLearningDetailView({
     metrics: [],
   };
 
-  const rawProjectImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : [];
-
   const performanceVisualizations: NonNullable<
     ProjectCaseStudy["mlPerformanceVisualizations"]
   > =
     project.mlPerformanceVisualizations && project.mlPerformanceVisualizations.length > 0
       ? project.mlPerformanceVisualizations
-      : rawProjectImages.map((img, idx) => ({
-          title: `${project.title} — Diagnostic Artifact 0${idx + 1}`,
-          badge: `ARTIFACT // 0${idx + 1}`,
-          imageUrl: img,
-        }));
+      : (project.banner
+          ? [
+              {
+                title: `${project.title} — Diagnostic Artifact 01`,
+                badge: `ARTIFACT // 01`,
+                imageUrl: project.banner,
+              },
+            ]
+          : []);
 
   const activeVis =
     performanceVisualizations[activeVisIndex] || performanceVisualizations[0];

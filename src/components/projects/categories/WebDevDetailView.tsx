@@ -51,14 +51,7 @@ export default function WebDevDetailView({
   onTriggerPulse,
 }: WebDevDetailViewProps) {
   // Image Showcase State
-  const rawImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : ["/images/projects/SiLelo - Online Auction 1.webp"];
-
-  const heroImage = rawImages[0] || project.imageUrl;
+  const heroImage = project.banner || null;
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
@@ -110,9 +103,7 @@ export default function WebDevDetailView({
   const interfaceShowcase =
     project.interfaceShowcase && project.interfaceShowcase.length > 0
       ? project.interfaceShowcase
-      : rawImages.map((img) => ({
-          imageUrl: img,
-        }));
+      : (project.banner ? [{ imageUrl: project.banner }] : []);
 
   const userFlow = project.userFlow || {
     summary: "",

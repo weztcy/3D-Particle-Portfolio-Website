@@ -654,11 +654,11 @@ function ProjectsSection({ onTriggerPulse }: ProjectsSectionProps = {}) {
                     <div className="pointer-events-none absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 z-20 h-2 w-2 border-b border-l border-white/40" />
                     <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-20 h-2 w-2 border-b border-r border-white/40" />
 
-                    {project.imageUrl && !hasImgError ? (
+                    {project.banner && !hasImgError ? (
                       <img
                         loading="lazy"
                         decoding="async"
-                        src={project.imageUrl}
+                        src={project.banner}
                         alt={project.title}
                         onError={() =>
                           setImgErrors((prev) => ({ ...prev, [project.id]: true }))

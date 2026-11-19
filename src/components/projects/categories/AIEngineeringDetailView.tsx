@@ -57,16 +57,7 @@ export default function AIEngineeringDetailView({
   // Visual Showcase Slider State
   const [activeHiFiIndex, setActiveHiFiIndex] = useState(0);
 
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
-
-  const visualImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : [];
+  const heroImage = project.banner || null;
 
   const visualShowcase = useMemo<
     NonNullable<ProjectCaseStudy["aiVisualShowcase"]>
@@ -74,15 +65,19 @@ export default function AIEngineeringDetailView({
     if (project.aiVisualShowcase && project.aiVisualShowcase.length > 0) {
       return project.aiVisualShowcase;
     }
-    return visualImages.map((img) => ({
-      imageUrl: img,
-    }));
-  }, [project.aiVisualShowcase, visualImages]);
+    return project.banner
+      ? [
+          {
+            imageUrl: project.banner,
+          },
+        ]
+      : [];
+  }, [project.aiVisualShowcase, project.banner]);
 
   const activeVisualItem: NonNullable<ProjectCaseStudy["aiVisualShowcase"]>[number] =
     visualShowcase[activeHiFiIndex] ||
     visualShowcase[0] || {
-      imageUrl: project.imageUrl || "",
+      imageUrl: project.banner || "",
     };
 
   // Section 1: Project Overview & Information

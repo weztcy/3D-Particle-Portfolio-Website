@@ -67,17 +67,7 @@ export default function CodeLearningDetailView({
   const [copiedPortalLink, setCopiedPortalLink] = useState(false);
   const [copiedSnippetId, setCopiedSnippetId] = useState<string | null>(null);
 
-  // Project Images resolution
-  const projectImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : [];
-
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
+  const heroImage = project.banner || null;
 
   // =========================================================================
   // Section 1: Overview & Information

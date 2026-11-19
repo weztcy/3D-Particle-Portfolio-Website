@@ -44,7 +44,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 1. **Aset Gambar Lokal (ATURAN KHUSUS CODE LEARNING)**:
    - Folder target portofolio: `/images/projects/<nama_project>/`
    - Pembentukan `<nama_project>`: ambil **maksimal 4 kata alfanumerik awal** dari `title`, ubah ke `lowercase`, pisahkan dengan `_`, abaikan tanda baca (`-`, `&`, `/`, `:`).
-   - Kategori **Code Learning HANYA menggunakan `banner.webp`**.
+   - Kategori **Code Learning HANYA menggunakan `banner.webp`** via field `banner: "/images/projects/<nama_project>/banner.webp"`.
    - **DILARANG** membuat file showcase tambahan (`image01.webp`, dst.) dan **DILARANG** menambahkan properti `imageUrl` di dalam item `codeLearningPracticalProjects[]`.
 2. **Section 1 (Hero Console & Telemetry)**:
    - `summary`: **Maksimal 150 karakter** (termasuk spasi), padat, profesional, dan merepresentasikan value/solusi utama project.
@@ -93,10 +93,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "accentColor": "orange",
   "repoUrl": "<https://github.com/... atau hapus field ini jika Private>",
   "license": "<MIT License atau hapus jika Private>",
-  "imageUrl": "/images/projects/<nama_project>/banner.webp",
-  "images": [
-    "/images/projects/<nama_project>/banner.webp"
-  ],
+  "banner": "/images/projects/<nama_project>/banner.webp",
   "summary": "<Maksimal 150 karakter: ringkasan masalah & solusi utama>",
   "codeLearningDescription": "<250-300 karakter untuk Hero Console Section 1>",
   "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
@@ -220,6 +217,6 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 - [ ] `category` = `"code-learning"`, `categoryLabel` = `"Code Learning"`, `accentColor` = `"orange"`.
 - [ ] Setiap item `codeLearningModules[].difficulty` memakai **strictly** `"Beginner"`, `"Intermediate"`, atau `"Advanced"`.
 - [ ] `codeLearningDescription` dan `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
-- [ ] **HANYA `banner.webp`** yang digunakan; tidak ada `image01.webp` maupun `imageUrl` di `codeLearningPracticalProjects`.
+- [ ] **HANYA `banner.webp`** yang digunakan via field `banner`; tidak ada `image01.webp` maupun `imageUrl` di `codeLearningPracticalProjects`.
 - [ ] `techStack[]` dan `codeLearningCurriculumSpecs` **bebas nomor versi** dan tanda kurung; `codeLearningCurriculumSpecs` tanpa underscore (`_`).
 - [ ] File `.md` berhasil disimpan di dalam **root folder direktori project yang sedang dibuka** dengan format penamaan nama direktori project (`<nama-direktori-project>.md`), bukan di `src/data/projects/projectsData.ts`.

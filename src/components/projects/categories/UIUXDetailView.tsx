@@ -66,17 +66,7 @@ export default function UIUXDetailView({
 
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Images resolution
-  const projectImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : [];
-
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
+  const heroImage = project.banner || null;
 
   // =========================================================================
   // Section 1: Overview & Information
@@ -183,17 +173,20 @@ export default function UIUXDetailView({
 
   // Section 6: High-Fidelity Showcase
   const visualShowcase =
-    project.uiUxVisualShowcase ||
-    (projectImages.length > 0
-      ? projectImages.map((img) => ({
-          imageUrl: img,
-        }))
-      : []);
+    project.uiUxVisualShowcase && project.uiUxVisualShowcase.length > 0
+      ? project.uiUxVisualShowcase
+      : (project.banner
+          ? [
+              {
+                imageUrl: project.banner,
+              },
+            ]
+          : []);
 
   const activeHiFiItem =
     visualShowcase[activeHiFiIndex] ||
     visualShowcase[0] || {
-      imageUrl: project.imageUrl || "",
+      imageUrl: project.banner || "",
     };
 
   const designSystem = project.uiUxDesignSystem || {

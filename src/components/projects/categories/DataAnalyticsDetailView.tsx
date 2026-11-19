@@ -165,11 +165,11 @@ export default function DataAnalyticsDetailView({
   }[] =
     project.dataAnalyticsPresentationSlides && project.dataAnalyticsPresentationSlides.length > 0
       ? project.dataAnalyticsPresentationSlides
-      : (project.images || [project.imageUrl || ""]).map((img, idx) => ({
-          imageUrl: img,
-          caption: `${project.title} — Slide Deck 0${idx + 1}`,
-          badge: `SLIDE // 0${idx + 1}`,
-        }));
+      : (project.banner ? [{
+          imageUrl: project.banner,
+          caption: `${project.title} — Slide Deck 01`,
+          badge: `SLIDE // 01`,
+        }] : []);
 
   // Section 7: Key Findings & Business Insights
   const keyFindings: {
@@ -181,9 +181,7 @@ export default function DataAnalyticsDetailView({
   }[] = project.dataAnalyticsKeyFindings || (project as any).keyFindings || [];
 
   // Section 8: Recommendations & Strategic Action
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
+  const heroImage = project.banner || null;
 
   const recommendationsAndConclusion: {
     recommendations: {

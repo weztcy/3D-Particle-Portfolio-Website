@@ -4,14 +4,14 @@ File ini berisi **Prompt Task Lengkap** yang dirancang untuk diberikan kepada AI
 
 ---
 
-## ðŸ“‹ CARA PENGGUNAAN
+## 📋 CARA PENGGUNAAN
 1. **Copy** seluruh isi teks di dalam kotak blok prompt di bawah ini.
 2. **Paste** ke chat AI Agent Anda.
 3. AI Agent akan secara otomatis:
    - Membaca ke-7 file skill yang ada di folder ini.
    - Menggabungkannya menjadi **1 Single Unified Skill** bernama `portfolio-project-data`.
    - Memasangnya ke direktori skill global sistem (`~/.gemini/config/skills/portfolio-project-data/`).
-   - Mengonfigurasi menu interaktif sehingga setiap kali skill dijalankan, agent akan menyajikan pilihan 7 kategori project dan menunggu pilihan Anda sebelum melakukan audit.
+   - Mengonfigurasi menu interaktif berupa tombol klik (**Clickable UI via `ask_question`**) sehingga setiap kali skill dijalankan, antarmuka menyajikan pilihan tombol kategori yang dapat diklik langsung oleh pengguna sebelum melakukan audit.
 
 ---
 
@@ -25,7 +25,7 @@ Role: AI Systems & Environment Customization Engineer
 TASK:
 Audit dan install template audit portofolio yang ada di folder kerja saat ini menjadi SATU Single Unified Skill secara GLOBAL. Skill ini TIDAK BOLEH di-install terpisah-pisah, melainkan harus terintegrasi menjadi satu kesatuan skill bernama `portfolio-project-data`.
 
-Ketika skill tersebut nantinya dijalankan oleh user, skill WAJIB menampilkan menu interaktif berisi semua opsi kategori project yang tersedia, berhenti sejenak menunggu user memilih salah satu kategori, lalu menjalankan audit secara mendalam sesuai aturan dan template kategori yang dipilih.
+Ketika skill tersebut nantinya dijalankan oleh user, skill WAJIB menampilkan menu interaktif menggunakan tool `ask_question` agar antarmuka AI Agent merender tombol/pilihan yang bisa diklik langsung (DILARANG KERAS hanya menampilkan daftar teks markdown di chat), menunggu user mengklik salah satu kategori, lalu menjalankan audit secara mendalam sesuai aturan dan template kategori yang dipilih.
 
 --------------------------------------------------------------------------------
 1. ANALISIS SUMBER SKILL (SOURCE FILES)
@@ -50,15 +50,15 @@ Install skill ini ke direktori konfigurasi skill global:
 
 Struktur folder target yang wajib dibuat:
 portfolio-project-data/
-â”œâ”€â”€ SKILL.md                          # Entry point utama (Interactive Menu & Routing)
-â””â”€â”€ references/                       # Modul spesifikasi lengkap tiap kategori
-    â”œâ”€â”€ ai-engineering.md
-    â”œâ”€â”€ code-learning.md
-    â”œâ”€â”€ data-analytics.md
-    â”œâ”€â”€ desktop-mobile-app.md
-    â”œâ”€â”€ machine-learning.md
-    â”œâ”€â”€ ui-ux-design.md
-    â””â”€â”€ web-development.md
+├── SKILL.md                          # Entry point utama (Clickable UI Menu & Routing)
+└── references/                       # Modul spesifikasi lengkap tiap kategori
+    ├── ai-engineering.md
+    ├── code-learning.md
+    ├── data-analytics.md
+    ├── desktop-mobile-app.md
+    ├── machine-learning.md
+    ├── ui-ux-design.md
+    └── web-development.md
 
 --------------------------------------------------------------------------------
 3. LANGKAH-LANGKAH INSTALASI YANG WAJIB ANDA JALANKAN
@@ -86,7 +86,7 @@ Tulis file `SKILL.md` di root folder skill dengan konten frontmatter YAML dan in
 ---
 name: portfolio-project-data
 description: >-
-  Universal project auditor and portfolio case study generator. Audits any software, AI, data, mobile/desktop, learning, or UI/UX project directory and generates a complete, compliant ProjectCaseStudy Markdown file. When executed, it interactively presents category options for user selection before performing the audit.
+  Universal project auditor and portfolio case study generator. Audits any software, AI, data, mobile/desktop, learning, or UI/UX project directory and generates a complete, compliant ProjectCaseStudy Markdown file. When executed, it interactively presents category options for user selection via ask_question before performing the audit.
 ---
 
 # Universal Portfolio Project Auditor (`portfolio-project-data`)
@@ -95,62 +95,70 @@ Skill ini mengaudit direktori project secara komprehensif lintas format file, me
 
 ---
 
-## âš¡ PROTOKOL INTERAKTIF WAJIB: PEMILIHAN KATEGORI PROJECT
+## ⚡ PROTOKOL INTERAKTIF WAJIB: PEMILIHAN KATEGORI PROJECT (CLICKABLE INTERACTIVE UI)
 
 Ketika skill ini dijalankan atau dipicu oleh user (contoh pemicu: "audit project ini", "generate portfolio data", "buat case study portofolio", atau slash command `/portfolio-project-data`):
 
-> **ATURAN MUTLAK:**
-> AGENT DILARANG LANGSUNG MEMILIH KATEGORI SECARA SEPIHAK ATAU MENEBAK TANPA KONFIRMASI DARI USER.
+### Kondisi A — Kategori Sudah Disebutkan Eksplisit
+Jika pengguna sudah menyebutkan kategori project secara eksplisit saat memanggil skill (misalnya: *"audit project ini untuk web development"*, *"generate portfolio data AI Engineering"*), **JANGAN tampilkan menu**. Langsung gunakan kategori tersebut dan jalankan audit.
 
-Ikuti 3 tahapan eksekusi berikut secara disiplin:
+### Kondisi B — Kategori Belum Disebutkan (Clickable Interactive UI)
+> [!IMPORTANT]
+> **DILARANG KERAS** menampilkan menu hanya sebagai pesan teks biasa atau daftar markdown di chat.
+> **WAJIB** memanggil tool interaktif `ask_question` agar antarmuka AI Agent merender tombol/pilihan yang bisa diklik langsung (*clickable options/buttons*) oleh pengguna!
 
-### TAHAP 1: Tampilkan Menu Pilihan Kategori ke User
-Tampilkan pesan berikut kepada user:
+Panggil tool `ask_question` dengan parameter persis berikut:
 
-"""
-Halo! Saya siap mengaudit direktori project ini dan menyusun data `ProjectCaseStudy` portofolio standar produksi.
+```json
+{
+  "questions": [
+    {
+      "question": "Silakan pilih kategori project yang ingin diaudit untuk penyusunan data ProjectCaseStudy:",
+      "is_multi_select": false,
+      "options": [
+        "AI Engineering (portfolio-ai-engineering)",
+        "Code Learning (portfolio-code-learning)",
+        "Data Analytics (portfolio-data-analytics)",
+        "Desktop & Mobile App (portfolio-desktop-mobile-app)",
+        "Machine Learning (portfolio-machine-learning)",
+        "UI/UX Design (portfolio-ui-ux-design)",
+        "Web Development (portfolio-web-development)"
+      ]
+    }
+  ]
+}
+```
 
-Silakan pilih kategori project yang ingin diaudit:
-[1] AI Engineering (portfolio-ai-engineering)
-    - LLM orchestration, Agentic AI, Multi-Agent systems, RAG pipelines, MCP tools, Vector DB, eval telemetry.
-[2] Code Learning (portfolio-code-learning)
-    - Kurikulum edukasi pemrograman, modul belajar bertingkat (Beginner/Intermediate/Advanced), latihan kode, capstones.
-[3] Data Analytics (portfolio-data-analytics)
-    - BI Dashboards (Power BI/Tableau), query SQL, notebook analisis, dataset (CSV/Parquet), business metrics & impact.
-[4] Desktop & Mobile App (portfolio-desktop-mobile-app)
-    - Aplikasi Mobile (Android/iOS/Flutter/React Native), Desktop (Electron/Tauri/Qt/.NET), atau Cross-Platform.
-[5] Machine Learning (portfolio-machine-learning)
-    - Supervised/Unsupervised learning, Deep Learning (CNN/RNN/Transformers), Computer Vision, NLP, RL, training logs.
-[6] UI/UX Design (portfolio-ui-ux-design)
-    - Design systems, design tokens, wireframes, high-fidelity mockups, user personas, UX research, usability logs.
-[7] Web Development (portfolio-web-development)
-    - Full-stack, Frontend/Backend apps, REST/GraphQL APIs, Next.js, database schemas (Prisma/SQL), security & perf.
+### Ketentuan Mutlak Menu Interaktif:
+1. **Clickable UI via `ask_question`**: AI Agent **wajib** memanggil tool `ask_question` untuk menyajikan menu, sehingga pengguna tinggal mengklik salah satu tombol opsi di interface.
+2. **Single Select**: `is_multi_select: false`. Pengguna hanya memilih tepat satu kategori.
+3. **Hanya 7 Kategori Utama**: Masukkan tepat 7 opsi tersebut tanpa penomoran manual pada teks (UI akan otomatis menambahkan penomoran) dan tanpa opsi "Other" manual (UI akan menyediakannya secara otomatis).
+4. **JANGAN Menampilkan Subkategori**: Dilarang menampilkan daftar subkategori atau deskripsi panjang di bawah opsi.
+5. **Pemilihan Kategori Hanya SATU KALI**: Pengguna cukup mengklik satu kali.
+6. **Eksekusi Langsung Pasca-Klik**: Begitu pengguna mengklik kategori (respons diterima dari tool `ask_question`), AI Agent **wajib langsung melanjutkan ke tahap eksekusi audit**.
 
-Silakan ketik nomor kategori pilihan Anda (1 - 7), atau sebutkan nama kategorinya:
-"""
+---
 
-### TAHAP 2: Berhenti & Tunggu Input User
-- Agent **WAJIB BERHENTI** memanggil tool dan menunggu respons jawaban user.
-- Jangan melanjutkan proses inspeksi atau pembuatan file sebelum user merespons dengan nomor atau nama kategori.
+## 🚀 EKSEKUSI AUDIT SESUAI KATEGORI PILIHAN
 
-### TAHAP 3: Eksekusi Audit Sesuai Kategori Pilihan
-Setelah user memberikan jawaban (misal mengetik `1` atau `AI Engineering`):
-1. Berikan konfirmasi: *"Kategori terpilih: [Nama Kategori]. Memulai audit komprehensif direktori..."*
-2. Buka dan baca file modul referensi yang bersangkutan dari folder `references/`:
-   - Pilihan 1 -> [references/ai-engineering.md](./references/ai-engineering.md)
-   - Pilihan 2 -> [references/code-learning.md](./references/code-learning.md)
-   - Pilihan 3 -> [references/data-analytics.md](./references/data-analytics.md)
-   - Pilihan 4 -> [references/desktop-mobile-app.md](./references/desktop-mobile-app.md)
-   - Pilihan 5 -> [references/machine-learning.md](./references/machine-learning.md)
-   - Pilihan 6 -> [references/ui-ux-design.md](./references/ui-ux-design.md)
-   - Pilihan 7 -> [references/web-development.md](./references/web-development.md)
-3. Jalankan protokol audit direktori multi-format sesuai panduan kategori tersebut:
+Setelah kategori ditentukan (dari respon `ask_question` atau instruksi eksplisit pengguna):
+
+1. **Konfirmasi Singkat**: Berikan pesan: *"Kategori terpilih: [Nama Kategori]. Memulai audit komprehensif direktori..."*
+2. **Buka & Baca File Modul Referensi Internal**: Buka dan baca file modul referensi yang bersangkutan dari folder `references/`:
+   - AI Engineering -> [references/ai-engineering.md](./references/ai-engineering.md)
+   - Code Learning -> [references/code-learning.md](./references/code-learning.md)
+   - Data Analytics -> [references/data-analytics.md](./references/data-analytics.md)
+   - Desktop & Mobile App -> [references/desktop-mobile-app.md](./references/desktop-mobile-app.md)
+   - Machine Learning -> [references/machine-learning.md](./references/machine-learning.md)
+   - UI/UX Design -> [references/ui-ux-design.md](./references/ui-ux-design.md)
+   - Web Development -> [references/web-development.md](./references/web-development.md)
+3. **Jalankan Protokol Audit Direktori Multi-Format Sesuai Panduan Kategori**:
    - Inspeksi source code, manifest, schema, logs, diagram, dokumen, dan screenshot di direktori target.
    - Patuhi seluruh batasan karakter teks (`summary` maks 150 char, `projectDescription` 250-300 char, telemetry, dsb.).
    - Pastikan penamaan folder aset gambar lokal (`/images/projects/<nama_project>/`) dan format gambar sesuai aturan.
    - Bersihkan `techStack` dari nomor versi dan tanda kurung.
    - Hasilkan konten data dalam bahasa Inggris teknis profesional (Professional Technical English).
-4. Buat file output `<project-id>.md` langsung di dalam root direktori project yang diaudit.
+4. **Simpan Output**: Buat file output `<project-id>.md` langsung di dalam root direktori project yang diaudit.
 ```
 
 --------------------------------------------------------------------------------
@@ -161,14 +169,14 @@ Setelah proses instalasi selesai:
 2. Tampilkan laporan ringkas kepada user yang mencantumkan:
    - Lokasi folder instalasi global skill.
    - Status registrasi skill `portfolio-project-data`.
-   - Konfirmasi bahwa alur interaktif pemilihan kategori 1-7 sudah aktif.
+   - Konfirmasi bahwa alur interaktif pemilihan kategori 1-7 menggunakan tool `ask_question` (clickable buttons) sudah aktif.
    - Contoh perintah untuk langsung menjalankan skill tersebut.
 ================================================================================
 ```
 
 ---
 
-## ðŸ’» ALTERNATIF: INSTALASI CEPAT DENGAN POWERSHELL SCRIPT
+## 💻 ALTERNATIF: INSTALASI CEPAT DENGAN POWERSHELL SCRIPT
 Jika Anda ingin langsung menginstal skill ini ke folder global komputer Anda saat ini tanpa melalui prompt, jalankan perintah PowerShell berikut di direktori ini:
 
 ```powershell
@@ -192,7 +200,7 @@ Copy-Item ".\AI SKILL - Web Development.md" "$refDir\web-development.md" -Force
 ---
 name: portfolio-project-data
 description: >-
-  Universal project auditor and portfolio case study generator. Audits any software, AI, data, mobile/desktop, learning, or UI/UX project directory and generates a complete, compliant ProjectCaseStudy Markdown file. When executed, it interactively presents category options for user selection before performing the audit.
+  Universal project auditor and portfolio case study generator. Audits any software, AI, data, mobile/desktop, learning, or UI/UX project directory and generates a complete, compliant ProjectCaseStudy Markdown file. When executed, it interactively presents category options for user selection via ask_question before performing the audit.
 ---
 
 # Universal Portfolio Project Auditor (`portfolio-project-data`)
@@ -201,54 +209,71 @@ Skill ini mengaudit direktori project secara komprehensif lintas format file, me
 
 ---
 
-## âš¡ PROTOKOL INTERAKTIF WAJIB: PEMILIHAN KATEGORI PROJECT
+## ⚡ PROTOKOL INTERAKTIF WAJIB: PEMILIHAN KATEGORI PROJECT (CLICKABLE INTERACTIVE UI)
 
 Ketika skill ini dijalankan atau dipicu oleh user (contoh: "audit project ini", "generate portfolio data", "buat case study portofolio"):
 
-> **ATURAN MUTLAK:**
-> AGENT DILARANG LANGSUNG MEMILIH KATEGORI SECARA SEPIHAK ATAU MENEBAK TANPA KONFIRMASI DARI USER.
+### Kondisi A — Kategori Sudah Disebutkan Eksplisit
+Jika pengguna sudah menyebutkan kategori project secara eksplisit saat memanggil skill (misalnya: *"audit project ini untuk web development"*, *"generate portfolio data AI Engineering"*), **JANGAN tampilkan menu**. Langsung gunakan kategori tersebut dan jalankan audit.
 
-### TAHAP 1: Tampilkan Menu Pilihan Kategori ke User
-Tampilkan pesan berikut kepada user:
+### Kondisi B — Kategori Belum Disebutkan (Clickable Interactive UI)
+> [!IMPORTANT]
+> **DILARANG KERAS** menampilkan menu hanya sebagai pesan teks biasa atau daftar markdown di chat.
+> **WAJIB** memanggil tool interaktif `ask_question` agar antarmuka AI Agent merender tombol/pilihan yang bisa diklik langsung (*clickable options/buttons*) oleh pengguna!
 
-Halo! Saya siap mengaudit direktori project ini dan menyusun data `ProjectCaseStudy` portofolio standar produksi.
+Panggil tool `ask_question` dengan parameter persis berikut:
 
-Silakan pilih kategori project yang ingin diaudit:
-[1] AI Engineering (portfolio-ai-engineering)
-    - LLM orchestration, Agentic AI, Multi-Agent systems, RAG pipelines, MCP tools, Vector DB, eval telemetry.
-[2] Code Learning (portfolio-code-learning)
-    - Kurikulum edukasi pemrograman, modul belajar bertingkat (Beginner/Intermediate/Advanced), latihan kode, capstones.
-[3] Data Analytics (portfolio-data-analytics)
-    - BI Dashboards (Power BI/Tableau), query SQL, notebook analisis, dataset (CSV/Parquet), business metrics & impact.
-[4] Desktop & Mobile App (portfolio-desktop-mobile-app)
-    - Aplikasi Mobile (Android/iOS/Flutter/React Native), Desktop (Electron/Tauri/Qt/.NET), atau Cross-Platform.
-[5] Machine Learning (portfolio-machine-learning)
-    - Supervised/Unsupervised learning, Deep Learning (CNN/RNN/Transformers), Computer Vision, NLP, RL, training logs.
-[6] UI/UX Design (portfolio-ui-ux-design)
-    - Design systems, design tokens, wireframes, high-fidelity mockups, user personas, UX research, usability logs.
-[7] Web Development (portfolio-web-development)
-    - Full-stack, Frontend/Backend apps, REST/GraphQL APIs, Next.js, database schemas (Prisma/SQL), security & perf.
-
-Silakan ketik nomor kategori pilihan Anda (1 - 7), atau sebutkan nama kategorinya:
-
-### TAHAP 2: Berhenti & Tunggu Input User
-- Agent **WAJIB BERHENTI** memanggil tool dan menunggu respons jawaban user.
-- Jangan melanjutkan proses inspeksi atau pembuatan file sebelum user merespons dengan nomor atau nama kategori.
-
-### TAHAP 3: Eksekusi Audit Sesuai Kategori Pilihan
-Setelah user memberikan jawaban (misal mengetik `1` atau `AI Engineering`):
-1. Berikan konfirmasi: "Kategori terpilih: [Nama Kategori]. Memulai audit komprehensif direktori..."
-2. Buka dan baca file modul referensi yang bersangkutan dari folder `references/`:
-   - Pilihan 1 -> [references/ai-engineering.md](./references/ai-engineering.md)
-   - Pilihan 2 -> [references/code-learning.md](./references/code-learning.md)
-   - Pilihan 3 -> [references/data-analytics.md](./references/data-analytics.md)
-   - Pilihan 4 -> [references/desktop-mobile-app.md](./references/desktop-mobile-app.md)
-   - Pilihan 5 -> [references/machine-learning.md](./references/machine-learning.md)
-   - Pilihan 6 -> [references/ui-ux-design.md](./references/ui-ux-design.md)
-   - Pilihan 7 -> [references/web-development.md](./references/web-development.md)
-3. Jalankan protokol audit direktori multi-format sesuai panduan kategori tersebut dan hasilkan file `<project-id>.md` di direktori project.
-'@ | Out-File -FilePath "$targetDir\SKILL.md" -Encoding utf8
-
-Write-Host "âœ… Sukses menginstall global skill 'portfolio-project-data' ke $targetDir" -ForegroundColor Green
+```json
+{
+  "questions": [
+    {
+      "question": "Silakan pilih kategori project yang ingin diaudit untuk penyusunan data ProjectCaseStudy:",
+      "is_multi_select": false,
+      "options": [
+        "AI Engineering (portfolio-ai-engineering)",
+        "Code Learning (portfolio-code-learning)",
+        "Data Analytics (portfolio-data-analytics)",
+        "Desktop & Mobile App (portfolio-desktop-mobile-app)",
+        "Machine Learning (portfolio-machine-learning)",
+        "UI/UX Design (portfolio-ui-ux-design)",
+        "Web Development (portfolio-web-development)"
+      ]
+    }
+  ]
+}
 ```
 
+### Ketentuan Mutlak Menu Interaktif:
+1. **Clickable UI via `ask_question`**: AI Agent **wajib** memanggil tool `ask_question` untuk menyajikan menu, sehingga pengguna tinggal mengklik salah satu tombol opsi di interface.
+2. **Single Select**: `is_multi_select: false`. Pengguna hanya memilih tepat satu kategori.
+3. **Hanya 7 Kategori Utama**: Masukkan tepat 7 opsi tersebut tanpa penomoran manual pada teks (UI akan otomatis menambahkan penomoran) dan tanpa opsi "Other" manual (UI akan menyediakannya secara otomatis).
+4. **JANGAN Menampilkan Subkategori**: Dilarang menampilkan daftar subkategori atau deskripsi panjang di bawah opsi.
+5. **Pemilihan Kategori Hanya SATU KALI**: Pengguna cukup mengklik satu kali.
+6. **Eksekusi Langsung Pasca-Klik**: Begitu pengguna mengklik kategori (respons diterima dari tool `ask_question`), AI Agent **wajib langsung melanjutkan ke tahap eksekusi audit**.
+
+---
+
+## 🚀 EKSEKUSI AUDIT SESUAI KATEGORI PILIHAN
+
+Setelah kategori ditentukan (dari respon `ask_question` atau instruksi eksplisit pengguna):
+
+1. **Konfirmasi Singkat**: Berikan pesan: *"Kategori terpilih: [Nama Kategori]. Memulai audit komprehensif direktori..."*
+2. **Buka & Baca File Modul Referensi Internal**: Buka dan baca file modul referensi yang bersangkutan dari folder `references/`:
+   - AI Engineering -> [references/ai-engineering.md](./references/ai-engineering.md)
+   - Code Learning -> [references/code-learning.md](./references/code-learning.md)
+   - Data Analytics -> [references/data-analytics.md](./references/data-analytics.md)
+   - Desktop & Mobile App -> [references/desktop-mobile-app.md](./references/desktop-mobile-app.md)
+   - Machine Learning -> [references/machine-learning.md](./references/machine-learning.md)
+   - UI/UX Design -> [references/ui-ux-design.md](./references/ui-ux-design.md)
+   - Web Development -> [references/web-development.md](./references/web-development.md)
+3. **Jalankan Protokol Audit Direktori Multi-Format Sesuai Panduan Kategori**:
+   - Inspeksi source code, manifest, schema, logs, diagram, dokumen, dan screenshot di direktori target.
+   - Patuhi seluruh batasan karakter teks (`summary` maks 150 char, `projectDescription` 250-300 char, telemetry, dsb.).
+   - Pastikan penamaan folder aset gambar lokal (`/images/projects/<nama_project>/`) dan format gambar sesuai aturan.
+   - Bersihkan `techStack` dari nomor versi dan tanda kurung.
+   - Hasilkan konten data dalam bahasa Inggris teknis profesional (Professional Technical English).
+4. **Simpan Output**: Buat file output `<project-id>.md` langsung di dalam root direktori project yang diaudit.
+'@ | Out-File -FilePath "$targetDir\SKILL.md" -Encoding utf8
+
+Write-Host "✅ Sukses menginstall global skill 'portfolio-project-data' ke $targetDir" -ForegroundColor Green
+```

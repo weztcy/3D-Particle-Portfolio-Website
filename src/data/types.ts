@@ -74,8 +74,7 @@ export interface ProjectCaseStudy {
   categoryLabel: string;
   year: string;
   status: string;
-  imageUrl?: string;
-  images?: string[];
+  banner: string;
   summary: string;
   architectureSummary: string;
   techStack: string[];

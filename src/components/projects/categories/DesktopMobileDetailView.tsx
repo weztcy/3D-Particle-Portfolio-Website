@@ -61,19 +61,7 @@ export default function DesktopMobileDetailView({
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Project Images resolution
-  const projectImages: string[] =
-    project.images && project.images.length > 0
-      ? project.images
-      : project.imageUrl
-      ? [project.imageUrl]
-      : [];
-
-  const heroImage =
-    project.imageUrl ||
-    (project.images && project.images.length > 0 ? project.images[0] : null);
-
-  const currentActiveImage = projectImages[activeImageIndex] || project.imageUrl || "";
+  const heroImage = project.banner || null;
 
   // Section 1: Overview & Information
   const projectDescription =
@@ -141,18 +129,17 @@ export default function DesktopMobileDetailView({
   const coreFeatures = project.desktopMobileFeatures || [];
 
   const interfaceShowcase =
-    project.desktopMobileInterfaceShowcase ||
-    (projectImages.length > 0
-      ? projectImages.map((img) => ({
-          imageUrl: img,
-        }))
-      : []);
+    project.desktopMobileInterfaceShowcase && project.desktopMobileInterfaceShowcase.length > 0
+      ? project.desktopMobileInterfaceShowcase
+      : (project.banner ? [{ imageUrl: project.banner }] : []);
 
   const activeShowcaseItem =
     interfaceShowcase[activeImageIndex] ||
     interfaceShowcase[0] || {
-      imageUrl: project.imageUrl || "",
+      imageUrl: project.banner || "",
     };
+
+  const currentActiveImage = activeShowcaseItem.imageUrl || project.banner || "";
 
   const userFlow: {
     summary: string;

@@ -22,6 +22,7 @@ Setiap objek `ProjectCaseStudy` di dalam `PROJECT_CASE_STUDIES` wajib memiliki p
 | `accentColor` | Harus sama persis dengan tabel pemetaan kategori. | `"cyan"` |
 | `year` | Tahun rilis/selesai dalam string 4 digit. | `"2026"` |
 | `status` | Status pengerjaan (misal `"Completed"`, `"Published"`, `"Production Ready"`). | `"Completed"` |
+| `banner` | Path file banner utama project: `"/images/projects/<nama_project>/banner.webp"`. | `"/images/projects/smart_inventory_operations/banner.webp"` |
 | `summary` | Ringkasan singkat padat untuk preview kartu utama & meta SEO. **Maksimal 150 karakter** (termasuk spasi). | `"Enterprise-grade multi-tenant ERP platform engineered with mutex concurrency to eliminate negative stock drift and distorted inventory valuations."` |
 | `repoUrl` | URL penuh GitHub jika **Public**. Kosongkan (`""` atau hapus properti) jika **Private**. | `"https://github.com/..."` |
 | `license` | Isi `"MIT License"` (atau lisensi OSS terkait) jika Public; otomatis menjadi `"Proprietary Rights"` di UI jika Private. | `"MIT License"` |
@@ -75,8 +76,8 @@ Format folder: `public/images/projects/<nama_project>/`
 | `code-learning` | `banner.webp` | *(Tidak ada gambar tambahan — hanya `banner.webp`)* |
 
 **Aturan Path di `projectsData.ts`:**
-- `imageUrl`: `"/images/projects/<nama_project>/banner.webp"`
-- `images`: `["/images/projects/<nama_project>/banner.webp"]` (atau sertakan daftar path gambar showcase sesuai urutan jika dibutuhkan fallback galeri; untuk `code-learning` cukup `banner.webp`).
+- `banner`: `"/images/projects/<nama_project>/banner.webp"` (field tunggal untuk banner Hero Section 1 dan cover kartu preview project).
+- *(Catatan: Gambar showcase di luar banner diisi langsung pada field showcase khusus per kategori seperti `interfaceShowcase`, `dataAnalyticsPresentationSlides`, `aiVisualShowcase`, `mlPerformanceVisualizations`, `desktopMobileInterfaceShowcase`, atau `uiUxVisualShowcase`)*.
 
 ---
 
@@ -290,7 +291,7 @@ Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan sel
 
 1. **Identitas & Pemetaan Kategori:** `id` unik, `code` urut (`PRO-XX // PREFIX-YY`), serta `category`, `categoryLabel`, dan `accentColor` cocok dengan tabel pemetaan.
 2. **Kepatuhan Penuh Bahasa Inggris:** Seluruh teks output data project (`summary`, `overview`, deskripsi fitur, alur arsitektur, metrik, catatan audit, rekomendasi, dll.) **WAJIB 100% menggunakan Bahasa Inggris profesional & teknis**.
-3. **Aset Lokal `.webp`:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; terdapat `banner.webp`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`).
+3. **Aset Lokal `.webp` & Field Banner:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; field `banner` mengarah ke `"/images/projects/<nama_project>/banner.webp"`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`) diisi pada field showcase masing-masing.
 4. **Batas Karakter & Kalimat:**
    - Section 1: `summary` **maksimal 150 karakter**; Narasi `projectDescription` / `codeLearningDescription` sepanjang **250–300 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
    - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item bertipe list/array **bebas tanpa batas minimum maupun maksimum**; caption visual **80–140 karakter**.

@@ -45,7 +45,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 1. **Aset Gambar Lokal**:
    - Folder target portofolio: `/images/projects/<nama_project>/`
    - Pembentukan `<nama_project>`: ambil **maksimal 4 kata alfanumerik awal** dari `title`, ubah ke `lowercase`, pisahkan dengan `_`, abaikan tanda baca (`-`, `&`, `/`, `:`).
-   - `imageUrl` & `images[0]`: `"/images/projects/<nama_project>/banner.webp"` (Hero Section 1).
+   - `banner`: `"/images/projects/<nama_project>/banner.webp"` (field tunggal untuk Banner Hero Section 1 dan cover project).
    - `uiUxVisualShowcase[].imageUrl`: `"/images/projects/<nama_project>/image01.webp"`, `image02.webp`, dst. (2 digit *zero-padded*).
 2. **Section 1 (Hero Console & Telemetry)**:
    - `summary`: **Maksimal 150 karakter** (termasuk spasi), padat, profesional, dan merepresentasikan value/solusi utama project.
@@ -95,10 +95,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "accentColor": "rose",
   "repoUrl": "<https://github.com/... atau hapus field ini jika Private>",
   "license": "<MIT License / CC BY 4.0 atau hapus jika Private>",
-  "imageUrl": "/images/projects/<nama_project>/banner.webp",
-  "images": [
-    "/images/projects/<nama_project>/banner.webp"
-  ],
+  "banner": "/images/projects/<nama_project>/banner.webp",
   "summary": "<Maksimal 150 karakter: ringkasan masalah & solusi utama>",
   "projectDescription": "<250-300 karakter untuk Hero Console Section 1>",
   "architectureSummary": "<Ringkasan alur arsitektur satu baris>",
