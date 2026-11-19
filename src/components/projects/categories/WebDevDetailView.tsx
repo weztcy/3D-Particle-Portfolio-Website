@@ -75,7 +75,7 @@ export default function WebDevDetailView({
     developmentStatus: project.status || "Completed",
     developmentYear: project.year || "2026",
     platform: "Web / Cross-Platform Responsive",
-    projectCategory: project.categoryLabel || "Web Development",
+    projectCategory: project.categoryLabel || "Website",
   };
 
   const telemetry = project.telemetryMatrix || {

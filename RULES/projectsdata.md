@@ -31,11 +31,11 @@ Setiap objek `ProjectCaseStudy` di dalam `PROJECT_CASE_STUDIES` wajib memiliki p
 
 | `category` | `categoryLabel` | `accentColor` | Prefix `code` | Catatan Khusus |
 | :--- | :--- | :--- | :--- | :--- |
-| `"web-development"` | `"Web Development"` | `"cyan"` | `WEB-XX` | — |
+| `"web-development"` | `"Website"` | `"cyan"` | `WEB-XX` | `categoryLabel` bernilai tetap `"Website"`. |
 | `"data-analysis"` | `"Data Analytics"` | `"emerald"` | `DA-XX` | — |
 | `"ai-engineering"` | `"AI Engineering"` | `"purple"` | `AI-XX` | — |
-| `"machine-learning"` | `"Machine Learning"` | `"indigo"` | `ML-XX` | — |
-| `"desktop-mobile"` | `"Desktop & Mobile"` / `"Desktop App"` / `"Mobile App"` | `"amber"` | `APP-XX` | Nilai `category` tetap `"desktop-mobile"`. `categoryLabel` dinamis mendeteksi platform target: `"Mobile App"` jika aplikasi mobile (Android/iOS/Flutter mobile/React Native), `"Desktop App"` jika aplikasi desktop murni (Electron/Tauri/Qt/WPF/.NET), atau `"Desktop & Mobile"` jika cross-platform desktop sekaligus mobile. |
+| `"machine-learning"` | `"Supervised Learning"` / `"Unsupervised Learning"` / `"Semi-Supervised Learning"` / `"Reinforcement Learning"` / `"Deep Learning"` | `"indigo"` | `ML-XX` | Nilai `category` tetap `"machine-learning"`. `categoryLabel` dideteksi secara cerdas oleh AI Agent dari jenis pembelajaran: `"Supervised Learning"`, `"Unsupervised Learning"`, `"Semi-Supervised Learning"`, `"Reinforcement Learning"`, atau `"Deep Learning"`. |
+| `"desktop-mobile"` | `"Mobile App"` / `"Desktop App"` / `"Cross-Platform App"` | `"amber"` | `APP-XX` | Nilai `category` tetap `"desktop-mobile"`. `categoryLabel` dideteksi secara cerdas oleh AI Agent dari platform target: `"Mobile App"` jika aplikasi mobile murni, `"Desktop App"` jika aplikasi desktop murni, atau `"Cross-Platform App"` jika mendukung keduanya (desktop sekaligus mobile). |
 | `"ui-ux"` | `"UI/UX Design"` | `"rose"` | `UX-XX` | — |
 | `"code-learning"` | `"Code Learning"` | `"orange"` | `CL-XX` | — |
 
@@ -206,6 +206,14 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
     - Subheading Card 4 (`[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]`), badge pojok kanan (`GUARDRAILS & TRANSPARENCY`), serta sub-block (`ROADMAP & NEXT ITERATION`) bersifat static universal pada template. UI merender `title` (dan opsional `target`) pada roadmap tanpa kuartal/tahun; nilai `severity` **wajib** `"LOW"`, `"MEDIUM"`, atau `"HIGH"`.
 
 ### 4. Machine Learning (`machine-learning`)
+- **Deteksi Paradigma Pembelajaran (`categoryLabel`):**
+  - Nilai `category` **wajib selalu `"machine-learning"`**.
+  - Nilai `categoryLabel` **wajib dideteksi secara cerdas oleh AI Agent** dari arsitektur model dan metodologi menjadi salah satu dari 5 nilai canonical berikut:
+    1. **`"Supervised Learning"`**: Jika menggunakan data berpasangan dengan label target/ground truth terarah (klasifikasi, regresi, estimasi nilai numerik/fisika terarah).
+    2. **`"Unsupervised Learning"`**: Jika memproses data tanpa label target untuk pengelompokan pola, klasterisasi, atau reduksi dimensi (clustering K-Means/DBSCAN, anomaly detection, PCA/t-SNE).
+    3. **`"Semi-Supervised Learning"`**: Jika menggabungkan sedikit data berlabel dengan banyak data tidak berlabel (pseudo-labeling, consistency regularization).
+    4. **`"Reinforcement Learning"`**: Jika berbasis interaksi agen-lingkungan, state-action transition, dan optimasi reward (policy gradient, Q-learning, PPO, DQN, multi-agent RL).
+    5. **`"Deep Learning"`**: Jika arsitektur intinya adalah deep neural network bertingkat banyak (CNN, RNN, LSTM, Transformer, Autoencoder, GAN, Diffusion).
 - **Cakupan Universal Multi-Domain Machine Learning:**
   - Wajib mendukung **seluruh paradigma, modalitas, dan jenis project Machine Learning secara universal**, tidak terbatas pada satu bentuk data atau algoritma saja.
   - Termasuk namun tidak terbatas pada:
@@ -242,7 +250,7 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - Nilai `categoryLabel` **wajib ditentukan secara dinamis** berdasarkan hasil inspeksi direktori project:
     - Gunakan **`"Mobile App"`** jika project murni aplikasi mobile (Android, iOS, Flutter Mobile, React Native Mobile, Kotlin, Swift, dsb.).
     - Gunakan **`"Desktop App"`** jika project murni aplikasi desktop (Electron, Tauri, C#/.NET WPF/WinForms, Qt/C++, Python Desktop, dsb.).
-    - Gunakan **`"Desktop & Mobile"`** jika project mendukung kedua platform sekaligus (*cross-platform* desktop dan mobile).
+    - Gunakan **`"Cross-Platform App"`** jika project mendukung kedua platform sekaligus (*cross-platform* desktop dan mobile).
 - **Format Objek Terstruktur:** Wajib menggunakan format objek terstruktur dengan prefiks `desktopMobile*` (hindari format campuran `string[]` polos pada objectives/userFlow):
 - **Section 2 (Background & Objectives):**
   - `desktopMobileBackground`: `string`
@@ -289,7 +297,7 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
 
 Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan seluruh poin berikut lolos pemeriksaan:
 
-1. **Identitas & Pemetaan Kategori:** `id` unik, `code` urut (`PRO-XX // PREFIX-YY`), serta `category`, `categoryLabel`, dan `accentColor` cocok dengan tabel pemetaan.
+1. **Identitas & Pemetaan Kategori:** `id` unik, `code` urut (`PRO-XX // PREFIX-YY`), serta `category`, `categoryLabel` (`"Website"` untuk Web Dev; deteksi 5 paradigma untuk ML; deteksi `"Mobile App" | "Desktop App" | "Cross-Platform App"` untuk Desktop-Mobile), dan `accentColor` cocok dengan tabel pemetaan.
 2. **Kepatuhan Penuh Bahasa Inggris:** Seluruh teks output data project (`summary`, `overview`, deskripsi fitur, alur arsitektur, metrik, catatan audit, rekomendasi, dll.) **WAJIB 100% menggunakan Bahasa Inggris profesional & teknis**.
 3. **Aset Lokal `.webp` & Field Banner:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; field `banner` mengarah ke `"/images/projects/<nama_project>/banner.webp"`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`) diisi pada field showcase masing-masing.
 4. **Batas Karakter & Kalimat:**

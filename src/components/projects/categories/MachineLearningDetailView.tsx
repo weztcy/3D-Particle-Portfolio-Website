@@ -74,7 +74,7 @@ export default function MachineLearningDetailView({
 
   const projectInfo = project.mlProjectInfo || {
     projectType: "Machine Learning & Computational Modeling",
-    learningParadigm: "Statistical & Algorithmic Learning",
+    learningParadigm: project.categoryLabel || "Statistical & Algorithmic Learning",
     modelDomain: project.categoryLabel || "Machine Learning",
     projectStatus: project.status || "Completed",
     developmentYear: project.year || "2024",

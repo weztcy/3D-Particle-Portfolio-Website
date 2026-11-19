@@ -1,4 +1,4 @@
-﻿---
+---
 name: portfolio-machine-learning
 description: >-
   Audits a Machine Learning project directory comprehensively (training scripts, notebooks, datasets/tensors, model artifacts/checkpoints, hyperparameter configs, evaluation plots/metrics, papers/docs, and simulations) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
@@ -13,7 +13,12 @@ Skill ini mengaudit sebuah direktori project **Machine Learning** (tabular, Comp
 ## 1. Identitas & Konstanta Kategori
 
 - **Category (`category`)**: `"machine-learning"`
-- **Category Label (`categoryLabel`)**: `"Machine Learning"`
+- **Category Label (`categoryLabel`)**: Dideteksi secara cerdas oleh AI Agent dari arsitektur model dan jenis pembelajaran, bernilai salah satu dari 5 pilihan canonical persis berikut:
+  1. `"Supervised Learning"` (klasifikasi, regresi, atau estimasi nilai numerik/fisika dengan ground truth target terarah)
+  2. `"Unsupervised Learning"` (klasterisasi, reduksi dimensi, representasi fitur, atau deteksi anomali tanpa label target)
+  3. `"Semi-Supervised Learning"` (gabungan data berlabel terbatas dengan data tidak berlabel)
+  4. `"Reinforcement Learning"` (interaksi agen-lingkungan, optimasi kebijakan, atau reward loop)
+  5. `"Deep Learning"` (arsitektur deep neural network seperti CNN, RNN, LSTM, Transformer, Autoencoder, GAN, Diffusion)
 - **Accent Color (`accentColor`)**: `"indigo"`
 - **Code Format (`code`)**: `"PRO-XX // ML-XX"`
 - **Bahasa Output Wajib**: **100% Bahasa Inggris Profesional & Teknis (Professional Technical English)**. Seluruh nilai properti data (`summary`, `overview`, `challenge`, deskripsi fitur, metodologi, metrik, catatan audit, interpretasi, dll.) wajib berbahasa Inggris tanpa mencampurkan bahasa Indonesia.
@@ -103,7 +108,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "code": "PRO-XX // ML-XX",
   "title": "<Project Title>",
   "category": "machine-learning",
-  "categoryLabel": "Machine Learning",
+  "categoryLabel": "<'Supervised Learning' | 'Unsupervised Learning' | 'Semi-Supervised Learning' | 'Reinforcement Learning' | 'Deep Learning'>",
   "year": "<YYYY>",
   "status": "Completed",
   "accentColor": "indigo",
@@ -271,7 +276,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
 - [ ] Seluruh dataset, notebook, script training/evaluasi, checkpoint model, plot grafik, dan dokumen pendukung telah diinspeksi.
-- [ ] `category` = `"machine-learning"`, `categoryLabel` = `"Machine Learning"`, `accentColor` = `"indigo"`.
+- [ ] `category` = `"machine-learning"`, `categoryLabel` = salah satu dari 5 paradigma (`"Supervised Learning"`, `"Unsupervised Learning"`, `"Semi-Supervised Learning"`, `"Reinforcement Learning"`, `"Deep Learning"`), `accentColor` = `"indigo"`.
 - [ ] Memakai skema kanonik universal (`objectiveOutput`, `inputSignals`, `objectiveCriterion`, `optimizationSolver`), bukan field legacy.
 - [ ] Header Section 5 bersifat static universal pada template; isi `mlEvaluationStrategy` (`validationMethod`, `description`, `metrics`) dan `mlModelInterpretationAndLimitations` (`keyDrivers`, `limitations`, `futureImprovements`) disesuaikan dengan jenis project; `metrics` opsional atau diisi indikator terverifikasi dengan `value` ringkas.
 - [ ] `mlProjectInfo.capabilityBadges` berisi **tepat 3 item** (maks 3 kata, tanpa underscore `_`).

@@ -1,4 +1,4 @@
-﻿---
+---
 name: portfolio-desktop-mobile-app
 description: >-
   Audits a Desktop or Mobile application project directory comprehensively (native/cross-platform source code, manifests, installers/APKs/binaries, offline storage schemas, OS/hardware integrations, screenshots, docs, and test reports) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
@@ -17,7 +17,7 @@ Skill ini mengaudit sebuah direktori project **Desktop & Mobile App** (Electron,
   - Wajib dideteksi secara dinamis berdasarkan hasil inspeksi direktori project:
     - `"Mobile App"`: Jika project murni aplikasi mobile (Android, iOS, Flutter Mobile, React Native Mobile, Swift, Kotlin, dsb.).
     - `"Desktop App"`: Jika project murni aplikasi desktop (Electron, Tauri, C#/.NET WPF/WinForms, Qt/C++, Python Desktop, dsb.).
-    - `"Desktop & Mobile"`: Jika project mendukung kedua platform sekaligus (*cross-platform* desktop dan mobile).
+    - `"Cross-Platform App"`: Jika project mendukung kedua platform sekaligus (*cross-platform* desktop dan mobile).
 - **Accent Color (`accentColor`)**: `"amber"`
 - **Code Format (`code`)**: `"PRO-XX // APP-XX"`
 - **Bahasa Output Wajib**: **100% Bahasa Inggris Profesional & Teknis (Professional Technical English)**. Seluruh nilai properti data (`summary`, `overview`, `challenge`, deskripsi fitur, arsitektur, metrik, catatan audit, rekomendasi, dll.) wajib berbahasa Inggris tanpa mencampurkan bahasa Indonesia.
@@ -95,7 +95,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "code": "PRO-XX // APP-XX",
   "title": "<Project Title>",
   "category": "desktop-mobile",
-  "categoryLabel": "<'Mobile App' | 'Desktop App' | 'Desktop & Mobile'>",
+  "categoryLabel": "<'Mobile App' | 'Desktop App' | 'Cross-Platform App'>",
   "year": "<YYYY>",
   "status": "Completed",
   "accentColor": "amber",
@@ -210,7 +210,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
 - [ ] Seluruh manifest platform (`package.json`, `pubspec.yaml`, `AndroidManifest.xml`, `tauri.conf.json`), binary/installer, screenshot, manual, dan kode native telah diperiksa.
-- [ ] `category` = `"desktop-mobile"`, `categoryLabel` ditentukan akurat berdasarkan platform (`"Mobile App"` / `"Desktop App"` / `"Desktop & Mobile"`), `accentColor` = `"amber"`.
+- [ ] `category` = `"desktop-mobile"`, `categoryLabel` ditentukan akurat berdasarkan platform (`"Mobile App"` / `"Desktop App"` / `"Cross-Platform App"`), `accentColor` = `"amber"`.
 - [ ] Seluruh Section 2, 3, & 5 memakai struktur `desktopMobile*` yang terdefinisi di `types.ts`.
 - [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `desktopMobileTechSpecs` **bebas nomor versi** dan tanda kurung.

@@ -70,18 +70,26 @@ export default function DesktopMobileDetailView({
     project.summary ||
     "";
 
+  const isCrossPlatform =
+    project.categoryLabel?.toLowerCase().includes("cross-platform");
+
   const isMobile =
     project.categoryLabel?.toLowerCase().includes("mobile") ||
+    isCrossPlatform ||
     project.title.toLowerCase().includes("mobile") ||
     project.summary.toLowerCase().includes("android") ||
     project.summary.toLowerCase().includes("flutter") ||
     project.summary.toLowerCase().includes("react native");
 
   const projectInfo = project.desktopMobileProjectInfo || {
-    applicationType: isMobile
+    applicationType: isCrossPlatform
+      ? "Cross-Platform Application (Desktop & Mobile)"
+      : isMobile
       ? "Mobile Application (Native / Cross-Platform)"
       : "Native Desktop Application (x64 Architecture)",
-    targetPlatform: isMobile
+    targetPlatform: isCrossPlatform
+      ? "Windows / macOS / Android / iOS"
+      : isMobile
       ? "Android 14+ / iOS 17+"
       : "Windows 11 / 10 (x64 Native)",
     developmentStatus: project.status || "Production Ready",

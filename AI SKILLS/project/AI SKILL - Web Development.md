@@ -1,4 +1,4 @@
-﻿---
+---
 name: portfolio-web-development
 description: >-
   Audits a Web Development project directory comprehensively (source code, APIs, schemas, screenshots, docs, configs, test reports, and media) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
@@ -13,7 +13,7 @@ Skill ini mengaudit sebuah direktori project **Web Development** secara menyelur
 ## 1. Identitas & Konstanta Kategori
 
 - **Category (`category`)**: `"web-development"`
-- **Category Label (`categoryLabel`)**: `"Web Development"`
+- **Category Label (`categoryLabel`)**: `"Website"` (wajib bernilai persis `"Website"`)
 - **Accent Color (`accentColor`)**: `"cyan"`
 - **Code Format (`code`)**: `"PRO-XX // WEB-XX"`
 - **Konten Teks Output**: Wajib **Bahasa Inggris teknis & profesional**.
@@ -92,7 +92,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "code": "PRO-XX // WEB-XX",
   "title": "<Project Title>",
   "category": "web-development",
-  "categoryLabel": "Web Development",
+  "categoryLabel": "Website",
   "year": "<YYYY>",
   "status": "Completed",
   "accentColor": "cyan",
@@ -213,7 +213,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
 - [ ] Seluruh file non-kode (gambar, PDF, dokumen, SQL, test output) di direktori target ikut diperiksa.
-- [ ] `category` = `"web-development"`, `categoryLabel` = `"Web Development"`, `accentColor` = `"cyan"`.
+- [ ] `category` = `"web-development"`, `categoryLabel` = `"Website"`, `accentColor` = `"cyan"`.
 - [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `primaryTechSpecs` **bebas nomor versi** dan tanda kurung.
 - [ ] `architectureQuality.badges` berjumlah **tepat 4 item** dan **tanpa underscore (`_`)**.
