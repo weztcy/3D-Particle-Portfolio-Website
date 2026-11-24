@@ -26,7 +26,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 
 1. **Dataset Mentah & Hasil Olahan**:
    - `.csv`, `.xlsx`, `.xls`, `.parquet`, `.json`, database `.db`/`.sqlite`, dan file skema data dictionary.
-   - Verifikasi sumber data, periode waktu (`dataPeriod`), jumlah baris/record akurat (`recordsCount`), jumlah variabel/fitur (`variablesCount`/`featuresCount`), serta tipe data (`dataTypes`).
+   - Verifikasi sumber data, periode waktu (`dataPeriod`), jumlah baris/record akurat (`recordsCount`), serta jumlah variabel (`variablesCount`).
 2. **Script Query, ETL, & Notebook Eksplorasi**:
    - `.sql`, `.py`, `.R`, `.ipynb` (termasuk output cell yang tersimpan), `requirements.txt`, `environment.yml`.
    - Ekstrak tahapan **Data Preparation** (imputasi missing values, deduplikasi, normalisasi, feature engineering, outlier handling) dan **Analytical Methodology** (EDA, Cohort, RFM, ANOVA, Time Series, A/B Testing, Regression, dll.).
@@ -60,8 +60,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`dataAnalyticsBusinessContext`, `analyticalMethodology.summary`, `conclusion`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
-     - Caption visual (`deckSlides[].caption`): **80–140 karakter** (termasuk spasi).
-4. **Section 4 (`techStack`)**:
+     4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi/tool analitik murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"Pandas"`, `"PostgreSQL"`, `"Power BI"`, `"SQL"`, BUKAN `"Python 3.11"` atau `"Power BI Desktop"`).
    - Jumlah item bebas.
@@ -134,8 +133,6 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     "dataPeriod": "<Rentang tanggal/tahun data>",
     "recordsCount": "<Jumlah baris tepat, misal 124,580 Records>",
     "variablesCount": "<Jumlah kolom/variabel>",
-    "featuresCount": "<Jumlah fitur analisis>",
-    "dataTypes": "<Tipe data dominan, misal Tabular Transactional & Time Series>",
     "description": "<Deskripsi isi dataset, granularitas, dan cakupan entitas>"
   },
   "dataAnalyticsDataPreparation": [
@@ -172,8 +169,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     {
       "slideNumber": 1,
       "title": "<Slide / Dashboard View Title>",
-      "imageUrl": "/images/projects/<nama_project>/slide01.webp",
-      "caption": "<Penjelasan insight atau metrik yang tampil di slide ini>"
+      "imageUrl": "/images/projects/<nama_project>/slide01.webp"
     }
   ],
   "dataAnalyticsKeyFindings": [
@@ -198,9 +194,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "dataAnalyticsSupportingFiles": [
     {
       "name": "<Nama File Pendukung Aktual, misal executive_summary.pdf>",
-      "format": "<PDF / XLSX / SQL / IPYNB / PBIX>",
-      "size": "<Ukuran file jika terdeteksi>",
-      "description": "<Isi dokumen atau artefak analisis ini>"
+      "format": "<PDF / XLSX / SQL / IPYNB / PBIX>"
     }
   ]
 }

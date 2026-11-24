@@ -70,15 +70,21 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `mlProjectInfo.capabilityBadges`: **WAJIB tepat 3 item**, masing-masing **maksimal 3 kata**, tanpa underscore (`_`).
    - Repository: isi `repoUrl` & `license` jika Public; hapus/kosongkan `repoUrl` & `license` jika Private.
 3. **Section 2, 3, & 5 (Skema Kanonik Universal)**:
-   - Gunakan skema kanonik universal (`mlDatasetOverview`, `mlFeaturesAndDataCharacteristics` dengan `objectiveOutput` & `inputSignals`, serta `objectiveCriterion` & `optimizationSolver` pada `mlModelArchitectureAndTraining`). **Jangan gunakan field legacy** (`targetVariable`, `inputFeatures`, `lossFunction`, `optimizer`, `topPredictors`).
+   - Gunakan skema kanonik universal (`mlDatasetOverview`, `mlFeaturesAndDataCharacteristics` dengan `objectiveOutput` & `inputSignals`, serta `objectiveCriterion` & `optimizationSolver` pada `mlModelArchitectureAndTraining`).
    - **Heading & Subheading Static Universal pada Section 5**: Seluruh heading dan subheading di Section 5 bersifat static universal pada template (Heading: `[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]`, Tag: `EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS`, Card 1: `[ EVALUATION_STRATEGY // BENCHMARK_PROTOCOL ]`, Card 3: `[ MODEL_INTERPRETATION & ERROR ANALYSIS ]` dengan badge static `DIAGNOSTIC INSIGHTS`, serta blok `KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS`, `MODEL LIMITATIONS`, `FUTURE IMPROVEMENTS ROADMAP`). Tidak diperbolehkan menyertakan field custom header (`sectionTitle`, `sectionTag`, `strategyLabel`, `interpretabilityBadge`, `driversTitle`) di dalam data.
-   - Variasi jenis project (Supervised, Unsupervised, Reinforcement Learning, Deep Learning, Computer Vision, maupun Simulasi Numerik) diwadahi melalui isi data: `validationMethod`, narasi `description`, array `metrics` (opsional, `value` ringkas ≤10–12 karakter agar tidak terpotong), `keyDrivers`, `limitations`, dan `futureImprovements`.
+   - Variasi jenis project (Supervised, Unsupervised, Reinforcement Learning, Deep Learning, Computer Vision, maupun Simulasi Numerik) diwadahi melalui isi data: `validationMethod`, narasi `description`, array `metrics` (setiap item wajib `{ label, value, benchmark }`), `keyDrivers`, `limitations`, dan `futureImprovements`.
+   - **Aturan Khusus Field `metrics[].benchmark` (WAJIB)**:
+     - Field `benchmark` bersifat **wajib diisi** (bukan opsional).
+     - **WAJIB menyertakan kata sebelum ambang nilai pembanding**, dengan batasan **maksimal 1 kata awalan** sebelum operator/angka pembanding.
+     - **Format Benar (1 kata awalan + ambang batas):** `"Baseline < 0.3552"`, `"Target > 0.85"`, `"Tolerance < 1e-12"`, `"Threshold >= 0.80"`, `"Baseline: 74.03%"`.
+     - **Format Salah:**
+       - `"<0.3552"` atau `"< 0.3552"` *(DILARANG: langsung angka/operator tanpa kata awalan)*.
+       - `"Baseline Target Model Comparison < 0.3552"` *(DILARANG: lebih dari 1 kata sebelum ambang nilai)*.
    - Jumlah item array di Section 2, 3, & 5 **bebas** sesuai bukti project.
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`mlProblemContext`, `dataCharacteristicsSummary`, `methodologyDescription`, `trainingProcess`, `interpretationSummary`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
-     - Caption visual (`mlPerformanceVisualizations[].caption`): **80–140 karakter** (termasuk spasi).
-4. **Section 4 (`techStack`)**:
+     4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"PyTorch"`, `"Scikit-Learn"`, `"XGBoost"`, `"NumPy"`, BUKAN `"PyTorch 2.3 (CUDA)"`).
 5. **Section 6 (`mlMethodologySpecs`)**:
@@ -206,10 +212,9 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     "description": "<Penjelasan protokol validasi, observasi perilaku model, atau analisis empiris>",
     "metrics": [
       {
-        "label": "<Metric atau Behavioral Indicator Label>",
-        "value": "<Nilai ringkas ± <=10 karakter agar tidak truncate>",
-        "benchmark": "<Target / Baseline / Kondisi Observasi>",
-        "pass": true
+        "label": "<Metric Label, misal TEST ACCURACY>",
+        "value": "<Nilai ringkas ≤10-12 karakter, misal 81.17%>",
+        "benchmark": "<Wajib diawali maks 1 kata sebelum ambang nilai pembanding, misal 'Baseline < 0.3552' atau 'Target > 0.85'>"
       }
     ]
   },
@@ -218,15 +223,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
       "title": "<Visualization Title>",
       "badge": "<Plot Type Badge>",
       "imageUrl": "/images/projects/<nama_project>/image01.webp",
-      "caption": "<Penjelasan temuan visual pada grafik evaluasi/training>",
-      "telemetryNote": "<Catatan metrik kunci pada grafik>",
-      "tableData": [
-        {
-          "metric": "<Metric Row>",
-          "trainingScore": "<Train Value>",
-          "validationScore": "<Val Value>"
-        }
-      ]
+      "telemetryNote": "<Catatan metrik kunci pada grafik>"
     }
   ],
   "mlVisualizationTelemetryNote": "<Catatan ringkas konsistensi train vs validation>",
@@ -277,8 +274,8 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 - [ ] **Bahasa Output:** Seluruh teks data output 100% Bahasa Inggris profesional & teknis (tanpa bahasa Indonesia).
 - [ ] Seluruh dataset, notebook, script training/evaluasi, checkpoint model, plot grafik, dan dokumen pendukung telah diinspeksi.
 - [ ] `category` = `"machine-learning"`, `categoryLabel` = salah satu dari 5 paradigma (`"Supervised Learning"`, `"Unsupervised Learning"`, `"Semi-Supervised Learning"`, `"Reinforcement Learning"`, `"Deep Learning"`), `accentColor` = `"indigo"`.
-- [ ] Memakai skema kanonik universal (`objectiveOutput`, `inputSignals`, `objectiveCriterion`, `optimizationSolver`), bukan field legacy.
-- [ ] Header Section 5 bersifat static universal pada template; isi `mlEvaluationStrategy` (`validationMethod`, `description`, `metrics`) dan `mlModelInterpretationAndLimitations` (`keyDrivers`, `limitations`, `futureImprovements`) disesuaikan dengan jenis project; `metrics` opsional atau diisi indikator terverifikasi dengan `value` ringkas.
+- [ ] Memakai skema kanonik universal (`objectiveOutput`, `inputSignals`, `objectiveCriterion`, `optimizationSolver`).
+- [ ] Header Section 5 bersifat static universal pada template; isi `mlEvaluationStrategy` (`validationMethod`, `description`, `metrics`) dan `mlModelInterpretationAndLimitations` (`keyDrivers`, `limitations`, `futureImprovements`) disesuaikan dengan jenis project; jika `metrics` diisi, `benchmark` **wajib** memiliki maks 1 kata sebelum ambang nilai, dan `value` ringkas.
 - [ ] `mlProjectInfo.capabilityBadges` berisi **tepat 3 item** (maks 3 kata, tanpa underscore `_`).
 - [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `mlMethodologySpecs` **bebas nomor versi** dan tanda kurung; `mlMethodologySpecs` maks 3–4 kata tanpa underscore (`_`).

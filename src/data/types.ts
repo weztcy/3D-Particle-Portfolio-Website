@@ -118,8 +118,6 @@ export interface ProjectCaseStudy {
   }[];
   interfaceShowcase?: {
     imageUrl: string;
-    caption?: string;
-    badge?: string;
   }[];
   userFlow?: {
     summary: string;
@@ -202,12 +200,8 @@ export interface ProjectCaseStudy {
       phase?: string;
     }[];
   };
-  presentationSlides?: {
-    slideNumber: number;
-    title: string;
-    imageUrl?: string;
-    caption?: string;
-  }[];
+  presentationSlides?: any;
+  dataAnalyticsPresentationSlides?: any;
   keyFindings?: {
     metricValue: string;
     metricLabel: string;
@@ -223,13 +217,8 @@ export interface ProjectCaseStudy {
     }[];
     conclusion: string;
   };
-  supportingFiles?: {
-    name: string;
-    format: string;
-    size?: string;
-    url?: string;
-    description: string;
-  }[];
+  supportingFiles?: any;
+  dataAnalyticsSupportingFiles?: any;
 
   // Extended AI Engineering Domain Specific Fields
   aiEngineeringProjectInfo?: {
@@ -278,10 +267,8 @@ export interface ProjectCaseStudy {
   }[];
   aiVisualShowcase?: {
     title?: string;
-    caption?: string;
     badge?: string;
     imageUrl: string;
-    highlights?: string[];
   }[];
   aiExecutionTelemetry?: {
     scenarioTitle: string;
@@ -341,10 +328,9 @@ export interface ProjectCaseStudy {
     dataSource?: string;
     dataPeriod?: string;
     recordsCount?: string;
-    featuresCount?: string;
-    dataTypes?: string;
     description: string;
     provenanceNote?: string;
+    [key: string]: any;
   };
   mlFeaturesAndDataCharacteristics?: {
     spaceBadge?: string;
@@ -409,20 +395,14 @@ export interface ProjectCaseStudy {
     metrics?: {
       label: string;
       value: string;
-      benchmark?: string;
+      benchmark: string;
     }[];
   };
   mlPerformanceVisualizations?: {
     title: string;
     badge: string;
     imageUrl?: string;
-    caption?: string;
     telemetryNote?: string;
-    tableData?: {
-      metric: string;
-      trainingScore: string;
-      validationScore: string;
-    }[];
   }[];
   mlVisualizationTelemetryNote?: string;
   mlModelInterpretationAndLimitations?: {
@@ -485,13 +465,10 @@ export interface ProjectCaseStudy {
     title: string;
     description: string;
     badge?: string;
-    metric?: string;
   }[];
   desktopMobileInterfaceShowcase?: {
     [key: string]: any;
     imageUrl: string;
-    caption?: string;
-    badge?: string;
   }[];
   desktopMobileUserFlow?: any;
   desktopMobileArchitecture?: {
@@ -545,9 +522,6 @@ export interface ProjectCaseStudy {
     [key: string]: any;
     title?: string;
     imageUrl?: string;
-    caption?: string;
-    badge?: string;
-    stage?: string;
   }[];
   uiUxDesignSystem?: {
     [key: string]: any;
@@ -663,9 +637,7 @@ export interface ProjectCaseStudy {
     tier?: string;
     difficulty?: string;
     estimatedTime?: string;
-    scenario?: string;
     architecturalConstraints?: string[];
-    acceptanceCriteria?: string[];
     [key: string]: any;
   }[];
   codeLearningOutcomes?: {

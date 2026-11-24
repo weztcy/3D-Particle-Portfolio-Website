@@ -169,9 +169,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
       "tier": "<Core / Advanced>",
       "difficulty": "Intermediate",
       "estimatedTime": "<Estimasi durasi pengerjaan>",
-      "scenario": "<Konteks skenario masalah dunia nyata>",
-      "architecturalConstraints": ["<Batasan implementasi/kompleksitas>"],
-      "acceptanceCriteria": ["<Kriteria lulus unit test>"]
+      "architecturalConstraints": ["<Batasan implementasi/kompleksitas>"]
     }
   ],
   "codeLearningOutcomes": [

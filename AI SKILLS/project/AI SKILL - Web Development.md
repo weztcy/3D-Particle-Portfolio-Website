@@ -59,8 +59,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`projectBackground`, `systemArchitecture.summary`, `userJourney.summary`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
-     - Caption visual (`interfaceShowcase[].caption`): **80–140 karakter** (termasuk spasi).
-4. **Section 4 (`techStack`)**:
+     4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Next.js"`, `"TypeScript"`, `"PostgreSQL"`, `"Prisma"`, BUKAN `"Next.js 16 App Router"` atau `"PostgreSQL 16"`).
    - Jumlah item bebas.
@@ -145,9 +144,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   ],
   "interfaceShowcase": [
     {
-      "imageUrl": "/images/projects/<nama_project>/image01.webp",
-      "caption": "<Deskripsi singkat tampilan UI pada screenshot ini>",
-      "badge": "<Viewport Label>"
+      "imageUrl": "/images/projects/<nama_project>/image01.webp"
     }
   ],
   "userFlow": {

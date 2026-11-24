@@ -58,8 +58,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`uiUxBackground`, `uiUxInformationArchitecture.summary`, `uiUxUserFlow.summary`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
-     - Caption visual (`uiUxVisualShowcase[].caption`): **80–140 karakter** (termasuk spasi).
-4. **Section 4 (`techStack`)**:
+     4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama tool desain/riset murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Figma"`, `"FigJam"`, `"Maze"`, `"Lottie"`, `"Tailwind CSS"`, BUKAN `"Figma Design System 2024"`).
 5. **Section 6 (`uiUxSystemSpecs`)**:
@@ -122,8 +121,6 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   },
   "uiUxBackground": "<Paragraf konteks produk, celah pengalaman pengguna eksisting, dan peluang desain>",
   "uiUxUserResearch": {
-    "targetAudience": "<Profil kelompok pengguna utama>",
-    "researchMethodology": "<Metode riset yang dilakukan>",
     "keyFindings": [
       {
         "method": "<Research Method, misal Contextual Inquiry>",
@@ -166,10 +163,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "uiUxVisualShowcase": [
     {
       "title": "<Showcase Stage / Screen Set Title>",
-      "imageUrl": "/images/projects/<nama_project>/image01.webp",
-      "caption": "<Penjelasan keputusan layout, hierarki visual, dan interaksi>",
-      "badge": "<Stage Badge>",
-      "stage": "<Wireframe / Hi-Fi UI / Component Spec>"
+      "imageUrl": "/images/projects/<nama_project>/image01.webp"
     }
   ],
   "uiUxDesignSystem": {
@@ -184,7 +178,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     "typography": [
       {
         "name": "<Text Style Name, misal Display Headline>",
-        "role": "<Heading / Body / Caption>",
+        "role": "<Heading / Body / Label>",
         "font": "<Clean Font Family Name>",
         "sizeWeight": "<Misal 24px / SemiBold>",
         "usage": "<Konteks penggunaan tipografi>"
@@ -199,12 +193,9 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     ]
   },
   "uiUxUsabilityValidation": {
-    "testingMethod": "<Misal Moderated Task-Based Testing>",
-    "participantsCount": "<Jumlah partisipan riil jika tercatat>",
     "susScore": "<Skor SUS jika diukur>",
     "taskSuccessRate": "<Persentase sukses jika diukur>",
     "timeOnTask": "<Rata-rata waktu tugas jika diukur>",
-    "feedbackSynthesis": "<Sintesis umpan balik pengguna selama pengujian prototype>",
     "iterations": [
       {
         "usabilityIssue": "<Temuan friksi saat testing>",

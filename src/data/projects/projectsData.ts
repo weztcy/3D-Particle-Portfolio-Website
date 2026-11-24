@@ -103,21 +103,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "interfaceShowcase": [
       {
-        "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
-        "badge": "PORTAL_01"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        "badge": "PORTAL_02"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80",
-        "badge": "PORTAL_03"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-        "badge": "PORTAL_04"
-      }
+        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+        }
     ],
     "userFlow": {
       "summary": "Operator authenticates via multi-factor auth, selects destination warehouse, scans SKU barcode, and confirms transaction with atomic ledger serialization.",
@@ -347,21 +343,17 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "interfaceShowcase": [
       {
-        "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
-        "badge": "VIEW_01"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
-        "badge": "VIEW_02"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
-        "badge": "VIEW_03"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-        "badge": "VIEW_04"
-      }
+        "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
+        }
     ],
     "userFlow": {
       "summary": "User connects to live auction room, reviews lot specs, places bid with escrow hold, and receives instantaneous socket confirmation.",
@@ -598,13 +590,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     "interfaceShowcase": [
       {
-        "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
-        "badge": "VIEW_01"
-      },
+        "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80"
+        },
       {
-        "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-        "badge": "VIEW_02"
-      }
+        "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
+        }
     ],
     "userFlow": {
       "summary": "Visitor opens product catalog, filters by hardware generation, interacts with 3D model, and inspects verified benchmark data.",
@@ -933,21 +923,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "supportingFiles": [
       {
         "name": "OmniChannel_Sales_Cleaned.csv",
-        "format": "CSV",
-        "size": "48.2 MB",
-        "description": "Fully cleansed order level dataset ready for BI modeling."
+        "format": "CSV"
       },
       {
         "name": "RFM_Segmentation_Model.ipynb",
-        "format": "Jupyter Notebook",
-        "size": "3.4 MB",
-        "description": "Executable Python workflow with documented segmentation algorithms."
+        "format": "Jupyter Notebook"
       },
       {
         "name": "Executive_BI_Dashboard.pbix",
-        "format": "Power BI File",
-        "size": "14.8 MB",
-        "description": "Interactive Power BI template with dynamic parameters and DAX measures."
+        "format": "Power BI File"
       }
     ],
     "dataAnalyticsAnalyticalObjectives": [
@@ -1253,21 +1237,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "supportingFiles": [
       {
         "name": "Jakarta_Hotel_Reviews_Processed.csv",
-        "format": "CSV",
-        "size": "32.1 MB",
-        "description": "Processed review corpus with calculated sentiment and aspect tags."
+        "format": "CSV"
       },
       {
         "name": "Aspect_Sentiment_Extraction.py",
-        "format": "Python Script",
-        "size": "24 KB",
-        "description": "Core NLP extraction script with domain dictionaries."
+        "format": "Python Script"
       },
       {
         "name": "Hotel_Experience_Executive_Summary.pdf",
-        "format": "PDF",
-        "size": "4.8 MB",
-        "description": "High-level summary deck formatted for executive leadership."
+        "format": "PDF"
       }
     ],
     "dataAnalyticsAnalyticalObjectives": [
@@ -1566,15 +1544,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "supportingFiles": [
       {
         "name": "KIP_Eligibility_Model.py",
-        "format": "Python",
-        "size": "18 KB",
-        "description": "Executable TOPSIS algorithm and anomaly detection script."
+        "format": "Python"
       },
       {
         "name": "Scholarship_Audit_Report.pdf",
-        "format": "PDF",
-        "size": "3.2 MB",
-        "description": "Comprehensive audit documentation and methodology whitepaper."
+        "format": "PDF"
       }
     ],
     "dataAnalyticsAnalyticalObjectives": [
@@ -3372,43 +3346,35 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Multicore Worker Pipeline",
         "description": "Saturates all available CPU threads with zero main-thread UI jitter or rendering drops.",
-        "badge": "CONCURRENCY",
-        "metric": "12x Speedup vs Single-Thread"
+        "badge": "CONCURRENCY"
       },
       {
         "title": "Intelligent Compression Heuristics",
         "description": "Dynamic SSIM calculation tuning quality values automatically for imperceptible visual loss.",
-        "badge": "QUALITY",
-        "metric": "68% Average Size Reduction"
+        "badge": "QUALITY"
       },
       {
         "title": "Drag & Drop Multi-Format Ingestion",
         "description": "Accepts mixed folders of PNG, JPG, JPEG, TIFF, BMP, and GIF with instant schema validation.",
-        "badge": "INGESTION",
-        "metric": "Instant File Validation"
+        "badge": "INGESTION"
       },
       {
         "title": "Hardware-Accelerated Dark GUI",
         "description": "GPU-rendered modern dark interface with tactile progress meters and file size savings charts.",
-        "badge": "INTERFACE",
-        "metric": "60 FPS Fluid HUD"
+        "badge": "INTERFACE"
       }
     ],
     "desktopMobileInterfaceShowcase": [
       {
-        "badge": "QUEUE_VIEW",
         "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "SETTINGS_MODAL",
         "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "PROCESSING_HUD",
         "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "SUMMARY_REPORT",
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
       }
     ],
@@ -3551,47 +3517,38 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Cryptographic Envelope Engine",
         "description": "Each image is encrypted with a unique per-file AES key encrypted by the master key.",
-        "badge": "SECURITY",
-        "metric": "AES-256 GCM + Argon2id"
+        "badge": "SECURITY"
       },
       {
         "title": "Zero-Disk Memory Buffering",
         "description": "Images are decrypted directly into RAM buffers and wiped upon component unmount.",
-        "badge": "PRIVACY",
-        "metric": "0 Disk Traces"
+        "badge": "PRIVACY"
       },
       {
         "title": "High-Performance Virtual Grid",
         "description": "Renders only visible viewport tiles to support libraries with 100,000+ encrypted assets.",
-        "badge": "PERFORMANCE",
-        "metric": "60 FPS Virtualized Grid"
+        "badge": "PERFORMANCE"
       },
       {
         "title": "Non-Destructive Adjustments",
         "description": "Parametric exposure, contrast, and crop stored as encrypted JSON sidecar files.",
-        "badge": "STUDIO",
-        "metric": "Lossless Adjustments"
+        "badge": "STUDIO"
       }
     ],
     "desktopMobileInterfaceShowcase": [
       {
-        "badge": "AUTHENTICATION",
         "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "VAULT_EXPLORER",
         "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "STUDIO_VIEWER",
         "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "IMAGE_EDITOR",
         "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "SECURITY_HUD",
         "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
       }
     ],
@@ -3736,35 +3693,29 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       {
         "title": "Real-Time Ingredient Multiplier",
         "description": "Scale portions from 2 to 50 servings with automatic unit conversions (grams, ml, pieces).",
-        "badge": "CONVERSION",
-        "metric": "Instant Math Scaling"
+        "badge": "CONVERSION"
       },
       {
         "title": "Synchronized Step Timers",
         "description": "Simultaneously tracks boiling, marinating, and simmering countdowns directly on lockscreen.",
-        "badge": "KITCHEN_UX",
-        "metric": "Lockscreen Live Activity"
+        "badge": "KITCHEN_UX"
       },
       {
         "title": "Interactive Spice Index",
         "description": "Suggests accessible culinary substitutions for rare traditional Indonesian herbs and spices.",
-        "badge": "CULTURE",
-        "metric": "180+ Spice Profiles"
+        "badge": "CULTURE"
       },
       {
         "title": "High-Contrast Kitchen Mode",
         "description": "High-visibility large typography mode optimized for viewing from a countertop distance.",
-        "badge": "ACCESSIBILITY",
-        "metric": "20pt Large Typography"
+        "badge": "ACCESSIBILITY"
       }
     ],
     "desktopMobileInterfaceShowcase": [
       {
-        "badge": "HOME_FEED",
         "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        "badge": "RECIPE_DETAIL",
         "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
       }
     ],
@@ -3881,8 +3832,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "uiUxBackground": "Home cooks frequently experience friction when following digital recipes on mobile devices while cooking. Grease-covered fingers, complex multi-tap menus, and tiny fonts result in frequent kitchen interruptions. This case study designs an ultra-clean mobile culinary companion tailored for active kitchen environments.",
     "uiUxUserResearch": {
-      "targetAudience": "Home cooks, young culinary hobbyists, and busy professionals preparing home-cooked meals 3-5 times weekly.",
-      "researchMethodology": "Conducted 12 semi-structured contextual user interviews, remote unmoderated usability tests, and competitive audits of top food apps.",
       "keyFindings": [
         "78% of users expressed severe annoyance when video ads or long biographical stories interrupted cooking instructions.",
         "85% of users hold their phone with one hand while stirring or chopping with the other.",
@@ -4022,10 +3971,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "uiUxUsabilityValidation": {
-      "testingMethod": "Moderated usability testing with 8 home cooks across 5 core kitchen tasks.",
-      "participantsCount": 8,
       "taskSuccessRate": "96.4%",
-      "feedbackSynthesis": "Participants praised the large legible typography and absence of distracting narrative text during active cooking.",
       "iterations": [
         {
           "usabilityIssue": "Users accidentally tapped bookmark icon when intending to open recipe card.",
@@ -4090,8 +4036,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "uiUxBackground": "In dense metropolitan areas, parking search is responsible for over 30% of downtown traffic congestion. Drivers face frustration from manual barrier ticket dispensers and long checkout lines. E-Parking solves this through an integrated mobile UI connecting IoT garage sensors directly with driver smartphones.",
     "uiUxUserResearch": {
-      "targetAudience": "Urban commuters, commercial district shoppers, and delivery drivers navigating busy metropolitan hubs.",
-      "researchMethodology": "Field observations at 4 metropolitan parking garages, timing 140 vehicle entries and conducting 20 driver exit interviews.",
       "keyFindings": [
         "64% of drivers reported anxiety about whether parking spaces would be available at peak shopping hours.",
         "Average exit queue time with manual physical cash payment was 114 seconds per car vs 6 seconds with automated QR.",
@@ -4235,10 +4179,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "uiUxUsabilityValidation": {
-      "testingMethod": "Real-world driving simulation test with 10 drivers using vehicle dashboard phone mounts.",
-      "participantsCount": 10,
       "taskSuccessRate": "98.2%",
-      "feedbackSynthesis": "Drivers highlighted the large slot numbers and instant one-tap barrier QR opening as significant stress reducers.",
       "iterations": [
         {
           "usabilityIssue": "QR code was difficult to scan by terminal cameras through tinted car windows.",
@@ -4306,8 +4247,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     },
     "uiUxBackground": "Enthusiast PC gamers are demanding consumers who scrutinize technical specifications, thermal capabilities, and aesthetics before making high-dollar hardware investments. Generic white-label shopping apps fail to build the emotional excitement and confidence needed for premium gaming gear purchases.",
     "uiUxUserResearch": {
-      "targetAudience": "Competitive PC gamers, hardware overclockers, and gaming content creators aged 18-35.",
-      "researchMethodology": "Audited 15 hardware retail platforms, surveyed 85 custom PC builders on Reddit/Discord, and conducted 8 prototype test sessions.",
       "keyFindings": [
         "91% of buyers search for benchmark FPS figures before looking at customer reviews.",
         "76% of PC builders expressed fear of buying incompatible hardware when purchasing from mobile devices.",
@@ -4451,10 +4390,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       }
     ],
     "uiUxUsabilityValidation": {
-      "testingMethod": "Tested prototype with 12 PC builders through a high-stress simulated limited-edition GPU drop.",
-      "participantsCount": 12,
       "taskSuccessRate": "97.5%",
-      "feedbackSynthesis": "Users found the instant FPS benchmark graphs and compatibility warnings significantly increased purchasing confidence.",
       "iterations": [
         {
           "usabilityIssue": "Chamfered card borders were causing visual distortion on smaller mobile viewports.",

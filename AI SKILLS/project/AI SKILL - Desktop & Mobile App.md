@@ -62,8 +62,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`desktopMobileBackground`, `desktopMobileArchitecture.summary`, `desktopMobileUserFlow.summary`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
-     - Caption visual (`desktopMobileInterfaceShowcase[].caption`): **80–140 karakter** (termasuk spasi).
-4. **Section 4 (`techStack`)**:
+     4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Electron"`, `"TypeScript"`, `"Flutter"`, `"Dart"`, `"SQLite"`, `"Rust"`, BUKAN `"Flutter 3.22"` atau `"SQLite 3"`).
 5. **Section 6 (`desktopMobileTechSpecs` & `desktopMobilePlatformSpecs`)**:
@@ -143,15 +142,12 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     {
       "title": "<Feature Title>",
       "description": "<Penjelasan fungsionalitas inti di sisi client>",
-      "badge": "<Short Badge>",
-      "metric": "<Metrik operasional jika ada>"
+      "badge": "<Short Badge>"
     }
   ],
   "desktopMobileInterfaceShowcase": [
     {
-      "imageUrl": "/images/projects/<nama_project>/image01.webp",
-      "caption": "<Penjelasan layar/fitur aplikasi pada screenshot>",
-      "badge": "<View Tag>"
+      "imageUrl": "/images/projects/<nama_project>/image01.webp"
     }
   ],
   "desktopMobileUserFlow": {

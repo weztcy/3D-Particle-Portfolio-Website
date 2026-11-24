@@ -1,4 +1,4 @@
-﻿---
+---
 name: portfolio-ai-engineering
 description: >-
   Audits an AI Engineering project directory comprehensively (LLM/agent source code, prompt templates, RAG/vector store pipelines, RAGAS/TruLens/eval logs, guardrail specs, architecture diagrams, screenshots, docs, and media) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
@@ -77,8 +77,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
      - Narasi card tunggal (`problemContext`, `proposedAiSolution`, `qualitativeEvaluation`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
-     - Caption visual (`aiVisualShowcase[].caption`): **80–140 karakter** (termasuk spasi).
-4. **Section 4 (`techStack`)**:
+     4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.
    - Wajib nama teknologi murni **tanpa nomor versi dan tanpa tanda kurung** (contoh: `"Python"`, `"LangGraph"`, `"Qdrant"`, `"OpenAI GPT"`, `"FastAPI"`, BUKAN `"GPT-4o (2024)"` atau `"LangChain v0.3"`).
 5. **Section 6 (`aiTechSpecs`)**:
@@ -187,12 +186,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     {
       "title": "<Showcase Title>",
       "badge": "<Short Badge>",
-      "imageUrl": "/images/projects/<nama_project>/image01.webp",
-      "caption": "<Deskripsi visual antarmuka, trace, atau arsitektur>",
-      "highlights": [
-        "<Highlight 1>",
-        "<Highlight 2>"
-      ]
+      "imageUrl": "/images/projects/<nama_project>/image01.webp"
     }
   ],
   "aiExecutionTelemetry": {
@@ -223,8 +217,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
       {
         "label": "<Metric atau Reliability Indicator Name>",
         "value": "<Verified Score / Indicator>",
-        "benchmark": "<Target Baseline / Operating Bound>",
-        "pass": true
+        "benchmark": "<Target Baseline / Operating Bound>"
       }
     ],
     "qualitativeEvaluation": "<Narasi evaluasi kualitas output, keandalan eksekusi, dan penanganan edge case>",

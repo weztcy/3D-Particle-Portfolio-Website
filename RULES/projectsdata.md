@@ -102,7 +102,7 @@ Format folder: `public/images/projects/<nama_project>/`
    - Khusus **`machine-learning`**, isi properti `mlProjectInfo.capabilityBadges` dengan **tepat 3 item**, masing-masing **maksimal 3 kata**.
 
 ### B. Section 4 — Tech Stack & Runtime Architecture
-1. **Satu Field Standar Global:** Menggunakan satu field tunggal `techStack: string[]` yang seragam untuk **seluruh 7 kategori proyek**. Tidak lagi dikelompokkan ke dalam kategori atau field terpisah (`techStackCategorized`, `dataTechStack`, `aiTechStack`, `mlTechStack`, dll. sudah dihapus sepenuhnya).
+1. **Satu Field Standar Global:** Menggunakan satu field tunggal `techStack: string[]` yang seragam untuk **seluruh 7 kategori proyek** tanpa pengelompokan ke sub-kategori atau field terpisah.
 2. **Format Nama Teknologi:** Wajib menggunakan **nama teknologi murni tanpa nomor versi dan tanpa keterangan dalam tanda kurung**.
    - Benar: `"Next.js"`, `"TypeScript"`, `"PostgreSQL"`, `"Python"`, `"C++"`, `"Tailwind CSS"`, `"FastAPI"`.
    - Salah: `"Next.js 16 App Router"`, `"Python 3.12"`, `"C++20 (Modern)"`, `"Electron 30"`.
@@ -119,7 +119,7 @@ Field khusus Section 6 per kategori:
 | Kategori | Field Card 2 (`*TechSpecs` / Workspace) | Field Card 3 (Static Standards / Specs) |
 | :--- | :--- | :--- |
 | `web-development` | `primaryTechSpecs`: `{ programmingLanguage, framework, database }` *(baris ke-4 `"Vulnerability Hardened"` statis di UI)*. | `architectureQuality`: `{ badges: string[] }` — **wajib tepat 4 item**, maks 2–3 kata per item, tanpa underscore. |
-| `data-analysis` | *(Statis di UI saat ini — gunakan `dataAnalyticsSupportingFiles` bila perlu daftar lampiran).* | `dataAnalyticsSupportingFiles`: daftar aset data/notebook/laporan pendukung. |
+| `data-analysis` | *(Statis di UI saat ini — gunakan `dataAnalyticsSupportingFiles` bila perlu daftar lampiran).* | `dataAnalyticsSupportingFiles`: `{ name, format }[]` — daftar aset data/notebook/laporan pendukung. |
 | `ai-engineering` | `aiTechSpecs`: `{ programmingLanguage, aiFramework, foundationModel }`. | Statis di UI (`aiEvaluationAndPerformance` dari Section 5 melengkapi konteks evaluasi). |
 | `machine-learning` | Memakai `mlDatasetOverview` (`scale`, `inputShape`, `dataFormat`). | `mlMethodologySpecs`: `{ learningParadigm, modelArchitecture, coreFramework, validationMethod }` — maks 3–4 kata per nilai. |
 | `desktop-mobile` | `desktopMobileTechSpecs`: `{ programmingLanguage, framework, localStorage }`. | `desktopMobilePlatformSpecs`: `{ targetPlatform, packageFormat, targetArchitecture, buildFootprint }` — maks 3–4 kata per nilai. |
@@ -138,14 +138,12 @@ Di Section 2, 3, dan 5 seluruh teks dirender alami (*natural responsive wrap* ta
 2. **Item List & Sub-Kartu Grid (Tipe List):**
    - **Bebas tanpa batasan minimum maupun maksimum** (baik jumlah item array maupun panjang karakternya bebas terserah, menyesuaikan kedalaman dan kompleksitas riil project).
    - Berlaku untuk seluruh elemen bertipe list/array: `problemStatements`, `projectObjectives`, `coreFeatures`, `desktopMobileFeatures`, `technicalImplementation`, `dataAnalyticsAnalyticalObjectives`, `dataAnalyticsKeyFindings`, `dataAnalyticsDataPreparation`, `recommendations`, `keyCapabilitiesAndUseCases`, `coreAiComponents`, `hyperparameters`, `inputSignals`, `codeLearningObjectives`, `codeLearningPrerequisites`, `codeLearningModules`, `limitations`, dsb.
-3. **Caption Visual / Slide:** Wajib berada di rentang **80 – 140 karakter** (1 kalimat tajam).
-   - Keterangan gambar / slide: `deckSlides[].caption`, `interfaceShowcase[].caption`, `visualShowcase[].caption`, `designShowcase[].caption`.
 
 ---
 
 ### B. Aturan Per Kategori
 
-Untuk seluruh kategori berikut, **jumlah item (array length) di Section 2, 3, dan 5 bersifat bebas** sesuai kebutuhan project (tidak ada batas minimal/maksimal kecuali yang disebutkan eksplisit), namun **wajib mengikuti nama field canonical** dan **dilarang menduplikasi field legacy/non-canonical**.
+Untuk seluruh kategori berikut, **jumlah item (array length) di Section 2, 3, dan 5 bersifat bebas** sesuai kebutuhan project (tidak ada batas minimal/maksimal kecuali yang disebutkan eksplisit), serta **wajib mengikuti nama field canonical**.
 
 ### 1. Web Development (`web-development`)
 - **Section 2 (Background & Objectives):**
@@ -153,8 +151,8 @@ Untuk seluruh kategori berikut, **jumlah item (array length) di Section 2, 3, da
   - `problemStatements`: `{ title, description, issueCode? }[]`
   - `projectObjectives`: `{ title, description, targetTag? }[]`
 - **Section 3 (Features & Interface):**
-  - `interfaceShowcase`: `{ imageUrl, caption?, badge? }[]` — `imageUrl` wajib mengarah ke `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
-  - `coreFeatures`: `{ title, description, badge?, metric? }[]`
+  - `interfaceShowcase`: `{ imageUrl }[]` — `imageUrl` wajib mengarah ke `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
+  - `coreFeatures`: `{ title, description, badge? }[]`
   - `userFlow`: `{ summary, steps: { step, title, description, actorOrNode? }[] }`
 - **Section 5 (Architecture & Implementation):**
   - `systemArchitecture`: `{ summary, layers: { name, role, components: string[] }[] }`
@@ -167,12 +165,12 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `dataAnalyticsBusinessContext`: `string`
   - `dataAnalyticsAnalyticalObjectives`: `{ title, description, targetMetric?, targetTag? }[]`
 - **Section 3 (Data Inspection, Preparation & Methodology):**
-  - `dataAnalyticsDatasetOverview`: `{ dataSource, dataPeriod, recordsCount, featuresCount?, variablesCount?, dataTypes?, description }`
+  - `dataAnalyticsDatasetOverview`: `{ dataSource, dataPeriod, recordsCount, variablesCount, description }`
   - `dataAnalyticsDataPreparation`: `{ step, title, description, badge? }[]`
   - `analyticalMethodology`: `{ summary, methods: { name, description, badge? }[] }`
   - `analysisWorkflow`: `{ summary, steps: { stepNumber, title, description, phase? }[] }` — alur pipeline fleksibel dan dinamis (bebas tanpa batas minimal, maksimal 10 tahapan).
 - **Section 5 (Presentation Slides, Key Findings & Recommendations):**
-  - `dataAnalyticsPresentationSlides`: `{ slideNumber, title, imageUrl, caption? }[]` — `imageUrl` wajib mengarah ke `/images/projects/<nama_project>/slide01.webp` s/d `slideXX.webp`.
+  - `dataAnalyticsPresentationSlides`: `{ slideNumber, title, imageUrl }[]` — `imageUrl` wajib mengarah ke `/images/projects/<nama_project>/slide01.webp` s/d `slideXX.webp`.
   - `dataAnalyticsKeyFindings`: `{ metricValue, metricLabel, title, description, impactTag? }[]` — `metricValue` wajib ringkas berupa 1 nilai/persentase utama (contoh: `"+28.4%"`, `"Rp 4.2M"`, `"0.94 AUC"`).
   - `recommendationsAndConclusion`: `{ recommendations: { title, action, priority: "HIGH" | "MEDIUM" | "STRATEGIC" }[], conclusion: string }` — nilai `priority` **wajib** salah satu dari `"HIGH"`, `"MEDIUM"`, atau `"STRATEGIC"`.
 
@@ -197,9 +195,9 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `coreAiComponents`: `{ name, type, description, badge? }[]`
 - **Section 5 (System Showcase & Evaluation Benchmarks):**
   - **Heading & Subheading Static Universal:** Seluruh header Section 5 AI Engineering bersifat static universal pada template (Heading Utama: `[ 05 // SYSTEM SHOWCASE & EVALUATION BENCHMARKS ]`, Tag: `RUNTIME_TELEMETRY // QUALITY_ASSURANCE`). Seluruh varian sistem AI (AI Skill, Automation, RAG, Chatbot, Agentic AI, AI-powered Website, AI-powered App) diwadahi secara dinamis melalui data:
-  - `aiVisualShowcase`: `{ title?, badge?, imageUrl, caption?, highlights?: string[] }[]` — UI merender `title`, `badge`, dan `imageUrl` (`/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`).
+  - `aiVisualShowcase`: `{ title?, badge?, imageUrl }[]` — UI merender `title`, `badge`, dan `imageUrl` (`/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`).
   - `aiExecutionTelemetry`: `{ scenarioTitle, scenarioBadge?, scenarioDescription?, triggerInput, processingPipeline, executionOutput, metrics?: { label, value }[], evaluationNote? }` — Sub-block label bersifat static universal pada template (Input: `> TRIGGER_INPUT // USER_EVENT` [Tag: `EVENT_IN`], Pipeline: `PIPELINE:` [Tag: `PROCESSING`], Output: `SYSTEM_RESPONSE // SYNTHESIS` [Tag: `VERIFIED`], Chips: `RUNTIME TELEMETRY CHIPS:`). UI menampilkan maksimal **3 chip** pertama dari `metrics`.
-  - `aiEvaluationAndPerformance`: **wajib diisi** — `{ metrics?: { label, value, benchmark?, pass?: boolean }[], qualitativeEvaluation, auditNote? }`:
+  - `aiEvaluationAndPerformance`: **wajib diisi** — `{ metrics?: { label, value, benchmark? }[], qualitativeEvaluation, auditNote? }`:
     - Subheading Card 3 (`[ EMPIRICAL_EVALUATION & SYSTEM_BENCHMARKS ]`) dan badge pojok kanan (`EVALUATION_SUITE`) bersifat static universal pada template.
     - Berlaku universal untuk seluruh jenis project AI Engineering: jika project berupa sistem berbasis alur/kualitatif (misal AI Skill, Agentic Workflow, Chatbot, atau AI-Powered App) tanpa metrik benchmark numerik, array `metrics` boleh dikosongkan (`[]`) atau diisi indikator keandalan/perilaku terverifikasi, sementara evaluasi performa diuraikan mendalam pada `qualitativeEvaluation`.
   - `limitationsAndImprovements`: **wajib diisi** — `{ limitations: { title, description, severity?: "LOW" | "MEDIUM" | "HIGH" }[], improvementsRoadmap: { title, target? }[], summary?, alignmentNote? }`:
@@ -223,8 +221,8 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
     - **Computer Vision (CV)**: Image Classification, Object Detection, Semantic/Instance Segmentation, Feature Extraction, Video Tracking, Optical Character Recognition (OCR), 3D Reconstruction.
     - **Natural Language Processing & Speech**: Text Classification, Sentiment Analysis, Named Entity Recognition (NER), Word/Sentence Embeddings, Speech Recognition, Audio Signal Classification.
     - **Scientific & Numerical Simulations**: Physics-Informed Neural Networks (PINN), Numerical Optimization, Computational Mechanics & Particle Systems, Biomolecular / Chemical Modeling.
-- **Skema Canonical Universal (Tanpa Field Legacy):**
-  - Wajib memakai skema canonical universal berikut (hindari field legacy seperti `targetVariable`, `inputFeatures`, `lossFunction`, `optimizer`, `topPredictors`):
+- **Skema Canonical Universal:**
+  - Wajib memakai skema canonical universal berikut:
 - **Section 2 (Problem & Dataset / Environment Profile):**
   - `mlProblemContext`: `string`
   - `mlDatasetOverview`: `{ profileBadge?, source, modality, scale, inputShape, dataFormat, description, provenanceNote? }`
@@ -234,12 +232,13 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `mlDataPreparation`: `{ step, title, description, badge? }[]` (+ opsional `mlDataPreparationNote`)
   - `mlModelArchitectureAndTraining`: `{ algorithmName, architectureSummary, configurationBadge?, hyperparameters: { name, value, description? }[], objectiveCriterion, optimizationSolver, trainingProcess }`
 - **Section 5 (Model Evaluation, Visual Diagnostics & Interpretation):**
-  - `mlEvaluationStrategy`: `{ validationMethod, description, metrics?: { label, value, benchmark?, pass?: boolean }[] }`
+  - `mlEvaluationStrategy`: `{ validationMethod, description, metrics?: { label, value, benchmark }[] }`
     - **Heading & Subheading Static Universal:** Seluruh header Section 5 Machine Learning bersifat static universal pada template (Heading Utama: `[ 05 // MODEL EVALUATION & PERFORMANCE BENCHMARKS ]`, Tag: `EMPIRICAL_BENCHMARKS // DIAGNOSTICS // ERROR_ANALYSIS`, Card 1: `[ EVALUATION_STRATEGY // BENCHMARK_PROTOCOL ]`). Fleksibilitas untuk seluruh jenis project ML (Supervised, Unsupervised, Reinforcement Learning, Deep Learning, Computer Vision, maupun Simulasi Numerik) diwadahi secara dinamis melalui isi konten:
       - `validationMethod`: Metode validasi empiris aktual (misal `"Stratified 5-Fold Cross-Validation"`, `"Silhouette Analysis & Elbow Criterion"`, `"Offline Policy Evaluation (OPE)"`, `"Analytical Benchmark Validation & Conservation Invariant Tests"`).
       - `description`: Uraian naratif metodologi dan evaluasi performa model.
-      - `metrics` (opsional): Boleh dikosongkan (`[]` atau tidak diisi) jika project tidak menghasilkan metrik evaluasi kuantitatif, **atau** diisi indikator observasi/perilaku terverifikasi (`value` ringkas agar tidak terpotong `.truncate`, maks ~10–12 karakter).
-  - `mlPerformanceVisualizations`: `{ title, badge, imageUrl?, caption?, telemetryNote?, tableData?: { metric, trainingScore, validationScore }[] }[]` — jika menggunakan gambar, `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
+      - `metrics`: Jika diisi, setiap item wajib memiliki `label`, `value` (ringkas maks ~10–12 karakter), dan `benchmark`.
+      - **Aturan Baku `benchmark` (Wajib):** Field `benchmark` **wajib diisi**. Wajib menyertakan kata sebelum ambang nilai pembanding dengan aturan **maksimal 1 kata awalan** sebelum operator/angka (contoh valid: `"Baseline < 0.3552"`, `"Target > 0.85"`, `"Tolerance < 1e-12"`, `"Threshold >= 0.80"`, `"Baseline: 74.03%"`). Dilarang langsung menulis angka/operator tanpa kata awalan (seperti `"<0.3552"`), dan dilarang menggunakan lebih dari 1 kata awalan.
+  - `mlPerformanceVisualizations`: `{ title, badge, imageUrl?, telemetryNote? }[]` — jika menggunakan gambar, `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
   - `mlModelInterpretationAndLimitations`: `{ interpretationSummary, keyDrivers: { factor, impact }[], limitations: { title, description }[], futureImprovements: { title, target }[], discoveryNote? }`
     - Subheading Card 3 (`[ MODEL_INTERPRETATION & ERROR ANALYSIS ]`), badge pojok kanan (`DIAGNOSTIC INSIGHTS`), serta sub-block header (`KEY MODEL DRIVERS & BEHAVIORAL INSIGHTS`, `MODEL LIMITATIONS`, `FUTURE IMPROVEMENTS ROADMAP`) bersifat static universal pada template.
     - Yang diisi dan dikustomisasi pada data adalah isi array `keyDrivers` (faktor pendorong/feature importance), `limitations`, `futureImprovements`, dan `discoveryNote`.
@@ -257,8 +256,8 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
   - `desktopMobileProblemStatements`: `{ title, description, issueCode? }[]`
   - `desktopMobileObjectives`: `{ title, description, targetTag? }[]`
 - **Section 3 (Features & Showcase):**
-  - `desktopMobileFeatures`: `{ title, description, badge?, metric? }[]`
-  - `desktopMobileInterfaceShowcase`: `{ imageUrl, caption?, badge? }[]` — `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
+  - `desktopMobileFeatures`: `{ title, description, badge? }[]`
+  - `desktopMobileInterfaceShowcase`: `{ imageUrl }[]` — `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
   - `desktopMobileUserFlow`: `{ summary, steps: { step, title, description, actorOrNode? }[] }`
 - **Section 5 (Client Architecture & Platform Integration):**
   - `desktopMobileArchitecture`: `{ summary, layers: { name, role, tech?, components?: string[] }[] }`
@@ -268,15 +267,15 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
 ### 6. UI/UX Design (`ui-ux`)
 - **Section 2 (Research Discovery & User Personas):**
   - `uiUxBackground`: `string`
-  - `uiUxUserResearch`: `{ targetAudience, researchMethodology, keyFindings: { method, description, keyFinding, badge? }[] }`
+  - `uiUxUserResearch`: `{ keyFindings: { method, description, keyFinding, badge? }[] }`
   - `uiUxPersonas`: array objek persona (`name`, `role`, `demographics?`, `goals`, `painPoints`, `quote?`).
 - **Section 3 (Information Architecture & User Interaction Flow):**
   - `uiUxInformationArchitecture`: `{ summary, nodes: { section, screens: string[] }[] }`
   - `uiUxUserFlow`: `{ summary, steps: { step, title, description, screenOrAction? }[] }`
 - **Section 5 (Hi-Fi Interface, Design System & Usability Validation):**
-  - `uiUxVisualShowcase`: `{ title?, imageUrl, caption?, badge?, stage? }[]` — `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
+  - `uiUxVisualShowcase`: `{ title?, imageUrl }[]` — `imageUrl` wajib `/images/projects/<nama_project>/image01.webp` s/d `imageXX.webp`.
   - `uiUxDesignSystem`: `{ colorPalette: { name, hex, role?, usage? }[], typography: { name, font?, sizeWeight?, role?, usage? }[], componentStates?: { component, states: string[], notes }[] }` — setiap nilai `hex` **wajib format kode hex valid** (contoh: `"#0EA5E9"`).
-  - `uiUxUsabilityValidation`: `{ testingMethod?, participantsCount?, susScore?, taskSuccessRate?, timeOnTask?, feedbackSynthesis?, iterations: { usabilityIssue, iterationSolution, impact }[] }`
+  - `uiUxUsabilityValidation`: `{ susScore?, taskSuccessRate?, timeOnTask?, iterations: { usabilityIssue, iterationSolution, impact }[] }`
 
 ### 7. Code Learning (`code-learning`)
 - **Section 2 (Learning Roadmap & Curriculum Blueprint):**
@@ -288,7 +287,7 @@ Wajib menggunakan 1 set field canonical berikut (jangan menulis field ganda non-
     - `id`, `moduleNumber`, `title`, `description`, `submoduleCount`, `difficulty`, `keyTopics?`, `sourceFilesCount?`, `estimatedHours?`.
     - `difficulty`: **Wajib bernilai persis salah satu dari `"Beginner"`, `"Intermediate"`, atau `"Advanced"`** (*case-sensitive*) agar fitur tab filter modul UI menghitung dan menyaring dengan benar.
 - **Section 5 (Practical Projects & Learning Outcomes):**
-  - `codeLearningPracticalProjects`: `{ title, description, highlights?, coreScope?, trackTag?, tier?, difficulty?, estimatedTime?, scenario?, architecturalConstraints?, acceptanceCriteria? }[]` — **dilarang menyertakan `imageUrl` tambahan** karena kategori Code Learning hanya memakai `banner.webp`.
+  - `codeLearningPracticalProjects`: `{ title, description, highlights?, coreScope?, trackTag?, tier?, difficulty?, estimatedTime?, architecturalConstraints? }[]` — **dilarang menyertakan `imageUrl` tambahan** karena kategori Code Learning hanya memakai `banner.webp`.
   - `codeLearningOutcomes`: `{ pillar, skills: { title, description }[] }[]`
 
 ---
@@ -302,7 +301,7 @@ Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan sel
 3. **Aset Lokal `.webp` & Field Banner:** Folder `public/images/projects/<nama_project>/` menggunakan maksimal 4 kata awal huruf kecil dipisah `_`; field `banner` mengarah ke `"/images/projects/<nama_project>/banner.webp"`, serta file lanjutan (`image01-XX.webp` / `slide01-XX.webp`, khusus `code-learning` hanya `banner.webp`) diisi pada field showcase masing-masing.
 4. **Batas Karakter & Kalimat:**
    - Section 1: `summary` **maksimal 150 karakter**; Narasi `projectDescription` / `codeLearningDescription` sepanjang **250–300 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
-   - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item bertipe list/array **bebas tanpa batas minimum maupun maksimum**; caption visual **80–140 karakter**.
+   - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item bertipe list/array **bebas tanpa batas minimum maupun maksimum**.
 5. **Tech Stack Section 4:** Satu field tunggal `techStack: string[]` murni nama teknologi **tanpa pengelompokan category, tanpa nomor versi, atau tanda kurung**.
 6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
 7. **Enum & Format Ketat:**
