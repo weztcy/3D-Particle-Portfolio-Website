@@ -80,8 +80,8 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 ````markdown
 # Portfolio Project Data — <Project Title>
 
-- **Category:** `desktop-mobile` (`Mobile App` / `Desktop App` / `Desktop & Mobile`)
-- **Category Label:** `Mobile App` | `Desktop App` | `Desktop & Mobile` (hasil deteksi platform)
+- **Category:** `desktop-mobile` (`Mobile App` / `Desktop App` / `Cross-Platform App`)
+- **Category Label:** `Mobile App` | `Desktop App` | `Cross-Platform App` (hasil deteksi platform)
 - **Accent Color:** `amber`
 - **Target Assets Folder:** `public/images/projects/<nama_project>/`
 - **Required Local Images:** `banner.webp`, `image01.webp` .. `imageXX.webp`

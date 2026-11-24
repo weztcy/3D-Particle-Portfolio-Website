@@ -47,12 +47,12 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - `.py`, `.ipynb` (beserta output sel), config YAML/JSON (Hydra/W&B/MLflow), `requirements.txt`, `environment.yml`.
    - Ekstrak **Algorithm/Model Name**, **Hyperparameters** terverifikasi, **Objective Criterion / Loss**, **Optimization Solver**, dan strategi validasi (`mlEvaluationStrategy`).
 3. **Model Checkpoints & Artefak Serialisasi**:
-   - File model `.pt`, `.pth`, `.safetensors`, `.onnx`, `.pkl`, `.joblib`, `.h5`, beserta ukuran file dan metadata untuk mengisi `mlModelArtifacts`.
+   - File model `.pt`, `.pth`, `.safetensors`, `.onnx`, `.pkl`, `.joblib`, `.h5`, beserta nama file dan format artefak untuk mengisi `mlModelArtifacts`.
 4. **Plot Evaluasi, Confusion Matrix, Log Metrik, & Dokumen**:
    - Gambar hasil training/evaluasi (loss curve, ROC/AUC, confusion matrix, SHAP/feature importance plots, visualisasi prediksi) sebagai dasar `mlPerformanceVisualizations` dan `mlModelInterpretationAndLimitations`.
    - Baca laporan PDF/Markdown/PPTX untuk mengekstrak limitasi model dan arah pengembangan berikutnya.
 
-> **Aturan Kejujuran Data:** Dilarang mengarang nilai F1-score, RMSE, R², akurasi, hyperparameter, atau ukuran artefak model yang tidak ditemukan pada notebook, log training, plot, atau laporan project.
+> **Aturan Kejujuran Data:** Dilarang mengarang nilai F1-score, RMSE, R², akurasi, hyperparameter, atau daftar artefak model yang tidak ditemukan pada notebook, log training, plot, atau laporan project.
 
 ---
 
@@ -252,9 +252,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "mlModelArtifacts": [
     {
       "name": "<Artifact File Name, misal model_weights.safetensors>",
-      "format": "<ONNX / SAFETENSORS / PKL / H5>",
-      "size": "<Ukuran aktual jika ada>",
-      "description": "<Isi artefak dan kegunaannya untuk inferensi>"
+      "format": "<ONNX / SAFETENSORS / PKL / H5>"
     }
   ],
   "mlMethodologySpecs": {

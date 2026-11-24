@@ -1,4 +1,4 @@
-﻿---
+---
 name: portfolio-ui-ux-design
 description: >-
   Audits a UI/UX Design project directory comprehensively (design source files, design tokens CSS/JSON, wireframes, high-fidelity mockups, user personas, UX research reports, usability testing logs, and prototypes) and generates a complete portfolio ProjectCaseStudy Markdown (.md) file compliant with RULES/projectsdata.md and src/data/types.ts. Save the generated .md file inside the analyzed project directory.
@@ -111,11 +111,9 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
     "projectYear": "<YYYY>"
   },
   "uiUxProjectInfo": {
-    "projectType": "<Misal End-to-End Mobile Product Design>",
-    "platformType": "<iOS & Android / Responsive Web>",
-    "designRole": "<Misal Lead UI/UX & Design Systems>",
-    "targetPlatform": "<Target Platform>",
-    "targetIndustry": "<Domain Industri>",
+    "platformType": "<iOS & Android Mobile App / Responsive Web>",
+    "designRole": "<Misal Lead UI/UX & Product Designer>",
+    "targetIndustry": "<Domain Industri, misal Food & Beverage>",
     "designYear": "<YYYY>",
     "designStatus": "Completed"
   },

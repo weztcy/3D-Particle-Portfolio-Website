@@ -164,24 +164,28 @@ export interface ProjectCaseStudy {
     dataDomain: string;
     projectCategory: string;
   };
-  businessContext?: string;
-  analyticalObjectives?: {
+  dataAnalyticsBusinessContext?: string;
+  dataAnalyticsAnalyticalObjectives?: {
     title: string;
     description: string;
     targetMetric?: string;
+    targetTag?: string;
+    [key: string]: any;
   }[];
-  datasetOverview?: {
+  dataAnalyticsDatasetOverview?: {
     dataSource: string;
     dataPeriod: string;
     recordsCount: string;
     variablesCount: string;
     description: string;
+    [key: string]: any;
   };
-  dataPreparation?: {
+  dataAnalyticsDataPreparation?: {
     step: string;
     title: string;
     description: string;
     badge?: string;
+    [key: string]: any;
   }[];
   analyticalMethodology?: {
     summary: string;
@@ -200,14 +204,14 @@ export interface ProjectCaseStudy {
       phase?: string;
     }[];
   };
-  presentationSlides?: any;
   dataAnalyticsPresentationSlides?: any;
-  keyFindings?: {
+  dataAnalyticsKeyFindings?: {
     metricValue: string;
     metricLabel: string;
     title: string;
     description: string;
     impactTag?: string;
+    [key: string]: any;
   }[];
   recommendationsAndConclusion?: {
     recommendations: {
@@ -217,7 +221,6 @@ export interface ProjectCaseStudy {
     }[];
     conclusion: string;
   };
-  supportingFiles?: any;
   dataAnalyticsSupportingFiles?: any;
 
   // Extended AI Engineering Domain Specific Fields
@@ -425,7 +428,8 @@ export interface ProjectCaseStudy {
     name: string;
     format: string;
     size?: string;
-    description: string;
+    description?: string;
+    [key: string]: any;
   }[];
   mlMethodologySpecs?: {
     learningParadigm: string;
@@ -447,7 +451,6 @@ export interface ProjectCaseStudy {
   desktopMobileProblemStatements?: {
     [key: string]: any;
     title?: string;
-    issue?: string;
     description?: string;
     issueCode?: string;
   }[];
@@ -479,7 +482,6 @@ export interface ProjectCaseStudy {
       name: string;
       role: string;
       components?: string[];
-      tech?: string;
     }[];
   };
   desktopMobileDataManagement?: any;
@@ -499,12 +501,11 @@ export interface ProjectCaseStudy {
   // Extended UI/UX Design Domain Specific Fields
   uiUxProjectInfo?: {
     [key: string]: any;
-    projectType?: string;
-    designStatus?: string;
-    designYear?: string;
-    targetPlatform?: string;
-    designCategory?: string;
     platformType?: string;
+    designRole?: string;
+    targetIndustry?: string;
+    designYear?: string;
+    designStatus?: string;
   };
   uiUxBackground?: string;
   uiUxUserResearch?: any;
@@ -583,12 +584,7 @@ export interface ProjectCaseStudy {
     [key: string]: any;
     learningCategory?: string;
     difficultyLevel?: string;
-    learningFormat?: string;
-    totalModules?: string;
-    totalSubmodules?: string;
-    totalSourceCodeFiles?: string;
     programmingLanguages?: string;
-    learningStatus?: string;
   };
   codeLearningDescription?: string;
   codeLearningObjectives?: {
@@ -630,7 +626,6 @@ export interface ProjectCaseStudy {
   codeLearningPracticalProjects?: {
     title: string;
     description: string;
-    imageUrl?: string;
     highlights?: string[];
     coreScope?: string[];
     trackTag?: string;
@@ -648,7 +643,6 @@ export interface ProjectCaseStudy {
     }[];
     [key: string]: any;
   }[];
-  codeLearningRepository?: any;
   codeLearningCurriculumSpecs?: {
     curriculumTrack: string;
     primaryLanguage: string;
@@ -684,10 +678,8 @@ export interface ExperienceItem {
 export interface EducationItem {
   universityName: string;
   degree: string;
-  major?: string;
   gpa: string;
   period: string;
-  location?: string;
   photoUrl: string;
   photoAlt: string;
   logoUrl?: string;

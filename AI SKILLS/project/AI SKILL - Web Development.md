@@ -57,7 +57,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 3. **Section 2, 3, & 5**:
    - Jumlah item array **bebas** sesuai kebutuhan dan temuan riil project (tidak ada batas min/maks).
    - **Panduan Panjang Kalimat & Narasi (Section 2, 3, 5):**
-     - Narasi card tunggal (`projectBackground`, `systemArchitecture.summary`, `userJourney.summary`): **250–350 karakter** (termasuk spasi).
+     - Narasi card tunggal (`projectBackground`, `systemArchitecture.summary`, `userFlow.summary`): **250–350 karakter** (termasuk spasi).
      - Item bertipe list / array: **Bebas tanpa batasan minimum maupun maksimum** (bebas terserah menyesuaikan kedalaman dan kompleksitas riil project).
      4. **Section 4 (`techStack`)**:
    - Menggunakan satu field tunggal `techStack: string[]` tanpa pengelompokan category.

@@ -26,7 +26,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 
 1. **Struktur Direktori Modul, Silabus, & Roadmap**:
    - Telusuri folder berurutan (`01-*`, `module-*`, `week-*`, `bab-*`), `README.md`, silabus PDF/DOCX/PPTX, serta file peta materi.
-   - Hitung secara akurat jumlah total modul (`totalModules`), total submodul (`totalSubmodules`), dan total file source code latihan (`totalSourceCodeFiles`) untuk `codeLearningProjectInfo`.
+   - Identifikasi bidang kompetensi kurikulum (`learningCategory`), jenjang kesulitan (`difficultyLevel`), dan bahasa pemrograman (`programmingLanguages`) untuk `codeLearningProjectInfo`.
    - Kelompokkan alur belajar berjenjang ke `codeLearningCurriculumStructure.phases`.
 2. **Modul Pembelajaran & Topik Kunci**:
    - Analisis topik bahasan per modul, hitung unit materi (`submoduleCount`), identifikasi topik kunci (`keyTopics`), dan estimasi jam belajar (`estimatedHours`).
@@ -112,12 +112,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   "codeLearningProjectInfo": {
     "learningCategory": "<Misal Algorithms & Systems Curriculum>",
     "difficultyLevel": "Beginner to Advanced",
-    "learningFormat": "<Misal Self-Paced Code Modules & Labs>",
-    "totalModules": "<Angka string akurat, misal 8 Modules>",
-    "totalSubmodules": "<Angka string akurat, misal 32 Submodules>",
-    "totalSourceCodeFiles": "<Angka string akurat, misal 64 Source Files>",
-    "programmingLanguages": "<Clean Languages, misal Python & TypeScript>",
-    "learningStatus": "Completed"
+    "programmingLanguages": "<Clean Languages, misal Python & TypeScript>"
   },
   "codeLearningObjectives": [
     {

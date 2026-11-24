@@ -104,16 +104,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "interfaceShowcase": [
       {
         "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-        }
+      }
     ],
     "userFlow": {
       "summary": "Operator authenticates via multi-factor auth, selects destination warehouse, scans SKU barcode, and confirms transaction with atomic ledger serialization.",
@@ -344,16 +344,16 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "interfaceShowcase": [
       {
         "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
-        }
+      }
     ],
     "userFlow": {
       "summary": "User connects to live auction room, reviews lot specs, places bid with escrow hold, and receives instantaneous socket confirmation.",
@@ -591,10 +591,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "interfaceShowcase": [
       {
         "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80"
-        },
+      },
       {
         "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
-        }
+      }
     ],
     "userFlow": {
       "summary": "Visitor opens product catalog, filters by hardware generation, interacts with 3D model, and inspects verified benchmark data.",
@@ -747,7 +747,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Quantitative BI Investigation",
       "targetPlatform": "Cloud Analytics / BI-Platform",
       "primaryDomain": "Retail & E-Commerce Transactions",
-      "architecturePipeline": "Automated ETL pipeline + RFM customer clustering",
+      "architecturePipeline": "Automated ETL + RFM Customer Clustering",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -760,57 +760,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "dataDomain": "Retail & E-Commerce Transactions",
       "projectCategory": "Data Analytics"
     },
-    "businessContext": "Modern retail decision-making suffered from fragmented operational silos, delayed monthly cohort reporting, and unstructured customer churn telemetry. The absence of automated diagnostic analytics prevented executive leadership from isolating high-margin product categories and optimizing inventory turnover cycles.",
-    "analyticalObjectives": [
-      {
-        "title": "Margin Cannibalization Thresholds",
-        "description": "Quantify the point where promotional discounts erode gross profitability without boosting customer volume.",
-        "targetMetric": "MARGIN_FLOOR"
-      },
-      {
-        "title": "Customer Lifetime Value (CLV)",
-        "description": "Estimate long-term financial yield per customer tier to prioritize retention capital expenditure.",
-        "targetMetric": "CLV_TIER"
-      },
-      {
-        "title": "Channel Fulfillment Optimization",
-        "description": "Contrast order lead times between store fulfillment and central distribution warehouses.",
-        "targetMetric": "LEAD_TIME_P90"
-      }
-    ],
-    "datasetOverview": {
-      "dataSource": "Enterprise Multi-Store POS Ledger & E-Commerce Event Stream",
-      "dataPeriod": "January 2024 - December 2025 (24 Months)",
-      "recordsCount": "842,510 Orders",
-      "variablesCount": "38 Telemetry Dimensions",
-      "description": "Comprehensive transactional dataset capturing customer demographic IDs, order timestamps, line-item quantities, discounts applied, payment channels, and fulfillment latencies."
-    },
-    "dataPreparation": [
-      {
-        "step": "01",
-        "title": "Missing Value Imputation",
-        "description": "Imputed missing delivery timestamps using median branch transit velocities.",
-        "badge": "Cleanse"
-      },
-      {
-        "step": "02",
-        "title": "Outlier & Anomaly Removal",
-        "description": "Filtered return transaction reversals and wholesale bulk distributor test orders.",
-        "badge": "Filter"
-      },
-      {
-        "step": "03",
-        "title": "Customer Entity Resolution",
-        "description": "Unified cross-platform guest and registered accounts using fuzzy contact matching.",
-        "badge": "Resolve"
-      },
-      {
-        "step": "04",
-        "title": "Currency & Inflation Normalization",
-        "description": "Standardized all historical line amounts to Q4-2025 constant currency benchmarks.",
-        "badge": "Transform"
-      }
-    ],
     "analyticalMethodology": {
       "summary": "Multi-stage quantitative framework combining statistical hypothesis testing, RFM quintile segmentation, and Cox proportional hazards regression.",
       "methods": [
@@ -860,46 +809,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "presentationSlides": [
-      {
-        "slideNumber": 1,
-        "title": "Executive Summary & Revenue Breakdown",
-        "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "slideNumber": 2,
-        "title": "RFM Cohort Distribution & Retention",
-        "imageUrl": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "slideNumber": 3,
-        "title": "Discount Elasticity & Margin Sensitivity",
-        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-      }
-    ],
-    "keyFindings": [
-      {
-        "metricValue": "+24.8%",
-        "metricLabel": "MARGIN RECOVERY",
-        "title": "Discount Cannibalization Threshold Identified",
-        "description": "Orders discounted above 18% caused a statistically significant drop in net margin without driving repeat purchase retention (p = 0.004).",
-        "impactTag": "PROFITABILITY"
-      },
-      {
-        "metricValue": "68.2%",
-        "metricLabel": "CHAMPION CONCENTRATION",
-        "title": "Top Quintile Drives Vast Majority of Profits",
-        "description": "The top 20% of customers generated 68.2% of cumulative cumulative revenue, underscoring high reliance on core patrons.",
-        "impactTag": "RETENTION"
-      },
-      {
-        "metricValue": "3.2x",
-        "metricLabel": "CHURN ACCELERATION",
-        "title": "Critical 45-Day Re-engagement Window",
-        "description": "Customers without a secondary purchase within 45 days exhibited a 3.2x higher likelihood of permanent platform lapse.",
-        "impactTag": "CHURN_RISK"
-      }
-    ],
     "recommendationsAndConclusion": {
       "recommendations": [
         {
@@ -920,20 +829,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "conclusion": "Transitioning from blanket price discounts to precision cohort-driven retention marketing unlocks over $1.4M in recovered operating margins while stabilizing customer retention rates."
     },
-    "supportingFiles": [
-      {
-        "name": "OmniChannel_Sales_Cleaned.csv",
-        "format": "CSV"
-      },
-      {
-        "name": "RFM_Segmentation_Model.ipynb",
-        "format": "Jupyter Notebook"
-      },
-      {
-        "name": "Executive_BI_Dashboard.pbix",
-        "format": "Power BI File"
-      }
-    ],
     "dataAnalyticsAnalyticalObjectives": [
       {
         "title": "Margin Cannibalization Thresholds",
@@ -1037,7 +932,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "name": "clv_cohort_survival_model.ipynb",
         "format": "Jupyter Notebook"
       }
-    ]
+    ],
+    "dataAnalyticsBusinessContext": "Modern retail decision-making suffered from fragmented operational silos, delayed monthly cohort reporting, and unstructured customer churn telemetry. The absence of automated diagnostic analytics prevented executive leadership from isolating high-margin product categories and optimizing inventory turnover cycles."
   },
   {
     "id": "jakarta-hotel-review-sentiment-analysis",
@@ -1065,8 +961,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "telemetryMatrix": {
       "projectType": "Diagnostic NLP Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
-      "primaryDomain": "Hospitality Text Mining & Experience Analytics",
-      "architecturePipeline": "NLP text mining + aspect sentiment + regression",
+      "primaryDomain": "Hospitality Text Mining & UX Analytics",
+      "architecturePipeline": "NLP Text Mining + Aspect Sentiment Modeling",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -1079,57 +975,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "dataDomain": "Hospitality Text Mining & Experience Analytics",
       "projectCategory": "Data Analytics"
     },
-    "businessContext": "Online reviews directly dictate average daily rates (ADR) and occupancy in Jakarta's competitive hospitality sector. Without automated sentiment analytics, management relied on anecdotal feedback, overlooking root causes of recurring guest dissatisfaction.",
-    "analyticalObjectives": [
-      {
-        "title": "Aspect Sentiment Isolation",
-        "description": "Deconstruct multi-sentence reviews into departmental responsibility buckets.",
-        "targetMetric": "ASPECT_SCORE"
-      },
-      {
-        "title": "Severe Detractor Diagnosis",
-        "description": "Identify specific physical or service defects that systematically generate 1-star ratings.",
-        "targetMetric": "DETRACTOR_RATIO"
-      },
-      {
-        "title": "Benchmarking Across Property Tiers",
-        "description": "Compare guest satisfaction profiles between 4-star boutique and 5-star international hotel chains.",
-        "targetMetric": "NPS_BENCHMARK"
-      }
-    ],
-    "datasetOverview": {
-      "dataSource": "Aggregated Public OTA Review Repositories (TripAdvisor, Agoda, Booking.com)",
-      "dataPeriod": "2023 - 2025 (3 Calendar Years)",
-      "recordsCount": "45,210 Verified Reviews",
-      "variablesCount": "16 Attributes",
-      "description": "Textual reviews, numerical ratings (1-5 stars), stay date, reviewer traveler type (business, family, solo), room type, and hotel property location."
-    },
-    "dataPreparation": [
-      {
-        "step": "01",
-        "title": "Language Separation",
-        "description": "Bilingual detection separating Indonesian (Bahasa) and English reviews for specialized tokenizers.",
-        "badge": "Language"
-      },
-      {
-        "step": "02",
-        "title": "Slang & Typo Normalization",
-        "description": "Mapped colloquial Indonesian acronyms (e.g. 'bgt', 'bintang 5', 'ga bgt') to standard lexical tokens.",
-        "badge": "Normalization"
-      },
-      {
-        "step": "03",
-        "title": "Aspect Lexicon Construction",
-        "description": "Constructed verified domain dictionaries for Room, F&B, Service, Cleanliness, and Value.",
-        "badge": "Lexicon"
-      },
-      {
-        "step": "04",
-        "title": "Negation Handling",
-        "description": "Engineered bi-gram windows to prevent incorrect positive tagging of negated praise.",
-        "badge": "Syntactic"
-      }
-    ],
     "analyticalMethodology": {
       "summary": "Combined rule-based aspect extraction with supervised regression modeling to quantify satisfaction elasticity.",
       "methods": [
@@ -1179,41 +1024,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "presentationSlides": [
-      {
-        "slideNumber": 1,
-        "title": "Jakarta Hospitality Sentiment Landscape",
-        "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "slideNumber": 2,
-        "title": "Aspect Breakdown: Service vs Facilities",
-        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-      }
-    ],
-    "keyFindings": [
-      {
-        "metricValue": "44.6%",
-        "metricLabel": "COMPLAINT DOMINANCE",
-        "title": "Front Desk & Check-in Is Leading Detractor",
-        "description": "Check-in wait times accounted for 44.6% of negative review text volume, surpassing room cleanliness issues.",
-        "impactTag": "SERVICE"
-      },
-      {
-        "metricValue": "-1.8 Stars",
-        "metricLabel": "RATING IMPACT",
-        "title": "Unclean Bathrooms Severely Penalize Scores",
-        "description": "Reviews citing bathroom hygiene failures suffered an average 1.8-star penalty on final review ratings.",
-        "impactTag": "HYGIENE"
-      },
-      {
-        "metricValue": "91.2%",
-        "metricLabel": "LOYALTY CORRELATION",
-        "title": "Staff Courtesy Drives Repeat Intent",
-        "description": "Mentions of helpful concierge or front-desk staff correlated with 91.2% positive overall recommendation intent.",
-        "impactTag": "HOSPITALITY"
-      }
-    ],
     "recommendationsAndConclusion": {
       "recommendations": [
         {
@@ -1234,20 +1044,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "conclusion": "Streamlining arrival check-in and enforcing strict bathroom hygiene standards resolves over 70% of negative guest reviews, driving higher online reputation rankings."
     },
-    "supportingFiles": [
-      {
-        "name": "Jakarta_Hotel_Reviews_Processed.csv",
-        "format": "CSV"
-      },
-      {
-        "name": "Aspect_Sentiment_Extraction.py",
-        "format": "Python Script"
-      },
-      {
-        "name": "Hotel_Experience_Executive_Summary.pdf",
-        "format": "PDF"
-      }
-    ],
     "dataAnalyticsAnalyticalObjectives": [
       {
         "title": "Aspect Sentiment Isolation",
@@ -1346,7 +1142,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "name": "aspect_extraction_lda_pipeline.ipynb",
         "format": "Jupyter Notebook"
       }
-    ]
+    ],
+    "dataAnalyticsBusinessContext": "Online reviews directly dictate average daily rates (ADR) and occupancy in Jakarta's competitive hospitality sector. Without automated sentiment analytics, management relied on anecdotal feedback, overlooking root causes of recurring guest dissatisfaction."
   },
   {
     "id": "kip-student-eligibility-prediction-analytics",
@@ -1378,7 +1175,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Socioeconomic Equity Analytics",
       "targetPlatform": "Cloud Analytics / BI-Platform",
       "primaryDomain": "Educational Policy & Demographic Mining",
-      "architecturePipeline": "TOPSIS MCDM analysis + anomaly detection engine",
+      "architecturePipeline": "TOPSIS MCDM Analysis + Anomaly Detection",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2026"
@@ -1391,57 +1188,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "dataDomain": "Educational Policy & Demographic Mining",
       "projectCategory": "Data Analytics"
     },
-    "businessContext": "Universities distributing government scholarships must balance poverty alleviation with academic potential under strict government audit scrutiny. Manual evaluation lacked standardized weightings and was prone to subjective reviewer bias.",
-    "analyticalObjectives": [
-      {
-        "title": "Standardized Poverty Index",
-        "description": "Create an objective mathematical formula balancing income per capita against fixed household burdens.",
-        "targetMetric": "SVI_FORMULA"
-      },
-      {
-        "title": "Fraud & Anomaly Detection",
-        "description": "Deploy rule-based and clustering algorithms to detect falsified income declarations.",
-        "targetMetric": "ANOMALY_PRECISION"
-      },
-      {
-        "title": "Regional Equity Allocation",
-        "description": "Ensure students from underdeveloped outermost regions (3T) receive calibrated affirmative weighting.",
-        "targetMetric": "3T_AFFIRMATIVE"
-      }
-    ],
-    "datasetOverview": {
-      "dataSource": "University Student Admission & Scholarship Management System",
-      "dataPeriod": "Academic Year 2024/2025 Admissions",
-      "recordsCount": "18,400 Applicants",
-      "variablesCount": "24 Variables",
-      "description": "Parental income, parent occupations, number of school-age siblings, home electricity capacity (VA), house ownership status, water source, and high school GPA."
-    },
-    "dataPreparation": [
-      {
-        "step": "01",
-        "title": "Income per Capita Calculation",
-        "description": "Divided gross combined parental income by total resident household members.",
-        "badge": "Feature"
-      },
-      {
-        "step": "02",
-        "title": "Categorical Encoding",
-        "description": "Ordinal encoding of parental education levels and housing structural durability types.",
-        "badge": "Encode"
-      },
-      {
-        "step": "03",
-        "title": "Outlier Bounds Checking",
-        "description": "Identified impossible negative values and extreme reporting typos in utility metrics.",
-        "badge": "Sanitize"
-      },
-      {
-        "step": "04",
-        "title": "Affirmative Action Weighting",
-        "description": "Calibrated regional socioeconomic difficulty multipliers based on national development index data.",
-        "badge": "Weighting"
-      }
-    ],
     "analyticalMethodology": {
       "summary": "Multi-Criteria Decision Analysis (MCDA) via Technique for Order Preference by Similarity to Ideal Solution (TOPSIS).",
       "methods": [
@@ -1491,36 +1237,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         }
       ]
     },
-    "presentationSlides": [
-      {
-        "slideNumber": 1,
-        "title": "KIP Applicant Demographic Profile & Scoring Matrix",
-        "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80"
-      }
-    ],
-    "keyFindings": [
-      {
-        "metricValue": "96.8%",
-        "metricLabel": "AUDIT ACCURACY",
-        "title": "High Alignment with Human Field Inspections",
-        "description": "The automated index correctly predicted 96.8% of scholarship allocations verified by home visit field teams.",
-        "impactTag": "RELIABILITY"
-      },
-      {
-        "metricValue": "420 Cases",
-        "metricLabel": "ANOMALIES FLAGGED",
-        "title": "Income Discrepancies Successfully Isolated",
-        "description": "The anomaly detector flagged 420 applications claiming extreme poverty while possessing high utility consumption profiles.",
-        "impactTag": "INTEGRITY"
-      },
-      {
-        "metricValue": "-88% Time",
-        "metricLabel": "EFFICIENCY GAIN",
-        "title": "Evaluation Turnaround Reduced Drastically",
-        "description": "Committee review time was cut from 6 weeks down to under 4 business days.",
-        "impactTag": "EFFICIENCY"
-      }
-    ],
     "recommendationsAndConclusion": {
       "recommendations": [
         {
@@ -1541,16 +1257,6 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       ],
       "conclusion": "Replacing manual subjectivity with an auditable quantitative MCDA framework guarantees educational aid reaches genuinely disadvantaged students while preserving absolute compliance integrity."
     },
-    "supportingFiles": [
-      {
-        "name": "KIP_Eligibility_Model.py",
-        "format": "Python"
-      },
-      {
-        "name": "Scholarship_Audit_Report.pdf",
-        "format": "PDF"
-      }
-    ],
     "dataAnalyticsAnalyticalObjectives": [
       {
         "title": "Standardized Poverty Index",
@@ -1644,7 +1350,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "name": "equity_statistical_distribution.ipynb",
         "format": "Jupyter Notebook"
       }
-    ]
+    ],
+    "dataAnalyticsBusinessContext": "Universities distributing government scholarships must balance poverty alleviation with academic potential under strict government audit scrutiny. Manual evaluation lacked standardized weightings and was prone to subjective reviewer bias."
   },
   {
     "id": "synapse-agentic-rag-knowledge-engine",
@@ -1839,7 +1546,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "scenarioDescription": "Autonomous multi-hop reasoning traversing subsidiary master service agreements to verify contractual liability limits.",
       "triggerInput": "Under our 2025 SLA agreement with PT Nusantara, what is our maximum liability if service outage exceeds 4 hours during business hours?",
       "processingPipeline": "LangGraph StateGraph + Qdrant Hybrid Index",
-      "executionOutput": "Liability for business-hour outages exceeding 4 consecutive hours is capped at 15% of the monthly recurring charge (MRC), verified under Master Services Agreement 2025 (§4.2, p. 18).",
+      "executionOutput": "Liability for business-hour outages exceeding 4 consecutive hours is capped at 15% of the monthly recurring charge (MRC), verified under Master Services Agreement 2025 (\u00a74.2, p. 18).",
       "metrics": [
         {
           "label": "Latency",
@@ -2113,7 +1820,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "scenarioDescription": "Proactive semantic entity linking connecting newly written notes with historical research papers across temporal boundaries.",
       "triggerInput": "# Note: Attention Mechanisms in Biological Nervous Systems\nStudying how selective attention in the human visual cortex parallels sparse gating in neural ensembles.",
       "processingPipeline": "ChromaDB Embedded Vector Store + Local Mistral 7B",
-      "executionOutput": "Associated with [[2025-11-DeepSeek-MoE-Routing.md]] (§Sparse Gating) and [[Cognitive-Psychology-Saccades.md]] with 98.8% affinity.",
+      "executionOutput": "Associated with [[2025-11-DeepSeek-MoE-Routing.md]] (\u00a7Sparse Gating) and [[Cognitive-Psychology-Saccades.md]] with 98.8% affinity.",
       "metrics": [
         {
           "label": "Latency",
@@ -2488,7 +2195,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "repoUrl": "https://github.com/weztcy/Diabetes-Classification-Using-KNN-with-Data-Normalization",
     "license": "MIT License",
     "mlProjectInfo": {
-      "projectType": "Supervised Classification & Feature Engineering",
+      "projectType": "Supervised Classification Pipeline",
       "learningParadigm": "Supervised Learning",
       "modelDomain": "Clinical Diagnostic Healthcare",
       "projectStatus": "Completed",
@@ -2503,7 +2210,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Supervised Classification & Feature Engineering",
       "targetPlatform": "Python 3.11+ / Scikit-Learn / NumPy",
       "primaryDomain": "Clinical Diagnostic Healthcare",
-      "architecturePipeline": "Supervised Classification + Cross-Validated Tuning",
+      "architecturePipeline": "Supervised Classification + 5-Fold Tuning",
       "projectStatus": "Completed",
       "projectYear": "2024",
       "testingAndAudit": "Passed"
@@ -2536,7 +2243,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         },
         {
           "name": "BMI (Body Mass Index)",
-          "type": "Continuous (kg/m²)",
+          "type": "Continuous (kg/m\u00b2)",
           "importanceOrRole": "Core Predictor (Gini: 0.24)",
           "description": "Weight in kilograms divided by height in meters squared."
         },
@@ -2717,21 +2424,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "mlModelArtifacts": [
       {
         "name": "knn_diabetes_minmax_model.pkl",
-        "format": "PICKLE / BINARY",
-        "size": "240 KB",
-        "description": "Serialized Scikit-learn K-NN model fitted on normalized 4-feature clinical training space."
+        "format": "PICKLE / BINARY"
       },
       {
         "name": "minmax_scaler_pipeline.pkl",
-        "format": "PREPROCESSOR",
-        "size": "48 KB",
-        "description": "Fitted MinMaxScaler object encapsulating feature minimums and maximums for real-time inference."
+        "format": "PREPROCESSOR"
       },
       {
         "name": "pima_diabetes_imputed_clean.csv",
-        "format": "DATASET / CSV",
-        "size": "38 KB",
-        "description": "Preprocessed 768-row clinical dataset with median-imputed physiological biomarkers."
+        "format": "DATASET / CSV"
       }
     ],
     "mlMethodologySpecs": {
@@ -2782,7 +2483,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Computational Kinematics & Physical Modeling",
       "targetPlatform": "Python 3.11+ / NumPy / Matplotlib",
       "primaryDomain": "Classical Mechanics & Kinematics",
-      "architecturePipeline": "Vectorized Newtonian dynamics + tensor solvers",
+      "architecturePipeline": "Vectorized Newtonian Dynamics + Solvers",
       "projectStatus": "Completed",
       "projectYear": "2024",
       "testingAndAudit": "Passed"
@@ -2990,21 +2691,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "mlModelArtifacts": [
       {
         "name": "kinematics_solver_core.py",
-        "format": "PYTHON / SCRIPT",
-        "size": "18 KB",
-        "description": "Vectorized kinematics math module containing N-body center of mass and velocity solvers."
+        "format": "PYTHON / SCRIPT"
       },
       {
         "name": "physics_test_benchmarks.py",
-        "format": "TEST SUITE",
-        "size": "12 KB",
-        "description": "PyTest suite validating momentum conservation against 25 analytical mechanics scenarios."
+        "format": "TEST SUITE"
       },
       {
         "name": "particle_simulation_presets.json",
-        "format": "DATA / JSON",
-        "size": "8 KB",
-        "description": "Preset multi-body configurations including binary stars, symmetrical rings, and collision stages."
+        "format": "DATA / JSON"
       }
     ],
     "mlMethodologySpecs": {
@@ -3253,21 +2948,15 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "mlModelArtifacts": [
       {
         "name": "calgeo_engine.py",
-        "format": "PYTHON / SCRIPT",
-        "size": "22 KB",
-        "description": "Core computational geometry module containing Shoelace formula and centroid solvers."
+        "format": "PYTHON / SCRIPT"
       },
       {
         "name": "calgeo_gui.py",
-        "format": "PYTHON / GUI",
-        "size": "34 KB",
-        "description": "Desktop user interface built with Tkinter offering interactive geometric inputs."
+        "format": "PYTHON / GUI"
       },
       {
         "name": "geometry_unit_tests.py",
-        "format": "TEST SUITE",
-        "size": "14 KB",
-        "description": "Comprehensive test suite covering 40 regular and irregular geometric benchmark scenarios."
+        "format": "TEST SUITE"
       }
     ],
     "mlMethodologySpecs": {
@@ -3312,7 +3001,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Native Desktop Application (x64)",
       "targetPlatform": "Windows 11 / 10 (x64 Native)",
       "primaryDomain": "High-Throughput Media Utility",
-      "architecturePipeline": "Multithreaded Libwebp Engine + Async Worker Pool",
+      "architecturePipeline": "Multithreaded Libwebp + Async Worker Pool",
       "projectStatus": "Production Ready",
       "projectYear": "2026",
       "testingAndAudit": "Passed"
@@ -3659,7 +3348,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Cross-Platform Mobile Application",
       "targetPlatform": "Android 14+ / iOS 17+",
       "primaryDomain": "Mobile Culinary Productivity",
-      "architecturePipeline": "Offline-First SQLite + Local Notification Sync",
+      "architecturePipeline": "Offline-First SQLite + Notification Sync",
       "projectStatus": "Production Ready",
       "projectYear": "2025",
       "testingAndAudit": "Passed"
@@ -4240,7 +3929,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Mobile UI/UX Product Design",
       "targetPlatform": "iOS 17+ / Android 14+ (Figma)",
       "primaryDomain": "High-Performance Gaming E-Commerce",
-      "architecturePipeline": "Design Thinking + cyberpunk tokens + auto-layout",
+      "architecturePipeline": "Design Thinking + Cyberpunk Design Tokens",
       "projectStatus": "Prototype Ready",
       "projectYear": "2026",
       "testingAndAudit": "Passed"
@@ -4456,7 +4145,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Systems Programming Curriculum",
       "targetPlatform": "C++17/20 / Clang / GCC / CMake",
       "primaryDomain": "Systems & Memory Architecture",
-      "architecturePipeline": "RAII + manual memory mgmt + zero-cost templates",
+      "architecturePipeline": "RAII + Manual Memory Mgmt + Templates",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2024"
@@ -4465,12 +4154,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "codeLearningProjectInfo": {
       "learningCategory": "Systems Programming & Low-Level Architecture",
       "difficultyLevel": "Intermediate to Advanced",
-      "learningFormat": "Compilable Code Units & Automated GoogleTest Harness",
-      "totalModules": "8 Deep-Dive Modules",
-      "totalSubmodules": "24 Code Units",
-      "totalSourceCodeFiles": "32 Files",
-      "programmingLanguages": "Modern C++ (C++17 / C++20)",
-      "learningStatus": "Completed"
+      "programmingLanguages": "Modern C++ (C++17 / C++20)"
     },
     "codeLearningObjectives": [
       {
@@ -4709,7 +4393,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "projectType": "Type-Level Architecture Curriculum",
       "targetPlatform": "TypeScript / Node.js / Bun",
       "primaryDomain": "Type-Level Programming & Static Verification",
-      "architecturePipeline": "Type-Level Gymnastics + Branded Typing + Zero-Cost Contracts",
+      "architecturePipeline": "Type-Level Gymnastics + Branded Typing",
       "testingAndAudit": "Passed",
       "projectStatus": "Completed",
       "projectYear": "2024"
@@ -4718,12 +4402,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     "codeLearningProjectInfo": {
       "learningCategory": "Type-Level Systems & Static Verification",
       "difficultyLevel": "Intermediate to Advanced",
-      "learningFormat": "Interactive Type-Challenge Matrix & Vitest Suites",
-      "totalModules": "10 Interactive Modules",
-      "totalSubmodules": "30 Type Challenges",
-      "totalSourceCodeFiles": "40 Files",
-      "programmingLanguages": "TypeScript Strict",
-      "learningStatus": "Completed"
+      "programmingLanguages": "TypeScript Strict"
     },
     "codeLearningObjectives": [
       {

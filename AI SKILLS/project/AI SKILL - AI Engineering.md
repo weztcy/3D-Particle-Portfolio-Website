@@ -70,6 +70,12 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
      - Heading Utama Section 5: `[ 05 // SYSTEM SHOWCASE & EVALUATION BENCHMARKS ]` (Tag Kanan: `RUNTIME_TELEMETRY // QUALITY_ASSURANCE`).
      - Card 2 (`aiExecutionTelemetry`): Sub-block label bersifat static universal (Input: `> TRIGGER_INPUT // USER_EVENT` [Tag: `EVENT_IN`], Pipeline: `PIPELINE:` [Tag: `PROCESSING`], Output: `SYSTEM_RESPONSE // SYNTHESIS` [Tag: `VERIFIED`], Chips: `RUNTIME TELEMETRY CHIPS:`). Field data murni konten: `scenarioTitle`, `scenarioBadge?`, `scenarioDescription?`, `triggerInput`, `processingPipeline`, `executionOutput`, `metrics?`, `evaluationNote?`.
      - Card 3 (`aiEvaluationAndPerformance`): Subheading Card 3 (`[ EMPIRICAL_EVALUATION & SYSTEM_BENCHMARKS ]`) dan badge pojok kanan (`EVALUATION_SUITE`) bersifat static universal pada template. Berlaku universal untuk seluruh jenis project AI (AI Skill, Automation, RAG, Chatbot, Agentic AI, AI-powered Website, AI-powered App). Jika project non-angka/kualitatif, array `metrics` boleh dikosongkan (`[]`) atau diisi indikator verifikasi perilaku/keandalan sistem, sedangkan evaluasi mendalam diuraikan pada `qualitativeEvaluation`.
+   - **Aturan Khusus Field `metrics[].benchmark` (Jika `metrics` diisi)**:
+     - Jika array `metrics` diisi, field `benchmark` **wajib menyertakan kata sebelum ambang nilai pembanding**, dengan batasan **maksimal 1 kata awalan** sebelum operator/angka pembanding.
+     - **Format Benar (1 kata awalan + ambang batas):** `"Baseline < 200ms"`, `"Target > 90%"`, `"Tolerance < 0.05"`, `"Threshold >= 0.85"`, `"Baseline: 75%"`.
+     - **Format Salah:**
+       - `"< 200ms"` *(DILARANG: langsung angka/operator tanpa kata awalan)*.
+       - `"Production Target SLA < 200ms"` *(DILARANG: lebih dari 1 kata sebelum ambang nilai)*.
      - Card 4 (`limitationsAndImprovements`): Subheading Card 4 (`[ OPERATIONAL_CONSTRAINTS & FUTURE ROADMAP ]`), badge pojok kanan (`GUARDRAILS & TRANSPARENCY`), serta sub-block (`ROADMAP & NEXT ITERATION`) bersifat static universal pada template.
    - `severity` pada `limitations` hanya boleh `"LOW"`, `"MEDIUM"`, atau `"HIGH"`.
    - `aiExecutionTelemetry.metrics`: isi maksimal 3 chip ringkas (UI menampilkan maksimal 3 chip teratas).
@@ -217,7 +223,7 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
       {
         "label": "<Metric atau Reliability Indicator Name>",
         "value": "<Verified Score / Indicator>",
-        "benchmark": "<Target Baseline / Operating Bound>"
+        "benchmark": "<Wajib diawali maks 1 kata sebelum ambang nilai pembanding, misal 'Target > 90%' atau 'Baseline < 200ms'>"
       }
     ],
     "qualitativeEvaluation": "<Narasi evaluasi kualitas output, keandalan eksekusi, dan penanganan edge case>",
