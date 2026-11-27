@@ -473,7 +473,7 @@ export default function DataAnalyticsDetailView({
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
+          <div className="flex items-center gap-2.5 font-mono text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="hidden lg:inline">[ 02 // BUSINESS CONTEXT & DATASET TELEMETRY ]</span>
             <span className="lg:hidden">[ 02 // BUSINESS CONTEXT ]</span>
@@ -528,7 +528,7 @@ export default function DataAnalyticsDetailView({
                     <div className="text-xs sm:text-sm font-semibold text-white mb-1.5">
                       {obj.title}
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    <p className="text-sm text-slate-300 leading-relaxed font-normal">
                       {obj.description}
                     </p>
                     <div className="mt-3 flex justify-end sm:hidden">
@@ -565,7 +565,7 @@ export default function DataAnalyticsDetailView({
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     1. DATA SOURCE
                   </span>
-                  <span className="font-mono text-xs sm:text-sm font-bold text-white">
+                  <span className="font-mono text-sm font-bold text-white">
                     {datasetOverview.dataSource}
                   </span>
                 </div>
@@ -574,17 +574,17 @@ export default function DataAnalyticsDetailView({
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     2. DATA PERIOD
                   </span>
-                  <span className="font-mono text-xs sm:text-sm font-bold text-white">
+                  <span className="font-mono text-sm font-bold text-white">
                     {datasetOverview.dataPeriod}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. RECORDS (ROWS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-400">
+                    <span className="font-mono text-sm font-bold text-emerald-400">
                       {datasetOverview.recordsCount}
                     </span>
                   </div>
@@ -592,7 +592,7 @@ export default function DataAnalyticsDetailView({
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       4. VARIABLES (COLS)
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-emerald-400">
+                    <span className="font-mono text-sm font-bold text-emerald-400">
                       {datasetOverview.variablesCount}
                     </span>
                   </div>
@@ -602,7 +602,7 @@ export default function DataAnalyticsDetailView({
                   <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                     5. DATA DESCRIPTION
                   </span>
-                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-300 leading-relaxed font-normal">
                     {datasetOverview.description}
                   </p>
                 </div>
@@ -629,7 +629,7 @@ export default function DataAnalyticsDetailView({
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
+          <div className="flex items-center gap-2.5 font-mono text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="hidden lg:inline">[ 03 // DATA PROCESSING PIPELINE & METHODOLOGY ]</span>
             <span className="lg:hidden">[ 03 // DATA PROCESSING ]</span>
@@ -675,7 +675,7 @@ export default function DataAnalyticsDetailView({
                     {st.phase}
                   </span>
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-white mb-1.5">
+                <div className="text-sm font-bold text-white mb-1.5">
                   {st.title}
                 </div>
                 <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
@@ -714,10 +714,10 @@ export default function DataAnalyticsDetailView({
                         {prep.badge}
                       </span>
                     </div>
-                    <div className="text-xs sm:text-sm font-bold text-white mb-1">
+                    <div className="text-sm font-bold text-white mb-1">
                       {prep.title}
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    <p className="text-sm text-slate-300 leading-relaxed font-normal">
                       {prep.description}
                     </p>
                   </div>
@@ -762,7 +762,7 @@ export default function DataAnalyticsDetailView({
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    <p className="text-sm text-slate-300 leading-relaxed font-normal">
                       {met.description}
                     </p>
                     {met.badge && (
@@ -808,7 +808,7 @@ export default function DataAnalyticsDetailView({
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
+          <div className="flex items-center gap-2.5 font-mono text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="hidden lg:inline">[ 05 // ANALYSIS PRESENTATION & INSIGHTS DECK ]</span>
             <span className="lg:hidden">[ 05 // INSIGHTS DECK ]</span>
@@ -959,10 +959,10 @@ export default function DataAnalyticsDetailView({
                     <div className="font-mono text-[10px] uppercase tracking-wider text-slate-400 mb-1">
                       {finding.metricLabel}
                     </div>
-                    <div className="text-xs sm:text-sm font-bold text-white mb-1.5">
+                    <div className="text-sm font-bold text-white mb-1.5">
                       {finding.title}
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    <p className="text-sm text-slate-300 leading-relaxed font-normal">
                       {finding.description}
                     </p>
                   </div>
@@ -1052,7 +1052,7 @@ export default function DataAnalyticsDetailView({
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold text-emerald-400 tracking-wider">
+          <div className="flex items-center gap-2.5 font-mono text-sm font-bold text-emerald-400 tracking-wider">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="hidden lg:inline">[ 06 // ANALYTICAL VAULT & DATA DELIVERABLES ]</span>
             <span className="lg:hidden">[ 06 // ANALYTICAL VAULT ]</span>
@@ -1152,3 +1152,5 @@ export default function DataAnalyticsDetailView({
       </div>
   );
 }
+
+
