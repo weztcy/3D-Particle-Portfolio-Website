@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { getPaginationRange } from "@/lib/pagination";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -400,6 +401,43 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
     (p) => p.category === project.category && p.id !== project.id
   );
 
+  const [relatedPage, setRelatedPage] = useState<number>(1);
+  const [relatedItemsPerPage, setRelatedItemsPerPage] = useState<number>(12);
+
+  useEffect(() => {
+    const updateRelatedItemsPerPage = () => {
+      const width = window.innerWidth;
+      if (width >= 1024) {
+        setRelatedItemsPerPage(12); // Desktop: 4 cols x 3 rows
+      } else if (width >= 768) {
+        setRelatedItemsPerPage(4); // Tablet: 2 cols x 2 rows
+      } else {
+        setRelatedItemsPerPage(3); // Mobile: 1 col x 3 rows
+      }
+    };
+    updateRelatedItemsPerPage();
+    window.addEventListener("resize", updateRelatedItemsPerPage);
+    return () => window.removeEventListener("resize", updateRelatedItemsPerPage);
+  }, []);
+
+  const totalRelatedPages = Math.max(
+    1,
+    Math.ceil(relatedProjects.length / relatedItemsPerPage)
+  );
+  const safeRelatedPage = Math.min(relatedPage, totalRelatedPages);
+  const paginatedRelatedProjects = relatedProjects.slice(
+    (safeRelatedPage - 1) * relatedItemsPerPage,
+    safeRelatedPage * relatedItemsPerPage
+  );
+  const desktopRelatedPages = useMemo(
+    () => getPaginationRange(safeRelatedPage, totalRelatedPages, 10),
+    [safeRelatedPage, totalRelatedPages]
+  );
+  const mobileRelatedPages = useMemo(
+    () => getPaginationRange(safeRelatedPage, totalRelatedPages, 5),
+    [safeRelatedPage, totalRelatedPages]
+  );
+
   const accent = getAccentClasses(project.accentColor);
   const prevAccent = getAccentClasses(prevProject.accentColor);
   const nextAccent = getAccentClasses(nextProject.accentColor);
@@ -681,8 +719,8 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                   </Link>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-                  {relatedProjects.map((rel) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {paginatedRelatedProjects.map((rel) => (
                     <Link
                       key={rel.id}
                       href={`/projects/${rel.id}`}
@@ -710,6 +748,113 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
                     </Link>
                   ))}
                 </div>
+
+                {/* Pagination Controls */}
+                {totalRelatedPages > 1 && (
+                  <div className="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span className="font-mono text-[11px] text-slate-400">
+                      SHOWING{" "}
+                      <span className={`font-bold ${accent.textAccent}`}>
+                        {(safeRelatedPage - 1) * relatedItemsPerPage + 1}–
+                        {Math.min(
+                          safeRelatedPage * relatedItemsPerPage,
+                          relatedProjects.length
+                        )}
+                      </span>{" "}
+                      OF {relatedProjects.length} RELATED NODES
+                    </span>
+
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setRelatedPage((p) => Math.max(1, p - 1));
+                          handleTriggerPulse();
+                        }}
+                        disabled={safeRelatedPage === 1}
+                        className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[10px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer"
+                      >
+                        <ChevronLeft className="h-3.5 w-3.5" />
+                        <span className="hidden sm:inline">PREV</span>
+                      </button>
+
+                      {/* Desktop Page Numbers */}
+                      <div className="hidden lg:flex items-center gap-1.5">
+                        {desktopRelatedPages.map((item, idx) =>
+                          typeof item === "number" ? (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => {
+                                setRelatedPage(item);
+                                handleTriggerPulse();
+                              }}
+                              className={`h-8 min-w-[32px] rounded-xl px-2.5 font-mono text-xs font-bold transition-all cursor-pointer ${
+                                safeRelatedPage === item
+                                  ? `${accent.badge} border`
+                                  : "border border-white/10 bg-white/[0.03] text-slate-400 hover:bg-white/10 hover:text-white"
+                              }`}
+                            >
+                              {item}
+                            </button>
+                          ) : (
+                            <span
+                              key={idx}
+                              className="px-1 font-mono text-xs text-slate-500"
+                            >
+                              ...
+                            </span>
+                          )
+                        )}
+                      </div>
+
+                      {/* Mobile & Tablet Page Numbers */}
+                      <div className="flex lg:hidden items-center gap-1">
+                        {mobileRelatedPages.map((item, idx) =>
+                          typeof item === "number" ? (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => {
+                                setRelatedPage(item);
+                                handleTriggerPulse();
+                              }}
+                              className={`h-7 min-w-[26px] rounded-xl px-2 font-mono text-[10px] font-bold transition-all cursor-pointer ${
+                                safeRelatedPage === item
+                                  ? `${accent.badge} border`
+                                  : "border border-white/10 bg-white/[0.03] text-slate-400 hover:bg-white/10 hover:text-white"
+                              }`}
+                            >
+                              {item}
+                            </button>
+                          ) : (
+                            <span
+                              key={idx}
+                              className="px-0.5 font-mono text-[10px] text-slate-500"
+                            >
+                              ...
+                            </span>
+                          )
+                        )}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setRelatedPage((p) =>
+                            Math.min(totalRelatedPages, p + 1)
+                          );
+                          handleTriggerPulse();
+                        }}
+                        disabled={safeRelatedPage === totalRelatedPages}
+                        className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] px-2.5 sm:px-3.5 py-1.5 font-mono text-[10px] sm:text-xs text-slate-300 hover:bg-white/10 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer"
+                      >
+                        <span className="hidden sm:inline">NEXT</span>
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </section>
