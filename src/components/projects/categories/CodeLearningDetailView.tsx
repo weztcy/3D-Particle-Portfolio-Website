@@ -1107,7 +1107,10 @@ export default function CodeLearningDetailView({
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
-                {(supplementaryResources.resources || []).map((res: any, rIdx: number) => (
+                {(Array.isArray(supplementaryResources)
+                  ? supplementaryResources.flatMap((group: any) => group.resources || [])
+                  : supplementaryResources.resources || []
+                ).map((res: any, rIdx: number) => (
                   <div key={rIdx} className="flex items-center justify-between text-slate-300">
                     <span className="truncate pr-2 text-[11px]">{res.name}</span>
                     <span className="font-mono text-[10px] text-orange-300 border border-orange-400/30 bg-orange-500/10 px-1.5 py-0.5 rounded">
