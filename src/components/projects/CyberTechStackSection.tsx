@@ -259,7 +259,8 @@ export default function CyberTechStackSection({
           <span
             className={`font-mono text-xs sm:text-sm font-bold uppercase tracking-wider ${theme.title}`}
           >
-            {displayTitle}
+            <span className="sm:hidden">[ {sectionNumber} // TECH STACK ]</span>
+            <span className="hidden sm:inline">{displayTitle}</span>
           </span>
         </div>
 
