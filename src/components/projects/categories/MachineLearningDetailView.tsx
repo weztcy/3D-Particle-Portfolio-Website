@@ -939,22 +939,22 @@ export default function MachineLearningDetailView({
         </div>
 
         {/* 2-Column Split: Visual Diagnostics (Left) vs Interpretation & Limitations (Right) */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-7 items-start">
           {/* Visual Diagnostics Stage (Aligned with AI Engineering Viewport Design) */}
-          <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-2xl h-full">
+          <div className="flex flex-col rounded-2xl border border-white/10 bg-black/50 p-4 sm:p-5 shadow-2xl">
             {/* Header Bar */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-              <div className="hidden md:flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80 inline-block" />
-                <span className="h-2.5 w-2.5 rounded-full bg-indigo-400/80 inline-block" />
-                <span className="h-2.5 w-2.5 rounded-full bg-indigo-300/80 inline-block" />
-                <span className="ml-2 font-mono text-[11px] text-slate-300 truncate max-w-[200px] sm:max-w-[280px]">
+            <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3 mb-4">
+              <div className="hidden md:flex items-center gap-2 min-w-0 flex-1">
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80 inline-block shrink-0" />
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-400/80 inline-block shrink-0" />
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-300/80 inline-block shrink-0" />
+                <span className="ml-2 font-mono text-[11px] text-slate-300 truncate">
                   {activeVis?.title || "Diagnostic Interface Viewport"}
                 </span>
               </div>
 
               {activeVis?.badge && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <span className="font-mono text-[10px] tracking-wider uppercase text-indigo-300 bg-indigo-500/10 border border-indigo-400/30 px-2 py-0.5 rounded">
                     {activeVis.badge}
                   </span>

@@ -59,6 +59,20 @@ export default function DesktopMobileDetailView({
 }: DesktopMobileDetailViewProps) {
   // Image Showcase State
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const thumbnailRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+  const isFirstThumbnailRender = React.useRef(true);
+
+  React.useEffect(() => {
+    if (isFirstThumbnailRender.current) {
+      isFirstThumbnailRender.current = false;
+      return;
+    }
+    thumbnailRefs.current[activeImageIndex]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [activeImageIndex]);
   const [copiedLink, setCopiedLink] = useState(false);
 
   const heroImage = project.banner || null;
@@ -748,6 +762,9 @@ export default function DesktopMobileDetailView({
               {interfaceShowcase.map((item, idx) => (
                 <button
                   key={idx}
+                  ref={(el) => {
+                    thumbnailRefs.current[idx] = el;
+                  }}
                   onClick={() => setActiveImageIndex(idx)}
                   className={`relative h-14 sm:h-16 w-24 sm:w-28 shrink-0 overflow-hidden rounded-lg border transition-all ${
                     activeImageIndex === idx
