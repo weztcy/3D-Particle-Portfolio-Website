@@ -1260,7 +1260,7 @@ export default function MachineLearningDetailView({
                 Modeling & Validation Specification
               </h3>
               <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                Standardized research and computational methodology covering learning paradigms, model or solver architectures, core frameworks, and formal validation methods.
+                Research methodology detailing learning paradigms, model architectures, core frameworks, and validation methods.
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">

@@ -68,6 +68,7 @@ export default function DataAnalyticsDetailView({
     });
   }, [activeSlideIndex]);
   const [slideErrors, setSlideErrors] = useState<Record<string, boolean>>({});
+  const [showAllFiles, setShowAllFiles] = useState(false);
 
   const handleSlideImgError = useCallback((src: string) => {
     setSlideErrors((prev) => ({ ...prev, [src]: true }));
@@ -1142,7 +1143,7 @@ export default function DataAnalyticsDetailView({
               </p>
 
               <div className="space-y-2 mb-6">
-                {supportingFiles.map((file, idx) => (
+                {(showAllFiles ? supportingFiles : supportingFiles.slice(0, 2)).map((file, idx) => (
                   <div
                     key={idx}
                     className="flex items-center justify-between rounded-lg border border-white/10 bg-black/50 p-2 font-mono text-[10px]"
@@ -1156,6 +1157,17 @@ export default function DataAnalyticsDetailView({
                     </span>
                   </div>
                 ))}
+                {supportingFiles.length > 2 && (
+                  <button
+                    type="button"
+                    onClick={() => setShowAllFiles((prev) => !prev)}
+                    className="w-full py-1.5 rounded-lg border border-emerald-400/20 bg-emerald-500/5 hover:bg-emerald-500/15 font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-300 transition-colors cursor-pointer"
+                  >
+                    {showAllFiles
+                      ? "SHOW LESS"
+                      : `SHOW ALL (+${supportingFiles.length - 2} MORE)`}
+                  </button>
+                )}
               </div>
             </div>
 
