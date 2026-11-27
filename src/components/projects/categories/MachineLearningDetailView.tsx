@@ -540,7 +540,7 @@ export default function MachineLearningDetailView({
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. SCALE / VOLUME
@@ -635,7 +635,7 @@ export default function MachineLearningDetailView({
                       <div className="flex items-center justify-between gap-2 font-mono text-xs mb-1">
                         <span className="font-bold text-white">{sig.name}</span>
                         {sig.importanceOrRole && (
-                          <span className="text-[10px] text-indigo-400 font-semibold text-right">
+                          <span className="hidden sm:inline text-[10px] text-indigo-400 font-semibold text-right">
                             {sig.importanceOrRole}
                           </span>
                         )}
@@ -643,6 +643,13 @@ export default function MachineLearningDetailView({
                       <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
                         {sig.description}
                       </p>
+                      {sig.importanceOrRole && (
+                        <div className="mt-2.5 flex justify-end sm:hidden">
+                          <span className="font-mono text-[10px] text-indigo-400 font-semibold text-right">
+                            {sig.importanceOrRole}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

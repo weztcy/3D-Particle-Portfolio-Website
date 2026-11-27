@@ -500,7 +500,7 @@ export default function CodeLearningDetailView({
                       {obj.title}
                     </h4>
                     {obj.competencyCode && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-orange-300 border border-orange-400/30 bg-orange-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-orange-300 border border-orange-400/30 bg-orange-500/10 px-2 py-0.5 rounded">
                         {obj.competencyCode}
                       </span>
                     )}
@@ -508,6 +508,13 @@ export default function CodeLearningDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {obj.description}
                   </p>
+                  {obj.competencyCode && (
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-orange-300 border border-orange-400/30 bg-orange-500/10 px-2 py-0.5 rounded">
+                        {obj.competencyCode}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -722,7 +729,7 @@ export default function CodeLearningDetailView({
             SHOWING <span className="text-orange-400 font-semibold">{filteredModules.length}</span> OF{" "}
             {modules.length} CURRICULUM MODULES
           </span>
-          <span className="text-[10px] text-slate-400">SYSTEM_MODULE_CATALOG</span>
+          <span className="hidden sm:inline text-[10px] text-slate-400">SYSTEM_MODULE_CATALOG</span>
         </div>
 
         {/* Bento Grid Showcase Mandiri */}

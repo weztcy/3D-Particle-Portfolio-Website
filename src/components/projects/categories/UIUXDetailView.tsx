@@ -536,7 +536,7 @@ export default function UIUXDetailView({
                       {res.method}
                     </h4>
                     {res.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-400/30 bg-rose-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-400/30 bg-rose-500/10 px-2 py-0.5 rounded">
                         {res.badge}
                       </span>
                     )}
@@ -544,6 +544,13 @@ export default function UIUXDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-2">
                     {res.description}
                   </p>
+                  {res.badge && (
+                    <div className="mb-2.5 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-rose-300 border border-rose-400/30 bg-rose-500/10 px-2 py-0.5 rounded">
+                        {res.badge}
+                      </span>
+                    </div>
+                  )}
                   <div className="border-t border-white/5 pt-2.5 flex flex-col gap-1 text-xs font-sans">
                     <span className="font-mono text-[10px] font-bold text-rose-400 uppercase tracking-wider">
                       KEY_FINDING:
@@ -580,6 +587,12 @@ export default function UIUXDetailView({
                         {persona.role}
                       </p>
                     </div>
+                    <span className="hidden sm:inline-block font-mono text-[10px] uppercase text-slate-400 border border-white/10 bg-black/50 px-2 py-0.5 rounded">
+                      PERSONA 0{idx + 1}
+                    </span>
+                  </div>
+
+                  <div className="mb-2.5 flex justify-end sm:hidden">
                     <span className="font-mono text-[10px] uppercase text-slate-400 border border-white/10 bg-black/50 px-2 py-0.5 rounded">
                       PERSONA 0{idx + 1}
                     </span>
@@ -990,7 +1003,7 @@ export default function UIUXDetailView({
             </div>
 
             {/* Usability Benchmark Metrics Grid */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 text-center transition-all hover:border-rose-400/50">
                 <span className="font-mono text-[10px] uppercase text-slate-400 block mb-1">
                   SUS Score
@@ -1036,13 +1049,13 @@ export default function UIUXDetailView({
                   <p className="text-xs text-slate-200 font-sans italic">
                     &quot;{ff.feedback || ff.usabilityIssue}&quot;
                   </p>
-                  <div className="border-t border-white/5 pt-1.5 flex items-start gap-1.5 text-xs text-slate-300 font-sans">
+                  <div className="border-t border-white/5 pt-1.5 flex flex-col sm:flex-row items-start gap-1 sm:gap-1.5 text-xs text-slate-300 font-sans">
                     <span className="font-mono text-[10px] font-bold text-rose-400 uppercase">
                       SOLUTION:
                     </span>
                     <span>{ff.iterationSolution}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-mono">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-1.5 text-[11px] text-slate-400 font-mono">
                     <span>IMPACT:</span>
                     <span className="font-semibold text-white">{ff.impact}</span>
                   </div>

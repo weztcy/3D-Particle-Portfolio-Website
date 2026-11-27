@@ -578,7 +578,7 @@ export default function DesktopMobileDetailView({
                       {prob.title}
                     </h4>
                     {prob.issueCode && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {prob.issueCode}
                       </span>
                     )}
@@ -586,6 +586,13 @@ export default function DesktopMobileDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {prob.description}
                   </p>
+                  {prob.issueCode && (
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                        {prob.issueCode}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -611,7 +618,7 @@ export default function DesktopMobileDetailView({
                       {obj.title}
                     </h4>
                     {obj.targetTag && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {obj.targetTag}
                       </span>
                     )}
@@ -619,6 +626,13 @@ export default function DesktopMobileDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {obj.description}
                   </p>
+                  {obj.targetTag && (
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                        {obj.targetTag}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -777,7 +791,7 @@ export default function DesktopMobileDetailView({
                       {feat.title}
                     </h4>
                     {feat.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {feat.badge}
                       </span>
                     )}
@@ -785,6 +799,13 @@ export default function DesktopMobileDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {feat.description}
                   </p>
+                  {feat.badge && (
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                        {feat.badge}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -958,7 +979,7 @@ export default function DesktopMobileDetailView({
                       {dm.title}
                     </h4>
                     {dm.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {dm.badge}
                       </span>
                     )}
@@ -966,6 +987,13 @@ export default function DesktopMobileDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {dm.description}
                   </p>
+                  {dm.badge && (
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                        {dm.badge}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -991,7 +1019,7 @@ export default function DesktopMobileDetailView({
                       {pi.title}
                     </h4>
                     {pi.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
                         {pi.badge}
                       </span>
                     )}
@@ -999,6 +1027,13 @@ export default function DesktopMobileDetailView({
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {pi.description}
                   </p>
+                  {pi.badge && (
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-amber-300 border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 rounded">
+                        {pi.badge}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
