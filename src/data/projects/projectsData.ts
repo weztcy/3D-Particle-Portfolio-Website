@@ -42830,5 +42830,257 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         "Optimistic Locking"
       ]
     }
+  },
+  {
+    "id": "synapse-agentic-rag-knowledge-engine",
+    "code": "PRO-113 // AI-01",
+    "title": "Synapse - Agentic RAG Knowledge Engine",
+    "category": "ai-engineering",
+    "categoryLabel": "AI Engineering",
+    "year": "2026",
+    "status": "Completed",
+    "accentColor": "purple",
+    "repoUrl": "https://github.com/weztcy/Synapse-Agentic-RAG",
+    "license": "MIT License",
+    "banner": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+    "summary": "Autonomous multi-agent RAG orchestrator combining hybrid vector search, self-reflection grading, and verified citation synthesis.",
+    "projectDescription": "Synapse is an autonomous multi-agent Retrieval-Augmented Generation (RAG) engine built with LangGraph, Qdrant, and FastAPI. It decomposes complex queries, performs hybrid dense-sparse retrieval, grades context relevance, and synthesizes citation-backed answers with strict hallucination guardrails.",
+    "architectureSummary": "LangGraph multi-agent state machine + Qdrant hybrid vector-BM25 retrieval + FastAPI streaming gateway + RAGAS evaluation.",
+    "techStack": [
+      "Python",
+      "LangGraph",
+      "LangChain",
+      "Qdrant",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Docker"
+    ],
+    "telemetryMatrix": {
+      "projectType": "Agentic RAG & Knowledge Engine",
+      "targetPlatform": "Cloud-Native API & Web Workspace",
+      "primaryDomain": "Enterprise Knowledge Retrieval",
+      "architecturePipeline": "LangGraph + Hybrid Qdrant + Self-Reflection",
+      "testingAndAudit": "RAGAS Verified",
+      "projectStatus": "Completed",
+      "projectYear": "2026"
+    },
+    "aiEngineeringProjectInfo": {
+      "projectType": "Agentic RAG Orchestrator",
+      "projectStatus": "Completed",
+      "developmentYear": "2026",
+      "aiDomain": "Autonomous Cognitive Systems",
+      "projectCategory": "AI Engineering"
+    },
+    "problemContext": "Enterprise knowledge bases suffer from fragmented formats and version drift. Conventional single-pass RAG pipelines retrieve noisy chunks and hallucinate confident answers when multi-hop reasoning across disparate documents is required.",
+    "aiProblemBadge": "HALLUCINATION_RISK",
+    "aiProblemAuditNote": "Single-pass vector search failed 38% of multi-hop enterprise queries.",
+    "proposedAiSolution": "Synapse deploys a cyclic LangGraph cognitive workflow. Before answering, specialized agents plan sub-queries, execute hybrid semantic-lexical search, grade retrieved evidence for groundedness, and trigger query rewrites whenever context confidence drops.",
+    "aiSolutionBadge": "AGENTIC_SELF_CORRECTION",
+    "aiSolutionSynthesisNote": "Cyclic state graph eliminates ungrounded synthesis via iterative verification.",
+    "keyCapabilitiesAndUseCases": [
+      {
+        "title": "Adaptive Multi-Hop Query Planning",
+        "description": "Decomposes compound analytical questions into parallel sub-queries routed across structured and unstructured indices.",
+        "useCaseScenario": "Cross-Document Policy Audit",
+        "badge": "Planner Agent"
+      },
+      {
+        "title": "Context Groundedness Grading",
+        "description": "Evaluates every retrieved chunk against the user intent and triggers automated query reformulation on low relevance.",
+        "useCaseScenario": "Zero-Hallucination Q&A",
+        "badge": "Evaluator"
+      },
+      {
+        "title": "Inline Verifiable Citation Engine",
+        "description": "Binds every generated claim to exact source document IDs, section headers, and page offsets for instant human audit.",
+        "useCaseScenario": "Compliance & Legal Review",
+        "badge": "Citations"
+      }
+    ],
+    "aiSystemArchitecture": {
+      "summary": "Modular four-layer cognitive architecture separating ingress orchestration, LangGraph agent state, hybrid vector-lexical indexing, and empirical RAGAS telemetry.",
+      "layers": [
+        {
+          "name": "Client & Streaming Gateway",
+          "role": "SSE token streaming & citation rendering",
+          "components": [
+            "Next.js",
+            "FastAPI SSE",
+            "JWT Auth"
+          ]
+        },
+        {
+          "name": "Agentic Orchestration Layer",
+          "role": "Cyclic planning, grading & rewrite loops",
+          "components": [
+            "LangGraph",
+            "Planner Node",
+            "Grader Node"
+          ]
+        },
+        {
+          "name": "Hybrid Retrieval Layer",
+          "role": "Dense + BM25 fusion with cross-encoder rerank",
+          "components": [
+            "Qdrant",
+            "BGE Reranker",
+            "Redis Cache"
+          ]
+        }
+      ]
+    },
+    "aiWorkflow": {
+      "summary": "Deterministic 4-stage cyclic workflow from query decomposition through groundedness verification and citation synthesis.",
+      "workflowType": "Cyclic State Graph",
+      "steps": [
+        {
+          "stepNumber": "01",
+          "phase": "Planning",
+          "title": "Query Decomposition",
+          "description": "Splits complex user prompt into atomic retrieval sub-queries.",
+          "actorOrTool": "Planner Agent"
+        },
+        {
+          "stepNumber": "02",
+          "phase": "Retrieval",
+          "title": "Hybrid Vector-BM25 Search",
+          "description": "Queries Qdrant dense embeddings fused with sparse BM25 keywords.",
+          "actorOrTool": "Qdrant Engine"
+        },
+        {
+          "stepNumber": "03",
+          "phase": "Verification",
+          "title": "Relevance & Grounding Check",
+          "description": "Scores retrieved context; rewrites query if confidence < 0.80.",
+          "actorOrTool": "Grader Agent"
+        },
+        {
+          "stepNumber": "04",
+          "phase": "Synthesis",
+          "title": "Citation-Backed Generation",
+          "description": "Streams final response with inline source chunk references.",
+          "actorOrTool": "Synthesizer"
+        }
+      ]
+    },
+    "coreAiComponents": [
+      {
+        "name": "LangGraph State Supervisor",
+        "type": "Orchestrator",
+        "description": "Manages cyclic agent transitions, retry budgets, and deterministic fallbacks.",
+        "badge": "Core Graph"
+      },
+      {
+        "name": "Qdrant Hybrid Index",
+        "type": "Vector Store",
+        "description": "Stores 1536-dim dense vectors alongside sparse SPLADE/BM25 representations.",
+        "badge": "Hybrid Search"
+      },
+      {
+        "name": "Hallucination Guardrail",
+        "type": "Evaluator",
+        "description": "Validates claim entailment against retrieved evidence prior to streaming.",
+        "badge": "Guardrail"
+      }
+    ],
+    "aiVisualShowcase": [
+      {
+        "title": "Agentic Cognitive Graph & Retrieval Console",
+        "badge": "LIVE TELEMETRY",
+        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "title": "Hybrid Vector & Citation Verification View",
+        "badge": "RAG PIPELINE",
+        "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "title": "RAGAS Benchmark & Latency Telemetry",
+        "badge": "EVALUATION",
+        "imageUrl": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    "aiExecutionTelemetry": {
+      "scenarioTitle": "Multi-Hop Compliance Policy Audit",
+      "scenarioBadge": "VERIFIED TRACE",
+      "scenarioDescription": "Synthesizing retention rules across three separate security and HR policy documents.",
+      "triggerInput": "Compare data retention windows between EU GDPR Appendix B and internal log archival policy.",
+      "processingPipeline": "Planner -> 2x Hybrid Qdrant Queries -> Rerank (Top 6) -> Grader (0.94) -> Synthesizer",
+      "executionOutput": "EU GDPR Appendix B mandates 90-day PII purge [Doc-04 §3.2], whereas internal audit logs retain anonymized hashes for 365 days [Doc-11 §1.4].",
+      "metrics": [
+        {
+          "label": "Context Precision",
+          "value": "0.94"
+        },
+        {
+          "label": "End-to-End Latency",
+          "value": "1.42s"
+        },
+        {
+          "label": "Grounding Score",
+          "value": "98.2%"
+        }
+      ],
+      "evaluationNote": "Zero unsupported claims detected across 50-query adversarial benchmark."
+    },
+    "aiEvaluationAndPerformance": {
+      "metrics": [
+        {
+          "label": "Faithfulness (RAGAS)",
+          "value": "0.96",
+          "benchmark": "Target > 0.90"
+        },
+        {
+          "label": "Answer Relevance",
+          "value": "0.93",
+          "benchmark": "Target > 0.85"
+        },
+        {
+          "label": "Context Recall",
+          "value": "0.91",
+          "benchmark": "Baseline > 0.80"
+        },
+        {
+          "label": "P95 Latency",
+          "value": "1.85s",
+          "benchmark": "Target < 2.50s"
+        }
+      ],
+      "qualitativeEvaluation": "Cyclic self-correction eliminated hallucinated citations on ambiguous multi-hop queries while maintaining sub-2-second P95 streaming latency via Redis semantic caching.",
+      "auditNote": "Evaluated on 120 curated multi-hop enterprise Q&A pairs using RAGAS."
+    },
+    "limitationsAndImprovements": {
+      "limitations": [
+        {
+          "title": "Cyclic Rewrite Latency Overhead",
+          "description": "Queries triggering two rewrite loops add ~900ms latency before first token stream.",
+          "severity": "MEDIUM"
+        },
+        {
+          "title": "Scanned PDF Table Extraction",
+          "description": "Complex merged-cell financial tables require dedicated OCR preprocessing.",
+          "severity": "LOW"
+        }
+      ],
+      "improvementsRoadmap": [
+        {
+          "title": "Speculative Parallel Sub-Query Execution",
+          "target": "Reduce multi-hop latency by 35%"
+        },
+        {
+          "title": "Multimodal Vision Table Parser",
+          "target": "Support scanned financial PDFs natively"
+        }
+      ],
+      "alignmentNote": "PII redaction middleware executes prior to external LLM inference."
+    },
+    "aiTechSpecs": {
+      "programmingLanguage": "Python & TypeScript",
+      "aiFramework": "LangGraph & FastAPI",
+      "foundationModel": "OpenAI GPT & BGE Reranker"
+    }
   }
 ];

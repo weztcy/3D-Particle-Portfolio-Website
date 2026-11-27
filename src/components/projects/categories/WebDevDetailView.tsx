@@ -69,6 +69,7 @@ export default function WebDevDetailView({
     });
   }, [activeImageIndex]);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+  const [showAllBadges, setShowAllBadges] = useState(false);
 
   const handleImgError = useCallback((src: string) => {
     setImgErrors((prev) => ({ ...prev, [src]: true }));
@@ -1002,8 +1003,8 @@ export default function WebDevDetailView({
               </p>
 
               {/* Quality Badges */}
-              <div className="grid grid-cols-2 gap-2 mb-6">
-                {qualityBadges.map((bg, idx) => (
+              <div className="space-y-2 mb-6">
+                {(showAllBadges ? qualityBadges : qualityBadges.slice(0, 2)).map((bg, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/50 p-2 font-mono text-[10px] text-slate-200 font-semibold"
@@ -1012,6 +1013,17 @@ export default function WebDevDetailView({
                     <span className="truncate">{bg}</span>
                   </div>
                 ))}
+                {qualityBadges.length > 2 && (
+                  <button
+                    type="button"
+                    onClick={() => setShowAllBadges((prev) => !prev)}
+                    className="w-full py-1.5 rounded-lg border border-sky-400/20 bg-sky-500/5 hover:bg-sky-500/15 font-mono text-[10px] font-semibold uppercase tracking-wider text-sky-300 transition-colors cursor-pointer"
+                  >
+                    {showAllBadges
+                      ? "SHOW LESS"
+                      : `SHOW ALL (+${qualityBadges.length - 2} MORE)`}
+                  </button>
+                )}
               </div>
             </div>
 

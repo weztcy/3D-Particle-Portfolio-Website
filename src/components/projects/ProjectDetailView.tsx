@@ -544,19 +544,19 @@ export default function ProjectDetailView({ projectId: propProjectId }: { projec
               <Link
                 href={`/projects/${prevProject.id}`}
                 title={`Previous: ${prevProject.title}`}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 ${accent.navHover} transition-all`}
+                className={`inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 ${prevAccent.navHover} transition-all`}
               >
-                <ChevronLeft className={`h-3.5 w-3.5 ${accent.navIcon}`} />
+                <ChevronLeft className={`h-3.5 w-3.5 ${prevAccent.navIcon}`} />
                 <span className="hidden lg:inline">PREV</span>
               </Link>
               <div className="h-3.5 w-px bg-white/10" />
               <Link
                 href={`/projects/${nextProject.id}`}
                 title={`Next: ${nextProject.title}`}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 ${accent.navHover} transition-all`}
+                className={`inline-flex items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 font-mono text-xs font-medium text-slate-300 ${nextAccent.navHover} transition-all`}
               >
                 <span className="hidden lg:inline">NEXT</span>
-                <ChevronRight className={`h-3.5 w-3.5 ${accent.navIcon}`} />
+                <ChevronRight className={`h-3.5 w-3.5 ${nextAccent.navIcon}`} />
               </Link>
             </div>
           </div>

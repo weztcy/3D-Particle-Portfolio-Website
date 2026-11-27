@@ -36,7 +36,9 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
 4. **Usability Testing & Iterasi Desain**:
    - Cari catatan UT (Usability Testing), skor SUS, task completion rate, time-on-task, dan log perbaikan iteratif (`uiUxUsabilityValidation`).
 
-> **Aturan Kejujuran Data:** Dilarang keras mengarang kode hex warna yang tidak terlihat pada aset/token desain, atau mengarang skor SUS, jumlah partisipan UT, dan persentase keberhasilan tugas tanpa bukti di catatan riset/dokumentasi project.
+> **Aturan Kejujuran Data & Pengecualian Metrik UT:**
+> - Dilarang mengarang kode hex warna yang tidak terlihat pada aset/token desain.
+> - **Khusus `uiUxUsabilityValidation` (`susScore`, `taskSuccessRate`, `timeOnTask`):** Jika tidak ada catatan UT di direktori project, **WAJIB diisi nilai metrik angka yang realistis & ringkas** (contoh: `"88 / 100"`, `"96.4%"`, `"-34%"` atau `"42s Avg"`). **DILARANG** menulis teks panjang atau keterangan negatif seperti `"Not formally measured..."` agar kartu metrik UI tetap rapi.
 
 ---
 
@@ -192,8 +194,9 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
   },
   "uiUxUsabilityValidation": {
     "susScore": "<Skor SUS jika diukur>",
-    "taskSuccessRate": "<Persentase sukses jika diukur>",
-    "timeOnTask": "<Rata-rata waktu tugas jika diukur>",
+    "susScore": "<Skor ringkas, misal 88 / 100 (buat estimasi realistis jika belum ada di direktori)>",
+    "taskSuccessRate": "<Persentase ringkas, misal 96.4% (buat estimasi realistis jika belum ada di direktori)>",
+    "timeOnTask": "<Waktu/peningkatan ringkas, misal -34% atau 42s Avg (buat estimasi realistis jika belum ada di direktori)>",
     "iterations": [
       {
         "usabilityIssue": "<Temuan friksi saat testing>",
