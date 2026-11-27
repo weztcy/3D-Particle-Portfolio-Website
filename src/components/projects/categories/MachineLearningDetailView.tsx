@@ -540,7 +540,7 @@ export default function MachineLearningDetailView({
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   <div className="rounded-xl border border-white/10 bg-[#080B14] p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. SCALE / VOLUME
@@ -900,29 +900,42 @@ export default function MachineLearningDetailView({
             {evaluationStrategy.description}
           </p>
 
-          {/* Quantitative Metrics Grid - Dynamic list, no limit */}
-          {evaluationStrategy.metrics && evaluationStrategy.metrics.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
-              {evaluationStrategy.metrics.map((m, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-indigo-400/50"
-                >
-                  <div className="font-mono text-xl sm:text-2xl font-black text-indigo-400 mb-1 truncate">
-                    {m.value}
+          {/* Quantitative Metrics Grid - Dynamic full-width up to 6 cards */}
+          {evaluationStrategy.metrics && evaluationStrategy.metrics.length > 0 && (() => {
+            const displayMetrics = evaluationStrategy.metrics.slice(0, 6);
+            const gridColsMap: Record<number, string> = {
+              1: "grid-cols-1",
+              2: "grid-cols-2",
+              3: "grid-cols-2 sm:grid-cols-3",
+              4: "grid-cols-2 md:grid-cols-4",
+              5: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5",
+              6: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6",
+            };
+            const gridClass = gridColsMap[displayMetrics.length] || "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6";
+
+            return (
+              <div className={`grid ${gridClass} gap-3.5`}>
+                {displayMetrics.map((m, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-white/10 bg-[#080B14] p-3.5 transition-all hover:border-indigo-400/50"
+                  >
+                    <div className="font-mono text-xl sm:text-2xl font-black text-indigo-400 mb-1 truncate">
+                      {m.value}
+                    </div>
+                    <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mb-1 truncate">
+                      {m.label}
+                    </div>
+                    {m.benchmark && (
+                      <span className="font-mono text-[9px] text-slate-400 block truncate">
+                        {m.benchmark}
+                      </span>
+                    )}
                   </div>
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-slate-400 mb-1 truncate">
-                    {m.label}
-                  </div>
-                  {m.benchmark && (
-                    <span className="font-mono text-[9px] text-slate-400 block truncate">
-                      {m.benchmark}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            );
+          })()}
         </div>
 
         {/* 2-Column Split: Visual Diagnostics (Left) vs Interpretation & Limitations (Right) */}
@@ -950,7 +963,7 @@ export default function MachineLearningDetailView({
             </div>
 
             {/* Viewport Image Stage */}
-            <div className="relative w-full aspect-[16/10] lg:aspect-auto lg:flex-1 min-h-[250px] sm:min-h-[280px] overflow-hidden rounded-xl border border-white/10 bg-[#080B14] flex items-center justify-center group">
+            <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#080B14] flex items-center justify-center group">
               {activeVis?.imageUrl ? (
                 <Image
                   src={activeVis.imageUrl}
@@ -1018,7 +1031,7 @@ export default function MachineLearningDetailView({
                         setActiveVisIndex(idx);
                         onTriggerPulse?.();
                       }}
-                      className={`group relative aspect-[16/10] overflow-hidden rounded-lg border transition-all ${
+                      className={`group relative aspect-[16/9] overflow-hidden rounded-lg border transition-all ${
                         idx === activeVisIndex
                           ? "border-indigo-400 ring-2 ring-indigo-500/50 shadow-[0_0_12px_rgba(99,102,241,0.4)]"
                           : "border-white/10 opacity-50 hover:opacity-100 hover:border-indigo-400/50"
