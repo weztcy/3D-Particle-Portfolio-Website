@@ -873,20 +873,31 @@ export default function WebDevDetailView({
             {technicalImplementation.map((impl, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-white/10 bg-[#080B14] p-5 transition-all duration-300 hover:border-sky-400/50 hover:-translate-y-1"
+                className="flex flex-col justify-between rounded-xl border border-white/10 bg-[#080B14] p-5 transition-all duration-300 hover:border-sky-400/50 hover:-translate-y-1"
               >
-                <div className="flex items-center justify-between font-mono text-[10px] text-sky-400 font-bold mb-2">
-                  <span className="uppercase tracking-wider">{impl.category}</span>
-                  <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 text-sky-300">
-                    {impl.badge}
-                  </span>
+                <div>
+                  <div className="flex items-center justify-between font-mono text-[10px] text-sky-400 font-bold mb-2">
+                    <span className="uppercase tracking-wider">{impl.category}</span>
+                    {impl.badge && (
+                      <span className="hidden sm:inline-block rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 text-sky-300">
+                        {impl.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-xs sm:text-sm font-bold text-white mb-2">
+                    {impl.title}
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    {impl.description}
+                  </p>
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-white mb-2">
-                  {impl.title}
-                </div>
-                <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                  {impl.description}
-                </p>
+                {impl.badge && (
+                  <div className="mt-4 flex justify-end sm:hidden">
+                    <span className="rounded bg-sky-500/10 border border-sky-400/30 px-2 py-0.5 font-mono text-[10px] font-bold text-sky-300">
+                      {impl.badge}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>

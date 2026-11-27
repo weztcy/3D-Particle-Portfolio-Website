@@ -521,7 +521,7 @@ export default function DataAnalyticsDetailView({
                   >
                     <div className="flex items-center justify-between font-mono text-[11px] text-emerald-400 font-bold mb-1.5">
                       <span>{obj.targetMetric || `TARGET_0${idx + 1}`}</span>
-                      <span className="text-[10px] text-emerald-300 font-medium">
+                      <span className="hidden sm:inline text-[10px] text-emerald-300 font-medium">
                         ANSWERED
                       </span>
                     </div>
@@ -531,6 +531,11 @@ export default function DataAnalyticsDetailView({
                     <p className="text-xs text-slate-300 leading-relaxed font-normal">
                       {obj.description}
                     </p>
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span className="font-mono text-[10px] text-emerald-300 font-medium">
+                        ANSWERED
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -574,7 +579,7 @@ export default function DataAnalyticsDetailView({
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="rounded-xl border border-white/10 bg-black/50 p-3">
                     <span className="font-mono text-[10px] text-slate-400 uppercase block mb-0.5">
                       3. RECORDS (ROWS)
@@ -751,13 +756,22 @@ export default function DataAnalyticsDetailView({
                   >
                     <div className="flex items-center justify-between font-mono text-[11px] font-bold text-emerald-400 mb-1">
                       <span>{met.name}</span>
-                      <span className="rounded bg-emerald-500/10 border border-emerald-400/20 px-1.5 py-0.2 font-mono text-[9px] text-emerald-300">
-                        {met.badge}
-                      </span>
+                      {met.badge && (
+                        <span className="hidden sm:inline-block rounded bg-emerald-500/10 border border-emerald-400/20 px-1.5 py-0.2 font-mono text-[9px] text-emerald-300">
+                          {met.badge}
+                        </span>
+                      )}
                     </div>
                     <p className="text-xs text-slate-300 leading-relaxed font-normal">
                       {met.description}
                     </p>
+                    {met.badge && (
+                      <div className="mt-3 flex justify-end sm:hidden">
+                        <span className="rounded bg-emerald-500/10 border border-emerald-400/20 px-1.5 py-0.2 font-mono text-[9px] font-bold text-emerald-300">
+                          {met.badge}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -810,10 +824,11 @@ export default function DataAnalyticsDetailView({
             <div className="flex items-center gap-2">
               <Presentation className="h-4 w-4 text-emerald-400" />
               <span className="font-bold text-white">
-                EXECUTIVE PRESENTATION VIEWER // SLIDE DECK
+                <span className="sm:hidden">EXECUTIVE PRESENTATION</span>
+                <span className="hidden sm:inline">EXECUTIVE PRESENTATION VIEWER // SLIDE DECK</span>
               </span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2">
               <span className="text-[11px] text-slate-400">
                 SLIDE {String(activeSlideIndex + 1).padStart(2, "0")} /{" "}
                 {String(presentationSlides.length).padStart(2, "0")}
@@ -984,7 +999,7 @@ export default function DataAnalyticsDetailView({
                     <div className="flex items-center justify-between font-mono text-[10px] mb-1">
                       <span className="font-bold text-emerald-400">{rec.title}</span>
                       <span
-                        className="rounded px-1.5 py-0.2 font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"
+                        className="hidden sm:inline-block rounded px-1.5 py-0.2 font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"
                       >
                         {rec.priority} PRIORITY
                       </span>
@@ -992,6 +1007,13 @@ export default function DataAnalyticsDetailView({
                     <p className="text-xs text-slate-300 leading-relaxed font-sans">
                       {rec.action}
                     </p>
+                    <div className="mt-3 flex justify-end sm:hidden">
+                      <span
+                        className="rounded px-1.5 py-0.2 font-mono text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"
+                      >
+                        {rec.priority} PRIORITY
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
