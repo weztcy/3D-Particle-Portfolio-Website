@@ -118,7 +118,7 @@ Field khusus Section 6 per kategori:
 
 | Kategori | Field Card 2 (`*TechSpecs` / Workspace) | Field Card 3 (Static Standards / Specs) |
 | :--- | :--- | :--- |
-| `web-development` | `primaryTechSpecs`: `{ programmingLanguage, framework, database }` *(baris ke-4 `"Vulnerability Hardened"` statis di UI)*. | `architectureQuality`: `{ badges: string[] }` — **wajib tepat 4 item**, maks 2–3 kata per item, tanpa underscore. |
+| `web-development` | `primaryTechSpecs`: `{ programmingLanguage, framework, database }` *(baris ke-4 `"Vulnerability Hardened"` statis di UI)*. | `architectureQuality`: `{ badges: string[] }` — **minimal 4 item (maksimal bebas)**, tanpa underscore. |
 | `data-analysis` | *(Statis di UI saat ini — gunakan `dataAnalyticsSupportingFiles` bila perlu daftar lampiran).* | `dataAnalyticsSupportingFiles`: `{ name, format }[]` — daftar aset data/notebook/laporan pendukung. |
 | `ai-engineering` | `aiTechSpecs`: `{ programmingLanguage, aiFramework, foundationModel }`. | Statis di UI (`aiEvaluationAndPerformance` dari Section 5 melengkapi konteks evaluasi). |
 | `machine-learning` | Memakai `mlDatasetOverview` (`scale`, `inputShape`, `dataFormat`). | `mlMethodologySpecs`: `{ learningParadigm, modelArchitecture, coreFramework, validationMethod }` — maks 3–4 kata per nilai. |
@@ -303,7 +303,7 @@ Sebelum menyimpan perubahan ke `src/data/projects/projectsData.ts`, pastikan sel
    - Section 1: `summary` **maksimal 150 karakter**; Narasi `projectDescription` / `codeLearningDescription` sepanjang **250–300 karakter**; seluruh 7 nilai `telemetryMatrix` **maksimal 45 karakter**; `mlProjectInfo.capabilityBadges` tepat **3 item** (maks 3 kata).
    - Section 2, 3, 5: Card narasi tunggal **250–350 karakter**; item bertipe list/array **bebas tanpa batas minimum maupun maksimum**.
 5. **Tech Stack Section 4:** Satu field tunggal `techStack: string[]` murni nama teknologi **tanpa pengelompokan category, tanpa nomor versi, atau tanda kurung**.
-6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) tepat 4 item dan **bebas underscore (`_`)** di semua kategori.
+6. **Section 6 Cleanliness:** Card 2 `*TechSpecs` bebas nomor versi; Card 3 `architectureQuality.badges` (Web Dev) minimal 4 item (maksimal bebas) dan **bebas underscore (`_`)** di semua kategori.
 7. **Enum & Format Ketat:**
    - Data Analytics `priority`: `"HIGH" | "MEDIUM" | "STRATEGIC"`
    - AI Engineering `severity`: `"LOW" | "MEDIUM" | "HIGH"`

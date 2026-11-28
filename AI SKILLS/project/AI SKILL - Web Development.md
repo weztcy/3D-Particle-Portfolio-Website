@@ -65,7 +65,7 @@ Sebelum mengisi field apa pun, inspeksi **seluruh isi direktori project** (janga
    - Jumlah item bebas.
 5. **Section 6 (`primaryTechSpecs` & `architectureQuality`)**:
    - `primaryTechSpecs`: `{ programmingLanguage, framework, database }` — bersih tanpa nomor versi (baris ke-4 `"Vulnerability Hardened"` dirender otomatis/statis di UI).
-   - `architectureQuality.badges`: **wajib tepat 4 item**, masing-masing maksimal 2–3 kata, **dilarang memakai underscore (`_`)**.
+   - `architectureQuality.badges`: **minimal 4 item (maksimal bebas)** menyesuaikan standar kualitas project, **dilarang memakai underscore (`_`)**.
 
 ---
 
@@ -213,6 +213,6 @@ Isi file Markdown (`<nama-direktori-project>.md`) harus mengikuti struktur berik
 - [ ] `category` = `"web-development"`, `categoryLabel` = `"Website"`, `accentColor` = `"cyan"`.
 - [ ] `projectDescription` berjumlah **250–300 karakter**; semua 7 nilai `telemetryMatrix` **maks 45 karakter**.
 - [ ] `techStack[]` dan `primaryTechSpecs` **bebas nomor versi** dan tanda kurung.
-- [ ] `architectureQuality.badges` berjumlah **tepat 4 item** dan **tanpa underscore (`_`)**.
+- [ ] `architectureQuality.badges` berjumlah **minimal 4 item (maksimal bebas)** dan **tanpa underscore (`_`)**.
 - [ ] Path aset lokal memakai `/images/projects/<nama_project>/banner.webp` & `image01-XX.webp`.
 - [ ] File `.md` berhasil disimpan di dalam **root folder direktori project yang sedang dibuka** dengan format penamaan nama direktori project (`<nama-direktori-project>.md`), bukan di `src/data/projects/projectsData.ts`.

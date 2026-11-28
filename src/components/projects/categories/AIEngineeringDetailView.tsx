@@ -952,13 +952,13 @@ export default function AIEngineeringDetailView({
                 </div>
 
                 {/* 2. Processing Pipeline / Model */}
-                <div className="rounded-xl border border-white/10 bg-[#080B14] p-2.5 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 text-slate-200 font-mono text-[11px]">
-                    <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0" />
-                    <span className="text-slate-400 uppercase text-[10px]">
+                <div className="rounded-xl border border-white/10 bg-[#080B14] p-2.5 flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-2 text-slate-200 font-mono text-[11px] min-w-0 flex-1">
+                    <Workflow className="h-3.5 w-3.5 text-purple-400 shrink-0 mt-0.5" />
+                    <span className="text-slate-400 uppercase text-[10px] shrink-0 mt-0.5">
                       PIPELINE:
                     </span>
-                    <span className="font-semibold text-white truncate">{telemetryData.processingPipeline}</span>
+                    <span className="font-semibold text-white break-words min-w-0">{telemetryData.processingPipeline}</span>
                   </div>
                   <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-400/30 shrink-0">
                     PROCESSING
@@ -1177,12 +1177,12 @@ export default function AIEngineeringDetailView({
             icon={FileText}
             categoryTag="MODEL SPECS & DOCUMENTATION"
             title="AI Orchestration Architecture"
-            description="Universal AI engineering specification detailing core languages, orchestration frameworks, foundation models, and safety guardrails across agentic and AI-powered systems."
+            description="AI engineering specification detailing core languages, orchestration frameworks, foundation models, and safety guardrails."
             specs={[
               { label: "PROGRAMMING LANGUAGE", value: aiTechSpecs.programmingLanguage },
               { label: "AI FRAMEWORK", value: aiTechSpecs.aiFramework, highlight: true },
               { label: "FOUNDATION MODEL", value: aiTechSpecs.foundationModel },
-              { label: "SAFETY AUDIT", value: "Guardrails & Prompt Hardened" },
+              { label: "SYSTEM VERIFICATION", value: "Output & Schema Validated" },
             ]}
             action={
               hasRepoUrl && project.repoUrl
@@ -1208,35 +1208,39 @@ export default function AIEngineeringDetailView({
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 sm:mb-5">
                 <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-400">
                   <ShieldCheck className="h-4 w-4 text-purple-400" />
-                  <span>SAFETY & GOVERNANCE MANIFEST</span>
+                  <span>RELIABILITY &amp; GOVERNANCE</span>
                 </div>
               </div>
 
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2">
-                Responsible AI & Guardrails
+                AI Reliability &amp; Governance
               </h3>
               <p className="hidden md:block text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
-                Hardened semantic firewall defending against prompt injections, unauthorized tool escalation, hallucinations, and customer PII exfiltration.
+                Universal engineering standards ensuring deterministic output schemas, empirical evaluation, and safe AI execution.
               </p>
 
               <div className="space-y-2 font-mono text-xs border-t border-white/5 pt-3 mb-6">
                 <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">GUARDRAIL ENGINE:</span>
-                  <span className="text-purple-400 font-semibold">NeMo Guardrails</span>
+                  <span className="text-[11px]">OUTPUT CONTRACT:</span>
+                  <span className="text-purple-400 font-semibold">Strict Schema Validation</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">PROMPT DEFENSE:</span>
-                  <span className="text-slate-200 font-semibold">Self-Correction LLM Judge</span>
+                  <span className="text-[11px]">EVALUATION SUITE:</span>
+                  <span className="text-slate-200 font-semibold">Empirical Benchmark Tested</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-400">
-                  <span className="text-[11px]">PII REDACTION:</span>
-                  <span className="text-slate-200 font-semibold">Zero Data Retention</span>
+                  <span className="text-[11px]">FAILURE HANDLING:</span>
+                  <span className="text-slate-200 font-semibold">Graceful Fallback &amp; Retry</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-400">
+                  <span className="text-[11px]">DATA GOVERNANCE:</span>
+                  <span className="text-slate-200 font-semibold">Privacy &amp; Scope Hardened</span>
                 </div>
               </div>
             </div>
 
             <div className="w-full inline-flex items-center justify-center rounded-xl border border-purple-400/30 bg-purple-500/10 px-4 py-3 font-mono text-xs font-semibold text-purple-300">
-              <span>SAFETY VERIFICATION COMPLETE</span>
+              <span>RELIABILITY VERIFICATION PASSED</span>
             </div>
           </div>
         </div>
